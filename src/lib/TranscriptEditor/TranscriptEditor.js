@@ -11,7 +11,9 @@ class TranscriptEditor extends React.Component {
             <div>
                 <h1>TranscriptEditor</h1>
                 <MediaController />
-                <TimedTextEditor transcriptData={this.props.transcriptData} />
+                <TimedTextEditor 
+                transcriptData={this.props.transcriptData} 
+                />
             </div>
         );
     }
