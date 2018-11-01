@@ -1,6 +1,15 @@
 {
   "name": "react-transcript-editor",
+  "description": "A React component to make transcribing audio and video easier and faster.",
   "version": "0.1.0",
+  "keywords": [
+    "transcript",
+    "transcriptions",
+    "react",
+    "speech",
+    "speech to text",
+    "textAV"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -19,5 +28,21 @@
     "react-dom": "^16.6.0",
     "react-scripts": "^2.1.1",
     "rimraf": "^2.6.2"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Pietro Passarelli",
+      "email" : "pietro.passarelli@bbc.co.uk",
+      "url": "https://github.com/pietrop"
+    },
+    {
+      "name": "James Dooley",
+      "url": "https://github.com/jamesdools"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bbc/react-transcript-editor/issues"
+  },
+  "homepage": "https://github.com/bbc/react-transcript-editor#readme"
 }
