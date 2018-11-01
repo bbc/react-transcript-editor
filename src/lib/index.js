@@ -1,2 +1,2 @@
-import TextInput from "./TextInput";
-export { TextInput };
+import TranscriptEditor from "./TranscriptEditor/TranscriptEditor";
+export { TranscriptEditor };

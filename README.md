@@ -3,6 +3,8 @@
 <!-- _One liner_ -->
 A React component to make transcribing audio and video easier and faster.
 
+_--> Work in progress <--_ 
+
 <!-- _Screenshot of UI - optional_ -->
 
 ## Development env

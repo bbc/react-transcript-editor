@@ -1,0 +1,1087 @@
+{
+	"metadata": {
+		"version": "0.0.10"
+	},
+	"punct": "Inside the ground before laying a wreath. Among the tributes taking time to read messages left by fans. Former England goalkeeper. Peter Shilton was leaving the stadium on Saturday night and witnessed the tragedy. I realised it was out of control and obviously started coming towards us and my wife started planning consent is coming towards us and it was like shock, fear and all of a sudden, he seemed to drop a little bit. And then. And obviously crash and so sudden, so quickly and there was sort of the spots coming out the back and then some small flames. Large flames. I mean, this all happened very quickly and it's only just blow up. Rob's first team squad. Many of whom have written heartfelt tribute on social media also visited the stadium and sea flowers and scarves left outside today. They also went inside the stadium to pay further tributes. Players described.",
+	"text": "inside the ground before laying a wreath among the tributes taking time to read messages left by fans former england goalkeeper peter shilton was leaving the stadium on saturday night and witnessed the tragedy i realised it was out of control and obviously started coming towards us and my wife started planning consent is coming towards us and it was like shock fear and all of a sudden he seemed to drop a little bit and then and obviously crash and so sudden so quickly and there was sort of the spots coming out the back and then some small flames large flames i mean this all happened very quickly and it's only just blow up rob's first team squad many of whom have written heartfelt tribute on social media also visited the stadium and sea flowers and scarves left outside today they also went inside the stadium to pay further tributes players described",
+	"words": [
+		{
+			"confidence": 1,
+			"end": 0.35,
+			"punct": "Inside",
+			"start": 0,
+			"word": "inside"
+		},
+		{
+			"confidence": 1,
+			"end": 0.41,
+			"punct": "the",
+			"start": 0.35,
+			"word": "the"
+		},
+		{
+			"confidence": 1,
+			"end": 0.67,
+			"punct": "ground",
+			"start": 0.41,
+			"word": "ground"
+		},
+		{
+			"confidence": 0.98,
+			"end": 0.88,
+			"punct": "before",
+			"start": 0.67,
+			"word": "before"
+		},
+		{
+			"confidence": 1,
+			"end": 1.16,
+			"punct": "laying",
+			"start": 0.88,
+			"word": "laying"
+		},
+		{
+			"confidence": 0.99,
+			"end": 1.24,
+			"punct": "a",
+			"start": 1.16,
+			"word": "a"
+		},
+		{
+			"confidence": 0.99,
+			"end": 1.64,
+			"punct": "wreath.",
+			"start": 1.24,
+			"word": "wreath"
+		},
+		{
+			"confidence": 1,
+			"end": 2.28,
+			"punct": "Among",
+			"start": 2,
+			"word": "among"
+		},
+		{
+			"confidence": 0.99,
+			"end": 2.37,
+			"punct": "the",
+			"start": 2.28,
+			"word": "the"
+		},
+		{
+			"confidence": 1,
+			"end": 2.98,
+			"punct": "tributes",
+			"start": 2.37,
+			"word": "tributes"
+		},
+		{
+			"confidence": 0.98,
+			"end": 3.38,
+			"punct": "taking",
+			"start": 3.03,
+			"word": "taking"
+		},
+		{
+			"confidence": 1,
+			"end": 3.8,
+			"punct": "time",
+			"start": 3.38,
+			"word": "time"
+		},
+		{
+			"confidence": 1,
+			"end": 3.96,
+			"punct": "to",
+			"start": 3.8,
+			"word": "to"
+		},
+		{
+			"confidence": 0.98,
+			"end": 4.15,
+			"punct": "read",
+			"start": 3.96,
+			"word": "read"
+		},
+		{
+			"confidence": 1,
+			"end": 4.56,
+			"punct": "messages",
+			"start": 4.15,
+			"word": "messages"
+		},
+		{
+			"confidence": 1,
+			"end": 4.89,
+			"punct": "left",
+			"start": 4.56,
+			"word": "left"
+		},
+		{
+			"confidence": 0.99,
+			"end": 5.08,
+			"punct": "by",
+			"start": 4.89,
+			"word": "by"
+		},
+		{
+			"confidence": 0.96,
+			"end": 5.59,
+			"punct": "fans.",
+			"start": 5.08,
+			"word": "fans"
+		},
+		{
+			"confidence": 1,
+			"end": 6.4,
+			"punct": "Former",
+			"start": 6.03,
+			"word": "former"
+		},
+		{
+			"confidence": 1,
+			"end": 6.75,
+			"punct": "England",
+			"start": 6.43,
+			"word": "england"
+		},
+		{
+			"confidence": 1,
+			"end": 7.11,
+			"punct": "goalkeeper.",
+			"start": 6.75,
+			"word": "goalkeeper"
+		},
+		{
+			"confidence": 1,
+			"end": 7.37,
+			"punct": "Peter",
+			"start": 7.11,
+			"word": "peter"
+		},
+		{
+			"confidence": 1,
+			"end": 7.93,
+			"punct": "Shilton",
+			"start": 7.37,
+			"word": "shilton"
+		},
+		{
+			"confidence": 1,
+			"end": 8.15,
+			"punct": "was",
+			"start": 7.96,
+			"word": "was"
+		},
+		{
+			"confidence": 1,
+			"end": 8.51,
+			"punct": "leaving",
+			"start": 8.15,
+			"word": "leaving"
+		},
+		{
+			"confidence": 0.96,
+			"end": 8.58,
+			"punct": "the",
+			"start": 8.51,
+			"word": "the"
+		},
+		{
+			"confidence": 0.97,
+			"end": 8.99,
+			"punct": "stadium",
+			"start": 8.59,
+			"word": "stadium"
+		},
+		{
+			"confidence": 1,
+			"end": 9.24,
+			"punct": "on",
+			"start": 9.02,
+			"word": "on"
+		},
+		{
+			"confidence": 1,
+			"end": 9.66,
+			"punct": "Saturday",
+			"start": 9.24,
+			"word": "saturday"
+		},
+		{
+			"confidence": 1,
+			"end": 10.01,
+			"punct": "night",
+			"start": 9.66,
+			"word": "night"
+		},
+		{
+			"confidence": 0.98,
+			"end": 10.41,
+			"punct": "and",
+			"start": 10.25,
+			"word": "and"
+		},
+		{
+			"confidence": 1,
+			"end": 10.92,
+			"punct": "witnessed",
+			"start": 10.41,
+			"word": "witnessed"
+		},
+		{
+			"confidence": 0.7,
+			"end": 11.06,
+			"punct": "the",
+			"start": 10.98,
+			"word": "the"
+		},
+		{
+			"confidence": 1,
+			"end": 11.55,
+			"punct": "tragedy.",
+			"start": 11.07,
+			"word": "tragedy"
+		},
+		{
+			"confidence": 0.46,
+			"end": 12.94,
+			"punct": "I",
+			"start": 12.91,
+			"word": "i"
+		},
+		{
+			"confidence": 0.98,
+			"end": 13.69,
+			"punct": "realised",
+			"start": 13.13,
+			"word": "realised"
+		},
+		{
+			"confidence": 0.98,
+			"end": 13.76,
+			"punct": "it",
+			"start": 13.69,
+			"word": "it"
+		},
+		{
+			"confidence": 1,
+			"end": 13.93,
+			"punct": "was",
+			"start": 13.76,
+			"word": "was"
+		},
+		{
+			"confidence": 1,
+			"end": 14.25,
+			"punct": "out",
+			"start": 14.01,
+			"word": "out"
+		},
+		{
+			"confidence": 1,
+			"end": 14.32,
+			"punct": "of",
+			"start": 14.25,
+			"word": "of"
+		},
+		{
+			"confidence": 1,
+			"end": 14.96,
+			"punct": "control",
+			"start": 14.32,
+			"word": "control"
+		},
+		{
+			"confidence": 1,
+			"end": 15.69,
+			"punct": "and",
+			"start": 15.46,
+			"word": "and"
+		},
+		{
+			"confidence": 0.48,
+			"end": 16.13,
+			"punct": "obviously",
+			"start": 15.73,
+			"word": "obviously"
+		},
+		{
+			"confidence": 0.99,
+			"end": 16.54,
+			"punct": "started",
+			"start": 16.17,
+			"word": "started"
+		},
+		{
+			"confidence": 1,
+			"end": 16.8,
+			"punct": "coming",
+			"start": 16.55,
+			"word": "coming"
+		},
+		{
+			"confidence": 1,
+			"end": 17.24,
+			"punct": "towards",
+			"start": 16.8,
+			"word": "towards"
+		},
+		{
+			"confidence": 1,
+			"end": 17.62,
+			"punct": "us",
+			"start": 17.24,
+			"word": "us"
+		},
+		{
+			"confidence": 0.55,
+			"end": 17.83,
+			"punct": "and",
+			"start": 17.75,
+			"word": "and"
+		},
+		{
+			"confidence": 0.92,
+			"end": 18.09,
+			"punct": "my",
+			"start": 17.9,
+			"word": "my"
+		},
+		{
+			"confidence": 0.85,
+			"end": 18.58,
+			"punct": "wife",
+			"start": 18.15,
+			"word": "wife"
+		},
+		{
+			"confidence": 0.93,
+			"end": 19.39,
+			"punct": "started",
+			"start": 19.03,
+			"word": "started"
+		},
+		{
+			"confidence": 0.96,
+			"end": 19.67,
+			"punct": "planning",
+			"start": 19.39,
+			"word": "planning"
+		},
+		{
+			"confidence": 0.96,
+			"end": 20.11,
+			"punct": "consent",
+			"start": 19.67,
+			"word": "consent"
+		},
+		{
+			"confidence": 0.6,
+			"end": 20.25,
+			"punct": "is",
+			"start": 20.12,
+			"word": "is"
+		},
+		{
+			"confidence": 1,
+			"end": 20.51,
+			"punct": "coming",
+			"start": 20.25,
+			"word": "coming"
+		},
+		{
+			"confidence": 1,
+			"end": 20.92,
+			"punct": "towards",
+			"start": 20.51,
+			"word": "towards"
+		},
+		{
+			"confidence": 1,
+			"end": 21.23,
+			"punct": "us",
+			"start": 20.92,
+			"word": "us"
+		},
+		{
+			"confidence": 1,
+			"end": 22.52,
+			"punct": "and",
+			"start": 21.71,
+			"word": "and"
+		},
+		{
+			"confidence": 0.94,
+			"end": 22.88,
+			"punct": "it",
+			"start": 22.75,
+			"word": "it"
+		},
+		{
+			"confidence": 1,
+			"end": 23.01,
+			"punct": "was",
+			"start": 22.89,
+			"word": "was"
+		},
+		{
+			"confidence": 1,
+			"end": 23.24,
+			"punct": "like",
+			"start": 23.01,
+			"word": "like"
+		},
+		{
+			"confidence": 1,
+			"end": 23.81,
+			"punct": "shock,",
+			"start": 23.24,
+			"word": "shock"
+		},
+		{
+			"confidence": 0.91,
+			"end": 24.45,
+			"punct": "fear",
+			"start": 23.88,
+			"word": "fear"
+		},
+		{
+			"confidence": 1,
+			"end": 25.2,
+			"punct": "and",
+			"start": 24.85,
+			"word": "and"
+		},
+		{
+			"confidence": 1,
+			"end": 25.33,
+			"punct": "all",
+			"start": 25.2,
+			"word": "all"
+		},
+		{
+			"confidence": 1,
+			"end": 25.4,
+			"punct": "of",
+			"start": 25.33,
+			"word": "of"
+		},
+		{
+			"confidence": 0.96,
+			"end": 25.47,
+			"punct": "a",
+			"start": 25.4,
+			"word": "a"
+		},
+		{
+			"confidence": 0.96,
+			"end": 25.79,
+			"punct": "sudden,",
+			"start": 25.47,
+			"word": "sudden"
+		},
+		{
+			"confidence": 0.45,
+			"end": 26.1,
+			"punct": "he",
+			"start": 25.95,
+			"word": "he"
+		},
+		{
+			"confidence": 0.5,
+			"end": 26.6,
+			"punct": "seemed",
+			"start": 26.3,
+			"word": "seemed"
+		},
+		{
+			"confidence": 1,
+			"end": 26.82,
+			"punct": "to",
+			"start": 26.61,
+			"word": "to"
+		},
+		{
+			"confidence": 1,
+			"end": 27.37,
+			"punct": "drop",
+			"start": 27.07,
+			"word": "drop"
+		},
+		{
+			"confidence": 1,
+			"end": 27.45,
+			"punct": "a",
+			"start": 27.37,
+			"word": "a"
+		},
+		{
+			"confidence": 1,
+			"end": 27.69,
+			"punct": "little",
+			"start": 27.45,
+			"word": "little"
+		},
+		{
+			"confidence": 1,
+			"end": 27.96,
+			"punct": "bit.",
+			"start": 27.69,
+			"word": "bit"
+		},
+		{
+			"confidence": 0.6,
+			"end": 28.05,
+			"punct": "And",
+			"start": 27.98,
+			"word": "and"
+		},
+		{
+			"confidence": 1,
+			"end": 28.39,
+			"punct": "then.",
+			"start": 28.06,
+			"word": "then"
+		},
+		{
+			"confidence": 0.93,
+			"end": 29.03,
+			"punct": "And",
+			"start": 28.82,
+			"word": "and"
+		},
+		{
+			"confidence": 1,
+			"end": 29.44,
+			"punct": "obviously",
+			"start": 29.1,
+			"word": "obviously"
+		},
+		{
+			"confidence": 1,
+			"end": 30,
+			"punct": "crash",
+			"start": 29.44,
+			"word": "crash"
+		},
+		{
+			"confidence": 1,
+			"end": 31.31,
+			"punct": "and",
+			"start": 30.79,
+			"word": "and"
+		},
+		{
+			"confidence": 0.83,
+			"end": 31.6,
+			"punct": "so",
+			"start": 31.41,
+			"word": "so"
+		},
+		{
+			"confidence": 0.51,
+			"end": 31.89,
+			"punct": "sudden,",
+			"start": 31.61,
+			"word": "sudden"
+		},
+		{
+			"confidence": 1,
+			"end": 32.1,
+			"punct": "so",
+			"start": 31.91,
+			"word": "so"
+		},
+		{
+			"confidence": 1,
+			"end": 32.69,
+			"punct": "quickly",
+			"start": 32.1,
+			"word": "quickly"
+		},
+		{
+			"confidence": 1,
+			"end": 33.76,
+			"punct": "and",
+			"start": 33.07,
+			"word": "and"
+		},
+		{
+			"confidence": 0.97,
+			"end": 33.85,
+			"punct": "there",
+			"start": 33.76,
+			"word": "there"
+		},
+		{
+			"confidence": 0.99,
+			"end": 34,
+			"punct": "was",
+			"start": 33.85,
+			"word": "was"
+		},
+		{
+			"confidence": 1,
+			"end": 34.39,
+			"punct": "sort",
+			"start": 34,
+			"word": "sort"
+		},
+		{
+			"confidence": 1,
+			"end": 34.59,
+			"punct": "of",
+			"start": 34.39,
+			"word": "of"
+		},
+		{
+			"confidence": 0.61,
+			"end": 34.94,
+			"punct": "the",
+			"start": 34.6,
+			"word": "the"
+		},
+		{
+			"confidence": 0.45,
+			"end": 36.1,
+			"punct": "spots",
+			"start": 35.57,
+			"word": "spots"
+		},
+		{
+			"confidence": 0.97,
+			"end": 36.33,
+			"punct": "coming",
+			"start": 36.1,
+			"word": "coming"
+		},
+		{
+			"confidence": 0.93,
+			"end": 36.48,
+			"punct": "out",
+			"start": 36.34,
+			"word": "out"
+		},
+		{
+			"confidence": 1,
+			"end": 36.57,
+			"punct": "the",
+			"start": 36.48,
+			"word": "the"
+		},
+		{
+			"confidence": 1,
+			"end": 37.03,
+			"punct": "back",
+			"start": 36.57,
+			"word": "back"
+		},
+		{
+			"confidence": 0.99,
+			"end": 37.41,
+			"punct": "and",
+			"start": 37.11,
+			"word": "and"
+		},
+		{
+			"confidence": 0.51,
+			"end": 37.56,
+			"punct": "then",
+			"start": 37.41,
+			"word": "then"
+		},
+		{
+			"confidence": 1,
+			"end": 37.79,
+			"punct": "some",
+			"start": 37.55,
+			"word": "some"
+		},
+		{
+			"confidence": 1,
+			"end": 38.1,
+			"punct": "small",
+			"start": 37.79,
+			"word": "small"
+		},
+		{
+			"confidence": 1,
+			"end": 38.81,
+			"punct": "flames.",
+			"start": 38.1,
+			"word": "flames"
+		},
+		{
+			"confidence": 0.81,
+			"end": 39.73,
+			"punct": "Large",
+			"start": 39.28,
+			"word": "large"
+		},
+		{
+			"confidence": 0.98,
+			"end": 40.41,
+			"punct": "flames.",
+			"start": 39.76,
+			"word": "flames"
+		},
+		{
+			"confidence": 0.73,
+			"end": 40.57,
+			"punct": "I",
+			"start": 40.48,
+			"word": "i"
+		},
+		{
+			"confidence": 0.73,
+			"end": 40.71,
+			"punct": "mean,",
+			"start": 40.58,
+			"word": "mean"
+		},
+		{
+			"confidence": 1,
+			"end": 40.99,
+			"punct": "this",
+			"start": 40.75,
+			"word": "this"
+		},
+		{
+			"confidence": 1,
+			"end": 41.19,
+			"punct": "all",
+			"start": 40.99,
+			"word": "all"
+		},
+		{
+			"confidence": 0.97,
+			"end": 41.53,
+			"punct": "happened",
+			"start": 41.19,
+			"word": "happened"
+		},
+		{
+			"confidence": 1,
+			"end": 41.95,
+			"punct": "very",
+			"start": 41.73,
+			"word": "very"
+		},
+		{
+			"confidence": 1,
+			"end": 42.47,
+			"punct": "quickly",
+			"start": 41.95,
+			"word": "quickly"
+		},
+		{
+			"confidence": 0.91,
+			"end": 42.92,
+			"punct": "and",
+			"start": 42.78,
+			"word": "and"
+		},
+		{
+			"confidence": 0.78,
+			"end": 43.12,
+			"punct": "it's",
+			"start": 42.92,
+			"word": "it's"
+		},
+		{
+			"confidence": 0.67,
+			"end": 43.37,
+			"punct": "only",
+			"start": 43.13,
+			"word": "only"
+		},
+		{
+			"confidence": 1,
+			"end": 43.61,
+			"punct": "just",
+			"start": 43.37,
+			"word": "just"
+		},
+		{
+			"confidence": 0.81,
+			"end": 43.87,
+			"punct": "blow",
+			"start": 43.61,
+			"word": "blow"
+		},
+		{
+			"confidence": 1,
+			"end": 44.19,
+			"punct": "up.",
+			"start": 43.87,
+			"word": "up"
+		},
+		{
+			"confidence": 0.86,
+			"end": 46.31,
+			"punct": "Rob's",
+			"start": 45.76,
+			"word": "rob's"
+		},
+		{
+			"confidence": 1,
+			"end": 46.71,
+			"punct": "first",
+			"start": 46.34,
+			"word": "first"
+		},
+		{
+			"confidence": 0.5,
+			"end": 46.79,
+			"punct": "team",
+			"start": 46.71,
+			"word": "team"
+		},
+		{
+			"confidence": 0.91,
+			"end": 47.14,
+			"punct": "squad.",
+			"start": 46.8,
+			"word": "squad"
+		},
+		{
+			"confidence": 1,
+			"end": 47.42,
+			"punct": "Many",
+			"start": 47.14,
+			"word": "many"
+		},
+		{
+			"confidence": 1,
+			"end": 47.57,
+			"punct": "of",
+			"start": 47.42,
+			"word": "of"
+		},
+		{
+			"confidence": 1,
+			"end": 47.88,
+			"punct": "whom",
+			"start": 47.57,
+			"word": "whom"
+		},
+		{
+			"confidence": 0.78,
+			"end": 48.05,
+			"punct": "have",
+			"start": 47.88,
+			"word": "have"
+		},
+		{
+			"confidence": 0.99,
+			"end": 48.37,
+			"punct": "written",
+			"start": 48.05,
+			"word": "written"
+		},
+		{
+			"confidence": 1,
+			"end": 48.94,
+			"punct": "heartfelt",
+			"start": 48.38,
+			"word": "heartfelt"
+		},
+		{
+			"confidence": 0.87,
+			"end": 49.47,
+			"punct": "tribute",
+			"start": 48.94,
+			"word": "tribute"
+		},
+		{
+			"confidence": 1,
+			"end": 49.65,
+			"punct": "on",
+			"start": 49.47,
+			"word": "on"
+		},
+		{
+			"confidence": 1,
+			"end": 50.03,
+			"punct": "social",
+			"start": 49.65,
+			"word": "social"
+		},
+		{
+			"confidence": 1,
+			"end": 50.39,
+			"punct": "media",
+			"start": 50.03,
+			"word": "media"
+		},
+		{
+			"confidence": 1,
+			"end": 50.8,
+			"punct": "also",
+			"start": 50.42,
+			"word": "also"
+		},
+		{
+			"confidence": 1,
+			"end": 51.16,
+			"punct": "visited",
+			"start": 50.8,
+			"word": "visited"
+		},
+		{
+			"confidence": 0.99,
+			"end": 51.23,
+			"punct": "the",
+			"start": 51.16,
+			"word": "the"
+		},
+		{
+			"confidence": 0.97,
+			"end": 51.74,
+			"punct": "stadium",
+			"start": 51.23,
+			"word": "stadium"
+		},
+		{
+			"confidence": 0.86,
+			"end": 52.31,
+			"punct": "and",
+			"start": 52.11,
+			"word": "and"
+		},
+		{
+			"confidence": 0.5,
+			"end": 52.59,
+			"punct": "sea",
+			"start": 52.38,
+			"word": "sea"
+		},
+		{
+			"confidence": 0.99,
+			"end": 52.94,
+			"punct": "flowers",
+			"start": 52.6,
+			"word": "flowers"
+		},
+		{
+			"confidence": 0.96,
+			"end": 53.02,
+			"punct": "and",
+			"start": 52.95,
+			"word": "and"
+		},
+		{
+			"confidence": 0.59,
+			"end": 53.46,
+			"punct": "scarves",
+			"start": 53.02,
+			"word": "scarves"
+		},
+		{
+			"confidence": 1,
+			"end": 53.75,
+			"punct": "left",
+			"start": 53.46,
+			"word": "left"
+		},
+		{
+			"confidence": 1,
+			"end": 54.56,
+			"punct": "outside",
+			"start": 53.78,
+			"word": "outside"
+		},
+		{
+			"confidence": 1,
+			"end": 54.96,
+			"punct": "today.",
+			"start": 54.59,
+			"word": "today"
+		},
+		{
+			"confidence": 0.95,
+			"end": 55.06,
+			"punct": "They",
+			"start": 54.96,
+			"word": "they"
+		},
+		{
+			"confidence": 1,
+			"end": 55.38,
+			"punct": "also",
+			"start": 55.06,
+			"word": "also"
+		},
+		{
+			"confidence": 1,
+			"end": 55.57,
+			"punct": "went",
+			"start": 55.38,
+			"word": "went"
+		},
+		{
+			"confidence": 1,
+			"end": 56.16,
+			"punct": "inside",
+			"start": 55.6,
+			"word": "inside"
+		},
+		{
+			"confidence": 1,
+			"end": 56.23,
+			"punct": "the",
+			"start": 56.16,
+			"word": "the"
+		},
+		{
+			"confidence": 1,
+			"end": 56.67,
+			"punct": "stadium",
+			"start": 56.23,
+			"word": "stadium"
+		},
+		{
+			"confidence": 1,
+			"end": 56.79,
+			"punct": "to",
+			"start": 56.67,
+			"word": "to"
+		},
+		{
+			"confidence": 1,
+			"end": 57.04,
+			"punct": "pay",
+			"start": 56.79,
+			"word": "pay"
+		},
+		{
+			"confidence": 0.56,
+			"end": 57.43,
+			"punct": "further",
+			"start": 57.05,
+			"word": "further"
+		},
+		{
+			"confidence": 0.57,
+			"end": 58.1,
+			"punct": "tributes.",
+			"start": 57.53,
+			"word": "tributes"
+		},
+		{
+			"confidence": 0.91,
+			"end": 59.09,
+			"punct": "Players",
+			"start": 58.69,
+			"word": "players"
+		},
+		{
+			"confidence": 0.64,
+			"end": 59.56,
+			"punct": "described.",
+			"start": 59.18,
+			"word": "described"
+		}
+	]
+}
