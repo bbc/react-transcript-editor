@@ -22,7 +22,7 @@ A React component to make transcribing audio and video easier and faster.
 <!-- _stack - optional_ -->
 <!-- _How to build and run the code/app_ -->
 
-Fork this repo + git clone + cd into folder 
+Fork this repository + git clone + cd into folder 
 
 ## Usage - development
 
@@ -35,7 +35,7 @@ npm start
 ```
 
 
-## usage - production
+## Usage - production
 
 <!-- npm install react-transcript-editor -->
 
@@ -61,6 +61,16 @@ uses [`reate-component-lib`](https://www.npmjs.com/package/create-component-lib)
 ```
 npm run build
 ```
+
+## build - demo 
+
+This github repository uses [github pages](https://pages.github.com/) to host a demo of the component.
+
+```
+npm run build:demo
+```
+
+add to git, and push to origin master to update
 
 ## Tests
 
