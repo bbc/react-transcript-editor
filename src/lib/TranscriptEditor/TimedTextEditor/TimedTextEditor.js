@@ -1,13 +1,14 @@
 import React from 'react';
-import Draft, {
+import 
+// Draft,
+    {
     Editor,
     EditorState,
-    ContentState,
+    // ContentState,
     convertFromRaw,
   } from 'draft-js';
 
-//   import './styles.css';
-
+import styles from './TimedTextEditor.css';
 
 
 class TimedTextEditor extends React.Component {
@@ -50,7 +51,8 @@ class TimedTextEditor extends React.Component {
     
     render() {
         return (
-        <div className="App">
+        <div >
+         <div className={styles.test}>Yo</div>
             <Editor editorState={this.state.editorState} onChange={this.onChange} />
             <button onClick={() => this.loadData()}>load data</button>
         </div>

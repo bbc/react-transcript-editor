@@ -49,6 +49,8 @@ npm start
 
 uses [`reate-component-lib`](https://www.npmjs.com/package/create-component-lib) as explaied in this [blog post](https://hackernoon.com/creating-a-library-of-react-components-using-create-react-app-without-ejecting-d182df690c6b) to setup the environment to develop this React.
 
+This uses [Create React App 2.0](https://reactjs.org/blog/2018/10/01/create-react-app-v2.html).
+
 
 > Place everything you want to publish to npm inside `src/lib`. 
 
