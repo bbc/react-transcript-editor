@@ -10,7 +10,7 @@ class MediaController extends React.Component {
           <div>
             <h2>MediaController</h2>
             <ProgressBar/>
-            <MediaPreview/>
+            <MediaPreview mediaUrl={this.props.mediaUrl}/>
             <PlayerControls/>
         </div>
       );
