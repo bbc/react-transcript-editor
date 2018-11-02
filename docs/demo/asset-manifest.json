@@ -1,13 +1,13 @@
 {
-  "main.css": "/bbc/react-transcript-editor/static/css/main.69103740.chunk.css",
-  "main.js": "/bbc/react-transcript-editor/static/js/main.8f9bdc97.chunk.js",
-  "main.js.map": "/bbc/react-transcript-editor/static/js/main.8f9bdc97.chunk.js.map",
-  "static/js/1.6584c844.chunk.js": "/bbc/react-transcript-editor/static/js/1.6584c844.chunk.js",
-  "static/js/1.6584c844.chunk.js.map": "/bbc/react-transcript-editor/static/js/1.6584c844.chunk.js.map",
-  "runtime~main.js": "/bbc/react-transcript-editor/static/js/runtime~main.809eadbf.js",
-  "runtime~main.js.map": "/bbc/react-transcript-editor/static/js/runtime~main.809eadbf.js.map",
-  "static/css/main.69103740.chunk.css.map": "/bbc/react-transcript-editor/static/css/main.69103740.chunk.css.map",
-  "index.html": "/bbc/react-transcript-editor/index.html",
-  "precache-manifest.ecf8328399e6c222d63329665788e2f0.js": "/bbc/react-transcript-editor/precache-manifest.ecf8328399e6c222d63329665788e2f0.js",
-  "service-worker.js": "/bbc/react-transcript-editor/service-worker.js"
+  "main.css": "./static/css/main.3ee238d7.chunk.css",
+  "main.js": "./static/js/main.d8b6a0f0.chunk.js",
+  "main.js.map": "./static/js/main.d8b6a0f0.chunk.js.map",
+  "static/js/1.e15ac1d8.chunk.js": "./static/js/1.e15ac1d8.chunk.js",
+  "static/js/1.e15ac1d8.chunk.js.map": "./static/js/1.e15ac1d8.chunk.js.map",
+  "runtime~main.js": "./static/js/runtime~main.4a686d48.js",
+  "runtime~main.js.map": "./static/js/runtime~main.4a686d48.js.map",
+  "static/css/main.3ee238d7.chunk.css.map": "./static/css/main.3ee238d7.chunk.css.map",
+  "index.html": "./index.html",
+  "precache-manifest.9bad0e9123b0ed82b5e4773c91dde726.js": "./precache-manifest.9bad0e9123b0ed82b5e4773c91dde726.js",
+  "service-worker.js": "./service-worker.js"
 }
