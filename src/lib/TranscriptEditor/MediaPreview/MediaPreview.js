@@ -12,7 +12,6 @@ class MediaPreview extends React.Component {
     render() {
       return (
         <section className={styles.videoSection}>
-         <h3>MediaPreview </h3>
          <video
             id="video"
             playsInline

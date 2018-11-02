@@ -50,6 +50,8 @@ npm start
 uses [`reate-component-lib`](https://www.npmjs.com/package/create-component-lib) as explaied in this [blog post](https://hackernoon.com/creating-a-library-of-react-components-using-create-react-app-without-ejecting-d182df690c6b) to setup the environment to develop this React.
 
 This uses [Create React App 2.0](https://reactjs.org/blog/2018/10/01/create-react-app-v2.html) so we are using [CSS Modules](https://github.com/css-modules/css-modules) to contain the scope of the css for this component.
+<!-- 
+Uses CSS grid-layout https://medium.com/samsung-internet-dev/common-responsive-layouts-with-css-grid-and-some-without-245a862f48df -->
 
 > Place everything you want to publish to npm inside `src/lib`. 
 
@@ -82,7 +84,8 @@ npm run build
 
 Demo can be viewed at [https://bbc.github.io/react-transcript-editor](https://bbc.github.io/react-transcript-editor)
 
-<!-- https://github.com/gitname/react-gh-pages -->
+<!-- https://github.com/gitname/react-gh-pages 
+-->
 
 
 ## build - demo 
@@ -94,6 +97,8 @@ npm run deploy:ghpages
 ```
 
 add to git, and push to origin master to update
+
+<!-- https://help.github.com/articles/user-organization-and-project-pages/#project-pages-sites -->
 
 ## Tests
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MediaPreview from "./MediaPreview/MediaPreview";
+
 import ProgressBar from "./ProgressBar/ProgressBar";
 import PlayerControls from "./PlayerControls/PlayerControls";
 
@@ -10,7 +10,7 @@ class MediaController extends React.Component {
           <div>
             <h2>MediaController</h2>
             <ProgressBar/>
-            <MediaPreview mediaUrl={this.props.mediaUrl}/>
+           
             <PlayerControls/>
         </div>
       );

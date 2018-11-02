@@ -1,18 +1,33 @@
 import React from 'react';
-import "./TranscriptEditor.css";
+import styles from  "./TranscriptEditor.module.css";
 
 import TimedTextEditor from "./TimedTextEditor/TimedTextEditor";
 import MediaController from "./MediaController/MediaController";
+import MediaPreview from "./MediaPreview/MediaPreview";
 
 class TranscriptEditor extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>TranscriptEditor</h1>
-                <MediaController mediaUrl={this.props.mediaUrl} />
-                <TimedTextEditor transcriptData={this.props.transcriptData}/>
-            </div>
+            <section className={styles.container}>
+                <header className={styles.header}>
+                    <MediaController 
+                    mediaUrl={this.props.mediaUrl} 
+                    />
+                </header>
+                <nav  className={styles.nav}>
+                    <MediaPreview 
+                    mediaUrl={this.props.mediaUrl}            
+                    />
+                </nav>
+                <main  className={styles.main}>
+                    <TimedTextEditor
+                    transcriptData={this.props.transcriptData}
+                    />
+                </main>
+                <aside className={styles.aside}>Settings</aside>
+                <footer className={styles.footer}>Footer</footer>
+        </section>
         );
     }
 }
