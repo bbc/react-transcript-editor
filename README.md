@@ -131,3 +131,8 @@ npm publish
 ## Licence
 
 <!-- mention MIT Licence -->
+
+
+<!-- ## Legal Disclaimer
+
+Despite using React and Draftjs, the BBC is not promoting any FB product or other commercial interest. -->

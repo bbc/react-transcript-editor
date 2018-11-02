@@ -41,7 +41,7 @@ class TimedTextEditor extends React.Component {
     
     render() {
         return (
-        <section>
+        <section className={styles.editor}>
             <Editor editorState={this.state.editorState} onChange={this.onChange} />
             {/* <button onClick={() => this.loadData()}>load data</button> */}
         </section>
