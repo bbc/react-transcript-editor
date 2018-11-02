@@ -81,7 +81,7 @@ function groupWordsInParagraphs(words){
     let paragraph = {words:[], text:[]};
     words.forEach((word) => {
         // if word contains punctuation
-        if(/[,.?!]/.test(word.punct)){
+        if(/[.?!]/.test(word.punct)){
             paragraph.words.push(word);
             paragraph.text.push(word.punct);
             results.push(paragraph);
