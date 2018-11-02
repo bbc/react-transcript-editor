@@ -8,7 +8,7 @@ import
     convertFromRaw,
   } from 'draft-js';
 
-import styles from './TimedTextEditor.css';
+import styles from './TimedTextEditor.module.css';
 
 
 class TimedTextEditor extends React.Component {
