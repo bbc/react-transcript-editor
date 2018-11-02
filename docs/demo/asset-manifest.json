@@ -1,13 +1,13 @@
 {
-  "main.css": "./demo/static/css/main.3ee238d7.chunk.css",
-  "main.js": "./demo/static/js/main.b84aaa3f.chunk.js",
-  "main.js.map": "./demo/static/js/main.b84aaa3f.chunk.js.map",
-  "static/js/1.e15ac1d8.chunk.js": "./demo/static/js/1.e15ac1d8.chunk.js",
-  "static/js/1.e15ac1d8.chunk.js.map": "./demo/static/js/1.e15ac1d8.chunk.js.map",
-  "runtime~main.js": "./demo/static/js/runtime~main.8d5e4e96.js",
-  "runtime~main.js.map": "./demo/static/js/runtime~main.8d5e4e96.js.map",
-  "static/css/main.3ee238d7.chunk.css.map": "./demo/static/css/main.3ee238d7.chunk.css.map",
-  "index.html": "./demo/index.html",
-  "precache-manifest.3e48cb56b6067984dd119e65c4fb5fb6.js": "./demo/precache-manifest.3e48cb56b6067984dd119e65c4fb5fb6.js",
-  "service-worker.js": "./demo/service-worker.js"
+  "main.css": "/react-transcript-editor/demo/static/css/main.3ee238d7.chunk.css",
+  "main.js": "/react-transcript-editor/demo/static/js/main.b57cc859.chunk.js",
+  "main.js.map": "/react-transcript-editor/demo/static/js/main.b57cc859.chunk.js.map",
+  "static/js/1.e15ac1d8.chunk.js": "/react-transcript-editor/demo/static/js/1.e15ac1d8.chunk.js",
+  "static/js/1.e15ac1d8.chunk.js.map": "/react-transcript-editor/demo/static/js/1.e15ac1d8.chunk.js.map",
+  "runtime~main.js": "/react-transcript-editor/demo/static/js/runtime~main.4a513671.js",
+  "runtime~main.js.map": "/react-transcript-editor/demo/static/js/runtime~main.4a513671.js.map",
+  "static/css/main.3ee238d7.chunk.css.map": "/react-transcript-editor/demo/static/css/main.3ee238d7.chunk.css.map",
+  "index.html": "/react-transcript-editor/demo/index.html",
+  "precache-manifest.b59361cfada1e6bc6c3723ae661be36d.js": "/react-transcript-editor/demo/precache-manifest.b59361cfada1e6bc6c3723ae661be36d.js",
+  "service-worker.js": "/react-transcript-editor/demo/service-worker.js"
 }

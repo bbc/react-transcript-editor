@@ -46,7 +46,7 @@
   "bugs": {
     "url": "https://github.com/bbc/react-transcript-editor/issues"
   }, 
-  "homepage": "./demo",
+  "homepage": "https://bbc.github.io/react-transcript-editor/demo",
   "browserslist": [
     ">0.2%",
     "not dead",
