@@ -10,6 +10,8 @@ import
 
 import styles from './TimedTextEditor.module.css';
 
+import bbcKaldiToDraft from './adapters/bbc-kaldi/index.js';
+
 
 class TimedTextEditor extends React.Component {
     constructor(props) {
@@ -23,24 +25,26 @@ class TimedTextEditor extends React.Component {
     }
     
     loadData() {
-        const blocks = [
-        {
-            text: 'Hello',
-            type: 'paragraph',
-            data: {
-            speaker: 'Foo',
-            },
-            entityRanges: [],
-        },
-        {
-            text: 'World',
-            type: 'paragraph',
-            data: {
-            speaker: 'Bar',
-            },
-            entityRanges: [],
-        },
-        ];
+        // const blocks = [
+        // {
+        //     text: 'Hello',
+        //     type: 'paragraph',
+        //     data: {
+        //     speaker: 'Foo',
+        //     },
+        //     entityRanges: [],
+        // },
+        // {
+        //     text: 'World',
+        //     type: 'paragraph',
+        //     data: {
+        //     speaker: 'Bar',
+        //     },
+        //     entityRanges: [],
+        // },
+        // ];
+
+        let blocks = bbcKaldiToDraft(this.props.transcriptData);
     
         const entityMap = {};
     

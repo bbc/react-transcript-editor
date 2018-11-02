@@ -59,16 +59,13 @@ This uses [Create React App 2.0](https://reactjs.org/blog/2018/10/01/create-reac
 
 There's a [docs](./docs) folder in this repository. 
 
-[docs/notes](./docs/notes) contains dev notes on various aspects of the project
+[docs/notes](./docs/notes) contains dev notes on various aspects of the project.
 
 [docs/adr](./docs/adr) contains [Architecture Decision Record](https://github.com/joelparkerhenderson/architecture_decision_record).
 
 > An architectural decision record (ADR) is a document that captures an important architectural decision made along with its context and consequences.
 
 We are using [this template for ADR](https://gist.github.com/iaincollins/92923cc2c309c2751aea6f1b34b31d95)
-
-
-## Demo 
 
 
 ## Build
@@ -81,9 +78,14 @@ We are using [this template for ADR](https://gist.github.com/iaincollins/92923cc
 npm run build
 ```
 
+## Demo 
+
+Demo can be viewed at [https://bbc.github.io/react-transcript-editor](https://bbc.github.io/react-transcript-editor)
+
+
 ## build - demo 
 
-This github repository uses [github pages](https://pages.github.com/) to host a demo of the component.
+This github repository uses [github pages](https://pages.github.com/) to host a demo of the component, in [docs/demo](./docs/demo)
 
 ```
 npm run build:demo

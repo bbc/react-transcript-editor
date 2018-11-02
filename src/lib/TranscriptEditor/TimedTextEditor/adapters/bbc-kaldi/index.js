@@ -51,49 +51,48 @@
  * 
  */
 
- // using require, because of testing outside of React app
-const kaldiTedTalkTranscript = require('../../../../../sample-data/KateDarling_2018S-bbc-kaldi.json');
 
 function bbcKaldiToDraft(bbcKaldiJson){
     let results = [];
    let wordsByParagraphs = groupWordsInParagraphs(bbcKaldiJson.retval.words);
-    // bbcKaldiJson.retval.words.forEach((word)=>{
-    //     let draftJsContentBlockParagraph = {
-    //         text: word.punct,
-    //         type: 'paragraph',
-    //         data: {
-    //         speaker: 'TBC',
-    //         },
-    //         entityRanges: []
-    //     }
-    //     results.push(draftJsContentBlockParagraph);
-    // })
+   wordsByParagraphs.forEach((paragraph)=>{
+        let draftJsContentBlockParagraph = {
+            text: paragraph.text.join(' '),
+            type: 'paragraph',
+            data: {
+            speaker: 'TBC',
+            },
+            entityRanges: []
+        }
+        results.push(draftJsContentBlockParagraph);
+    })
 
 
-    return wordsByParagraphs;
+    return results;
 }
 
+/**
+ * groups words list from kaldi transcript based on punctuation.
+ * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
+ * @param {array} words - array of words opbjects from kaldi transcript
+ */ 
 function groupWordsInParagraphs(words){
     let results = [];
-    let paragraph = [];
+    let paragraph = {words:[], text:[]};
     words.forEach((word) => {
+        // if word contains punctuation
         if(/[,.?!]/.test(word.punct)){
-            paragraph.push(word);
+            paragraph.words.push(word);
+            paragraph.text.push(word.punct);
             results.push(paragraph);
-            paragraph=[];
+            // reset paragraph 
+            paragraph = {words:[], text:[]};
+        }else{
+            paragraph.words.push(word);
+            paragraph.text.push(word.punct);
         }
-        else{
-            paragraph.push(word);
-        }
-
     });
     return results
 }
-
-
-//////testing
-let result = bbcKaldiToDraft(kaldiTedTalkTranscript);
-
- console.log(result[result.length-1]);
 
  module.exports = bbcKaldiToDraft;
