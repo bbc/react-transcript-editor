@@ -29,7 +29,7 @@
   .container {
     display: grid;
     grid-template-columns: 30vw 1fr 20vw;
-    /* grid-template-rows: auto 1fr auto; */
+    grid-template-rows: auto 1fr auto;
   }
 
   .nav {

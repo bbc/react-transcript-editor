@@ -27,16 +27,28 @@ class TimedTextEditor extends React.Component {
     componentDidMount(){
         this.loadData();
     }
+
+    componentWillReceiveProps(nexProps){
+        this.setState({
+            transcriptData:nexProps.transcriptData
+        },()=>{
+            this.loadData();
+        })
+         
+    }
     
     loadData() {
-        let blocks = bbcKaldiToDraft(this.props.transcriptData);
+        if(this.props.transcriptData!==""){
+            let blocks = bbcKaldiToDraft(this.props.transcriptData);
 
-        const entityMap = {};
-
-        const contentState = convertFromRaw({ blocks, entityMap });
-        const editorState = EditorState.createWithContent(contentState);
-
-        this.setState({ editorState });
+            const entityMap = {};
+    
+            const contentState = convertFromRaw({ blocks, entityMap });
+            const editorState = EditorState.createWithContent(contentState);
+    
+            this.setState({ editorState });
+        }
+       
     }
     
     render() {

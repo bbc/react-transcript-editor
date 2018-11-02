@@ -10,18 +10,24 @@ class MediaPreview extends React.Component {
     this.videoRef = React.createRef();
   }
     render() {
+      // conditional, if media player not defined then don't show
+      let mediaPlayer;
+      if (this.props.mediaUrl !=="") {
+        mediaPlayer = <video
+        id="video"
+        playsInline
+        // autoPlay
+        controls
+        src={this.props.mediaUrl}
+        type="video/mp4"
+        data-testid="media-player-id"
+        ref={this.videoRef}
+      />;
+      } 
+    
       return (
         <section className={styles.videoSection}>
-         <video
-            id="video"
-            playsInline
-            // autoPlay
-            controls
-            src={this.props.mediaUrl}
-            type="video/mp4"
-            data-testid="media-player-id"
-            ref={this.videoRef}
-          />
+         {mediaPlayer}
         </section>
       );
     }
