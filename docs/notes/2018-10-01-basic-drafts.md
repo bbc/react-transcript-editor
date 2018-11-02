@@ -1,5 +1,8 @@
 # Example `draft.js` 
 
+By Laurian
+
+
 Example, how to divide text into paragraphs [content block](https://draftjs.org/docs/api-reference-content-block) with extra info. 
 see `loadData` function.
 

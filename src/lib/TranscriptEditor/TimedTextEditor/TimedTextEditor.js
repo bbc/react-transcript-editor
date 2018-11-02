@@ -15,7 +15,8 @@ class TimedTextEditor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        editorState: EditorState.createEmpty(),
+            editorState: EditorState.createEmpty(),
+            transcriptData: this.props.transcriptData
         };
     
         this.onChange = editorState => this.setState({ editorState });
@@ -24,7 +25,7 @@ class TimedTextEditor extends React.Component {
     loadData() {
         const blocks = [
         {
-            text: 'Lorem ipsum',
+            text: 'Hello',
             type: 'paragraph',
             data: {
             speaker: 'Foo',
@@ -32,7 +33,7 @@ class TimedTextEditor extends React.Component {
             entityRanges: [],
         },
         {
-            text: 'Dolor foo bar',
+            text: 'World',
             type: 'paragraph',
             data: {
             speaker: 'Bar',
@@ -51,11 +52,11 @@ class TimedTextEditor extends React.Component {
     
     render() {
         return (
-        <div >
-         <div className={styles.test}>Yo</div>
+        <section>
+      
             <Editor editorState={this.state.editorState} onChange={this.onChange} />
             <button onClick={() => this.loadData()}>load data</button>
-        </div>
+        </section>
         );
     }
 }

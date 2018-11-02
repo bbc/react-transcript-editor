@@ -55,6 +55,21 @@ This uses [Create React App 2.0](https://reactjs.org/blog/2018/10/01/create-reac
 
 > Outside `src/lib` (but inside src/), you can create example web pages to test or demonstrate the usage of your components.
 
+## Documentation 
+
+There's a [docs](./docs) folder in this repository. 
+
+[docs/notes](./docs/notes) contains dev notes on various aspects of the project
+
+[docs/adr](./docs/adr) contains [Architecture Decision Record](https://github.com/joelparkerhenderson/architecture_decision_record).
+
+> An architectural decision record (ADR) is a document that captures an important architectural decision made along with its context and consequences.
+
+We are using [this template for ADR](https://gist.github.com/iaincollins/92923cc2c309c2751aea6f1b34b31d95)
+
+
+## Demo 
+
 
 ## Build
 
