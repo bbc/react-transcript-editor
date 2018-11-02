@@ -54,7 +54,16 @@
 
 function bbcKaldiToDraft(bbcKaldiJson){
     let results = [];
-   let wordsByParagraphs = groupWordsInParagraphs(bbcKaldiJson.retval.words);
+    let tmpWords;
+    // BBC Octo Labs API Response wraps Kaldi response around retval, 
+    // while kaldi contains word attribute at root
+    if(bbcKaldiJson.retval !== undefined){
+        tmpWords = bbcKaldiJson.retval.words;
+    }
+    else{
+        tmpWords= bbcKaldiJson.words;
+    }
+   let wordsByParagraphs = groupWordsInParagraphs(tmpWords);
    wordsByParagraphs.forEach((paragraph)=>{
         let draftJsContentBlockParagraph = {
             text: paragraph.text.join(' '),
