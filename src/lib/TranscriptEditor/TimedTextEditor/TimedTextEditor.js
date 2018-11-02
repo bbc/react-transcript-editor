@@ -21,7 +21,11 @@ class TimedTextEditor extends React.Component {
             transcriptData: this.props.transcriptData
         };
     
-        this.onChange = editorState => this.setState({ editorState });
+        // this.onChange = editorState => this.setState({ editorState });
+      
+    }
+    componentDidMount(){
+        this.loadData();
     }
     
     loadData() {
@@ -59,7 +63,7 @@ class TimedTextEditor extends React.Component {
         <section>
       
             <Editor editorState={this.state.editorState} onChange={this.onChange} />
-            <button onClick={() => this.loadData()}>load data</button>
+            {/* <button onClick={() => this.loadData()}>load data</button> */}
         </section>
         );
     }
