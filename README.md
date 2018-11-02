@@ -82,13 +82,15 @@ npm run build
 
 Demo can be viewed at [https://bbc.github.io/react-transcript-editor](https://bbc.github.io/react-transcript-editor)
 
+<!-- https://github.com/gitname/react-gh-pages -->
+
 
 ## build - demo 
 
 This github repository uses [github pages](https://pages.github.com/) to host a demo of the component, in [docs/demo](./docs/demo)
 
 ```
-npm run build:demo
+npm run deploy:ghpages
 ```
 
 add to git, and push to origin master to update

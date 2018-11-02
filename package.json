@@ -20,12 +20,15 @@
     "build-examples": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build":"react-scripts build",
+    "build": "react-scripts build",
     "build:component": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "build:demo": "react-scripts build && rm -rf docs/demo && mv build docs/demo"
+    "build:demo": "react-scripts build && rm -rf docs/demo && mv build docs/demo",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "gh-pages": "^2.0.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-scripts": "^2.1.1",
@@ -45,8 +48,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bbc/react-transcript-editor/issues"
-  }, 
-  "homepage": "https://bbc.github.io/react-transcript-editor/demo",
+  },
+  "homepage": ".",
   "browserslist": [
     ">0.2%",
     "not dead",

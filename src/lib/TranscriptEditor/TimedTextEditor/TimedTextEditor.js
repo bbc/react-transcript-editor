@@ -21,7 +21,7 @@ class TimedTextEditor extends React.Component {
             transcriptData: this.props.transcriptData
         };
     
-        // this.onChange = editorState => this.setState({ editorState });
+        this.onChange = editorState => this.setState({ editorState });
       
     }
     componentDidMount(){
