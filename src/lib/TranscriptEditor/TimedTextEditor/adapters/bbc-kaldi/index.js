@@ -51,9 +51,10 @@
  *
  */
 
-function bbcKaldiToDraft(bbcKaldiJson) {
+const bbcKaldiToDraft = bbcKaldiJson => {
   let results = [];
   let tmpWords;
+
   // BBC Octo Labs API Response wraps Kaldi response around retval,
   // while kaldi contains word attribute at root
   if (bbcKaldiJson.retval !== undefined) {
@@ -61,6 +62,7 @@ function bbcKaldiToDraft(bbcKaldiJson) {
   } else {
     tmpWords = bbcKaldiJson.words;
   }
+
   let wordsByParagraphs = groupWordsInParagraphs(tmpWords);
   wordsByParagraphs.forEach(paragraph => {
     let draftJsContentBlockParagraph = {
@@ -69,13 +71,33 @@ function bbcKaldiToDraft(bbcKaldiJson) {
       data: {
         speaker: "TBC"
       },
-      entityRanges: []
+      entityRanges: paragraph.words.reduce(
+        (acc, { start, end, confidence, punct }) => ({
+          position: acc.position + punct.length + 1,
+          entityRanges: [
+            ...acc.entityRanges,
+            {
+              start,
+              end,
+              confidence,
+              text: punct,
+              offset: acc.position,
+              length: punct.length,
+              key: Math.random()
+                .toString(36)
+                .substring(6)
+            }
+          ]
+        }),
+        { position: 0, entityRanges: [] }
+      ).entityRanges
     };
+
     results.push(draftJsContentBlockParagraph);
   });
 
   return results;
-}
+};
 
 /**
  * groups words list from kaldi transcript based on punctuation.
@@ -83,9 +105,10 @@ function bbcKaldiToDraft(bbcKaldiJson) {
  * @param {array} words - array of words opbjects from kaldi transcript
  */
 
-function groupWordsInParagraphs(words) {
+const groupWordsInParagraphs = words => {
   let results = [];
   let paragraph = { words: [], text: [] };
+
   words.forEach(word => {
     // if word contains punctuation
     if (/[.?!]/.test(word.punct)) {
@@ -99,7 +122,8 @@ function groupWordsInParagraphs(words) {
       paragraph.text.push(word.punct);
     }
   });
-  return results;
-}
 
-module.exports = bbcKaldiToDraft;
+  return results;
+};
+
+export default bbcKaldiToDraft;
