@@ -6,3 +6,8 @@ https://github.com/facebook/draft-js/issues/528
   max-height: 70vh;
   overflow: auto;
 }
+
+/* "paragraphs" */
+div[data-block] + div[data-block] {
+  margin-top: 1em;
+}
