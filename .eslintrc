@@ -1,20 +1,20 @@
 {
-	"extends": "react-app",
-	"env": {
-	  "browser": true,
-	  "commonjs": true,
-	  "node": true,
-	  "es6": true
-	},
-	"parserOptions": {
-	  "ecmaVersion": 6,
-	  "sourceType": "module"
-	},
-	"rules": {
-	  "no-console": "off",
-	  "jsx-a11y/href-no-hash": 0,
-	  "strict": ["error", "global"],
-	  "curly": "warn",
-	  "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
-	}
+  "extends": "react-app",
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "off",
+    "jsx-a11y/href-no-hash": 0,
+    "strict": ["error", "global"],
+    "curly": "warn",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  }
 }
