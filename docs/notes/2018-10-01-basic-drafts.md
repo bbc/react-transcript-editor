@@ -1,9 +1,8 @@
 # Example `draft.js` 
 
-By Laurian
+I fyou are new to `draft.js` see [first basic example usage getting started in docs](https://draftjs.org/docs/getting-started.html#usage)
 
-
-Example, how to divide text into paragraphs [content block](https://draftjs.org/docs/api-reference-content-block) with extra info. 
+Here's an example, how to divide text into paragraphs [content block](https://draftjs.org/docs/api-reference-content-block) with extra info. 
 see `loadData` function.
 
 [`convertFromRaw` function](https://draftjs.org/docs/api-reference-data-conversion) converts the content block, with entity map to add to draft.js.
@@ -12,7 +11,7 @@ see `loadData` function.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Draft, {
-  Editor,
+  Editor, 
   EditorState,
   ContentState,
   convertFromRaw,
@@ -70,4 +69,33 @@ class App extends React.Component {
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
+```
+
+
+
+The blocks, 
+- `text` is the text displayed in the draft editor
+- `type` can be `paragraph`, `header-one` etc.. see full list [in docs](https://draftjs.org/docs/api-reference-content-block)
+- `data` is arbitrary date you can add yourself and keep associated with that text.
+- `entityRanges` allows to identify [entities](https://draftjs.org/docs/advanced-topics-entities) in the text, using character's index. see [note on draftjs entity range](2018-10-02-drafjs-entity-range.md) for more on this.
+
+```js
+ const blocks = [
+      {
+        text: 'Lorem ipsum',
+        type: 'paragraph',
+        data: {
+          speaker: 'Foo',
+        },
+        entityRanges: [],
+      },
+      {
+        text: 'Dolor foo bar',
+        type: 'paragraph',
+        data: {
+          speaker: 'Bar',
+        },
+        entityRanges: [],
+      },
+    ];
 ```

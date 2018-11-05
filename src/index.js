@@ -72,17 +72,17 @@
 
     render() {
       return (
-    <div className={styles.container}>
-    <span className={styles.title}>Demo page for React Transcript Editor - Component | <a href="https://github.com/bbc/react-transcript-editor" target="_blank">Github Repo</a></span>
-    <br/>
-    <button onClick={() => this.loadDemo()}>load demo</button>
-    <br/>
-    <label>open Transcript Json</label>
-    <input type="file" onChange={ (e) => this.handleChangeLoadTranscriptJson(e.target.files) } />
-    <br/>
-    <label>Load Local Media</label>
-    <input type="file" onChange={ (e) => this.handleChangeLoadMedia(e.target.files) } />
-    <br/>
+      <div className={styles.container}>
+      <span className={styles.title}>Demo page for React Transcript Editor - Component | <a href="https://github.com/bbc/react-transcript-editor" target="_blank">Github Repo</a></span>
+      <br/>
+      <button onClick={() => this.loadDemo()}>load demo</button>
+      <br/>
+      <label>open Transcript Json</label>
+      <input type="file" onChange={ (e) => this.handleChangeLoadTranscriptJson(e.target.files) } />
+      <br/>
+      <label>Load Local Media</label>
+      <input type="file" onChange={ (e) => this.handleChangeLoadMedia(e.target.files) } />
+      <br/>
       <button onClick={() => this.handleChangeLoadMediaUrl()}>Load Media From Url</button>
 
       <TranscriptEditor 

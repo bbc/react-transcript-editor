@@ -104,4 +104,4 @@ function groupWordsInParagraphs(words){
     return results
 }
 
- module.exports = bbcKaldiToDraft;
+module.exports = bbcKaldiToDraft;

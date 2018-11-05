@@ -1,7 +1,5 @@
 # Entity ranges 
 
-By Laurian
-
 Example of how to use of [entity ranges](https://draftjs.org/docs/advanced-topics-entities) in `draft.js` [content block](https://draftjs.org/docs/api-reference-content-block) to add word timing informations.
 
 ```json

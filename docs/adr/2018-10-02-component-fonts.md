@@ -8,8 +8,6 @@
 
 ## Context and Problem Statement
 
-From Laurian and Mark B
-
 <!-- [Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.] -->
 
 Should the component come with it's own font? or just inherit from the app/enviroment it has been used in?
