@@ -17,14 +17,17 @@
   ],
   "scripts": {
     "start": "react-scripts start",
-    "build-examples": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "build:demo": "react-scripts build && rm -rf docs/demo && mv build docs/demo"
+    "build:example": "react-scripts build",
+    "build:component": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "deploy:ghpages": "npm run build:example && gh-pages -d build"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-react": "^7.0.0",
+    "gh-pages": "^2.0.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-scripts": "^2.1.1",
@@ -45,11 +48,15 @@
   "bugs": {
     "url": "https://github.com/bbc/react-transcript-editor/issues"
   },
-  "homepage": "https://github.com/bbc/react-transcript-editor#readme",
+  "homepage": ".",
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "draft-js": "^0.10.5"
+  }
 }

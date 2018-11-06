@@ -1,0 +1,33 @@
+.videoSection {
+    height: 100%;
+    width: 100%;
+  }
+  
+  video {
+    /* height: 90vh; */
+    width: 100%;
+    /* overflow: hidden; */
+    /* position:absolute; */
+    /* z-index:-1; */
+    /* object-fit: cover; */
+  }
+  
+  
+  /* .videoControls{
+    height: 10vh;
+    width: 100%;
+    background-color: black;
+    color:white;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+  }
+   */
+  
+  /* .playPause{
+    color:white;
+    text-transform: uppercase;
+  } */
+
+  
