@@ -1,2 +1,2 @@
-import TranscriptEditor from "./TranscriptEditor/TranscriptEditor";
+import TranscriptEditor from './TranscriptEditor/TranscriptEditor';
 export { TranscriptEditor };

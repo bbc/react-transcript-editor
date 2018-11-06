@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   // Draft,
   Editor,
@@ -6,12 +6,12 @@ import {
   // ContentState,
   CompositeDecorator,
   convertFromRaw
-} from "draft-js";
+} from 'draft-js';
 
-import Word from "./Word";
-import bbcKaldiToDraft from "./adapters/bbc-kaldi/index.js";
+import Word from './Word';
+import bbcKaldiToDraft from './adapters/bbc-kaldi/index.js';
 
-import styles from "./TimedTextEditor.module.css";
+import styles from './index.module.css';
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class TimedTextEditor extends React.Component {
   }
 
   loadData() {
-    if (this.props.transcriptData !== "") {
+    if (this.props.transcriptData !== '') {
       const blocks = bbcKaldiToDraft(this.props.transcriptData);
       const entityRanges = blocks.map(block => block.entityRanges);
       const flatEntityRanges = flatten(entityRanges);
@@ -49,9 +49,9 @@ class TimedTextEditor extends React.Component {
       const entityMap = {};
 
       flatEntityRanges.forEach((data) => {
-        entityMap[data.key] = {
-            type: "WORD",
-            mutability: "MUTABLE",
+        entityMap[ data.key ] = {
+            type: 'WORD',
+            mutability: 'MUTABLE',
             data
           }
       });
@@ -68,16 +68,17 @@ class TimedTextEditor extends React.Component {
   }
 
   // click on words - for navigation 
+  // eslint-disable-next-line class-methods-use-this
   handleOnClick(event) {
     // nativeEvent --> React giving you the DOM event 
     let element = event.nativeEvent.target;
     // find the parent in Word that contains span with time-code start attribute
-    while (!element.hasAttribute("data-start") && element.parentElement) {
+    while (!element.hasAttribute('data-start') && element.parentElement) {
       element = element.parentElement;
     }
 
-    if (element.hasAttribute("data-start")) {
-      const t = parseFloat(element.getAttribute("data-start"));
+    if (element.hasAttribute('data-start')) {
+      const t = parseFloat(element.getAttribute('data-start'));
       //TODO: prop to jump to video <-- To connect with MediaPlayer
       // this.props.seek(t);
       console.log(t);
@@ -87,18 +88,18 @@ class TimedTextEditor extends React.Component {
 
   render() {
     return (
-      <section
-        className={styles.editor}
+        <section
+        className={ styles.editor }
         // onDoubleClick={event => this.handleDoubleClick(event)}
-        onClick={event => this.handleOnClick(event)}
+        onClick={ event => this.handleOnClick(event) }
       >
-        <Editor
-          editorState={this.state.editorState}
-          onChange={this.onChange}
+            <Editor
+          editorState={ this.state.editorState }
+          onChange={ this.onChange }
           stripPastedStyles
         />
-        {/* <button onClick={() => this.loadData()}>load data</button> */}
-      </section>
+            {/* <button onClick={() => this.loadData()}>load data</button> */}
+        </section>
     );
   }
 }
@@ -123,7 +124,7 @@ const getEntityStrategy = mutability => (contentBlock, callback, contentState) =
 // defines what to use to render the entity 
 const decorator = new CompositeDecorator([
   {
-    strategy: getEntityStrategy("MUTABLE"),
+    strategy: getEntityStrategy('MUTABLE'),
     component: Word
   }
 ]);
