@@ -51,6 +51,8 @@
  *
  */
 
+import generateEntitiesRanges from "../generate-entities-ranges/index.js";
+
 const bbcKaldiToDraft = bbcKaldiJson => {
   let results = [];
   let tmpWords;
@@ -64,35 +66,21 @@ const bbcKaldiToDraft = bbcKaldiJson => {
   }
 
   let wordsByParagraphs = groupWordsInParagraphs(tmpWords);
+
   wordsByParagraphs.forEach(paragraph => {
+    console.log(JSON.stringify( generateEntitiesRanges(paragraph.words),null,2))
+
     let draftJsContentBlockParagraph = {
       text: paragraph.text.join(" "),
       type: "paragraph",
       data: {
         speaker: "TBC"
       },
-      entityRanges: paragraph.words.reduce(
-        (acc, { start, end, confidence, punct }) => ({
-          position: acc.position + punct.length + 1,
-          entityRanges: [
-            ...acc.entityRanges,
-            {
-              start,
-              end,
-              confidence,
-              text: punct,
-              offset: acc.position,
-              length: punct.length,
-              key: Math.random()
-                .toString(36)
-                .substring(6)
-            }
-          ]
-        }),
-        { position: 0, entityRanges: [] }
-      ).entityRanges
+      // the entities as ranges are each word in the space-joined text, 
+      // so it needs to be compute for each the offset from the beginning of the paragraph and the length
+      entityRanges: generateEntitiesRanges(paragraph.words)
     };
-
+    // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
     results.push(draftJsContentBlockParagraph);
   });
 

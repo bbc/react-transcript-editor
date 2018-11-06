@@ -11,8 +11,10 @@ _--> Work in progress <--_
 
  <!-- _How to run the development environment_ -->
 
-- npm > `5.2`
-- node `10`
+- npm > `6.1.0`
+- [Node 10 - dubnium](https://scotch.io/tutorials/whats-new-in-node-10-dubnium)
+
+Node version is set in node version manager [`.nvmrc`](https://github.com/creationix/nvm#nvmrc)
 
 <!-- _Coding style convention ref optional, eg which linter to use_ -->
 

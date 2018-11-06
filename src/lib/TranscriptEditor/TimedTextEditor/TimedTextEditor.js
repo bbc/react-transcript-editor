@@ -22,7 +22,8 @@ class TimedTextEditor extends React.Component {
     };
 
     this.onChange = editorState => this.setState({ editorState });
-    this.handleClick.bind(this);
+    // this.handleDoubleClick.bind(this);
+    this.handleOnClick.bind(this);
   }
 
   componentDidMount() {
@@ -30,8 +31,7 @@ class TimedTextEditor extends React.Component {
   }
 
   componentWillReceiveProps(nexProps) {
-    this.setState(
-      {
+    this.setState({
         transcriptData: nexProps.transcriptData
       },
       () => {
@@ -43,19 +43,21 @@ class TimedTextEditor extends React.Component {
   loadData() {
     if (this.props.transcriptData !== "") {
       const blocks = bbcKaldiToDraft(this.props.transcriptData);
-      const entityMap = flatten(blocks.map(block => block.entityRanges)).reduce(
-        (acc, data) => ({
-          ...acc,
-          [data.key]: {
+      const entityRanges = blocks.map(block => block.entityRanges);
+      const flatEntityRanges = flatten(entityRanges);
+      
+      const entityMap = {};
+
+      flatEntityRanges.forEach((data) => {
+        entityMap[data.key] = {
             type: "WORD",
             mutability: "MUTABLE",
             data
           }
-        }),
-        {}
-      );
-
+      });
+     
       const contentState = convertFromRaw({ blocks, entityMap });
+
       const editorState = EditorState.createWithContent(
         contentState,
         decorator
@@ -65,16 +67,21 @@ class TimedTextEditor extends React.Component {
     }
   }
 
-  handleClick(event) {
+  // click on words - for navigation 
+  handleOnClick(event) {
+    // nativeEvent --> React giving you the DOM event 
     let element = event.nativeEvent.target;
+    // find the parent in Word that contains span with time-code start attribute
     while (!element.hasAttribute("data-start") && element.parentElement) {
       element = element.parentElement;
     }
 
     if (element.hasAttribute("data-start")) {
       const t = parseFloat(element.getAttribute("data-start"));
+      //TODO: prop to jump to video <-- To connect with MediaPlayer
       // this.props.seek(t);
       console.log(t);
+      // TODO: pass current time of media to TimedTextEditor to know what text to highlight in this component  
     }
   }
 
@@ -82,7 +89,8 @@ class TimedTextEditor extends React.Component {
     return (
       <section
         className={styles.editor}
-        onClick={event => this.handleClick(event)}
+        // onDoubleClick={event => this.handleDoubleClick(event)}
+        onClick={event => this.handleOnClick(event)}
       >
         <Editor
           editorState={this.state.editorState}
@@ -95,14 +103,13 @@ class TimedTextEditor extends React.Component {
   }
 }
 
+// converts nested arrays into one dimensional array 
 const flatten = list =>
   list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
-const getEntityStrategy = mutability => (
-  contentBlock,
-  callback,
-  contentState
-) => {
+// DraftJs decorator to recognize which entity is which 
+// and know what to apply to what component 
+const getEntityStrategy = mutability => (contentBlock, callback, contentState) => {
   contentBlock.findEntityRanges(character => {
     const entityKey = character.getEntity();
     if (entityKey === null) {
@@ -112,6 +119,8 @@ const getEntityStrategy = mutability => (
   }, callback);
 };
 
+// decorator definition - Draftjs 
+// defines what to use to render the entity 
 const decorator = new CompositeDecorator([
   {
     strategy: getEntityStrategy("MUTABLE"),
