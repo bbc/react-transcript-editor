@@ -25,9 +25,9 @@
           "index": 1
         },
 ```
- * 
- * into 
- * 
+ *
+ * into
+ *
  ```
  const blocks = [
         {
@@ -48,60 +48,82 @@
         },
         ];
 ```
- * 
+ *
  */
 
+const bbcKaldiToDraft = bbcKaldiJson => {
+  let results = [];
+  let tmpWords;
 
-function bbcKaldiToDraft(bbcKaldiJson){
-    let results = [];
-    let tmpWords;
-    // BBC Octo Labs API Response wraps Kaldi response around retval, 
-    // while kaldi contains word attribute at root
-    if(bbcKaldiJson.retval !== undefined){
-        tmpWords = bbcKaldiJson.retval.words;
-    }
-    else{
-        tmpWords= bbcKaldiJson.words;
-    }
-   let wordsByParagraphs = groupWordsInParagraphs(tmpWords);
-   wordsByParagraphs.forEach((paragraph)=>{
-        let draftJsContentBlockParagraph = {
-            text: paragraph.text.join(' '),
-            type: 'paragraph',
-            data: {
-            speaker: 'TBC',
-            },
-            entityRanges: []
-        }
-        results.push(draftJsContentBlockParagraph);
-    })
+  // BBC Octo Labs API Response wraps Kaldi response around retval,
+  // while kaldi contains word attribute at root
+  if (bbcKaldiJson.retval !== undefined) {
+    tmpWords = bbcKaldiJson.retval.words;
+  } else {
+    tmpWords = bbcKaldiJson.words;
+  }
 
+  let wordsByParagraphs = groupWordsInParagraphs(tmpWords);
+  wordsByParagraphs.forEach(paragraph => {
+    let draftJsContentBlockParagraph = {
+      text: paragraph.text.join(" "),
+      type: "paragraph",
+      data: {
+        speaker: "TBC"
+      },
+      entityRanges: paragraph.words.reduce(
+        (acc, { start, end, confidence, punct }) => ({
+          position: acc.position + punct.length + 1,
+          entityRanges: [
+            ...acc.entityRanges,
+            {
+              start,
+              end,
+              confidence,
+              text: punct,
+              offset: acc.position,
+              length: punct.length,
+              key: Math.random()
+                .toString(36)
+                .substring(6)
+            }
+          ]
+        }),
+        { position: 0, entityRanges: [] }
+      ).entityRanges
+    };
 
-    return results;
-}
+    results.push(draftJsContentBlockParagraph);
+  });
+
+  return results;
+};
 
 /**
  * groups words list from kaldi transcript based on punctuation.
  * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
  * @param {array} words - array of words opbjects from kaldi transcript
- */ 
-function groupWordsInParagraphs(words){
-    let results = [];
-    let paragraph = {words:[], text:[]};
-    words.forEach((word) => {
-        // if word contains punctuation
-        if(/[.?!]/.test(word.punct)){
-            paragraph.words.push(word);
-            paragraph.text.push(word.punct);
-            results.push(paragraph);
-            // reset paragraph 
-            paragraph = {words:[], text:[]};
-        }else{
-            paragraph.words.push(word);
-            paragraph.text.push(word.punct);
-        }
-    });
-    return results
-}
+ */
 
-module.exports = bbcKaldiToDraft;
+const groupWordsInParagraphs = words => {
+  let results = [];
+  let paragraph = { words: [], text: [] };
+
+  words.forEach(word => {
+    // if word contains punctuation
+    if (/[.?!]/.test(word.punct)) {
+      paragraph.words.push(word);
+      paragraph.text.push(word.punct);
+      results.push(paragraph);
+      // reset paragraph
+      paragraph = { words: [], text: [] };
+    } else {
+      paragraph.words.push(word);
+      paragraph.text.push(word.punct);
+    }
+  });
+
+  return results;
+};
+
+export default bbcKaldiToDraft;

@@ -1,16 +1,16 @@
 
 .container{
-    /* width: 640px; */
-    /* margin: 15px auto; */
-    font-family: Consolas, Helvetica Neue, Helvetica, Arial, sans-serif;
-    /* font-family:  Helvetica Neue, Helvetica, Arial, sans-serif; */
+  /* width: 640px; */
+  /* margin: 15px auto; */
+  font-family: Consolas, Helvetica Neue, Helvetica, Arial, sans-serif;
+  /* font-family:  Helvetica Neue, Helvetica, Arial, sans-serif; */
 }
 
 body{
-    background-color: #f1f1f1;
-    margin: 0px;
+  background-color: #f1f1f1;
+  margin: 0px;
 }
 
 .title{
-   font-size: 1.5rem; 
+  font-size: 1.5rem;
 }
