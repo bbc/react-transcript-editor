@@ -6,23 +6,48 @@ import ProgressBar from './ProgressBar/index.js';
 import MediaPlayer from './MediaPlayer/index.js';
 
 class TranscriptEditor extends React.Component {
-  render() {
-    return (
-        <section className={ styles.container }>
-            <header className={ styles.header }>
-                <ProgressBar mediaUrl={ this.props.mediaUrl }  />
-            </header>
-            <nav className={ styles.nav }>
-                <MediaPlayer mediaUrl={ this.props.mediaUrl } />
-            </nav>
-            <main className={ styles.main }>
-                <TimedTextEditor transcriptData={ this.props.transcriptData } />
-            </main>
-            <aside className={ styles.aside }>Settings</aside>
-            <footer className={ styles.footer }>Footer</footer>
-        </section>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state ={
+            currentTime: 0
+        }
+        // this.handleWorClick = handleWorClick.
+        this.handleWorClick = this.handleWorClick.bind(this);
+    }
+
+    // eslint-disable-next-line class-methods-use-this
+    handleWorClick(startTime){
+        console.log('2.TranscriptEditor - handleWorClick ',startTime);
+        this.setState({
+            currentTime: startTime
+        })
+    }
+
+    render() {
+        return (
+            <section className={ styles.container }>
+                <header className={ styles.header }>
+                    <ProgressBar 
+                    mediaUrl={ this.props.mediaUrl }  
+                    />
+                </header>
+                <nav className={ styles.nav }>
+                    <MediaPlayer 
+                    seekToCurrentTime={ this.state.currentTime } 
+                    mediaUrl={ this.props.mediaUrl } 
+                    />
+                </nav>
+                <main className={ styles.main }>
+                    <TimedTextEditor 
+                    transcriptData={ this.props.transcriptData } 
+                    onWordClick={ this.handleWorClick }
+                    />
+                </main>
+                {/* <aside className={ styles.aside }>Settings</aside> */}
+                <footer className={ styles.footer }></footer>
+            </section>
+        );
+    }
 }
 
 export default TranscriptEditor;

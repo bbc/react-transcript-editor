@@ -81,7 +81,9 @@ class TimedTextEditor extends React.Component {
       const t = parseFloat(element.getAttribute('data-start'));
       //TODO: prop to jump to video <-- To connect with MediaPlayer
       // this.props.seek(t);
-      console.log(t);
+      this.props.onWordClick(t);
+      console.log('---------');
+      console.log('1.TimedTextEditor - handleOnClick ',t);
       // TODO: pass current time of media to TimedTextEditor to know what text to highlight in this component  
     }
   }
@@ -92,7 +94,7 @@ class TimedTextEditor extends React.Component {
         className={ styles.editor }
         // onDoubleClick={event => this.handleDoubleClick(event)}
         onClick={ event => this.handleOnClick(event) }
-      >
+        >
             <Editor
           editorState={ this.state.editorState }
           onChange={ this.onChange }

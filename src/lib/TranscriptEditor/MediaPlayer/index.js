@@ -3,11 +3,32 @@ import styles from './index.module.css';
 
 // inspired by https://github.com/bbc/nm2/blob/master/src/components/chapter/video/Video.jsx
 
-class MediaPreview extends React.Component {
+class MediaPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.videoRef = React.createRef();
   }
+
+  componentWillReceiveProps(){
+    console.log('3.MediaPreview -  componentWillReceiveProps ',this.props.seekToCurrentTime)
+    if(this.props.seekToCurrentTime !== undefined){
+      this.setCurrentTime(this.props.seekToCurrentTime)
+    }
+  }
+
+  setCurrentTime(newCurrentTime){
+    if (this.videoRef.current  !== null) {
+      const videoRef = this.videoRef.current;
+      // videoRef.load();
+      if ( videoRef.readyState === 4 ) {
+        // it's loaded
+        videoRef.currentTime = newCurrentTime;
+        console.log('videoRef.currentTime',videoRef.currentTime,newCurrentTime);
+      }
+      // videoRef.play();
+    }
+  }
+
   render() {
     // conditional, if media player not defined then don't show
     let mediaPlayer;
@@ -30,4 +51,4 @@ class MediaPreview extends React.Component {
   }
 }
 
-export default MediaPreview;
+export default MediaPlayer;
