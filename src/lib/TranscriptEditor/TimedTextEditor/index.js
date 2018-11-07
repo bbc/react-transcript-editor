@@ -22,8 +22,8 @@ class TimedTextEditor extends React.Component {
     };
 
     this.onChange = editorState => this.setState({ editorState });
-    // this.handleDoubleClick.bind(this);
-    this.handleOnClick.bind(this);
+    this.handleDoubleClick.bind(this);
+    // this.handleOnClick.bind(this);
   }
 
   componentDidMount() {
@@ -69,7 +69,7 @@ class TimedTextEditor extends React.Component {
 
   // click on words - for navigation 
   // eslint-disable-next-line class-methods-use-this
-  handleOnClick(event) {
+  handleDoubleClick(event) {
     // nativeEvent --> React giving you the DOM event 
     let element = event.nativeEvent.target;
     // find the parent in Word that contains span with time-code start attribute
@@ -92,8 +92,8 @@ class TimedTextEditor extends React.Component {
     return (
         <section
         className={ styles.editor }
-        // onDoubleClick={event => this.handleDoubleClick(event)}
-        onClick={ event => this.handleOnClick(event) }
+        onDoubleClick={ event => this.handleDoubleClick(event) }
+        // onClick={ event => this.handleOnClick(event) }
         >
             <Editor
           editorState={ this.state.editorState }
