@@ -12,11 +12,11 @@ class TranscriptEditor extends React.Component {
             currentTime: 0
         }
         // this.handleWorClick = handleWorClick.
-        this.handleWorClick = this.handleWorClick.bind(this);
+        this.handleWordClick = this.handleWordClick.bind(this);
     }
 
     // eslint-disable-next-line class-methods-use-this
-    handleWorClick(startTime){
+    handleWordClick(startTime){
         console.log('2.TranscriptEditor - handleWorClick ',startTime);
         this.setState({
             currentTime: startTime
@@ -40,7 +40,7 @@ class TranscriptEditor extends React.Component {
                 <main className={ styles.main }>
                     <TimedTextEditor 
                     transcriptData={ this.props.transcriptData } 
-                    onWordClick={ this.handleWorClick }
+                    onWordClick={ this.handleWordClick }
                     />
                 </main>
                 {/* <aside className={ styles.aside }>Settings</aside> */}

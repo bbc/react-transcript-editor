@@ -9,10 +9,10 @@ class MediaPlayer extends React.Component {
     this.videoRef = React.createRef();
   }
 
-  componentWillReceiveProps(){
-    console.log('3.MediaPreview -  componentWillReceiveProps ',this.props.seekToCurrentTime)
-    if(this.props.seekToCurrentTime !== undefined){
-      this.setCurrentTime(this.props.seekToCurrentTime)
+  componentWillReceiveProps(nextProps){
+    console.log('3.MediaPreview -  componentWillReceiveProps ',nextProps.seekToCurrentTime)
+    if(nextProps.seekToCurrentTime !== undefined){
+      this.setCurrentTime(nextProps.seekToCurrentTime)
     }
   }
 
@@ -24,8 +24,9 @@ class MediaPlayer extends React.Component {
         // it's loaded
         videoRef.currentTime = newCurrentTime;
         console.log('videoRef.currentTime',videoRef.currentTime,newCurrentTime);
+        videoRef.play();
       }
-      // videoRef.play();
+      
     }
   }
 
