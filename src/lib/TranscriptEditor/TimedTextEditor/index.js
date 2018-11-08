@@ -22,28 +22,30 @@ class TimedTextEditor extends React.Component {
     };
 
     this.onChange = editorState => this.setState({ editorState });
-    this.handleDoubleClick.bind(this);
-    // this.handleOnClick.bind(this);
   }
 
   componentDidMount() {
     this.loadData();
   }
 
-  componentWillReceiveProps(nexProps) {
-    this.setState({
-        transcriptData: nexProps.transcriptData
-      },
-      () => {
+  componentWillReceiveProps(nextProps) {
+    // TODO: use currentTime info to highlight text in draftJs
+    console.log('nextProps.currentTime',nextProps.currentTime);
+    if(this.state.transcriptData === null){
+      this.setState({
+        transcriptData: nextProps.transcriptData
+      },() => {
         this.loadData();
       }
     );
+    }
   }
 
   loadData() {
-    if (this.props.transcriptData !== '') {
+    if (this.props.transcriptData !== null) {
       const blocks = bbcKaldiToDraft(this.props.transcriptData);
       const entityRanges = blocks.map(block => block.entityRanges);
+      // eslint-disable-next-line no-use-before-define
       const flatEntityRanges = flatten(entityRanges);
       
       const entityMap = {};
@@ -58,10 +60,8 @@ class TimedTextEditor extends React.Component {
      
       const contentState = convertFromRaw({ blocks, entityMap });
 
-      const editorState = EditorState.createWithContent(
-        contentState,
-        decorator
-      );
+      // eslint-disable-next-line no-use-before-define
+      const editorState = EditorState.createWithContent(contentState, decorator);
 
       this.setState({ editorState });
     }
@@ -69,7 +69,7 @@ class TimedTextEditor extends React.Component {
 
   // click on words - for navigation 
   // eslint-disable-next-line class-methods-use-this
-  handleDoubleClick(event) {
+  handleDoubleClick = (event)=> {
     // nativeEvent --> React giving you the DOM event 
     let element = event.nativeEvent.target;
     // find the parent in Word that contains span with time-code start attribute
@@ -82,8 +82,6 @@ class TimedTextEditor extends React.Component {
       //TODO: prop to jump to video <-- To connect with MediaPlayer
       // this.props.seek(t);
       this.props.onWordClick(t);
-      console.log('---------');
-      console.log('1.TimedTextEditor - handleOnClick ',t);
       // TODO: pass current time of media to TimedTextEditor to know what text to highlight in this component  
     }
   }

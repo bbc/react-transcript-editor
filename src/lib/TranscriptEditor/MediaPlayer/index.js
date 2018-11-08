@@ -9,31 +9,32 @@ class MediaPlayer extends React.Component {
     this.videoRef = React.createRef();
   }
 
-  componentWillReceiveProps(nextProps){
-    console.log('3.MediaPreview -  componentWillReceiveProps ',nextProps.seekToCurrentTime)
-    if(nextProps.seekToCurrentTime !== undefined){
-      this.setCurrentTime(nextProps.seekToCurrentTime)
-    }
+  componentDidMount(){
+    this.props.hookSeek(this.setCurrentTime)
   }
 
-  setCurrentTime(newCurrentTime){
+  setCurrentTime = (newCurrentTime) => {
     if (this.videoRef.current  !== null) {
       const videoRef = this.videoRef.current;
       // videoRef.load();
       if ( videoRef.readyState === 4 ) {
         // it's loaded
         videoRef.currentTime = newCurrentTime;
-        console.log('videoRef.currentTime',videoRef.currentTime,newCurrentTime);
         videoRef.play();
       }
       
     }
   }
 
+  handleTimeUpdate = (e)=>{
+    // eslint-disable-next-line react/prop-types
+    this.props.hookOnTimeUpdate(e.target.currentTime)
+  }
+
   render() {
     // conditional, if media player not defined then don't show
     let mediaPlayer;
-    if (this.props.mediaUrl !== '') {
+    if (this.props.mediaUrl !== null) {
       mediaPlayer = (
           <video
           id="video"
@@ -41,6 +42,8 @@ class MediaPlayer extends React.Component {
           // autoPlay
           controls
           src={ this.props.mediaUrl }
+          onTimeUpdate={ this.handleTimeUpdate }
+          // TODO: video type
           type="video/mp4"
           data-testid="media-player-id"
           ref={ this.videoRef }
