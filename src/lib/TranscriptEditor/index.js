@@ -42,7 +42,7 @@ class TranscriptEditor extends React.Component {
                     <MediaPlayer 
                     hookSeek={ (foo) => this.setCurrentTime = foo }
                     // seekToCurrentTime={ this.state.currentTime } 
-                    onTimeUpdate={ t => this.handleTimeUpdate(t)  }
+                    // onTimeUpdate={ t => this.handleTimeUpdate(t)  }
                     mediaUrl={ this.props.mediaUrl } 
                     />
                 </nav>
@@ -50,7 +50,7 @@ class TranscriptEditor extends React.Component {
                     <TimedTextEditor 
                     transcriptData={ this.props.transcriptData } 
                     onWordClick={ this.handleWordClick }
-                    currentTimeForText={ this.state.currentTimeForText } 
+                    // currentTimeForText={ this.state.currentTimeForText } 
                     />
                 </main>
                 {/* <aside className={ styles.aside }>Settings</aside> */}
