@@ -9,18 +9,25 @@ class TranscriptEditor extends React.Component {
     constructor(props) {
         super(props);
         this.state ={
-            currentTime: 0
+           
         }
-        // this.handleWorClick = handleWorClick.
-        this.handleWordClick = this.handleWordClick.bind(this);
     }
 
     // eslint-disable-next-line class-methods-use-this
-    handleWordClick(startTime){
+    handleWordClick = (startTime) => {
         console.log('2.TranscriptEditor - handleWorClick ',startTime);
-        this.setState({
-            currentTime: startTime
-        })
+        this.setCurrentTime(startTime);
+        // this.setState({
+        //     currentTime: startTime
+        // })
+    }
+
+    // eslint-disable-next-line class-methods-use-this
+    handleTimeUpdate = (currentTime) => {
+        console.log('TranscriptEditor: ',currentTime);
+            // this.setState({
+            //     currentTimeForText: currentTime
+            // })
     }
 
     render() {
@@ -33,7 +40,9 @@ class TranscriptEditor extends React.Component {
                 </header>
                 <nav className={ styles.nav }>
                     <MediaPlayer 
-                    seekToCurrentTime={ this.state.currentTime } 
+                    hookSeek={ (foo) => this.setCurrentTime = foo }
+                    // seekToCurrentTime={ this.state.currentTime } 
+                    onTimeUpdate={ t => this.handleTimeUpdate(t)  }
                     mediaUrl={ this.props.mediaUrl } 
                     />
                 </nav>
@@ -41,6 +50,7 @@ class TranscriptEditor extends React.Component {
                     <TimedTextEditor 
                     transcriptData={ this.props.transcriptData } 
                     onWordClick={ this.handleWordClick }
+                    currentTimeForText={ this.state.currentTimeForText } 
                     />
                 </main>
                 {/* <aside className={ styles.aside }>Settings</aside> */}

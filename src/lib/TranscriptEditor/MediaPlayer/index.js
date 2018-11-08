@@ -30,6 +30,11 @@ class MediaPlayer extends React.Component {
     }
   }
 
+  handleTimeUpdate = (e)=>{
+    // eslint-disable-next-line react/prop-types
+    this.props.onTimeUpdate(e.target.currentTime)
+  }
+
   render() {
     // conditional, if media player not defined then don't show
     let mediaPlayer;
@@ -41,6 +46,8 @@ class MediaPlayer extends React.Component {
           // autoPlay
           controls
           src={ this.props.mediaUrl }
+          onTimeUpdate={ this.handleTimeUpdate }
+          // TODO: video type
           type="video/mp4"
           data-testid="media-player-id"
           ref={ this.videoRef }
