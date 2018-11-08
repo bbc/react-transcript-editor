@@ -31,8 +31,8 @@ class TimedTextEditor extends React.Component {
   }
 
   loadData() {
-    if (this.props.transcriptData !== "") {
-      let blocks = bbcKaldiToDraft(this.props.transcriptData);
+    if (this.props.transcriptData !== '') {
+      const blocks = bbcKaldiToDraft(this.props.transcriptData);
       const entityMap = {};
       const contentState = convertFromRaw({
         blocks,
@@ -46,7 +46,7 @@ class TimedTextEditor extends React.Component {
   }
 
   render() {
-    return React.createElement("section", {
+    return React.createElement('section', {
       className: styles.editor
     }, React.createElement(Editor, {
       editorState: this.state.editorState,

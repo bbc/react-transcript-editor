@@ -51,41 +51,7 @@
  *
  */
 
-import generateEntitiesRanges from "../generate-entities-ranges/index.js";
-
-const bbcKaldiToDraft = bbcKaldiJson => {
-  let results = [];
-  let tmpWords;
-
-  // BBC Octo Labs API Response wraps Kaldi response around retval,
-  // while kaldi contains word attribute at root
-  if (bbcKaldiJson.retval !== undefined) {
-    tmpWords = bbcKaldiJson.retval.words;
-  } else {
-    tmpWords = bbcKaldiJson.words;
-  }
-
-  let wordsByParagraphs = groupWordsInParagraphs(tmpWords);
-
-  wordsByParagraphs.forEach(paragraph => {
-    console.log(JSON.stringify( generateEntitiesRanges(paragraph.words),null,2))
-
-    let draftJsContentBlockParagraph = {
-      text: paragraph.text.join(" "),
-      type: "paragraph",
-      data: {
-        speaker: "TBC"
-      },
-      // the entities as ranges are each word in the space-joined text, 
-      // so it needs to be compute for each the offset from the beginning of the paragraph and the length
-      entityRanges: generateEntitiesRanges(paragraph.words)
-    };
-    // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
-    results.push(draftJsContentBlockParagraph);
-  });
-
-  return results;
-};
+import generateEntitiesRanges from '../generate-entities-ranges/index.js';
 
 /**
  * groups words list from kaldi transcript based on punctuation.
@@ -94,7 +60,7 @@ const bbcKaldiToDraft = bbcKaldiJson => {
  */
 
 const groupWordsInParagraphs = words => {
-  let results = [];
+  const results = [];
   let paragraph = { words: [], text: [] };
 
   words.forEach(word => {
@@ -109,6 +75,38 @@ const groupWordsInParagraphs = words => {
       paragraph.words.push(word);
       paragraph.text.push(word.punct);
     }
+  });
+
+  return results;
+};
+
+const bbcKaldiToDraft = bbcKaldiJson => {
+  const results = [];
+  let tmpWords;
+
+  // BBC Octo Labs API Response wraps Kaldi response around retval,
+  // while kaldi contains word attribute at root
+  if (bbcKaldiJson.retval !== undefined) {
+    tmpWords = bbcKaldiJson.retval.words;
+  } else {
+    tmpWords = bbcKaldiJson.words;
+  }
+
+  const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
+
+  wordsByParagraphs.forEach(paragraph => {
+    const draftJsContentBlockParagraph = {
+      text: paragraph.text.join(' '),
+      type: 'paragraph',
+      data: {
+        speaker: 'TBC'
+      },
+      // the entities as ranges are each word in the space-joined text, 
+      // so it needs to be compute for each the offset from the beginning of the paragraph and the length
+      entityRanges: generateEntitiesRanges(paragraph.words)
+    };
+    // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
+    results.push(draftJsContentBlockParagraph);
   });
 
   return results;

@@ -6,7 +6,7 @@
 const generateEntitiesRanges = (words) => {
     let position = 0;
     return words.map((word) => {
-         let result =  {
+         const result =  {
           start: word.start,
           end: word.end,
           confidence: word.confidence,
@@ -23,6 +23,5 @@ const generateEntitiesRanges = (words) => {
           return result;
       })
 } 
-
 
 export default generateEntitiesRanges;
