@@ -9,25 +9,20 @@ class TranscriptEditor extends React.Component {
     constructor(props) {
         super(props);
         this.state ={
-           
+           currentTime:0
         }
     }
 
     // eslint-disable-next-line class-methods-use-this
     handleWordClick = (startTime) => {
-        console.log('2.TranscriptEditor - handleWorClick ',startTime);
         this.setCurrentTime(startTime);
-        // this.setState({
-        //     currentTime: startTime
-        // })
     }
 
     // eslint-disable-next-line class-methods-use-this
     handleTimeUpdate = (currentTime) => {
-        console.log('TranscriptEditor: ',currentTime);
-            // this.setState({
-            //     currentTimeForText: currentTime
-            // })
+            this.setState({
+                currentTime: currentTime
+            })
     }
 
     render() {
@@ -35,14 +30,12 @@ class TranscriptEditor extends React.Component {
             <section className={ styles.container }>
                 <header className={ styles.header }>
                     <ProgressBar 
-                    mediaUrl={ this.props.mediaUrl }  
                     />
                 </header>
                 <nav className={ styles.nav }>
                     <MediaPlayer 
                     hookSeek={ (foo) => this.setCurrentTime = foo }
-                    // seekToCurrentTime={ this.state.currentTime } 
-                    // onTimeUpdate={ t => this.handleTimeUpdate(t)  }
+                    hookOnTimeUpdate={ this.handleTimeUpdate }
                     mediaUrl={ this.props.mediaUrl } 
                     />
                 </nav>
@@ -50,7 +43,7 @@ class TranscriptEditor extends React.Component {
                     <TimedTextEditor 
                     transcriptData={ this.props.transcriptData } 
                     onWordClick={ this.handleWordClick }
-                    // currentTimeForText={ this.state.currentTimeForText } 
+                    currentTime={ this.state.currentTime } 
                     />
                 </main>
                 {/* <aside className={ styles.aside }>Settings</aside> */}

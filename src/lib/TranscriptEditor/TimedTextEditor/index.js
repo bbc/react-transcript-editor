@@ -28,11 +28,12 @@ class TimedTextEditor extends React.Component {
     this.loadData();
   }
 
-  componentWillReceiveProps(nexProps) {
-    // console.log('this.state.transcriptData ',this.state.transcriptData);
+  componentWillReceiveProps(nextProps) {
+    // TODO: use currentTime info to highlight text in draftJs
+    console.log('nextProps.currentTime',nextProps.currentTime);
     if(this.state.transcriptData === null){
       this.setState({
-        transcriptData: nexProps.transcriptData
+        transcriptData: nextProps.transcriptData
       },() => {
         this.loadData();
       }
@@ -81,8 +82,6 @@ class TimedTextEditor extends React.Component {
       //TODO: prop to jump to video <-- To connect with MediaPlayer
       // this.props.seek(t);
       this.props.onWordClick(t);
-      console.log('---------');
-      console.log('1.TimedTextEditor - handleOnClick ',t);
       // TODO: pass current time of media to TimedTextEditor to know what text to highlight in this component  
     }
   }

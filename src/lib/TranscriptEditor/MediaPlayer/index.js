@@ -13,13 +13,6 @@ class MediaPlayer extends React.Component {
     this.props.hookSeek(this.setCurrentTime)
   }
 
-  componentWillReceiveProps(nextProps){
-    console.log('3.MediaPreview -  componentWillReceiveProps ',nextProps.seekToCurrentTime)
-    if(nextProps.seekToCurrentTime !== undefined){
-      this.setCurrentTime(nextProps.seekToCurrentTime)
-    }
-  }
-
   setCurrentTime = (newCurrentTime) => {
     if (this.videoRef.current  !== null) {
       const videoRef = this.videoRef.current;
@@ -27,7 +20,6 @@ class MediaPlayer extends React.Component {
       if ( videoRef.readyState === 4 ) {
         // it's loaded
         videoRef.currentTime = newCurrentTime;
-        console.log('videoRef.currentTime',videoRef.currentTime,newCurrentTime);
         videoRef.play();
       }
       
@@ -36,7 +28,7 @@ class MediaPlayer extends React.Component {
 
   handleTimeUpdate = (e)=>{
     // eslint-disable-next-line react/prop-types
-    // this.props.onTimeUpdate(e.target.currentTime)
+    this.props.hookOnTimeUpdate(e.target.currentTime)
   }
 
   render() {
