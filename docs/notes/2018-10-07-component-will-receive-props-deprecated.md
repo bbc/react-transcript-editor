@@ -13,7 +13,45 @@ we can massage that later for the odd case when you want to load another transcr
 
 `this.state.transcriptData === null`
 
-----
+---
+
+refactored this 
+
+```js
+componentWillReceiveProps(nextProps) {
+    // TODO: use currentTime info to highlight text in draftJs
+    console.log('nextProps.currentTime', nextProps.currentTime);
+    
+    if(this.state.transcriptData === null){
+      this.setState({
+        transcriptData: nextProps.transcriptData
+      },() => {
+        this.loadData();
+      }
+    );
+    }
+  }
+```
+to 
+
+```js
+static getDerivedStateFromProps(nextProps, prevState){
+    if(nextProps.transcriptData !== null){
+      return {
+        transcriptData: nextProps.transcriptData
+      }
+    }
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.transcriptData !== this.state.transcriptData){
+      this.loadData();
+    }
+  }
+```
+
+---
 
 later `this.state.transcriptData !== nexProps.transcriptData` would be nicer but comparing objects like that is trickier unless you go to immutable.js or something for now just care about loading transcript once
 

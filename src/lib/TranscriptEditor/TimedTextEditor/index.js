@@ -28,16 +28,18 @@ class TimedTextEditor extends React.Component {
     this.loadData();
   }
 
-  componentWillReceiveProps(nextProps) {
-    // TODO: use currentTime info to highlight text in draftJs
-    console.log('nextProps.currentTime',nextProps.currentTime);
-    if(this.state.transcriptData === null){
-      this.setState({
+  static getDerivedStateFromProps(nextProps, prevState){
+    if(nextProps.transcriptData !== null){
+      return {
         transcriptData: nextProps.transcriptData
-      },() => {
-        this.loadData();
       }
-    );
+    }
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.transcriptData !== this.state.transcriptData){
+      this.loadData();
     }
   }
 
