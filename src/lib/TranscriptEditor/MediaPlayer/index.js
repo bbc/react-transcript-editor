@@ -33,7 +33,7 @@ class MediaPlayer extends React.Component {
   render() {
     // conditional, if media player not defined then don't show
     let mediaPlayer;
-    if (this.props.mediaUrl !== '') {
+    if (this.props.mediaUrl !== null) {
       mediaPlayer = (
           <video
           id="video"

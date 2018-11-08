@@ -31,19 +31,22 @@ class TimedTextEditor extends React.Component {
   }
 
   componentWillReceiveProps(nexProps) {
-    this.setState({
+    console.log('this.state.transcriptData ',this.state.transcriptData);
+    if(this.state.transcriptData === null){
+      this.setState({
         transcriptData: nexProps.transcriptData
-      },
-      () => {
+      },() => {
         this.loadData();
       }
     );
+    }
   }
 
   loadData() {
-    if (this.props.transcriptData !== '') {
+    if (this.props.transcriptData !== null) {
       const blocks = bbcKaldiToDraft(this.props.transcriptData);
       const entityRanges = blocks.map(block => block.entityRanges);
+      // eslint-disable-next-line no-use-before-define
       const flatEntityRanges = flatten(entityRanges);
       
       const entityMap = {};
@@ -58,10 +61,8 @@ class TimedTextEditor extends React.Component {
      
       const contentState = convertFromRaw({ blocks, entityMap });
 
-      const editorState = EditorState.createWithContent(
-        contentState,
-        decorator
-      );
+      // eslint-disable-next-line no-use-before-define
+      const editorState = EditorState.createWithContent(contentState, decorator);
 
       this.setState({ editorState });
     }
