@@ -64,6 +64,7 @@
   ],
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "draft-js": "^0.10.5"
+    "draft-js": "^0.10.5",
+    "node-timecodes": "^2.5.0"
   }
 }

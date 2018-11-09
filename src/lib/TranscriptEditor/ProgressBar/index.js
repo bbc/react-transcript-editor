@@ -3,7 +3,7 @@ import React from 'react';
 class ProgressBar extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   render() {
-    return <h3>ProgressBar</h3>;
+    return <h3></h3>;
   }
 }
 

@@ -32,13 +32,13 @@ class TranscriptEditor extends React.Component {
                     <ProgressBar 
                     />
                 </header>
-                <nav className={ styles.nav }>
+                <aside className={ styles.nav }>
                     <MediaPlayer 
                     hookSeek={ (foo) => this.setCurrentTime = foo }
                     hookOnTimeUpdate={ this.handleTimeUpdate }
                     mediaUrl={ this.props.mediaUrl } 
                     />
-                </nav>
+                </aside>
                 <main className={ styles.main }>
                     <TimedTextEditor 
                     transcriptData={ this.props.transcriptData } 

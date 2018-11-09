@@ -73,7 +73,7 @@ class App extends React.Component {
     return (
         <div className={ styles.container }>
             <span className={ styles.title }>
-          Demo page for React Transcript Editor - Component |{' '}
+            🎧 Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
                 <a
             href="https://github.com/bbc/react-transcript-editor"
             rel="noopener noreferrer"
