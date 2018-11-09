@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './index.module.css';
-import timecodes from 'node-timecodes';
+// import timecodes from 'node-timecodes';
+import { timecodeToSeconds, secondsToTimecode  } from '../../Util/timecode-converter/index.js';
 
 // inspired by https://github.com/bbc/nm2/blob/master/src/components/chapter/video/Video.jsx
 
@@ -18,56 +19,22 @@ class MediaPlayer extends React.Component {
 
   componentDidMount(){
     this.props.hookSeek(this.setCurrentTime)
-    if(this.videoRef.current !== null){
-      this.videoRef.current.oncanplay(()=>{
-        console.log('yo');
-      })
-    }
   }
 
-  // number with decimal places for seconds
-  // timecode hh:mm:ss:ms
-  // number as string?
   setCurrentTime = (newCurrentTime) => {
     if(newCurrentTime!=='' && newCurrentTime!==null){
-    let newCurrentTimeInSeconds = newCurrentTime;   
-    // TODO: refactor to catch only allowed values, 
-    // seconds and + timecodes hh:mm:ss:ms 
-    // also add support for shorter timecodes. eg mm:ss and alternative notation, with ; and , 
-    // also check that the tiemcode requeste din second is greater then zero and less then or equal to duration of media
-    // make as separate helper module?
-    if(typeof newCurrentTimeInSeconds !== 'number'){
-      if( newCurrentTimeInSeconds.includes(':')){
-        // hh:mm:ss:ms --> already in right format
-        if(newCurrentTimeInSeconds.split(':').length === 4){
-          newCurrentTimeInSeconds = timecodes.toSeconds(newCurrentTime);
-        }
-         // mm:ss --> convert to hh:mm:ss:ms
-        if(newCurrentTimeInSeconds.split(':').length === 2){
-          // if it's m:ss
-         if(newCurrentTimeInSeconds.split(':')[ 0 ].length ==1){
-          newCurrentTimeInSeconds = `0${ newCurrentTimeInSeconds.split(':')[ 0 ] }:${ newCurrentTimeInSeconds.split(':')[ 1 ] }`;
-          } 
-          newCurrentTimeInSeconds = `00:${ newCurrentTimeInSeconds }:00`;
-          newCurrentTimeInSeconds = timecodes.toSeconds(newCurrentTimeInSeconds);
-        }
-      }
-    }
-    // accounting for timecode offset if present
-    // if(this.state.timecodeOffset !== 0){
-    //   newCurrentTimeInSeconds = newCurrentTime - this.state.timecodeOffset;
-    // }
-    if (this.videoRef.current  !== null) {
-      const videoRef = this.videoRef.current;
-      // videoRef.load();
-      if ( videoRef.readyState === 4 ) {
-        // it's loaded
-        videoRef.currentTime = newCurrentTimeInSeconds;
+    // hh:mm:ss:ms - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
+      const newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTime); 
 
-        videoRef.play();
+      if (this.videoRef.current  !== null) {
+        const videoRef = this.videoRef.current;
+        // videoRef.load();
+        if ( videoRef.readyState === 4 ) {
+          // it's loaded
+          videoRef.currentTime = newCurrentTimeInSeconds;
+          videoRef.play();
+        }
       }
-      
-    }
     }
   }
 
@@ -76,7 +43,7 @@ class MediaPlayer extends React.Component {
       // use similar helper function from above to convert 
       let newCurrentTimeInSeconds = newTimeCodeOffSet;
       if(newTimeCodeOffSet.includes(':')){
-        newCurrentTimeInSeconds = timecodes.toSeconds(newTimeCodeOffSet);
+        newCurrentTimeInSeconds = timecodeToSeconds(newTimeCodeOffSet);
         this.setState({ timecodeOffset: newCurrentTimeInSeconds })
       }
     }
@@ -174,9 +141,9 @@ class MediaPlayer extends React.Component {
 
   render() {
     // conditional, if media player not defined then don't show
-    let mediaPlayer;
+    let mediaPlayerEl;
     if (this.props.mediaUrl !== null) {
-      mediaPlayer = (
+      mediaPlayerEl = (
           <video
           id="video"
           playsInline
@@ -204,7 +171,7 @@ class MediaPlayer extends React.Component {
             className={ styles.progressBar } 
             max={ this.videoRef.current!== null? parseInt(this.videoRef.current.duration) : '100' }
             value= { this.videoRef.current!== null? parseInt(this.videoRef.current.currentTime) : '0' }
-            onClick={ this.handleProgressBarClick }
+            onClick={ (e)=>{ this.handleProgressBarClick(e) } }
             />
 
         <br/>
@@ -212,14 +179,14 @@ class MediaPlayer extends React.Component {
         {this.videoRef.current!== null? <button onClick={ ()=>{ this.playMedia()} }> {this.isPlaying()? '❚❚' : '▶'} </button>:''}
         ️
         {/* Display timecodes */}
-        <code>{this.videoRef.current!== null ? timecodes.fromSeconds(this.videoRef.current.currentTime + this.state.timecodeOffset): '00:00:00:00'}</code>
+        <code>{this.videoRef.current!== null ? secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset): '00:00:00:00'}</code>
             /
-        <code>{this.videoRef.current!== null ?  timecodes.fromSeconds(this.videoRef.current.duration + this.state.timecodeOffset): '00:00:00:00'}</code>
+        <code>{this.videoRef.current!== null ?  secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset): '00:00:00:00'}</code>
 
         <button type="button" onClick={ ()=>{ this.setCurrentTime( prompt('Timecode - hh:mm:ss:ms - mm:ss - m:ss - Seconds '))} }>Jump To Timecode ⏱</button>
         <button type="button" onClick={ ()=>{ this.setTimeCodeOffset( prompt('Timecode offset as - hh:mm:ss:ms'))} }>Set Timecode Offset ⏱</button>
 
-        <output><code>{timecodes.fromSeconds(this.state.timecodeOffset)}</code></output>
+        <output><code>{secondsToTimecode(this.state.timecodeOffset)}</code></output>
             
         {/* Volume Toggle */}
         <p>Volume</p>
@@ -253,7 +220,7 @@ class MediaPlayer extends React.Component {
         <br/>
         <button type="button" onClick={ ()=> { this.setPlayBackRate(1)} }>Reset</button>
             
-        {/* Rollback ⟲ ↺ */}
+        {/* Rollback ⟲ ↺  */}
         <p>Rollback  
             <b> <output >{  `x${ this.state.rollBackValueInSeconds }` }</output></b> Seconds
         </p>
@@ -272,10 +239,8 @@ class MediaPlayer extends React.Component {
 
     return (
         <section className={ styles.videoSection }>
-            {mediaPlayer}
-
+            {mediaPlayerEl}
             {this.props.mediaUrl !== null?  playerControlsSection:''}
-           
         </section>
         );
   }

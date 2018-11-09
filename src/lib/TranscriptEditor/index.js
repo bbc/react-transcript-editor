@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './index.module.css';
 
 import TimedTextEditor from './TimedTextEditor/index.js';
-import ProgressBar from './ProgressBar/index.js';
 import MediaPlayer from './MediaPlayer/index.js';
 
 class TranscriptEditor extends React.Component {
@@ -29,8 +28,7 @@ class TranscriptEditor extends React.Component {
         return (
             <section className={ styles.container }>
                 <header className={ styles.header }>
-                    <ProgressBar 
-                    />
+                  
                 </header>
                 <aside className={ styles.nav }>
                     <MediaPlayer 
