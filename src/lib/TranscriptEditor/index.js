@@ -34,6 +34,7 @@ class TranscriptEditor extends React.Component {
                 </header>
                 <aside className={ styles.nav }>
                     <MediaPlayer 
+                    // eslint-disable-next-line no-return-assign
                     hookSeek={ (foo) => this.setCurrentTime = foo }
                     hookOnTimeUpdate={ this.handleTimeUpdate }
                     mediaUrl={ this.props.mediaUrl } 

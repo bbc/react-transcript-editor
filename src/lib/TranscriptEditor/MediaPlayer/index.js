@@ -11,28 +11,74 @@ class MediaPlayer extends React.Component {
 
     this.state = {
       playBackRate:1,
-      rollBackValueInSeconds: 15
+      rollBackValueInSeconds: 15,
+      timecodeOffset: 0
     }
   }
 
   componentDidMount(){
     this.props.hookSeek(this.setCurrentTime)
+    if(this.videoRef.current !== null){
+      this.videoRef.current.oncanplay(()=>{
+        console.log('yo');
+      })
+    }
   }
 
-  play(){
-
-  }
-
+  // number with decimal places for seconds
+  // timecode hh:mm:ss:ms
+  // number as string?
   setCurrentTime = (newCurrentTime) => {
+    if(newCurrentTime!=='' && newCurrentTime!==null){
+    let newCurrentTimeInSeconds = newCurrentTime;   
+    // TODO: refactor to catch only allowed values, 
+    // seconds and + timecodes hh:mm:ss:ms 
+    // also add support for shorter timecodes. eg mm:ss and alternative notation, with ; and , 
+    // also check that the tiemcode requeste din second is greater then zero and less then or equal to duration of media
+    // make as separate helper module?
+    if(typeof newCurrentTimeInSeconds !== 'number'){
+      if( newCurrentTimeInSeconds.includes(':')){
+        // hh:mm:ss:ms --> already in right format
+        if(newCurrentTimeInSeconds.split(':').length === 4){
+          newCurrentTimeInSeconds = timecodes.toSeconds(newCurrentTime);
+        }
+         // mm:ss --> convert to hh:mm:ss:ms
+        if(newCurrentTimeInSeconds.split(':').length === 2){
+          // if it's m:ss
+         if(newCurrentTimeInSeconds.split(':')[ 0 ].length ==1){
+          newCurrentTimeInSeconds = `0${ newCurrentTimeInSeconds.split(':')[ 0 ] }:${ newCurrentTimeInSeconds.split(':')[ 1 ] }`;
+          } 
+          newCurrentTimeInSeconds = `00:${ newCurrentTimeInSeconds }:00`;
+          newCurrentTimeInSeconds = timecodes.toSeconds(newCurrentTimeInSeconds);
+        }
+      }
+    }
+    // accounting for timecode offset if present
+    // if(this.state.timecodeOffset !== 0){
+    //   newCurrentTimeInSeconds = newCurrentTime - this.state.timecodeOffset;
+    // }
     if (this.videoRef.current  !== null) {
       const videoRef = this.videoRef.current;
       // videoRef.load();
       if ( videoRef.readyState === 4 ) {
         // it's loaded
-        videoRef.currentTime = newCurrentTime;
+        videoRef.currentTime = newCurrentTimeInSeconds;
+
         videoRef.play();
       }
       
+    }
+    }
+  }
+
+  setTimeCodeOffset = (newTimeCodeOffSet)=>{
+    if(newTimeCodeOffSet!=='' && newTimeCodeOffSet!==null){
+      // use similar helper function from above to convert 
+      let newCurrentTimeInSeconds = newTimeCodeOffSet;
+      if(newTimeCodeOffSet.includes(':')){
+        newCurrentTimeInSeconds = timecodes.toSeconds(newTimeCodeOffSet);
+        this.setState({ timecodeOffset: newCurrentTimeInSeconds })
+      }
     }
   }
 
@@ -110,18 +156,20 @@ class MediaPlayer extends React.Component {
   }
 
   handleProgressBarClick = (e) =>{
-    // length of the bar
-    const lengthOfBar =  e.target.offsetWidth; 
-    // distance of the position of the lick from the start of the progress bar element
-    // location of click - start point of the bar 
-    const clickLength = e.screenX - e.target.offsetLeft;
-    const positionPercentage = clickLength / lengthOfBar;
-    // total time
-    const totalTime = e.target.max;
-    const resultInSeconds = totalTime * positionPercentage;  
-    // rounding up 
-    const roundNewCurrentTime = parseFloat((resultInSeconds).toFixed(2));
-    this.setCurrentTime(roundNewCurrentTime);
+    if(this.videoRef.current!== null){
+      // length of the bar
+      const lengthOfBar =  e.target.offsetWidth; 
+      // distance of the position of the lick from the start of the progress bar element
+      // location of click - start point of the bar 
+      const clickLength = e.screenX - e.target.offsetLeft;
+      const positionPercentage = clickLength / lengthOfBar;
+      // total time
+      const totalTime = e.target.max;
+      const resultInSeconds = totalTime * positionPercentage;  
+      // rounding up 
+      const roundNewCurrentTime = parseFloat((resultInSeconds).toFixed(2));
+      this.setCurrentTime(roundNewCurrentTime);
+    }
   }
 
   render() {
@@ -164,12 +212,17 @@ class MediaPlayer extends React.Component {
         {this.videoRef.current!== null? <button onClick={ ()=>{ this.playMedia()} }> {this.isPlaying()? '❚❚' : '▶'} </button>:''}
         ️
         {/* Display timecodes */}
-        <code>{this.videoRef.current!== null ? timecodes.fromSeconds(this.videoRef.current.currentTime): '00:00:00:00'}</code>
+        <code>{this.videoRef.current!== null ? timecodes.fromSeconds(this.videoRef.current.currentTime + this.state.timecodeOffset): '00:00:00:00'}</code>
             /
-        <code>{this.videoRef.current!== null ?  timecodes.fromSeconds(this.videoRef.current.duration): '00:00:00:00'}</code>
+        <code>{this.videoRef.current!== null ?  timecodes.fromSeconds(this.videoRef.current.duration + this.state.timecodeOffset): '00:00:00:00'}</code>
+
+        <button type="button" onClick={ ()=>{ this.setCurrentTime( prompt('Timecode - hh:mm:ss:ms - mm:ss - m:ss - Seconds '))} }>Jump To Timecode ⏱</button>
+        <button type="button" onClick={ ()=>{ this.setTimeCodeOffset( prompt('Timecode offset as - hh:mm:ss:ms'))} }>Set Timecode Offset ⏱</button>
+
+        <output><code>{timecodes.fromSeconds(this.state.timecodeOffset)}</code></output>
             
+        {/* Volume Toggle */}
         <p>Volume</p>
-        {/* <!-- Rectangular switch --> */}
         <label className={ styles.switch }>
             <input type="checkbox" 
                 defaultChecked="true" 
@@ -178,6 +231,7 @@ class MediaPlayer extends React.Component {
             <span className={ styles.slider }></span>
         </label>
 
+        {/* Playback Rate  */}
         <p>Playback Rate 
             <b> <output >{  `x${ this.state.playBackRate }` }</output> </b>
         </p>
@@ -213,13 +267,14 @@ class MediaPlayer extends React.Component {
               /> 
         <br/>
         <button type="button" onClick={ ()=> { this.rollBack()} }>↺</button>
+
     </section>;
 
     return (
         <section className={ styles.videoSection }>
             {mediaPlayer}
 
-            { this.videoRef.current!== null?  playerControlsSection:''}
+            {this.props.mediaUrl !== null?  playerControlsSection:''}
            
         </section>
         );

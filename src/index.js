@@ -73,7 +73,7 @@ class App extends React.Component {
     return (
         <div className={ styles.container }>
             <span className={ styles.title }>
-            🎧 Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
+            Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
                 <a
             href="https://github.com/bbc/react-transcript-editor"
             rel="noopener noreferrer"
@@ -100,6 +100,8 @@ class App extends React.Component {
             <button onClick={ () => this.handleChangeLoadMediaUrl() }>
           Load Media From Url
             </button>
+
+            <hr/>
 
             <TranscriptEditor
           transcriptData={ this.state.transcriptData }
