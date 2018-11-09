@@ -183,10 +183,15 @@ class MediaPlayer extends React.Component {
             /
         <code>{this.videoRef.current!== null ?  secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset): '00:00:00:00'}</code>
 
-        <button type="button" onClick={ ()=>{ this.setCurrentTime( prompt('Timecode - hh:mm:ss:ms - mm:ss - m:ss - Seconds '))} }>Jump To Timecode ⏱</button>
-        <button type="button" onClick={ ()=>{ this.setTimeCodeOffset( prompt('Timecode offset as - hh:mm:ss:ms'))} }>Set Timecode Offset ⏱</button>
-
+        <button type="button" onClick={ ()=>{ this.setCurrentTime( prompt('Jump to timecode'))} }>Jump To Timecode ⏱</button>
+        
+        <button type="button" onClick={ ()=>{ this.setTimeCodeOffset( prompt('Add a timecode offset'))} }>Set Timecode Offset ⏱</button>
         <output><code>{secondsToTimecode(this.state.timecodeOffset)}</code></output>
+        <br/>
+        <label>Supported timecode formats</label>
+        <br/>
+        <code>hh:mm:ss:ms</code>  <code>mm:ss</code>  <code>m:ss</code> <code>m.ss</code>  <code>seconds</code>  <code>hh:mm:ss</code>
+        <br/>
             
         {/* Volume Toggle */}
         <p>Volume</p>

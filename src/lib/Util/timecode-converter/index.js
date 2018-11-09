@@ -1,11 +1,15 @@
+/**
+ * Wrapping around 
+ * https://www.npmjs.com/package/node-timecodes 
+ * To provide more support for variety of formats.
+ */
 import timecodes from 'node-timecodes';
 
 const secondsToTimecode = (time)=>{
     if(typeof newCurrentTimeInSeconds !== 'number'){
         return timecodes.fromSeconds(parseFloat(time))
     }
-    return timecodes.fromSeconds(time)
-    
+    return timecodes.fromSeconds(time)   
 }
 
 /**
