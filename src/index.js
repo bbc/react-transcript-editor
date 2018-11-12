@@ -4,6 +4,7 @@ import { TranscriptEditor } from './lib';
 // import kaldiTranscript from './sample-data/kaldi-transcription-20181029235300.json';
 import kaldiTedTalkTranscript from './sample-data/KateDarling_2018S-bbc-kaldi.json';
 import styles from './index.module.css';
+import SttTypeSelect from './select-stt-json-type.js'
 
 const tedTalkVideoUrl =
   'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
@@ -14,7 +15,8 @@ class App extends React.Component {
     this.state = {
       transcriptData: null,
       mediaUrl: null,
-      isTextEditable: true
+      isTextEditable: true,
+      sttType: 'bbckaldi'
     };
     // this.handleChangeLoadTranscriptJson = this.handleChangeLoadTranscriptJson.bind(this);
   }
@@ -76,6 +78,12 @@ class App extends React.Component {
     })
   }
 
+  // https://stackoverflow.com/questions/21733847/react-jsx-selecting-selected-on-selected-select-option
+  handleSttTypeChange = (event) =>{
+    console.log(event.target.name ,event.target.value )
+    this.setState({ [ event.target.name ]: event.target.value });
+  }
+
   render() {
     return (
         <div className={ styles.container }>
@@ -97,6 +105,12 @@ class App extends React.Component {
           type="file"
           onChange={ e => this.handleChangeLoadTranscriptJson(e.target.files) }
         />
+            <SttTypeSelect
+            name={ 'sttType' }
+            value={ this.state.sttType }
+            handleChange={ this.handleSttTypeChange }
+           />
+
             <br />
             <label>Load Local Media</label>
             <input
@@ -121,10 +135,11 @@ class App extends React.Component {
             <hr/>
 
             <TranscriptEditor
-          transcriptData={ this.state.transcriptData }
-          mediaUrl={ this.state.mediaUrl }
-          isEditable={ this.state.isTextEditable }
-        />
+              transcriptData={ this.state.transcriptData }
+              mediaUrl={ this.state.mediaUrl }
+              isEditable={ this.state.isTextEditable }
+              sttJsonType={ this.state.sttType }
+            />
         </div>
     );
   }

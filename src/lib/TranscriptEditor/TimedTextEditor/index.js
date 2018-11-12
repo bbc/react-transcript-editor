@@ -9,7 +9,7 @@ import {
 } from 'draft-js';
 
 import Word from './Word';
-import bbcKaldiToDraft from './adapters/bbc-kaldi/index.js';
+import sttJsonAdapter from './adapters/index.js';
 import styles from './index.module.css';
 
 class TimedTextEditor extends React.Component {
@@ -18,7 +18,8 @@ class TimedTextEditor extends React.Component {
     this.state = {
       editorState: EditorState.createEmpty(),
       transcriptData: this.props.transcriptData,
-      isEditable: this.props.isEditable
+      isEditable: this.props.isEditable,
+      sttJsonType: this.props.sttJsonType
     };
 
     this.onChange = (editorState) =>{
@@ -51,7 +52,7 @@ class TimedTextEditor extends React.Component {
 
   loadData() {
     if (this.props.transcriptData !== null) {
-      const blocks = bbcKaldiToDraft(this.props.transcriptData);
+      const blocks = sttJsonAdapter(this.props.transcriptData, this.props.sttJsonType);
       const entityRanges = blocks.map(block => block.entityRanges);
       // eslint-disable-next-line no-use-before-define
       const flatEntityRanges = flatten(entityRanges);
