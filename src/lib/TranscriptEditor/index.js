@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './index.module.css';
 
 import TimedTextEditor from './TimedTextEditor/index.js';
-import ProgressBar from './ProgressBar/index.js';
 import MediaPlayer from './MediaPlayer/index.js';
 
 class TranscriptEditor extends React.Component {
@@ -29,21 +28,22 @@ class TranscriptEditor extends React.Component {
         return (
             <section className={ styles.container }>
                 <header className={ styles.header }>
-                    <ProgressBar 
-                    />
+                  
                 </header>
-                <nav className={ styles.nav }>
+                <aside className={ styles.nav }>
                     <MediaPlayer 
+                    // eslint-disable-next-line no-return-assign
                     hookSeek={ (foo) => this.setCurrentTime = foo }
                     hookOnTimeUpdate={ this.handleTimeUpdate }
                     mediaUrl={ this.props.mediaUrl } 
                     />
-                </nav>
+                </aside>
                 <main className={ styles.main }>
                     <TimedTextEditor 
                     transcriptData={ this.props.transcriptData } 
                     onWordClick={ this.handleWordClick }
                     currentTime={ this.state.currentTime } 
+                    isEditable={ this.props.isEditable }
                     />
                 </main>
                 {/* <aside className={ styles.aside }>Settings</aside> */}

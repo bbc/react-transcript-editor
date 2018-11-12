@@ -14,3 +14,16 @@ body{
 .title{
   font-size: 1.5rem;
 }
+
+/* https://www.w3schools.com/css/css3_buttons.asp */
+button {
+  background-color: white; 
+  color: black;
+  border: none;
+  padding: 4px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin:3px;
+}
