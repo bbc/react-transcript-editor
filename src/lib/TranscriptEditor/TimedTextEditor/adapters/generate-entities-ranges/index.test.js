@@ -78,7 +78,7 @@ const expectedValue = [
   ];
 
 describe('Generate Entity Ranges', function () {
-  const result = generateEntitiesRanges(exampleWords);
+  const result = generateEntitiesRanges(exampleWords, 'punct');
   const resultFirstElement = result[ 0 ];
   it('Should be defined', ( )=> {
     expect(result).toBeDefined();

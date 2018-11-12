@@ -24,6 +24,8 @@
         ];
 ```
  *
+ * See samples folder and test file 
+ * for reference data structures
  */
 
 import generateEntitiesRanges from '../generate-entities-ranges/index.js';
@@ -34,42 +36,46 @@ import generateEntitiesRanges from '../generate-entities-ranges/index.js';
  * @param {array} words - array of words opbjects from kaldi transcript
  */
 
-const groupWordsInParagraphs = words => {
+const groupWordsInParagraphs = autoEditText => {
   const results = [];
   let paragraph = { words: [], text: [] };
 
-  words.forEach(word => {
-    // if word contains punctuation
-    if (/[.?!]/.test(word.punct)) {
-      paragraph.words.push(word);
-      paragraph.text.push(word.punct);
-      results.push(paragraph);
-      // reset paragraph
-      paragraph = { words: [], text: [] };
-    } else {
-      paragraph.words.push(word);
-      paragraph.text.push(word.punct);
-    }
+  autoEditText.forEach(autoEditparagraph => {
+    autoEditparagraph.paragraph.forEach(autoEditLine => {
+      autoEditLine.line.forEach(word => {
+        // adjusting time reference attributes from 
+        //`startTime` `endTime` to `start` `end`
+        // for word object 
+        const tmpWord= { 
+          text: word.text, 
+          start: word.startTime, 
+          end: word.endTime };
+        //  if word contains punctuation
+         if (/[.?!]/.test(word.text)) {
+          paragraph.words.push(tmpWord);
+          paragraph.text.push(word.text);
+          results.push(paragraph);
+          // reset paragraph
+          paragraph = { words: [], text: [] };
+        } else {
+          paragraph.words.push(tmpWord);
+          paragraph.text.push(word.text);
+        }
+      })
+    })
   });
 
   return results;
 };
 
-const autoEdit2ToDraft = bbcKaldiJson => {
+const autoEdit2ToDraft = autoEdit2Json => {
   const results = [];
-  let tmpWords;
-
-  // BBC Octo Labs API Response wraps Kaldi response around retval,
-  // while kaldi contains word attribute at root
-  if (bbcKaldiJson.retval !== undefined) {
-    tmpWords = bbcKaldiJson.retval.words;
-  } else {
-    tmpWords = bbcKaldiJson.words;
-  }
-
+  const  tmpWords = autoEdit2Json.text;
   const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
+  // console.log(wordsByParagraphs);
 
   wordsByParagraphs.forEach(paragraph => {
+    // console.log(paragraph.words);
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
       type: 'paragraph',
@@ -78,12 +84,12 @@ const autoEdit2ToDraft = bbcKaldiJson => {
       },
       // the entities as ranges are each word in the space-joined text, 
       // so it needs to be compute for each the offset from the beginning of the paragraph and the length
-      entityRanges: generateEntitiesRanges(paragraph.words)
+      entityRanges: generateEntitiesRanges(paragraph.words, 'text')
     };
     // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
     results.push(draftJsContentBlockParagraph);
   });
-
+  // console.log(JSON.stringify(results,null,2))
   return results;
 };
 
