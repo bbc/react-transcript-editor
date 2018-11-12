@@ -59,7 +59,7 @@
 .main {
   flex: 1;
   padding: 20px;
-
+  height: 75vh;
   background-color:#fff;
   box-shadow: 0 0 10px #ccc;
 }

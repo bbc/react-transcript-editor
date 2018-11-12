@@ -13,7 +13,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       transcriptData: null,
-      mediaUrl: null
+      mediaUrl: null,
+      isTextEditable: true
     };
     // this.handleChangeLoadTranscriptJson = this.handleChangeLoadTranscriptJson.bind(this);
   }
@@ -69,6 +70,12 @@ class App extends React.Component {
     fr.readAsText(file);
   }
 
+  handleIsTextEditable = (e)=>{
+    this.setState((prevState,props) => {
+      return { isTextEditable: (prevState.isTextEditable) === true ? false: true }
+    })
+  }
+
   render() {
     return (
         <div className={ styles.container }>
@@ -101,11 +108,22 @@ class App extends React.Component {
           Load Media From Url
             </button>
 
+            <p>Text Is Editable
+                <label className={ styles.switch }>
+                    <input type="checkbox" 
+                  defaultChecked="true" 
+                  onChange={ this.handleIsTextEditable }
+                  />
+                    <span className={ styles.slider }></span>
+                </label>
+            </p>
+
             <hr/>
 
             <TranscriptEditor
           transcriptData={ this.state.transcriptData }
           mediaUrl={ this.state.mediaUrl }
+          isEditable={ this.state.isTextEditable }
         />
         </div>
     );

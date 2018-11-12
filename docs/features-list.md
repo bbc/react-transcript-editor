@@ -6,14 +6,14 @@ Player controls
 - [x] play/pause  
 - [x] Current time + duration display
 - [X] Adjust Playback rate 
-- [x] Jump to timecode <—  in timecode `hh:mm:ss:ms` format or seconds 
+- [x] Jump to timecode <—  in timecode `hh:mm:ss:ms` format or (hh:mm:ss:ms hh:mm:ss mm:ss m:ss m.ss seconds)
 - [x] Adjust timecodes <— set a timecode offset - default to zero  
 
 <!-- - [ ] UI Turn off video preview (toggle on/off) -->
 - [x] Roll back button 15 sec default, customizable amount 
 
 Keyboard Shortcuts 
-- [ ] Keyboard Shortcuts 
+- [X] Keyboard Shortcuts 
 - [ ] customizable Keyboard Shortcuts 
 
 HyperTranscript - interactivity 

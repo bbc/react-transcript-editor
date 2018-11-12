@@ -10,7 +10,6 @@ import {
 
 import Word from './Word';
 import bbcKaldiToDraft from './adapters/bbc-kaldi/index.js';
-
 import styles from './index.module.css';
 
 class TimedTextEditor extends React.Component {
@@ -18,10 +17,16 @@ class TimedTextEditor extends React.Component {
     super(props);
     this.state = {
       editorState: EditorState.createEmpty(),
-      transcriptData: this.props.transcriptData
+      transcriptData: this.props.transcriptData,
+      isEditable: this.props.isEditable
     };
 
-    this.onChange = editorState => this.setState({ editorState });
+    this.onChange = (editorState) =>{
+      // DraftJs option editable
+      if(this.state.isEditable){
+        this.setState({ editorState });
+      }
+    } 
   }
 
   componentDidMount() {
@@ -31,7 +36,8 @@ class TimedTextEditor extends React.Component {
   static getDerivedStateFromProps(nextProps, prevState){
     if(nextProps.transcriptData !== null){
       return {
-        transcriptData: nextProps.transcriptData
+        transcriptData: nextProps.transcriptData,
+        isEditable: nextProps.isEditable
       }
     }
     return null;

@@ -65,6 +65,8 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "draft-js": "^0.10.5",
-    "node-timecodes": "^2.5.0"
+    "mousetrap": "^1.6.2",
+    "node-timecodes": "^2.5.0",
+    "react-keyboard-shortcuts": "^1.1.3"
   }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './index.module.css';
-// import timecodes from 'node-timecodes';
+import returnHotKeys from './defaultHotKeys.js';
+// https://www.npmjs.com/package/react-keyboard-shortcuts
+import { hotkeys } from 'react-keyboard-shortcuts';
 import { timecodeToSeconds, secondsToTimecode  } from '../../Util/timecode-converter/index.js';
 
 // inspired by https://github.com/bbc/nm2/blob/master/src/components/chapter/video/Video.jsx
@@ -9,19 +11,24 @@ class MediaPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.videoRef = React.createRef();
+    this.playbackRateInputRange = React.createRef();
 
     this.state = {
       playBackRate:1,
       rollBackValueInSeconds: 15,
-      timecodeOffset: 0
+      timecodeOffset: 0,
+      hotKeys: returnHotKeys(this)
     }
   }
 
+  hot_keys = returnHotKeys(this)
+
   componentDidMount(){
-    this.props.hookSeek(this.setCurrentTime)
+    this.props.hookSeek(this.setCurrentTime);
   }
 
   setCurrentTime = (newCurrentTime) => {
+    
     if(newCurrentTime!=='' && newCurrentTime!==null){
     // hh:mm:ss:ms - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
       const newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTime); 
@@ -36,6 +43,10 @@ class MediaPlayer extends React.Component {
         }
       }
     }
+  }
+
+  promptSetCurrentTime = () => {
+    this.setCurrentTime( prompt('Jump to timecode - hh:mm:ss:ms hh:mm:ss mm:ss m:ss m.ss seconds'))
   }
 
   setTimeCodeOffset = (newTimeCodeOffSet)=>{
@@ -68,6 +79,36 @@ class MediaPlayer extends React.Component {
     this.setPlayBackRate(e.target.value)
   }
 
+  increasePlaybackRate = () =>{
+    // if(this.videoRef.current!== null){
+    //   this.playbackRateInputRange.current.stepUp(1)
+    // }
+    
+    const currentPlaybackRate = this.getCurrentPlaybackRate();
+    let newPlaybackRate = currentPlaybackRate + 0.1;
+    // rounding up eg 0.8-0.1 =  0.7000000000000001   => 0.7
+    newPlaybackRate  = Number((newPlaybackRate).toFixed(1));
+    this.setPlayBackRate(newPlaybackRate);
+  }
+
+  decreasePlaybackRate = () =>{
+    // if(this.videoRef.current!== null){
+    //   this.playbackRateInputRange.current.stepDown(1)
+    // }
+    const currentPlaybackRate = this.getCurrentPlaybackRate();
+    let newPlaybackRate = currentPlaybackRate - 0.1;
+    // rounding up eg 0.8-0.1 =  0.7000000000000001   => 0.7
+    newPlaybackRate  = Number((newPlaybackRate).toFixed(1));
+    this.setPlayBackRate(newPlaybackRate);
+    
+  }
+
+  getCurrentPlaybackRate = () => {
+    if(this.videoRef.current!== null){
+      return this.videoRef.current.playbackRate;
+    }
+  }
+
   setPlayBackRate = (speedValue) =>{
     // value between 0.2 and 3.5
     if(this.videoRef.current!== null){
@@ -76,7 +117,6 @@ class MediaPlayer extends React.Component {
             playBackRate: speedValue
           },()=>{
               this.videoRef.current.playbackRate = speedValue;
-            
           })
       }
     }
@@ -112,13 +152,36 @@ class MediaPlayer extends React.Component {
     }
   }
   
-  playMedia =(e)=>{
+  playMedia =()=>{
     if(this.videoRef.current!== null){
       if(this.videoRef.current.paused){
         this.videoRef.current.play();
       }else{
         this.videoRef.current.pause();
       }
+    }
+  }
+
+  /**
+   * @todo Consider refactoring using 
+   * https://stackoverflow.com/questions/48048957/react-long-press-event
+   * To enable pressing on forward of backward key to move 
+   */
+  skipForward = () =>{
+    if(this.videoRef.current!== null){
+      const currentTime = this.videoRef.current.currentTime;
+      let newCurrentTime= currentTime + 5;
+      newCurrentTime  = Number((newCurrentTime).toFixed(1));
+      this.setCurrentTime(newCurrentTime);
+    }
+  }
+
+  skipBackward = () =>{
+    if(this.videoRef.current!== null){
+      const currentTime = this.videoRef.current.currentTime;
+      let newCurrentTime= currentTime - 5;
+      newCurrentTime  = Number((newCurrentTime).toFixed(1));
+      this.setCurrentTime(newCurrentTime);
     }
   }
 
@@ -160,11 +223,6 @@ class MediaPlayer extends React.Component {
       );
     }
 
-    let dataListOptionValuesForPlaybackRate = '';
-    for(let i = 0.2; i<=3.6;i+=0.1){
-      dataListOptionValuesForPlaybackRate += `<option value="${ parseFloat(i).toFixed(2) }" />\n`
-    }
-
     const playerControlsSection = <section>
         {/* Progress bar  */}
         <progress 
@@ -176,25 +234,31 @@ class MediaPlayer extends React.Component {
 
         <br/>
         {/* Play / Pause Btn  */}
-        {this.videoRef.current!== null? <button onClick={ ()=>{ this.playMedia()} }> {this.isPlaying()? '❚❚' : '▶'} </button>:''}
-        ️
+        {this.props.mediaUrl !== null? <button onClick={ ()=>{ this.playMedia()} }> {this.isPlaying()? '❚❚' : '▶'} </button>:''}
+       
+        {/* Forward Btn */}
+        {this.props.mediaUrl !== null? <button onClick={ ()=>{ this.skipForward()} }> {'▶▶'} </button>:''}
+        {/* Backward Btn */}
+        {this.props.mediaUrl !== null? <button onClick={ ()=>{ this.skipBackward()} }> {'◀◀'} </button>:''}
+
+         ️<br/>
         {/* Display timecodes */}
         <code>{this.videoRef.current!== null ? secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset): '00:00:00:00'}</code>
             /
         <code>{this.videoRef.current!== null ?  secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset): '00:00:00:00'}</code>
 
-        <button type="button" onClick={ ()=>{ this.setCurrentTime( prompt('Jump to timecode'))} }>Jump To Timecode ⏱</button>
+        <button type="button" onClick={ this.promptSetCurrentTime }>Jump To Timecode ⏱</button>
         
-        <button type="button" onClick={ ()=>{ this.setTimeCodeOffset( prompt('Add a timecode offset'))} }>Set Timecode Offset ⏱</button>
+        <button type="button" onClick={ ()=>{ this.setTimeCodeOffset( prompt('Add a timecode offset hh:mm:ss:ms'))} }>Set Timecode Offset ⏱</button>
         <output><code>{secondsToTimecode(this.state.timecodeOffset)}</code></output>
         <br/>
-        <label>Supported timecode formats</label>
+        {/* <label>Supported timecode formats</label>
         <br/>
         <code>hh:mm:ss:ms</code>  <code>mm:ss</code>  <code>m:ss</code> <code>m.ss</code>  <code>seconds</code>  <code>hh:mm:ss</code>
-        <br/>
+        <br/> */}
             
         {/* Volume Toggle */}
-        <p>Volume</p>
+        <p className={ styles.helpText }>Volume</p>
         <label className={ styles.switch }>
             <input type="checkbox" 
                 defaultChecked="true" 
@@ -204,7 +268,7 @@ class MediaPlayer extends React.Component {
         </label>
 
         {/* Playback Rate  */}
-        <p>Playback Rate 
+        <p className={ styles.helpText }>Playback Rate 
             <b> <output >{  `x${ this.state.playBackRate }` }</output> </b>
         </p>
   
@@ -214,19 +278,16 @@ class MediaPlayer extends React.Component {
               value={ this.state.playBackRate } 
               max="3.5"  
               step="0.1"  
-              list="tickmarks"
+              // list="tickmarks"
               onChange={ this.handlePlayBackRateChange }
+              ref={ this.playbackRateInputRange }
               />
-
-        <datalist id="tickmarks">
-            {dataListOptionValuesForPlaybackRate}
-                
-        </datalist>
+              
         <br/>
         <button type="button" onClick={ ()=> { this.setPlayBackRate(1)} }>Reset</button>
             
         {/* Rollback ⟲ ↺  */}
-        <p>Rollback  
+        <p className={ styles.helpText }>Rollback  
             <b> <output >{  `x${ this.state.rollBackValueInSeconds }` }</output></b> Seconds
         </p>
       
@@ -234,6 +295,7 @@ class MediaPlayer extends React.Component {
               type="range"  
               min="1"
               max="60"  
+              step="1"  
               value={ this.state.rollBackValueInSeconds  } 
               onChange={ this.handleChangeReplayRollbackValue }
               /> 
@@ -242,13 +304,23 @@ class MediaPlayer extends React.Component {
 
     </section>;
 
+    const keyboardShortcutsHelp = Object.keys(this.state.hotKeys).map((shortcutKey,index) =>{
+      return <p className={ styles.helpText }  key={ shortcutKey }><code>{shortcutKey}</code> <small><b>{this.state.hotKeys[ shortcutKey ].helperText}</b></small></p>;
+    })
+
     return (
         <section className={ styles.videoSection }>
             {mediaPlayerEl}
             {this.props.mediaUrl !== null?  playerControlsSection:''}
+           
+            <section><label>{this.props.mediaUrl !== null? 'Keyboard Shortcuts':''}</label>
+                {this.props.mediaUrl !== null? keyboardShortcutsHelp :''}
+            </section>  
         </section>
         );
   }
 }
 
-export default MediaPlayer;
+// export default mouseTrap(MediaPlayer);
+export default hotkeys(MediaPlayer);
+// export default MediaPlayer;
