@@ -23,7 +23,8 @@ class App extends React.Component {
   loadDemo() {
     this.setState({
       transcriptData: kaldiTedTalkTranscript,
-      mediaUrl: tedTalkVideoUrl
+      mediaUrl: tedTalkVideoUrl,
+      sttType: 'bbckaldi'
     });
   }
 

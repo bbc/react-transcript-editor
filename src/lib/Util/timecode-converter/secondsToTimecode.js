@@ -19,7 +19,7 @@ const normalisePlayerTime = function(seconds, fps){
 * @param {*} seconds 
  * @param {*} fps 
  */
-const seconds2timecode = function(seconds, framePerSeconds) {
+const secondsToTimecode = function(seconds, framePerSeconds) {
     // written for PAL non-drop timecode
     let fps = 25;
     if (framePerSeconds !== undefined){
@@ -45,4 +45,4 @@ const seconds2timecode = function(seconds, framePerSeconds) {
         + _n2(frames)
 }
 
-export default seconds2timecode;
+export default secondsToTimecode;

@@ -4,22 +4,25 @@
  * To provide more support for variety of formats.
  */
 import timecodes from 'node-timecodes';
+import secondsToTimecode  from './secondsToTimecode.js';
 
-const secondsToTimecode = (time)=>{
-    if(typeof newCurrentTimeInSeconds !== 'number'){
-        return timecodes.fromSeconds(parseFloat(time))
-    }
-    return timecodes.fromSeconds(time)   
-}
+import timecodeWithFramesToSeconds  from './timecodeWithFramesToSeconds.js';
+
+// const secondsToTimecode = (time)=>{
+//     if(typeof newCurrentTimeInSeconds !== 'number'){
+//         return timecodes.fromSeconds(parseFloat(time))
+//     }
+//     return timecodes.fromSeconds(time)   
+// }
 
 /**
  * @param {*} time 
  * Can take as input timecodes in the following formats 
- * - hh:mm:ss:ms
+ * - hh:mm:ss:ff
  * - mm:ss
  * - m:ss
  * - ss - seconds --> if it's already in seconds then it just returns seconds 
- * - hh:mm:ss
+ * - hh:mm:ff
  * @todo could be refactored with some helper functions for clarity 
  */
 const timecodeToSeconds = (time)=>{
@@ -28,7 +31,7 @@ const timecodeToSeconds = (time)=>{
         if( newCurrentTimeInSeconds.includes(':')){
           // hh:mm:ss:ms --> already in right format
           if(newCurrentTimeInSeconds.split(':').length === 4){
-            newCurrentTimeInSeconds = timecodes.toSeconds(newCurrentTimeInSeconds);
+            newCurrentTimeInSeconds = timecodeWithFramesToSeconds(newCurrentTimeInSeconds);
           }
            // mm:ss --> convert to hh:mm:ss:ms
           else if(newCurrentTimeInSeconds.split(':').length === 2){
@@ -38,12 +41,12 @@ const timecodeToSeconds = (time)=>{
             } 
 
             newCurrentTimeInSeconds = `00:${ newCurrentTimeInSeconds }:00`;
-            newCurrentTimeInSeconds = timecodes.toSeconds(newCurrentTimeInSeconds);
+            newCurrentTimeInSeconds = timecodeWithFramesToSeconds(newCurrentTimeInSeconds);
           }
           //  hh:mm:ss
           else if(newCurrentTimeInSeconds.split(':').length === 3){
             newCurrentTimeInSeconds = `${ newCurrentTimeInSeconds }:00`;
-            newCurrentTimeInSeconds = timecodes.toSeconds(newCurrentTimeInSeconds);
+            newCurrentTimeInSeconds = timecodeWithFramesToSeconds(newCurrentTimeInSeconds);
             }
         }
         // doesn't include : and includes . instead mm.ss
@@ -52,7 +55,7 @@ const timecodeToSeconds = (time)=>{
                 newCurrentTimeInSeconds = `0${ newCurrentTimeInSeconds.split('.')[ 0 ] }:${ newCurrentTimeInSeconds.split('.')[ 1 ] }`;
                 } 
                 newCurrentTimeInSeconds = `00:${ newCurrentTimeInSeconds.replace('.',':') }:00`;
-                newCurrentTimeInSeconds = timecodes.toSeconds(newCurrentTimeInSeconds);
+                newCurrentTimeInSeconds = timecodeWithFramesToSeconds(newCurrentTimeInSeconds);
         }
         // assuming it receive timecode as seconds as string '600'
         else {

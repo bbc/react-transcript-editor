@@ -30,7 +30,7 @@ class MediaPlayer extends React.Component {
   setCurrentTime = (newCurrentTime) => {
     
     if(newCurrentTime!=='' && newCurrentTime!==null){
-    // hh:mm:ss:ms - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
+    // hh:mm:ss:ff - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
       const newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTime); 
 
       if (this.videoRef.current  !== null) {
@@ -46,7 +46,7 @@ class MediaPlayer extends React.Component {
   }
 
   promptSetCurrentTime = () => {
-    this.setCurrentTime( prompt('Jump to timecode - hh:mm:ss:ms hh:mm:ss mm:ss m:ss m.ss seconds'))
+    this.setCurrentTime( prompt('Jump to timecode - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds'))
   }
 
   setTimeCodeOffset = (newTimeCodeOffSet)=>{
@@ -249,7 +249,7 @@ class MediaPlayer extends React.Component {
 
         <button type="button" onClick={ this.promptSetCurrentTime }>Jump To Timecode ⏱</button>
         
-        <button type="button" onClick={ ()=>{ this.setTimeCodeOffset( prompt('Add a timecode offset hh:mm:ss:ms'))} }>Set Timecode Offset ⏱</button>
+        <button type="button" onClick={ ()=>{ this.setTimeCodeOffset( prompt('Add a timecode offset hh:mm:ss:ff'))} }>Set Timecode Offset ⏱</button>
         <output><code>{secondsToTimecode(this.state.timecodeOffset)}</code></output>
         <br/>
         {/* <label>Supported timecode formats</label>
