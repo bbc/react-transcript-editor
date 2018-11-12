@@ -44,6 +44,7 @@ class TranscriptEditor extends React.Component {
                     onWordClick={ this.handleWordClick }
                     currentTime={ this.state.currentTime } 
                     isEditable={ this.props.isEditable }
+                    sttJsonType={ this.props.sttJsonType }
                     />
                 </main>
                 {/* <aside className={ styles.aside }>Settings</aside> */}

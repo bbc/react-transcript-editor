@@ -50,9 +50,11 @@ Import Transcript Json - Adapters
 - [x] BBC Kaldi 
 - [x] News Labs API - BBC Kaldi
 - [ ] autoEdit 2
-- [ ] Gentle Transcription (different from Gentle Alignment Json)
+- [ ] Gentle Transcription 
+- [ ] Gentle Alignment Json
 - [ ] IBM Watson STT
 - [ ] Speechmatics
+- [ ] AssemblyAI
 - [ ] Rev
 - [ ] Srt
 - [ ] SMT and/or CTM ?<!-- SCLite -->
