@@ -3,10 +3,9 @@
  * https://www.npmjs.com/package/node-timecodes 
  * To provide more support for variety of formats.
  */
-import timecodes from 'node-timecodes';
+// import timecodes from 'node-timecodes';
 import secondsToTimecode  from './secondsToTimecode.js';
-
-import timecodeWithFramesToSeconds  from './timecodeWithFramesToSeconds.js';
+import timecodeToSecondsHelper  from './timecodeToSeconds.js';
 
 // const secondsToTimecode = (time)=>{
 //     if(typeof newCurrentTimeInSeconds !== 'number'){
@@ -31,7 +30,7 @@ const timecodeToSeconds = (time)=>{
         if( newCurrentTimeInSeconds.includes(':')){
           // hh:mm:ss:ms --> already in right format
           if(newCurrentTimeInSeconds.split(':').length === 4){
-            newCurrentTimeInSeconds = timecodeWithFramesToSeconds(newCurrentTimeInSeconds);
+            newCurrentTimeInSeconds = timecodeToSecondsHelper(newCurrentTimeInSeconds);
           }
            // mm:ss --> convert to hh:mm:ss:ms
           else if(newCurrentTimeInSeconds.split(':').length === 2){
@@ -41,12 +40,12 @@ const timecodeToSeconds = (time)=>{
             } 
 
             newCurrentTimeInSeconds = `00:${ newCurrentTimeInSeconds }:00`;
-            newCurrentTimeInSeconds = timecodeWithFramesToSeconds(newCurrentTimeInSeconds);
+            newCurrentTimeInSeconds = timecodeToSecondsHelper(newCurrentTimeInSeconds);
           }
           //  hh:mm:ss
           else if(newCurrentTimeInSeconds.split(':').length === 3){
             newCurrentTimeInSeconds = `${ newCurrentTimeInSeconds }:00`;
-            newCurrentTimeInSeconds = timecodeWithFramesToSeconds(newCurrentTimeInSeconds);
+            newCurrentTimeInSeconds = timecodeToSecondsHelper(newCurrentTimeInSeconds);
             }
         }
         // doesn't include : and includes . instead mm.ss
@@ -55,7 +54,7 @@ const timecodeToSeconds = (time)=>{
                 newCurrentTimeInSeconds = `0${ newCurrentTimeInSeconds.split('.')[ 0 ] }:${ newCurrentTimeInSeconds.split('.')[ 1 ] }`;
                 } 
                 newCurrentTimeInSeconds = `00:${ newCurrentTimeInSeconds.replace('.',':') }:00`;
-                newCurrentTimeInSeconds = timecodeWithFramesToSeconds(newCurrentTimeInSeconds);
+                newCurrentTimeInSeconds = timecodeToSecondsHelper(newCurrentTimeInSeconds);
         }
         // assuming it receive timecode as seconds as string '600'
         else {
