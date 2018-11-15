@@ -140,11 +140,13 @@ Test coverage using [`jest`](https://jestjs.io/), to run tests
 
 <!-- _How to deploy the code/app into test/staging/production_ -->
 
-To push to [`npm`](https://npmjs.com)
+To push to  [npm - `@bbc/react-transcript-editor`](https://www.npmjs.com/package/@bbc/react-transcript-editor)
 
 ```
-npm publish
+npm publish:public
 ```
+
+This runs `npm run build:component` and `npm publish --access public` under the hood
 
 > Note that only `README.md` and the `dist` folders are published to npm.
 

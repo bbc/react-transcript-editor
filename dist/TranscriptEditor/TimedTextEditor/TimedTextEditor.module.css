@@ -1,8 +1,0 @@
-/*
-Giving the editor a oveflow 
-https://github.com/facebook/draft-js/issues/528 
- */
-.editor :global(.public-DraftEditor-content) {
-    max-height: 70vh;
-    overflow: auto;
-  }

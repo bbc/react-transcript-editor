@@ -30,7 +30,10 @@
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "enzyme": "^3.7.0",
     "gh-pages": "^2.0.1",
     "husky": "^1.1.3",
@@ -57,7 +60,7 @@
     "url": "https://github.com/bbc/react-transcript-editor/issues"
   },
   "homepage": ".",
-  "repository":{
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/bbc/react-transcript-editor.git"
   },
