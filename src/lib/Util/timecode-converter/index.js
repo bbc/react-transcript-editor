@@ -1,18 +1,10 @@
 /**
- * Wrapping around 
- * https://www.npmjs.com/package/node-timecodes 
+ * Wrapping around "time stamps" and timecode conversion modules
  * To provide more support for variety of formats.
  */
-// import timecodes from 'node-timecodes';
 import secondsToTimecode  from './secondsToTimecode.js';
 import timecodeToSecondsHelper  from './timecodeToSeconds.js';
 import padTimeToTimecode from './padTimeToTimecode.js';
-// const secondsToTimecode = (time)=>{
-//     if(typeof newCurrentTimeInSeconds !== 'number'){
-//         return timecodes.fromSeconds(parseFloat(time))
-//     }
-//     return timecodes.fromSeconds(time)   
-// }
 
 /**
  * @param {*} time 
@@ -29,8 +21,8 @@ const timecodeToSeconds = (time)=>{
       const resultPadded = padTimeToTimecode(time);
       const resultConverted = timecodeToSecondsHelper(resultPadded);
       return resultConverted;
-        // assuming it receive timecode as seconds as string '600'
     } else {
+      // assuming it receive timecode as seconds as string '600'
       return  parseFloat(time);
     }
 }

@@ -1,35 +1,52 @@
+const countColon = (timecode)=>{
+    return timecode.split(':').length;
+}
+
+const includesFullStop = (timecode)=>{
+   return timecode.includes('.');
+}
+
+const isOneDigit = (str) => {
+ return str.length === 1;
+}
+
 const padTimeToTimecode = (time) =>{
-    const newCurrentTimeInSeconds = time;
     if(typeof time === 'string'){
-        if( newCurrentTimeInSeconds.includes(':')){
-            // hh:mm:ss:ms --> already in right format
-            if(newCurrentTimeInSeconds.split(':').length === 4){
-            return newCurrentTimeInSeconds;
-            }
-            // mm:ss --> convert to hh:mm:ss:ms
-            else if(newCurrentTimeInSeconds.split(':').length === 2){
-            // if it's m:ss
-                if(newCurrentTimeInSeconds.split(':')[ 0 ].length ===1){
-                return `00:0${ newCurrentTimeInSeconds }:00`;
+        switch(countColon(time)) {
+            case 4:
+                // is already in timecode format
+                // hh:mm:ss:ff
+                return time;
+            case 2:
+                // m:ss
+                if(isOneDigit(time.split(':')[ 0 ])){
+                    return `00:0${ time }:00`;
                 } 
-            return `00:${ newCurrentTimeInSeconds }:00`;
-            }
-            //  hh:mm:ss
-            else if(newCurrentTimeInSeconds.split(':').length === 3){
-            return `${ newCurrentTimeInSeconds }:00`;
-            }
-        }
-        // doesn't include : and includes . instead mm.ss
-        else if( newCurrentTimeInSeconds.includes('.')){
-            if(newCurrentTimeInSeconds.split('.')[ 0 ].length ===1){
-                return `00:0${ newCurrentTimeInSeconds.split('.')[ 0 ] }:${ newCurrentTimeInSeconds.split('.')[ 1 ] }:00`;
-                } 
-                return `00:${ newCurrentTimeInSeconds.replace('.',':') }:00`;
-                
-        }else{
-            // if just int, then it's seconds
-            return `00:00:${ time }:00`;
-        }
+                // mm:ss
+                return `00:${ time }:00`;
+            case 3:
+                // hh:mm:ss
+                return `${ time }:00`;
+            default:
+                // mm.ss
+                if(includesFullStop(time)){
+                    // m.ss
+                    if(isOneDigit(time.split('.')[ 0 ])){
+                        return `00:0${ time.split('.')[ 0 ] }:${ time.split('.')[ 1 ] }:00`;
+                    } 
+                    // mm.ss
+                    return `00:${ time.replace('.',':') }:00`;
+                }
+                else{
+                    // if just int, then it's seconds
+                    // s
+                    if(isOneDigit(time)){
+                        return `00:00:0${ time }:00`;
+                    }
+                    // ss
+                    return `00:00:${ time }:00`;
+                }
+        } 
     // edge case if it's number return a number coz cannot refactor
     // TODO: might need to refactor and move this elsewhere 
     }else{
