@@ -46,6 +46,8 @@ npm start
 <!-- exampel usage - require etc.. -->
 <!-- https://www.npmjs.com/package/@bbc/react-transcript-editor -->
 
+Available on [npm - `@bbc/react-transcript-editor`](https://www.npmjs.com/package/@bbc/react-transcript-editor)
+
 ```
 npm install @bbc/react-transcript-editor
 ```
