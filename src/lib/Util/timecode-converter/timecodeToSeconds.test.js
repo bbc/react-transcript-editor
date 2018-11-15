@@ -1,4 +1,4 @@
-import timecodeToSecondsHelper  from './timecodeWithFramesToSeconds.js';
+import timecodeToSecondsHelper  from './timecodeToSeconds.js';
 
 describe('Timecode conversion TC- convertToSeconds', function () {   
    

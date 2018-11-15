@@ -30,9 +30,10 @@ class MediaPlayer extends React.Component {
   setCurrentTime = (newCurrentTime) => {
     
     if(newCurrentTime!=='' && newCurrentTime!==null){
+      
     // hh:mm:ss:ff - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
       const newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTime); 
-
+      console.log('setCurrentTime',newCurrentTimeInSeconds,newCurrentTime)
       if (this.videoRef.current  !== null) {
         const videoRef = this.videoRef.current;
         // videoRef.load();
