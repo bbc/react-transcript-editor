@@ -1,5 +1,5 @@
 {
-  "name": "react-transcript-editor",
+  "name": "@bbc/react-transcript-editor",
   "description": "A React component to make transcribing audio and video easier and faster.",
   "version": "0.1.0",
   "keywords": [
@@ -24,7 +24,8 @@
     "deploy:ghpages": "npm run build:example && gh-pages -d build",
     "test-ci": "CI=true react-scripts test --env=jsdom --verbose",
     "lint": "eslint --ignore-path .gitignore .",
-    "lint-fix": "eslint --ignore-path .gitignore . --fix"
+    "lint-fix": "eslint --ignore-path .gitignore . --fix",
+    "publish": "npm publish --access public"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -66,7 +67,6 @@
     "babel-polyfill": "^6.26.0",
     "draft-js": "^0.10.5",
     "mousetrap": "^1.6.2",
-    "node-timecodes": "^2.5.0",
     "react-keyboard-shortcuts": "^1.1.3"
   }
 }

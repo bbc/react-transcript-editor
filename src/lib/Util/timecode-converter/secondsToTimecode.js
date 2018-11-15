@@ -3,11 +3,14 @@
 * abstracted from https://github.com/bbc/newslabs-cdn/blob/master/js/20-bbcnpf.utils.js
 * In broadcast VIDEO, timecode is NOT hh:mm:ss:ms, it's hh:mm:ss:ff where ff is frames, 
 * dependent on the framerate of the media concerned.
+* `hh:mm:ss:ff` 
 */
-// `hh:mm:ss:ff` 
 
 /**
- * Helper funciton 
+ * Helper function 
+ * Rounds to the 14milliseconds boundaries 
+ * Time in video can only "exist in" 14milliseconds boundaries.
+ * This makes it possible for the HTML5 player to be frame accurate.
  * @param {*} seconds 
  * @param {*} fps 
  */
@@ -17,32 +20,33 @@ const normalisePlayerTime = function(seconds, fps){
 
 /*
 * @param {*} seconds 
- * @param {*} fps 
- */
-const seconds2timecode = function(seconds, framePerSeconds) {
+* @param {*} fps 
+*/
+const secondsToTimecode = function(seconds, framePerSeconds) {
     // written for PAL non-drop timecode
     let fps = 25;
     if (framePerSeconds !== undefined){
         fps = framePerSeconds;
     }
 
-    const ns= normalisePlayerTime(seconds, fps);
+    const normalisedSeconds= normalisePlayerTime(seconds, fps);
     
-    const wsec=Math.floor(ns)
-    const frames=((ns-wsec)*fps).toFixed(2)
+    const wholeSeconds=Math.floor(normalisedSeconds)
+    const frames=((normalisedSeconds-wholeSeconds)*fps).toFixed(2)
 
-    function _n2(n){
+    // prepends zero - example pads 3 to 03
+    function _padZero(n){
         if(n<10)return '0'+parseInt(n)
         else return parseInt(n)
     }
 
-    return _n2((wsec/60/60)%60)
+    return _padZero((wholeSeconds/60/60)%60)
         + ':'
-        + _n2((wsec/60)%60)
+        + _padZero((wholeSeconds/60)%60)
         + ':'
-        + _n2(wsec%60)
+        + _padZero(wholeSeconds%60)
         + ':'
-        + _n2(frames)
+        + _padZero(frames)
 }
 
-export default seconds2timecode;
+export default secondsToTimecode;

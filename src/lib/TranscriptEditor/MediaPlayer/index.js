@@ -3,7 +3,7 @@ import styles from './index.module.css';
 import returnHotKeys from './defaultHotKeys.js';
 // https://www.npmjs.com/package/react-keyboard-shortcuts
 import { hotkeys } from 'react-keyboard-shortcuts';
-import { timecodeToSeconds, secondsToTimecode  } from '../../Util/timecode-converter/index.js';
+import { secondsToTimecode, timecodeToSeconds  } from '../../Util/timecode-converter/index.js';
 
 // inspired by https://github.com/bbc/nm2/blob/master/src/components/chapter/video/Video.jsx
 
@@ -30,9 +30,10 @@ class MediaPlayer extends React.Component {
   setCurrentTime = (newCurrentTime) => {
     
     if(newCurrentTime!=='' && newCurrentTime!==null){
-    // hh:mm:ss:ms - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
+      
+    // hh:mm:ss:ff - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
       const newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTime); 
-
+      console.log('setCurrentTime',newCurrentTimeInSeconds,newCurrentTime)
       if (this.videoRef.current  !== null) {
         const videoRef = this.videoRef.current;
         // videoRef.load();
@@ -46,7 +47,7 @@ class MediaPlayer extends React.Component {
   }
 
   promptSetCurrentTime = () => {
-    this.setCurrentTime( prompt('Jump to timecode - hh:mm:ss:ms hh:mm:ss mm:ss m:ss m.ss seconds'))
+    this.setCurrentTime( prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds'))
   }
 
   setTimeCodeOffset = (newTimeCodeOffSet)=>{
@@ -191,7 +192,7 @@ class MediaPlayer extends React.Component {
       const lengthOfBar =  e.target.offsetWidth; 
       // distance of the position of the lick from the start of the progress bar element
       // location of click - start point of the bar 
-      const clickLength = e.screenX - e.target.offsetLeft;
+      const clickLength = e.clientX - e.target.offsetLeft;
       const positionPercentage = clickLength / lengthOfBar;
       // total time
       const totalTime = e.target.max;
@@ -236,20 +237,21 @@ class MediaPlayer extends React.Component {
         {/* Play / Pause Btn  */}
         {this.props.mediaUrl !== null? <button onClick={ ()=>{ this.playMedia()} }> {this.isPlaying()? '❚❚' : '▶'} </button>:''}
        
-        {/* Forward Btn */}
-        {this.props.mediaUrl !== null? <button onClick={ ()=>{ this.skipForward()} }> {'▶▶'} </button>:''}
         {/* Backward Btn */}
         {this.props.mediaUrl !== null? <button onClick={ ()=>{ this.skipBackward()} }> {'◀◀'} </button>:''}
+        {/* Forward Btn */}
+        {this.props.mediaUrl !== null? <button onClick={ ()=>{ this.skipForward()} }> {'▶▶'} </button>:''}
 
          ️<br/>
         {/* Display timecodes */}
         <code>{this.videoRef.current!== null ? secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset): '00:00:00:00'}</code>
             /
         <code>{this.videoRef.current!== null ?  secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset): '00:00:00:00'}</code>
+        <br/>
 
-        <button type="button" onClick={ this.promptSetCurrentTime }>Jump To Timecode ⏱</button>
+        <button type="button" onClick={ this.promptSetCurrentTime }>Jump To Time ⏱</button> <br/>
         
-        <button type="button" onClick={ ()=>{ this.setTimeCodeOffset( prompt('Add a timecode offset hh:mm:ss:ms'))} }>Set Timecode Offset ⏱</button>
+        <button type="button" onClick={ ()=>{ this.setTimeCodeOffset( prompt('Add a timecode offset hh:mm:ss:ff'))} }>Set Timecode Offset ⏱</button>
         <output><code>{secondsToTimecode(this.state.timecodeOffset)}</code></output>
         <br/>
         {/* <label>Supported timecode formats</label>
