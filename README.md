@@ -44,6 +44,22 @@ npm start
 <!-- npm install react-transcript-editor -->
 
 <!-- exampel usage - require etc.. -->
+<!-- https://www.npmjs.com/package/@bbc/react-transcript-editor -->
+
+```
+npm install @bbc/react-transcript-editor
+```
+
+```js
+import { TranscriptEditor } from '@bbc/react-transcript-editor';
+
+<TranscriptEditor
+    transcriptData=// Transcript json
+    mediaUrl=// string url to media file - audio or video 
+    isEditable={true}// se to true if you want to be able to edit the text
+    sttJsonType={ 'bbcKaldi' }// the type of STT Json transcript supported.
+/>
+```
 
 ## System Architecture
 
