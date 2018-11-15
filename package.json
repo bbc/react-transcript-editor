@@ -57,6 +57,10 @@
     "url": "https://github.com/bbc/react-transcript-editor/issues"
   },
   "homepage": ".",
+  "repository":{
+    "type": "git",
+    "url": "git+https://github.com/bbc/react-transcript-editor.git"
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
