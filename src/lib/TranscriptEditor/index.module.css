@@ -16,66 +16,55 @@
 
   /*  https://medium.com/samsung-internet-dev/common-responsive-layouts-with-css-grid-and-some-without-245a862f48df */
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-
-    background-color: #f1f1f1;
-  }
+  
 
 /* Desktop size */
 @media (min-width: 768px) {
   .container {
-    display: grid;
-    grid-template-columns: 30vw 1fr 20vw;
-    grid-template-rows: auto 1fr auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    /* min-height: 100vh; */
+    /* background-color: #f1f1f1; */
   }
 
-  .nav {
-    padding-right: 15px;
-    padding-left: 15px;
+  .main {
+    width: 70%;
+    padding: 20px;
+    background-color:#fff;
+    /* flex: 1;
+    height: 75vh;
+    box-shadow: 0 0 10px #ccc; */
   }
+
+  .aside {
+    width: 30%;
+    /* padding: 20px; */
+    /* background-color: #936; */
+  }
+  
 }
 
 /* Mobile devices */
 @media (max-width: 768px) {
-  .nav {
-    /* background-color: #f90; */
-    /* padding: 20px; */
-    padding-right: 0px;
+  .container {
+    flex-wrap: wrap;
+  }
+  .main {
+    width: 100%;
+  }
+  .aside {
+    width: 100%;
   }
 }
 
-.header {
-  grid-column: span 3;
-  /* padding: 30px; */
-  text-align: center;
-  font-size: 1.4em;
-  /* background-color: #369; */
-  /* color: white; */
-}
-
-.main {
-  flex: 1;
-  padding: 20px;
-  height: 75vh;
-  background-color:#fff;
-  box-shadow: 0 0 10px #ccc;
-}
 
 
 
-.aside {
-  padding: 20px;
-  /* background-color: #936; */
-}
 
-.footer {
-  grid-column: span 3;
-  padding: 30px;
-  text-align: center;
-  font-size: 1.4em;
-  /* background-color: #690; */
-  /* color: white; */
-}
+
+
+
+
+

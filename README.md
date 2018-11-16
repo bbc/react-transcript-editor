@@ -151,7 +151,6 @@ This runs `npm run build:component` and `npm publish --access public` under the 
 > Note that only `README.md` and the `dist` folders are published to npm.
 
 
-
 ## Contributing 
 
 <!-- Contributing guidance, and link to contributing code of conduct -->

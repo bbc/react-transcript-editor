@@ -27,10 +27,7 @@ class TranscriptEditor extends React.Component {
     render() {
         return (
             <section className={ styles.container }>
-                <header className={ styles.header }>
-                  
-                </header>
-                <aside className={ styles.nav }>
+                <aside className={ styles.aside }>
                     <MediaPlayer 
                     // eslint-disable-next-line no-return-assign
                     hookSeek={ (foo) => this.setCurrentTime = foo }
@@ -47,8 +44,7 @@ class TranscriptEditor extends React.Component {
                     sttJsonType={ this.props.sttJsonType }
                     />
                 </main>
-                {/* <aside className={ styles.aside }>Settings</aside> */}
-                <footer className={ styles.footer }></footer>
+               
             </section>
         );
     }

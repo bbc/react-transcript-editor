@@ -73,3 +73,10 @@ input:checked + .slider:before {
   margin-top: 0px;
   margin-bottom: 0.1em;
 }
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .hideInMobile{
+    display: none;
+  }
+}

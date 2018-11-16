@@ -315,7 +315,7 @@ class MediaPlayer extends React.Component {
             {mediaPlayerEl}
             {this.props.mediaUrl !== null?  playerControlsSection:''}
            
-            <section><label>{this.props.mediaUrl !== null? 'Keyboard Shortcuts':''}</label>
+            <section className={ styles.hideInMobile }><label>{this.props.mediaUrl !== null? 'Keyboard Shortcuts':''}</label>
                 {this.props.mediaUrl !== null? keyboardShortcutsHelp :''}
             </section>  
         </section>
