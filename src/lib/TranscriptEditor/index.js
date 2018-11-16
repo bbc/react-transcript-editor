@@ -25,7 +25,7 @@ class TranscriptEditor extends React.Component {
     
       componentDidUpdate(prevProps, prevState) {
         if(prevState.transcriptData !== this.state.transcriptData){
-        //   this.loadData();
+            //   this.loadData();
             if(this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)){
                 console.log('was already present in local storage')
                 this.refs.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
@@ -48,7 +48,8 @@ class TranscriptEditor extends React.Component {
     }
 
     saveData = () =>{
-        this.refs.timedTextEditor.localSave(this.props.mediaUrl);
+        const lastLocalSavedTime = this.refs.timedTextEditor.localSave(this.props.mediaUrl);
+        this.setState({ lastLocalSavedTime })
       }
 
     clearLocalStorage = ()=>{
@@ -60,13 +61,17 @@ class TranscriptEditor extends React.Component {
         this.setState({ lastLocalSavedTime })
     }
 
+    getEditorContent = (sttType) =>{
+       return this.refs.timedTextEditor.getEditorContent(sttType);
+    }
+
     render() {
         return (
             <section>
                 { (this.state.transcriptData !== null)? <button type="button" onClick={ () => this.saveData() }>save</button> :''}
                 { (this.state.transcriptData !== null)? <button type="button" onClick={ () => this.loadSavedData() }>load saved</button> :''}
                 { (this.state.transcriptData !== null)? <button type="button" onClick={ () => this.clearLocalStorage() }>clear Local storage</button> :''}
-                <small>Last Saved Time <code>{this.state.lastLocalSavedTime}</code></small>
+                { (this.state.transcriptData !== null)?  <small>Last Saved Time <code>{this.state.lastLocalSavedTime}</code></small> : ''}
                 <br/>
                 <section className={ styles.container }>
                 

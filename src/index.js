@@ -86,6 +86,22 @@ class App extends React.Component {
     this.setState({ [ event.target.name ]: event.target.value });
   }
 
+  getEditorContent = ()=>{
+   const tmpEditorsContnet =  this.refs.transcriptEditor.getEditorContent(this.state.sttType);
+   
+   this.download(JSON.stringify(tmpEditorsContnet,null,2), this.state.mediaUrl+'.json')
+  }
+
+  // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
+   download = (content, filename, contentType) =>  {
+    if(!contentType) contentType = 'application/octet-stream';
+        var a = document.createElement('a');
+        var blob = new Blob([ content ], { 'type':contentType });
+        a.href = window.URL.createObjectURL(blob);
+        a.download = filename;
+        a.click();
+  }
+
   render() {
     return (
         <div className={ styles.container }>
@@ -133,6 +149,7 @@ class App extends React.Component {
                     <span className={ styles.slider }></span>
                 </label>
             </p>
+            <button onClick={ ()=> this.getEditorContent() }>Get Data from Editor</button>
 
             <hr/>
 
@@ -141,6 +158,7 @@ class App extends React.Component {
               mediaUrl={ this.state.mediaUrl }
               isEditable={ this.state.isTextEditable }
               sttJsonType={ this.state.sttType }
+              ref={ 'transcriptEditor' }
             />
         </div>
     );

@@ -84,6 +84,7 @@ class TimedTextEditor extends React.Component {
     localStorage.setItem(`draftJs-${ mediaUrl }`, JSON.stringify(data));
     const newLastLocalSavedDate  =  new Date().toString();
     localStorage.setItem(`timestamp-${ mediaUrl }`, newLastLocalSavedDate);
+    return newLastLocalSavedDate;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -127,6 +128,18 @@ class TimedTextEditor extends React.Component {
     // eslint-disable-next-line no-use-before-define
     const editorState = EditorState.createWithContent(contentState, decorator);
     this.setState({ editorState: editorState });
+  }
+
+  getEditorContent = (sttType) =>{
+    // sttType used in conjunction with adapter/convert
+    if(sttType === null){
+      sttType = 'draftjs';
+    }
+
+    // if(sttType === 'draftJs'){
+      const data = convertToRaw(this.state.editorState.getCurrentContent());
+      return data;
+    // }
   }
 
   render() {
