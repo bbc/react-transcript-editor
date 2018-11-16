@@ -20,8 +20,7 @@ class TimedTextEditor extends React.Component {
       editorState: EditorState.createEmpty(),
       transcriptData: this.props.transcriptData,
       isEditable: this.props.isEditable,
-      sttJsonType: this.props.sttJsonType,
-      lastLocalSavedTime: ''
+      sttJsonType: this.props.sttJsonType
     };
 
     this.onChange = (editorState) =>{
@@ -56,37 +55,9 @@ class TimedTextEditor extends React.Component {
   loadData() {
     if (this.props.transcriptData !== null) {
       const blocks = sttJsonAdapter(this.props.transcriptData, this.props.sttJsonType);
-      const entityRanges = blocks.map(block => block.entityRanges);
-      // eslint-disable-next-line no-use-before-define
-      const flatEntityRanges = flatten(entityRanges);
-      
-      const entityMap = {};
-
-      flatEntityRanges.forEach((data) => {
-        entityMap[ data.key ] = {
-            type: 'WORD',
-            mutability: 'MUTABLE',
-            data
-          }
-      });
-     
-      const contentState = convertFromRaw({ blocks, entityMap });
-
-      // eslint-disable-next-line no-use-before-define
-      const editorState = EditorState.createWithContent(contentState, decorator);
-
-      this.setState({ editorState: editorState });
-      // this.setEditorsContentState(contentState)
+      this.setEditorContentState(blocks)
     }
   }
-
-  // setEditorsContentState(contentState){
-  //   // eslint-disable-next-line no-use-before-define
-  //   const editorState = EditorState.createWithContent(contentState, decorator);
-
-  //   this.setState({ editorState: editorState });
-  // }
-
   // click on words - for navigation 
   // eslint-disable-next-line class-methods-use-this
   handleDoubleClick = (event)=> {
@@ -106,49 +77,62 @@ class TimedTextEditor extends React.Component {
     }
   }
 
-  saveData =()=>{
-    
+  localSave(mediaUrl){
+    console.log('localSave',mediaUrl)
     const data = convertToRaw(this.state.editorState.getCurrentContent());
-    console.log(data)
-    localStorage.setItem('draft', JSON.stringify(data));
+    // console.log(data)
+    localStorage.setItem(`draftJs-${ mediaUrl }`, JSON.stringify(data));
     const newLastLocalSavedDate  =  new Date().toString();
-    localStorage.setItem('timestamp', newLastLocalSavedDate);
-    this.setState({ lastLocalSavedTime: newLastLocalSavedDate });
+    localStorage.setItem(`timestamp-${ mediaUrl }`, newLastLocalSavedDate);
   }
 
-  loadSavedData = () =>{
-    const data = JSON.parse(localStorage.getItem('draft'));
-    const lastLocalSavedDate = localStorage.getItem('timestamp');
-    console.log(data,lastLocalSavedDate)
-    // this.setEditorsContentState(data);
-    const entityRanges = data.blocks.map(block => block.entityRanges);
-      // eslint-disable-next-line no-use-before-define
-      const flatEntityRanges = flatten(entityRanges);
-      
-      const entityMap = {};
+  // eslint-disable-next-line class-methods-use-this
+  isPresentInLocalStorage(mediaUrl){
+    const data = localStorage.getItem(`draftJs-${ mediaUrl }`);
+    if(data !== null){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
-      flatEntityRanges.forEach((data) => {
-        entityMap[ data.key ] = {
-            type: 'WORD',
-            mutability: 'MUTABLE',
-            data
-          }
-      });
-     
-      const contentState = convertFromRaw({ blocks: data.blocks, entityMap });
+  loadLocalSavedData(mediaUrl){
+    console.log('loadLocalSavedData', mediaUrl);
+    const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrl }`));
+    if(data !== null){
+      const lastLocalSavedDate = localStorage.getItem(`timestamp-${ mediaUrl }`);
+      this.setEditorContentState(data.blocks)
+      return lastLocalSavedDate;
+    } else{
+      return ''
+    }
+  }
 
-      // eslint-disable-next-line no-use-before-define
-      const editorState = EditorState.createWithContent(contentState, decorator);
+  // set DraftJS Editor content state from blocks
+  setEditorContentState = (blocks) => {
+    const entityRanges = blocks.map(block => block.entityRanges);
+    // eslint-disable-next-line no-use-before-define
+    const flatEntityRanges = flatten(entityRanges);
+    
+    const entityMap = {};
 
-      this.setState({ editorState: editorState,  lastLocalSavedTime: lastLocalSavedDate });
+    flatEntityRanges.forEach((data) => {
+      entityMap[ data.key ] = {
+          type: 'WORD',
+          mutability: 'MUTABLE',
+          data
+        }
+    });
+    const contentState = convertFromRaw({ blocks, entityMap });
+    // eslint-disable-next-line no-use-before-define
+    const editorState = EditorState.createWithContent(contentState, decorator);
+    this.setState({ editorState: editorState });
   }
 
   render() {
     return (
         <section >
-            { (this.state.transcriptData !== null)? <button onClick={ () => this.saveData() }>save</button> :''}
-            { (this.state.transcriptData !== null)? <button onClick={ () => this.loadSavedData() }>load saved</button> :''}
-            <small>Last Saved Time {this.state.lastLocalSavedTime}</small>
+            
             <section
                 className={ styles.editor }
                 onDoubleClick={ event => this.handleDoubleClick(event) }
