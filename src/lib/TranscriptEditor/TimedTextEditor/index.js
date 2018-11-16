@@ -5,7 +5,8 @@ import {
   EditorState,
   // ContentState,
   CompositeDecorator,
-  convertFromRaw
+  convertFromRaw,
+  convertToRaw
 } from 'draft-js';
 
 import Word from './Word';
@@ -19,7 +20,8 @@ class TimedTextEditor extends React.Component {
       editorState: EditorState.createEmpty(),
       transcriptData: this.props.transcriptData,
       isEditable: this.props.isEditable,
-      sttJsonType: this.props.sttJsonType
+      sttJsonType: this.props.sttJsonType,
+      lastLocalSavedTime: ''
     };
 
     this.onChange = (editorState) =>{
@@ -45,6 +47,7 @@ class TimedTextEditor extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+
     if(prevState.transcriptData !== this.state.transcriptData){
       this.loadData();
     }
@@ -72,9 +75,17 @@ class TimedTextEditor extends React.Component {
       // eslint-disable-next-line no-use-before-define
       const editorState = EditorState.createWithContent(contentState, decorator);
 
-      this.setState({ editorState });
+      this.setState({ editorState: editorState });
+      // this.setEditorsContentState(contentState)
     }
   }
+
+  // setEditorsContentState(contentState){
+  //   // eslint-disable-next-line no-use-before-define
+  //   const editorState = EditorState.createWithContent(contentState, decorator);
+
+  //   this.setState({ editorState: editorState });
+  // }
 
   // click on words - for navigation 
   // eslint-disable-next-line class-methods-use-this
@@ -95,19 +106,62 @@ class TimedTextEditor extends React.Component {
     }
   }
 
+  saveData =()=>{
+    
+    const data = convertToRaw(this.state.editorState.getCurrentContent());
+    console.log(data)
+    localStorage.setItem('draft', JSON.stringify(data));
+    const newLastLocalSavedDate  =  new Date().toString();
+    localStorage.setItem('timestamp', newLastLocalSavedDate);
+    this.setState({ lastLocalSavedTime: newLastLocalSavedDate });
+  }
+
+  loadSavedData = () =>{
+    const data = JSON.parse(localStorage.getItem('draft'));
+    const lastLocalSavedDate = localStorage.getItem('timestamp');
+    console.log(data,lastLocalSavedDate)
+    // this.setEditorsContentState(data);
+    const entityRanges = data.blocks.map(block => block.entityRanges);
+      // eslint-disable-next-line no-use-before-define
+      const flatEntityRanges = flatten(entityRanges);
+      
+      const entityMap = {};
+
+      flatEntityRanges.forEach((data) => {
+        entityMap[ data.key ] = {
+            type: 'WORD',
+            mutability: 'MUTABLE',
+            data
+          }
+      });
+     
+      const contentState = convertFromRaw({ blocks: data.blocks, entityMap });
+
+      // eslint-disable-next-line no-use-before-define
+      const editorState = EditorState.createWithContent(contentState, decorator);
+
+      this.setState({ editorState: editorState,  lastLocalSavedTime: lastLocalSavedDate });
+  }
+
   render() {
     return (
-        <section
-        className={ styles.editor }
-        onDoubleClick={ event => this.handleDoubleClick(event) }
-        // onClick={ event => this.handleOnClick(event) }
-        >
-            <Editor
-          editorState={ this.state.editorState }
-          onChange={ this.onChange }
-          stripPastedStyles
-        />
-            {/* <button onClick={() => this.loadData()}>load data</button> */}
+        <section >
+            { (this.state.transcriptData !== null)? <button onClick={ () => this.saveData() }>save</button> :''}
+            { (this.state.transcriptData !== null)? <button onClick={ () => this.loadSavedData() }>load saved</button> :''}
+            <small>Last Saved Time {this.state.lastLocalSavedTime}</small>
+            <section
+                className={ styles.editor }
+                onDoubleClick={ event => this.handleDoubleClick(event) }
+                // onClick={ event => this.handleOnClick(event) }
+                >
+                {/* <p> {JSON.stringify(this.state.transcriptData)}</p> */}
+                <Editor
+              editorState={ this.state.editorState }
+              onChange={ this.onChange }
+              stripPastedStyles
+            /> 
+            
+            </section>
         </section>
     );
   }

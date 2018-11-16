@@ -44,7 +44,6 @@ class TranscriptEditor extends React.Component {
                     sttJsonType={ this.props.sttJsonType }
                     />
                 </main>
-               
             </section>
         );
     }

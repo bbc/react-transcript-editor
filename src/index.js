@@ -21,6 +21,7 @@ class App extends React.Component {
     // this.handleChangeLoadTranscriptJson = this.handleChangeLoadTranscriptJson.bind(this);
   }
   loadDemo() {
+ 
     this.setState({
       transcriptData: kaldiTedTalkTranscript,
       mediaUrl: tedTalkVideoUrl,

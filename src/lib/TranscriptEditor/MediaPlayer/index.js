@@ -318,6 +318,8 @@ class MediaPlayer extends React.Component {
             <section className={ styles.hideInMobile }><label>{this.props.mediaUrl !== null? 'Keyboard Shortcuts':''}</label>
                 {this.props.mediaUrl !== null? keyboardShortcutsHelp :''}
             </section>  
+            <br/>
+            <small>{this.props.mediaUrl !== null? 'Double click on a word to be taken to that point in the media.' :''}</small>
         </section>
         );
   }
