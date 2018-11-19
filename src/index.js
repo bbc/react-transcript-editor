@@ -132,9 +132,9 @@ class App extends React.Component {
             <br />
             <label>Load Local Media</label>
             <input
-          type="file"
-          onChange={ e => this.handleChangeLoadMedia(e.target.files) }
-        />
+              type="file"
+              onChange={ e => this.handleChangeLoadMedia(e.target.files) }
+            />
             <br />
             <button onClick={ () => this.handleChangeLoadMediaUrl() }>
           Load Media From Url

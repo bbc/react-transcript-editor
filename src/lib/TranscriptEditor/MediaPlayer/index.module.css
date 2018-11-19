@@ -10,6 +10,7 @@ video {
 /* ProgressBar */
 .progressBar {
   width: 100%;
+  background-color: red;
 }
 
 /* Toggle Switch - Checkbox styling 

@@ -195,6 +195,7 @@ class MediaPlayer extends React.Component {
       const clickLength = e.clientX - e.target.offsetLeft;
       const positionPercentage = clickLength / lengthOfBar;
       // total time
+      // TODO: needs some error handling for max when is NaN
       const totalTime = e.target.max;
       const resultInSeconds = totalTime * positionPercentage;  
       // rounding up 
