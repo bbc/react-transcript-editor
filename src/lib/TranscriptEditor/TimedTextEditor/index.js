@@ -131,7 +131,7 @@ class TimedTextEditor extends React.Component {
     const entityMap = {};
 
     flatEntityRanges.forEach((data) => {
-      entityMap[ data.key ] = {
+      entityMap[data.key] = {
         type: 'WORD',
         mutability: 'MUTABLE',
         data
@@ -143,7 +143,7 @@ class TimedTextEditor extends React.Component {
     this.setState({ editorState: editorState });
   }
 
-  getEditorContent = (sttType) =>{
+  getEditorContent = (sttType) => {
     // sttType used in conjunction with adapter/convert
     if(sttType === null) {
       sttType = 'draftjs';

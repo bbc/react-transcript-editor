@@ -7,9 +7,9 @@ class Word extends PureComponent {
       : {};
 
     return (
-        <span data-start={ data.start } data-entity-key={ data.key } className="Word">
-            {this.props.children}
-        </span>
+      <span data-start={ data.start } data-entity-key={ data.key } className="Word">
+        {this.props.children}
+      </span>
     );
   }
 }
