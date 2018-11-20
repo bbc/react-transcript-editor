@@ -38,6 +38,8 @@ Fork this repository + git clone + cd into folder
 npm start
 ```
 
+Visit [http://localhost:3006](http://localhost:3006)
+
 
 ## Usage - production
 
