@@ -11,6 +11,8 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
             return bbcKaldiToDraft(transcriptData);
         case 'autoedit2':
             return autoEdit2ToDraft(transcriptData);
+        case 'draftjs':
+            return transcriptData.blocks; // (typeof transcriptData === 'string')? JSON.parse(transcriptData): transcriptData;
         default:
             // code block
             console.error('not recognised the stt enginge');
