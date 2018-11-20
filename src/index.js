@@ -6,8 +6,7 @@ import kaldiTedTalkTranscript from './sample-data/KateDarling_2018S-bbc-kaldi.js
 import styles from './index.module.css';
 import SttTypeSelect from './select-stt-json-type.js'
 
-const tedTalkVideoUrl =
-  'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
+const tedTalkVideoUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +20,6 @@ class App extends React.Component {
     // this.handleChangeLoadTranscriptJson = this.handleChangeLoadTranscriptJson.bind(this);
   }
   loadDemo() {
- 
     this.setState({
       transcriptData: kaldiTedTalkTranscript,
       mediaUrl: tedTalkVideoUrl,
@@ -38,7 +36,7 @@ class App extends React.Component {
     const videoNode = document.createElement('video');
     const canPlay = videoNode.canPlayType(type);
     if (canPlay) {
-      var fileURL = URL.createObjectURL(file);
+      const fileURL = URL.createObjectURL(file);
       // videoNode.src = fileURL
       this.setState({
         // transcriptData: kaldiTedTalkTranscript,
@@ -62,7 +60,7 @@ class App extends React.Component {
     // let type = file.type;
     // TODO: add checks
     // let transcriptJsonContent = FileReader.readAsText(file)
-    var fr = new FileReader();
+    const fr = new FileReader();
     fr.onload = function(e) {
       // e.target.result should contain the text
       console.log(JSON.parse(e.target.result));
@@ -74,7 +72,7 @@ class App extends React.Component {
     fr.readAsText(file);
   }
 
-  handleIsTextEditable = (e)=>{
+  handleIsTextEditable = (e) => {
     this.setState((prevState,props) => {
       return { isTextEditable: (prevState.isTextEditable) === true ? false: true }
     })
@@ -82,21 +80,21 @@ class App extends React.Component {
 
   // https://stackoverflow.com/questions/21733847/react-jsx-selecting-selected-on-selected-select-option
   handleSttTypeChange = (event) =>{
-    console.log(event.target.name ,event.target.value )
+    console.log(event.target.name ,event.target.value)
     this.setState({ [ event.target.name ]: event.target.value });
   }
 
-  getEditorContent = ()=>{
+  getEditorContent = () => {
    const tmpEditorsContnet =  this.refs.transcriptEditor.getEditorContent(this.state.sttType);
-   
-   this.download(JSON.stringify(tmpEditorsContnet,null,2), this.state.mediaUrl+'.json')
+
+   this.download(JSON.stringify(tmpEditorsContnet, null, 2), `${ this.state.mediaUrl } .json`)
   }
 
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
    download = (content, filename, contentType) =>  {
-    if(!contentType) contentType = 'application/octet-stream';
-        var a = document.createElement('a');
-        var blob = new Blob([ content ], { 'type':contentType });
+    if (!contentType) contentType = 'application/octet-stream';
+        const a = document.createElement('a');
+        const blob = new Blob([ content ], { 'type': contentType });
         a.href = window.URL.createObjectURL(blob);
         a.download = filename;
         a.click();
@@ -142,8 +140,8 @@ class App extends React.Component {
 
             <p>Text Is Editable
                 <label className={ styles.switch }>
-                    <input type="checkbox" 
-                  defaultChecked="true" 
+                    <input type="checkbox"
+                  defaultChecked="true"
                   onChange={ this.handleIsTextEditable }
                   />
                     <span className={ styles.slider }></span>
