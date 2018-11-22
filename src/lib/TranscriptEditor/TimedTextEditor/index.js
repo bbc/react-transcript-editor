@@ -74,7 +74,7 @@ class TimedTextEditor extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   handleDoubleClick = (event) => {
     // nativeEvent --> React giving you the DOM event
-    const element = event.nativeEvent.target;
+    let element = event.nativeEvent.target;
     // find the parent in Word that contains span with time-code start attribute
     while (!element.hasAttribute('data-start') && element.parentElement) {
       element = element.parentElement;
