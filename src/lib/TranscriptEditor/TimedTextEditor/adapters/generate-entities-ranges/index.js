@@ -11,24 +11,24 @@
 *  or eg word ={ text:'helo', ... }
 */
 const generateEntitiesRanges = (words, wordAttributeName) => {
-    let position = 0;
-    return words.map((word) => {
-         const result =  {
-          start: word.start,
-          end: word.end,
-          confidence: word.confidence,
-          text: word[wordAttributeName],
-          offset: position,
-          length: word[wordAttributeName].length,
-          key: Math.random()
-            .toString(36)
-            .substring(6)
-          }
-          // increase position counter - to determine word offset in paragraph
-          position = position + word[wordAttributeName].length + 1;
+  let position = 0;
+  return words.map((word) => {
+    const result = {
+      start: word.start,
+      end: word.end,
+      confidence: word.confidence,
+      text: word[wordAttributeName],
+      offset: position,
+      length: word[wordAttributeName].length,
+      key: Math.random()
+        .toString(36)
+        .substring(6),
+    }
+    // increase position counter - to determine word offset in paragraph
+    position = position + word[wordAttributeName].length + 1;
 
-          return result;
-      })
+    return result;
+  })
 }
 
 export default generateEntitiesRanges;

@@ -3,9 +3,9 @@
   "plugins": [
     "react"
   ],
-  "extends": "airbnb-base",
   "env": {
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "rules": {
     "arrow-spacing": ["error", { "before": true, "after": true }],
@@ -34,5 +34,11 @@
     "no-shadow": [ 1 ],
     "camelcase": [ 1 ],
     "no-underscore-dangle" : [0, "always"],
+    "prefer-destructuring": ["error", {
+      "VariableDeclarator": {
+        "array": false,
+        "object": false
+      }
+    }]
   }
 }

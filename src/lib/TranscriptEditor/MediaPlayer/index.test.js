@@ -6,8 +6,7 @@ import MediaPlayer from '.';
 
 afterEach(cleanup);
 
-const fakeVideoUrl =
-  'https://storage.googleapis.com/coverr-main/mp4/Pigeon-Impossible.mp4';
+const fakeVideoUrl = 'https://storage.googleapis.com/coverr-main/mp4/Pigeon-Impossible.mp4';
 
 xtest('GIVEN a chapter title I expect that WHEN the Video component is rendered THEN the correct title is displayed', () => {
   const { container } = render(<MediaPlayer mediaUrl={ fakeVideoUrl } />);

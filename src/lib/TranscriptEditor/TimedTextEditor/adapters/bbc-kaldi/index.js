@@ -59,11 +59,11 @@ import generateEntitiesRanges from '../generate-entities-ranges/index.js';
  * @param {array} words - array of words opbjects from kaldi transcript
  */
 
-const groupWordsInParagraphs = words => {
+const groupWordsInParagraphs = (words) => {
   const results = [];
   let paragraph = { words: [], text: [] };
 
-  words.forEach(word => {
+  words.forEach((word) => {
     // if word contains punctuation
     if (/[.?!]/.test(word.punct)) {
       paragraph.words.push(word);
@@ -80,7 +80,7 @@ const groupWordsInParagraphs = words => {
   return results;
 };
 
-const bbcKaldiToDraft = bbcKaldiJson => {
+const bbcKaldiToDraft = (bbcKaldiJson) => {
   const results = [];
   let tmpWords;
 
@@ -94,16 +94,16 @@ const bbcKaldiToDraft = bbcKaldiJson => {
 
   const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
 
-  wordsByParagraphs.forEach(paragraph => {
+  wordsByParagraphs.forEach((paragraph) => {
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
       type: 'paragraph',
       data: {
-        speaker: 'TBC'
+        speaker: 'TBC',
       },
-      // the entities as ranges are each word in the space-joined text, 
+      // the entities as ranges are each word in the space-joined text,
       // so it needs to be compute for each the offset from the beginning of the paragraph and the length
-      entityRanges: generateEntitiesRanges(paragraph.words, 'punct') // wordAttributeName
+      entityRanges: generateEntitiesRanges(paragraph.words, 'punct'), // wordAttributeName
     };
     // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
     results.push(draftJsContentBlockParagraph);

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 class Word extends PureComponent {
   render() {
@@ -13,5 +14,9 @@ class Word extends PureComponent {
     );
   }
 }
+
+Word.propTypes = {
+  contentState: PropTypes.func,
+};
 
 export default Word;

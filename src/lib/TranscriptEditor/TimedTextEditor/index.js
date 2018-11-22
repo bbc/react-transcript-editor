@@ -6,7 +6,7 @@ import {
   // ContentState,
   CompositeDecorator,
   convertFromRaw,
-  convertToRaw
+  convertToRaw,
 } from 'draft-js';
 
 import Word from './Word';
@@ -21,7 +21,7 @@ class TimedTextEditor extends React.Component {
       transcriptData: this.props.transcriptData,
       isEditable: this.props.isEditable,
       sttJsonType: this.props.sttJsonType,
-      inputCount: 0
+      inputCount: 0,
     };
   }
 
@@ -29,19 +29,18 @@ class TimedTextEditor extends React.Component {
     this.loadData();
   }
 
-  static getDerivedStateFromProps(nextProps, prevState){
-    if(nextProps.transcriptData !== null) {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.transcriptData !== null) {
       return {
         transcriptData: nextProps.transcriptData,
-        isEditable: nextProps.isEditable
+        isEditable: nextProps.isEditable,
       }
     }
     return null;
   }
 
   componentDidUpdate(prevProps, prevState) {
-
-    if(prevState.transcriptData !== this.state.transcriptData){
+    if (prevState.transcriptData !== this.state.transcriptData) {
       this.loadData();
     }
   }
@@ -50,12 +49,12 @@ class TimedTextEditor extends React.Component {
     if (this.state.isEditable) {
       this.setState((prevState, props) => ({
         editorState,
-        inputCount: prevState.inputCount + 1
+        inputCount: prevState.inputCount + 1,
       }), () => {
         // Saving every 5 keystrokes
         if (this.state.inputCount > 5) {
           this.setState({
-            inputCount: 0
+            inputCount: 0,
           });
 
           this.localSave(this.props.mediaUrl);
@@ -70,6 +69,7 @@ class TimedTextEditor extends React.Component {
       this.setEditorContentState(blocks)
     }
   }
+
   // click on words - for navigation
   // eslint-disable-next-line class-methods-use-this
   handleDoubleClick = (event) => {
@@ -82,7 +82,7 @@ class TimedTextEditor extends React.Component {
 
     if (element.hasAttribute('data-start')) {
       const t = parseFloat(element.getAttribute('data-start'));
-      //TODO: prop to jump to video <-- To connect with MediaPlayer
+      // TODO: prop to jump to video <-- To connect with MediaPlayer
       // this.props.seek(t);
       this.props.onWordClick(t);
       // TODO: pass current time of media to TimedTextEditor to know what text to highlight in this component
@@ -91,7 +91,7 @@ class TimedTextEditor extends React.Component {
 
   localSave = () => {
     const mediaUrl = this.props.mediaUrl;
-    console.log('localSave',mediaUrl)
+    console.log('localSave', mediaUrl)
     const data = convertToRaw(this.state.editorState.getCurrentContent());
     // console.log(data)
     localStorage.setItem(`draftJs-${ mediaUrl }`, JSON.stringify(data));
@@ -101,25 +101,23 @@ class TimedTextEditor extends React.Component {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  isPresentInLocalStorage(mediaUrl){
+  isPresentInLocalStorage(mediaUrl) {
     const data = localStorage.getItem(`draftJs-${ mediaUrl }`);
-    if(data !== null) {
+    if (data !== null) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   }
 
-  loadLocalSavedData(mediaUrl){
+  loadLocalSavedData(mediaUrl) {
     console.log('loadLocalSavedData', mediaUrl);
     const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrl }`));
-    if(data !== null) {
+    if (data !== null) {
       const lastLocalSavedDate = localStorage.getItem(`timestamp-${ mediaUrl }`);
       this.setEditorContentState(data.blocks)
       return lastLocalSavedDate;
-    } else {
-      return ''
     }
+    return ''
   }
 
   // set DraftJS Editor content state from blocks
@@ -134,18 +132,18 @@ class TimedTextEditor extends React.Component {
       entityMap[data.key] = {
         type: 'WORD',
         mutability: 'MUTABLE',
-        data
+        data,
       }
     });
     const contentState = convertFromRaw({ blocks, entityMap });
     // eslint-disable-next-line no-use-before-define
     const editorState = EditorState.createWithContent(contentState, decorator);
-    this.setState({ editorState: editorState });
+    this.setState({ editorState });
   }
 
   getEditorContent = (sttType) => {
     // sttType used in conjunction with adapter/convert
-    if(sttType === null) {
+    if (sttType === null) {
       sttType = 'draftjs';
     }
 
@@ -176,13 +174,12 @@ class TimedTextEditor extends React.Component {
 }
 
 // converts nested arrays into one dimensional array
-const flatten = list =>
-list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
+const flatten = list => list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
 // DraftJs decorator to recognize which entity is which
 // and know what to apply to what component
 const getEntityStrategy = mutability => (contentBlock, callback, contentState) => {
-  contentBlock.findEntityRanges(character => {
+  contentBlock.findEntityRanges((character) => {
     const entityKey = character.getEntity();
     if (entityKey === null) {
       return false;
@@ -196,8 +193,8 @@ const getEntityStrategy = mutability => (contentBlock, callback, contentState) =
 const decorator = new CompositeDecorator([
   {
     strategy: getEntityStrategy('MUTABLE'),
-    component: Word
-  }
+    component: Word,
+  },
 ]);
 
 export default TimedTextEditor;
