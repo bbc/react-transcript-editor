@@ -8,6 +8,7 @@ Player controls
 - [X] Adjust Playback rate 
 - [x] Jump to timecode <—  in timecode `hh:mm:ss:ms` format or (hh:mm:ss:ms hh:mm:ss mm:ss m:ss m.ss seconds)
 - [x] Adjust timecodes <— set a timecode offset - default to zero  
+- [ ] [auto pause while typing](https://github.com/bbc/react-transcript-editor/issues/19)
 
 <!-- - [ ] UI Turn off video preview (toggle on/off) -->
 - [x] Roll back button 15 sec default, customizable amount 
