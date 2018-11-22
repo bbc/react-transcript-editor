@@ -1,5 +1,7 @@
 import React from 'react';
-const SttTypeSelect = (props) => (<select name={ props.name } value={ props.value } onChange={ props.handleChange }>
+import PropTypes from 'prop-types';
+
+const SttTypeSelect = props => (<select name={ props.name } value={ props.value } onChange={ props.handleChange }>
   <option value="bbckaldi">BBC Kaldi</option>
   <option value="draftjs" disabled>Draft Js</option>
   <option value="gentle-transcript" disabled>Gentle Transcript</option>
@@ -14,5 +16,11 @@ const SttTypeSelect = (props) => (<select name={ props.name } value={ props.valu
   <option value="vtt" disabled>VTT</option>
   <option value="vtt-youtube" disabled>Youtube VTT</option>
 </select>)
+
+SttTypeSelect.propTypes = {
+  name: PropTypes.string,
+  value: PropTypes.string,
+  handleChange: PropTypes.func
+};
 
 export default SttTypeSelect;

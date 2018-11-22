@@ -24,11 +24,11 @@
         ];
 ```
  *
- * See samples folder and test file 
+ * See samples folder and test file
  * for reference data structures
  */
 
-import generateEntitiesRanges from '../generate-entities-ranges/index.js';
+import generateEntitiesRanges from '../generate-entities-ranges/index';
 
 /**
  * groups words list from kaldi transcript based on punctuation.
@@ -36,22 +36,23 @@ import generateEntitiesRanges from '../generate-entities-ranges/index.js';
  * @param {array} words - array of words opbjects from kaldi transcript
  */
 
-const groupWordsInParagraphs = autoEditText => {
+const groupWordsInParagraphs = (autoEditText) => {
   const results = [];
   let paragraph = { words: [], text: [] };
 
-  autoEditText.forEach(autoEditparagraph => {
-    autoEditparagraph.paragraph.forEach(autoEditLine => {
-      autoEditLine.line.forEach(word => {
-        // adjusting time reference attributes from 
-        //`startTime` `endTime` to `start` `end`
-        // for word object 
-        const tmpWord= { 
-          text: word.text, 
-          start: word.startTime, 
-          end: word.endTime };
+  autoEditText.forEach((autoEditparagraph) => {
+    autoEditparagraph.paragraph.forEach((autoEditLine) => {
+      autoEditLine.line.forEach((word) => {
+        // adjusting time reference attributes from
+        // `startTime` `endTime` to `start` `end`
+        // for word object
+        const tmpWord = {
+          text: word.text,
+          start: word.startTime,
+          end: word.endTime,
+        };
         //  if word contains punctuation
-         if (/[.?!]/.test(word.text)) {
+        if (/[.?!]/.test(word.text)) {
           paragraph.words.push(tmpWord);
           paragraph.text.push(word.text);
           results.push(paragraph);
@@ -68,23 +69,23 @@ const groupWordsInParagraphs = autoEditText => {
   return results;
 };
 
-const autoEdit2ToDraft = autoEdit2Json => {
+const autoEdit2ToDraft = (autoEdit2Json) => {
   const results = [];
-  const  tmpWords = autoEdit2Json.text;
+  const tmpWords = autoEdit2Json.text;
   const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
   // console.log(wordsByParagraphs);
 
-  wordsByParagraphs.forEach(paragraph => {
+  wordsByParagraphs.forEach((paragraph) => {
     // console.log(paragraph.words);
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
       type: 'paragraph',
       data: {
-        speaker: 'TBC'
+        speaker: 'TBC',
       },
-      // the entities as ranges are each word in the space-joined text, 
+      // the entities as ranges are each word in the space-joined text,
       // so it needs to be compute for each the offset from the beginning of the paragraph and the length
-      entityRanges: generateEntitiesRanges(paragraph.words, 'text')
+      entityRanges: generateEntitiesRanges(paragraph.words, 'text'),
     };
     // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
     results.push(draftJsContentBlockParagraph);

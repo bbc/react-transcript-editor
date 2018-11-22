@@ -1,16 +1,19 @@
 import React from 'react';
-import styles from './index.module.css';
+import PropTypes from 'prop-types';
 
-import TimedTextEditor from './TimedTextEditor/index.js';
-import MediaPlayer from './MediaPlayer/index.js';
+import TimedTextEditor from './TimedTextEditor';
+import MediaPlayer from './MediaPlayer';
+
+import styles from './index.module.css';
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      currentTime:0,
+      currentTime: 0,
       lastLocalSavedTime: '',
-      transcriptData: null
+      transcriptData: null,
     }
   }
 
@@ -24,7 +27,7 @@ class TranscriptEditor extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.transcriptData !== this.state.transcriptData){
+    if (prevState.transcriptData !== this.state.transcriptData) {
       //   this.loadData();
       if (this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
         console.log('was already present in local storage');
@@ -43,13 +46,11 @@ class TranscriptEditor extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   handleTimeUpdate = (currentTime) => {
     this.setState({
-      currentTime: currentTime
+      currentTime,
     })
   }
 
-  getEditorContent = (sttType) => {
-    return this.refs.timedTextEditor.getEditorContent(sttType);
-  }
+  getEditorContent = sttType => this.refs.timedTextEditor.getEditorContent(sttType)
 
   render() {
     return (
@@ -58,7 +59,7 @@ class TranscriptEditor extends React.Component {
           <aside className={ styles.aside }>
             <MediaPlayer
               // eslint-disable-next-line no-return-assign
-              hookSeek={ (foo) => this.setCurrentTime = foo }
+              hookSeek={ foo => this.setCurrentTime = foo }
               hookOnTimeUpdate={ this.handleTimeUpdate }
               mediaUrl={ this.props.mediaUrl }
               />
@@ -79,5 +80,11 @@ class TranscriptEditor extends React.Component {
     );
   }
 }
+
+TranscriptEditor.propTypes = {
+  mediaUrl: PropTypes.string,
+  isEditable: PropTypes.bool,
+  sttJsonType: PropTypes.string,
+};
 
 export default TranscriptEditor;

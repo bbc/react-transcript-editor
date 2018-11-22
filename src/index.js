@@ -4,7 +4,7 @@ import { TranscriptEditor } from './lib';
 // import kaldiTranscript from './sample-data/kaldi-transcription-20181029235300.json';
 import kaldiTedTalkTranscript from './sample-data/KateDarling_2018S-bbc-kaldi.json';
 import styles from './index.module.css';
-import SttTypeSelect from './select-stt-json-type.js'
+import SttTypeSelect from './select-stt-json-type'
 
 const tedTalkVideoUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
 
@@ -15,15 +15,16 @@ class App extends React.Component {
       transcriptData: null,
       mediaUrl: null,
       isTextEditable: true,
-      sttType: 'bbckaldi'
+      sttType: 'bbckaldi',
     };
     // this.handleChangeLoadTranscriptJson = this.handleChangeLoadTranscriptJson.bind(this);
   }
+
   loadDemo() {
     this.setState({
       transcriptData: kaldiTedTalkTranscript,
       mediaUrl: tedTalkVideoUrl,
-      sttType: 'bbckaldi'
+      sttType: 'bbckaldi',
     });
   }
 
@@ -40,7 +41,7 @@ class App extends React.Component {
       // videoNode.src = fileURL
       this.setState({
         // transcriptData: kaldiTedTalkTranscript,
-        mediaUrl: fileURL
+        mediaUrl: fileURL,
       });
     }
   }
@@ -50,7 +51,7 @@ class App extends React.Component {
 
     this.setState({
       // transcriptData: kaldiTedTalkTranscript,
-      mediaUrl: fileURL
+      mediaUrl: fileURL,
     });
   }
 
@@ -61,11 +62,11 @@ class App extends React.Component {
     // TODO: add checks
     // let transcriptJsonContent = FileReader.readAsText(file)
     const fr = new FileReader();
-    fr.onload = function(e) {
+    fr.onload = function (e) {
       // e.target.result should contain the text
       console.log(JSON.parse(e.target.result));
       self.setState({
-        transcriptData: JSON.parse(e.target.result)
+        transcriptData: JSON.parse(e.target.result),
         // mediaUrl: tedTalkVideoUrl
       });
     };
@@ -73,94 +74,93 @@ class App extends React.Component {
   }
 
   handleIsTextEditable = (e) => {
-    this.setState((prevState,props) => {
-      return { isTextEditable: (prevState.isTextEditable) === true ? false: true }
-    })
+    this.setState((prevState, props) => ({ isTextEditable: (prevState.isTextEditable) !== true }))
   }
 
   // https://stackoverflow.com/questions/21733847/react-jsx-selecting-selected-on-selected-select-option
   handleSttTypeChange = (event) => {
-    console.log(event.target.name ,event.target.value)
+    console.log(event.target.name, event.target.value)
     this.setState({ [event.target.name]: event.target.value });
   }
 
   getEditorContent = () => {
-   const tmpEditorsContnet =  this.refs.transcriptEditor.getEditorContent(this.state.sttType);
+    const tmpEditorsContnet = this.refs.transcriptEditor.getEditorContent(this.state.sttType);
 
-   this.download(JSON.stringify(tmpEditorsContnet, null, 2), `${ this.state.mediaUrl } .json`)
+    this.download(JSON.stringify(tmpEditorsContnet, null, 2), `${ this.state.mediaUrl } .json`)
   }
 
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
-   download = (content, filename, contentType) =>  {
-    if (!contentType) contentType = 'application/octet-stream';
-    const a = document.createElement('a');
-    const blob = new Blob([ content ], { 'type': contentType });
-    a.href = window.URL.createObjectURL(blob);
-    a.download = filename;
-    a.click();
-  }
+   download = (content, filename, contentType) => {
+     const type = contentType || 'application/octet-stream';
+     const a = document.createElement('a');
+     const blob = new Blob([ content ], { type: type });
 
-  render() {
-    return (
-      <div className={ styles.container }>
-        <span className={ styles.title }>
+     a.href = window.URL.createObjectURL(blob);
+     a.download = filename;
+     a.click();
+   }
+
+   render() {
+     return (
+       <div className={ styles.container }>
+         <span className={ styles.title }>
             Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
-          <a
-            href="https://github.com/bbc/react-transcript-editor"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+           <a
+              href="https://github.com/bbc/react-transcript-editor"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
             Github Repo
-          </a>
-        </span>
-        <br />
-        <button onClick={ () => this.loadDemo() }>load demo</button>
-        <br />
-        <label>open Transcript Json</label>
-        <input
+           </a>
+         </span>
+         <br />
+         <button onClick={ () => this.loadDemo() }>load demo</button>
+         <br />
+         <label>open Transcript Json</label>
+         <input
           type="file"
           onChange={ e => this.handleChangeLoadTranscriptJson(e.target.files) }
         />
-        <SttTypeSelect
+         <SttTypeSelect
           name={ 'sttType' }
           value={ this.state.sttType }
           handleChange={ this.handleSttTypeChange }
          />
 
-        <br />
-        <label>Load Local Media</label>
-        <input
+         <br />
+         <label>Load Local Media</label>
+         <input
               type="file"
               onChange={ e => this.handleChangeLoadMedia(e.target.files) }
             />
-        <br />
-        <button onClick={ () => this.handleChangeLoadMediaUrl() }>
+         <br />
+         <button onClick={ () => this.handleChangeLoadMediaUrl() }>
           Load Media From Url
-        </button>
+         </button>
 
-        <p>Text Is Editable
-          <label className={ styles.switch }>
-            <input type="checkbox"
+         <p>Text Is Editable
+           <label className={ styles.switch }>
+             <input type="checkbox"
               defaultChecked="true"
               onChange={ this.handleIsTextEditable }
               />
-            <span className={ styles.slider }></span>
-          </label>
-        </p>
-        <button onClick={ () => this.getEditorContent() }>Get Data from Editor</button>
+             <span className={ styles.slider }></span>
+           </label>
+         </p>
+         <button onClick={ () => this.getEditorContent() }>Get Data from Editor</button>
 
-        <hr/>
+         <hr/>
 
-        <TranscriptEditor
+         <TranscriptEditor
           transcriptData={ this.state.transcriptData }
           mediaUrl={ this.state.mediaUrl }
           isEditable={ this.state.isTextEditable }
           sttJsonType={ this.state.sttType }
           ref={ 'transcriptEditor' }
         />
-      </div>
-    );
-  }
+       </div>
+     );
+   }
 }
 
 render(<App />, document.getElementById('root'));

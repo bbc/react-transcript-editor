@@ -19,7 +19,7 @@ const default_options = {
 const global_hotkeys = {
 }
 
-const hotkey_get_handler = (hotkey) => (e, combo) => {
+const hotkey_get_handler = hotkey => (e, combo) => {
   const handlers = global_hotkeys[hotkey]
   let propagate = true
   handlers.forEach( ({ handler }) => {
@@ -30,8 +30,8 @@ const hotkey_get_handler = (hotkey) => (e, combo) => {
 }
 
 const load_hotkeys = (handlers) => {
-    // console.log(handlers);
-    Object.keys(handlers).map( (response, hotkey) => {
+  // console.log(handlers);
+  Object.keys(handlers).map( (response, hotkey) => {
     if (global_hotkeys[hotkey] == null) {
       global_hotkeys[hotkey] = [ response ]
       Mousetrap.bind(hotkey, hotkey_get_handler(hotkey))
@@ -42,7 +42,7 @@ const load_hotkeys = (handlers) => {
   })
 }
 const unload_hotkeys = (handlers) => {
-    Object.keys(handlers).map((response, hotkey) => {
+  Object.keys(handlers).map((response, hotkey) => {
     // _.remove(global_hotkeys[ hotkey ], response)
     if (global_hotkeys[hotkey].length === 0) {
       global_hotkeys[hotkey] = null
@@ -58,7 +58,7 @@ export const hotkeys = (Component, overwrites = {}) => {
   }
 
   class HotKeysWrapper extends React.PureComponent {
-    componentDidMount () {
+    componentDidMount() {
       const handlers = this.wrapped_component[options.hot_key_property_name]
       if (handlers == null) {
         console.warn(`Component: ${ Component.displayName } did not provide hotkey handlers`)
@@ -66,7 +66,8 @@ export const hotkeys = (Component, overwrites = {}) => {
       }
       load_hotkeys(handlers)
     }
-    componentWillUnmount () {
+
+    componentWillUnmount() {
       const handlers = this.wrapped_component[options.hot_key_property_name]
       if (handlers == null) return
       unload_hotkeys(handlers)
@@ -78,7 +79,7 @@ export const hotkeys = (Component, overwrites = {}) => {
       this.wrapped_component = ref
     }
 
-    render () {
+    render() {
       return <Component ref={ this.on_ref_update } { ...this.props } />
     }
   }

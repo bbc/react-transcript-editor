@@ -3,7 +3,7 @@
 
 Code example of `TimedTextEditor` with on click handler to trigger play of media at current word time code.
 
-The playing of the media is done through the `MediaPlayer` Component through the sibling through parent comunicaiton through `TranscriptEditor` component.
+The playing of the media is done through the `MediaPlayer` Component through the sibling through parent communication through `TranscriptEditor` component.
 
 ```js
 import React from 'react';
@@ -53,7 +53,7 @@ class TimedTextEditor extends React.Component {
       const blocks = bbcKaldiToDraft(this.props.transcriptData);
       const entityRanges = blocks.map(block => block.entityRanges);
       const flatEntityRanges = flatten(entityRanges);
-      
+
       const entityMap = {};
 
       flatEntityRanges.forEach((data) => {
@@ -63,7 +63,7 @@ class TimedTextEditor extends React.Component {
             data
           }
       });
-     
+
       const contentState = convertFromRaw({ blocks, entityMap });
 
       const editorState = EditorState.createWithContent(
@@ -75,10 +75,10 @@ class TimedTextEditor extends React.Component {
     }
   }
 
-  // click on words - for navigation 
+  // click on words - for navigation
   // eslint-disable-next-line class-methods-use-this
   handleOnClick(event) {
-    // nativeEvent --> React giving you the DOM event 
+    // nativeEvent --> React giving you the DOM event
     let element = event.nativeEvent.target;
     // find the parent in Word that contains span with time-code start attribute
     while (!element.hasAttribute('data-start') && element.parentElement) {
@@ -114,12 +114,12 @@ class TimedTextEditor extends React.Component {
   }
 }
 
-// converts nested arrays into one dimensional array 
+// converts nested arrays into one dimensional array
 const flatten = list =>
   list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
-// DraftJs decorator to recognize which entity is which 
-// and know what to apply to what component 
+// DraftJs decorator to recognize which entity is which
+// and know what to apply to what component
 const getEntityStrategy = mutability => (contentBlock, callback, contentState) => {
   contentBlock.findEntityRanges(character => {
     const entityKey = character.getEntity();
@@ -130,8 +130,8 @@ const getEntityStrategy = mutability => (contentBlock, callback, contentState) =
   }, callback);
 };
 
-// decorator definition - Draftjs 
-// defines what to use to render the entity 
+// decorator definition - Draftjs
+// defines what to use to render the entity
 const decorator = new CompositeDecorator([
   {
     strategy: getEntityStrategy('MUTABLE'),

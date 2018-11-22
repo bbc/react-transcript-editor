@@ -1,7 +1,6 @@
-import { timecodeToSeconds, secondsToTimecode  } from './index.js';
+import { timecodeToSeconds, secondsToTimecode } from './index';
 
-describe('Timecode conversion TC- convertToSeconds', function () {
-
+describe('Timecode conversion TC- convertToSeconds', () => {
   it('Should be defined', ( ) => {
     const demoTcValue = '00:10:00:00';
     const result = timecodeToSeconds(demoTcValue);
@@ -72,48 +71,46 @@ describe('Timecode conversion TC- convertToSeconds', function () {
   })
 
   it('120 sec --> 120', ( ) => {
-    const demoTime = 120 ;
+    const demoTime = 120;
     const expectedTimecode = 120;
     const result = timecodeToSeconds(demoTime);
     expect(result).toEqual(expectedTimecode);
   })
 
-//   xit('Should be able to convert: hh:mm:ss,ms ', ( )=> {
-//     const demoTcValue = '00:10:00,00';
-//     const demoExpectedResultInSeconds = 600;
-//     const result = convertToSeconds(demoTcValue);
-//     expect(result).toEqual(demoExpectedResultInSeconds);
-//   })
+  //   xit('Should be able to convert: hh:mm:ss,ms ', ( )=> {
+  //     const demoTcValue = '00:10:00,00';
+  //     const demoExpectedResultInSeconds = 600;
+  //     const result = convertToSeconds(demoTcValue);
+  //     expect(result).toEqual(demoExpectedResultInSeconds);
+  //   })
 
-//   xit('Should be able to convert hh:mm:ss;ms ', ( )=> {
-//     const demoTcValue = '00:10:00;00';
-//     const demoExpectedResultInSeconds = 600;
-//     const result = convertToSeconds(demoTcValue);
-//     expect(result).toEqual(demoExpectedResultInSeconds);
-//   })
+  //   xit('Should be able to convert hh:mm:ss;ms ', ( )=> {
+  //     const demoTcValue = '00:10:00;00';
+  //     const demoExpectedResultInSeconds = 600;
+  //     const result = convertToSeconds(demoTcValue);
+  //     expect(result).toEqual(demoExpectedResultInSeconds);
+  //   })
 
-//   xit('Should be able to convert hh:mm:ss.ms ', ( )=> {
-//     const demoTcValue = '00:10:00.00';
-//     const demoExpectedResultInSeconds = 600;
-//     const result = convertToSeconds(demoTcValue);
-//     expect(result).toEqual(demoExpectedResultInSeconds);
-//   })
-
+  //   xit('Should be able to convert hh:mm:ss.ms ', ( )=> {
+  //     const demoTcValue = '00:10:00.00';
+  //     const demoExpectedResultInSeconds = 600;
+  //     const result = convertToSeconds(demoTcValue);
+  //     expect(result).toEqual(demoExpectedResultInSeconds);
+  //   })
 })
 
-describe('Timecode conversion seconds to - convertToTimecode ', function () {
+describe('Timecode conversion seconds to - convertToTimecode ', () => {
+  it('Should be able to seconds to timecode hh:mm:ss:ms ', ( ) => {
+    const demoSeconds = 600;
+    const demoExpectedResultInTc = '00:10:00:00';
+    const result = secondsToTimecode(demoSeconds);
+    expect(result).toEqual(demoExpectedResultInTc);
+  })
 
-    it('Should be able to seconds to timecode hh:mm:ss:ms ', ( ) => {
-        const demoSeconds =  600;
-        const demoExpectedResultInTc = '00:10:00:00';
-        const result = secondsToTimecode(demoSeconds);
-        expect(result).toEqual(demoExpectedResultInTc);
-      })
-
-      it('Should be able to seconds - string to timecode hh:mm:ss:ms ', ( ) => {
-        const demoSeconds =  '600';
-        const demoExpectedResultInTc = '00:10:00:00';
-        const result = secondsToTimecode(demoSeconds);
-        expect(result).toEqual(demoExpectedResultInTc);
-      })
+  it('Should be able to seconds - string to timecode hh:mm:ss:ms ', ( ) => {
+    const demoSeconds = '600';
+    const demoExpectedResultInTc = '00:10:00:00';
+    const result = secondsToTimecode(demoSeconds);
+    expect(result).toEqual(demoExpectedResultInTc);
+  })
 })
