@@ -12,6 +12,8 @@ import {
 } from 'draft-js';
 
 import Word from './Word';
+import WrapperBlock from './WrapperBlock';
+
 import sttJsonAdapter from './adapters/index.js';
 import styles from './index.module.css';
 
@@ -151,6 +153,17 @@ class TimedTextEditor extends React.Component {
     return data;
   }
 
+  renderBlockWithTimecodes = (contentBlock) => {
+    const type = contentBlock.getType();
+    return {
+      component: WrapperBlock,
+      editable: true,
+      props: {
+        foo: 'bar'
+      }
+    };
+  }
+
   render() {
     return (
       <section >
@@ -164,6 +177,7 @@ class TimedTextEditor extends React.Component {
             editorState={ this.state.editorState }
             onChange={ this.onChange }
             stripPastedStyles
+            blockRendererFn={ this.renderBlockWithTimecodes }
           />
         </section>
       </section>
