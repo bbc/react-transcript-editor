@@ -24,7 +24,7 @@ describe('Timecode conversion TC- convertToSeconds', () => {
     const demoTime = '34:56:78';
     const expectedTimecode = '00:34:56:78';
     const result = padTimeToTimecode(demoTime);
-    expect(result).toEqual(demoTimecode);
+    expect(result).toEqual(expectedTimecode);
   })
 
   it('mm.ss--> convert to hh:mm:ss:ms', ( ) => {

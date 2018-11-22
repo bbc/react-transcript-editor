@@ -91,9 +91,10 @@ class App extends React.Component {
 
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
    download = (content, filename, contentType) => {
-     if (!contentType) contentType = 'application/octet-stream';
+     const type = contentType || 'application/octet-stream';
      const a = document.createElement('a');
-     const blob = new Blob([ content ], { type: contentType });
+     const blob = new Blob([ content ], { type: type });
+
      a.href = window.URL.createObjectURL(blob);
      a.download = filename;
      a.click();
@@ -105,10 +106,10 @@ class App extends React.Component {
          <span className={ styles.title }>
             Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
            <a
-            href="https://github.com/bbc/react-transcript-editor"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+              href="https://github.com/bbc/react-transcript-editor"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
             Github Repo
            </a>
          </span>

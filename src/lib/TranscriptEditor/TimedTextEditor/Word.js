@@ -16,7 +16,9 @@ class Word extends PureComponent {
 }
 
 Word.propTypes = {
-  contentState: PropTypes.func,
+  contentState: PropTypes.object,
+  entityKey: PropTypes.string,
+  children: PropTypes.array
 };
 
 export default Word;

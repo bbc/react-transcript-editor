@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   // Draft,
   Editor,
@@ -143,14 +145,10 @@ class TimedTextEditor extends React.Component {
 
   getEditorContent = (sttType) => {
     // sttType used in conjunction with adapter/convert
-    if (sttType === null) {
-      sttType = 'draftjs';
-    }
-
-    // if(sttType === 'draftJs'){
+    const type = sttType === null ? 'draftjs' : sttType;
     const data = convertToRaw(this.state.editorState.getCurrentContent());
+
     return data;
-    // }
   }
 
   render() {
@@ -196,5 +194,13 @@ const decorator = new CompositeDecorator([
     component: Word,
   },
 ]);
+
+TimedTextEditor.propTypes = {
+  transcriptData: PropTypes.object,
+  mediaUrl: PropTypes.string,
+  isEditable: PropTypes.bool,
+  onWordClick: PropTypes.func,
+  sttJsonType: PropTypes.string
+};
 
 export default TimedTextEditor;

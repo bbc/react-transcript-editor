@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { hotkeys } from 'react-keyboard-shortcuts';
 import styles from './index.module.css';
 import returnHotKeys from './defaultHotKeys';
@@ -317,6 +318,11 @@ class MediaPlayer extends React.Component {
     );
   }
 }
+
+MediaPlayer.propTypes = {
+  hookSeek: PropTypes.func,
+  mediaUrl: PropTypes.string
+};
 
 // export default mouseTrap(MediaPlayer);
 export default hotkeys(MediaPlayer);
