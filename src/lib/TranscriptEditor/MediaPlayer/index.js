@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import { hotkeys } from 'react-keyboard-shortcuts';
 import styles from './index.module.css';
 import returnHotKeys from './defaultHotKeys';
+
+import PlaybackRate from './PlaybackRate.js';
+import RollBack from './RollBack.js';
+import ProgressBar from './ProgressBar.js';
+import PlayerControls from './PlayerControls.js';
+import VolumeControl from './VolumeControl.js';
 // https://www.npmjs.com/package/react-keyboard-shortcuts
 import { secondsToTimecode, timecodeToSeconds } from '../../Util/timecode-converter/index';
 
@@ -167,7 +173,7 @@ class MediaPlayer extends React.Component {
   skipForward = () => {
     if (this.videoRef.current !== null) {
       const currentTime = this.videoRef.current.currentTime;
-      let newCurrentTime = currentTime + 5;
+      let newCurrentTime = currentTime + 10;
       newCurrentTime = Number((newCurrentTime).toFixed(1));
       this.setCurrentTime(newCurrentTime);
     }
@@ -176,7 +182,7 @@ class MediaPlayer extends React.Component {
   skipBackward = () => {
     if (this.videoRef.current !== null) {
       const currentTime = this.videoRef.current.currentTime;
-      let newCurrentTime = currentTime - 5;
+      let newCurrentTime = currentTime - 10;
       newCurrentTime = Number((newCurrentTime).toFixed(1));
       this.setCurrentTime(newCurrentTime);
     }
@@ -223,50 +229,37 @@ class MediaPlayer extends React.Component {
 
     const playerControlsSection = <section>
       {/* Progress bar  */}
-      <progress
-            className={ styles.progressBar }
-            max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration) : '100' }
-            value= { this.videoRef.current !== null ? parseInt(this.videoRef.current.currentTime) : '0' }
-            onClick={ (e) => { this.handleProgressBarClick(e) } }
-            />
-
+      <ProgressBar
+        max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration) : '100' }
+        value={ this.videoRef.current !== null ? parseInt(this.videoRef.current.currentTime) : '0' }
+        buttonClick={ this.handleProgressBarClick.bind(this) } 
+      />
+    
       <br/>
       {/* Play / Pause Btn  */}
-      {this.props.mediaUrl !== null ? <button onClick={ () => { this.playMedia() } }> {this.isPlaying() ? '❚❚' : '▶'} </button> : ''}
+      <PlayerControls
+        playMedia={ this.playMedia.bind(this) }
+        isPlaying={ this.isPlaying.bind(this) }
+        skipBackward={ this.skipBackward.bind(this) }
+        skipForward={ this.skipForward.bind(this) }
+        currentTime={ this.videoRef.current !== null ? secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset) : '00:00:00:00' }
+        duration={ this.videoRef.current !== null ? secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset) : '00:00:00:00' }
+        onSetCurrentTime={ '' }
+        onSetTimecodeOffset={ '' }
+        promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
+        setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
+        timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
+      />
 
-      {/* Backward Btn */}
-      {this.props.mediaUrl !== null ? <button onClick={ () => { this.skipBackward() } }> {'◀◀'} </button> : ''}
-      {/* Forward Btn */}
-      {this.props.mediaUrl !== null ? <button onClick={ () => { this.skipForward() } }> {'▶▶'} </button> : ''}
-
-         ️<br/>
-      {/* Display timecodes */}
-      <code>{this.videoRef.current !== null ? secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset) : '00:00:00:00'}</code>
-            /
-      <code>{this.videoRef.current !== null ? secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset) : '00:00:00:00'}</code>
-      <br/>
-
-      <button type="button" onClick={ this.promptSetCurrentTime }>Jump To Time ⏱</button> <br/>
-
-      <button type="button" onClick={ () => { this.setTimeCodeOffset( prompt('Add a timecode offset hh:mm:ss:ff')) } }>Set Timecode Offset ⏱</button>
-      <output><code>{secondsToTimecode(this.state.timecodeOffset)}</code></output>
-      <br/>
-      {/* <label>Supported timecode formats</label>
-        <br/>
-        <code>hh:mm:ss:ms</code>  <code>mm:ss</code>  <code>m:ss</code> <code>m.ss</code>  <code>seconds</code>  <code>hh:mm:ss</code>
-        <br/> */}
-
+      <hr/>
+     
+      <VolumeControl 
+        handleMuteVolume={ this.handleMuteVolume.bind(this) }
+      />
       {/* Volume Toggle */}
-      <p className={ styles.helpText }>Volume</p>
-      <label className={ styles.switch }>
-        <input type="checkbox"
-          defaultChecked="true"
-          onChange={ this.handleMuteVolume }
-          />
-        <span className={ styles.slider }></span>
-      </label>
 
       {/* Playback Rate  */}
+      <PlaybackRate/>
       <p className={ styles.helpText }>Playback Rate
         <b> <output >{ `x${ this.state.playBackRate }` }</output> </b>
       </p>
@@ -285,6 +278,7 @@ class MediaPlayer extends React.Component {
       <button type="button" onClick={ () => { this.setPlayBackRate(1) } }>Reset</button>
 
       {/* Rollback ⟲ ↺  */}
+      <RollBack/>
       <p className={ styles.helpText }>Rollback
         <b> <output >{ `x${ this.state.rollBackValueInSeconds }` }</output></b> Seconds
       </p>
@@ -306,6 +300,7 @@ class MediaPlayer extends React.Component {
 
     return (
       <section className={ styles.videoSection }>
+        
         {mediaPlayerEl}
         {this.props.mediaUrl !== null ? playerControlsSection : ''}
 
