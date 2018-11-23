@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './RollBack.module.css';
 class RollBack extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  
     render() {
         return (
           <div>
             <p className={ styles.helpText }>Rollback
-              <b> <output >{ `x${ this.props.rollBackValueInSeconds }` }</output></b> Seconds
+              <output className={ styles.rollBackValue }>{ ` x${ this.props.rollBackValueInSeconds } ` }</output> Seconds
             </p>
 
             <input

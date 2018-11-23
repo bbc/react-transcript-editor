@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './PlaybackRate.module.css';
 class PlaybackRate extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+   
     render() {
         return (
           <div>
             <p className={ styles.helpText }>Playback Rate
-              <b> <output >{ `x${ this.props.playBackRate }` }</output> </b>
+              <output className={ styles.playbackRateValue } >{ ` x${ this.props.playBackRate } ` }</output> 
             </p>
             <input
                 type="range"

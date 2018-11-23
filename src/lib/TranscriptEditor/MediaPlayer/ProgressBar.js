@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProgressBar.module.css';
 class ProgressBar extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
     render() {
         return (
           <progress

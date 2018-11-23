@@ -158,8 +158,8 @@ class MediaPlayer extends React.Component {
   skipForward = () => {
     if (this.videoRef.current !== null) {
       const currentTime = this.videoRef.current.currentTime;
-      let newCurrentTime = currentTime + 10;
-      newCurrentTime = Number((newCurrentTime).toFixed(1));
+      const newCurrentTimeIncreased = currentTime + 10;
+      const newCurrentTime = Number((newCurrentTimeIncreased).toFixed(1));
       this.setCurrentTime(newCurrentTime);
     }
   }
@@ -167,8 +167,8 @@ class MediaPlayer extends React.Component {
   skipBackward = () => {
     if (this.videoRef.current !== null) {
       const currentTime = this.videoRef.current.currentTime;
-      let newCurrentTime = currentTime - 10;
-      newCurrentTime = Number((newCurrentTime).toFixed(1));
+      const newCurrentTimeIncreased = currentTime - 10;
+      const newCurrentTime = Number((newCurrentTimeIncreased).toFixed(1));
       this.setCurrentTime(newCurrentTime);
     }
   }
@@ -187,6 +187,20 @@ class MediaPlayer extends React.Component {
       const roundNewCurrentTime = parseFloat((resultInSeconds).toFixed(2));
       this.setCurrentTime(roundNewCurrentTime);
     }
+  }
+
+  getMediaCurrentTime = () => {
+   if(this.videoRef.current !== null) {
+    return secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset) 
+   } 
+     return '00:00:00:00';
+  }
+
+  getMediaDuration = () => {
+    if(this.videoRef.current !== null){
+      return secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset);
+    } 
+      return  '00:00:00:00';
   }
 
   render() {
@@ -213,21 +227,21 @@ class MediaPlayer extends React.Component {
     let playerControlsSection;
     if(this.props.mediaUrl !== null ){
       playerControlsSection = <section>
-        {/* Progress bar  */}
+
         <ProgressBar
           max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration) : 100 }
           value={ this.videoRef.current !== null ? parseInt(this.videoRef.current.currentTime) : 0 }
           buttonClick={ this.handleProgressBarClick.bind(this) } 
         />
         <br/>
-        {/* ▶ ❚❚ ◀◀ ▶▶ Btn - display time, set timecode offset  */}
+
         <PlayerControls
           playMedia={ this.playMedia.bind(this) }
           isPlaying={ this.isPlaying.bind(this) }
           skipBackward={ this.skipBackward.bind(this) }
           skipForward={ this.skipForward.bind(this) }
-          currentTime={ this.videoRef.current !== null ? secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset) : '00:00:00:00' }
-          duration={ this.videoRef.current !== null ? secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset) : '00:00:00:00' }
+          currentTime={ this.getMediaCurrentTime() }
+          duration={ this.getMediaDuration() }
           onSetCurrentTime={ '' }
           onSetTimecodeOffset={ '' }
           promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
@@ -235,19 +249,16 @@ class MediaPlayer extends React.Component {
           timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
         />
      
-        {/* Volume Toggle */}
         <VolumeControl 
           handleMuteVolume={ this.handleMuteVolume.bind(this) }
         />
    
-        {/* Playback Rate  */}
         <PlaybackRate
           playBackRate={ this.state.playBackRate }
           handlePlayBackRateChange={ this.handlePlayBackRateChange.bind(this) }
           setPlayBackRate={ this.setPlayBackRate.bind(this) }
         />
    
-        {/* Rollback ⟲ ↺  */}
         <RollBack
           rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
           handleChangeReplayRollbackValue={ this.handleChangeReplayRollbackValue.bind(this) }

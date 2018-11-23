@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './PlayerControls.module.css';
+
 class PlayerControls extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     // to handle backward and forward mouse pressed on btn
     // set a 300 ms  interval to repeat the 
     // backward or forward function
