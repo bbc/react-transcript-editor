@@ -113,36 +113,22 @@ class TimedTextEditor extends React.Component {
     const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrl }`));
     if (data !== null) {
       const lastLocalSavedDate = localStorage.getItem(`timestamp-${ mediaUrl }`);
-      this.setEditorContentStateFromLocalStorage(data)
+      this.setEditorContentState(data)
       return lastLocalSavedDate;
     }
     return ''
   }
 
-  setEditorContentStateFromLocalStorage = (data) => {
-    // needs blocks and entityMap to use `convertFromRaw`
-    const contentState = convertFromRaw( data );
-     // eslint-disable-next-line no-use-before-define
-     const editorState = EditorState.createWithContent(contentState, decorator);
-     this.setState({ editorState });
-  }
-
   // set DraftJS Editor content state from blocks
-  setEditorContentState = (blocks) => {
-    const entityRanges = blocks.map(block => block.entityRanges);
-    // eslint-disable-next-line no-use-before-define
-    const flatEntityRanges = flatten(entityRanges);
+  // contains blocks and entityMap
 
-    const entityMap = {};
-
-    flatEntityRanges.forEach((data) => {
-      entityMap[data.key] = {
-        type: 'WORD',
-        mutability: 'MUTABLE',
-        data,
-      }
-    });
-    const contentState = convertFromRaw({ blocks, entityMap });
+  /**
+   * @param {object} data - draftJs content 
+   * @param {object} data.entityMap - draftJs entity maps - used by convertFromRaw
+   * @param {object} data.blocks - draftJs blocks - used by convertFromRaw
+   */
+  setEditorContentState = (data) => {
+    const contentState = convertFromRaw(data);
     // eslint-disable-next-line no-use-before-define
     const editorState = EditorState.createWithContent(contentState, decorator);
     this.setState({ editorState });
@@ -175,9 +161,6 @@ class TimedTextEditor extends React.Component {
     );
   }
 }
-
-// converts nested arrays into one dimensional array
-const flatten = list => list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
 // DraftJs decorator to recognize which entity is which
 // and know what to apply to what component
