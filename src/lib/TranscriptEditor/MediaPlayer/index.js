@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// https://www.npmjs.com/package/react-keyboard-shortcuts
 import { hotkeys } from 'react-keyboard-shortcuts';
-import styles from './index.module.css';
 import returnHotKeys from './defaultHotKeys';
-
 import PlaybackRate from './PlaybackRate.js';
 import RollBack from './RollBack.js';
 import ProgressBar from './ProgressBar.js';
 import PlayerControls from './PlayerControls.js';
 import VolumeControl from './VolumeControl.js';
-// https://www.npmjs.com/package/react-keyboard-shortcuts
-import { secondsToTimecode, timecodeToSeconds } from '../../Util/timecode-converter/index';
 
-// inspired by https://github.com/bbc/nm2/blob/master/src/components/chapter/video/Video.jsx
+import styles from './index.module.css';
+
+import { secondsToTimecode, timecodeToSeconds } from '../../Util/timecode-converter/index';
 
 class MediaPlayer extends React.Component {
   constructor(props) {
@@ -26,7 +25,7 @@ class MediaPlayer extends React.Component {
       hotKeys: returnHotKeys(this),
     }
   }
-  /*eslint-disable camelcase */
+  /*eslint-disable camel case */
   hot_keys = returnHotKeys(this)
 
   componentDidMount() {
@@ -37,7 +36,6 @@ class MediaPlayer extends React.Component {
     if (newCurrentTime !== '' && newCurrentTime !== null) {
     // hh:mm:ss:ff - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
       const newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTime);
-      console.log('setCurrentTime', newCurrentTimeInSeconds, newCurrentTime)
       if (this.videoRef.current !== null) {
         const videoRef = this.videoRef.current;
         // videoRef.load();
@@ -138,7 +136,7 @@ class MediaPlayer extends React.Component {
     }
   }
 
-  isPlaying=(e) => {
+  isPlaying=() => {
     if (this.videoRef.current !== null) {
       if (this.videoRef.current.paused) {
         return false;
@@ -157,11 +155,6 @@ class MediaPlayer extends React.Component {
     }
   }
 
-  /**
-   * @todo Consider refactoring using
-   * https://stackoverflow.com/questions/48048957/react-long-press-event
-   * To enable pressing on forward of backward key to move
-   */
   skipForward = () => {
     if (this.videoRef.current !== null) {
       const currentTime = this.videoRef.current.currentTime;
@@ -188,8 +181,6 @@ class MediaPlayer extends React.Component {
       // location of click - start point of the bar
       const clickLength = e.clientX - e.target.offsetLeft;
       const positionPercentage = clickLength / lengthOfBar;
-      // total time
-      // TODO: needs some error handling for max when is NaN
       const totalTime = e.target.max;
       const resultInSeconds = totalTime * positionPercentage;
       // rounding up
@@ -210,7 +201,7 @@ class MediaPlayer extends React.Component {
           // controls
           src={ this.props.mediaUrl }
           onTimeUpdate={ this.handleTimeUpdate }
-          // TODO: video type
+          // TODO: video type - add logic to identify if video is playable and raise error if it's not
           type="video/mp4"
           data-testid="media-player-id"
           onClick={ this.playMedia }
@@ -219,65 +210,81 @@ class MediaPlayer extends React.Component {
       );
     }
 
-    const playerControlsSection = <section>
-      {/* Progress bar  */}
-      <ProgressBar
-        max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration) : '100' }
-        value={ this.videoRef.current !== null ? parseInt(this.videoRef.current.currentTime) : '0' }
-        buttonClick={ this.handleProgressBarClick.bind(this) } 
-      />
-    
-      <br/>
-      {/* ▶ ❚❚ ◀◀ ▶▶ Btn - display time, set timecode offset  */}
-      <PlayerControls
-        playMedia={ this.playMedia.bind(this) }
-        isPlaying={ this.isPlaying.bind(this) }
-        skipBackward={ this.skipBackward.bind(this) }
-        skipForward={ this.skipForward.bind(this) }
-        currentTime={ this.videoRef.current !== null ? secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset) : '00:00:00:00' }
-        duration={ this.videoRef.current !== null ? secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset) : '00:00:00:00' }
-        onSetCurrentTime={ '' }
-        onSetTimecodeOffset={ '' }
-        promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
-        setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
-        timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
-      />
+    let playerControlsSection;
+    if(this.props.mediaUrl !== null ){
+      playerControlsSection = <section>
+        {/* Progress bar  */}
+        <ProgressBar
+          max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration) : 100 }
+          value={ this.videoRef.current !== null ? parseInt(this.videoRef.current.currentTime) : 0 }
+          buttonClick={ this.handleProgressBarClick.bind(this) } 
+        />
+        <br/>
+        {/* ▶ ❚❚ ◀◀ ▶▶ Btn - display time, set timecode offset  */}
+        <PlayerControls
+          playMedia={ this.playMedia.bind(this) }
+          isPlaying={ this.isPlaying.bind(this) }
+          skipBackward={ this.skipBackward.bind(this) }
+          skipForward={ this.skipForward.bind(this) }
+          currentTime={ this.videoRef.current !== null ? secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset) : '00:00:00:00' }
+          duration={ this.videoRef.current !== null ? secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset) : '00:00:00:00' }
+          onSetCurrentTime={ '' }
+          onSetTimecodeOffset={ '' }
+          promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
+          setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
+          timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
+        />
+     
+        {/* Volume Toggle */}
+        <VolumeControl 
+          handleMuteVolume={ this.handleMuteVolume.bind(this) }
+        />
+   
+        {/* Playback Rate  */}
+        <PlaybackRate
+          playBackRate={ this.state.playBackRate }
+          handlePlayBackRateChange={ this.handlePlayBackRateChange.bind(this) }
+          setPlayBackRate={ this.setPlayBackRate.bind(this) }
+        />
+   
+        {/* Rollback ⟲ ↺  */}
+        <RollBack
+          rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
+          handleChangeReplayRollbackValue={ this.handleChangeReplayRollbackValue.bind(this) }
+          rollBack={ this.rollBack.bind(this) }
+        />  
+   
+      </section>
+    };
 
-      <hr/>
-      {/* Volume Toggle */}
-      <VolumeControl 
-        handleMuteVolume={ this.handleMuteVolume.bind(this) }
-      />
-      <hr/>
-      {/* Playback Rate  */}
-      <PlaybackRate
-        playBackRate={ this.state.playBackRate }
-        handlePlayBackRateChange={ this.handlePlayBackRateChange.bind(this) }
-        setPlayBackRate={ this.setPlayBackRate.bind(this) }
-      />
-      <hr/>
-      {/* Rollback ⟲ ↺  */}
-      <RollBack
-        rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
-        handleChangeReplayRollbackValue={ this.handleChangeReplayRollbackValue.bind(this) }
-        rollBack={ this.rollBack.bind(this) }
-      />
-      
-    </section>;
+    // list of keyboard shortcuts helper text
+    const keyboardShortcutsElements = Object.keys(this.state.hotKeys).map((shortcutKey, index) => {
+        return <p 
+        className={ styles.helpText } 
+        key={ shortcutKey }>
+          <code>{shortcutKey}</code> 
+          <small>
+            <b> {this.state.hotKeys[shortcutKey].helperText}</b>
+          </small>
+        </p>
+      })
 
-    const keyboardShortcutsHelp = Object.keys(this.state.hotKeys).map((shortcutKey, index) => <p className={ styles.helpText } key={ shortcutKey }><code>{shortcutKey}</code> <small><b>{this.state.hotKeys[shortcutKey].helperText}</b></small></p>)
+    let keyboardShortcuts;
+    if(this.props.mediaUrl !== null ){
+      keyboardShortcuts = <section className={ styles.hideInMobile }><label>{keyboardShortcutsElements}</label>
+        <br/>
+        <small className={ styles.helpText }>Double click on a word to be taken to that time in the media.</small>
+      </section> 
+    }
 
     return (
       <section className={ styles.videoSection }>
-        
-        {mediaPlayerEl}
-        {this.props.mediaUrl !== null ? playerControlsSection : ''}
 
-        <section className={ styles.hideInMobile }><label>{this.props.mediaUrl !== null ? 'Keyboard Shortcuts' : ''}</label>
-          {this.props.mediaUrl !== null ? keyboardShortcutsHelp : ''}
-        </section>
-        <br/>
-        <small>{this.props.mediaUrl !== null ? 'Double click on a word to be taken to that point in the media.' : ''}</small>
+        { mediaPlayerEl }
+
+        { playerControlsSection }
+      
+        { keyboardShortcuts }  
       </section>
     );
   }
