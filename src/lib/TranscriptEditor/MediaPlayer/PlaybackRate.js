@@ -26,4 +26,10 @@ class PlaybackRate extends React.Component {
     }
 }
 
+PlaybackRate.propTypes = {
+    handlePlayBackRateChange: PropTypes.func,
+    playBackRate: PropTypes.number,
+    setPlayBackRate: PropTypes.func
+  };
+
 export default PlaybackRate;

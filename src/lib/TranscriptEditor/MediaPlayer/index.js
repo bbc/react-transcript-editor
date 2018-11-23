@@ -285,7 +285,8 @@ class MediaPlayer extends React.Component {
 
 MediaPlayer.propTypes = {
   hookSeek: PropTypes.func,
-  mediaUrl: PropTypes.string
+  mediaUrl: PropTypes.string,
+  hookOnTimeUpdate: PropTypes.func
 };
 
 // export default mouseTrap(MediaPlayer);

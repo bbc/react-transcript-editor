@@ -21,4 +21,8 @@ class VolumeControl extends React.Component {
     }
 }
 
+VolumeControl.propTypes = {
+  handleMuteVolume: PropTypes.func
+};
+
 export default VolumeControl;

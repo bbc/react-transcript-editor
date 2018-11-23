@@ -63,4 +63,11 @@ class PlayerControls extends React.Component {
     }
 }
 
+PlayerControls.propTypes = {
+    playMedia: PropTypes.func,
+    currentTime: PropTypes.string,
+    timecodeOffset: PropTypes.string,
+    promptSetCurrentTime: PropTypes.func
+  };
+
 export default PlayerControls;

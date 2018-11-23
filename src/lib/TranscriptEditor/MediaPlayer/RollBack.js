@@ -28,4 +28,10 @@ class RollBack extends React.Component {
     }
 }
 
+RollBack.propTypes = {
+    rollBackValueInSeconds: PropTypes.number,
+    handleChangeReplayRollbackValue: PropTypes.func,
+    rollBack: PropTypes.func
+  };
+
 export default RollBack;
