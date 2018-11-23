@@ -257,22 +257,12 @@ class MediaPlayer extends React.Component {
       />
       <hr/>
       {/* Rollback ⟲ ↺  */}
-      <RollBack/>
-      <p className={ styles.helpText }>Rollback
-        <b> <output >{ `x${ this.state.rollBackValueInSeconds }` }</output></b> Seconds
-      </p>
-
-      <input
-        type="range"
-        min="1"
-        max="60"
-        step="1"
-        value={ this.state.rollBackValueInSeconds }
-        onChange={ this.handleChangeReplayRollbackValue }
+      <RollBack
+        rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
+        handleChangeReplayRollbackValue={ this.handleChangeReplayRollbackValue.bind(this) }
+        rollBack={ this.rollBack.bind(this) }
       />
-      <br/>
-      <button type="button" onClick={ () => { this.rollBack() } }>↺</button>
-
+      
     </section>;
 
     const keyboardShortcutsHelp = Object.keys(this.state.hotKeys).map((shortcutKey, index) => <p className={ styles.helpText } key={ shortcutKey }><code>{shortcutKey}</code> <small><b>{this.state.hotKeys[shortcutKey].helperText}</b></small></p>)
