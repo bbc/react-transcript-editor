@@ -296,6 +296,4 @@ MediaPlayer.propTypes = {
   hookOnTimeUpdate: PropTypes.func
 };
 
-// export default mouseTrap(MediaPlayer);
 export default hotkeys(MediaPlayer);
-// export default MediaPlayer;
