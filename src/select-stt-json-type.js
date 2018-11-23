@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const SttTypeSelect = props => (<select name={ props.name } value={ props.value } onChange={ props.handleChange }>
   <option value="bbckaldi">BBC Kaldi</option>
-  <option value="draftjs" disabled>Draft Js</option>
+  <option value="draftjs">Draft Js</option>
   <option value="gentle-transcript" disabled>Gentle Transcript</option>
   <option value="gentle-alignement" disabled>Gentle Alignement</option>
   <option value="iiif" disabled>IIIF</option>
