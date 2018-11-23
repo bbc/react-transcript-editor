@@ -21,7 +21,7 @@ class MediaPlayer extends React.Component {
       hotKeys: returnHotKeys(this),
     }
   }
-
+  /*eslint-disable camelcase */
   hot_keys = returnHotKeys(this)
 
   componentDidMount() {
