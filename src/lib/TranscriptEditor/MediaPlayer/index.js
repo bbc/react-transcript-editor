@@ -18,7 +18,6 @@ class MediaPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.videoRef = React.createRef();
-    this.playbackRateInputRange = React.createRef();
 
     this.state = {
       playBackRate: 1,
@@ -86,10 +85,6 @@ class MediaPlayer extends React.Component {
   }
 
   increasePlaybackRate = () => {
-    // if (this.videoRef.current!== null) {
-    //   this.playbackRateInputRange.current.stepUp(1)
-    // }
-
     const currentPlaybackRate = this.getCurrentPlaybackRate();
     let newPlaybackRate = currentPlaybackRate + 0.1;
     // rounding up eg 0.8-0.1 =  0.7000000000000001   => 0.7
@@ -98,9 +93,6 @@ class MediaPlayer extends React.Component {
   }
 
   decreasePlaybackRate = () => {
-    // if (this.videoRef.current!== null) {
-    //   this.playbackRateInputRange.current.stepDown(1)
-    // }
     const currentPlaybackRate = this.getCurrentPlaybackRate();
     let newPlaybackRate = currentPlaybackRate - 0.1;
     // rounding up eg 0.8-0.1 =  0.7000000000000001   => 0.7
@@ -236,7 +228,7 @@ class MediaPlayer extends React.Component {
       />
     
       <br/>
-      {/* Play / Pause Btn  */}
+      {/* ▶ ❚❚ ◀◀ ▶▶ Btn - display time, set timecode offset  */}
       <PlayerControls
         playMedia={ this.playMedia.bind(this) }
         isPlaying={ this.isPlaying.bind(this) }
@@ -252,31 +244,18 @@ class MediaPlayer extends React.Component {
       />
 
       <hr/>
-     
+      {/* Volume Toggle */}
       <VolumeControl 
         handleMuteVolume={ this.handleMuteVolume.bind(this) }
       />
-      {/* Volume Toggle */}
-
+      <hr/>
       {/* Playback Rate  */}
-      <PlaybackRate/>
-      <p className={ styles.helpText }>Playback Rate
-        <b> <output >{ `x${ this.state.playBackRate }` }</output> </b>
-      </p>
-
-      <input
-        type="range"
-        min="0.2"
-        value={ this.state.playBackRate }
-        max="3.5"
-        step="0.1"
-        // list="tickmarks"
-        onChange={ this.handlePlayBackRateChange }
-        ref={ this.playbackRateInputRange }
-        />
-      <br/>
-      <button type="button" onClick={ () => { this.setPlayBackRate(1) } }>Reset</button>
-
+      <PlaybackRate
+        playBackRate={ this.state.playBackRate }
+        handlePlayBackRateChange={ this.handlePlayBackRateChange.bind(this) }
+        setPlayBackRate={ this.setPlayBackRate.bind(this) }
+      />
+      <hr/>
       {/* Rollback ⟲ ↺  */}
       <RollBack/>
       <p className={ styles.helpText }>Rollback

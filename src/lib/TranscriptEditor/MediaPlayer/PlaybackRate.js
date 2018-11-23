@@ -7,7 +7,21 @@ class PlaybackRate extends React.Component {
     }
     render() {
         return (
-          <h1>PlaybackRate</h1>
+          <div>
+            <p className={ styles.helpText }>Playback Rate
+              <b> <output >{ `x${ this.props.playBackRate }` }</output> </b>
+            </p>
+            <input
+                type="range"
+                min="0.2"
+                value={ this.props.playBackRate }
+                max="3.5"
+                step="0.1"
+                onChange={ this.props.handlePlayBackRateChange }
+                />
+            <br/>
+            <button type="button" onClick={ () => { this.props.setPlayBackRate(1) } }>Reset Playback Rate</button>
+          </div>
         );
     }
 }
