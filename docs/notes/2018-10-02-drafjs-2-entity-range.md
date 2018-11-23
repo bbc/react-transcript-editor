@@ -66,9 +66,6 @@ and entityMap would map key `0` to
 > so I can compare original text with actual text and know that it was changed also for subtitalizer I had to move some data out of draft.js content state as I wanted the changes on that not to get on the undo stack (users can undo text changes but not paragraph timecode changes on ctrl-z)
 
 
-<<<<<<< HEAD
-see [`examples/subtitalizer-entities-range-example.js`](./examples/subtitalizer-entities-range-example.js) for full example code.
-=======
 see [`examples/subtitalizer-entities-range-example.js`](./examples/subtitalizer-entities-range-example.js) for full example code.
 
 
@@ -188,4 +185,3 @@ Draftjs keeps them up to date.
     }
   },
 ```
->>>>>>> recover-entities
