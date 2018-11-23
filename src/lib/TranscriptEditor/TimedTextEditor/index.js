@@ -93,9 +93,7 @@ class TimedTextEditor extends React.Component {
 
   localSave = () => {
     const mediaUrl = this.props.mediaUrl;
-    console.log('localSave', mediaUrl)
     const data = convertToRaw(this.state.editorState.getCurrentContent());
-    // console.log(data)
     localStorage.setItem(`draftJs-${ mediaUrl }`, JSON.stringify(data));
     const newLastLocalSavedDate = new Date().toString();
     localStorage.setItem(`timestamp-${ mediaUrl }`, newLastLocalSavedDate);
@@ -112,14 +110,21 @@ class TimedTextEditor extends React.Component {
   }
 
   loadLocalSavedData(mediaUrl) {
-    console.log('loadLocalSavedData', mediaUrl);
     const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrl }`));
     if (data !== null) {
       const lastLocalSavedDate = localStorage.getItem(`timestamp-${ mediaUrl }`);
-      this.setEditorContentState(data.blocks)
+      this.setEditorContentStateFromLocalStorage(data)
       return lastLocalSavedDate;
     }
     return ''
+  }
+
+  setEditorContentStateFromLocalStorage = (data) => {
+    // needs blocks and entityMap to use `convertFromRaw`
+    const contentState = convertFromRaw( data );
+     // eslint-disable-next-line no-use-before-define
+     const editorState = EditorState.createWithContent(contentState, decorator);
+     this.setState({ editorState });
   }
 
   // set DraftJS Editor content state from blocks
