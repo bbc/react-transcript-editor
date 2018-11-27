@@ -123,7 +123,7 @@ class TimedTextEditor extends React.Component {
   // contains blocks and entityMap
 
   /**
-   * @param {object} data - draftJs content 
+   * @param {object} data - draftJs content
    * @param {object} data.entityMap - draftJs entity maps - used by convertFromRaw
    * @param {object} data.blocks - draftJs blocks - used by convertFromRaw
    */
@@ -153,10 +153,15 @@ class TimedTextEditor extends React.Component {
           <style scoped>
             {`span.Word[data-start^="${ parseInt(this.props.currentTime) }."] {
                 background-color: lightblue;
-              }` } 
+              }` }
             {/* To select the spaces in between words */}
             {`span.Word[data-start^="${ parseInt(this.props.currentTime) }."]+span {
                   background-color: lightblue;
+              }`}
+
+            {/* To highlight previous words */}
+            {`span.Word[data-prev-times~="${ parseInt(this.props.currentTime) }"] {
+                  color: grey;
               }`}
           </style>
           {/* <p> {JSON.stringify(this.state.transcriptData)}</p> */}

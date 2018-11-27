@@ -155,6 +155,70 @@ render() {
     );
 }
 ```
+
+## making previosu words selectable
+[see this article](https://www.bram.us/2016/10/13/css-attribute-value-less-than-greater-than-equals-selectors) to make previous words to currentTime hilightable,  adding all numbers from zero to start time of that word rounded up, to seconds to make it hilightable.
+
+in `Word.js`
+```js
+class Word extends PureComponent {
+  render() {
+    const data = this.props.entityKey
+      ? this.props.contentState.getEntity(this.props.entityKey).getData()
+      : {};
+
+     
+      let res = '';
+      for(let i =0; i< parseInt(data.start); i++){
+        res += ` ${ i }`; 
+      }
+
+    return (
+      <span data-start={ data.start } data-prev-times={ res } data-entity-key={ data.key } className="Word">
+        {this.props.children}
+      </span>
+    );
+  }
+}
+```
+
+Then change TimedTextEditor to be 
+```js
+ render() {
+    return (
+      <section >
+        <section
+          className={ styles.editor }
+          onDoubleClick={ event => this.handleDoubleClick(event) }
+          // onClick={ event => this.handleOnClick(event) }
+        >
+          <style scoped>
+            {`span.Word[data-start^="${ parseInt(this.props.currentTime) }."] {
+                background-color: lightblue;
+              }` } 
+            {/* To select the spaces in between words */}
+            {`span.Word[data-start^="${ parseInt(this.props.currentTime) }."]+span {
+                  background-color: lightblue;
+              }`}
+
+            {/* To select previous words */}
+            {`span.Word[data-prev-times~="${ parseInt(this.props.currentTime) }"] {
+                  color: grey;
+              }`}
+          </style>
+          {/* <p> {JSON.stringify(this.state.transcriptData)}</p> */}
+          <Editor
+            editorState={ this.state.editorState }
+            onChange={ this.onChange }
+            stripPastedStyles
+          />
+        </section>
+      </section>
+    );
+  }
+```
+
+However not sure about performance of this last part.
 ---
 
 Background readings
