@@ -142,7 +142,26 @@ class TimedTextEditor extends React.Component {
     return data;
   }
 
+  getCurrentWord = () => {
+    const currentWord = {
+      start: 'NA',
+      end: 'NA'
+    };
+
+    if (this.state.transcriptData) {
+      const wordsArray = this.state.transcriptData.retval.words;
+      const word = wordsArray.find(w => w.end > this.props.currentTime);
+
+      currentWord.start = word.start;
+      currentWord.End = word.end;
+    }
+
+    return currentWord;
+  };
+
   render() {
+    const currentWord = this.getCurrentWord();
+
     return (
       <section >
         <section
@@ -151,18 +170,18 @@ class TimedTextEditor extends React.Component {
           // onClick={ event => this.handleOnClick(event) }
         >
           <style scoped>
-            {`span.Word[data-start^="${ parseInt(this.props.currentTime) }."] {
+            {`span.Word[data-start^="${ currentWord.start }"] {
                 background-color: lightblue;
               }` }
             {/* To select the spaces in between words */}
-            {`span.Word[data-start^="${ parseInt(this.props.currentTime) }."]+span {
-                  background-color: lightblue;
-              }`}
+            // {`span.Word[data-start^="${ parseInt(this.props.currentTime) }."]+span {
+            //       background-color: lightblue;
+            //   }`}
 
             {/* To highlight previous words */}
-            {`span.Word[data-prev-times~="${ parseInt(this.props.currentTime) }"] {
-                  color: grey;
-              }`}
+            // {`span.Word[data-prev-times~="${ parseInt(this.props.currentTime) }"] {
+            //       color: grey;
+            //   }`}
           </style>
           {/* <p> {JSON.stringify(this.state.transcriptData)}</p> */}
           <Editor
@@ -202,7 +221,8 @@ TimedTextEditor.propTypes = {
   mediaUrl: PropTypes.string,
   isEditable: PropTypes.bool,
   onWordClick: PropTypes.func,
-  sttJsonType: PropTypes.string
+  sttJsonType: PropTypes.string,
+  currentTime: PropTypes.number
 };
 
 export default TimedTextEditor;
