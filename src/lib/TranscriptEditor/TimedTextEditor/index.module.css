@@ -13,3 +13,7 @@ https://github.com/facebook/draft-js/issues/528
 div[data-block] + div[data-block] {
   margin-top: 1em;
 }
+
+span[data-confidence="low"] {
+  border-bottom: 1px dotted #ff0000;
+}

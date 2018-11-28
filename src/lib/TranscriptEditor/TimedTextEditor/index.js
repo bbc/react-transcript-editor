@@ -189,9 +189,11 @@ class TimedTextEditor extends React.Component {
           // onClick={ event => this.handleOnClick(event) }
         >
           <style scoped>
-            {`span.Word[data-start^="${ currentWord.start }"] { background-color: ${ highlightColour } }`}
-            {`span.Word[data-start^="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`} // highlighting space after word
+            {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour } }`}
+            {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`} // highlighting space after word
             {`span.Word[data-prev-times~="${ parseInt(this.props.currentTime) }"] { color: ${ unplayedColor } }`}
+            // proof of concept
+            {'span.Word[data-confience="low"] { text-decoration: underline wavy red }'}
           </style>
 
           <Editor

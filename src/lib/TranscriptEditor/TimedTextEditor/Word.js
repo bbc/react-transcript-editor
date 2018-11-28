@@ -7,8 +7,16 @@ class Word extends PureComponent {
       ? this.props.contentState.getEntity(this.props.entityKey).getData()
       : {};
 
+    const confidence = data.confidence > 0.6 ? 'high' : 'low';
+    // console.log(data);
+
     return (
-      <span data-start={ data.start } data-end={ data.end } data-entity-key={ data.key } className="Word">
+      <span
+        data-start={ data.start }
+        data-end={ data.end }
+        data-confidence = { confidence }
+        data-entity-key={ data.key }
+        className="Word">
         {this.props.children}
       </span>
     );
