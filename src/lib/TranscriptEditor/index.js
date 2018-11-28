@@ -50,6 +50,10 @@ class TranscriptEditor extends React.Component {
     })
   }
 
+  handlePlayMedia = (bool) => {
+    this.playMedia(bool)
+  }
+
   getEditorContent = sttType => this.refs.timedTextEditor.getEditorContent(sttType)
 
   render() {
@@ -60,6 +64,7 @@ class TranscriptEditor extends React.Component {
             <MediaPlayer
               // eslint-disable-next-line no-return-assign
               hookSeek={ foo => this.setCurrentTime = foo }
+              hookPlayMedia={ foo => this.playMedia = foo }
               hookOnTimeUpdate={ this.handleTimeUpdate }
               mediaUrl={ this.props.mediaUrl }
               />
@@ -68,6 +73,7 @@ class TranscriptEditor extends React.Component {
             <TimedTextEditor
               transcriptData={ this.state.transcriptData }
               onWordClick={ this.handleWordClick }
+              playMedia={ this.handlePlayMedia }
               currentTime={ this.state.currentTime }
               isEditable={ this.props.isEditable }
               sttJsonType={ this.props.sttJsonType }

@@ -30,6 +30,7 @@ class MediaPlayer extends React.Component {
 
   componentDidMount() {
     this.props.hookSeek(this.setCurrentTime);
+    this.props.hookPlayMedia(this.playMedia);
   }
 
   setCurrentTime = (newCurrentTime) => {
@@ -145,14 +146,27 @@ class MediaPlayer extends React.Component {
     }
   }
 
-  playMedia =() => {
-    if (this.videoRef.current !== null) {
-      if (this.videoRef.current.paused) {
+  /**
+   * @param {bool}  bool - is optional boolean - false -> pause | true -> play 
+   * for integration with TimedTextEditor pause while typing
+   */
+  playMedia =(bool) => {
+    if(bool === undefined){
+      if (this.videoRef.current !== null) {
+        if (this.videoRef.current.paused) {
+          this.videoRef.current.play();
+        } else {
+          this.videoRef.current.pause();
+        }
+      }
+    }else{
+      if (bool) {
         this.videoRef.current.play();
       } else {
         this.videoRef.current.pause();
       }
     }
+   
   }
 
   skipForward = () => {
@@ -303,6 +317,7 @@ class MediaPlayer extends React.Component {
 
 MediaPlayer.propTypes = {
   hookSeek: PropTypes.func,
+  hookPlayMedia: PropTypes.func,
   mediaUrl: PropTypes.string,
   hookOnTimeUpdate: PropTypes.func
 };

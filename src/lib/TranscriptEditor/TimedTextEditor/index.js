@@ -48,6 +48,26 @@ class TimedTextEditor extends React.Component {
   }
 
   onChange = (editorState) => {
+    // https://draftjs.org/docs/api-reference-editor-state#lastchangetype
+    // https://draftjs.org/docs/api-reference-editor-change-type
+    // doing editorStateChangeType === 'insert-characters'  is triggered even 
+    // outside of draftJS eg when clicking play button so using this instead
+    // see issue https://github.com/facebook/draft-js/issues/1060
+    if(this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()){
+
+      console.log('inserted a char or deleted one')
+      // pauses video 
+      this.props.playMedia(false);
+      // Pause video for X seconds 
+      const pauseWhileTypingIntervalInMilliseconds = 2000;
+      // restes timeout 
+      clearTimeout(this.plauseWhileTypingTimeOut);
+
+      this.plauseWhileTypingTimeOut = setTimeout(function(){
+          // after timeout starts playing again 
+         this.props.playMedia(true);
+        }.bind(this), pauseWhileTypingIntervalInMilliseconds);
+    }
     if (this.state.isEditable) {
       this.setState((prevState, props) => ({
         editorState,
