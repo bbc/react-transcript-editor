@@ -18,19 +18,20 @@ Keyboard Shortcuts
 - [ ] customizable Keyboard Shortcuts 
 
 HyperTranscript - interactivity 
-- [x] On text word doubel click at timecode -> media current time set to word timecode
-- [ ] Words highlighted at current time <— 
+- [x] On text word double click at timecode -> media current time set to word timecode
+- [ ] [Words highlighted at current time](https://github.com/bbc/react-transcript-editor/issues/25) <— 
+- [ ] [Scroll Sync](https://github.com/bbc/react-transcript-editor/issues/34), keep current word in view <—  (toggle on/off) 
 - [ ] Preserve timecodes while editing - TBC how
 
 Transcript Extra Info
-- [ ] Display Timecodes at paragraph level (with offset if present)
-- [ ] Display editable speaker names at paragraph level - speaker diarization info 
+- [ ] [Display Timecodes at paragraph level](https://github.com/bbc/react-transcript-editor/issues/26) (with offset if present)
+- [ ] [Display editable speaker names at paragraph level](https://github.com/bbc/react-transcript-editor/issues/26) - speaker diarization info 
 
 Save
-- [ ] Save locally - btc
-- [ ] Save locally - on interval 
-- [ ] Save to server API end point - Btc
-- [ ] Save to server API end point - on interval 
+- [x] Save locally - (local storage)
+- [ ] Save locally - on interval, eg every `x` char 
+- [ ] ~Save to server API end point - Btc~
+- [ ] ~Save to server API end point - on interval~ 
 
 Export <-- for proof of concept
 - [ ] Export plain text
@@ -50,6 +51,23 @@ Browser compatibility
 Import Transcript Json - Adapters 
 - [x] BBC Kaldi 
 - [x] News Labs API - BBC Kaldi
+- [x] autoEdit 2
+- [ ] Gentle Transcription 
+- [ ] Gentle Alignment Json
+- [ ] IBM Watson STT
+- [ ] Speechmatics
+- [ ] AssemblyAI
+- [ ] Rev
+- [ ] Srt
+- [ ] TTML
+- [ ] VTT
+- [ ] VTT (Youtube)
+- [ ] IIIF 
+- [ ] SMT and/or CTM ?<!-- SCLite -->
+
+Export Transcript Json - Adapters 
+- [ ] BBC Kaldi 
+- [ ] News Labs API - BBC Kaldi
 - [ ] autoEdit 2
 - [ ] Gentle Transcription 
 - [ ] Gentle Alignment Json
@@ -58,13 +76,11 @@ Import Transcript Json - Adapters
 - [ ] AssemblyAI
 - [ ] Rev
 - [ ] Srt
-- [ ] SMT and/or CTM ?<!-- SCLite -->
-
-Export Transcript Json - Adapters 
-- [ ] BBC Kaldi 
-- [ ] News Labs API - BBC Kaldi
-- [ ] autoEdit 2
-- [ ] srt
+- [ ] TTML
+- [ ] VTT
+- [ ] VTT (Youtube)
+- [ ] IIIF 
+- [ ] SMT and/or CTM ?
 
 <!-- add Instructions on how to create adapters  -->
 
