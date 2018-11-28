@@ -56,18 +56,21 @@ class TimedTextEditor extends React.Component {
     if(this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()){
 
       console.log('inserted a char or deleted one')
-      // pauses video 
-      this.props.playMedia(false);
-      // Pause video for X seconds 
-      const pauseWhileTypingIntervalInMilliseconds = 2000;
-      // restes timeout 
-      clearTimeout(this.plauseWhileTypingTimeOut);
+      // pauses video only if it's already playing
+      if(this.props.isPlaying()){
+        this.props.playMedia(false);
+          // Pause video for X seconds 
+        const pauseWhileTypingIntervalInMilliseconds = 2000;
+          // restes timeout 
+        clearTimeout(this.plauseWhileTypingTimeOut);
 
-      this.plauseWhileTypingTimeOut = setTimeout(function(){
-          // after timeout starts playing again 
-         this.props.playMedia(true);
-        }.bind(this), pauseWhileTypingIntervalInMilliseconds);
-    }
+          this.plauseWhileTypingTimeOut = setTimeout(function(){
+              // after timeout starts playing again 
+            this.props.playMedia(true);
+            }.bind(this), pauseWhileTypingIntervalInMilliseconds);
+        }
+      }
+
     if (this.state.isEditable) {
       this.setState((prevState, props) => ({
         editorState,

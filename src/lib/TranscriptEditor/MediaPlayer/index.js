@@ -31,6 +31,7 @@ class MediaPlayer extends React.Component {
   componentDidMount() {
     this.props.hookSeek(this.setCurrentTime);
     this.props.hookPlayMedia(this.playMedia);
+    this.props.hookIsPlaying(this.isPlaying)
   }
 
   setCurrentTime = (newCurrentTime) => {
