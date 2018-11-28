@@ -180,6 +180,10 @@ class TimedTextEditor extends React.Component {
     const currentWord = this.getCurrentWord();
     const highlightColour = 'lightblue';
     const unplayedColor = 'grey';
+    const correctionBorder = '1px dotted #ff0000';
+
+    // Time to the nearest half second
+    const time = Math.round(this.props.currentTime * 2.0) / 2.0;
 
     return (
       <section>
@@ -190,10 +194,10 @@ class TimedTextEditor extends React.Component {
         >
           <style scoped>
             {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour } }`}
-            {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`} // highlighting space after word
-            {`span.Word[data-prev-times~="${ parseInt(this.props.currentTime) }"] { color: ${ unplayedColor } }`}
-            // proof of concept
-            {'span.Word[data-confience="low"] { text-decoration: underline wavy red }'}
+            {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
+            {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
+            {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
+            {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
           </style>
 
           <Editor
