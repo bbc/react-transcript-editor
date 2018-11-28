@@ -124,7 +124,6 @@ class TimedTextEditor extends React.Component {
   // contains blocks and entityMap
 
   /**
-   * @param {object} data - draftJs content
    * @param {object} data.entityMap - draftJs entity maps - used by convertFromRaw
    * @param {object} data.blocks - draftJs blocks - used by convertFromRaw
    */
