@@ -24,6 +24,7 @@ class TimedTextEditor extends React.Component {
       isEditable: this.props.isEditable,
       sttJsonType: this.props.sttJsonType,
       inputCount: 0,
+      currentWord: {}
     };
   }
 
@@ -123,7 +124,6 @@ class TimedTextEditor extends React.Component {
   // contains blocks and entityMap
 
   /**
-   * @param {object} data - draftJs content 
    * @param {object} data.entityMap - draftJs entity maps - used by convertFromRaw
    * @param {object} data.blocks - draftJs blocks - used by convertFromRaw
    */
@@ -142,15 +142,63 @@ class TimedTextEditor extends React.Component {
     return data;
   }
 
+  getLatestUnplayedWord = () => {
+    let latest = 'NA';
+
+    if (this.state.transcriptData) {
+      const wordsArray = this.state.transcriptData.retval.words;
+      const word = wordsArray.find(w => w.start < this.props.currentTime);
+
+      latest = word.start;
+    }
+
+    return latest;
+  }
+
+  getCurrentWord = () => {
+    const currentWord = {
+      start: 'NA',
+      end: 'NA'
+    };
+
+    if (this.state.transcriptData) {
+      const wordsArray = this.state.transcriptData.retval.words;
+
+      const word = wordsArray.find((w, i) => w.start <= this.props.currentTime && w.end >= this.props.currentTime);
+
+      if (word) {
+        currentWord.start = word.start;
+        currentWord.end = word.end;
+      }
+    }
+
+    return currentWord;
+  }
+
   render() {
+    const currentWord = this.getCurrentWord();
+    const highlightColour = 'lightblue';
+    const unplayedColor = 'grey';
+    const correctionBorder = '1px dotted #ff0000';
+
+    // Time to the nearest half second
+    const time = Math.round(this.props.currentTime * 2.0) / 2.0;
+
     return (
-      <section >
+      <section>
         <section
           className={ styles.editor }
           onDoubleClick={ event => this.handleDoubleClick(event) }
           // onClick={ event => this.handleOnClick(event) }
         >
-          {/* <p> {JSON.stringify(this.state.transcriptData)}</p> */}
+          <style scoped>
+            {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour } }`}
+            {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
+            {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
+            {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
+            {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
+          </style>
+
           <Editor
             editorState={ this.state.editorState }
             onChange={ this.onChange }
@@ -188,7 +236,8 @@ TimedTextEditor.propTypes = {
   mediaUrl: PropTypes.string,
   isEditable: PropTypes.bool,
   onWordClick: PropTypes.func,
-  sttJsonType: PropTypes.string
+  sttJsonType: PropTypes.string,
+  currentTime: PropTypes.number
 };
 
 export default TimedTextEditor;
