@@ -30,7 +30,7 @@ class PlayerControls extends React.Component {
         return (
           <div>
             {/* Play Btn  */}
-            <button onClick={ () => { this.props.playMedia() } }> {this.props.isPlaying() ? '❚❚' : '▶'} </button> 
+            <button onClick={ (e) => { this.props.playMedia(e) } }> {this.props.isPlaying() ? '❚❚' : '▶'} </button> 
             {/* Backward Btn */}
             <button 
                 onMouseDown={ this.setIntervalHelperBackward }

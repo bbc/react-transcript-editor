@@ -8,6 +8,7 @@ import RollBack from './RollBack.js';
 import ProgressBar from './ProgressBar.js';
 import PlayerControls from './PlayerControls.js';
 import VolumeControl from './VolumeControl.js';
+import PauseWhileTyping from './PauseWhileTyping.js';
 
 import styles from './index.module.css';
 
@@ -23,6 +24,7 @@ class MediaPlayer extends React.Component {
       rollBackValueInSeconds: 15,
       timecodeOffset: 0,
       hotKeys: returnHotKeys(this),
+      isPausedWhileTyping: false
     }
   }
   /*eslint-disable camel case */
@@ -138,6 +140,15 @@ class MediaPlayer extends React.Component {
     }
   }
 
+  handleTogglePauseWhileTyping = (e) => {
+    console.log('triggered')
+    console.log(this.state.isPausedWhileTyping)
+    this.setState((prevState, props) => {
+      console.log(prevState.isPausedWhileTyping)
+      return { isPausedWhileTyping:  !prevState.isPausedWhileTyping }
+    })
+  }
+
   isPlaying=() => {
     if (this.videoRef.current !== null) {
       if (this.videoRef.current.paused) {
@@ -150,24 +161,33 @@ class MediaPlayer extends React.Component {
   /**
    * @param {bool}  bool - is optional boolean - false -> pause | true -> play 
    * for integration with TimedTextEditor pause while typing
+   * If bool is not provided then if paused --> play | if playing --> pause
+   * Eg when triggered from play/pause btn 
    */
-  playMedia =(bool) => {
-    if(bool === undefined){
-      if (this.videoRef.current !== null) {
-        if (this.videoRef.current.paused) {
-          this.videoRef.current.play();
-        } else {
-          this.videoRef.current.pause();
-        }
+  playMedia = (bool) => {
+    // checks that there is a video player element initialized
+    if (this.videoRef.current !== null) {
+      // if playMedia is being triggered by PlayerControl or Video element
+      // then it will have a target attribute
+      if(bool.target !== undefined){
+          // checks on whether to use default fallback if no param is provided
+          if (this.videoRef.current.paused) {
+            this.videoRef.current.play();
+          } else {
+            this.videoRef.current.pause();
+          }
       }
-    }else{
-      if (bool) {
-        this.videoRef.current.play();
-      } else {
-        this.videoRef.current.pause();
+      else{
+         // if param is provided and if pausedWhileTyping Toggle is on
+        if(this.state.isPausedWhileTyping){
+            if (bool) {
+              this.videoRef.current.play();
+            } else {
+              this.videoRef.current.pause();
+            }
+          }
       }
     }
-   
   }
 
   skipForward = () => {
@@ -233,7 +253,7 @@ class MediaPlayer extends React.Component {
           // TODO: video type - add logic to identify if video is playable and raise error if it's not
           type="video/mp4"
           data-testid="media-player-id"
-          onClick={ this.playMedia }
+          onClick={ this.playMedia.bind(this) }
           ref={ this.videoRef }
         />
       );
@@ -266,6 +286,11 @@ class MediaPlayer extends React.Component {
      
         <VolumeControl 
           handleMuteVolume={ this.handleMuteVolume.bind(this) }
+        />
+
+        <PauseWhileTyping 
+          isPausedWhileTyping={ this.props.isPausedWhileTyping }
+          handleToggle={ this.handleTogglePauseWhileTyping.bind(this) }
         />
    
         <PlaybackRate

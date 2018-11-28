@@ -60,16 +60,15 @@ class TimedTextEditor extends React.Component {
       if(this.props.isPlaying()){
         this.props.playMedia(false);
           // Pause video for X seconds 
-        const pauseWhileTypingIntervalInMilliseconds = 2000;
-          // restes timeout 
+        const pauseWhileTypingIntervalInMilliseconds = 3000;
+          // resets timeout 
         clearTimeout(this.plauseWhileTypingTimeOut);
-
-          this.plauseWhileTypingTimeOut = setTimeout(function(){
+        this.plauseWhileTypingTimeOut = setTimeout(function(){
               // after timeout starts playing again 
-            this.props.playMedia(true);
-            }.bind(this), pauseWhileTypingIntervalInMilliseconds);
-        }
+          this.props.playMedia(true);
+        }.bind(this), pauseWhileTypingIntervalInMilliseconds);
       }
+    }
 
     if (this.state.isEditable) {
       this.setState((prevState, props) => ({
@@ -211,7 +210,9 @@ TimedTextEditor.propTypes = {
   mediaUrl: PropTypes.string,
   isEditable: PropTypes.bool,
   onWordClick: PropTypes.func,
-  sttJsonType: PropTypes.string
+  sttJsonType: PropTypes.string,
+  isPlaying: PropTypes.func,
+  playMedia: PropTypes.func
 };
 
 export default TimedTextEditor;
