@@ -1,3 +1,13 @@
 language: node_js
 node_js:
  - "node"
+
+install:
+  - node --version
+  - npm i -g npm@5
+  - npm --version
+  - npm install
+
+script:
+  - npm run test-ci
+  # could also run lit 
