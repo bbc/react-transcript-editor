@@ -55,12 +55,9 @@ class TimedTextEditor extends React.Component {
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
     if(this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()){
-
-      console.log('inserted a char or deleted one')
-      // pauses video only if it's already playing
       if(this.props.isPlaying()){
         this.props.playMedia(false);
-          // Pause video for X seconds 
+        // Pause video for X seconds 
         const pauseWhileTypingIntervalInMilliseconds = 3000;
           // resets timeout 
         clearTimeout(this.plauseWhileTypingTimeOut);
