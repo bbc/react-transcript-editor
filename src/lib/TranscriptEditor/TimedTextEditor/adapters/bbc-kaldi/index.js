@@ -95,7 +95,6 @@ const bbcKaldiToDraft = (bbcKaldiJson) => {
   const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
 
   wordsByParagraphs.forEach((paragraph, i) => {
-    console.log(paragraph)
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
       type: 'paragraph',

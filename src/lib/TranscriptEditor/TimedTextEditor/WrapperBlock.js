@@ -2,45 +2,48 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { EditorBlock } from 'draft-js';
 
-const speakerColours = [ '#e9d78e', '#e2975d', '#f19670', '#e16552', '#c94a53',
-'#be5168', '#a34974', '#993767', '#65387d', '#4e2472' ];
+import SpeakerLabel from './SpeakerLabel';
 
 class WrapperBlock extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      speaker: 'null',
+      start: '00:00:00'
+    };
   }
 
-  renderSpeaker = (speaker) => {
-    const style = { color: speakerColours[0] };
+  componentDidMount() {
+    const { block } = this.props;
+    const speaker = block.getData().get('speaker');
+    const start = block.getData().get('start');
 
-    return (
-      <span className="SpeakerBlock" style={ style }>{speaker}</span>
-    );
+    this.setState({
+      speaker: speaker,
+      start: start
+    })
   }
 
-  renderTimecodes = (time) => {
-    const style = { color: speakerColours[4] };
+  handleOnClickEdit = (e) => {
+    const newSpeakerName = prompt('New Speaker Name?')
 
-    return (
-      <span className="TimecodeBlock" style={ style }>{time}</span>
-    );
+    this.setState({ speaker: newSpeakerName });
   }
 
   render() {
-    console.log(this.props);
-    const { block, contentState } = this.props;
-    const { foo } = this.props.blockProps;
-
-    const key = block.getKey();
-    const speaker = block.getData().get('speaker');
-    const words = block.getData().get('words');
-    const start = block.getData().get('start');
-
     return (
       <div className="WrapperBlock">
-        {this.renderSpeaker(speaker)}
+        <span className="SpeakerBlock">
+          <SpeakerLabel
+          name={ this.state.speaker }
+          handleOnClickEdit={ this.handleOnClickEdit }
+          />
+        </span>
+
         <br />
-        {this.renderTimecodes(start)}
+        <span className="TimeBlock"> {this.state.start} </span>
+        <br />
         <EditorBlock { ...this.props } />
       </div>
     );

@@ -53,18 +53,18 @@ class TimedTextEditor extends React.Component {
   onChange = (editorState) => {
     // https://draftjs.org/docs/api-reference-editor-state#lastchangetype
     // https://draftjs.org/docs/api-reference-editor-change-type
-    // doing editorStateChangeType === 'insert-characters'  is triggered even 
+    // doing editorStateChangeType === 'insert-characters'  is triggered even
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
     if(this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()){
       if(this.props.isPlaying()){
         this.props.playMedia(false);
-        // Pause video for X seconds 
+        // Pause video for X seconds
         const pauseWhileTypingIntervalInMilliseconds = 3000;
-          // resets timeout 
+          // resets timeout
         clearTimeout(this.plauseWhileTypingTimeOut);
         this.plauseWhileTypingTimeOut = setTimeout(function(){
-              // after timeout starts playing again 
+              // after timeout starts playing again
           this.props.playMedia(true);
         }.bind(this), pauseWhileTypingIntervalInMilliseconds);
       }
@@ -214,8 +214,6 @@ class TimedTextEditor extends React.Component {
     const currentWord = this.getCurrentWord();
     const highlightColour = 'lightblue';
     const unplayedColor = 'grey';
-    // const correctionBorder = '1px dotted #ff0000';
-    // temporarily switching to blue 
     const correctionBorder = '1px dotted blue';
 
     // Time to the nearest half second
@@ -230,7 +228,7 @@ class TimedTextEditor extends React.Component {
         >
           <style scoped>
             {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour } }`}
-            {/* {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`} */}
+            {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
             {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
             {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
             {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
