@@ -53,7 +53,7 @@ git log
 ```
 ## to add to previous commit 
 
-### If have not pushed
+### If have not pushed
 
 ```
 git commit --amend
