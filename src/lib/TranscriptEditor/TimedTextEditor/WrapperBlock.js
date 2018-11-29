@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { EditorBlock, Modifier, convertToRaw, EditorState } from 'draft-js';
+import { EditorBlock, Modifier, convertToRaw, EditorState, Editor } from 'draft-js';
 
 import SpeakerLabel from './SpeakerLabel';
 
@@ -47,6 +47,11 @@ class WrapperBlock extends React.Component {
     const tmpRaw = convertToRaw(newContentState);
     console.log(JSON.stringify(tmpRaw,null,2)); 
     const newEditorState = EditorState.push(this.props.blockProps.editorState, newContentState);
+    // https://draftjs.org/docs/api-reference-editor-state
+    // TODO: This below doesn't work?
+    EditorState.set(newEditorState, { allowUndo: false });
+    // Editor.forceUpdate();
+    
     // TODO: this last step of saving the stage needs to happen in TimedTextEditor
     // this.setState({ editorState: newEditorState });
   }
