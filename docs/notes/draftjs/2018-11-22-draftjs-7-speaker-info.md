@@ -1,4 +1,4 @@
-# DraftJs how to add speaker info to paragraphs
+# DraftJs how to add speaker info to paragraphs - draft
 
 how to add decorators for time stamps and speakers at paragraph level?
 
@@ -88,3 +88,90 @@ class WrapperBlock extends Component {
 
 export default WrapperBlock;
 ```
+
+---
+
+read up on
+- [Custom Block Components](https://draftjs.org/docs/advanced-topics-block-components.html)
+- [blockRendererFn](https://draftjs.org/docs/api-reference-editor#blockrendererfn)
+- [Custom Block Rendering](https://draftjs.org/docs/advanced-topics-custom-block-render-map#docsNav)
+
+
+see https://github.com/bbc/subtitalizer/blob/master/src/components/WrapperBlock.js
+
+Look into TranscriptEditor how [customBlockRenderer](https://draftjs.org/docs/advanced-topics-custom-block-render-map#docsNav) is used
+
+All this works via blockRendererFn and not blockRenderMap
+
+basically try to get your dummy <div> wrapper blockworking, then later add decoratrions to it like speaker and stuff
+
+in subtitalizer I have
+```js
+<Editor
+          editorState={this.state.editorState}
+          readOnly={this.state.readOnly}
+          onChange={editorState => this.onChange(editorState)}
+          blockRenderMap={extendedBlockRenderMap}
+          stripPastedStyles
+          handleKeyCommand={command => this.handleKeyCommand(command)}
+          keyBindingFn={e => filterKeyBindingFn(e)}
+          blockRendererFn={this.customBlockRenderer}
+/>
+```
+
+blockRenderMap is a default thingie
+
+
+```js
+const blockRenderMap = Immutable.Map({
+  paragraph: {
+    element: 'section',
+  },
+  timecodeBlock: {
+    element: 'div',
+  },
+});
+
+const extendedBlockRenderMap = Draft.DefaultDraftBlockRenderMap.merge(blockRenderMap);
+```
+
+
+I use <section> for paragraphs here
+
+blockRendererFn is the magic
+
+
+https://draftjs.org/docs/api-reference-editor#blockrendererfn
+
+it calls this,customBlockRendere which is https://github.com/bbc/subtitalizer/blob/master/src/components/TranscriptEditor.js#L161
+
+
+which basically returns 
+```
+return {
+          component: WrapperBlock,
+props: {...
+```
+
+this.props.block....
+
+
+and the props you pass here, they get in the WrapperBlock as 
+
+
+https://draftjs.org/docs/advanced-topics-block-components.html
+
+
+basically there is a blockRenderMap that tells draft what <tag> to use for each type of block
+
+In my example `timecodeBlock` is not relevant anymore, that is dead code LOL
+
+
+and then you pass a blockRenderFn that renders the block, basically returns the block and the props to be rendered
+
+blockRenderFn is like a render-prop helper function
+
+
+## Readings 
+
+- https://medium.com/@lakesare/draft-js-custom-block-rendering-c4221710323a - https://lakesare.github.io/draft-rendering-methods/
