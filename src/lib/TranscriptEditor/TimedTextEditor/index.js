@@ -169,7 +169,8 @@ class TimedTextEditor extends React.Component {
       component: WrapperBlock,
       editable: true,
       props: {
-        foo: 'bar'
+        foo: 'bar',
+        editorState: this.state.editorState
       }
     };
   }
