@@ -175,28 +175,26 @@ class TimedTextEditor extends React.Component {
   }
 
   getCurrentWord = () => {
-    // some error handling, for when transcript is first loaded 
-    if(this.state.transcriptData !== null){
       const currentWord = {
         start: 'NA',
         end: 'NA'
       };
 
       if (this.state.transcriptData) {
-        const wordsArray = this.state.transcriptData.retval.words;
+        const contentState = this.state.editorState.getCurrentContent()
+        const contentStateConvertEdToRaw = convertToRaw(contentState);
+        const entityMap = contentStateConvertEdToRaw.entityMap;
 
-        const word = wordsArray.find((w, i) => w.start <= this.props.currentTime && w.end >= this.props.currentTime);
-
-        if (word) {
-          currentWord.start = word.start;
-          currentWord.end = word.end;
+        for (var entityKey in entityMap){
+          const entity = entityMap[entityKey];
+          const word = entity.data;
+          if(word.start <= this.props.currentTime && word.end >= this.props.currentTime){
+            currentWord.start = word.start;
+            currentWord.end = word.end;
+          }
         }
-      }
-      return currentWord;
     }
-    
-    // returns current word as zero if transcript is not yet defined
-    return 0;
+    return currentWord;
   }
 
   render() {
