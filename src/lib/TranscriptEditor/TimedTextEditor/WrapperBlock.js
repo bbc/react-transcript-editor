@@ -4,13 +4,15 @@ import { EditorBlock } from 'draft-js';
 
 import SpeakerLabel from './SpeakerLabel';
 
+import style from './WrapperBlock.module.css';
+
 class WrapperBlock extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      speaker: 'null',
-      start: '00:00:00'
+      speaker: '',
+      start: ''
     };
   }
 
@@ -26,24 +28,23 @@ class WrapperBlock extends React.Component {
   }
 
   handleOnClickEdit = (e) => {
-    const newSpeakerName = prompt('New Speaker Name?')
+    const newSpeakerName = prompt('New Speaker Name?');
 
-    this.setState({ speaker: newSpeakerName });
+    if (newSpeakerName !== '') {
+      this.setState({ speaker: newSpeakerName });
+    }
   }
 
   render() {
     return (
-      <div className="WrapperBlock">
-        <span className="SpeakerBlock">
+      <div className={ style.WrapperBlock }>
+        <span className={ style.SpeakerBlock }>
           <SpeakerLabel
-          name={ this.state.speaker }
-          handleOnClickEdit={ this.handleOnClickEdit }
+            name={ this.state.speaker }
+            handleOnClickEdit={ this.handleOnClickEdit }
           />
         </span>
-
-        <br />
-        <span className="TimeBlock"> {this.state.start} </span>
-        <br />
+        <span className={ style.TimeBlock }>{this.state.start}</span>
         <EditorBlock { ...this.props } />
       </div>
     );
