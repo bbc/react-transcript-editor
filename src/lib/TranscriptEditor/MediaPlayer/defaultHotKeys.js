@@ -34,7 +34,7 @@ function returnHotKeys(self) {
       priority: 1,
       handler: (event) => { self.rollBack(); },
       helperText: 'Roll Back',
-    },
+    }
     // ,'ctrl+/': {
     //     priority: 1,
     //     handler: (event) => { console.log('show hide shortcuts');},

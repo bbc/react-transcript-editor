@@ -51,6 +51,25 @@ class TimedTextEditor extends React.Component {
   }
 
   onChange = (editorState) => {
+    // https://draftjs.org/docs/api-reference-editor-state#lastchangetype
+    // https://draftjs.org/docs/api-reference-editor-change-type
+    // doing editorStateChangeType === 'insert-characters'  is triggered even 
+    // outside of draftJS eg when clicking play button so using this instead
+    // see issue https://github.com/facebook/draft-js/issues/1060
+    if(this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()){
+      if(this.props.isPlaying()){
+        this.props.playMedia(false);
+        // Pause video for X seconds 
+        const pauseWhileTypingIntervalInMilliseconds = 3000;
+          // resets timeout 
+        clearTimeout(this.plauseWhileTypingTimeOut);
+        this.plauseWhileTypingTimeOut = setTimeout(function(){
+              // after timeout starts playing again 
+          this.props.playMedia(true);
+        }.bind(this), pauseWhileTypingIntervalInMilliseconds);
+      }
+    }
+
     if (this.state.isEditable) {
       this.setState((prevState, props) => ({
         editorState,
@@ -169,22 +188,25 @@ class TimedTextEditor extends React.Component {
   }
 
   getCurrentWord = () => {
-    const currentWord = {
-      start: 'NA',
-      end: 'NA'
-    };
+      const currentWord = {
+        start: 'NA',
+        end: 'NA'
+      };
 
-    if (this.state.transcriptData) {
-      const wordsArray = this.state.transcriptData.retval.words;
+      if (this.state.transcriptData) {
+        const contentState = this.state.editorState.getCurrentContent()
+        const contentStateConvertEdToRaw = convertToRaw(contentState);
+        const entityMap = contentStateConvertEdToRaw.entityMap;
 
-      const word = wordsArray.find((w, i) => w.start <= this.props.currentTime && w.end >= this.props.currentTime);
-
-      if (word) {
-        currentWord.start = word.start;
-        currentWord.end = word.end;
-      }
+        for (var entityKey in entityMap){
+          const entity = entityMap[entityKey];
+          const word = entity.data;
+          if(word.start <= this.props.currentTime && word.end >= this.props.currentTime){
+            currentWord.start = word.start;
+            currentWord.end = word.end;
+          }
+        }
     }
-
     return currentWord;
   }
 
@@ -192,7 +214,9 @@ class TimedTextEditor extends React.Component {
     const currentWord = this.getCurrentWord();
     const highlightColour = 'lightblue';
     const unplayedColor = 'grey';
-    const correctionBorder = '1px dotted #ff0000';
+    // const correctionBorder = '1px dotted #ff0000';
+    // temporarily switching to blue 
+    const correctionBorder = '1px dotted blue';
 
     // Time to the nearest half second
     const time = Math.round(this.props.currentTime * 2.0) / 2.0;
@@ -206,7 +230,7 @@ class TimedTextEditor extends React.Component {
         >
           <style scoped>
             {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour } }`}
-            {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
+            {/* {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`} */}
             {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
             {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
             {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
@@ -251,6 +275,8 @@ TimedTextEditor.propTypes = {
   isEditable: PropTypes.bool,
   onWordClick: PropTypes.func,
   sttJsonType: PropTypes.string,
+  isPlaying: PropTypes.func,
+  playMedia: PropTypes.func,
   currentTime: PropTypes.number
 };
 
