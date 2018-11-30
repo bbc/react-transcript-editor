@@ -5,6 +5,7 @@ import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
 
 import styles from './index.module.css';
+import { throws } from 'assert';
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class TranscriptEditor extends React.Component {
       currentTime: 0,
       lastLocalSavedTime: '',
       transcriptData: null,
+      isScrollIntoViewOn: false
     }
   }
 
@@ -57,6 +59,17 @@ class TranscriptEditor extends React.Component {
   handleIsPlaying = () => {
     return this.isPlaying()
   }
+
+  // handleIsScrollSyncToggle = () => {
+  //   console.log('this.handleToggleScrollIntoView() ');
+  //   this.setState({ isScrollIntoViewOn: true })
+  //   // return this.isScrollIntoViewHandler();
+  // }
+
+  handleIsScrollIntoViewChange = (isChecked) => {
+    this.setState({ isScrollIntoViewOn: isChecked })
+  }
+
   getEditorContent = sttType => this.refs.timedTextEditor.getEditorContent(sttType)
 
   render() {
@@ -71,7 +84,9 @@ class TranscriptEditor extends React.Component {
               hookIsPlaying={ foo => this.isPlaying = foo }
               hookOnTimeUpdate={ this.handleTimeUpdate }
               mediaUrl={ this.props.mediaUrl }
-              />
+              isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
+              handleIsScrollIntoViewChange={ this.handleIsScrollIntoViewChange }
+             />
           </aside>
           <main className={ styles.main }>
             <TimedTextEditor
@@ -79,6 +94,8 @@ class TranscriptEditor extends React.Component {
               onWordClick={ this.handleWordClick }
               playMedia={ this.handlePlayMedia }
               isPlaying={ this.handleIsPlaying }
+              // handleIsScrollSyncToggle={ this.handleIsScrollSyncToggle }
+              isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
               currentTime={ this.state.currentTime }
               isEditable={ this.props.isEditable }
               sttJsonType={ this.props.sttJsonType }

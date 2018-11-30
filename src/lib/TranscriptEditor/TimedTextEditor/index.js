@@ -195,8 +195,11 @@ class TimedTextEditor extends React.Component {
         }
     }
     if(currentWord.start !== 'NA'){
-      const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
-      currentWordElement.scrollIntoView({ block: 'center', inline: 'center' })
+      console.log('TimedTextEditor: ',this.props.isScrollIntoViewOn);
+      if(this.props.isScrollIntoViewOn){
+        const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
+        currentWordElement.scrollIntoView({ block: 'center', inline: 'center' })
+      }
     }
     return currentWord;
   }
@@ -267,7 +270,8 @@ TimedTextEditor.propTypes = {
   sttJsonType: PropTypes.string,
   isPlaying: PropTypes.func,
   playMedia: PropTypes.func,
-  currentTime: PropTypes.number
+  currentTime: PropTypes.number,
+  isScrollSyncToggle: PropTypes.func
 };
 
 export default TimedTextEditor;
