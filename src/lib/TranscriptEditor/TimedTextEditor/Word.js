@@ -14,7 +14,10 @@ class Word extends PureComponent {
       prevTimes += `${ i } `;
     }
 
-    if (data.start % 1 > 0.5) prevTimes += ` ${ Math.floor(data.start) }.5`;
+    if (data.start % 1 > 0) {
+      const dec = Math.round((data.start % 1 - 0.5) * 4.0) / 4.0;
+      prevTimes += ` ${ Math.floor(data.start) + dec }`;
+    }
 
     return (
       <span

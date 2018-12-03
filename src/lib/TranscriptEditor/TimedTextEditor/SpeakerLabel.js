@@ -10,7 +10,9 @@ class SpeakerLabel extends PureComponent {
           {this.props.name}
           <span
             className={ style.EditLabel }
-            onClick={ this.props.handleOnClickEdit }> ✏️
+            onClick={ this.props.handleOnClickEdit }
+            role='img'
+            aria-label='Pencil'> ✏️
           </span>
         </span>
       )

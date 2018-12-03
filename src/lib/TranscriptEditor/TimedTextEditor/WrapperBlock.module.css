@@ -1,29 +1,40 @@
+@value color-labs-red, color-light-grey, color-mid-grey, color-dark-grey from '../colours.module.css';
+
 .WrapperBlock {
   width: 100%;
   margin-bottom: 2em;
   overflow: auto;
+  line-height: 1em;
 }
 
 .markers {
   width: 30%;
+  font-size: 0.8em;
   float: left;
 }
 
 .text {
-  width: 70%;
+  width: 65%;
+  font-size: 1em;
   float: right;
   clear: right;
+  /* color: color-light-grey; */
 }
 
 .speaker {
   display: inline-block;
   font-weight: bold;
+  text-transform: uppercase;
+  width: 50%;
+  color: color-mid-grey;
 }
 
 .time {
   display: inline-block;
   font-weight: lighter;
   margin-bottom: 8px;
+  width: 50%;
+  text-align: right;
 }
 
 .EditLabel {

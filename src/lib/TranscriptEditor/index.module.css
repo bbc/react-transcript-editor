@@ -1,3 +1,5 @@
+@value color-subt-green from './colours.module.css';
+
 /* Desktop size */
 @media (min-width: 768px) {
   .container {
@@ -36,4 +38,12 @@
   .aside {
     width: 100%;
   }
+}
+
+::selection {
+  background: color-subt-green;
+}
+
+::moz-selection {
+  background: color-subt-green;
 }

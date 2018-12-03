@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { EditorBlock } from 'draft-js';
 
 import SpeakerLabel from './SpeakerLabel';
+import { secondsToTimecode } from '../../Util/timecode-converter/';
 
 import style from './WrapperBlock.module.css';
 
@@ -12,7 +13,7 @@ class WrapperBlock extends React.Component {
 
     this.state = {
       speaker: '',
-      start: ''
+      start: 0
     };
   }
 
@@ -43,7 +44,7 @@ class WrapperBlock extends React.Component {
             name={ this.state.speaker }
             handleOnClickEdit={ this.handleOnClickEdit }
             />
-          <span className={ style.time }>{this.state.start}</span>
+          <span className={ style.time }>{secondsToTimecode(this.state.start)}</span>
         </div>
         <div className={ style.text }>
           <EditorBlock { ...this.props } />
