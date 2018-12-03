@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
 
-import styles from './index.module.css';
+import style from './index.module.css';
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
@@ -61,10 +61,9 @@ class TranscriptEditor extends React.Component {
 
   render() {
     return (
-      <section>
-        <section className={ styles.container }>
-          <aside className={ styles.aside }>
-            <MediaPlayer
+      <div className={ style.container }>
+        <aside className={ style.aside }>
+          <MediaPlayer
               // eslint-disable-next-line no-return-assign
               hookSeek={ foo => this.setCurrentTime = foo }
               hookPlayMedia={ foo => this.playMedia = foo }
@@ -72,9 +71,9 @@ class TranscriptEditor extends React.Component {
               hookOnTimeUpdate={ this.handleTimeUpdate }
               mediaUrl={ this.props.mediaUrl }
               />
-          </aside>
-          <main className={ styles.main }>
-            <TimedTextEditor
+        </aside>
+        <main className={ style.main }>
+          <TimedTextEditor
               transcriptData={ this.state.transcriptData }
               onWordClick={ this.handleWordClick }
               playMedia={ this.handlePlayMedia }
@@ -85,9 +84,8 @@ class TranscriptEditor extends React.Component {
               ref={ 'timedTextEditor' }
               mediaUrl={ this.props.mediaUrl }
               />
-          </main>
-        </section>
-      </section>
+        </main>
+      </div>
     );
   }
 }

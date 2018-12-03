@@ -1,10 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
+
 import { TranscriptEditor } from './lib';
-// import kaldiTranscript from './sample-data/kaldi-transcription-20181029235300.json';
+
 import kaldiTedTalkTranscript from './sample-data/KateDarling_2018S-bbc-kaldi.json';
-import styles from './index.module.css';
 import SttTypeSelect from './select-stt-json-type'
+
+import style from './index.module.css';
 
 const tedTalkVideoUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
 
@@ -102,8 +104,8 @@ class App extends React.Component {
 
    render() {
      return (
-       <div className={ styles.container }>
-         <span className={ styles.title }>
+       <div className={ style.container }>
+         <span className={ style.title }>
             Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
            <a
               href="https://github.com/bbc/react-transcript-editor"
@@ -139,12 +141,12 @@ class App extends React.Component {
          </button>
 
          <p>Text Is Editable
-           <label className={ styles.switch }>
+           <label className={ style.switch }>
              <input type="checkbox"
               defaultChecked="true"
               onChange={ this.handleIsTextEditable }
               />
-             <span className={ styles.slider }></span>
+             <span className={ style.slider }></span>
            </label>
          </p>
          <button onClick={ () => this.getEditorContent() }>Get Data from Editor</button>
