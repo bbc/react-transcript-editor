@@ -9,6 +9,9 @@ import {
   CompositeDecorator,
   convertFromRaw,
   convertToRaw,
+  KeyBindingUtil,
+  getDefaultKeyBinding,
+  Modifier
 } from 'draft-js';
 
 import Word from './Word';
@@ -16,6 +19,8 @@ import WrapperBlock from './WrapperBlock';
 
 import sttJsonAdapter from './adapters/index.js';
 import styles from './index.module.css';
+
+const { hasCommandModifier } = KeyBindingUtil;
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -222,6 +227,33 @@ class TimedTextEditor extends React.Component {
     return currentWord;
   }
 
+  myKeyBindingFn = ( e) => {
+    const enterKey = 13;
+    if (e.keyCode === enterKey ) {
+     
+      return 'split-paragraph';
+    }
+    return getDefaultKeyBinding(e);
+  }
+
+  handleKeyCommand = (command) => {
+    if (command === 'split-paragraph') {
+      // TODO: on enter key, perform split paragraph at selection point 
+      // https://draftjs.org/docs/api-reference-modifier#splitblock
+      const newContentState = Modifier.splitBlock(this.state.editorState.getCurrentContent(),this.state.editorState.getSelection())
+      
+      this.setEditorNewContentState(newContentState);
+      // TODO: add data of paragraph to 
+      // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
+      // eg speaker name 
+
+      // Perform a request to save your contents, set
+      // a new `editorState`, etc.
+      return 'handled';
+    }
+    return 'not-handled';
+  }
+
   render() {
     const currentWord = this.getCurrentWord();
     const highlightColour = 'lightblue';
@@ -251,6 +283,8 @@ class TimedTextEditor extends React.Component {
             onChange={ this.onChange }
             stripPastedStyles
             blockRendererFn={ this.renderBlockWithTimecodes }
+            keyBindingFn={ this.myKeyBindingFn }
+            handleKeyCommand={ this.handleKeyCommand }
           />
         </section>
       </section>
