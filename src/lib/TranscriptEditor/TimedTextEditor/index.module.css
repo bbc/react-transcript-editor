@@ -8,8 +8,3 @@ https://github.com/facebook/draft-js/issues/528
   background-color:#fff;
   padding: 20px;
 }
-
-/* "paragraphs" */
-div[data-block] + div[data-block] {
-  margin-top: 1em;
-}

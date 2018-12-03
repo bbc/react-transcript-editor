@@ -1,10 +1,27 @@
-.WrapperBlock {}
+.WrapperBlock {
+  width: 100%;
+  margin-bottom: 2em;
+  overflow: auto;
+}
 
-.SpeakerBlock {
+.markers {
+  width: 30%;
+  float: left;
+}
+
+.text {
+  width: 70%;
+  float: right;
+  clear: right;
+}
+
+.speaker {
+  display: inline-block;
   font-weight: bold;
 }
 
-.TimeBlock {
+.time {
+  display: inline-block;
   font-weight: lighter;
   margin-bottom: 8px;
 }

@@ -38,14 +38,16 @@ class WrapperBlock extends React.Component {
   render() {
     return (
       <div className={ style.WrapperBlock }>
-        <span className={ style.SpeakerBlock }>
+        <div className={ style.markers }>
           <SpeakerLabel
             name={ this.state.speaker }
             handleOnClickEdit={ this.handleOnClickEdit }
-          />
-        </span>
-        <span className={ style.TimeBlock }>{this.state.start}</span>
-        <EditorBlock { ...this.props } />
+            />
+          <span className={ style.time }>{this.state.start}</span>
+        </div>
+        <div className={ style.text }>
+          <EditorBlock { ...this.props } />
+        </div>
       </div>
     );
   }

@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  // Draft,
   Editor,
   EditorState,
-  // ContentState,
   CompositeDecorator,
   convertFromRaw,
   convertToRaw,
@@ -15,7 +13,8 @@ import Word from './Word';
 import WrapperBlock from './WrapperBlock';
 
 import sttJsonAdapter from './adapters/index.js';
-import styles from './index.module.css';
+
+import style from './index.module.css';
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -222,7 +221,7 @@ class TimedTextEditor extends React.Component {
     return (
       <section>
         <section
-          className={ styles.editor }
+          className={ style.editor }
           onDoubleClick={ event => this.handleDoubleClick(event) }
           // onClick={ event => this.handleOnClick(event) }
         >

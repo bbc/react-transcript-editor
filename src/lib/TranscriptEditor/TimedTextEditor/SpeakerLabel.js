@@ -6,13 +6,13 @@ import style from './WrapperBlock.module.css';
 class SpeakerLabel extends PureComponent {
     render() {
       return (
-        <div className="SpeakerBlock">
+        <span className={ style.speaker }>
           {this.props.name}
           <span
             className={ style.EditLabel }
             onClick={ this.props.handleOnClickEdit }> ✏️
           </span>
-        </div>
+        </span>
       )
     }
 }
