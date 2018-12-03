@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { EditorBlock, Modifier, convertToRaw, EditorState, Editor } from 'draft-js';
+import { EditorBlock, Modifier, convertToRaw, EditorState, Editor, SelectionState } from 'draft-js';
 
 import SpeakerLabel from './SpeakerLabel';
 
@@ -16,13 +16,8 @@ class WrapperBlock extends React.Component {
 
   componentDidMount() {
     const { block, contentState, editorState } = this.props;
-    // console.log(this.props.blockProps)
     const speaker = block.getData().get('speaker');
     const start = block.getData().get('start');
-    // const blockKey = block.getKey();
-    // const entity = contentState.getEntity(blockKey);
-  
-  //   console.log('contentState',blockKey);
     this.setState({
       speaker: speaker,
       start: start
@@ -30,30 +25,33 @@ class WrapperBlock extends React.Component {
   }
 
   handleOnClickEdit = (e) => {
-    const newSpeakerName = prompt('New Speaker Name?')
-
+    const newSpeakerName = prompt('New Speaker Name?');
     this.setState({ speaker: newSpeakerName });
+    // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
+    // selection points are tracked as key/offset pairs, 
+    // where the key value is the key of the ContentBlock where the point is positioned 
+    // and the offset value is the character offset within the block.
 
-    const selectionState = this.props.blockProps.editorState.getSelection();
-    //   // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
-    const newBlockData = { speaker: newSpeakerName };
-    // https://stackoverflow.com/questions/47604432/how-to-insert-upload-image-update-entity-and-blocks-in-draft-js
+    // Get key of the currentBlock 
+    const keyForCurrentCurrentBlock = this.props.block.getKey();
+    // create empty selection for current block 
+    // https://draftjs.org/docs/api-reference-selection-state#createempty
+    const currentBlockSelection = SelectionState.createEmpty(keyForCurrentCurrentBlock);
+    // move selection to current block 
+    const EditorStateWithSelectedCurrentBlock = EditorState.acceptSelection(this.props.blockProps.editorState, currentBlockSelection)
+
+    const currentBlockSelectionState = EditorStateWithSelectedCurrentBlock.getSelection();
+    // set new speaker data for block
+    const newBlockDataWithSpeakerName = { speaker: newSpeakerName };
+    // merge data 
+    // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
     const newContentState = Modifier.mergeBlockData(
       this.props.contentState,
-      selectionState,
-      newBlockData//blockData
+      currentBlockSelectionState,
+      newBlockDataWithSpeakerName
     )
-    // TODO: new newContentState
-    const tmpRaw = convertToRaw(newContentState);
-    console.log(JSON.stringify(tmpRaw,null,2)); 
-    const newEditorState = EditorState.push(this.props.blockProps.editorState, newContentState);
-    // https://draftjs.org/docs/api-reference-editor-state
-    // TODO: This below doesn't work?
-    EditorState.set(newEditorState, { allowUndo: false });
-    // Editor.forceUpdate();
-    
-    // TODO: this last step of saving the stage needs to happen in TimedTextEditor
-    // this.setState({ editorState: newEditorState });
+    // cb for saving editorState in TimedTextEditor
+    this.props.blockProps.setEditorNewContentState(newContentState);
   }
 
   render() {

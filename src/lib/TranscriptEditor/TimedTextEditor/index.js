@@ -37,6 +37,7 @@ class TimedTextEditor extends React.Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.transcriptData !== null) {
       return {
+        editorState: prevState.editorState,
         transcriptData: nextProps.transcriptData,
         isEditable: nextProps.isEditable,
       }
@@ -155,6 +156,14 @@ class TimedTextEditor extends React.Component {
     this.setState({ editorState });
   }
 
+ /**
+  * Update Editor content state 
+  */ 
+  setEditorNewContentState = (newContentState) => {
+    const newEditorState = EditorState.push(this.state.editorState, newContentState);
+    this.setState({ editorState: newEditorState });
+  }
+
   getEditorContent = (sttType) => {
     // sttType used in conjunction with adapter/convert
     const type = sttType === null ? 'draftjs' : sttType;
@@ -170,7 +179,9 @@ class TimedTextEditor extends React.Component {
       editable: true,
       props: {
         foo: 'bar',
-        editorState: this.state.editorState
+        editorState: this.state.editorState,
+        // passing in callback function to be able to set state in parent component
+        setEditorNewContentState: this.setEditorNewContentState
       }
     };
   }
