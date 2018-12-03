@@ -100,6 +100,11 @@ class App extends React.Component {
      a.click();
    }
 
+   clearLocalStorage = () => {
+     localStorage.clear();
+      console.info('cleared local storage')
+   }
+
    render() {
      return (
        <div className={ styles.container }>
@@ -115,6 +120,7 @@ class App extends React.Component {
          </span>
          <br />
          <button onClick={ () => this.loadDemo() }>load demo</button>
+      
          <br />
          <label>open Transcript Json</label>
          <input
@@ -149,6 +155,7 @@ class App extends React.Component {
          </p>
          <button onClick={ () => this.getEditorContent() }>Get Data from Editor</button>
 
+         <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
          <hr/>
 
          <TranscriptEditor
