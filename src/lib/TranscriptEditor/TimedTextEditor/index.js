@@ -260,7 +260,7 @@ class TimedTextEditor extends React.Component {
         let entityKey = originalBlock.getEntityAt(currentSelection.getStartOffset());
         const startSelectionOffsetKey = currentSelection.getStartOffset();
         // length of the plaintext for the ContentBlock
-        const lengthPlainTextForTheBlock = originalBlock.getLength()
+        const lengthPlainTextForTheBlock = originalBlock.getLength();
         // number of char from selection point to end of paragraph 
         const remainingCharNumber = lengthPlainTextForTheBlock - startSelectionOffsetKey;
         // if there is no word entity associated with char

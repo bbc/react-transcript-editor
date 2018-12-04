@@ -55,7 +55,7 @@ class WrapperBlock extends React.Component {
     this.props.blockProps.setEditorNewContentState(newContentState);
   }
 
-  handleTimecodeClick =(e) => {
+  handleTimecodeClick = (e) => {
     // convert to seconds 
     this.props.blockProps.onWordClick(this.state.start);
   }
