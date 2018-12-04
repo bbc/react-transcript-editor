@@ -1,0 +1,15 @@
+.WrapperBlock {}
+
+.SpeakerBlock {
+  font-weight: bold;
+}
+
+.TimeBlock {
+  font-weight: lighter;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.EditLabel {
+  cursor: pointer;
+}

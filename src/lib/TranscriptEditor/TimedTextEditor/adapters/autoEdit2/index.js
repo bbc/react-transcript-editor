@@ -73,10 +73,8 @@ const autoEdit2ToDraft = (autoEdit2Json) => {
   const results = [];
   const tmpWords = autoEdit2Json.text;
   const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
-  // console.log(wordsByParagraphs);
 
   wordsByParagraphs.forEach((paragraph) => {
-    // console.log(paragraph.words);
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
       type: 'paragraph',
