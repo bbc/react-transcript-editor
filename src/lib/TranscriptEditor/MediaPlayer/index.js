@@ -9,6 +9,7 @@ import ProgressBar from './ProgressBar.js';
 import PlayerControls from './PlayerControls.js';
 import VolumeControl from './VolumeControl.js';
 import PauseWhileTyping from './PauseWhileTyping.js';
+import ScrollIntoView from './ScrollIntoView.js';
 
 import styles from './index.module.css';
 
@@ -33,7 +34,7 @@ class MediaPlayer extends React.Component {
   componentDidMount() {
     this.props.hookSeek(this.setCurrentTime);
     this.props.hookPlayMedia(this.playMedia);
-    this.props.hookIsPlaying(this.isPlaying)
+    this.props.hookIsPlaying(this.isPlaying);
   }
 
   setCurrentTime = (newCurrentTime) => {
@@ -147,6 +148,10 @@ class MediaPlayer extends React.Component {
       console.log(prevState.isPausedWhileTyping)
       return { isPausedWhileTyping:  !prevState.isPausedWhileTyping }
     })
+  }
+
+  handleToggleScrollIntoView = (e) => {
+    this.props.handleIsScrollIntoViewChange(e.target.checked);     
   }
 
   isPlaying=() => {
@@ -292,6 +297,11 @@ class MediaPlayer extends React.Component {
           isPausedWhileTyping={ this.props.isPausedWhileTyping }
           handleToggle={ this.handleTogglePauseWhileTyping.bind(this) }
         />
+
+        <ScrollIntoView 
+          isScrollIntoViewOn={ this.props.isScrollIntoViewOn }
+          handleToggle={ this.handleToggleScrollIntoView.bind(this) }
+        />
    
         <PlaybackRate
           playBackRate={ this.state.playBackRate }
@@ -345,7 +355,8 @@ MediaPlayer.propTypes = {
   hookSeek: PropTypes.func,
   hookPlayMedia: PropTypes.func,
   mediaUrl: PropTypes.string,
-  hookOnTimeUpdate: PropTypes.func
+  hookOnTimeUpdate: PropTypes.func,
+  hookIsScrollSyncToggle: PropTypes.func
 };
 
 export default hotkeys(MediaPlayer);

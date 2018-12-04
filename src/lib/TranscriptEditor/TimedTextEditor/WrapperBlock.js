@@ -29,8 +29,7 @@ class WrapperBlock extends React.Component {
 
   handleOnClickEdit = (e) => {
     const newSpeakerName = prompt('New Speaker Name?');
-
-    if (newSpeakerName !== '') {
+    if (newSpeakerName !== '' && newSpeakerName !== null) {
       this.setState({ speaker: newSpeakerName });
 
       // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
