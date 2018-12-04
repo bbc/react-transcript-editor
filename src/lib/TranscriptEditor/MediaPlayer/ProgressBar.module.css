@@ -1,5 +1,41 @@
-/* ProgressBar */
-.progressBar {
-    width: 100%;
-    background-color: grey;
-  }
+@value color-light-grey, color-labs-red from '../colours.module.css';
+
+.bar {
+  position: relative;
+  overflow: hidden;
+  height: 20px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.bar:focus {
+  outline: none;
+}
+
+.bar::-webkit-slider-runnable-track {
+  width: 100%;
+  cursor: pointer;
+  background: color-light-grey;
+}
+
+
+.bar::-webkit-slider-thumb {
+  background: color-labs-red;
+  cursor: pointer;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 40px;
+  background: #fff;
+  box-shadow: -100vw 0 0 100vw color-labs-red;
+  border: 2px solid #999;
+}
+
+/*
+  The ms-upper/low only works on IE: box-shadow solution is cross browser
+  TODO: make slider thumb bypass overflow:hidden (make taller than bar)
+*/
+
+.bar:focus::-webkit-slider-runnable-track {
+  background: color-light-grey;
+}

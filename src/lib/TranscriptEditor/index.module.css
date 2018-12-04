@@ -4,24 +4,20 @@
 @media (min-width: 768px) {
   .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     flex-wrap: nowrap;
     /* min-height: 100vh; */
-    /* background-color: #f1f1f1; */
+    background-color: #f1f1f1;
   }
 
   .main {
-    width: 50%;
-    /* padding: 20px; */
-    /* background-color:#fff; */
-    /* flex: 1;
-    height: 75vh;
-    box-shadow: 0 0 10px #ccc; */
+    width: 100%;
+    margin: 0 auto;
   }
 
   .aside {
-    width: 30%;
+    width: 100%;
     /* padding: 20px; */
     /* background-color: #936; */
   }

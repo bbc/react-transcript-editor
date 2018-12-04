@@ -1,24 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ProgressBar.module.css';
+
+import style from './ProgressBar.module.css';
+
 class ProgressBar extends React.Component {
 
-    render() {
-        return (
-          <progress
-            className={ styles.progressBar }
-            max={ this.props.max }
-            value= { this.props.value }
-            onClick={ (e) => this.props.buttonClick(e) }
-            />
-        );
-    }
+  render() {
+    return (
+      <div className={ style.progress }>
+        <input
+          type='range'
+          className={ style.bar }
+          onChange={ this.props.buttonClick }
+          value={ this.props.value }
+          min='0'
+          max={ this.props.max }
+        />
+      </div>
+    );
+  }
 }
 
 ProgressBar.propTypes = {
-    value: PropTypes.number,
-    max: PropTypes.number,
-    buttonClick: PropTypes.func
-  };
+  value: PropTypes.number,
+  max: PropTypes.number,
+  buttonClick: PropTypes.func
+};
 
 export default ProgressBar;
