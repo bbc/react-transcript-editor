@@ -60,12 +60,6 @@ class TranscriptEditor extends React.Component {
     return this.isPlaying()
   }
 
-  // handleIsScrollSyncToggle = () => {
-  //   console.log('this.handleToggleScrollIntoView() ');
-  //   this.setState({ isScrollIntoViewOn: true })
-  //   // return this.isScrollIntoViewHandler();
-  // }
-
   handleIsScrollIntoViewChange = (isChecked) => {
     this.setState({ isScrollIntoViewOn: isChecked })
   }
