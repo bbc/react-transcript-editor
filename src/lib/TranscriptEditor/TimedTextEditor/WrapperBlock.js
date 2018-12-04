@@ -17,6 +17,7 @@ class WrapperBlock extends React.Component {
   componentDidMount() {
     const { block, contentState, editorState } = this.props;
     const speaker = block.getData().get('speaker');
+
     const start = block.getData().get('start');
     this.setState({
       speaker: speaker,
@@ -54,6 +55,11 @@ class WrapperBlock extends React.Component {
     this.props.blockProps.setEditorNewContentState(newContentState);
   }
 
+  handleTimecodeClick = (e) => {
+    // convert to seconds 
+    this.props.blockProps.onWordClick(this.state.start);
+  }
+
   render() {
     return (
       <div className="WrapperBlock">
@@ -65,7 +71,7 @@ class WrapperBlock extends React.Component {
         </span>
 
         <br />
-        <span className="TimeBlock"> {this.state.start} </span>
+        <span className="TimeBlock" onClick={ this.handleTimecodeClick }> {this.state.start} </span>
         <br />
         <EditorBlock { ...this.props } />
       </div>
