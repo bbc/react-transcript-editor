@@ -1,6 +1,6 @@
 # Example `draft.js` 
 
-I fyou are new to `draft.js` see [first basic example usage getting started in docs](https://draftjs.org/docs/getting-started.html#usage)
+I fyou are new to `draft.js` there's a great interactive learning resource [`learn-draftjs.now.sh`](https://learn-draftjs.now.sh/) and also see [first basic example usage getting started in docs](https://draftjs.org/docs/getting-started.html#usage)
 
 Here's an example, how to divide text into paragraphs [content block](https://draftjs.org/docs/api-reference-content-block) with extra info. 
 see `loadData` function.
