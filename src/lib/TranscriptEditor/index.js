@@ -88,7 +88,6 @@ class TranscriptEditor extends React.Component {
               onWordClick={ this.handleWordClick }
               playMedia={ this.handlePlayMedia }
               isPlaying={ this.handleIsPlaying }
-              // handleIsScrollSyncToggle={ this.handleIsScrollSyncToggle }
               isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
               currentTime={ this.state.currentTime }
               isEditable={ this.props.isEditable }
