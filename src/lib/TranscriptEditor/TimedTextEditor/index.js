@@ -9,11 +9,18 @@ import {
   CompositeDecorator,
   convertFromRaw,
   convertToRaw,
+  KeyBindingUtil,
+  getDefaultKeyBinding,
+  Modifier
 } from 'draft-js';
 
 import Word from './Word';
+import WrapperBlock from './WrapperBlock';
+
 import sttJsonAdapter from './adapters/index.js';
 import styles from './index.module.css';
+
+const { hasCommandModifier } = KeyBindingUtil;
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -51,18 +58,18 @@ class TimedTextEditor extends React.Component {
   onChange = (editorState) => {
     // https://draftjs.org/docs/api-reference-editor-state#lastchangetype
     // https://draftjs.org/docs/api-reference-editor-change-type
-    // doing editorStateChangeType === 'insert-characters'  is triggered even 
+    // doing editorStateChangeType === 'insert-characters'  is triggered even
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
     if(this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()){
       if(this.props.isPlaying()){
         this.props.playMedia(false);
-        // Pause video for X seconds 
+        // Pause video for X seconds
         const pauseWhileTypingIntervalInMilliseconds = 3000;
-          // resets timeout 
+          // resets timeout
         clearTimeout(this.plauseWhileTypingTimeOut);
         this.plauseWhileTypingTimeOut = setTimeout(function(){
-              // after timeout starts playing again 
+              // after timeout starts playing again
           this.props.playMedia(true);
         }.bind(this), pauseWhileTypingIntervalInMilliseconds);
       }
@@ -104,10 +111,7 @@ class TimedTextEditor extends React.Component {
 
     if (element.hasAttribute('data-start')) {
       const t = parseFloat(element.getAttribute('data-start'));
-      // TODO: prop to jump to video <-- To connect with MediaPlayer
-      // this.props.seek(t);
       this.props.onWordClick(t);
-      // TODO: pass current time of media to TimedTextEditor to know what text to highlight in this component
     }
   }
 
@@ -153,12 +157,36 @@ class TimedTextEditor extends React.Component {
     this.setState({ editorState });
   }
 
+ /**
+  * Update Editor content state
+  */
+  setEditorNewContentState = (newContentState) => {
+    const newEditorState = EditorState.push(this.state.editorState, newContentState);
+    this.setState({ editorState: newEditorState });
+  }
+
   getEditorContent = (sttType) => {
     // sttType used in conjunction with adapter/convert
     const type = sttType === null ? 'draftjs' : sttType;
     const data = convertToRaw(this.state.editorState.getCurrentContent());
 
     return data;
+  }
+
+  renderBlockWithTimecodes = (contentBlock) => {
+    const type = contentBlock.getType();
+    return {
+      component: WrapperBlock,
+      editable: true,
+      props: {
+        foo: 'bar',
+        editorState: this.state.editorState,
+        // passing in callback function to be able to set state in parent component
+        setEditorNewContentState: this.setEditorNewContentState,
+        // to make timecodes clickable
+        onWordClick: this.props.onWordClick
+      }
+    };
   }
 
   getLatestUnplayedWord = () => {
@@ -197,12 +225,108 @@ class TimedTextEditor extends React.Component {
     return currentWord;
   }
 
+  myKeyBindingFn = ( e) => {
+    const enterKey = 13;
+    if (e.keyCode === enterKey ) {
+      return 'split-paragraph';
+    }
+    return getDefaultKeyBinding(e);
+  }
+
+  // TODO: code in this function can do with a refactor - at later stage
+  handleKeyCommand = (command) => {
+    // https://github.com/facebook/draft-js/issues/723#issuecomment-367918580
+    // https://draftjs.org/docs/api-reference-selection-state#start-end-vs-anchor-focus
+    if (command === 'split-paragraph') {
+      // on enter key, perform split paragraph at selection point
+      const currentSelection = this.state.editorState.getSelection();
+
+      if (currentSelection.isCollapsed()) {
+        const currentContent = this.state.editorState.getCurrentContent();
+        // https://draftjs.org/docs/api-reference-modifier#splitblock
+        const newContentState = Modifier.splitBlock(currentContent, currentSelection)
+        // https://draftjs.org/docs/api-reference-editor-state#push
+        const splitState = EditorState.push(this.state.editorState, newContentState, 'split-block')
+        const targetSelection = splitState.getSelection();
+        const originalBlock = currentContent.blockMap.get(newContentState.selectionBefore.getStartKey());
+        const originalBlockData = originalBlock.getData();
+        const blockSpeaker = originalBlockData.get('speaker');
+        // TODO: there might be some edge cases where unable to calculate wordStartTime
+        // eg adding spaces and then new line in the middle
+        let wordStartTime = 'NA';
+        let isEndOfParagraph = false;
+
+        let entityKey = originalBlock.getEntityAt(currentSelection.getStartOffset());
+        const startSelectionOffsetKey = currentSelection.getStartOffset();
+        // length of the plaintext for the ContentBlock
+        const lengthPlainTextForTheBlock = originalBlock.getLength();
+        // number of char from selection point to end of paragraph
+        const remainingCharNumber = lengthPlainTextForTheBlock - startSelectionOffsetKey;
+        // if there is no word entity associated with char
+        if(entityKey === null){
+          // if it's the last char in the paragraph - get previous entity
+          if(remainingCharNumber === 0 ){
+            for(let j = lengthPlainTextForTheBlock; j >0 ; j--){
+              entityKey = originalBlock.getEntityAt(j);
+              if(entityKey!== null){
+                isEndOfParagraph = true;
+                break;
+              }
+            }
+          }
+          // if it's first char or another within the block
+          else{
+            let initialSelectionOffset = currentSelection.getStartOffset();
+            for(let i = 0; i < remainingCharNumber ; i++){
+              initialSelectionOffset +=i;
+              entityKey = originalBlock.getEntityAt(initialSelectionOffset);
+              if(entityKey!== null){
+                break;
+              }
+            }
+          }
+        }
+
+        if (entityKey) {
+          const entityInstance = currentContent.getEntity(entityKey);
+          const entityData = entityInstance.getData();
+          if(isEndOfParagraph){
+            // if it's end of paragraph use end time of word for new paragraph
+            wordStartTime = entityData.end;
+          }
+          else{
+            wordStartTime = entityData.start;
+          }
+        }
+        else{
+          // if entity not defined, then stopping some of the edge cases.
+          // eg if hit enter on timecode or speaker
+          return 'not-handled';
+        }
+
+        console.log('originalBlockData',wordStartTime, blockSpeaker);
+        console.log('originalBlockData',originalBlockData);
+          // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
+        const afterMergeContentState = Modifier.mergeBlockData(
+          splitState.getCurrentContent(),
+          targetSelection,
+          {
+            'start': wordStartTime,
+            'speaker': blockSpeaker
+          }
+          )
+         this.setEditorNewContentState(afterMergeContentState);
+        return 'handled';
+      }
+      return 'not-handled';
+    }
+    return 'not-handled';
+  }
+
   render() {
     const currentWord = this.getCurrentWord();
     const highlightColour = 'lightblue';
     const unplayedColor = 'grey';
-    // const correctionBorder = '1px dotted #ff0000';
-    // temporarily switching to blue 
     const correctionBorder = '1px dotted blue';
 
     // Time to the nearest half second
@@ -217,7 +341,7 @@ class TimedTextEditor extends React.Component {
         >
           <style scoped>
             {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour } }`}
-            {/* {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`} */}
+            {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
             {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
             {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
             {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
@@ -227,6 +351,9 @@ class TimedTextEditor extends React.Component {
             editorState={ this.state.editorState }
             onChange={ this.onChange }
             stripPastedStyles
+            blockRendererFn={ this.renderBlockWithTimecodes }
+            keyBindingFn={ this.myKeyBindingFn }
+            handleKeyCommand={ this.handleKeyCommand }
           />
         </section>
       </section>
