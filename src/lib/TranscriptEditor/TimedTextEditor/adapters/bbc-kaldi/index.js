@@ -76,7 +76,7 @@ const groupWordsInParagraphs = (words) => {
       paragraph.text.push(word.punct);
     }
   });
-  if (paragraph.words.length > 0) results.push(paragraph);
+
   return results;
 };
 
