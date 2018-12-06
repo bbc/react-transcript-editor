@@ -8,6 +8,7 @@ import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
 import Settings from './Settings';
 import Shortcuts from './Settings/Shortcuts';
+import { secondsToTimecode } from '../Util/timecode-converter/index';
 
 import style from './index.module.css';
 
@@ -53,6 +54,14 @@ class TranscriptEditor extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   handleWordClick = (startTime) => {
+
+    this.props.handleAnalyticsEvents({ 
+      category: 'TranscriptEditor', 
+      action: 'doubleClickOnWord', 
+      name: 'startTime', 
+      value: secondsToTimecode(startTime)
+    });
+
     this.setCurrentTime(startTime);
   }
 
@@ -74,20 +83,40 @@ class TranscriptEditor extends React.Component {
   handleIsScrollIntoViewChange = (e) => {
     const isChecked = e.target.checked;
     this.setState({ isScrollIntoViewOn: isChecked });
+
+    this.props.handleAnalyticsEvents({ 
+      category: 'TranscriptEditor', 
+      action: 'handleIsScrollIntoViewChange', 
+      name: 'isScrollIntoViewOn', 
+      value: isChecked
+    });
+
   }
   handlePauseWhileTyping = (e) => {
     const isChecked = e.target.checked;
     this.setState({ isPauseWhileTypingOn: isChecked });
+
+    this.props.handleAnalyticsEvents({ 
+      category: 'TranscriptEditor', 
+      action: 'handlePauseWhileTyping', 
+      name: 'isPauseWhileTypingOn', 
+      value: isChecked
+    });
   }
 
   handleRollBackValueInSeconds = (e) => {
     const rollBackValue = e.target.value;
-    console.log(rollBackValue);
     this.setState({ rollBackValueInSeconds: rollBackValue });
+
+    this.props.handleAnalyticsEvents({ 
+      category: 'TranscriptEditor', 
+      action: 'handleRollBackValueInSeconds', 
+      name: 'rollBackValueInSeconds', 
+      value: rollBackValue
+    });
   }
 
   handleSetTimecodeOffset = (timecodeOffset) => {
-    console.log('TranscriptEditor', timecodeOffset );
 
     this.setState({ timecodeOffset: timecodeOffset },
       () => {
@@ -100,24 +129,52 @@ class TranscriptEditor extends React.Component {
     const isChecked = e.target.checked;
 
     this.setState({ showTimecodes: isChecked });
+
+    this.props.handleAnalyticsEvents({ 
+      category: 'TranscriptEditor', 
+      action: 'handleShowTimecodes', 
+      name: 'showTimecodes', 
+      value: isChecked
+    });
   }
 
   handleShowSpeakers = (e) => {
     const isChecked = e.target.checked;
 
     this.setState({ showSpeakers: isChecked });
+
+    this.props.handleAnalyticsEvents({ 
+      category: 'TranscriptEditor', 
+      action: 'handleShowSpeakers', 
+      name: 'showSpeakers', 
+      value:  isChecked
+    });
   }
 
   handleSettingsToggle = () => {
     this.setState(prevState => ({
       showSettings: !prevState.showSettings
     }));
+
+    this.props.handleAnalyticsEvents({ 
+      category: 'TranscriptEditor', 
+      action: 'handleSettingsToggle', 
+      name: 'showSettings', 
+      value:  !this.state.showSettings
+    });
   }
 
   handleShortcutsToggle = () => {
     this.setState(prevState => ({
       showShortcuts: !prevState.showShortcuts
     }));
+
+    this.props.handleAnalyticsEvents({ 
+      category: 'TranscriptEditor', 
+      action: 'handleShortcutsToggle', 
+      name: 'showShortcuts', 
+      value:  !this.state.showShortcuts
+    });
   }
 
   getEditorContent = (exportFormat) => {
@@ -133,7 +190,8 @@ class TranscriptEditor extends React.Component {
       timecodeOffset={ this.state.timecodeOffset }
       hookOnTimeUpdate={ this.handleTimeUpdate }
       mediaUrl={ this.props.mediaUrl }
-      ref={ 'MediaPlayer' }
+      // ref={ 'MediaPlayer' }
+      handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
     />;
 
     const settings = <Settings
@@ -150,6 +208,7 @@ class TranscriptEditor extends React.Component {
       handleSetTimecodeOffset={ this.handleSetTimecodeOffset }
       handleShowTimecodes={ this.handleShowTimecodes }
       handleShowSpeakers={ this.handleShowSpeakers }
+      handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
     />;
 
     const shortcuts = <Shortcuts
@@ -190,6 +249,7 @@ class TranscriptEditor extends React.Component {
             showTimecodes={ this.state.showTimecodes }
             showSpeakers={ this.state.showSpeakers }
             ref={ 'timedTextEditor' }
+            handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
           />
         </main>
       </div>

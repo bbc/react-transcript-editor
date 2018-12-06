@@ -2,7 +2,7 @@ import React from 'react';
 import { EditorBlock, Modifier, EditorState, SelectionState } from 'draft-js';
 
 import SpeakerLabel from './SpeakerLabel';
-import { shortTimecode } from '../../Util/timecode-converter/';
+import { shortTimecode, secondsToTimecode } from '../../Util/timecode-converter/';
 
 import style from './WrapperBlock.module.css';
 
@@ -35,6 +35,13 @@ class WrapperBlock extends React.Component {
     if (newSpeakerName !== '' && newSpeakerName !== null) {
       this.setState({ speaker: newSpeakerName });
 
+      this.props.blockProps.handleAnalyticsEvents({ 
+        category: 'WrapperBlock', 
+        action: 'handleOnClickEdit', 
+        name: 'newSpeakerName', 
+        value: newSpeakerName
+      });
+
       // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
       // selection points are tracked as key/offset pairs,
       // where the key value is the key of the ContentBlock where the point is positioned
@@ -63,6 +70,14 @@ class WrapperBlock extends React.Component {
 
   handleTimecodeClick = () => {
     this.props.blockProps.onWordClick(this.state.start);
+
+    this.props.blockProps.handleAnalyticsEvents({ 
+      category: 'WrapperBlock', 
+      action: 'handleTimecodeClick', 
+      name: 'onWordClick', 
+      value: secondsToTimecode(this.state.start)
+    });
+
   }
 
   render() {

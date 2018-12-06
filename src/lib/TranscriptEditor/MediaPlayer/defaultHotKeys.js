@@ -2,37 +2,107 @@ function returnHotKeys(self) {
   return {
     'esc': {
       priority: 1,
-      handler: () => { self.togglePlayMedia(); },
+      handler: () => { 
+        self.togglePlayMedia(); 
+        
+        self.props.handleAnalyticsEvents({ 
+          category: 'defaultHotKeys', 
+          action: 'esc', 
+          name: 'togglePlayMedia', 
+          value: 'na'
+        });
+
+      },
       label: 'Play Media',
     },
     'ctrl+k': { // combo from mousetrap
       priority: 1,
-      handler: () => { self.promptSetCurrentTime(); },
+      handler: () => { 
+        self.promptSetCurrentTime();
+        
+        self.props.handleAnalyticsEvents({ 
+          category: 'defaultHotKeys', 
+          action: 'ctrl+k', 
+          name: 'promptSetCurrentTime', 
+          value: 'na'
+        });
+
+      },
       label: 'set current time',
     },
     'ctrl+1': {
       priority: 1,
-      handler: () => { self.skipForward(); },
+      handler: () => {
+        self.skipForward(); 
+
+        self.props.handleAnalyticsEvents({ 
+          category: 'defaultHotKeys', 
+          action: 'ctrl+1', 
+          name: 'skipForward', 
+          value: 'na'
+        });
+
+      },
       label: 'Skip Forward',
     },
     'ctrl+2': {
       priority: 1,
-      handler: () => { self.skipBackward(); },
+      handler: () => { 
+        self.skipBackward(); 
+
+        self.props.handleAnalyticsEvents({ 
+          category: 'defaultHotKeys', 
+          action: 'ctrl+2', 
+          name: 'skipBackward', 
+          value: 'na'
+        });
+
+      },
       label: 'Skip Backward',
     },
     'ctrl+3': {
       priority: 1,
-      handler: () => { self.decreasePlaybackRate(); },
+      handler: () => { 
+        self.decreasePlaybackRate(); 
+
+        self.props.handleAnalyticsEvents({ 
+          category: 'defaultHotKeys', 
+          action: 'ctrl+3', 
+          name: 'decreasePlaybackRate', 
+          value: 'na'
+        });
+
+      },
       label: 'Speed Down',
     },
     'ctrl+4': {
       priority: 1,
-      handler: () => { self.increasePlaybackRate(); },
+      handler: () => { 
+        self.increasePlaybackRate(); 
+
+        self.props.handleAnalyticsEvents({ 
+          category: 'defaultHotKeys', 
+          action: 'ctrl+4', 
+          name: 'increasePlaybackRate', 
+          value: 'na'
+        });
+
+      },
       label: 'Speed Up',
     },
     'ctrl+5': {
       priority: 1,
-      handler: () => { self.rollBack(); },
+      handler: () => { 
+        self.rollBack(); 
+        
+        self.props.handleAnalyticsEvents({ 
+          category: 'defaultHotKeys', 
+          action: 'ctrl+5', 
+          name: 'rollBack', 
+          value: 'na'
+        });
+
+      },
       label: 'Roll Back',
     }
   };

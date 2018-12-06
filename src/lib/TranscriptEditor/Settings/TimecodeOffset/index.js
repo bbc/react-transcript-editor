@@ -23,6 +23,13 @@ class TimecodeOffset extends React.Component {
   resetTimecodeOffset = () => {
     const resetTimecodeOffsetValue = 0;
 
+    this.props.handleAnalyticsEvents({ 
+      category: 'Settings - TimecodeOffset', 
+      action: 'resetTimecodeOffset', 
+      name: 'resetTimecodeOffset', 
+      value: 0
+    });
+
     this.setState({
       timecodeOffset: secondsToTimecode(resetTimecodeOffsetValue)
     }, () => {
@@ -31,7 +38,13 @@ class TimecodeOffset extends React.Component {
   }
 
   setTimecodeOffset = () => {
-    console.log(this.state.timecodeOffset);
+    this.props.handleAnalyticsEvents({ 
+      category: 'Settings - TimecodeOffset', 
+      action: 'setTimecodeOffset', 
+      name: 'setTimecodeOffset', 
+      value: this.state.timecodeOffset
+    });
+
     let newCurrentTimeInSeconds = this.state.timecodeOffset;
     if (typeof newCurrentTimeInSeconds ==='string'
     && newCurrentTimeInSeconds.includes(':')

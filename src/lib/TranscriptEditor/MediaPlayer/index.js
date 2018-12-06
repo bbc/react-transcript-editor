@@ -37,7 +37,8 @@ class MediaPlayer extends React.Component {
       timecodeOffset: this.props.timecodeOffset,
       hotKeys: returnHotKeys(this),
       isPlaying: false,
-      playbackRateOptions: PLAYBACK_RATES
+      playbackRateOptions: PLAYBACK_RATES,
+      mediaDuration: '00:00:00:00'
     };
   }
   /*eslint-disable camelcase */
@@ -89,6 +90,12 @@ class MediaPlayer extends React.Component {
    */
   promptSetCurrentTime = () => {
     let userTimecodeValue = prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds');
+    this.props.handleAnalyticsEvents({
+      category: 'MediaPlayer',
+      action: 'promptSetCurrentTime', 
+      name: 'userTimecodeValue', 
+      value: userTimecodeValue 
+    });
     // user clicks cancel to prompt, prompt returns null
     if (userTimecodeValue !== null) {
       if (userTimecodeValue.includes(':')) {
@@ -98,13 +105,15 @@ class MediaPlayer extends React.Component {
       if (this.state.timecodeOffset !== 0) {
         userTimecodeValue -= this.state.timecodeOffset;
       }
-  
+    
       this.setCurrentTime(userTimecodeValue);
     }
   }
 
   setTimeCodeOffset = (newTimeCodeOffSet) => {
+    this.props.handleAnalyticsEvents({ category: 'MediaPlayer', action: 'setTimeCodeOffset', name: 'timecodeOffsetValue', value: newTimeCodeOffSet });
     if (newTimeCodeOffSet !== '' && newTimeCodeOffSet !== null) {
+      
       // use similar helper function from above to convert
       let newCurrentTimeInSeconds = newTimeCodeOffSet;
       if (newTimeCodeOffSet.includes(':')) {
@@ -116,11 +125,18 @@ class MediaPlayer extends React.Component {
 
   rollBack = () => {
     if (this.videoRef.current !== null) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'MediaPlayer', 
+        action: 'rollBack', 
+        name: 'rollBackValue', 
+        value: this.state.rollBackValueInSeconds 
+      });
       // get video duration
       const videoElem = this.videoRef.current;
       const tmpDesiredCurrentTime = videoElem.currentTime - this.state.rollBackValueInSeconds;
       // > 0 < duration of video
       this.setCurrentTime(tmpDesiredCurrentTime);
+      
     }
   }
 
@@ -142,6 +158,14 @@ class MediaPlayer extends React.Component {
           playbackRate: input,
         }, () => {
           this.videoRef.current.playbackRate = input;
+
+          this.props.handleAnalyticsEvents({ 
+            category: 'MediaPlayer', 
+            action: 'setPlayBackRate', 
+            name: 'playbackRateNewValue', 
+            value: input 
+          });
+
         });
       }
     }
@@ -197,10 +221,25 @@ class MediaPlayer extends React.Component {
 
   pauseMedia = () => {
     this.setState({ isPlaying: false }, () => this.videoRef.current.pause());
+
+    this.props.handleAnalyticsEvents({ 
+      category: 'MediaPlayer', 
+      action: 'pauseMedia', 
+      name: 'pauseMedia', 
+      value: secondsToTimecode(this.videoRef.current.currentTime)
+    });
   }
 
   playMedia = () => {
     this.setState({ isPlaying: true }, () => this.videoRef.current.play());
+  
+    this.props.handleAnalyticsEvents({ 
+      category: 'MediaPlayer', 
+      action: 'playMedia', 
+      name: 'playMedia', 
+      value: secondsToTimecode(this.videoRef.current.currentTime)
+    });
+  
   }
 
   // Sets isPlaying state and toggles modes on the video player
@@ -218,6 +257,7 @@ class MediaPlayer extends React.Component {
 
   skipForward = () => {
     if (this.videoRef.current !== null) {
+      // TODO track this?
       const currentTime = this.videoRef.current.currentTime;
       const newCurrentTimeIncreased = currentTime + 10;
       const newCurrentTime = Number((newCurrentTimeIncreased).toFixed(1));
@@ -226,6 +266,7 @@ class MediaPlayer extends React.Component {
   }
 
   skipBackward = () => {
+    // TODO track this?
     if (this.videoRef.current !== null) {
       const currentTime = this.videoRef.current.currentTime;
       const newCurrentTimeIncreased = currentTime - 10;
@@ -237,6 +278,13 @@ class MediaPlayer extends React.Component {
   handleProgressBarClick = (e) => {
     const time = e.target.value;
     this.setCurrentTime(time);
+
+    this.props.handleAnalyticsEvents({ 
+      category: 'MediaPlayer', 
+      action: 'handleProgressBarClick', 
+      name: 'roundNewCurrentTime', 
+      value: time 
+    });
   }
 
   getMediaCurrentTime = () => {
@@ -247,12 +295,22 @@ class MediaPlayer extends React.Component {
     return '00:00:00:00';
   }
 
-  getMediaDuration = () => {
-    if (this.videoRef.current !== null) {
-      return secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset);
-    }
+  onLoadedDataGetDuration = (e) => {
+    const currentDuration = e.target.duration;
+    const currentDurationWithOffset = currentDuration+ this.state.timecodeOffset;
+    const durationInSeconds = secondsToTimecode( currentDuration+ currentDurationWithOffset);
 
-    return '00:00:00:00';
+    this.setState({
+      mediaDuration: durationInSeconds
+    });
+
+    this.props.handleAnalyticsEvents({ 
+      category: 'MediaPlayer', 
+      action: 'onLoadedDataGetDuration', 
+      name: 'durationInSeconds-WithoutOffset', 
+      value: secondsToTimecode( currentDuration)  
+    });
+
   }
 
   render() {
@@ -261,6 +319,7 @@ class MediaPlayer extends React.Component {
       onTimeUpdate= { this.handleTimeUpdate }
       onClick= { this.togglePlayMedia.bind(this) }
       videoRef={ this.videoRef }
+      onLoadedDataGetDuration={ this.onLoadedDataGetDuration }
     />;
 
     const playerControlsSection = (
@@ -276,7 +335,7 @@ class MediaPlayer extends React.Component {
           skipForward={ this.skipForward.bind(this) }
           rollback={ this.rollBack }
           currentTime={ this.getMediaCurrentTime() }
-          duration={ this.getMediaDuration() }
+          duration={ this.state.mediaDuration }
           onSetCurrentTime={ '' }
           onSetTimecodeOffset={ '' }
           promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
