@@ -3,6 +3,8 @@
 <!-- _One liner_ -->
 A React component to make transcribing audio and video easier and faster.
 
+[![install size](https://packagephobia.now.sh/badge?p=@bbc/react-transcript-editor)](https://packagephobia.now.sh/result?p=@bbc/react-transcript-editor)
+
 _--> Work in progress <--_ 
 
 <!-- _Screenshot of UI - optional_ -->
@@ -38,12 +40,32 @@ Fork this repository + git clone + cd into folder
 npm start
 ```
 
+Visit [http://localhost:3006](http://localhost:3006)
+
 
 ## Usage - production
 
 <!-- npm install react-transcript-editor -->
 
 <!-- exampel usage - require etc.. -->
+<!-- https://www.npmjs.com/package/@bbc/react-transcript-editor -->
+
+Available on [npm - `@bbc/react-transcript-editor`](https://www.npmjs.com/package/@bbc/react-transcript-editor)
+
+```
+npm install @bbc/react-transcript-editor
+```
+
+```js
+import { TranscriptEditor } from '@bbc/react-transcript-editor';
+
+<TranscriptEditor
+    transcriptData=// Transcript json
+    mediaUrl=// string url to media file - audio or video 
+    isEditable={true}// se to true if you want to be able to edit the text
+    sttJsonType={ 'bbcKaldi' }// the type of STT Json transcript supported.
+/>
+```
 
 ## System Architecture
 
@@ -122,14 +144,15 @@ Test coverage using [`jest`](https://jestjs.io/), to run tests
 
 <!-- _How to deploy the code/app into test/staging/production_ -->
 
-To push to [`npm`](https://npmjs.com)
+To push to  [npm - `@bbc/react-transcript-editor`](https://www.npmjs.com/package/@bbc/react-transcript-editor)
 
 ```
-npm publish
+npm publish:public
 ```
+
+This runs `npm run build:component` and `npm publish --access public` under the hood
 
 > Note that only `README.md` and the `dist` folders are published to npm.
-
 
 
 ## Contributing 

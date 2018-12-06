@@ -25,9 +25,9 @@
           "index": 1
         },
 ```
- * 
- * into 
- * 
+ *
+ * into
+ *
  ```
  const blocks = [
         {
@@ -48,11 +48,43 @@
         },
         ];
 ```
- * 
+ *
  */
-function bbcKaldiToDraft(bbcKaldiJson) {
+import generateEntitiesRanges from '../generate-entities-ranges/index.js';
+/**
+ * groups words list from kaldi transcript based on punctuation.
+ * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
+ * @param {array} words - array of words opbjects from kaldi transcript
+ */
+
+const groupWordsInParagraphs = words => {
   const results = [];
-  let tmpWords; // BBC Octo Labs API Response wraps Kaldi response around retval, 
+  let paragraph = {
+    words: [],
+    text: []
+  };
+  words.forEach(word => {
+    // if word contains punctuation
+    if (/[.?!]/.test(word.punct)) {
+      paragraph.words.push(word);
+      paragraph.text.push(word.punct);
+      results.push(paragraph); // reset paragraph
+
+      paragraph = {
+        words: [],
+        text: []
+      };
+    } else {
+      paragraph.words.push(word);
+      paragraph.text.push(word.punct);
+    }
+  });
+  return results;
+};
+
+const bbcKaldiToDraft = bbcKaldiJson => {
+  const results = [];
+  let tmpWords; // BBC Octo Labs API Response wraps Kaldi response around retval,
   // while kaldi contains word attribute at root
 
   if (bbcKaldiJson.retval !== undefined) {
@@ -69,41 +101,15 @@ function bbcKaldiToDraft(bbcKaldiJson) {
       data: {
         speaker: 'TBC'
       },
-      entityRanges: []
-    };
+      // the entities as ranges are each word in the space-joined text,
+      // so it needs to be compute for each the offset from the beginning of the paragraph and the length
+      entityRanges: generateEntitiesRanges(paragraph.words, 'punct') // wordAttributeName
+
+    }; // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
+
     results.push(draftJsContentBlockParagraph);
   });
   return results;
-}
-/**
- * groups words list from kaldi transcript based on punctuation.
- * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
- * @param {array} words - array of words opbjects from kaldi transcript
- */
+};
 
-function groupWordsInParagraphs(words) {
-  const results = [];
-  let paragraph = {
-    words: [],
-    text: []
-  };
-  words.forEach(word => {
-    // if word contains punctuation
-    if (/[.?!]/.test(word.punct)) {
-      paragraph.words.push(word);
-      paragraph.text.push(word.punct);
-      results.push(paragraph); // reset paragraph 
-
-      paragraph = {
-        words: [],
-        text: []
-      };
-    } else {
-      paragraph.words.push(word);
-      paragraph.text.push(word.punct);
-    }
-  });
-  return results;
-}
-
-module.exports = bbcKaldiToDraft;
+export default bbcKaldiToDraft;

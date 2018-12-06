@@ -1,16 +1,31 @@
 
 .container{
+  height: 100vh;
   /* width: 640px; */
   /* margin: 15px auto; */
   font-family: Consolas, Helvetica Neue, Helvetica, Arial, sans-serif;
   /* font-family:  Helvetica Neue, Helvetica, Arial, sans-serif; */
+  background-color: #f1f1f1;
 }
 
-body{
+/* body{
   background-color: #f1f1f1;
   margin: 0px;
 }
 
 .title{
   font-size: 1.5rem;
-}
+} */
+
+/* https://www.w3schools.com/css/css3_buttons.asp */
+/* button {
+  background-color: white; 
+  color: black;
+  border: none;
+  padding: 4px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin:3px;
+} */

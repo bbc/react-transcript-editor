@@ -4,28 +4,17 @@
   }
 
 video {
-  /* height: 90vh; */
   width: 100%;
-  /* overflow: hidden; */
-  /* position:absolute; */
-  /* z-index:-1; */
-  /* object-fit: cover; */
 }
 
-
-/* .videoControls{
-  height: 10vh;
-  width: 100%;
-  background-color: black;
-  color:white;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
+.helpText {
+  margin-top: 0px;
+  margin-bottom: 0.1em;
 }
- */
 
-/* .playPause{
-  color:white;
-  text-transform: uppercase;
-} */
+/* Mobile devices */
+@media (max-width: 768px) {
+  .hideInMobile{
+    display: none;
+  }
+}
