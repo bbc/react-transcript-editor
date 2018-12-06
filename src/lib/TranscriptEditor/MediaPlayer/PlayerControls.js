@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import VolumeControl from './VolumeControl';
+
 import style from './PlayerControls.module.css';
 
 class PlayerControls extends React.Component {
@@ -26,7 +28,7 @@ class PlayerControls extends React.Component {
 
   render() {
     return (
-      <div className={ style.playerControl }>
+      <div className={ style.playerControls }>
         <button
           className={ style.playerButton }
           onMouseDown={ this.setIntervalHelperBackward }
@@ -52,6 +54,11 @@ class PlayerControls extends React.Component {
           <span className={ style.separator }>|</span>
           <span className={ style.duration }>{this.props.duration}</span>
         </div>
+
+        <VolumeControl
+          handleMuteVolume={ this.props.handleMuteVolume }
+        />
+
       </div>
     );
   }

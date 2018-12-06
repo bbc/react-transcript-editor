@@ -5,8 +5,7 @@ class VolumeControl extends React.Component {
 
     render() {
         return (
-          <div>
-            <p className={ styles.helpText }>Volume</p>
+          <div className={ styles.volumeSwitchContainer }>
             <label className={ styles.switch }>
               <input type="checkbox"
                 defaultChecked="true"
@@ -14,6 +13,7 @@ class VolumeControl extends React.Component {
                 />
               <span className={ styles.slider }></span>
             </label>
+            <label className={ styles.label }>Volume</label>
           </div>
         );
     }

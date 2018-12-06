@@ -2,6 +2,7 @@
 
 .playerControls {
   position: relative;
+  display: inline-block;
 }
 
 .playerButton {

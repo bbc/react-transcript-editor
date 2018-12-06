@@ -28,12 +28,12 @@ class MediaPlayer extends React.Component {
     }
   }
   /*eslint-disable camel case */
-  hot_keys = returnHotKeys(this)
+  hot_keys = returnHotKeys(this);
 
   componentDidMount() {
     this.props.hookSeek(this.setCurrentTime);
     this.props.hookPlayMedia(this.playMedia);
-    this.props.hookIsPlaying(this.isPlaying)
+    this.props.hookIsPlaying(this.isPlaying);
   }
 
   setCurrentTime = (newCurrentTime) => {
@@ -228,15 +228,10 @@ class MediaPlayer extends React.Component {
   }
 
   render() {
-    // conditional, if media player not defined then don't show
-    let mediaPlayerEl;
-    if (this.props.mediaUrl !== null) {
-      mediaPlayerEl = (
-        <video
+    const mediaPlayerEl = (
+      <video
           id="video"
           playsInline
-          // autoPlay
-          // controls
           src={ this.props.mediaUrl }
           onTimeUpdate={ this.handleTimeUpdate }
           // TODO: video type - add logic to identify if video is playable and raise error if it's not
@@ -246,54 +241,27 @@ class MediaPlayer extends React.Component {
           ref={ this.videoRef }
         />
       );
-    }
 
-    let playerControlsSection;
-    if(this.props.mediaUrl !== null ){
-      playerControlsSection = <section>
+    const playerControlsSection = <PlayerControls
+      playMedia={ this.playMedia.bind(this) }
+      isPlaying={ this.isPlaying.bind(this) }
+      skipBackward={ this.skipBackward.bind(this) }
+      skipForward={ this.skipForward.bind(this) }
+      currentTime={ this.getMediaCurrentTime() }
+      duration={ this.getMediaDuration() }
+      onSetCurrentTime={ '' }
+      onSetTimecodeOffset={ '' }
+      promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
+      setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
+      timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
+      handleMuteVolume={ this.handleMuteVolume.bind(this) }
+    />
 
-        <PlayerControls
-          playMedia={ this.playMedia.bind(this) }
-          isPlaying={ this.isPlaying.bind(this) }
-          skipBackward={ this.skipBackward.bind(this) }
-          skipForward={ this.skipForward.bind(this) }
-          currentTime={ this.getMediaCurrentTime() }
-          duration={ this.getMediaDuration() }
-          onSetCurrentTime={ '' }
-          onSetTimecodeOffset={ '' }
-          promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
-          setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
-          timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
-        />
-
-        <VolumeControl
-          handleMuteVolume={ this.handleMuteVolume.bind(this) }
-        />
-
-        <PauseWhileTyping
-          isPausedWhileTyping={ this.props.isPausedWhileTyping }
-          handleToggle={ this.handleTogglePauseWhileTyping.bind(this) }
-        />
-
-        <PlaybackRate
-          playBackRate={ this.state.playBackRate }
-          handlePlayBackRateChange={ this.handlePlayBackRateChange.bind(this) }
-          setPlayBackRate={ this.setPlayBackRate.bind(this) }
-        />
-
-        <RollBack
-          rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
-          handleChangeReplayRollbackValue={ this.handleChangeReplayRollbackValue.bind(this) }
-          rollBack={ this.rollBack.bind(this) }
-        />
-
-        <ProgressBar
-          max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration) : 100 }
-          value={ this.videoRef.current !== null ? parseInt(this.videoRef.current.currentTime) : 0 }
-          buttonClick={ this.handleProgressBarClick.bind(this) }
-        />
-      </section>
-    };
+    const progressBar = <ProgressBar
+      max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration) : 100 }
+      value={ this.videoRef.current !== null ? parseInt(this.videoRef.current.currentTime) : 0 }
+      buttonClick={ this.handleProgressBarClick.bind(this) }
+    />;
 
     // list of keyboard shortcuts helper text
     const keyboardShortcutsElements = Object.keys(this.state.hotKeys).map((shortcutKey, index) => {
@@ -317,11 +285,9 @@ class MediaPlayer extends React.Component {
 
     return (
       <section className={ styles.videoSection }>
-
-        { mediaPlayerEl }
-
-        { playerControlsSection }
-
+        { this.props.mediaUrl !== null ? mediaPlayerEl : null }
+        { this.props.mediaUrl !== null ? playerControlsSection : null }
+        { this.props.mediaUrl !== null ? progressBar : null }
         {/* keyboardShortcuts */}
       </section>
     );

@@ -1,9 +1,11 @@
 .videoSection {
-    height: 100%;
-  }
+  height: 100%;
+  background: black;
+}
 
 video {
   width: 30%;
+  display: inline-block;
 }
 
 .helpText {
