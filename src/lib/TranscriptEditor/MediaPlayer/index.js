@@ -252,13 +252,6 @@ class MediaPlayer extends React.Component {
     if(this.props.mediaUrl !== null ){
       playerControlsSection = <section>
 
-        <ProgressBar
-          max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration) : 100 }
-          value={ this.videoRef.current !== null ? parseInt(this.videoRef.current.currentTime) : 0 }
-          buttonClick={ this.handleProgressBarClick.bind(this) }
-        />
-        <br/>
-
         <PlayerControls
           playMedia={ this.playMedia.bind(this) }
           isPlaying={ this.isPlaying.bind(this) }
@@ -294,6 +287,11 @@ class MediaPlayer extends React.Component {
           rollBack={ this.rollBack.bind(this) }
         />
 
+        <ProgressBar
+          max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration) : 100 }
+          value={ this.videoRef.current !== null ? parseInt(this.videoRef.current.currentTime) : 0 }
+          buttonClick={ this.handleProgressBarClick.bind(this) }
+        />
       </section>
     };
 
@@ -324,7 +322,7 @@ class MediaPlayer extends React.Component {
 
         { playerControlsSection }
 
-        { keyboardShortcuts }
+        {/* keyboardShortcuts */}
       </section>
     );
   }

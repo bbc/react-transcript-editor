@@ -1,0 +1,37 @@
+@value color-darkest-grey, color-light-grey, color-labs-red from '../colours.module.css';
+
+.playerControls {
+  position: relative;
+}
+
+.playerButton {
+  background: color-darkest-grey;
+  width: 48px;
+  height: 48px;
+  padding: 0.5em;
+  margin-right: 0.5em;
+  border: 0;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.timeBox {
+  display: inline-block;
+  background: color-darkest-grey;
+  text-align: center;
+  line-height: 48px;
+  padding: 0 1em;
+  margin-right: 0.5em;
+}
+
+.currentTime {
+  color: color-labs-red;
+}
+.separator {
+  color: color-light-grey;
+  margin: 0 1em;
+}
+.duration {
+  color: white;
+}
