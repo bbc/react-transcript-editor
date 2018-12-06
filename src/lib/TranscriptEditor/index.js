@@ -217,6 +217,7 @@ class TranscriptEditor extends React.Component {
     />;
 
     return (
+<<<<<<< HEAD
       <div className={ style.container }>
         <header className={ style.header }>
           { this.state.showSettings ? settings : null }
@@ -254,6 +255,42 @@ class TranscriptEditor extends React.Component {
           />
         </main>
       </div>
+=======
+      <section>
+        <section className={ styles.container }>
+          <aside className={ styles.aside }>
+            <MediaPlayer
+              // eslint-disable-next-line no-return-assign
+              hookSeek={ foo => this.setCurrentTime = foo }
+              // eslint-disable-next-line no-return-assign
+              hookPlayMedia={ foo => this.playMedia = foo }
+              // eslint-disable-next-line no-return-assign
+              hookIsPlaying={ foo => this.isPlaying = foo }
+              hookOnTimeUpdate={ this.handleTimeUpdate }
+              mediaUrl={ this.props.mediaUrl }
+              isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
+              handleIsScrollIntoViewChange={ this.handleIsScrollIntoViewChange }
+              handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+             />
+          </aside>
+          <main className={ styles.main }>
+            <TimedTextEditor
+              transcriptData={ this.state.transcriptData }
+              onWordClick={ this.handleWordClick }
+              playMedia={ this.handlePlayMedia }
+              isPlaying={ this.handleIsPlaying }
+              isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
+              currentTime={ this.state.currentTime }
+              isEditable={ this.props.isEditable }
+              sttJsonType={ this.props.sttJsonType }
+              ref={ 'timedTextEditor' }
+              mediaUrl={ this.props.mediaUrl }
+              handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+              />
+          </main>
+        </section>
+      </section>
+>>>>>>> quick fix
     );
   }
 }
