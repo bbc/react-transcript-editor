@@ -15,7 +15,7 @@ function returnHotKeys(self) {
       },
       label: 'Play Media',
     },
-    'ctrl+k': { // combo from mousetrap
+    'esc': {
       priority: 1,
       handler: () => { 
         self.promptSetCurrentTime();
@@ -30,7 +30,7 @@ function returnHotKeys(self) {
       },
       label: 'set current time',
     },
-    'ctrl+1': {
+    'alt+right': {
       priority: 1,
       handler: () => {
         self.skipForward(); 
@@ -45,7 +45,7 @@ function returnHotKeys(self) {
       },
       label: 'Skip Forward',
     },
-    'ctrl+2': {
+    'alt+left': {
       priority: 1,
       handler: () => { 
         self.skipBackward(); 
@@ -60,7 +60,7 @@ function returnHotKeys(self) {
       },
       label: 'Skip Backward',
     },
-    'ctrl+3': {
+    'alt+down': {
       priority: 1,
       handler: () => { 
         self.decreasePlaybackRate(); 
@@ -75,7 +75,7 @@ function returnHotKeys(self) {
       },
       label: 'Speed Down',
     },
-    'ctrl+4': {
+    'alt+up': {
       priority: 1,
       handler: () => { 
         self.increasePlaybackRate(); 
@@ -90,7 +90,7 @@ function returnHotKeys(self) {
       },
       label: 'Speed Up',
     },
-    'ctrl+5': {
+    'command+left': {
       priority: 1,
       handler: () => { 
         self.rollBack(); 

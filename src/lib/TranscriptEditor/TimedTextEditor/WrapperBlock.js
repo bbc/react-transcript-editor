@@ -34,13 +34,14 @@ class WrapperBlock extends React.Component {
 
     if (newSpeakerName !== '' && newSpeakerName !== null) {
       this.setState({ speaker: newSpeakerName });
-
-      this.props.blockProps.handleAnalyticsEvents({ 
-        category: 'WrapperBlock', 
-        action: 'handleOnClickEdit', 
-        name: 'newSpeakerName', 
-        value: newSpeakerName
-      });
+      if (this.props.handleAnalyticsEvents !== undefined) {
+        this.props.blockProps.handleAnalyticsEvents({ 
+          category: 'WrapperBlock', 
+          action: 'handleOnClickEdit', 
+          name: 'newSpeakerName', 
+          value: newSpeakerName
+        });
+      }
 
       // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
       // selection points are tracked as key/offset pairs,
@@ -70,13 +71,14 @@ class WrapperBlock extends React.Component {
 
   handleTimecodeClick = () => {
     this.props.blockProps.onWordClick(this.state.start);
-
-    this.props.blockProps.handleAnalyticsEvents({ 
-      category: 'WrapperBlock', 
-      action: 'handleTimecodeClick', 
-      name: 'onWordClick', 
-      value: secondsToTimecode(this.state.start)
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.blockProps.handleAnalyticsEvents({ 
+        category: 'WrapperBlock', 
+        action: 'handleTimecodeClick', 
+        name: 'onWordClick', 
+        value: secondsToTimecode(this.state.start)
+      });
+    }
 
   }
 

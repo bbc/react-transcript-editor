@@ -307,6 +307,11 @@ class MediaPlayer extends React.Component {
 
     return '00:00:00:00';
   }
+  handleMediaDurationChange =(e) => {
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ category: 'MediaPlayer', action: 'mediaDuration', name: secondsToTimecode(e.target.duration), value: e.target.duration });
+    }
+  }
 
   onLoadedDataGetDuration = (e) => {
     const currentDuration = e.target.duration;
