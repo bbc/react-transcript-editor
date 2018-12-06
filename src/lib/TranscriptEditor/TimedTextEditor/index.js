@@ -175,15 +175,15 @@ class TimedTextEditor extends React.Component {
   // helper function for analytics 
   // originally from
   // https://github.com/draft-js-plugins/draft-js-plugins/blob/master/draft-js-counter-plugin/src/WordCounter/index.js#L12
-  getWordCount(editorState) {
+  getWordCount = (editorState) => {
     const plainText = editorState.getCurrentContent().getPlainText('');
     const regex = /(?:\r\n|\r|\n)/g;  // new line, carriage return, line feed
     const cleanString = plainText.replace(regex, ' ').trim(); // replace above characters w/ space
     const wordArray = cleanString.match(/\S+/g);  // matches words according to whitespace
     
     return wordArray ? wordArray.length : 0;
-
   }
+
   /**
   * @param {object} data.entityMap - draftJs entity maps - used by convertFromRaw
   * @param {object} data.blocks - draftJs blocks - used by convertFromRaw
@@ -194,13 +194,15 @@ class TimedTextEditor extends React.Component {
     const contentState = convertFromRaw(data);
     // eslint-disable-next-line no-use-before-define
     const editorState = EditorState.createWithContent(contentState, decorator);
-
-    this.props.handleAnalyticsEvents({ 
-      category: 'TimedTextEditor', 
-      action: 'setEditorContentState', 
-      name: 'getWordCount', 
-      value: this.getWordCount(editorState)
-    });
+    
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'TimedTextEditor', 
+        action: 'setEditorContentState', 
+        name: 'getWordCount', 
+        value: this.getWordCount(editorState)
+      });
+    }
     
     this.setState({ editorState });
   }

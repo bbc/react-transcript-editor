@@ -94,12 +94,14 @@ const bbcKaldiToDraft = bbcKaldiJson => {
   }
 
   const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
-  wordsByParagraphs.forEach(paragraph => {
+  wordsByParagraphs.forEach((paragraph, i) => {
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
       type: 'paragraph',
       data: {
-        speaker: 'TBC'
+        speaker: `TBC ${i}`,
+        words: paragraph.words,
+        start: paragraph.words[0].start
       },
       // the entities as ranges are each word in the space-joined text,
       // so it needs to be compute for each the offset from the beginning of the paragraph and the length

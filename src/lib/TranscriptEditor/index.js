@@ -54,13 +54,14 @@ class TranscriptEditor extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   handleWordClick = (startTime) => {
-
-    this.props.handleAnalyticsEvents({ 
-      category: 'TranscriptEditor', 
-      action: 'doubleClickOnWord', 
-      name: 'startTime', 
-      value: secondsToTimecode(startTime)
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'TranscriptEditor', 
+        action: 'doubleClickOnWord', 
+        name: 'startTime', 
+        value: secondsToTimecode(startTime)
+      });
+    }
 
     this.setCurrentTime(startTime);
   }
@@ -261,6 +262,7 @@ TranscriptEditor.propTypes = {
   mediaUrl: PropTypes.string,
   isEditable: PropTypes.bool,
   sttJsonType: PropTypes.string,
+  handleAnalyticsEvents: PropTypes.func
 };
 
 export default TranscriptEditor;
