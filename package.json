@@ -1,7 +1,7 @@
 {
   "name": "@bbc/react-transcript-editor",
   "description": "A React component to make transcribing audio and video easier and faster.",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "keywords": [
     "transcript",
     "transcriptions",
