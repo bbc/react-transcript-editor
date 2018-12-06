@@ -6,7 +6,6 @@ const ExportFormatSelect = props => (<select name={ props.name } value={ props.v
   <option value="txt">Text file</option>
   <option value="html" disabled>HTML</option>
   <option value="word" disabled>MS Word</option>
-  <option value="ifr">IFR Running Order</option>
 </select>)
 
 ExportFormatSelect.propTypes = {
