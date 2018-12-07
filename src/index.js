@@ -91,7 +91,7 @@ class App extends React.Component {
 
   exportTranscript = (exportFormat) => {
     const {data, ext} = this.refs.transcriptEditor.exportData(this.state.exportFormat);
-    this.download(data, `${ this.state.mediaUrl } .${ext}`);
+    this.download(data, `${ this.state.mediaUrl }.${ext}`);
   }
 
   getEditorContent = () => {
