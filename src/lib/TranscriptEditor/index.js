@@ -66,6 +66,8 @@ class TranscriptEditor extends React.Component {
 
   getEditorContent = sttType => this.refs.timedTextEditor.getEditorContent(sttType)
 
+  exportData = (exportFormat) => this.refs.timedTextEditor.exportData(exportFormat)
+
   render() {
     return (
       <section>

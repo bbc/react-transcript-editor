@@ -18,6 +18,7 @@ import Word from './Word';
 import WrapperBlock from './WrapperBlock';
 
 import sttJsonAdapter from './adapters/index.js';
+import exportAdapter from './export-adapters/index.js';
 import styles from './index.module.css';
 
 const { hasCommandModifier } = KeyBindingUtil;
@@ -97,6 +98,11 @@ class TimedTextEditor extends React.Component {
       const blocks = sttJsonAdapter(this.props.transcriptData, this.props.sttJsonType);
       this.setEditorContentState(blocks)
     }
+  }
+
+  exportData(exportFormat) {
+    const format = exportFormat || 'draftjs';
+    return exportAdapter(convertToRaw(this.state.editorState.getCurrentContent()), format);
   }
 
   // click on words - for navigation
