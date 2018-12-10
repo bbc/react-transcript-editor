@@ -60,10 +60,10 @@ class TimedTextEditor extends React.Component {
         this.props.playMedia(false);
         // Pause video for X seconds
         const pauseWhileTypingIntervalInMilliseconds = 3000;
-          // resets timeout
+        // resets timeout
         clearTimeout(this.plauseWhileTypingTimeOut);
         this.plauseWhileTypingTimeOut = setTimeout(function(){
-              // after timeout starts playing again
+          // after timeout starts playing again
           this.props.playMedia(true);
         }.bind(this), pauseWhileTypingIntervalInMilliseconds);
       }
@@ -144,9 +144,9 @@ class TimedTextEditor extends React.Component {
   // contains blocks and entityMap
 
   /**
-   * @param {object} data.entityMap - draftJs entity maps - used by convertFromRaw
-   * @param {object} data.blocks - draftJs blocks - used by convertFromRaw
-   */
+  * @param {object} data.entityMap - draftJs entity maps - used by convertFromRaw
+  * @param {object} data.blocks - draftJs blocks - used by convertFromRaw
+  */
   setEditorContentState = (data) => {
     const contentState = convertFromRaw(data);
     // eslint-disable-next-line no-use-before-define
@@ -187,24 +187,24 @@ class TimedTextEditor extends React.Component {
   }
 
   getCurrentWord = () => {
-      const currentWord = {
-        start: 'NA',
-        end: 'NA'
-      };
+    const currentWord = {
+      start: 'NA',
+      end: 'NA'
+    };
 
-      if (this.state.transcriptData) {
-        const contentState = this.state.editorState.getCurrentContent()
-        const contentStateConvertEdToRaw = convertToRaw(contentState);
-        const entityMap = contentStateConvertEdToRaw.entityMap;
+    if (this.state.transcriptData) {
+      const contentState = this.state.editorState.getCurrentContent()
+      const contentStateConvertEdToRaw = convertToRaw(contentState);
+      const entityMap = contentStateConvertEdToRaw.entityMap;
 
-        for (var entityKey in entityMap){
-          const entity = entityMap[entityKey];
-          const word = entity.data;
-          if(word.start <= this.props.currentTime && word.end >= this.props.currentTime){
-            currentWord.start = word.start;
-            currentWord.end = word.end;
-          }
+      for (var entityKey in entityMap){
+        const entity = entityMap[entityKey];
+        const word = entity.data;
+        if(word.start <= this.props.currentTime && word.end >= this.props.currentTime){
+          currentWord.start = word.start;
+          currentWord.end = word.end;
         }
+      }
     }
     return currentWord;
   }
@@ -218,28 +218,31 @@ class TimedTextEditor extends React.Component {
     // Time to the nearest half second
     const time = Math.round(this.props.currentTime * 4.0) / 4.0;
 
+    const editor = (
+      <section
+        className={ style.editor }
+        onDoubleClick={ event => this.handleDoubleClick(event) }>
+
+        <style scoped>
+          {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
+          {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
+          {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
+          {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
+          {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
+        </style>
+
+        <Editor
+          editorState={ this.state.editorState }
+          onChange={ this.onChange }
+          stripPastedStyles
+          blockRendererFn={ this.renderBlockWithTimecodes }
+        />
+      </section>
+    );
+
     return (
       <section>
-        <section
-          className={ style.editor }
-          onDoubleClick={ event => this.handleDoubleClick(event) }
-          // onClick={ event => this.handleOnClick(event) }
-        >
-          <style scoped>
-            {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
-            {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
-            {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
-            {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
-            {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
-          </style>
-
-          <Editor
-            editorState={ this.state.editorState }
-            onChange={ this.onChange }
-            stripPastedStyles
-            blockRendererFn={ this.renderBlockWithTimecodes }
-          />
-        </section>
+        { this.props.transcriptData !== null ? editor : null }
       </section>
     );
   }
