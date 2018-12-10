@@ -23,6 +23,7 @@ To build a timed text editor, for editing audio or video transcriptions it can b
 * [Draft.js](https://draftjs.org/)
 * [Quill.js](https://quilljs.com/)
 * [Prose mirror](https://prosemirror.net/) + [NY times article "Building a Text Editor for a Digital-First Newsroom"](https://open.nytimes.com/building-a-text-editor-for-a-digital-first-newsroom-f1cb8367fc21)
+* [atJson](https://github.com/CondeNast-Copilot/atjson)
 
 
 ## Decision Outcome
