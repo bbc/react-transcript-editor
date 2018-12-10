@@ -14,7 +14,7 @@ class TranscriptEditor extends React.Component {
       currentTime: 0,
       lastLocalSavedTime: '',
       transcriptData: null,
-    }
+    };
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -23,6 +23,7 @@ class TranscriptEditor extends React.Component {
         transcriptData: nextProps.transcriptData,
       };
     }
+
     return null;
   }
 
@@ -47,15 +48,15 @@ class TranscriptEditor extends React.Component {
   handleTimeUpdate = (currentTime) => {
     this.setState({
       currentTime,
-    })
+    });
   }
 
   handlePlayMedia = (bool) => {
-    this.playMedia(bool)
+    this.playMedia(bool);
   }
 
   handleIsPlaying = () => {
-    return this.isPlaying()
+    return this.isPlaying();
   }
   getEditorContent = sttType => this.refs.timedTextEditor.getEditorContent(sttType)
 
@@ -64,26 +65,26 @@ class TranscriptEditor extends React.Component {
       <div className={ style.container }>
         <aside className={ style.aside }>
           <MediaPlayer
-              // eslint-disable-next-line no-return-assign
-              hookSeek={ foo => this.setCurrentTime = foo }
-              hookPlayMedia={ foo => this.playMedia = foo }
-              hookIsPlaying={ foo => this.isPlaying = foo }
-              hookOnTimeUpdate={ this.handleTimeUpdate }
-              mediaUrl={ this.props.mediaUrl }
-              />
+            // eslint-disable-next-line no-return-assign
+            hookSeek={ foo => this.setCurrentTime = foo }
+            hookPlayMedia={ foo => this.playMedia = foo }
+            hookIsPlaying={ foo => this.isPlaying = foo }
+            hookOnTimeUpdate={ this.handleTimeUpdate }
+            mediaUrl={ this.props.mediaUrl }
+          />
         </aside>
         <main className={ style.main }>
           <TimedTextEditor
-              transcriptData={ this.state.transcriptData }
-              onWordClick={ this.handleWordClick }
-              playMedia={ this.handlePlayMedia }
-              isPlaying={ this.handleIsPlaying }
-              currentTime={ this.state.currentTime }
-              isEditable={ this.props.isEditable }
-              sttJsonType={ this.props.sttJsonType }
-              ref={ 'timedTextEditor' }
-              mediaUrl={ this.props.mediaUrl }
-              />
+            transcriptData={ this.state.transcriptData }
+            onWordClick={ this.handleWordClick }
+            playMedia={ this.handlePlayMedia }
+            isPlaying={ this.handleIsPlaying }
+            currentTime={ this.state.currentTime }
+            isEditable={ this.props.isEditable }
+            sttJsonType={ this.props.sttJsonType }
+            ref={ 'timedTextEditor' }
+            mediaUrl={ this.props.mediaUrl }
+          />
         </main>
       </div>
     );

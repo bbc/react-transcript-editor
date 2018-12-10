@@ -6,7 +6,7 @@ import autoEdit2ToDraft from './autoEdit2/index';
  * @param {string} sttJsonType - the type of transcript supported by the available adapters
  */
 
- // converts nested arrays into one dimensional array
+// converts nested arrays into one dimensional array
 const flatten = list => list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
 const createEntityMap = (blocks) => {
@@ -21,26 +21,29 @@ const createEntityMap = (blocks) => {
       type: 'WORD',
       mutability: 'MUTABLE',
       data,
-    }
+    };
   });
+
   return entityMap;
-}
+};
 
 const sttJsonAdapter = (transcriptData, sttJsonType) => {
   let blocks;
   switch (sttJsonType) {
-    case 'bbckaldi':
-       blocks = bbcKaldiToDraft(transcriptData);
-      return { blocks, entityMap: createEntityMap(blocks) };
-    case 'autoedit2':
-      blocks = autoEdit2ToDraft(transcriptData);
-      return { blocks, entityMap: createEntityMap(blocks) };
-    case 'draftjs':
-      return transcriptData; // (typeof transcriptData === 'string')? JSON.parse(transcriptData): transcriptData;
-    default:
-      // code block
-      console.error('not recognised the stt enginge');
+  case 'bbckaldi':
+    blocks = bbcKaldiToDraft(transcriptData);
+
+    return { blocks, entityMap: createEntityMap(blocks) };
+  case 'autoedit2':
+    blocks = autoEdit2ToDraft(transcriptData);
+
+    return { blocks, entityMap: createEntityMap(blocks) };
+  case 'draftjs':
+    return transcriptData; // (typeof transcriptData === 'string')? JSON.parse(transcriptData): transcriptData;
+  default:
+    // code block
+    console.error('not recognised the stt enginge');
   }
-}
+};
 
 export default sttJsonAdapter;

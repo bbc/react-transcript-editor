@@ -38,8 +38,9 @@ class TimedTextEditor extends React.Component {
       return {
         transcriptData: nextProps.transcriptData,
         isEditable: nextProps.isEditable,
-      }
+      };
     }
+
     return null;
   }
 
@@ -55,8 +56,8 @@ class TimedTextEditor extends React.Component {
     // doing editorStateChangeType === 'insert-characters'  is triggered even
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
-    if(this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()){
-      if(this.props.isPlaying()){
+    if (this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()){
+      if (this.props.isPlaying()){
         this.props.playMedia(false);
         // Pause video for X seconds
         const pauseWhileTypingIntervalInMilliseconds = 3000;
@@ -89,7 +90,7 @@ class TimedTextEditor extends React.Component {
   loadData() {
     if (this.props.transcriptData !== null) {
       const blocks = sttJsonAdapter(this.props.transcriptData, this.props.sttJsonType);
-      this.setEditorContentState(blocks)
+      this.setEditorContentState(blocks);
     }
   }
 
@@ -118,6 +119,7 @@ class TimedTextEditor extends React.Component {
     localStorage.setItem(`draftJs-${ mediaUrl }`, JSON.stringify(data));
     const newLastLocalSavedDate = new Date().toString();
     localStorage.setItem(`timestamp-${ mediaUrl }`, newLastLocalSavedDate);
+
     return newLastLocalSavedDate;
   }
 
@@ -127,6 +129,7 @@ class TimedTextEditor extends React.Component {
     if (data !== null) {
       return true;
     }
+
     return false;
   }
 
@@ -134,10 +137,12 @@ class TimedTextEditor extends React.Component {
     const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrl }`));
     if (data !== null) {
       const lastLocalSavedDate = localStorage.getItem(`timestamp-${ mediaUrl }`);
-      this.setEditorContentState(data)
+      this.setEditorContentState(data);
+
       return lastLocalSavedDate;
     }
-    return ''
+
+    return '';
   }
 
   // set DraftJS Editor content state from blocks
@@ -164,6 +169,7 @@ class TimedTextEditor extends React.Component {
 
   renderBlockWithTimecodes = (contentBlock) => {
     const type = contentBlock.getType();
+
     return {
       component: WrapperBlock,
       editable: true,
@@ -193,19 +199,20 @@ class TimedTextEditor extends React.Component {
     };
 
     if (this.state.transcriptData) {
-      const contentState = this.state.editorState.getCurrentContent()
+      const contentState = this.state.editorState.getCurrentContent();
       const contentStateConvertEdToRaw = convertToRaw(contentState);
       const entityMap = contentStateConvertEdToRaw.entityMap;
 
       for (var entityKey in entityMap){
         const entity = entityMap[entityKey];
         const word = entity.data;
-        if(word.start <= this.props.currentTime && word.end >= this.props.currentTime){
+        if (word.start <= this.props.currentTime && word.end >= this.props.currentTime){
           currentWord.start = word.start;
           currentWord.end = word.end;
         }
       }
     }
+
     return currentWord;
   }
 
@@ -256,6 +263,7 @@ const getEntityStrategy = mutability => (contentBlock, callback, contentState) =
     if (entityKey === null) {
       return false;
     }
+
     return contentState.getEntity(entityKey).getMutability() === mutability;
   }, callback);
 };

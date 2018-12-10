@@ -25,9 +25,9 @@ class MediaPlayer extends React.Component {
       timecodeOffset: 0,
       hotKeys: returnHotKeys(this),
       isPausedWhileTyping: false
-    }
+    };
   }
-  /*eslint-disable camel case */
+  /*eslint-disable camelcase */
   hot_keys = returnHotKeys(this);
 
   componentDidMount() {
@@ -53,7 +53,7 @@ class MediaPlayer extends React.Component {
   }
 
   promptSetCurrentTime = () => {
-    this.setCurrentTime( prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds'))
+    this.setCurrentTime( prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds'));
   }
 
   setTimeCodeOffset = (newTimeCodeOffSet) => {
@@ -62,7 +62,7 @@ class MediaPlayer extends React.Component {
       let newCurrentTimeInSeconds = newTimeCodeOffSet;
       if (newTimeCodeOffSet.includes(':')) {
         newCurrentTimeInSeconds = timecodeToSeconds(newTimeCodeOffSet);
-        this.setState({ timecodeOffset: newCurrentTimeInSeconds })
+        this.setState({ timecodeOffset: newCurrentTimeInSeconds });
       }
     }
   }
@@ -79,11 +79,11 @@ class MediaPlayer extends React.Component {
 
   handleTimeUpdate = (e) => {
     // eslint-disable-next-line react/prop-types
-    this.props.hookOnTimeUpdate(e.target.currentTime)
+    this.props.hookOnTimeUpdate(e.target.currentTime);
   }
 
   handlePlayBackRateChange = (e) => {
-    this.setPlayBackRate(e.target.value)
+    this.setPlayBackRate(e.target.value);
   }
 
   increasePlaybackRate = () => {
@@ -116,7 +116,7 @@ class MediaPlayer extends React.Component {
           playBackRate: speedValue,
         }, () => {
           this.videoRef.current.playbackRate = speedValue;
-        })
+        });
       }
     }
   }
@@ -125,7 +125,7 @@ class MediaPlayer extends React.Component {
     if (this.videoRef.current !== null) {
       this.setState({
         rollBackValueInSeconds: e.target.value,
-      })
+      });
     }
   }
 
@@ -141,12 +141,13 @@ class MediaPlayer extends React.Component {
   }
 
   handleTogglePauseWhileTyping = () => {
-    console.log('triggered')
-    console.log(this.state.isPausedWhileTyping)
+    console.log('triggered');
+    console.log(this.state.isPausedWhileTyping);
     this.setState((prevState, props) => {
-      console.log(prevState.isPausedWhileTyping)
-      return { isPausedWhileTyping:  !prevState.isPausedWhileTyping }
-    })
+      console.log(prevState.isPausedWhileTyping);
+
+      return { isPausedWhileTyping:  !prevState.isPausedWhileTyping };
+    });
   }
 
   isPlaying = () => {
@@ -154,6 +155,7 @@ class MediaPlayer extends React.Component {
       if (this.videoRef.current.paused) {
         return false;
       }
+
       return true;
     }
   }
@@ -169,23 +171,23 @@ class MediaPlayer extends React.Component {
     if (this.videoRef.current !== null) {
       // if playMedia is being triggered by PlayerControl or Video element
       // then it will have a target attribute
-      if(playPauseBool.target !== undefined){
-          // checks on whether to use default fallback if no param is provided
-          if (this.videoRef.current.paused) {
+      if (playPauseBool.target !== undefined){
+        // checks on whether to use default fallback if no param is provided
+        if (this.videoRef.current.paused) {
+          this.videoRef.current.play();
+        } else {
+          this.videoRef.current.pause();
+        }
+      }
+      else {
+        // if param is provided and if pausedWhileTyping Toggle is on
+        if (this.state.isPausedWhileTyping){
+          if (playPauseBool) {
             this.videoRef.current.play();
           } else {
             this.videoRef.current.pause();
           }
-      }
-      else{
-         // if param is provided and if pausedWhileTyping Toggle is on
-        if(this.state.isPausedWhileTyping){
-            if (playPauseBool) {
-              this.videoRef.current.play();
-            } else {
-              this.videoRef.current.pause();
-            }
-          }
+        }
       }
     }
   }
@@ -214,33 +216,35 @@ class MediaPlayer extends React.Component {
   }
 
   getMediaCurrentTime = () => {
-   if(this.videoRef.current !== null) {
-    return secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset)
-   }
-     return '00:00:00:00';
+    if (this.videoRef.current !== null) {
+      return secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset);
+    }
+
+    return '00:00:00:00';
   }
 
   getMediaDuration = () => {
-    if(this.videoRef.current !== null) {
+    if (this.videoRef.current !== null) {
       return secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset);
     }
-      return  '00:00:00:00';
+
+    return  '00:00:00:00';
   }
 
   render() {
     const mediaPlayerEl = (
       <video
-          id="video"
-          playsInline
-          src={ this.props.mediaUrl }
-          onTimeUpdate={ this.handleTimeUpdate }
-          // TODO: video type - add logic to identify if video is playable and raise error if it's not
-          type="video/mp4"
-          data-testid="media-player-id"
-          onClick={ this.playMedia.bind(this) }
-          ref={ this.videoRef }
-        />
-      );
+        id="video"
+        playsInline
+        src={ this.props.mediaUrl }
+        onTimeUpdate={ this.handleTimeUpdate }
+        // TODO: video type - add logic to identify if video is playable and raise error if it's not
+        type="video/mp4"
+        data-testid="media-player-id"
+        onClick={ this.playMedia.bind(this) }
+        ref={ this.videoRef }
+      />
+    );
 
     const playerControlsSection = (
       <div className={ styles.controlsSection }>
@@ -248,19 +252,19 @@ class MediaPlayer extends React.Component {
           <h1 className={ styles.title }>{ this.props.mediaUrl }</h1>
         </div>
         <PlayerControls
-        playMedia={ this.playMedia.bind(this) }
-        isPlaying={ this.isPlaying.bind(this) }
-        skipBackward={ this.skipBackward.bind(this) }
-        skipForward={ this.skipForward.bind(this) }
-        rollback={ this.rollBack }
-        currentTime={ this.getMediaCurrentTime() }
-        duration={ this.getMediaDuration() }
-        onSetCurrentTime={ '' }
-        onSetTimecodeOffset={ '' }
-        promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
-        setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
-        timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
-        handleMuteVolume={ this.handleMuteVolume.bind(this) }
+          playMedia={ this.playMedia.bind(this) }
+          isPlaying={ this.isPlaying.bind(this) }
+          skipBackward={ this.skipBackward.bind(this) }
+          skipForward={ this.skipForward.bind(this) }
+          rollback={ this.rollBack }
+          currentTime={ this.getMediaCurrentTime() }
+          duration={ this.getMediaDuration() }
+          onSetCurrentTime={ '' }
+          onSetTimecodeOffset={ '' }
+          promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
+          setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
+          timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
+          handleMuteVolume={ this.handleMuteVolume.bind(this) }
         />
       </div>
     );
@@ -273,22 +277,22 @@ class MediaPlayer extends React.Component {
 
     // list of keyboard shortcuts helper text
     const keyboardShortcutsElements = Object.keys(this.state.hotKeys).map((shortcutKey, index) => {
-        return <p
+      return <p
         className={ styles.helpText }
         key={ shortcutKey }>
-          <code>{shortcutKey}</code>
-          <small>
-            <b> {this.state.hotKeys[shortcutKey].helperText}</b>
-          </small>
-        </p>
-      })
+        <code>{shortcutKey}</code>
+        <small>
+          <b> {this.state.hotKeys[shortcutKey].helperText}</b>
+        </small>
+      </p>;
+    });
 
     let keyboardShortcuts;
-    if(this.props.mediaUrl !== null ){
+    if (this.props.mediaUrl !== null ){
       keyboardShortcuts = <section className={ styles.hideInMobile }><label>{keyboardShortcutsElements}</label>
         <br/>
         <small className={ styles.helpText }>Double click on a word to be taken to that time in the media.</small>
-      </section>
+      </section>;
     }
 
     return (
@@ -307,6 +311,7 @@ class MediaPlayer extends React.Component {
 MediaPlayer.propTypes = {
   hookSeek: PropTypes.func,
   hookPlayMedia: PropTypes.func,
+  hookIsPlaying: PropTypes. func,
   mediaUrl: PropTypes.string,
   hookOnTimeUpdate: PropTypes.func
 };

@@ -25,7 +25,7 @@ class WrapperBlock extends React.Component {
     this.setState({
       speaker: speaker,
       start: start
-    })
+    });
   }
 
   handleOnClickEdit = (e) => {
@@ -43,7 +43,7 @@ class WrapperBlock extends React.Component {
           <SpeakerLabel
             name={ this.state.speaker }
             handleOnClickEdit={ this.handleOnClickEdit }
-            />
+          />
           <span className={ style.time }>{secondsToTimecode(this.state.start)}</span>
         </div>
         <div className={ style.text }>
