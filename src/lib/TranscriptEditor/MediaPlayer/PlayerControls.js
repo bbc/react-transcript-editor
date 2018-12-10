@@ -31,6 +31,12 @@ class PlayerControls extends React.Component {
       <div className={ style.playerControls }>
         <button
           className={ style.playerButton }
+          onClick={ this.props.rollback }>
+          {'↺'}
+        </button>
+
+        <button
+          className={ style.playerButton }
           onMouseDown={ this.setIntervalHelperBackward }
           onMouseUp={ this.clearIntervalHelper }>
           {'◀◀'}
@@ -68,7 +74,9 @@ PlayerControls.propTypes = {
   playMedia: PropTypes.func,
   currentTime: PropTypes.string,
   timecodeOffset: PropTypes.string,
-  promptSetCurrentTime: PropTypes.func
+  promptSetCurrentTime: PropTypes.func,
+  rollback: PropTypes.func,
+  handleMuteVolume: PropTypes.handleMuteVolume
 };
 
 export default PlayerControls;

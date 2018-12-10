@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// https://www.npmjs.com/package/react-keyboard-shortcuts
 import { hotkeys } from 'react-keyboard-shortcuts';
 import returnHotKeys from './defaultHotKeys';
+
 import PlaybackRate from './PlaybackRate.js';
 import RollBack from './RollBack.js';
 import ProgressBar from './ProgressBar.js';
@@ -129,7 +129,7 @@ class MediaPlayer extends React.Component {
     }
   }
 
-  handleMuteVolume = (e) => {
+  handleMuteVolume = () => {
     // https://www.w3schools.com/tags/av_prop_volume.asp
     if (this.videoRef.current !== null) {
       if (this.videoRef.current.volume > 0) {
@@ -140,7 +140,7 @@ class MediaPlayer extends React.Component {
     }
   }
 
-  handleTogglePauseWhileTyping = (e) => {
+  handleTogglePauseWhileTyping = () => {
     console.log('triggered')
     console.log(this.state.isPausedWhileTyping)
     this.setState((prevState, props) => {
@@ -149,7 +149,7 @@ class MediaPlayer extends React.Component {
     })
   }
 
-  isPlaying=() => {
+  isPlaying = () => {
     if (this.videoRef.current !== null) {
       if (this.videoRef.current.paused) {
         return false;
@@ -221,7 +221,7 @@ class MediaPlayer extends React.Component {
   }
 
   getMediaDuration = () => {
-    if(this.videoRef.current !== null){
+    if(this.videoRef.current !== null) {
       return secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset);
     }
       return  '00:00:00:00';
@@ -242,20 +242,28 @@ class MediaPlayer extends React.Component {
         />
       );
 
-    const playerControlsSection = <PlayerControls
-      playMedia={ this.playMedia.bind(this) }
-      isPlaying={ this.isPlaying.bind(this) }
-      skipBackward={ this.skipBackward.bind(this) }
-      skipForward={ this.skipForward.bind(this) }
-      currentTime={ this.getMediaCurrentTime() }
-      duration={ this.getMediaDuration() }
-      onSetCurrentTime={ '' }
-      onSetTimecodeOffset={ '' }
-      promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
-      setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
-      timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
-      handleMuteVolume={ this.handleMuteVolume.bind(this) }
-    />
+    const playerControlsSection = (
+      <div className={ styles.controlsSection }>
+        <div className={ styles.titleBox }>
+          <h1 className={ styles.title }>{ this.props.mediaUrl }</h1>
+        </div>
+        <PlayerControls
+        playMedia={ this.playMedia.bind(this) }
+        isPlaying={ this.isPlaying.bind(this) }
+        skipBackward={ this.skipBackward.bind(this) }
+        skipForward={ this.skipForward.bind(this) }
+        rollback={ this.rollBack }
+        currentTime={ this.getMediaCurrentTime() }
+        duration={ this.getMediaDuration() }
+        onSetCurrentTime={ '' }
+        onSetTimecodeOffset={ '' }
+        promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
+        setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
+        timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
+        handleMuteVolume={ this.handleMuteVolume.bind(this) }
+        />
+      </div>
+    );
 
     const progressBar = <ProgressBar
       max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration) : 100 }
@@ -284,9 +292,11 @@ class MediaPlayer extends React.Component {
     }
 
     return (
-      <section className={ styles.videoSection }>
-        { this.props.mediaUrl !== null ? mediaPlayerEl : null }
-        { this.props.mediaUrl !== null ? playerControlsSection : null }
+      <section className={ styles.topSection }>
+        <div className={ styles.playerSection }>
+          { this.props.mediaUrl !== null ? mediaPlayerEl : null }
+          { this.props.mediaUrl !== null ? playerControlsSection : null }
+        </div>
         { this.props.mediaUrl !== null ? progressBar : null }
         {/* keyboardShortcuts */}
       </section>
