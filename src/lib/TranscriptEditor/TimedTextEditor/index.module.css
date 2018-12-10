@@ -1,3 +1,6 @@
+.DraftEditor-root {
+  background: #f9f9f9;
+}
 /*
 Giving the editor a oveflow
 https://github.com/facebook/draft-js/issues/528
@@ -7,4 +10,6 @@ https://github.com/facebook/draft-js/issues/528
   overflow: auto;
   background-color: white;
   padding: 20px;
+  width: 80%;
+  margin: 0 auto;
 }

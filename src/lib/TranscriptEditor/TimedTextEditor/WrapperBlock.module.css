@@ -8,33 +8,38 @@
 }
 
 .markers {
-  width: 30%;
+  width: 25%;
   font-size: 0.8em;
   float: left;
 }
 
 .text {
-  width: 65%;
+  width: 75%;
   font-size: 1em;
   float: right;
   clear: right;
-  /* color: color-light-grey; */
+  color: color-light-grey;
+  line-height: 1.2em;
 }
 
 .speaker {
   display: inline-block;
   font-weight: bold;
   text-transform: uppercase;
-  width: 50%;
+  text-align: right;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-right: 2em;
+  width: 55%;
   color: color-mid-grey;
+  vertical-align: middle;
 }
 
 .time {
   display: inline-block;
   font-weight: lighter;
-  margin-bottom: 8px;
-  width: 50%;
-  text-align: right;
+  width: 30%;
 }
 
 .EditLabel {
