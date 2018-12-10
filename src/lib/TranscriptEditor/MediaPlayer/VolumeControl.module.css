@@ -12,9 +12,11 @@ vertical-align:middle;
 
 .label {
   display: block;
-  margin-top: 0px;
-  margin-bottom: 0.1em;
+  margin: 0.2em 0;
   font-weight: light;
+  color: white;
+  text-align: center;
+  font-size: 0.8em;
 }
 
 .switch {

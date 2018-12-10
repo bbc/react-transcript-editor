@@ -1,11 +1,35 @@
-.videoSection {
+@value color-light-grey from '../colours.module.css';
+
+.topSection {
   height: 100%;
   background: black;
 }
 
+.playerSection {
+  display: inline-flex;
+  align-items: flex-start;
+}
+
 video {
   width: 30%;
-  display: inline-block;
+  max-height: 160px;
+  cursor: pointer;
+}
+
+.controlsSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleBox {
+  border-bottom: 0.02em solid color-light-grey;
+  margin-bottom: 1em;
+}
+
+.title {
+  margin: 1em;
+  color: white;
 }
 
 .helpText {
@@ -15,7 +39,11 @@ video {
 
 /* Mobile devices */
 @media (max-width: 768px) {
-  .hideInMobile{
+  .hideInMobile {
     display: none;
+  }
+
+  video {
+    /* min-width: 50%; */
   }
 }

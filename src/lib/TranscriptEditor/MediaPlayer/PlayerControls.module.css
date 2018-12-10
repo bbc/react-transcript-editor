@@ -1,8 +1,7 @@
 @value color-darkest-grey, color-light-grey, color-labs-red from '../colours.module.css';
 
 .playerControls {
-  position: relative;
-  display: inline-block;
+  margin: 1em;
 }
 
 .playerButton {
@@ -29,10 +28,12 @@
 .currentTime {
   color: color-labs-red;
 }
+
 .separator {
   color: color-light-grey;
   margin: 0 1em;
 }
+
 .duration {
   color: white;
 }
