@@ -5,6 +5,7 @@ import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
 
 import style from './index.module.css';
+import { throws } from 'assert';
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class TranscriptEditor extends React.Component {
       currentTime: 0,
       lastLocalSavedTime: '',
       transcriptData: null,
+      isScrollIntoViewOn: false
     };
   }
 
@@ -58,7 +60,14 @@ class TranscriptEditor extends React.Component {
   handleIsPlaying = () => {
     return this.isPlaying();
   }
+
+  handleIsScrollIntoViewChange = (isChecked) => {
+    this.setState({ isScrollIntoViewOn: isChecked });
+  }
+
   getEditorContent = sttType => this.refs.timedTextEditor.getEditorContent(sttType)
+
+  exportData = (exportFormat) => this.refs.timedTextEditor.exportData(exportFormat)
 
   render() {
     return (
@@ -84,6 +93,7 @@ class TranscriptEditor extends React.Component {
             sttJsonType={ this.props.sttJsonType }
             ref={ 'timedTextEditor' }
             mediaUrl={ this.props.mediaUrl }
+            isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
           />
         </main>
       </div>

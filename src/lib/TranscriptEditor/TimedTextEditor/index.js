@@ -7,14 +7,19 @@ import {
   CompositeDecorator,
   convertFromRaw,
   convertToRaw,
+  KeyBindingUtil,
+  getDefaultKeyBinding,
+  Modifier
 } from 'draft-js';
 
 import Word from './Word';
 import WrapperBlock from './WrapperBlock';
 
 import sttJsonAdapter from './adapters/index.js';
-
+import exportAdapter from './export-adapters/index.js';
 import style from './index.module.css';
+
+const { hasCommandModifier } = KeyBindingUtil;
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -94,6 +99,12 @@ class TimedTextEditor extends React.Component {
     }
   }
 
+  exportData(exportFormat) {
+    const format = exportFormat || 'draftjs';
+
+    return exportAdapter(convertToRaw(this.state.editorState.getCurrentContent()), format);
+  }
+
   // click on words - for navigation
   // eslint-disable-next-line class-methods-use-this
   handleDoubleClick = (event) => {
@@ -106,10 +117,7 @@ class TimedTextEditor extends React.Component {
 
     if (element.hasAttribute('data-start')) {
       const t = parseFloat(element.getAttribute('data-start'));
-      // TODO: prop to jump to video <-- To connect with MediaPlayer
-      // this.props.seek(t);
       this.props.onWordClick(t);
-      // TODO: pass current time of media to TimedTextEditor to know what text to highlight in this component
     }
   }
 
@@ -159,6 +167,14 @@ class TimedTextEditor extends React.Component {
     this.setState({ editorState });
   }
 
+  /**
+  * Update Editor content state
+  */
+  setEditorNewContentState = (newContentState) => {
+    const newEditorState = EditorState.push(this.state.editorState, newContentState);
+    this.setState({ editorState: newEditorState });
+  }
+
   getEditorContent = (sttType) => {
     // sttType used in conjunction with adapter/convert
     const type = sttType === null ? 'draftjs' : sttType;
@@ -174,7 +190,12 @@ class TimedTextEditor extends React.Component {
       component: WrapperBlock,
       editable: true,
       props: {
-        foo: 'bar'
+        foo: 'bar',
+        editorState: this.state.editorState,
+        // passing in callback function to be able to set state in parent component
+        setEditorNewContentState: this.setEditorNewContentState,
+        // to make timecodes clickable
+        onWordClick: this.props.onWordClick
       }
     };
   }
@@ -203,17 +224,128 @@ class TimedTextEditor extends React.Component {
       const contentStateConvertEdToRaw = convertToRaw(contentState);
       const entityMap = contentStateConvertEdToRaw.entityMap;
 
-      for (var entityKey in entityMap){
+      for (var entityKey in entityMap) {
         const entity = entityMap[entityKey];
         const word = entity.data;
-        if (word.start <= this.props.currentTime && word.end >= this.props.currentTime){
+
+        if (word.start <= this.props.currentTime && word.end >= this.props.currentTime) {
           currentWord.start = word.start;
           currentWord.end = word.end;
         }
       }
     }
+    if (currentWord.start !== 'NA'){
+      console.log('TimedTextEditor: ',this.props.isScrollIntoViewOn);
+
+      if (this.props.isScrollIntoViewOn) {
+        const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
+        currentWordElement.scrollIntoView({ block: 'center', inline: 'center' });
+      }
+    }
 
     return currentWord;
+  }
+
+  myKeyBindingFn = ( e) => {
+    const enterKey = 13;
+    if (e.keyCode === enterKey ) {
+      return 'split-paragraph';
+    }
+
+    return getDefaultKeyBinding(e);
+  }
+
+  // TODO: code in this function can do with a refactor - at later stage
+  handleKeyCommand = (command) => {
+    // https://github.com/facebook/draft-js/issues/723#issuecomment-367918580
+    // https://draftjs.org/docs/api-reference-selection-state#start-end-vs-anchor-focus
+    if (command === 'split-paragraph') {
+      // on enter key, perform split paragraph at selection point
+      const currentSelection = this.state.editorState.getSelection();
+
+      if (currentSelection.isCollapsed()) {
+        const currentContent = this.state.editorState.getCurrentContent();
+        // https://draftjs.org/docs/api-reference-modifier#splitblock
+        const newContentState = Modifier.splitBlock(currentContent, currentSelection);
+        // https://draftjs.org/docs/api-reference-editor-state#push
+        const splitState = EditorState.push(this.state.editorState, newContentState, 'split-block');
+        const targetSelection = splitState.getSelection();
+        const originalBlock = currentContent.blockMap.get(newContentState.selectionBefore.getStartKey());
+        const originalBlockData = originalBlock.getData();
+        const blockSpeaker = originalBlockData.get('speaker');
+        // TODO: there might be some edge cases where unable to calculate wordStartTime
+        // eg adding spaces and then new line in the middle
+        let wordStartTime = 'NA';
+        let isEndOfParagraph = false;
+
+        let entityKey = originalBlock.getEntityAt(currentSelection.getStartOffset());
+        const startSelectionOffsetKey = currentSelection.getStartOffset();
+        // length of the plaintext for the ContentBlock
+        const lengthPlainTextForTheBlock = originalBlock.getLength();
+        // number of char from selection point to end of paragraph
+        const remainingCharNumber = lengthPlainTextForTheBlock - startSelectionOffsetKey;
+        // if there is no word entity associated with char
+        if (entityKey === null){
+          // if it's the last char in the paragraph - get previous entity
+          if (remainingCharNumber === 0 ){
+            for (let j = lengthPlainTextForTheBlock; j >0 ; j--){
+              entityKey = originalBlock.getEntityAt(j);
+              if (entityKey!== null){
+                isEndOfParagraph = true;
+                break;
+              }
+            }
+          }
+          // if it's first char or another within the block
+          else {
+            let initialSelectionOffset = currentSelection.getStartOffset();
+            for (let i = 0; i < remainingCharNumber ; i++){
+              initialSelectionOffset +=i;
+              entityKey = originalBlock.getEntityAt(initialSelectionOffset);
+              if (entityKey!== null){
+                break;
+              }
+            }
+          }
+        }
+
+        if (entityKey) {
+          const entityInstance = currentContent.getEntity(entityKey);
+          const entityData = entityInstance.getData();
+          if (isEndOfParagraph){
+            // if it's end of paragraph use end time of word for new paragraph
+            wordStartTime = entityData.end;
+          }
+          else {
+            wordStartTime = entityData.start;
+          }
+        }
+        else {
+          // if entity not defined, then stopping some of the edge cases.
+          // eg if hit enter on timecode or speaker
+          return 'not-handled';
+        }
+
+        console.log('originalBlockData',wordStartTime, blockSpeaker);
+        console.log('originalBlockData',originalBlockData);
+        // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
+        const afterMergeContentState = Modifier.mergeBlockData(
+          splitState.getCurrentContent(),
+          targetSelection,
+          {
+            'start': wordStartTime,
+            'speaker': blockSpeaker
+          }
+        );
+        this.setEditorNewContentState(afterMergeContentState);
+
+        return 'handled';
+      }
+
+      return 'not-handled';
+    }
+
+    return 'not-handled';
   }
 
   render() {
@@ -285,7 +417,8 @@ TimedTextEditor.propTypes = {
   sttJsonType: PropTypes.string,
   isPlaying: PropTypes.func,
   playMedia: PropTypes.func,
-  currentTime: PropTypes.number
+  currentTime: PropTypes.number,
+  isScrollSyncToggle: PropTypes.func
 };
 
 export default TimedTextEditor;

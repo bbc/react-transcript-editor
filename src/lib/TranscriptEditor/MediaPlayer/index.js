@@ -9,6 +9,7 @@ import ProgressBar from './ProgressBar.js';
 import PlayerControls from './PlayerControls.js';
 import VolumeControl from './VolumeControl.js';
 import PauseWhileTyping from './PauseWhileTyping.js';
+import ScrollIntoView from './ScrollIntoView.js';
 
 import styles from './index.module.css';
 
@@ -150,7 +151,11 @@ class MediaPlayer extends React.Component {
     });
   }
 
-  isPlaying = () => {
+  handleToggleScrollIntoView = (e) => {
+    this.props.handleIsScrollIntoViewChange(e.target.checked);
+  }
+
+  isPlaying=() => {
     if (this.videoRef.current !== null) {
       if (this.videoRef.current.paused) {
         return false;
@@ -169,6 +174,7 @@ class MediaPlayer extends React.Component {
   playMedia = (playPauseBool) => {
     // checks that there is a video player element initialized
     if (this.videoRef.current !== null) {
+
       // if playMedia is being triggered by PlayerControl or Video element
       // then it will have a target attribute
       if (playPauseBool.target !== undefined){
@@ -189,6 +195,7 @@ class MediaPlayer extends React.Component {
           }
         }
       }
+
     }
   }
 
@@ -313,7 +320,8 @@ MediaPlayer.propTypes = {
   hookPlayMedia: PropTypes.func,
   hookIsPlaying: PropTypes. func,
   mediaUrl: PropTypes.string,
-  hookOnTimeUpdate: PropTypes.func
+  hookOnTimeUpdate: PropTypes.func,
+  hookIsScrollSyncToggle: PropTypes.func
 };
 
 export default hotkeys(MediaPlayer);
