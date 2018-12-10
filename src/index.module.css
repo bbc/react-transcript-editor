@@ -1,10 +1,4 @@
-@font-face {
-  font-family: 'BBCReithSans';
-  src: url('http://gel.files.bbci.co.uk/r2.302/subsets/BBCReithSansCd_WLatn_Bd.woff2') format('woff2');
-}
-
 .container {
   height: 100vh;
-  /* font-family: Consolas, Helvetica Neue, Helvetica, Arial, sans-serif; */
   font-family: ReithSerif, Fallback, sans-serif;
 }

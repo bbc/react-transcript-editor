@@ -7,13 +7,13 @@ class SpeakerLabel extends PureComponent {
     render() {
       return (
         <span className={ style.speaker }>
-          {this.props.name}
           <span
             className={ style.EditLabel }
             onClick={ this.props.handleOnClickEdit }
             role='img'
             aria-label='Pencil'> ✏️
           </span>
+          {this.props.name}
         </span>
       )
     }

@@ -13,3 +13,11 @@ https://github.com/facebook/draft-js/issues/528
   width: 80%;
   margin: 0 auto;
 }
+
+
+@media (max-width: 768px) {
+  .editor {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
