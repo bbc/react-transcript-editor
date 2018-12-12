@@ -1,6 +1,6 @@
 # Save to server
 
-* Status: being evaluated
+* Status: accepted
 * Deciders: Pietro, James
 * Date: 2018-11-20
 
