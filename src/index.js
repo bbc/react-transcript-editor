@@ -4,7 +4,8 @@ import { TranscriptEditor } from './lib';
 // import kaldiTranscript from './sample-data/kaldi-transcription-20181029235300.json';
 import kaldiTedTalkTranscript from './sample-data/KateDarling_2018S-bbc-kaldi.json';
 import styles from './index.module.css';
-import SttTypeSelect from './select-stt-json-type'
+import SttTypeSelect from './select-stt-json-type';
+import ExportFormatSelect from './select-export-format';
 
 const tedTalkVideoUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
 
@@ -83,10 +84,20 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  getEditorContent = () => {
-    const tmpEditorsContnet = this.refs.transcriptEditor.getEditorContent(this.state.sttType);
+  handleExportFormatChange = (event) => {
+    console.log(event.target.name, event.target.value)
+    this.setState({ [event.target.name]: event.target.value });
+  }
 
-    this.download(JSON.stringify(tmpEditorsContnet, null, 2), `${ this.state.mediaUrl } .json`)
+  exportTranscript = (exportFormat) => {
+    const {data, ext} = this.refs.transcriptEditor.exportData(this.state.exportFormat);
+    this.download(data, `${ this.state.mediaUrl }.${ext}`);
+  }
+
+  getEditorContent = () => {
+    const tmpEditorsContent = this.refs.transcriptEditor.getEditorContent(this.state.sttType);
+
+    this.download(JSON.stringify(tmpEditorsContent, null, 2), `${ this.state.mediaUrl }.json`)
   }
 
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
@@ -120,7 +131,7 @@ class App extends React.Component {
          </span>
          <br />
          <button onClick={ () => this.loadDemo() }>load demo</button>
-      
+
          <br />
          <label>open Transcript Json</label>
          <input
@@ -143,6 +154,15 @@ class App extends React.Component {
          <button onClick={ () => this.handleChangeLoadMediaUrl() }>
           Load Media From Url
          </button>
+
+         <br />
+         <label>Export transcript</label>
+         <button onClick={ () => this.exportTranscript() }>Export file</button>
+         <ExportFormatSelect
+          name={ 'exportFormat' }
+          value={ this.state.exportFormat }
+          handleChange={ this.handleExportFormatChange }
+         />
 
          <p>Text Is Editable
            <label className={ styles.switch }>
