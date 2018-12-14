@@ -28,6 +28,7 @@
 @media (max-width: 768px) {
   .container {
     flex-wrap: wrap;
+    position: relative;
   }
   .main {
     width: 100%;

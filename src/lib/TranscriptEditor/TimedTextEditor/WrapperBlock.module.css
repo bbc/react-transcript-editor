@@ -1,10 +1,11 @@
 @value color-labs-red, color-light-grey, color-mid-grey, color-dark-grey from '../colours.module.css';
 
 .WrapperBlock {
+  height: 100%;
   width: 100%;
   margin-bottom: 2em;
-  overflow: auto;
-  line-height: 1em;
+  line-height: 1.2em;
+  overflow: hidden;
 }
 
 .markers {
@@ -18,27 +19,27 @@
   font-size: 1em;
   float: right;
   clear: right;
-  line-height: 1.2em;
 }
 
 .speaker {
   display: inline-block;
+  width: 55%;
+  padding-right: 2em;
+  vertical-align: middle;
+  color: color-mid-grey;
   font-weight: bold;
   text-transform: uppercase;
   text-align: right;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  padding-right: 2em;
-  width: 55%;
-  color: color-mid-grey;
-  vertical-align: middle;
 }
 
 .time {
   display: inline-block;
-  font-weight: lighter;
   width: 30%;
+  font-weight: lighter;
+  vertical-align: middle;
 }
 
 .EditLabel {
