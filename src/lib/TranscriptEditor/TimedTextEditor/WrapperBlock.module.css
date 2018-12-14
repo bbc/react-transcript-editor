@@ -1,13 +1,45 @@
-.WrapperBlock {}
+@value color-labs-red, color-light-grey, color-mid-grey, color-dark-grey from '../colours.module.css';
 
-.SpeakerBlock {
-  font-weight: bold;
+.WrapperBlock {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 2em;
+  line-height: 1.2em;
+  overflow: hidden;
 }
 
-.TimeBlock {
+.markers {
+  width: 25%;
+  font-size: 0.8em;
+  float: left;
+}
+
+.text {
+  width: 75%;
+  font-size: 1em;
+  float: right;
+  clear: right;
+}
+
+.speaker {
+  display: inline-block;
+  width: 55%;
+  padding-right: 2em;
+  vertical-align: middle;
+  color: color-mid-grey;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: right;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.time {
+  display: inline-block;
+  width: 30%;
   font-weight: lighter;
-  margin-bottom: 8px;
-  cursor: pointer;
+  vertical-align: middle;
 }
 
 .EditLabel {

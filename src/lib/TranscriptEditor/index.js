@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
 
-import styles from './index.module.css';
+import style from './index.module.css';
 import { throws } from 'assert';
 
 class TranscriptEditor extends React.Component {
@@ -16,7 +16,7 @@ class TranscriptEditor extends React.Component {
       lastLocalSavedTime: '',
       transcriptData: null,
       isScrollIntoViewOn: false
-    }
+    };
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -25,6 +25,7 @@ class TranscriptEditor extends React.Component {
         transcriptData: nextProps.transcriptData,
       };
     }
+
     return null;
   }
 
@@ -49,19 +50,19 @@ class TranscriptEditor extends React.Component {
   handleTimeUpdate = (currentTime) => {
     this.setState({
       currentTime,
-    })
+    });
   }
 
   handlePlayMedia = (bool) => {
-    this.playMedia(bool)
+    this.playMedia(bool);
   }
 
   handleIsPlaying = () => {
-    return this.isPlaying()
+    return this.isPlaying();
   }
 
   handleIsScrollIntoViewChange = (isChecked) => {
-    this.setState({ isScrollIntoViewOn: isChecked })
+    this.setState({ isScrollIntoViewOn: isChecked });
   }
 
   getEditorContent = sttType => this.refs.timedTextEditor.getEditorContent(sttType)
@@ -70,36 +71,32 @@ class TranscriptEditor extends React.Component {
 
   render() {
     return (
-      <section>
-        <section className={ styles.container }>
-          <aside className={ styles.aside }>
-            <MediaPlayer
-              // eslint-disable-next-line no-return-assign
-              hookSeek={ foo => this.setCurrentTime = foo }
-              hookPlayMedia={ foo => this.playMedia = foo }
-              hookIsPlaying={ foo => this.isPlaying = foo }
-              hookOnTimeUpdate={ this.handleTimeUpdate }
-              mediaUrl={ this.props.mediaUrl }
-              isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
-              handleIsScrollIntoViewChange={ this.handleIsScrollIntoViewChange }
-             />
-          </aside>
-          <main className={ styles.main }>
-            <TimedTextEditor
-              transcriptData={ this.state.transcriptData }
-              onWordClick={ this.handleWordClick }
-              playMedia={ this.handlePlayMedia }
-              isPlaying={ this.handleIsPlaying }
-              isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
-              currentTime={ this.state.currentTime }
-              isEditable={ this.props.isEditable }
-              sttJsonType={ this.props.sttJsonType }
-              ref={ 'timedTextEditor' }
-              mediaUrl={ this.props.mediaUrl }
-              />
-          </main>
-        </section>
-      </section>
+      <div className={ style.container }>
+        <aside className={ style.aside }>
+          <MediaPlayer
+            // eslint-disable-next-line no-return-assign
+            hookSeek={ foo => this.setCurrentTime = foo }
+            hookPlayMedia={ foo => this.playMedia = foo }
+            hookIsPlaying={ foo => this.isPlaying = foo }
+            hookOnTimeUpdate={ this.handleTimeUpdate }
+            mediaUrl={ this.props.mediaUrl }
+          />
+        </aside>
+        <main className={ style.main }>
+          <TimedTextEditor
+            transcriptData={ this.state.transcriptData }
+            onWordClick={ this.handleWordClick }
+            playMedia={ this.handlePlayMedia }
+            isPlaying={ this.handleIsPlaying }
+            currentTime={ this.state.currentTime }
+            isEditable={ this.props.isEditable }
+            sttJsonType={ this.props.sttJsonType }
+            ref={ 'timedTextEditor' }
+            mediaUrl={ this.props.mediaUrl }
+            isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
+          />
+        </main>
+      </div>
     );
   }
 }

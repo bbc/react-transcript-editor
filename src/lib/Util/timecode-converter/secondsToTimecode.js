@@ -15,8 +15,8 @@
  * @param {*} fps
  */
 const normalisePlayerTime = function (seconds, fps) {
-  return Number((1.0 / fps * Math.floor(Number((fps * seconds).toPrecision(12)))).toFixed(2))
-}
+  return Number((1.0 / fps * Math.floor(Number((fps * seconds).toPrecision(12)))).toFixed(2));
+};
 
 /*
 * @param {*} seconds
@@ -31,13 +31,14 @@ const secondsToTimecode = function (seconds, framePerSeconds) {
 
   const normalisedSeconds = normalisePlayerTime(seconds, fps);
 
-  const wholeSeconds = Math.floor(normalisedSeconds)
-  const frames = ((normalisedSeconds - wholeSeconds) * fps).toFixed(2)
+  const wholeSeconds = Math.floor(normalisedSeconds);
+  const frames = ((normalisedSeconds - wholeSeconds) * fps).toFixed(2);
 
   // prepends zero - example pads 3 to 03
   function _padZero(n) {
-    if (n < 10) return `0${ parseInt(n) }`
-    return parseInt(n)
+    if (n < 10) return `0${ parseInt(n) }`;
+
+    return parseInt(n);
   }
 
   return `${ _padZero((wholeSeconds / 60 / 60) % 60)
@@ -46,7 +47,7 @@ const secondsToTimecode = function (seconds, framePerSeconds) {
   }:${
     _padZero(wholeSeconds % 60)
   }:${
-    _padZero(frames) }`
-}
+    _padZero(frames) }`;
+};
 
 export default secondsToTimecode;

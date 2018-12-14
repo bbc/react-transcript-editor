@@ -12,6 +12,7 @@
 */
 const generateEntitiesRanges = (words, wordAttributeName) => {
   let position = 0;
+
   return words.map((word) => {
     const result = {
       start: word.start,
@@ -23,12 +24,12 @@ const generateEntitiesRanges = (words, wordAttributeName) => {
       key: Math.random()
         .toString(36)
         .substring(6),
-    }
+    };
     // increase position counter - to determine word offset in paragraph
     position = position + word[wordAttributeName].length + 1;
 
     return result;
-  })
-}
+  });
+};
 
 export default generateEntitiesRanges;

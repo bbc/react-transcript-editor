@@ -1,10 +1,39 @@
-.videoSection {
-    height: 100%;
-    width: 100%;
-  }
+@value color-light-grey from '../colours.module.css';
+
+.topSection {
+  /* height: 100%; */
+  background: black;
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
+}
+
+.playerSection {
+  display: inline-flex;
+  align-items: flex-start;
+  width: 100%;
+}
 
 video {
+  width: 30%;
+  max-height: 160px;
+  cursor: pointer;
+}
+
+.controlsSection {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleBox {
+  border-bottom: 0.02em solid color-light-grey;
+  margin-bottom: 1em;
+}
+
+.title {
+  margin: 1em;
+  color: white;
 }
 
 .helpText {
@@ -14,7 +43,11 @@ video {
 
 /* Mobile devices */
 @media (max-width: 768px) {
-  .hideInMobile{
+  .hideInMobile {
     display: none;
+  }
+
+  video {
+    /* min-width: 50%; */
   }
 }

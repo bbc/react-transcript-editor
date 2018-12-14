@@ -45,6 +45,6 @@ function returnHotKeys(self) {
     //     handler: (event) => { console.log('save');},
     //     helperText: 'Save'
     // }
-  }
+  };
 }
 export default returnHotKeys;

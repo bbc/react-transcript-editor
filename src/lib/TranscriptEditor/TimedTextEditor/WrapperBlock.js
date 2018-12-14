@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { EditorBlock, Modifier, convertToRaw, EditorState, Editor, SelectionState } from 'draft-js';
 
 import SpeakerLabel from './SpeakerLabel';
+import { secondsToTimecode } from '../../Util/timecode-converter/';
 
 import style from './WrapperBlock.module.css';
 
@@ -12,7 +13,7 @@ class WrapperBlock extends React.Component {
 
     this.state = {
       speaker: '',
-      start: ''
+      start: 0
     };
   }
 
@@ -24,7 +25,7 @@ class WrapperBlock extends React.Component {
     this.setState({
       speaker: speaker,
       start: start
-    })
+    });
   }
 
   handleOnClickEdit = (e) => {
@@ -43,7 +44,7 @@ class WrapperBlock extends React.Component {
       // https://draftjs.org/docs/api-reference-selection-state#createempty
       const currentBlockSelection = SelectionState.createEmpty(keyForCurrentCurrentBlock);
       // move selection to current block
-      const EditorStateWithSelectedCurrentBlock = EditorState.acceptSelection(this.props.blockProps.editorState, currentBlockSelection)
+      const EditorStateWithSelectedCurrentBlock = EditorState.acceptSelection(this.props.blockProps.editorState, currentBlockSelection);
 
       const currentBlockSelectionState = EditorStateWithSelectedCurrentBlock.getSelection();
       // set new speaker data for block
@@ -54,7 +55,7 @@ class WrapperBlock extends React.Component {
         this.props.contentState,
         currentBlockSelectionState,
         newBlockDataWithSpeakerName
-      )
+      );
       // cb for saving editorState in TimedTextEditor
       this.props.blockProps.setEditorNewContentState(newContentState);
     }
@@ -68,16 +69,16 @@ class WrapperBlock extends React.Component {
   render() {
     return (
       <div className={ style.WrapperBlock }>
-        <span className={ style.SpeakerBlock }>
+        <div className={ style.markers }>
           <SpeakerLabel
             name={ this.state.speaker }
             handleOnClickEdit={ this.handleOnClickEdit }
           />
-        </span>
-        <br />
-        <span className={ style.TimeBlock } onClick={ this.handleTimecodeClick }>{this.state.start}</span>
-        <br />
-        <EditorBlock { ...this.props } />
+          <span className={ style.time } onClick={ this.handleTimecodeClick }>{secondsToTimecode(this.state.start)}</span>
+        </div>
+        <div className={ style.text }>
+          <EditorBlock { ...this.props } />
+        </div>
       </div>
     );
   }

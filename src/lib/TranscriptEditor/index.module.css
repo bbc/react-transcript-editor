@@ -1,55 +1,32 @@
-/* .simple-form-group {
-    margin-bottom: 1rem;
-  }
-  .simple-text-label {
-    display: block;
-    color: red;
-  }
-  .simple-text-input {
-    display: inline-block;
-    margin-bottom: 0.5rem;
-    font-size: 16px;
-    font-weight: 400;
-    color: rgb(33, 37, 41);
-  } */
-
-
-  /*  https://medium.com/samsung-internet-dev/common-responsive-layouts-with-css-grid-and-some-without-245a862f48df */
-
-  
+@value color-subt-green from './colours.module.css';
 
 /* Desktop size */
 @media (min-width: 768px) {
   .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     flex-wrap: nowrap;
     /* min-height: 100vh; */
-    /* background-color: #f1f1f1; */
+    background-color: #f9f9f9;
+    position: relative;
   }
 
   .main {
-    width: 50%;
-    /* padding: 20px; */
-    /* background-color:#fff; */
-    /* flex: 1;
-    height: 75vh;
-    box-shadow: 0 0 10px #ccc; */
+    width: 100%;
+    margin: 0 auto;
   }
 
   .aside {
-    width: 30%;
-    /* padding: 20px; */
-    /* background-color: #936; */
+    width: 100%;
   }
-  
 }
 
 /* Mobile devices */
 @media (max-width: 768px) {
   .container {
     flex-wrap: wrap;
+    position: relative;
   }
   .main {
     width: 100%;
@@ -59,12 +36,10 @@
   }
 }
 
+::selection {
+  background: color-subt-green;
+}
 
-
-
-
-
-
-
-
-
+::moz-selection {
+  background: color-subt-green;
+}
