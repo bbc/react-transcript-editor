@@ -24,29 +24,94 @@
           "punct": "is",
           "index": 1
         },
+        ...
 ```
  *
  * into
  *
  ```
  const blocks = [
+  {
+    "text": "There is a day.",
+    "type": "paragraph",
+    "data": {
+      "speaker": "TBC 0",
+      "words": [
         {
-            text: 'Hello',
-            type: 'paragraph',
-            data: {
-            speaker: 'Foo',
-            },
-            entityRanges: [],
+          "start": 13.02,
+          "confidence": 0.68,
+          "end": 13.17,
+          "word": "there",
+          "punct": "There",
+          "index": 0
         },
         {
-            text: 'World',
-            type: 'paragraph',
-            data: {
-            speaker: 'Bar',
-            },
-            entityRanges: [],
+          "start": 13.17,
+          "confidence": 0.61,
+          "end": 13.38,
+          "word": "is",
+          "punct": "is",
+          "index": 1
         },
-        ];
+        {
+          "start": 13.38,
+          "confidence": 0.99,
+          "end": 13.44,
+          "word": "a",
+          "punct": "a",
+          "index": 2
+        },
+        {
+          "start": 13.44,
+          "confidence": 1,
+          "end": 13.86,
+          "word": "day",
+          "punct": "day.",
+          "index": 3
+        }
+      ],
+      "start": 13.02
+    },
+    "entityRanges": [
+      {
+        "start": 13.02,
+        "end": 13.17,
+        "confidence": 0.68,
+        "text": "There",
+        "offset": 0,
+        "length": 5,
+        "key": "li6c6ld"
+      },
+      {
+        "start": 13.17,
+        "end": 13.38,
+        "confidence": 0.61,
+        "text": "is",
+        "offset": 6,
+        "length": 2,
+        "key": "pcgzkp6"
+      },
+      {
+        "start": 13.38,
+        "end": 13.44,
+        "confidence": 0.99,
+        "text": "a",
+        "offset": 9,
+        "length": 1,
+        "key": "ngomd9"
+      },
+      {
+        "start": 13.44,
+        "end": 13.86,
+        "confidence": 1,
+        "text": "day.",
+        "offset": 11,
+        "length": 4,
+        "key": "sgmfl4f"
+      }
+    ]
+  },
+  ...
 ```
  *
  */
