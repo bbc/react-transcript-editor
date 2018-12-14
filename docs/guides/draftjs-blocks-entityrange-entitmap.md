@@ -100,7 +100,7 @@ Here's an example
   },
 ```
 
-To see this in the larger context when we call `sttJsonAdapter` with `transcriptData` and a `sttJsonType` we expect it to return an boject with two attributes `blocks` and `entityMap`.  
+To see this in the larger context when we call `sttJsonAdapter` with `transcriptData` and a `sttJsonType` we expect it to return an object with two attributes `blocks` and `entityMap`.  
 
 ```js
 {

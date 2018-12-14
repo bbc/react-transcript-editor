@@ -16,7 +16,7 @@ create a branch with the name of the stt service, eg `stt-adapter-speechmatics`.
 
 ## context
 
-To see this in the larger context when we call `sttJsonAdapter` with `transcriptData` and a `sttJsonType` we expect it to return an boject with two attributes `blocks` and `entityMap`.  
+To see this in the larger context when we call `sttJsonAdapter` with `transcriptData` and a `sttJsonType` we expect it to return an object with two attributes `blocks` and `entityMap`.  
 
 This is then used within TimedTextEditor with the help of draftJs function [convertFromRaw](https://draftjs.org/docs/api-reference-data-conversion#convertfromraw) to create a new content state for the editor.
 
@@ -63,11 +63,11 @@ You can see examples from `bbc-kaldi` and `autoEdit2` adapters.
 In pseudocode it's reccomended to follow this approach:
 
 1. Expose one function call that takes in the stt json data
-2. have a helper function `groupWordsInParagraphs` that as the name suggests groups words list from the STT provider transcript based on punctuation. and returns an array of words objects.
+2. Have a helper function `groupWordsInParagraphs` that as the name suggests groups words list from the STT provider transcript based on punctuation. and returns an array of words objects.
 
 The underlying details for this will vary depending on how the STT json of the provider present the data, and how the attributes are named etc..
 
-3. iterate over the paragraphs to create draftJS content blocks (see `bbc-kaldi` and `autoEdit2` example).
+3. Iterate over the paragraphs to create draftJS content blocks (see `bbc-kaldi` and `autoEdit2` example).
 
 ```js
 wordsByParagraphs.forEach((paragraph, i) => {
@@ -89,7 +89,7 @@ wordsByParagraphs.forEach((paragraph, i) => {
 
 ```
 
-4. and use the helper function `generateEntitiesRanges` to  add the `entityRanges` to each block. - see above
+4. And use the helper function `generateEntitiesRanges` to  add the `entityRanges` to each block. - see above
 
 5. If you have speaker diarization info you can also add this to the block info - _optional_
 
