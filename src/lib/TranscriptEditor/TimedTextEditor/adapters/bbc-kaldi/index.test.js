@@ -7,11 +7,11 @@ import kaldiTedTalkTranscript from './sample/kaldiTedTalkTranscript-sample.json'
 // might need to review the draftJS data structure output
 describe('bbcKaldiToDraft', () => {
   const result = bbcKaldiToDraft(kaldiTedTalkTranscript);
-  it.skip('Should be defined', ( ) => {
+  it('Should be defined', ( ) => {
     expect(result).toBeDefined();
   })
 
-it.skip('Should be equal to expected value', ( ) => {
+it('Should be equal to expected value', ( ) => {
     expect(result).toEqual(draftTranscriptExample);
   })
 })
