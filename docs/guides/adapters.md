@@ -14,7 +14,7 @@ create a branch with the name of the stt service, eg `stt-adapter-speechmatics`.
 
 <!-- TODO: adjust link -->
 
-## context
+## Context
 
 To see this in the larger context when we call `sttJsonAdapter` with `transcriptData` and a `sttJsonType` we expect it to return an object with two attributes `blocks` and `entityMap`.  
 
@@ -94,7 +94,7 @@ wordsByParagraphs.forEach((paragraph, i) => {
 5. If you have speaker diarization info you can also add this to the block info - _optional_
 
 
-## tests
+## Tests
 
 This project uses jest. and TravisCI. It is recommended to write some basic tests at a minimum so that you can see at a glance if the adapter is working as expected (see `bbc-kaldi` and `autoEdit2` example). 
 
