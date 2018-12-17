@@ -11,7 +11,7 @@ class VideoPlayer extends React.Component {
         onTimeUpdate={ this.props.onTimeUpdate }
         type="video/mp4"
         data-testid="media-player-id"
-        onClick={ this.props.onClick }
+        onClick={ () => { this.props.onClick(); } }
         ref={ this.props.videoRef }
       />
     );

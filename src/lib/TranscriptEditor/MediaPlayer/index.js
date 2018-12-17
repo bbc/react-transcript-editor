@@ -147,11 +147,12 @@ class MediaPlayer extends React.Component {
    * Eg when triggered from play/pause btn
    */
   playMedia = (playPauseBool) => {
+    console.log('playPauseBool',playPauseBool);
     // checks that there is a video player element initialized
     if (this.videoRef.current !== null) {
       // if playMedia is being triggered by PlayerControl or Video element
       // then it will have a target attribute
-      if (playPauseBool.target !== undefined) {
+      if (playPauseBool === undefined) {
         // checks on whether to use default fallback if no param is provided
         if (this.videoRef.current.paused) {
           this.videoRef.current.play();
@@ -168,6 +169,7 @@ class MediaPlayer extends React.Component {
             this.videoRef.current.pause();
           }
         }
+
       }
 
     }
@@ -216,7 +218,7 @@ class MediaPlayer extends React.Component {
     const player = <VideoPlayer
       mediaUrl={ this.props.mediaUrl }
       onTimeUpdate= { this.handleTimeUpdate }
-      onClick= { this.playMedia.bind(this) }
+      onClick={ this.playMedia.bind(this) }
       videoRef={ this.videoRef }
     />;
 

@@ -44,7 +44,7 @@ class PlayerControls extends React.Component {
 
         <button
           className={ style.playerButton }
-          onClick={ (e) => { this.props.playMedia(e); } }>
+          onClick={ () => { this.props.playMedia(); } }>
           {this.props.isPlaying() ? '❚❚' : '▶'}
         </button>
 
