@@ -172,6 +172,7 @@ class MediaPlayer extends React.Component {
    * Eg when triggered from play/pause btn
    */
   playMedia = (playPauseBool) => {
+    console.log('playPauseBool',playPauseBool);
     // checks that there is a video player element initialized
     if (this.videoRef.current !== null) {
 

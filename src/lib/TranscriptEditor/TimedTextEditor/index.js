@@ -235,8 +235,6 @@ class TimedTextEditor extends React.Component {
       }
     }
     if (currentWord.start !== 'NA'){
-      console.log('TimedTextEditor: ',this.props.isScrollIntoViewOn);
-
       if (this.props.isScrollIntoViewOn) {
         const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
         currentWordElement.scrollIntoView({ block: 'center', inline: 'center' });
@@ -246,108 +244,146 @@ class TimedTextEditor extends React.Component {
     return currentWord;
   }
 
-  myKeyBindingFn = ( e) => {
+  /**
+   * Listen for draftJs custom key bindings
+   */
+  customKeyBindingFn = ( e) => {
     const enterKey = 13;
     if (e.keyCode === enterKey ) {
-      console.log(e);
-      
       return 'split-paragraph';
     }
 
     return getDefaultKeyBinding(e);
   }
 
-  // TODO: code in this function can do with a refactor - at later stage
+  /**
+   * Handle draftJs custom key commands
+   */
   handleKeyCommand = (command) => {
+    if (command === 'split-paragraph') {
+      this.splitParagraph();
+    }
+    
+    return 'not-handled';
+  }
+
+  /**
+   * Helper function to handle splitting paragraphs with return key
+   * on enter key, perform split paragraph at selection point.
+   * Add timecode of next word after split to paragraph
+   * as well as speaker name to new paragraph
+   */
+  splitParagraph = () => {
     // https://github.com/facebook/draft-js/issues/723#issuecomment-367918580
     // https://draftjs.org/docs/api-reference-selection-state#start-end-vs-anchor-focus
-    if (command === 'split-paragraph') {
-      // on enter key, perform split paragraph at selection point
-      const currentSelection = this.state.editorState.getSelection();
+    //
+    const currentSelection = this.state.editorState.getSelection();
+    // only perform if selection is not selecting a range of words
+    // in that case, we'd expect delete + enter to achieve same result.
+    if (currentSelection.isCollapsed()) {
+      const currentContent = this.state.editorState.getCurrentContent();
+      // https://draftjs.org/docs/api-reference-modifier#splitblock
+      const newContentState = Modifier.splitBlock(currentContent, currentSelection);
+      // https://draftjs.org/docs/api-reference-editor-state#push
+      const splitState = EditorState.push(this.state.editorState, newContentState, 'split-block');
+      const targetSelection = splitState.getSelection();
 
-      if (currentSelection.isCollapsed()) {
-        const currentContent = this.state.editorState.getCurrentContent();
-        // https://draftjs.org/docs/api-reference-modifier#splitblock
-        const newContentState = Modifier.splitBlock(currentContent, currentSelection);
-        // https://draftjs.org/docs/api-reference-editor-state#push
-        const splitState = EditorState.push(this.state.editorState, newContentState, 'split-block');
-        const targetSelection = splitState.getSelection();
-        const originalBlock = currentContent.blockMap.get(newContentState.selectionBefore.getStartKey());
-        const originalBlockData = originalBlock.getData();
-        const blockSpeaker = originalBlockData.get('speaker');
-        // TODO: there might be some edge cases where unable to calculate wordStartTime
-        // eg adding spaces and then new line in the middle
-        let wordStartTime = 'NA';
-        let isEndOfParagraph = false;
+      const originalBlock = currentContent.blockMap.get(newContentState.selectionBefore.getStartKey());
+      const originalBlockData = originalBlock.getData();
+      const blockSpeaker = originalBlockData.get('speaker');
 
-        let entityKey = originalBlock.getEntityAt(currentSelection.getStartOffset());
-        const startSelectionOffsetKey = currentSelection.getStartOffset();
-        // length of the plaintext for the ContentBlock
-        const lengthPlainTextForTheBlock = originalBlock.getLength();
-        // number of char from selection point to end of paragraph
-        const remainingCharNumber = lengthPlainTextForTheBlock - startSelectionOffsetKey;
-        // if there is no word entity associated with char
+      let wordStartTime = 'NA';
+      // eslint-disable-next-line prefer-const
+      let isEndOfParagraph = false;
+      // identify the entity (word) at the selection/cursor point on split.
+      // eslint-disable-next-line prefer-const
+      let entityKey = originalBlock.getEntityAt(currentSelection.getStartOffset());
+      // if there is no word entity associated with a char then there is no entity key 
+      // at that selection point
+      if (entityKey === null){
+        const closestEntityToSelection = this.findClosestEntityKeyToSelectionPoint(currentSelection,originalBlock);
+        entityKey = closestEntityToSelection.entityKey;
+        isEndOfParagraph = closestEntityToSelection.isEndOfParagraph;
+        // handle edge case when it doesn't find a closest entity (word) 
+        // eg pres enter on an empty line
         if (entityKey === null){
-          // if it's the last char in the paragraph - get previous entity
-          if (remainingCharNumber === 0 ){
-            for (let j = lengthPlainTextForTheBlock; j >0 ; j--){
-              entityKey = originalBlock.getEntityAt(j);
-              if (entityKey!== null){
-                isEndOfParagraph = true;
-                break;
-              }
-            }
-          }
-          // if it's first char or another within the block
-          else {
-            let initialSelectionOffset = currentSelection.getStartOffset();
-            for (let i = 0; i < remainingCharNumber ; i++){
-              initialSelectionOffset +=i;
-              entityKey = originalBlock.getEntityAt(initialSelectionOffset);
-              if (entityKey!== null){
-                break;
-              }
-            }
-          }
-        }
-
-        if (entityKey) {
-          const entityInstance = currentContent.getEntity(entityKey);
-          const entityData = entityInstance.getData();
-          if (isEndOfParagraph){
-            // if it's end of paragraph use end time of word for new paragraph
-            wordStartTime = entityData.end;
-          }
-          else {
-            wordStartTime = entityData.start;
-          }
-        }
-        else {
-          // if entity not defined, then stopping some of the edge cases.
-          // eg if hit enter on timecode or speaker
           return 'not-handled';
         }
-
-        console.log('originalBlockData',wordStartTime, blockSpeaker);
-        console.log('originalBlockData',originalBlockData);
-        // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
-        const afterMergeContentState = Modifier.mergeBlockData(
-          splitState.getCurrentContent(),
-          targetSelection,
-          {
-            'start': wordStartTime,
-            'speaker': blockSpeaker
-          }
-        );
-        this.setEditorNewContentState(afterMergeContentState);
-
-        return 'handled';
       }
+      // if there is an entityKey at or close to the selection point
+      // can get the word startTime. for the new paragraph.
+      const entityInstance = currentContent.getEntity(entityKey);
+      const entityData = entityInstance.getData();
+      if (isEndOfParagraph){
+        // if it's end of paragraph use end time of word for new paragraph
+        wordStartTime = entityData.end;
+      }
+      else {
+        wordStartTime = entityData.start;
+      }
+      // split paragraph
+      // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
+      const afterMergeContentState = Modifier.mergeBlockData(
+        splitState.getCurrentContent(),
+        targetSelection,
+        {
+          'start': wordStartTime,
+          'speaker': blockSpeaker
+        }
+      );
+      this.setEditorNewContentState(afterMergeContentState);
+  
+      return 'handled';
+    }
+  
+    return 'not-handled';
+  }
 
-      return 'not-handled';
+  /**
+   * Helper function for splitParagraph 
+   * to find the closest entity (word) to a selection point 
+   * that does not fall on an entity to begin with
+   * Looks before if it's last char in a paragraph block.
+   * After for everything else.
+   */
+  findClosestEntityKeyToSelectionPoint = (currentSelection,originalBlock) => {
+    // set defaults
+    let entityKey = null;
+    let isEndOfParagraph = false;
+  
+    // selection offset from beginning of the paragraph block
+    const startSelectionOffsetKey = currentSelection.getStartOffset();
+    // length of the plain text for the ContentBlock
+    const lengthPlainTextForTheBlock = originalBlock.getLength();
+    // number of char from selection point to end of paragraph
+    const remainingCharNumber = lengthPlainTextForTheBlock - startSelectionOffsetKey;
+    // if it's the last char in the paragraph - get previous entity
+    if (remainingCharNumber === 0 ){
+      isEndOfParagraph = true;
+      for (let j = lengthPlainTextForTheBlock; j >0 ; j--){
+        entityKey = originalBlock.getEntityAt(j);
+        if (entityKey!== null){
+          // if it finds it then return 
+          return { entityKey, isEndOfParagraph };
+        }
+      }
+    }
+    // if it's first char or another within the block - get next entity 
+    else {
+      console.log('Main part of paragraph');
+      let initialSelectionOffset = currentSelection.getStartOffset();
+      for (let i = 0; i < remainingCharNumber ; i++){
+        initialSelectionOffset +=i;
+        entityKey = originalBlock.getEntityAt(initialSelectionOffset);
+        // if it finds it then return 
+        if (entityKey !== null){
+          return { entityKey, isEndOfParagraph };
+        }
+      }
     }
 
-    return 'not-handled';
+    // cover edge cases where it doesn't find it
+    return { entityKey, isEndOfParagraph }; 
   }
 
   render() {
@@ -378,7 +414,7 @@ class TimedTextEditor extends React.Component {
           stripPastedStyles
           blockRendererFn={ this.renderBlockWithTimecodes }
           handleKeyCommand={ command => this.handleKeyCommand(command) }
-          keyBindingFn={ e => this.myKeyBindingFn(e) }
+          keyBindingFn={ e => this.customKeyBindingFn(e) }
         />
       </section>
     );
