@@ -3,6 +3,9 @@
   "plugins": [
     "react"
   ],
+  "extends": [
+    "plugin:react/recommended"
+  ],
   "env": {
     "browser": true,
     "jest": true
@@ -37,6 +40,8 @@
     "no-underscore-dangle" : [0, "always"],
     "keyword-spacing": ["error", { "before": true, "after": true }],
     "newline-before-return": "error",
+    "space-before-blocks": "error",
+    "no-unused-vars": "error",
     "prefer-destructuring": ["error", {
       "VariableDeclarator": {
         "array": false,

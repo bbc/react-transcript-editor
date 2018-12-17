@@ -11,7 +11,7 @@ describe('bbcKaldiToDraft', () => {
     expect(result).toBeDefined();
   });
 
-it.skip('Should be equal to expected value', ( ) => {
+  it.skip('Should be equal to expected value', ( ) => {
     expect(result).toEqual(draftTranscriptExample);
   });
 });

@@ -15,8 +15,8 @@ import {
 import Word from './Word';
 import WrapperBlock from './WrapperBlock';
 
-import sttJsonAdapter from './adapters/index.js';
-import exportAdapter from './export-adapters/index.js';
+import sttJsonAdapter from '../../Util/adapters/index.js';
+import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
 
 const { hasCommandModifier } = KeyBindingUtil;
@@ -24,6 +24,7 @@ const { hasCommandModifier } = KeyBindingUtil;
 class TimedTextEditor extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       editorState: EditorState.createEmpty(),
       transcriptData: this.props.transcriptData,
@@ -61,17 +62,19 @@ class TimedTextEditor extends React.Component {
     // doing editorStateChangeType === 'insert-characters'  is triggered even
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
-    if (this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()){
-      if (this.props.isPlaying()){
-        this.props.playMedia(false);
-        // Pause video for X seconds
-        const pauseWhileTypingIntervalInMilliseconds = 3000;
-        // resets timeout
-        clearTimeout(this.plauseWhileTypingTimeOut);
-        this.plauseWhileTypingTimeOut = setTimeout(function(){
-          // after timeout starts playing again
-          this.props.playMedia(true);
-        }.bind(this), pauseWhileTypingIntervalInMilliseconds);
+    if (this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()) {
+      if (this.props.isPauseWhileTypingOn) {
+        if (this.props.isPlaying()) {
+          this.props.playMedia(false);
+          // Pause video for X seconds
+          const pauseWhileTypingIntervalInMilliseconds = 3000;
+          // resets timeout
+          clearTimeout(this.plauseWhileTypingTimeOut);
+          this.plauseWhileTypingTimeOut = setTimeout(function() {
+            // after timeout starts playing again
+            this.props.playMedia(true);
+          }.bind(this), pauseWhileTypingIntervalInMilliseconds);
+        }
       }
     }
 
@@ -200,19 +203,6 @@ class TimedTextEditor extends React.Component {
     };
   }
 
-  getLatestUnplayedWord = () => {
-    let latest = 'NA';
-
-    if (this.state.transcriptData) {
-      const wordsArray = this.state.transcriptData.retval.words;
-      const word = wordsArray.find(w => w.start < this.props.currentTime);
-
-      latest = word.start;
-    }
-
-    return latest;
-  }
-
   getCurrentWord = () => {
     const currentWord = {
       start: 'NA',
@@ -234,6 +224,7 @@ class TimedTextEditor extends React.Component {
         }
       }
     }
+    
     if (currentWord.start !== 'NA'){
       if (this.props.isScrollIntoViewOn) {
         const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
@@ -276,7 +267,6 @@ class TimedTextEditor extends React.Component {
   splitParagraph = () => {
     // https://github.com/facebook/draft-js/issues/723#issuecomment-367918580
     // https://draftjs.org/docs/api-reference-selection-state#start-end-vs-anchor-focus
-    //
     const currentSelection = this.state.editorState.getSelection();
     // only perform if selection is not selecting a range of words
     // in that case, we'd expect delete + enter to achieve same result.
@@ -338,7 +328,7 @@ class TimedTextEditor extends React.Component {
   
     return 'not-handled';
   }
-
+  
   /**
    * Helper function for splitParagraph 
    * to find the closest entity (word) to a selection point 
@@ -403,8 +393,8 @@ class TimedTextEditor extends React.Component {
         <style scoped>
           {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
           {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
-          {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
+          {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
         </style>
 
@@ -458,7 +448,8 @@ TimedTextEditor.propTypes = {
   isPlaying: PropTypes.func,
   playMedia: PropTypes.func,
   currentTime: PropTypes.number,
-  isScrollSyncToggle: PropTypes.func
+  isScrollIntoViewOn: PropTypes.bool,
+  isPauseWhileTypingOn: PropTypes.bool
 };
 
 export default TimedTextEditor;
