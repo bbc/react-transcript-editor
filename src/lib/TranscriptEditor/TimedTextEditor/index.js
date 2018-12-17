@@ -63,16 +63,18 @@ class TimedTextEditor extends React.Component {
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
     if (this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()) {
-      if (this.props.isPlaying()) {
-        this.props.playMedia(false);
-        // Pause video for X seconds
-        const pauseWhileTypingIntervalInMilliseconds = 3000;
-        // resets timeout
-        clearTimeout(this.plauseWhileTypingTimeOut);
-        this.plauseWhileTypingTimeOut = setTimeout(function() {
-          // after timeout starts playing again
-          this.props.playMedia(true);
-        }.bind(this), pauseWhileTypingIntervalInMilliseconds);
+      if (this.props.isPauseWhileTypingOn) {
+        if (this.props.isPlaying()) {
+          this.props.playMedia(false);
+          // Pause video for X seconds
+          const pauseWhileTypingIntervalInMilliseconds = 3000;
+          // resets timeout
+          clearTimeout(this.plauseWhileTypingTimeOut);
+          this.plauseWhileTypingTimeOut = setTimeout(function() {
+            // after timeout starts playing again
+            this.props.playMedia(true);
+          }.bind(this), pauseWhileTypingIntervalInMilliseconds);
+        }
       }
     }
 
@@ -405,7 +407,8 @@ TimedTextEditor.propTypes = {
   isPlaying: PropTypes.func,
   playMedia: PropTypes.func,
   currentTime: PropTypes.number,
-  isScrollIntoViewOn: PropTypes.bool
+  isScrollIntoViewOn: PropTypes.bool,
+  isPauseWhileTypingOn: PropTypes.bool
 };
 
 export default TimedTextEditor;

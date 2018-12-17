@@ -21,7 +21,7 @@ class MediaPlayer extends React.Component {
       rollBackValueInSeconds: 15,
       timecodeOffset: 0,
       hotKeys: returnHotKeys(this),
-      isPausedWhileTyping: false
+      isPlaying: false
     };
   }
   /*eslint-disable camelcase */
@@ -120,56 +120,29 @@ class MediaPlayer extends React.Component {
     }
   }
 
-  handleTogglePauseWhileTyping = () => {
-    this.setState((prevState) => {
-      return { isPausedWhileTyping:  !prevState.isPausedWhileTyping };
-    });
-  }
-
-  handleToggleScrollIntoView = (e) => {
-    this.props.handleIsScrollIntoViewChange(e.target.checked);
-  }
-
+  // TEMP: keeping this in for now. Might be replaced by state
+  // The pauseWhileTyping logic (in TimedTextEditor) currently uses this
   isPlaying = () => {
     if (this.videoRef.current !== null) {
-      if (this.videoRef.current.paused) {
-        return false;
-      }
+      if (this.videoRef.current.paused) return false;
 
       return true;
     }
   }
 
-  /**
-   * @param {bool}  playPauseBool - is optional boolean - false -> pause | true -> play
-   * for integration with TimedTextEditor pause while typing
-   * If bool is not provided then if paused --> play | if playing --> pause
-   * Eg when triggered from play/pause btn
-   */
-  playMedia = (playPauseBool) => {
-    // checks that there is a video player element initialized
+  // Sets isPlaying state and toggles modes on the video player
+  // TODO: modularise these / enable specific play / pause action
+  playMedia = () => {
     if (this.videoRef.current !== null) {
-      // if playMedia is being triggered by PlayerControl or Video element
-      // then it will have a target attribute
-      if (playPauseBool.target !== undefined) {
-        // checks on whether to use default fallback if no param is provided
-        if (this.videoRef.current.paused) {
-          this.videoRef.current.play();
-        } else {
+      if (this.state.isPlaying) {
+        this.setState({ isPlaying: false }, () => {
           this.videoRef.current.pause();
-        }
+        });
+      } else {
+        this.setState({ isPlaying: true }, () => {
+          this.videoRef.current.play();
+        });
       }
-      else {
-        // if param is provided and if pausedWhileTyping Toggle is on
-        if (this.state.isPausedWhileTyping) {
-          if (playPauseBool) {
-            this.videoRef.current.play();
-          } else {
-            this.videoRef.current.pause();
-          }
-        }
-      }
-
     }
   }
 
@@ -209,7 +182,7 @@ class MediaPlayer extends React.Component {
       return secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset);
     }
 
-    return  '00:00:00:00';
+    return '00:00:00:00';
   }
 
   render() {
@@ -227,7 +200,7 @@ class MediaPlayer extends React.Component {
         </div>
         <PlayerControls
           playMedia={ this.playMedia.bind(this) }
-          isPlaying={ this.isPlaying.bind(this) }
+          isPlaying={ this.state.isPlaying }
           skipBackward={ this.skipBackward.bind(this) }
           skipForward={ this.skipForward.bind(this) }
           rollback={ this.rollBack }
