@@ -321,7 +321,6 @@ MediaPlayer.propTypes = {
   hookIsPlaying: PropTypes. func,
   mediaUrl: PropTypes.string,
   hookOnTimeUpdate: PropTypes.func,
-  hookIsScrollSyncToggle: PropTypes.func
 };
 
 export default hotkeys(MediaPlayer);

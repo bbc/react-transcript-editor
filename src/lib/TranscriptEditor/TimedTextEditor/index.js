@@ -15,8 +15,8 @@ import {
 import Word from './Word';
 import WrapperBlock from './WrapperBlock';
 
-import sttJsonAdapter from './adapters/index.js';
-import exportAdapter from './export-adapters/index.js';
+import sttJsonAdapter from '../../Util/adapters/index.js';
+import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
 
 const { hasCommandModifier } = KeyBindingUtil;
@@ -24,6 +24,7 @@ const { hasCommandModifier } = KeyBindingUtil;
 class TimedTextEditor extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       editorState: EditorState.createEmpty(),
       transcriptData: this.props.transcriptData,
@@ -405,7 +406,7 @@ TimedTextEditor.propTypes = {
   isPlaying: PropTypes.func,
   playMedia: PropTypes.func,
   currentTime: PropTypes.number,
-  isScrollSyncToggle: PropTypes.func
+  isScrollIntoViewOn: PropTypes.bool
 };
 
 export default TimedTextEditor;

@@ -76,7 +76,11 @@ PlayerControls.propTypes = {
   timecodeOffset: PropTypes.string,
   promptSetCurrentTime: PropTypes.func,
   rollback: PropTypes.func,
-  handleMuteVolume: PropTypes.handleMuteVolume
+  handleMuteVolume: PropTypes.handleMuteVolume,
+  duration: PropTypes.number,
+  isPlaying: PropTypes.bool,
+  skipBackward: PropTypes.func,
+  skipForward: PropTypes.func
 };
 
 export default PlayerControls;

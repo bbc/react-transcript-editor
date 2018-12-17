@@ -20,7 +20,8 @@ class ScrollIntoView extends React.Component {
 }
 
 ScrollIntoView.propTypes = {
-  handleToggle: PropTypes.func
+  handleToggle: PropTypes.func,
+  isScrollIntoViewOn: PropTypes.bool
 };
 
 export default ScrollIntoView;
