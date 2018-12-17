@@ -37,6 +37,7 @@
     "no-underscore-dangle" : [0, "always"],
     "keyword-spacing": ["error", { "before": true, "after": true }],
     "newline-before-return": "error",
+    "space-before-blocks": "error",
     "prefer-destructuring": ["error", {
       "VariableDeclarator": {
         "array": false,

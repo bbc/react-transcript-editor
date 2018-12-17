@@ -61,14 +61,14 @@ class TimedTextEditor extends React.Component {
     // doing editorStateChangeType === 'insert-characters'  is triggered even
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
-    if (this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()){
-      if (this.props.isPlaying()){
+    if (this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()) {
+      if (this.props.isPlaying()) {
         this.props.playMedia(false);
         // Pause video for X seconds
         const pauseWhileTypingIntervalInMilliseconds = 3000;
         // resets timeout
         clearTimeout(this.plauseWhileTypingTimeOut);
-        this.plauseWhileTypingTimeOut = setTimeout(function(){
+        this.plauseWhileTypingTimeOut = setTimeout(function() {
           // after timeout starts playing again
           this.props.playMedia(true);
         }.bind(this), pauseWhileTypingIntervalInMilliseconds);
@@ -200,19 +200,6 @@ class TimedTextEditor extends React.Component {
     };
   }
 
-  getLatestUnplayedWord = () => {
-    let latest = 'NA';
-
-    if (this.state.transcriptData) {
-      const wordsArray = this.state.transcriptData.retval.words;
-      const word = wordsArray.find(w => w.start < this.props.currentTime);
-
-      latest = word.start;
-    }
-
-    return latest;
-  }
-
   getCurrentWord = () => {
     const currentWord = {
       start: 'NA',
@@ -234,7 +221,7 @@ class TimedTextEditor extends React.Component {
         }
       }
     }
-    if (currentWord.start !== 'NA'){
+    if (currentWord.start !== 'NA') {
       console.log('TimedTextEditor: ',this.props.isScrollIntoViewOn);
 
       if (this.props.isScrollIntoViewOn) {
@@ -285,12 +272,12 @@ class TimedTextEditor extends React.Component {
         // number of char from selection point to end of paragraph
         const remainingCharNumber = lengthPlainTextForTheBlock - startSelectionOffsetKey;
         // if there is no word entity associated with char
-        if (entityKey === null){
+        if (entityKey === null) {
           // if it's the last char in the paragraph - get previous entity
-          if (remainingCharNumber === 0 ){
-            for (let j = lengthPlainTextForTheBlock; j >0 ; j--){
+          if (remainingCharNumber === 0 ) {
+            for (let j = lengthPlainTextForTheBlock; j >0 ; j--) {
               entityKey = originalBlock.getEntityAt(j);
-              if (entityKey!== null){
+              if (entityKey!== null) {
                 isEndOfParagraph = true;
                 break;
               }
@@ -299,10 +286,10 @@ class TimedTextEditor extends React.Component {
           // if it's first char or another within the block
           else {
             let initialSelectionOffset = currentSelection.getStartOffset();
-            for (let i = 0; i < remainingCharNumber ; i++){
+            for (let i = 0; i < remainingCharNumber ; i++) {
               initialSelectionOffset +=i;
               entityKey = originalBlock.getEntityAt(initialSelectionOffset);
-              if (entityKey!== null){
+              if (entityKey!== null) {
                 break;
               }
             }
@@ -312,7 +299,7 @@ class TimedTextEditor extends React.Component {
         if (entityKey) {
           const entityInstance = currentContent.getEntity(entityKey);
           const entityData = entityInstance.getData();
-          if (isEndOfParagraph){
+          if (isEndOfParagraph) {
             // if it's end of paragraph use end time of word for new paragraph
             wordStartTime = entityData.end;
           }

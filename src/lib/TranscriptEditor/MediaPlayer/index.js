@@ -177,7 +177,7 @@ class MediaPlayer extends React.Component {
 
       // if playMedia is being triggered by PlayerControl or Video element
       // then it will have a target attribute
-      if (playPauseBool.target !== undefined){
+      if (playPauseBool.target !== undefined) {
         // checks on whether to use default fallback if no param is provided
         if (this.videoRef.current.paused) {
           this.videoRef.current.play();
@@ -187,7 +187,7 @@ class MediaPlayer extends React.Component {
       }
       else {
         // if param is provided and if pausedWhileTyping Toggle is on
-        if (this.state.isPausedWhileTyping){
+        if (this.state.isPausedWhileTyping) {
           if (playPauseBool) {
             this.videoRef.current.play();
           } else {
@@ -295,7 +295,7 @@ class MediaPlayer extends React.Component {
     });
 
     let keyboardShortcuts;
-    if (this.props.mediaUrl !== null ){
+    if (this.props.mediaUrl !== null ) {
       keyboardShortcuts = <section className={ styles.hideInMobile }><label>{keyboardShortcutsElements}</label>
         <br/>
         <small className={ styles.helpText }>Double click on a word to be taken to that time in the media.</small>
