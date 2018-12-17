@@ -69,17 +69,19 @@ class TranscriptEditor extends React.Component {
   exportData = (exportFormat) => this.refs.timedTextEditor.exportData(exportFormat)
 
   render() {
+    const mediaPlayer = <MediaPlayer
+    // eslint-disable-next-line no-return-assign
+      hookSeek={ foo => this.setCurrentTime = foo }
+      hookPlayMedia={ foo => this.playMedia = foo }
+      hookIsPlaying={ foo => this.isPlaying = foo }
+      hookOnTimeUpdate={ this.handleTimeUpdate }
+      mediaUrl={ this.props.mediaUrl }
+    />;
+
     return (
       <div className={ style.container }>
         <aside className={ style.aside }>
-          <MediaPlayer
-            // eslint-disable-next-line no-return-assign
-            hookSeek={ foo => this.setCurrentTime = foo }
-            hookPlayMedia={ foo => this.playMedia = foo }
-            hookIsPlaying={ foo => this.isPlaying = foo }
-            hookOnTimeUpdate={ this.handleTimeUpdate }
-            mediaUrl={ this.props.mediaUrl }
-          />
+          { this.props.mediaUrl ? mediaPlayer : null }
         </aside>
         <main className={ style.main }>
           <TimedTextEditor

@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { hotkeys } from 'react-keyboard-shortcuts';
+
+import VideoPlayer from './VideoPlayer';
+import PlayerControls from './PlayerControls';
+import ProgressBar from './ProgressBar';
+
 import returnHotKeys from './defaultHotKeys';
-
-import PlaybackRate from './PlaybackRate.js';
-import RollBack from './RollBack.js';
-import ProgressBar from './ProgressBar.js';
-import PlayerControls from './PlayerControls.js';
-import VolumeControl from './VolumeControl.js';
-import PauseWhileTyping from './PauseWhileTyping.js';
-import ScrollIntoView from './ScrollIntoView.js';
-
 import styles from './index.module.css';
 
 import { secondsToTimecode, timecodeToSeconds } from '../../Util/timecode-converter/index';
@@ -87,22 +83,6 @@ class MediaPlayer extends React.Component {
     this.setPlayBackRate(e.target.value);
   }
 
-  increasePlaybackRate = () => {
-    const currentPlaybackRate = this.getCurrentPlaybackRate();
-    let newPlaybackRate = currentPlaybackRate + 0.1;
-    // rounding up eg 0.8-0.1 =  0.7000000000000001   => 0.7
-    newPlaybackRate = Number((newPlaybackRate).toFixed(1));
-    this.setPlayBackRate(newPlaybackRate);
-  }
-
-  decreasePlaybackRate = () => {
-    const currentPlaybackRate = this.getCurrentPlaybackRate();
-    let newPlaybackRate = currentPlaybackRate - 0.1;
-    // rounding up eg 0.8-0.1 =  0.7000000000000001   => 0.7
-    newPlaybackRate = Number((newPlaybackRate).toFixed(1));
-    this.setPlayBackRate(newPlaybackRate);
-  }
-
   getCurrentPlaybackRate = () => {
     if (this.videoRef.current !== null) {
       return this.videoRef.current.playbackRate;
@@ -131,7 +111,6 @@ class MediaPlayer extends React.Component {
   }
 
   handleMuteVolume = () => {
-    // https://www.w3schools.com/tags/av_prop_volume.asp
     if (this.videoRef.current !== null) {
       if (this.videoRef.current.volume > 0) {
         this.videoRef.current.volume = 0;
@@ -142,11 +121,7 @@ class MediaPlayer extends React.Component {
   }
 
   handleTogglePauseWhileTyping = () => {
-    console.log('triggered');
-    console.log(this.state.isPausedWhileTyping);
-    this.setState((prevState, props) => {
-      console.log(prevState.isPausedWhileTyping);
-
+    this.setState((prevState) => {
       return { isPausedWhileTyping:  !prevState.isPausedWhileTyping };
     });
   }
@@ -155,7 +130,7 @@ class MediaPlayer extends React.Component {
     this.props.handleIsScrollIntoViewChange(e.target.checked);
   }
 
-  isPlaying=() => {
+  isPlaying = () => {
     if (this.videoRef.current !== null) {
       if (this.videoRef.current.paused) {
         return false;
@@ -174,7 +149,6 @@ class MediaPlayer extends React.Component {
   playMedia = (playPauseBool) => {
     // checks that there is a video player element initialized
     if (this.videoRef.current !== null) {
-
       // if playMedia is being triggered by PlayerControl or Video element
       // then it will have a target attribute
       if (playPauseBool.target !== undefined) {
@@ -222,7 +196,7 @@ class MediaPlayer extends React.Component {
     this.setCurrentTime(time);
   }
 
-  getMediaCurrentTime = () => {
+  getMediaCurrentTime() {
     if (this.videoRef.current !== null) {
       return secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset);
     }
@@ -239,19 +213,12 @@ class MediaPlayer extends React.Component {
   }
 
   render() {
-    const mediaPlayerEl = (
-      <video
-        id="video"
-        playsInline
-        src={ this.props.mediaUrl }
-        onTimeUpdate={ this.handleTimeUpdate }
-        // TODO: video type - add logic to identify if video is playable and raise error if it's not
-        type="video/mp4"
-        data-testid="media-player-id"
-        onClick={ this.playMedia.bind(this) }
-        ref={ this.videoRef }
-      />
-    );
+    const player = <VideoPlayer
+      mediaUrl={ this.props.mediaUrl }
+      onTimeUpdate= { this.handleTimeUpdate }
+      onClick= { this.playMedia.bind(this) }
+      videoRef={ this.videoRef }
+    />;
 
     const playerControlsSection = (
       <div className={ styles.controlsSection }>
@@ -282,34 +249,13 @@ class MediaPlayer extends React.Component {
       buttonClick={ this.handleProgressBarClick.bind(this) }
     />;
 
-    // list of keyboard shortcuts helper text
-    const keyboardShortcutsElements = Object.keys(this.state.hotKeys).map((shortcutKey, index) => {
-      return <p
-        className={ styles.helpText }
-        key={ shortcutKey }>
-        <code>{shortcutKey}</code>
-        <small>
-          <b> {this.state.hotKeys[shortcutKey].helperText}</b>
-        </small>
-      </p>;
-    });
-
-    let keyboardShortcuts;
-    if (this.props.mediaUrl !== null ) {
-      keyboardShortcuts = <section className={ styles.hideInMobile }><label>{keyboardShortcutsElements}</label>
-        <br/>
-        <small className={ styles.helpText }>Double click on a word to be taken to that time in the media.</small>
-      </section>;
-    }
-
     return (
       <section className={ styles.topSection }>
         <div className={ styles.playerSection }>
-          { this.props.mediaUrl !== null ? mediaPlayerEl : null }
+          { this.props.mediaUrl !== null ? player : null }
           { this.props.mediaUrl !== null ? playerControlsSection : null }
         </div>
         { this.props.mediaUrl !== null ? progressBar : null }
-        {/* keyboardShortcuts */}
       </section>
     );
   }
