@@ -249,6 +249,8 @@ class TimedTextEditor extends React.Component {
   myKeyBindingFn = ( e) => {
     const enterKey = 13;
     if (e.keyCode === enterKey ) {
+      console.log(e);
+      
       return 'split-paragraph';
     }
 
@@ -375,6 +377,8 @@ class TimedTextEditor extends React.Component {
           onChange={ this.onChange }
           stripPastedStyles
           blockRendererFn={ this.renderBlockWithTimecodes }
+          handleKeyCommand={ command => this.handleKeyCommand(command) }
+          keyBindingFn={ e => this.myKeyBindingFn(e) }
         />
       </section>
     );
