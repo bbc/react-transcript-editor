@@ -179,25 +179,20 @@ class TimedTextEditor extends React.Component {
   }
 
   getEditorContent = (sttType) => {
-    // sttType used in conjunction with adapter/convert
-    const type = sttType === null ? 'draftjs' : sttType;
+    const type = sttType || 'draftjs';
     const data = convertToRaw(this.state.editorState.getCurrentContent());
 
     return data;
   }
 
-  renderBlockWithTimecodes = (contentBlock) => {
-    const type = contentBlock.getType();
-
+  renderBlockWithTimecodes = () => {
     return {
       component: WrapperBlock,
       editable: true,
       props: {
         foo: 'bar',
         editorState: this.state.editorState,
-        // passing in callback function to be able to set state in parent component
         setEditorNewContentState: this.setEditorNewContentState,
-        // to make timecodes clickable
         onWordClick: this.props.onWordClick
       }
     };

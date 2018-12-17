@@ -75,8 +75,8 @@ class App extends React.Component {
     fr.readAsText(file);
   }
 
-  handleIsTextEditable = (e) => {
-    this.setState((prevState, props) => ({ isTextEditable: (prevState.isTextEditable) !== true }));
+  handleIsTextEditable = () => {
+    this.setState((prevState) => ({ isTextEditable: (prevState.isTextEditable) !== true }));
   }
 
   // https://stackoverflow.com/questions/21733847/react-jsx-selecting-selected-on-selected-select-option
@@ -90,7 +90,7 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  exportTranscript = (exportFormat) => {
+  exportTranscript = () => {
     const { data, ext } = this.refs.transcriptEditor.exportData(this.state.exportFormat);
     this.download(data, `${ this.state.mediaUrl }.${ ext }`);
   }

@@ -27,7 +27,7 @@ class WrapperBlock extends React.Component {
     });
   }
 
-  handleOnClickEdit = (e) => {
+  handleOnClickEdit = () => {
     const newSpeakerName = prompt('New Speaker Name?');
     if (newSpeakerName !== '' && newSpeakerName !== null) {
       this.setState({ speaker: newSpeakerName });
@@ -60,8 +60,7 @@ class WrapperBlock extends React.Component {
     }
   }
 
-  handleTimecodeClick = (e) => {
-    // convert to seconds
+  handleTimecodeClick = () => {
     this.props.blockProps.onWordClick(this.state.start);
   }
 

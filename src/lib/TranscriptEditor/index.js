@@ -19,7 +19,7 @@ class TranscriptEditor extends React.Component {
     };
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps) {
     if (nextProps.transcriptData !== null) {
       return {
         transcriptData: nextProps.transcriptData,
