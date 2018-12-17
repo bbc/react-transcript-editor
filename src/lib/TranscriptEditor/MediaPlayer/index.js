@@ -29,7 +29,7 @@ class MediaPlayer extends React.Component {
 
   componentDidMount() {
     this.props.hookSeek(this.setCurrentTime);
-    this.props.hookPlayMedia(this.playMedia);
+    this.props.hookPlayMedia(this.togglePlayMedia);
     this.props.hookIsPlaying(this.isPlaying);
   }
 
@@ -39,11 +39,10 @@ class MediaPlayer extends React.Component {
       const newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTime);
       if (this.videoRef.current !== null) {
         const videoRef = this.videoRef.current;
-        // videoRef.load();
-        if ( videoRef.readyState === 4 ) {
-          // it's loaded
+
+        if (videoRef.readyState === 4) {
           videoRef.currentTime = newCurrentTimeInSeconds;
-          videoRef.play();
+          this.playMedia();
         }
       }
     }
@@ -130,18 +129,23 @@ class MediaPlayer extends React.Component {
     }
   }
 
+  pauseMedia = () => {
+    this.setState({ isPlaying: false }, () => this.videoRef.current.pause());
+  }
+
+  playMedia = () => {
+    this.setState({ isPlaying: true }, () => this.videoRef.current.play());
+  }
+
   // Sets isPlaying state and toggles modes on the video player
   // TODO: modularise these / enable specific play / pause action
-  playMedia = () => {
+  togglePlayMedia = () => {
     if (this.videoRef.current !== null) {
       if (this.state.isPlaying) {
-        this.setState({ isPlaying: false }, () => {
-          this.videoRef.current.pause();
-        });
-      } else {
-        this.setState({ isPlaying: true }, () => {
-          this.videoRef.current.play();
-        });
+        this.pauseMedia();
+      }
+      else {
+        this.playMedia();
       }
     }
   }
@@ -189,7 +193,7 @@ class MediaPlayer extends React.Component {
     const player = <VideoPlayer
       mediaUrl={ this.props.mediaUrl }
       onTimeUpdate= { this.handleTimeUpdate }
-      onClick= { this.playMedia.bind(this) }
+      onClick= { this.togglePlayMedia.bind(this) }
       videoRef={ this.videoRef }
     />;
 
@@ -199,7 +203,7 @@ class MediaPlayer extends React.Component {
           <h1 className={ styles.title }>{ this.props.mediaUrl }</h1>
         </div>
         <PlayerControls
-          playMedia={ this.playMedia.bind(this) }
+          playMedia={ this.togglePlayMedia.bind(this) }
           isPlaying={ this.state.isPlaying }
           skipBackward={ this.skipBackward.bind(this) }
           skipForward={ this.skipForward.bind(this) }
