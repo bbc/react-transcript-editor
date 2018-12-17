@@ -141,13 +141,15 @@ class MediaPlayer extends React.Component {
   }
 
   /**
-   * @param {bool}  playPauseBool - is optional boolean - false -> pause | true -> play
-   * for integration with TimedTextEditor pause while typing
-   * If bool is not provided then if paused --> play | if playing --> pause
-   * Eg when triggered from play/pause btn
+   * @param {bool | undefined}  playPauseBool - optional boolean
+   * false -> pause 
+   * true -> play
+   * If bool is not provided (undefined) then 
+   * if paused --> play | if playing --> pause
+   * This is for use cases when triggered from play/pause btn
+   * and for integration with TimedTextEditor pause while typing functionality
    */
   playMedia = (playPauseBool) => {
-    console.log('playPauseBool',playPauseBool);
     // checks that there is a video player element initialized
     if (this.videoRef.current !== null) {
       // if playMedia is being triggered by PlayerControl or Video element
