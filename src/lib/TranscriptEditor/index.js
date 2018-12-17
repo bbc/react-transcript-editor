@@ -14,7 +14,8 @@ class TranscriptEditor extends React.Component {
       currentTime: 0,
       lastLocalSavedTime: '',
       transcriptData: null,
-      isScrollIntoViewOn: false
+      isScrollIntoViewOn: false,
+      isPauseWhileTypingOn: true
     };
   }
 
@@ -95,6 +96,7 @@ class TranscriptEditor extends React.Component {
             ref={ 'timedTextEditor' }
             mediaUrl={ this.props.mediaUrl }
             isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
+            isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
           />
         </main>
       </div>

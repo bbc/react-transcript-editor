@@ -21,7 +21,8 @@ class VideoPlayer extends React.Component {
 VideoPlayer.propTypes = {
   mediaUrl: PropTypes.string,
   onTimeUpdate: PropTypes.func,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  videoRef: PropTypes.object
 };
 
 export default VideoPlayer;

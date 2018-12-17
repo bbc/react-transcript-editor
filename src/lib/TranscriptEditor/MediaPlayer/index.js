@@ -21,7 +21,7 @@ class MediaPlayer extends React.Component {
       rollBackValueInSeconds: 15,
       timecodeOffset: 0,
       hotKeys: returnHotKeys(this),
-      isPausedWhileTyping: false
+      isPlaying: false
     };
   }
   /*eslint-disable camelcase */
@@ -29,7 +29,7 @@ class MediaPlayer extends React.Component {
 
   componentDidMount() {
     this.props.hookSeek(this.setCurrentTime);
-    this.props.hookPlayMedia(this.playMedia);
+    this.props.hookPlayMedia(this.togglePlayMedia);
     this.props.hookIsPlaying(this.isPlaying);
   }
 
@@ -39,11 +39,10 @@ class MediaPlayer extends React.Component {
       const newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTime);
       if (this.videoRef.current !== null) {
         const videoRef = this.videoRef.current;
-        // videoRef.load();
-        if ( videoRef.readyState === 4 ) {
-          // it's loaded
+
+        if (videoRef.readyState === 4) {
           videoRef.currentTime = newCurrentTimeInSeconds;
-          videoRef.play();
+          this.playMedia();
         }
       }
     }
@@ -120,21 +119,11 @@ class MediaPlayer extends React.Component {
     }
   }
 
-  handleTogglePauseWhileTyping = () => {
-    this.setState((prevState) => {
-      return { isPausedWhileTyping:  !prevState.isPausedWhileTyping };
-    });
-  }
-
-  handleToggleScrollIntoView = (e) => {
-    this.props.handleIsScrollIntoViewChange(e.target.checked);
-  }
-
+  // TEMP: keeping this in for now. Might be replaced by state
+  // The pauseWhileTyping logic (in TimedTextEditor) currently uses this
   isPlaying = () => {
     if (this.videoRef.current !== null) {
-      if (this.videoRef.current.paused) {
-        return false;
-      }
+      if (this.videoRef.current.paused) return false;
 
       return true;
     }
@@ -171,9 +160,7 @@ class MediaPlayer extends React.Component {
             this.videoRef.current.pause();
           }
         }
-
       }
-
     }
   }
 
@@ -213,7 +200,7 @@ class MediaPlayer extends React.Component {
       return secondsToTimecode(this.videoRef.current.duration + this.state.timecodeOffset);
     }
 
-    return  '00:00:00:00';
+    return '00:00:00:00';
   }
 
   render() {
@@ -230,8 +217,8 @@ class MediaPlayer extends React.Component {
           <h1 className={ styles.title }>{ this.props.mediaUrl }</h1>
         </div>
         <PlayerControls
-          playMedia={ this.playMedia.bind(this) }
-          isPlaying={ this.isPlaying.bind(this) }
+          playMedia={ this.togglePlayMedia.bind(this) }
+          isPlaying={ this.state.isPlaying }
           skipBackward={ this.skipBackward.bind(this) }
           skipForward={ this.skipForward.bind(this) }
           rollback={ this.rollBack }
