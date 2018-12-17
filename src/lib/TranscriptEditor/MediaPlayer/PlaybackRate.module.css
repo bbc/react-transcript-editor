@@ -1,9 +1,8 @@
 .helpText {
-    margin-top: 0px;
-    margin-bottom: 0.1em;
-  }
-  
+  margin-top: 0px;
+  margin-bottom: 0.1em;
+}
 
-  .playbackRateValue{
-    font-weight:bold;
-  }
+.playbackRateValue{
+  font-weight:bold;
+}

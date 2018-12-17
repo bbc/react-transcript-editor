@@ -5,7 +5,6 @@ import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
 
 import style from './index.module.css';
-import { throws } from 'assert';
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
