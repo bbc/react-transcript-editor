@@ -14,7 +14,8 @@ class Word extends PureComponent {
     }
 
     if (data.start % 1 > 0) {
-      const dec = Math.round((data.start % 1 - 0.5) * 4.0) / 4.0;
+      // Find the closest quarter-second to the current time, for more dynamic results
+      const dec = Math.floor((data.start % 1) * 4.0) / 4.0;
       prevTimes += ` ${ Math.floor(data.start) + dec }`;
     }
 

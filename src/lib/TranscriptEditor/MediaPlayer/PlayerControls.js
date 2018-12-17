@@ -78,7 +78,7 @@ PlayerControls.propTypes = {
   rollback: PropTypes.func,
   handleMuteVolume: PropTypes.handleMuteVolume,
   duration: PropTypes.number,
-  isPlaying: PropTypes.bool,
+  isPlaying: PropTypes.func,
   skipBackward: PropTypes.func,
   skipForward: PropTypes.func
 };

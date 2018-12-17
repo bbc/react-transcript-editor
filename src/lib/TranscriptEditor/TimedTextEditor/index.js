@@ -222,9 +222,8 @@ class TimedTextEditor extends React.Component {
         }
       }
     }
-    if (currentWord.start !== 'NA') {
-      console.log('TimedTextEditor: ',this.props.isScrollIntoViewOn);
 
+    if (currentWord.start !== 'NA') {
       if (this.props.isScrollIntoViewOn) {
         const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
         currentWordElement.scrollIntoView({ block: 'center', inline: 'center' });
@@ -353,8 +352,8 @@ class TimedTextEditor extends React.Component {
         <style scoped>
           {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
           {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
-          {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
+          {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
         </style>
 
