@@ -241,7 +241,7 @@ class MediaPlayer extends React.Component {
 MediaPlayer.propTypes = {
   hookSeek: PropTypes.func,
   hookPlayMedia: PropTypes.func,
-  hookIsPlaying: PropTypes. func,
+  hookIsPlaying: PropTypes.func,
   mediaUrl: PropTypes.string,
   hookOnTimeUpdate: PropTypes.func,
 };
