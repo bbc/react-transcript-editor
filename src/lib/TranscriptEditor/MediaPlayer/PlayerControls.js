@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import VolumeControl from './VolumeControl';
+// import VolumeControl from './VolumeControl';
 import Select from './Select';
 import style from './PlayerControls.module.css';
 

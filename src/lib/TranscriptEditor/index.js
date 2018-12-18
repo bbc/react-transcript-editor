@@ -64,8 +64,13 @@ class TranscriptEditor extends React.Component {
     return this.isPlaying();
   }
 
-  handleIsScrollIntoViewChange = (isChecked) => {
+  handleIsScrollIntoViewChange = (e) => {
+    const isChecked = e.target.checked;
     this.setState({ isScrollIntoViewOn: isChecked });
+  }
+  handlePauseWhileTyping = (e) => {
+    const isChecked = e.target.checked;
+    this.setState({ isPauseWhileTypingOn: isChecked });
   }
 
   getEditorContent = (exportFormat) => {
@@ -90,7 +95,12 @@ class TranscriptEditor extends React.Component {
     />;
     const settings = <div className={ styleSettings.settings }>
       <span  onClick={ this.handleSettingsToggle }>X</span>
-      <Settings /> 
+      <Settings 
+        defaultValuePauseWhileTyping={ this.state.isPauseWhileTypingOn }
+        defaultvalueScrollSync={ this.state.isScrollIntoViewOn }
+        handlePauseWhileTyping={ this.handlePauseWhileTyping }
+        handleIsScrollIntoViewChange={ this.handleIsScrollIntoViewChange }
+      /> 
     </div>;
     
     return (

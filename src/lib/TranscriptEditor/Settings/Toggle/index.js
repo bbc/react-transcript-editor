@@ -8,7 +8,7 @@ class Toggle extends React.Component {
       <div className={ styles.switchContainer }>
         <label className={ styles.switch }>
           <input type="checkbox"
-            defaultChecked="true"
+            defaultChecked={ this.props.defaultValue }
             onChange={ this.props.handleToggle }
           />
           <span className={ styles.slider }></span>

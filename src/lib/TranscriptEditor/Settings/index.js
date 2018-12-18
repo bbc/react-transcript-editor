@@ -14,15 +14,17 @@ class Settings extends React.Component {
           <section className={ style.settingElement }>
             <label>Pause While Typing</label>
             <Toggle 
+              defaultValue={ this.props.defaultValuePauseWhileTyping }
               label={ 'Pause while typing' } 
-              handleToggle={ () => {console.log('pause whileTyping toggle');} }
+              handleToggle={ this.props.handlePauseWhileTyping }
             />
           </section>
           <section className={ style.settingElement }>
             <label> Scroll Sync</label>
             <Toggle 
-              label={ 'Pause while typing' } 
-              handleToggle={ () => {console.log('pause whileTyping toggle');} }
+              defaultValue={ this.props.defaultvalueScrollSync }
+              label={ 'ScrollSync' } 
+              handleToggle={ this.props.handleIsScrollIntoViewChange }
             />
           </section>
           <section className={ style.settingElement }>
@@ -47,7 +49,7 @@ class Settings extends React.Component {
           <section className={ style.settingElement }>
             <label>Timecode Offset ℹ </label>
             <input type="text" value="00:00:00:00" name="lname"/>
-            <small><a>reset</a></small>
+            <small><u>reset</u></small>
           </section>
         </div>
       </div>
