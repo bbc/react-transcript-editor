@@ -57,7 +57,7 @@ class PlayerControls extends React.Component {
 
         <button
           className={ style.playBackRate }>
-          x <Select
+          x<Select
             options={ [ { value:'0.25',label:'0.25' },
               { value:'0.5',label:'0.5' },
               { value:'0.75',label:'0.75' },
