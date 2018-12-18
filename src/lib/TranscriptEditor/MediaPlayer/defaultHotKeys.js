@@ -2,7 +2,7 @@ function returnHotKeys(self) {
   return {
     esc: {
       priority: 1,
-      handler: () => { self.playMedia(); },
+      handler: () => { self.togglePlayMedia(); },
       helperText: 'Play Media',
     },
     'ctrl+k': { // combo from mousetrap
