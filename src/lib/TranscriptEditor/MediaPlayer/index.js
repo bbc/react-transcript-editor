@@ -90,6 +90,7 @@ class MediaPlayer extends React.Component {
   }
 
   setPlayBackRate = (speedValue) => {
+    console.log(speedValue);
     // value between 0.2 and 3.5
     if (this.videoRef.current !== null) {
       if (speedValue >= 0.2 && speedValue <= 3.5) {
@@ -206,6 +207,7 @@ class MediaPlayer extends React.Component {
         <PlayerControls
           playMedia={ this.togglePlayMedia.bind(this) }
           isPlaying={ this.state.isPlaying }
+          playBackRate={ this.state.playBackRate }
           skipBackward={ this.skipBackward.bind(this) }
           skipForward={ this.skipForward.bind(this) }
           rollback={ this.rollBack }
@@ -217,6 +219,7 @@ class MediaPlayer extends React.Component {
           setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
           timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
           handleMuteVolume={ this.handleMuteVolume.bind(this) }
+          setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
         />
       </div>
     );
