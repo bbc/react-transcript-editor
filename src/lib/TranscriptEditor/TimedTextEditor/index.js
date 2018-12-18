@@ -153,12 +153,11 @@ class TimedTextEditor extends React.Component {
     return '';
   }
 
-  // set DraftJS Editor content state from blocks
-  // contains blocks and entityMap
-
   /**
   * @param {object} data.entityMap - draftJs entity maps - used by convertFromRaw
   * @param {object} data.blocks - draftJs blocks - used by convertFromRaw
+  * set DraftJS Editor content state from blocks
+  * contains blocks and entityMap
   */
   setEditorContentState = (data) => {
     const contentState = convertFromRaw(data);
@@ -173,51 +172,6 @@ class TimedTextEditor extends React.Component {
   setEditorNewContentState = (newContentState) => {
     const newEditorState = EditorState.push(this.state.editorState, newContentState);
     this.setState({ editorState: newEditorState });
-  }
-
-  renderBlockWithTimecodes = () => {
-    return {
-      component: WrapperBlock,
-      editable: true,
-      props: {
-        foo: 'bar',
-        editorState: this.state.editorState,
-        setEditorNewContentState: this.setEditorNewContentState,
-        onWordClick: this.props.onWordClick
-      }
-    };
-  }
-
-  getCurrentWord = () => {
-    const currentWord = {
-      start: 'NA',
-      end: 'NA'
-    };
-
-    if (this.state.transcriptData) {
-      const contentState = this.state.editorState.getCurrentContent();
-      const contentStateConvertEdToRaw = convertToRaw(contentState);
-      const entityMap = contentStateConvertEdToRaw.entityMap;
-
-      for (var entityKey in entityMap) {
-        const entity = entityMap[entityKey];
-        const word = entity.data;
-
-        if (word.start <= this.props.currentTime && word.end >= this.props.currentTime) {
-          currentWord.start = word.start;
-          currentWord.end = word.end;
-        }
-      }
-    }
-    
-    if (currentWord.start !== 'NA') {
-      if (this.props.isScrollIntoViewOn) {
-        const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
-        currentWordElement.scrollIntoView({ block: 'center', inline: 'center' });
-      }
-    }
-
-    return currentWord;
   }
 
   /**
@@ -359,6 +313,51 @@ class TimedTextEditor extends React.Component {
 
     // cover edge cases where it doesn't find it
     return { entityKey, isEndOfParagraph }; 
+  }
+
+  renderBlockWithTimecodes = () => {
+    return {
+      component: WrapperBlock,
+      editable: true,
+      props: {
+        editorState: this.state.editorState,
+        setEditorNewContentState: this.setEditorNewContentState,
+        onWordClick: this.props.onWordClick
+      }
+    };
+  }
+
+  getCurrentWord = () => {
+    const currentWord = {
+      start: 'NA',
+      end: 'NA'
+    };
+
+    if (this.state.transcriptData) {
+      const contentState = this.state.editorState.getCurrentContent();
+      // TODO: using convertToRaw here might be slowing down performance(?) 
+      const contentStateConvertEdToRaw = convertToRaw(contentState);
+      const entityMap = contentStateConvertEdToRaw.entityMap;
+
+      for (var entityKey in entityMap) {
+        const entity = entityMap[entityKey];
+        const word = entity.data;
+
+        if (word.start <= this.props.currentTime && word.end >= this.props.currentTime) {
+          currentWord.start = word.start;
+          currentWord.end = word.end;
+        }
+      }
+    }
+    
+    if (currentWord.start !== 'NA') {
+      if (this.props.isScrollIntoViewOn) {
+        const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
+        currentWordElement.scrollIntoView({ block: 'center', inline: 'center' });
+      }
+    }
+
+    return currentWord;
   }
 
   render() {
