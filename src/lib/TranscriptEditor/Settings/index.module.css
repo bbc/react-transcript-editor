@@ -1,0 +1,11 @@
+.settings {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 50%;
+  height: 200px;
+  text-align: center;
+  vertical-align: middle;
+  background: red;
+}

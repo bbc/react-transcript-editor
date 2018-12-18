@@ -64,7 +64,6 @@ class PlayerControls extends React.Component {
         <VolumeControl
           handleMuteVolume={ this.props.handleMuteVolume }
         />
-
       </div>
     );
   }

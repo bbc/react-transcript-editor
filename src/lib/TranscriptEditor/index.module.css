@@ -20,6 +20,13 @@
   .aside {
     width: 100%;
   }
+
+  .settingsButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2em;
+  }
 }
 
 /* Mobile devices */

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
+import Settings from './Settings';
 
 import style from './index.module.css';
 import { throws } from 'assert';
@@ -15,7 +16,8 @@ class TranscriptEditor extends React.Component {
       currentTime: 0,
       lastLocalSavedTime: '',
       transcriptData: null,
-      isScrollIntoViewOn: false
+      isScrollIntoViewOn: false,
+      showSettings: false
     };
   }
 
@@ -69,6 +71,12 @@ class TranscriptEditor extends React.Component {
 
   exportData = (exportFormat) => this.refs.timedTextEditor.exportData(exportFormat)
 
+  handleSettingsToggle = () => {
+    this.setState(prevState => ({
+      showSettings: !prevState.showSettings
+    }));
+  }
+
   render() {
     return (
       <div className={ style.container }>
@@ -82,6 +90,10 @@ class TranscriptEditor extends React.Component {
             mediaUrl={ this.props.mediaUrl }
           />
         </aside>
+
+        <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }> Settings </button>
+        { this.state.showSettings? <Settings/> : null }
+
         <main className={ style.main }>
           <TimedTextEditor
             transcriptData={ this.state.transcriptData }
