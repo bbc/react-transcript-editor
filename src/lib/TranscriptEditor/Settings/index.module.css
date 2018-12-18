@@ -10,3 +10,16 @@
   color:white;
   background: #4A4A4A;
 }
+
+.controlsContainer{
+    display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   /* justify-content: flex-start; */
+   align-content: flex-start 
+}
+
+.settingElement{
+  text-align: left;
+  /* align-self: auto  */
+}

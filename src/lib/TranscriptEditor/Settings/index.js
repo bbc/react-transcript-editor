@@ -7,8 +7,15 @@ import style from './index.module.css';
 class Settings extends React.Component {
   render() {
     return (
-      <div className={ style.settings }>
+      <div>
         <span>Settings Panel</span>
+        <div className={ style.controlsContainer }>
+          <label className={ style.settingElement }>Pause While Typing</label>
+          <label className={ style.settingElement }>Scroll Sync</label>
+          <label className={ style.settingElement }>RollBack Interval, seconds</label>
+          <label className={ style.settingElement }>Timecode Offset</label>
+        </div>
+        
       </div>
     );
   }

@@ -6,6 +6,7 @@ import MediaPlayer from './MediaPlayer';
 import Settings from './Settings';
 
 import style from './index.module.css';
+import styleSettings from './Settings/index.module.css';
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
@@ -87,7 +88,11 @@ class TranscriptEditor extends React.Component {
       hookOnTimeUpdate={ this.handleTimeUpdate }
       mediaUrl={ this.props.mediaUrl }
     />;
-
+    const settings = <div className={ styleSettings.settings }>
+      <span  onClick={ this.handleSettingsToggle }>X</span>
+      <Settings /> 
+    </div>;
+    
     return (
       <div className={ style.container }>
         <aside className={ style.aside }>
@@ -95,7 +100,7 @@ class TranscriptEditor extends React.Component {
         </aside>
 
         <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }> ⚙ </button>
-        { this.state.showSettings? <Settings/> : null }
+        { this.state.showSettings? settings : null }
 
         <main className={ style.main }>
           <TimedTextEditor
