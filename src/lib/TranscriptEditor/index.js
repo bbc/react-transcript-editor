@@ -5,7 +5,6 @@ import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
 
 import style from './index.module.css';
-import { throws } from 'assert';
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
@@ -15,11 +14,12 @@ class TranscriptEditor extends React.Component {
       currentTime: 0,
       lastLocalSavedTime: '',
       transcriptData: null,
-      isScrollIntoViewOn: false
+      isScrollIntoViewOn: false,
+      isPauseWhileTypingOn: true
     };
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps) {
     if (nextProps.transcriptData !== null) {
       return {
         transcriptData: nextProps.transcriptData,
@@ -65,22 +65,25 @@ class TranscriptEditor extends React.Component {
     this.setState({ isScrollIntoViewOn: isChecked });
   }
 
-  getEditorContent = sttType => this.refs.timedTextEditor.getEditorContent(sttType)
-
-  exportData = (exportFormat) => this.refs.timedTextEditor.exportData(exportFormat)
+  getEditorContent = (exportFormat) => {
+    // eslint-disable-next-line react/no-string-refs
+    return this.refs.timedTextEditor.getEditorContent(exportFormat);
+  }
 
   render() {
+    const mediaPlayer = <MediaPlayer
+    // eslint-disable-next-line no-return-assign
+      hookSeek={ foo => this.setCurrentTime = foo }
+      hookPlayMedia={ foo => this.playMedia = foo }
+      hookIsPlaying={ foo => this.isPlaying = foo }
+      hookOnTimeUpdate={ this.handleTimeUpdate }
+      mediaUrl={ this.props.mediaUrl }
+    />;
+
     return (
       <div className={ style.container }>
         <aside className={ style.aside }>
-          <MediaPlayer
-            // eslint-disable-next-line no-return-assign
-            hookSeek={ foo => this.setCurrentTime = foo }
-            hookPlayMedia={ foo => this.playMedia = foo }
-            hookIsPlaying={ foo => this.isPlaying = foo }
-            hookOnTimeUpdate={ this.handleTimeUpdate }
-            mediaUrl={ this.props.mediaUrl }
-          />
+          { this.props.mediaUrl ? mediaPlayer : null }
         </aside>
         <main className={ style.main }>
           <TimedTextEditor
@@ -94,6 +97,7 @@ class TranscriptEditor extends React.Component {
             ref={ 'timedTextEditor' }
             mediaUrl={ this.props.mediaUrl }
             isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
+            isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
           />
         </main>
       </div>

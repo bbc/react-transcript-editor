@@ -9,7 +9,7 @@ class PauseWhileTyping extends React.Component {
         <p className={ styles.helpText }>Pause While Typing</p>
         <label className={ styles.switch }>
           <input type="checkbox"
-            defaultChecked={ this.props.isPausedWhileTyping }
+            defaultChecked={ this.props.isPauseWhileTypingOn }
             onChange={ this.props.handleToggle }
           />
           <span className={ styles.slider }></span>
@@ -20,7 +20,8 @@ class PauseWhileTyping extends React.Component {
 }
 
 PauseWhileTyping.propTypes = {
-  handleToggle: PropTypes.func
+  handleToggle: PropTypes.func,
+  isPauseWhileTypingOn: PropTypes.bool
 };
 
 export default PauseWhileTyping;

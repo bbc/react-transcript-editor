@@ -88,7 +88,7 @@ const autoEdit2ToDraft = (autoEdit2Json) => {
     // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
     results.push(draftJsContentBlockParagraph);
   });
-  
+
   // console.log(JSON.stringify(results,null,2))
   return results;
 };
