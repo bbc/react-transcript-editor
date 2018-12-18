@@ -18,7 +18,8 @@ class TranscriptEditor extends React.Component {
       transcriptData: null,
       isScrollIntoViewOn: false,
       showSettings: false,
-      isPauseWhileTypingOn: true
+      isPauseWhileTypingOn: true,
+      rollBackValueInSeconds: 16
     };
   }
 
@@ -73,6 +74,11 @@ class TranscriptEditor extends React.Component {
     this.setState({ isPauseWhileTypingOn: isChecked });
   }
 
+  handleRollBackValueInSeconds =(e) => {
+    const rollBackValue = e.target.value;
+    this.setState({ rollBackValueInSeconds: rollBackValue });
+  }
+
   getEditorContent = (exportFormat) => {
     // eslint-disable-next-line react/no-string-refs
     return this.refs.timedTextEditor.getEditorContent(exportFormat);
@@ -87,6 +93,7 @@ class TranscriptEditor extends React.Component {
   render() {
     const mediaPlayer = <MediaPlayer
     // eslint-disable-next-line no-return-assign
+      rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
       hookSeek={ foo => this.setCurrentTime = foo }
       hookPlayMedia={ foo => this.playMedia = foo }
       hookIsPlaying={ foo => this.isPlaying = foo }
@@ -98,8 +105,10 @@ class TranscriptEditor extends React.Component {
       <Settings 
         defaultValuePauseWhileTyping={ this.state.isPauseWhileTypingOn }
         defaultvalueScrollSync={ this.state.isScrollIntoViewOn }
+        defaultRollBackValueInSeconds={ this.state.rollBackValueInSeconds }
         handlePauseWhileTyping={ this.handlePauseWhileTyping }
         handleIsScrollIntoViewChange={ this.handleIsScrollIntoViewChange }
+        handleRollBackValueInSeconds={ this.handleRollBackValueInSeconds }
       /> 
     </div>;
     

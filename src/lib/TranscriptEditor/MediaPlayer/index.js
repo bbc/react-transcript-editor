@@ -18,7 +18,7 @@ class MediaPlayer extends React.Component {
 
     this.state = {
       playBackRate: 1,
-      rollBackValueInSeconds: 15,
+      rollBackValueInSeconds: this.props.rollBackValueInSeconds,
       timecodeOffset: 0,
       hotKeys: returnHotKeys(this),
       isPlaying: false

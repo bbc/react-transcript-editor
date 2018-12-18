@@ -29,8 +29,12 @@ class Settings extends React.Component {
           </section>
           <section className={ style.settingElement }>
             <label>RollBack Interval, seconds</label>
-            <input type="text" value={ '15' } name="lname"/>
-            <input type="range" value="15" min="1" max="60" step="1"/>
+            <input 
+              type="text" 
+              value={ this.props.defaultRollBackValueInSeconds } 
+              onChange={ this.props.handleRollBackValueInSeconds }
+              name="lname"/>
+            {/* <input type="range" value="15" min="1" max="60" step="1"/> */}
           </section>
           <section className={ style.settingElement }>
             <label>Hide Timecodes</label>
