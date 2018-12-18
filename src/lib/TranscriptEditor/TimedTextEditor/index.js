@@ -99,9 +99,9 @@ class TimedTextEditor extends React.Component {
     }
   }
 
-  exportData(exportFormat) {
+  getEditorContent(exportFormat) {
     const format = exportFormat || 'draftjs';
-
+    
     return exportAdapter(convertToRaw(this.state.editorState.getCurrentContent()), format);
   }
 
@@ -173,13 +173,6 @@ class TimedTextEditor extends React.Component {
   setEditorNewContentState = (newContentState) => {
     const newEditorState = EditorState.push(this.state.editorState, newContentState);
     this.setState({ editorState: newEditorState });
-  }
-
-  getEditorContent = (sttType) => {
-    const type = sttType || 'draftjs';
-    const data = convertToRaw(this.state.editorState.getCurrentContent());
-
-    return data;
   }
 
   renderBlockWithTimecodes = () => {

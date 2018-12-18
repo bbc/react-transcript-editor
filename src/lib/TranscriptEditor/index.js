@@ -65,9 +65,10 @@ class TranscriptEditor extends React.Component {
     this.setState({ isScrollIntoViewOn: isChecked });
   }
 
-  getEditorContent = sttType => this.refs.timedTextEditor.getEditorContent(sttType)
-
-  exportData = (exportFormat) => this.refs.timedTextEditor.exportData(exportFormat)
+  getEditorContent = (exportFormat) => {
+    // eslint-disable-next-line react/no-string-refs
+    return this.refs.timedTextEditor.getEditorContent(exportFormat);
+  }
 
   render() {
     const mediaPlayer = <MediaPlayer
