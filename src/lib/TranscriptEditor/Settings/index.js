@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Toggle from './Toggle/index.js';
 import style from './index.module.css';
+import TimecodeOffset from './TimecodeOffset/index.js';
 
 class Settings extends React.Component {
   // eslint-disable-next-line class-methods-use-this
@@ -50,11 +51,10 @@ class Settings extends React.Component {
               handleToggle={ () => {console.log('Hide Speaker Labels toggle');} }
             />
           </section>
-          <section className={ style.settingElement }>
-            <label>Timecode Offset ℹ </label>
-            <input type="text" value="00:00:00:00" name="lname"/>
-            <small><u>reset</u></small>
-          </section>
+          <TimecodeOffset 
+            timecodeOffset={ this.props.timecodeOffset }
+            handleSetTimecodeOffset={ this.props.handleSetTimecodeOffset }
+          />
         </div>
       </div>
     );

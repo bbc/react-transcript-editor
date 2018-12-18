@@ -19,13 +19,37 @@ class MediaPlayer extends React.Component {
     this.state = {
       playBackRate: 1,
       rollBackValueInSeconds: this.props.rollBackValueInSeconds,
-      timecodeOffset: 0,
+      timecodeOffset: this.props.timecodeOffset,
       hotKeys: returnHotKeys(this),
       isPlaying: false
     };
   }
   /*eslint-disable camelcase */
   hot_keys = returnHotKeys(this);
+
+  static getDerivedStateFromProps(nextProps) {
+    if (nextProps.timecodeOffset !== null) {
+      let newCurrentTimeInSeconds = nextProps.timecodeOffset ;
+      if (typeof newCurrentTimeInSeconds ==='string' 
+        && newCurrentTimeInSeconds.includes(':')
+        && !newCurrentTimeInSeconds.includes('NaN')) {
+        newCurrentTimeInSeconds = timecodeToSeconds(nextProps.timecodeOffset );
+      }
+      
+      return {
+        timecodeOffset: newCurrentTimeInSeconds
+      };
+    }
+
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.timecodeOffset !== this.state.timecodeOffset) {
+      //   this.loadData();
+      // this.setTimeCodeOffset(this.statetimecodeOffset);
+    }
+  }
 
   componentDidMount() {
     this.props.hookSeek(this.setCurrentTime);

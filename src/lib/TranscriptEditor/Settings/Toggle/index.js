@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.module.css';
+import style from '../index.module.css';
 class Toggle extends React.Component {
 
   render() {
     return (
-      <div className={ styles.switchContainer }>
+      <div className={  style.settingElement  }>
         <label className={ styles.switch }>
           <input type="checkbox"
             defaultChecked={ this.props.defaultValue }

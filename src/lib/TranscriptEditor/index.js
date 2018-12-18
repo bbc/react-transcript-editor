@@ -7,6 +7,7 @@ import Settings from './Settings';
 
 import style from './index.module.css';
 import styleSettings from './Settings/index.module.css';
+import { timecodeToSeconds } from '../Util/timecode-converter/index';
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
@@ -19,14 +20,15 @@ class TranscriptEditor extends React.Component {
       isScrollIntoViewOn: false,
       showSettings: false,
       isPauseWhileTypingOn: true,
-      rollBackValueInSeconds: 16
+      rollBackValueInSeconds: 16,
+      timecodeOffset: 0
     };
   }
 
   static getDerivedStateFromProps(nextProps) {
     if (nextProps.transcriptData !== null) {
       return {
-        transcriptData: nextProps.transcriptData,
+        transcriptData: nextProps.transcriptData
       };
     }
 
@@ -74,9 +76,14 @@ class TranscriptEditor extends React.Component {
     this.setState({ isPauseWhileTypingOn: isChecked });
   }
 
-  handleRollBackValueInSeconds =(e) => {
+  handleRollBackValueInSeconds = (e) => {
     const rollBackValue = e.target.value;
     this.setState({ rollBackValueInSeconds: rollBackValue });
+  }
+
+  handleSetTimecodeOffset = (timecodeOffset) => {
+    this.setState({ timecodeOffset: timecodeOffset });
+    // this.refs.MediaPlayer.setTimeCodeOffset('01:00:00:00');
   }
 
   getEditorContent = (exportFormat) => {
@@ -92,8 +99,10 @@ class TranscriptEditor extends React.Component {
 
   render() {
     const mediaPlayer = <MediaPlayer
-    // eslint-disable-next-line no-return-assign
+      ref={ 'MediaPlayer' }
+      // eslint-disable-next-line no-return-assign
       rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
+      timecodeOffset={ this.state.timecodeOffset }
       hookSeek={ foo => this.setCurrentTime = foo }
       hookPlayMedia={ foo => this.playMedia = foo }
       hookIsPlaying={ foo => this.isPlaying = foo }
@@ -106,9 +115,11 @@ class TranscriptEditor extends React.Component {
         defaultValuePauseWhileTyping={ this.state.isPauseWhileTypingOn }
         defaultvalueScrollSync={ this.state.isScrollIntoViewOn }
         defaultRollBackValueInSeconds={ this.state.rollBackValueInSeconds }
+        timecodeOffset={ this.state.timecodeOffset }
         handlePauseWhileTyping={ this.handlePauseWhileTyping }
         handleIsScrollIntoViewChange={ this.handleIsScrollIntoViewChange }
         handleRollBackValueInSeconds={ this.handleRollBackValueInSeconds }
+        handleSetTimecodeOffset={ this.handleSetTimecodeOffset }
       /> 
     </div>;
     
