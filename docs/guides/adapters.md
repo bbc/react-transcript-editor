@@ -35,7 +35,7 @@ In your branch
 
 - [ ] Create a folder with the name of the STT service - eg `speechmatics`
 - [ ] add a `adapters/${sttServiceName}/sample` folder
-- [ ] add a sample json file from the STT service in this last folder - this will be useful for testing.
+- [ ] add a sample json file from the STT service in this last folder - this will be useful for testing. Name it `${name of the stt service}.sample.json`
 <!-- TODO: we should check these json are excluded from the bundle -->
 - [ ] add option in [adapters/index.js](adapters/index.js)
 
@@ -96,13 +96,13 @@ wordsByParagraphs.forEach((paragraph, i) => {
 
 ## Tests
 
-This project uses jest. and TravisCI. It is recommended to write some basic tests at a minimum so that you can see at a glance if the adapter is working as expected (see `bbc-kaldi` and `autoEdit2` example). 
+This project uses jest. and once you submit the PR the tests are run by TravisCI. It is recommended to write some basic tests at a minimum so that you can see at a glance if the adapter is working as expected. 
+
+In order to write your tests, you want to have a `sample` folder with transcript data from stt and expected draftJs data output with file extensions `.sample.json` and `.sample.js` - see `bbc-kaldi` and `autoEdit2` example. This is so that those stub/example files are not bundled with the component when packaging for npm.
 
 _If you don't have much experience with automated testing don't let this put you off tho, feel free to raise it as an issue and we can help out._
 
-**top tip**: when preparing your expected results for the test, you might need to allow jest to be less specific about the key attributes, these are randomly generated, and therefore cannot be tested in a deterministic way.
-
-However there is a well established workaround, you can replace them in the json with a type definition. eg instead of expecting it to be a specific number, you just expect it to be a string.
+**top tip**: the draftJs block key attributes are randomly generated, and therefore cannot be tested in a deterministic way. However there is a well established workaround, you can replace them in the json with a type definition. eg instead of expecting it to be a specific number, you just expect it to be a string.
 
 In practice, for instance In Visual code you can search using a regex (option `*`). So you could search for 
 
