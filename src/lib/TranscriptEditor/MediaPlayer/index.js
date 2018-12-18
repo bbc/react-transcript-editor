@@ -173,7 +173,7 @@ class MediaPlayer extends React.Component {
     this.setCurrentTime(time);
   }
 
-  getMediaCurrentTime() {
+  getMediaCurrentTime = () => {
     if (this.videoRef.current !== null) {
       return secondsToTimecode(this.videoRef.current.currentTime + this.state.timecodeOffset);
     }
