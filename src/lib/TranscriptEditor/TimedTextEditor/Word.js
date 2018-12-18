@@ -2,26 +2,42 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 class Word extends PureComponent {
+  generateConfidence = (data) => {
+    // handling edge case where confidence score not present
+    if (data.confidence) {
+      return  data.confidence > 0.6 ? 'high' : 'low';
+    }
+    // if confidence score not present then mark all as high
+    return 'high';
+  }
+
+  generatePreviousTimes = (data) => {
+    let prevTimes = '';
+
+    for (let i = 0; i < data.start; i++) {
+      prevTimes += `${ i } `;
+    }
+
+    if (data.start % 1 > 0) {
+      // Find the closest quarter-second to the current time, for more dynamic results
+      const dec = Math.floor((data.start % 1) * 4.0) / 4.0;
+      prevTimes += ` ${ Math.floor(data.start) + dec }`;
+    }
+
+    return prevTimes;
+  }
+
   render() {
     const data = this.props.entityKey
       ? this.props.contentState.getEntity(this.props.entityKey).getData()
       : {};
 
-    const confidence = data.confidence > 0.6 ? 'high' : 'low';
-
-    let prevTimes = '';
-    for (let i = 0; i < data.start; i++) {
-      prevTimes += `${ i } `;
-    }
-
-    if (data.start % 1 > 0.5) prevTimes += ` ${ Math.floor(data.start) }.5`;
-
     return (
       <span
         data-start={ data.start }
         data-end={ data.end }
-        data-confidence = { confidence }
-        data-prev-times = { prevTimes }
+        data-confidence = { this.generateConfidence(data) }
+        data-prev-times = { this.generatePreviousTimes(data) }
         data-entity-key={ data.key }
         className="Word">
         {this.props.children}

@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
+
 import { TranscriptEditor } from './lib';
-// import kaldiTranscript from './sample-data/kaldi-transcription-20181029235300.json';
+
 import kaldiTedTalkTranscript from './sample-data/KateDarling_2018S-bbc-kaldi.json';
-import styles from './index.module.css';
+import style from './index.module.css';
 import SttTypeSelect from './select-stt-json-type';
 import ExportFormatSelect from './select-export-format';
 
@@ -74,30 +75,25 @@ class App extends React.Component {
     fr.readAsText(file);
   }
 
-  handleIsTextEditable = (e) => {
-    this.setState((prevState, props) => ({ isTextEditable: (prevState.isTextEditable) !== true }))
+  handleIsTextEditable = () => {
+    this.setState((prevState) => ({ isTextEditable: (prevState.isTextEditable) !== true }));
   }
 
   // https://stackoverflow.com/questions/21733847/react-jsx-selecting-selected-on-selected-select-option
   handleSttTypeChange = (event) => {
-    console.log(event.target.name, event.target.value)
+    console.log(event.target.name, event.target.value);
     this.setState({ [event.target.name]: event.target.value });
   }
 
   handleExportFormatChange = (event) => {
-    console.log(event.target.name, event.target.value)
+    console.log(event.target.name, event.target.value);
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  exportTranscript = (exportFormat) => {
-    const {data, ext} = this.refs.transcriptEditor.exportData(this.state.exportFormat);
-    this.download(data, `${ this.state.mediaUrl }.${ext}`);
-  }
-
-  getEditorContent = () => {
-    const tmpEditorsContent = this.refs.transcriptEditor.getEditorContent(this.state.sttType);
-
-    this.download(JSON.stringify(tmpEditorsContent, null, 2), `${ this.state.mediaUrl }.json`)
+  exportTranscript = () => {
+    // eslint-disable-next-line react/no-string-refs
+    const { data, ext } = this.refs.transcriptEditor.getEditorContent(this.state.exportFormat);
+    this.download(data, `${ this.state.mediaUrl }.${ ext }`);
   }
 
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
@@ -113,44 +109,43 @@ class App extends React.Component {
 
    clearLocalStorage = () => {
      localStorage.clear();
-      console.info('cleared local storage')
+     console.info('cleared local storage');
    }
 
    render() {
      return (
-       <div className={ styles.container }>
-         <span className={ styles.title }>
+       <div className={ style.container }>
+         <span className={ style.title }>
             Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
            <a
-              href="https://github.com/bbc/react-transcript-editor"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+             href="https://github.com/bbc/react-transcript-editor"
+             rel="noopener noreferrer"
+             target="_blank"
+           >
             Github Repo
            </a>
          </span>
          <br />
          <button onClick={ () => this.loadDemo() }>load demo</button>
-
-         <br />
+         <hr />
          <label>open Transcript Json</label>
-         <input
-          type="file"
-          onChange={ e => this.handleChangeLoadTranscriptJson(e.target.files) }
-        />
          <SttTypeSelect
-          name={ 'sttType' }
-          value={ this.state.sttType }
-          handleChange={ this.handleSttTypeChange }
+           name={ 'sttType' }
+           value={ this.state.sttType }
+           handleChange={ this.handleSttTypeChange }
+         />
+         <input
+           type="file"
+           onChange={ e => this.handleChangeLoadTranscriptJson(e.target.files) }
          />
 
          <br />
          <label>Load Local Media</label>
          <input
-              type="file"
-              onChange={ e => this.handleChangeLoadMedia(e.target.files) }
-            />
-         <br />
+           type="file"
+           onChange={ e => this.handleChangeLoadMedia(e.target.files) }
+         />
+         or 
          <button onClick={ () => this.handleChangeLoadMediaUrl() }>
           Load Media From Url
          </button>
@@ -158,33 +153,33 @@ class App extends React.Component {
          <br />
          <label>Export transcript</label>
          <button onClick={ () => this.exportTranscript() }>Export file</button>
+
          <ExportFormatSelect
-          name={ 'exportFormat' }
-          value={ this.state.exportFormat }
-          handleChange={ this.handleExportFormatChange }
+           name={ 'exportFormat' }
+           value={ this.state.exportFormat }
+           handleChange={ this.handleExportFormatChange }
          />
-
-         <p>Text Is Editable
-           <label className={ styles.switch }>
-             <input type="checkbox"
-              defaultChecked="true"
-              onChange={ this.handleIsTextEditable }
-              />
-             <span className={ styles.slider }></span>
-           </label>
-         </p>
-         <button onClick={ () => this.getEditorContent() }>Get Data from Editor</button>
-
+         <br />
+         <label>Text Is Editable</label>
+         <label className={ style.switch }>
+           <input type="checkbox"
+             defaultChecked="true"
+             onChange={ this.handleIsTextEditable }
+           />
+           <span className={ style.slider }></span>
+         </label>
+         <br />
          <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
          <hr/>
 
          <TranscriptEditor
-          transcriptData={ this.state.transcriptData }
-          mediaUrl={ this.state.mediaUrl }
-          isEditable={ this.state.isTextEditable }
-          sttJsonType={ this.state.sttType }
-          ref={ 'transcriptEditor' }
-        />
+           transcriptData={ this.state.transcriptData }
+           mediaUrl={ this.state.mediaUrl }
+           isEditable={ this.state.isTextEditable }
+           sttJsonType={ this.state.sttType }
+           // eslint-disable-next-line react/no-string-refs
+           ref={ 'transcriptEditor' }
+         />
        </div>
      );
    }

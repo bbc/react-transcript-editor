@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import styles from './VolumeControl.module.css';
 class VolumeControl extends React.Component {
 
-    render() {
-        return (
-          <div>
-            <p className={ styles.helpText }>Volume</p>
-            <label className={ styles.switch }>
-              <input type="checkbox"
-                defaultChecked="true"
-                onChange={ this.props.handleMuteVolume }
-                />
-              <span className={ styles.slider }></span>
-            </label>
-          </div>
-        );
-    }
+  render() {
+    return (
+      <div className={ styles.volumeSwitchContainer }>
+        <label className={ styles.switch }>
+          <input type="checkbox"
+            defaultChecked="true"
+            onChange={ this.props.handleMuteVolume }
+          />
+          <span className={ styles.slider }></span>
+        </label>
+        <label className={ styles.label }>Volume</label>
+      </div>
+    );
+  }
 }
 
 VolumeControl.propTypes = {

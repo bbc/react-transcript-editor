@@ -7,9 +7,9 @@ describe('bbcKaldiToDraft', () => {
   const result = autoEdit2ToDraft(autoEdit2TedTalkTranscript, 'text');
   it('Should be defined', ( ) => {
     expect(result).toBeDefined();
-  })
+  });
 
   it('Should be equal to expected value', ( ) => {
     expect(result).toEqual(draftTranscriptExample);
-  })
-})
+  });
+});

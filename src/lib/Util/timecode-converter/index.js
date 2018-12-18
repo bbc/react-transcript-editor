@@ -20,10 +20,18 @@ const timecodeToSeconds = (time) => {
   if (typeof time === 'string') {
     const resultPadded = padTimeToTimecode(time);
     const resultConverted = timecodeToSecondsHelper(resultPadded);
+
     return resultConverted;
   }
+
   // assuming it receive timecode as seconds as string '600'
   return parseFloat(time);
-}
+};
 
-export { secondsToTimecode, timecodeToSeconds }
+const shortTimecode = (time) => {
+  const timecode = secondsToTimecode(time);
+
+  return timecode.slice(0, -3);
+};
+
+export { secondsToTimecode, timecodeToSeconds, shortTimecode };

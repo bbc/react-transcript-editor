@@ -9,9 +9,9 @@ describe('bbcKaldiToDraft', () => {
   const result = bbcKaldiToDraft(kaldiTedTalkTranscript);
   it('Should be defined', ( ) => {
     expect(result).toBeDefined();
-  })
+  });
 
-it('Should be equal to expected value', ( ) => {
+  it('Should be equal to expected value', ( ) => {
     expect(result).toEqual(draftTranscriptExample);
-  })
-})
+  });
+});

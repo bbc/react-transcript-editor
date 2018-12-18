@@ -82,22 +82,22 @@ describe('Generate Entity Ranges', () => {
   const resultFirstElement = result[0];
   it('Should be defined', ( ) => {
     expect(result).toBeDefined();
-  })
+  });
 
   it('Should return a list of entities', ( ) => {
     expect(result).toEqual(expectedValue);
-  })
+  });
   it('Should have expected attributes', ( ) => {
-    expect(resultFirstElement).toHaveProperty('start')
-    expect(resultFirstElement).toHaveProperty('end')
-    expect(resultFirstElement).toHaveProperty('confidence')
-    expect(resultFirstElement).toHaveProperty('text')
-    expect(resultFirstElement).toHaveProperty('offset')
-    expect(resultFirstElement).toHaveProperty('length')
-    expect(resultFirstElement).toHaveProperty('key')
-  })
+    expect(resultFirstElement).toHaveProperty('start');
+    expect(resultFirstElement).toHaveProperty('end');
+    expect(resultFirstElement).toHaveProperty('confidence');
+    expect(resultFirstElement).toHaveProperty('text');
+    expect(resultFirstElement).toHaveProperty('offset');
+    expect(resultFirstElement).toHaveProperty('length');
+    expect(resultFirstElement).toHaveProperty('key');
+  });
 
   it('Should return a list of entities', ( ) => {
     expect(typeof resultFirstElement.key).toBe('string');
-  })
-})
+  });
+});
