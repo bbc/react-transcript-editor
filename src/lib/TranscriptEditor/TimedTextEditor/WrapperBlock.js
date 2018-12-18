@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { EditorBlock, Modifier, convertToRaw, EditorState, Editor, SelectionState } from 'draft-js';
+import { EditorBlock, Modifier, EditorState, SelectionState } from 'draft-js';
 
 import SpeakerLabel from './SpeakerLabel';
-import { secondsToTimecode } from '../../Util/timecode-converter/';
+import { shortTimecode } from '../../Util/timecode-converter/';
 
 import style from './WrapperBlock.module.css';
 
@@ -18,7 +17,7 @@ class WrapperBlock extends React.Component {
   }
 
   componentDidMount() {
-    const { block, contentState, editorState } = this.props;
+    const { block } = this.props;
     const speaker = block.getData().get('speaker');
 
     const start = block.getData().get('start');
@@ -28,7 +27,7 @@ class WrapperBlock extends React.Component {
     });
   }
 
-  handleOnClickEdit = (e) => {
+  handleOnClickEdit = () => {
     const newSpeakerName = prompt('New Speaker Name?');
     if (newSpeakerName !== '' && newSpeakerName !== null) {
       this.setState({ speaker: newSpeakerName });
@@ -61,8 +60,7 @@ class WrapperBlock extends React.Component {
     }
   }
 
-  handleTimecodeClick = (e) => {
-    // convert to seconds
+  handleTimecodeClick = () => {
     this.props.blockProps.onWordClick(this.state.start);
   }
 
@@ -74,7 +72,7 @@ class WrapperBlock extends React.Component {
             name={ this.state.speaker }
             handleOnClickEdit={ this.handleOnClickEdit }
           />
-          <span className={ style.time } onClick={ this.handleTimecodeClick }>{secondsToTimecode(this.state.start)}</span>
+          <span className={ style.time } onClick={ this.handleTimecodeClick }>{shortTimecode(this.state.start)}</span>
         </div>
         <div className={ style.text }>
           <EditorBlock { ...this.props } />

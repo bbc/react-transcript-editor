@@ -40,6 +40,7 @@
   width: 30%;
   font-weight: lighter;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .EditLabel {

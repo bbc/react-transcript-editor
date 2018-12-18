@@ -28,4 +28,10 @@ const timecodeToSeconds = (time) => {
   return parseFloat(time);
 };
 
-export { secondsToTimecode, timecodeToSeconds };
+const shortTimecode = (time) => {
+  const timecode = secondsToTimecode(time);
+
+  return timecode.slice(0, -3);
+};
+
+export { secondsToTimecode, timecodeToSeconds, shortTimecode };

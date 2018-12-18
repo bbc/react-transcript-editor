@@ -44,8 +44,8 @@ class PlayerControls extends React.Component {
 
         <button
           className={ style.playerButton }
-          onClick={ (e) => { this.props.playMedia(e); } }>
-          {this.props.isPlaying() ? '❚❚' : '▶'}
+          onClick={ this.props.playMedia }>
+          {this.props.isPlaying ? '❚❚' : '▶'}
         </button>
 
         <button
@@ -75,7 +75,11 @@ PlayerControls.propTypes = {
   timecodeOffset: PropTypes.string,
   promptSetCurrentTime: PropTypes.func,
   rollback: PropTypes.func,
-  handleMuteVolume: PropTypes.handleMuteVolume
+  handleMuteVolume: PropTypes.func,
+  duration: PropTypes.string,
+  isPlaying: PropTypes.bool,
+  skipBackward: PropTypes.func,
+  skipForward: PropTypes.func
 };
 
 export default PlayerControls;

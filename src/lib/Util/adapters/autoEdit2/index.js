@@ -31,9 +31,9 @@
 import generateEntitiesRanges from '../generate-entities-ranges/index';
 
 /**
- * groups words list from kaldi transcript based on punctuation.
+ * groups words list from autoEdit transcript based on punctuation.
  * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
- * @param {array} words - array of words opbjects from kaldi transcript
+ * @param {array} words - array of words objects from autoEdit transcript
  */
 
 const groupWordsInParagraphs = (autoEditText) => {
@@ -74,12 +74,14 @@ const autoEdit2ToDraft = (autoEdit2Json) => {
   const tmpWords = autoEdit2Json.text;
   const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
 
-  wordsByParagraphs.forEach((paragraph) => {
+  wordsByParagraphs.forEach((paragraph, i) => {
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
       type: 'paragraph',
       data: {
-        speaker: 'TBC',
+        speaker: `TBC ${ i }`,
+        words: paragraph.words, 
+        start: paragraph.words[0].start
       },
       // the entities as ranges are each word in the space-joined text,
       // so it needs to be compute for each the offset from the beginning of the paragraph and the length
@@ -88,7 +90,7 @@ const autoEdit2ToDraft = (autoEdit2Json) => {
     // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
     results.push(draftJsContentBlockParagraph);
   });
-  
+
   // console.log(JSON.stringify(results,null,2))
   return results;
 };
