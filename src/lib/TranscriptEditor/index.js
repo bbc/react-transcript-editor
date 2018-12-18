@@ -20,7 +20,7 @@ class TranscriptEditor extends React.Component {
       isScrollIntoViewOn: false,
       showSettings: false,
       isPauseWhileTypingOn: true,
-      rollBackValueInSeconds: 16,
+      rollBackValueInSeconds: 15,
       timecodeOffset: 0
     };
   }
