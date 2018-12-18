@@ -78,6 +78,7 @@ class TranscriptEditor extends React.Component {
 
   handleRollBackValueInSeconds = (e) => {
     const rollBackValue = e.target.value;
+    console.log(rollBackValue);
     this.setState({ rollBackValueInSeconds: rollBackValue });
   }
 

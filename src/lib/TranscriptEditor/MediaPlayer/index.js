@@ -37,7 +37,8 @@ class MediaPlayer extends React.Component {
       }
       
       return {
-        timecodeOffset: newCurrentTimeInSeconds
+        timecodeOffset: newCurrentTimeInSeconds,
+        rollBackValueInSeconds: nextProps.rollBackValueInSeconds
       };
     }
 
