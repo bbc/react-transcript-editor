@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 class Word extends PureComponent {
   generateConfidence = (data) => {
-    return data.confidence > 0.6 ? 'high' : 'low';
+    // handling edge case where confidence score not present
+    if (data.confidence) {
+      return  data.confidence > 0.6 ? 'high' : 'low';
+    }
+    // if confidence score not present then mark all as high
+    return 'high';
   }
 
   generatePreviousTimes = (data) => {
