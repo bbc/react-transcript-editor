@@ -7,7 +7,6 @@ import {
   CompositeDecorator,
   convertFromRaw,
   convertToRaw,
-  KeyBindingUtil,
   getDefaultKeyBinding,
   Modifier
 } from 'draft-js';
@@ -18,8 +17,6 @@ import WrapperBlock from './WrapperBlock';
 import sttJsonAdapter from '../../Util/adapters/index.js';
 import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
-
-const { hasCommandModifier } = KeyBindingUtil;
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -220,7 +217,7 @@ class TimedTextEditor extends React.Component {
       }
     }
     
-    if (currentWord.start !== 'NA'){
+    if (currentWord.start !== 'NA') {
       if (this.props.isScrollIntoViewOn) {
         const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
         currentWordElement.scrollIntoView({ block: 'center', inline: 'center' });
@@ -285,13 +282,13 @@ class TimedTextEditor extends React.Component {
       let entityKey = originalBlock.getEntityAt(currentSelection.getStartOffset());
       // if there is no word entity associated with a char then there is no entity key 
       // at that selection point
-      if (entityKey === null){
+      if (entityKey === null) {
         const closestEntityToSelection = this.findClosestEntityKeyToSelectionPoint(currentSelection,originalBlock);
         entityKey = closestEntityToSelection.entityKey;
         isEndOfParagraph = closestEntityToSelection.isEndOfParagraph;
         // handle edge case when it doesn't find a closest entity (word) 
         // eg pres enter on an empty line
-        if (entityKey === null){
+        if (entityKey === null) {
           return 'not-handled';
         }
       }
@@ -299,7 +296,7 @@ class TimedTextEditor extends React.Component {
       // can get the word startTime. for the new paragraph.
       const entityInstance = currentContent.getEntity(entityKey);
       const entityData = entityInstance.getData();
-      if (isEndOfParagraph){
+      if (isEndOfParagraph) {
         // if it's end of paragraph use end time of word for new paragraph
         wordStartTime = entityData.end;
       }
@@ -343,11 +340,11 @@ class TimedTextEditor extends React.Component {
     // number of char from selection point to end of paragraph
     const remainingCharNumber = lengthPlainTextForTheBlock - startSelectionOffsetKey;
     // if it's the last char in the paragraph - get previous entity
-    if (remainingCharNumber === 0 ){
+    if (remainingCharNumber === 0 ) {
       isEndOfParagraph = true;
-      for (let j = lengthPlainTextForTheBlock; j >0 ; j--){
+      for (let j = lengthPlainTextForTheBlock; j >0 ; j--) {
         entityKey = originalBlock.getEntityAt(j);
-        if (entityKey!== null){
+        if (entityKey!== null) {
           // if it finds it then return 
           return { entityKey, isEndOfParagraph };
         }
@@ -357,11 +354,11 @@ class TimedTextEditor extends React.Component {
     else {
       console.log('Main part of paragraph');
       let initialSelectionOffset = currentSelection.getStartOffset();
-      for (let i = 0; i < remainingCharNumber ; i++){
+      for (let i = 0; i < remainingCharNumber ; i++) {
         initialSelectionOffset +=i;
         entityKey = originalBlock.getEntityAt(initialSelectionOffset);
         // if it finds it then return 
-        if (entityKey !== null){
+        if (entityKey !== null) {
           return { entityKey, isEndOfParagraph };
         }
       }
