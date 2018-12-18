@@ -56,7 +56,9 @@ class PlayerControls extends React.Component {
         </button>
 
         <div className={ style.timeBox }>
-          <span className={ style.currentTime }>{ this.props.currentTime }</span>
+          <span className={ style.currentTime } 
+            onClick={ this.props.promptSetCurrentTime }
+          >{ this.props.currentTime }</span>
           <span className={ style.separator }>|</span>
           <span className={ style.duration }>{this.props.duration}</span>
         </div>

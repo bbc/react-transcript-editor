@@ -28,10 +28,7 @@ class Settings extends React.Component {
           <section className={ style.settingElement }>
             <label>RollBack Interval, seconds</label>
             <input type="text" value={ '15' } name="lname"/>
-          </section>
-          <section className={ style.settingElement }>
-            <label>Timecode Offset ℹ </label>
-            <input type="text" value="00:00:00:00" name="lname"/>
+            <input type="range" value="15" min="1" max="60" step="1"/>
           </section>
           <section className={ style.settingElement }>
             <label>Hide Timecodes</label>
@@ -46,6 +43,11 @@ class Settings extends React.Component {
               label={ 'Hide Speaker Labels' } 
               handleToggle={ () => {console.log('Hide Speaker Labels toggle');} }
             />
+          </section>
+          <section className={ style.settingElement }>
+            <label>Timecode Offset ℹ </label>
+            <input type="text" value="00:00:00:00" name="lname"/>
+            <small><a>reset</a></small>
           </section>
         </div>
       </div>

@@ -27,6 +27,7 @@
 
 .currentTime {
   color: color-labs-red;
+  cursor: pointer;
 }
 
 .separator {

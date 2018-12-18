@@ -49,6 +49,7 @@ class MediaPlayer extends React.Component {
   }
 
   promptSetCurrentTime = () => {
+    console.log('promptSetCurrentTime');
     this.setCurrentTime( prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds'));
   }
 
