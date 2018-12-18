@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './VolumeControl.module.css';
-class VolumeControl extends React.Component {
+import styles from './index.module.css';
+class Toggle extends React.Component {
 
   render() {
     return (
@@ -9,18 +9,19 @@ class VolumeControl extends React.Component {
         <label className={ styles.switch }>
           <input type="checkbox"
             defaultChecked="true"
-            onChange={ this.props.handleMuteVolume }
+            onChange={ this.props.handleToggle }
           />
           <span className={ styles.slider }></span>
         </label>
-        <label className={ styles.label }>Volume</label>
+        {/* <label className={ styles.label }>{this.props.label}</label> */}
       </div>
     );
   }
 }
 
-VolumeControl.propTypes = {
-  handleMuteVolume: PropTypes.func
+Toggle.propTypes = {
+  handleToggle: PropTypes.func,
+  label: PropTypes.string
 };
 
-export default VolumeControl;
+export default Toggle;

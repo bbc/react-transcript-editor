@@ -1,4 +1,4 @@
-@value color-labs-red from '../colours.module.css';
+@value color-labs-red from '../../colours.module.css';
 
 .switchContainer {
   display: inline-block;
