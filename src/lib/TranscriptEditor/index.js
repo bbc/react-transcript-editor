@@ -94,7 +94,7 @@ class TranscriptEditor extends React.Component {
           { this.props.mediaUrl ? mediaPlayer : null }
         </aside>
 
-        <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }> Settings </button>
+        <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }> ⚙ </button>
         { this.state.showSettings? <Settings/> : null }
 
         <main className={ style.main }>
