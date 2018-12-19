@@ -24,8 +24,8 @@ class TranscriptEditor extends React.Component {
       isPauseWhileTypingOn: true,
       rollBackValueInSeconds: 15,
       timecodeOffset: 0,
-      showTimecodes: false,
-      showSpeakers: false
+      showTimecodes: true,
+      showSpeakers: true
     };
   }
 
