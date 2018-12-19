@@ -19,9 +19,9 @@ class TimecodeOffset extends React.Component {
     }
 
     resetTimecodeOffset = () => {
-      const resetTimecodeOffsetValue = '00:00:00:00';
+      const resetTimecodeOffsetValue = 0;
       this.setState({
-        timecodeOffset: resetTimecodeOffsetValue
+        timecodeOffset: secondsToTimecode(resetTimecodeOffsetValue)
       },() => {
         this.props.handleSetTimecodeOffset(resetTimecodeOffsetValue);
       });
