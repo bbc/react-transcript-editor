@@ -27,6 +27,7 @@ class TimedTextEditor extends React.Component {
       transcriptData: this.props.transcriptData,
       isEditable: this.props.isEditable,
       sttJsonType: this.props.sttJsonType,
+      timecodeOffset: this.props.timecodeOffset,
       inputCount: 0,
       currentWord: {}
     };
@@ -41,6 +42,7 @@ class TimedTextEditor extends React.Component {
       return {
         transcriptData: nextProps.transcriptData,
         isEditable: nextProps.isEditable,
+        timecodeOffset: nextProps.timecodeOffset
       };
     }
 
@@ -316,10 +318,13 @@ class TimedTextEditor extends React.Component {
   }
 
   renderBlockWithTimecodes = () => {
+    console.log('this.props.timecodeOffset',this.props.timecodeOffset);
+    
     return {
       component: WrapperBlock,
       editable: true,
       props: {
+        timecodeOffset: this.props.timecodeOffset,
         editorState: this.state.editorState,
         setEditorNewContentState: this.setEditorNewContentState,
         onWordClick: this.props.onWordClick
@@ -433,7 +438,8 @@ TimedTextEditor.propTypes = {
   playMedia: PropTypes.func,
   currentTime: PropTypes.number,
   isScrollIntoViewOn: PropTypes.bool,
-  isPauseWhileTypingOn: PropTypes.bool
+  isPauseWhileTypingOn: PropTypes.bool,
+  timecodeOffset: PropTypes.number
 };
 
 export default TimedTextEditor;

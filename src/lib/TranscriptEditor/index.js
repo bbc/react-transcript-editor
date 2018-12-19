@@ -85,6 +85,7 @@ class TranscriptEditor extends React.Component {
   }
 
   handleSetTimecodeOffset = (timecodeOffset) => {
+    console.log('TranscriptEditor',timecodeOffset );
     this.setState({ timecodeOffset: timecodeOffset });
     // this.refs.MediaPlayer.setTimeCodeOffset('01:00:00:00');
   }
@@ -151,6 +152,7 @@ class TranscriptEditor extends React.Component {
         <main className={ style.main }>
           <TimedTextEditor
             transcriptData={ this.state.transcriptData }
+            timecodeOffset={ this.state.timecodeOffset }
             onWordClick={ this.handleWordClick }
             playMedia={ this.handlePlayMedia }
             isPlaying={ this.handleIsPlaying }
