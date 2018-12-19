@@ -28,11 +28,13 @@ class WrapperBlock extends React.Component {
     return null;
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.transcriptData !== this.state.transcriptData) {
-  //     this.loadData();
-  //   }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate ',prevProps, this.state.timecodeOffset);
+  // if (prevProps.blockProps.timecodeOffset !== this.state.timecodeOffset) {
+  // this.setState({ timecodeOffset: this.prevProps.blockProps.timecodeOffset });
   // }
+  // return true
+  }
 
   componentDidMount() {
     const { block } = this.props;
@@ -86,10 +88,10 @@ class WrapperBlock extends React.Component {
   render() {
     let startTimecode = this.state.start; 
     if ( this.props.blockProps.timecodeOffset) {
-      console.log(' this.props.blockProps.timecodeOffset: ', this.props.blockProps.timecodeOffset);
+      // console.log(' this.props.blockProps.timecodeOffset: ', this.props.blockProps.timecodeOffset);
       startTimecode +=  this.props.blockProps.timecodeOffset;
     }
-    console.log('startTimecode: ',startTimecode);
+    // console.log('startTimecode: ',startTimecode);
     
     return (
       <div className={ style.WrapperBlock }>

@@ -53,6 +53,9 @@ class TimedTextEditor extends React.Component {
     if (prevState.transcriptData !== this.state.transcriptData) {
       this.loadData();
     }
+    if (prevState.timecodeOffset !== this.state.timecodeOffset) {
+      return true;
+    }
   }
 
   onChange = (editorState) => {
