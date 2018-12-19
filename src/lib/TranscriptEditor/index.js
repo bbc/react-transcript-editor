@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
 import Settings from './Settings';
-
+import KeyboardShortcutHelp from './KeyboardShortcutHelp';
 import style from './index.module.css';
 import styleSettings from './Settings/index.module.css';
-import { timecodeToSeconds } from '../Util/timecode-converter/index';
+import KeyboardShortcutHelpSettings from './KeyboardShortcutHelp/index.module.css';
+// import { timecodeToSeconds } from '../Util/timecode-converter/index';
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class TranscriptEditor extends React.Component {
       transcriptData: null,
       isScrollIntoViewOn: false,
       showSettings: false,
+      showKeyboardShortcutsHelp: false,
       isPauseWhileTypingOn: true,
       rollBackValueInSeconds: 15,
       timecodeOffset: 0
@@ -98,6 +100,12 @@ class TranscriptEditor extends React.Component {
     }));
   }
 
+  handleKeyboardShortcutsHelpToggle = () => {
+    this.setState(prevState => ({
+      showKeyboardShortcutsHelp: !prevState.showKeyboardShortcutsHelp
+    }));
+  }
+
   render() {
     const mediaPlayer = <MediaPlayer
       ref={ 'MediaPlayer' }
@@ -123,6 +131,11 @@ class TranscriptEditor extends React.Component {
         handleSetTimecodeOffset={ this.handleSetTimecodeOffset }
       /> 
     </div>;
+
+    const KeyboardShortcutHelpElement = <div className={ KeyboardShortcutHelpSettings.settings }>
+      <span  onClick={ this.handleKeyboardShortcutsHelpToggle }>X</span>
+      <KeyboardShortcutHelp />
+    </div>;
     
     return (
       <div className={ style.container }>
@@ -132,6 +145,8 @@ class TranscriptEditor extends React.Component {
 
         <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }> ⚙ </button>
         { this.state.showSettings? settings : null }
+        <button className={ style.settingsButton } onClick={ this.handleKeyboardShortcutsHelpToggle }> ℹ </button>
+        { this.state.showKeyboardShortcutsHelp? KeyboardShortcutHelpElement : null }
 
         <main className={ style.main }>
           <TimedTextEditor
