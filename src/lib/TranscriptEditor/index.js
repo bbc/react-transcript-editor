@@ -23,7 +23,9 @@ class TranscriptEditor extends React.Component {
       showKeyboardShortcutsHelp: false,
       isPauseWhileTypingOn: true,
       rollBackValueInSeconds: 15,
-      timecodeOffset: 0
+      timecodeOffset: 0,
+      showTimecodes: false,
+      showSpeakers: false
     };
   }
 
@@ -90,6 +92,18 @@ class TranscriptEditor extends React.Component {
     // this.refs.MediaPlayer.setTimeCodeOffset('01:00:00:00');
   }
 
+  handleShowTimecodes = (e) => {
+    console.log(e);
+    const isChecked = e.target.checked;
+    this.setState({ showTimecodes: isChecked });
+  }
+
+  handleShowSpeakers = (e) => {
+    console.log(e);
+    const isChecked = e.target.checked;
+    this.setState({ showSpeakers: isChecked });
+  }
+
   getEditorContent = (exportFormat) => {
     // eslint-disable-next-line react/no-string-refs
     return this.refs.timedTextEditor.getEditorContent(exportFormat);
@@ -126,10 +140,14 @@ class TranscriptEditor extends React.Component {
         defaultvalueScrollSync={ this.state.isScrollIntoViewOn }
         defaultRollBackValueInSeconds={ this.state.rollBackValueInSeconds }
         timecodeOffset={ this.state.timecodeOffset }
+        showTimecodes={ this.state.showTimecodes }
+        showSpeakers={ this.state.showSpeakers }
         handlePauseWhileTyping={ this.handlePauseWhileTyping }
         handleIsScrollIntoViewChange={ this.handleIsScrollIntoViewChange }
         handleRollBackValueInSeconds={ this.handleRollBackValueInSeconds }
         handleSetTimecodeOffset={ this.handleSetTimecodeOffset }
+        handleShowTimecodes={ this.handleShowTimecodes }
+        handleShowSpeakers={ this.handleShowSpeakers }
       /> 
     </div>;
 
@@ -163,6 +181,8 @@ class TranscriptEditor extends React.Component {
             mediaUrl={ this.props.mediaUrl }
             isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
             isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
+            showTimecodes={ this.state.showTimecodes }
+            showSpeakers={ this.state.showSpeakers }
           />
         </main>
       </div>

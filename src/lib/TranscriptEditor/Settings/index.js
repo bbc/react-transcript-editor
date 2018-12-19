@@ -41,14 +41,14 @@ class Settings extends React.Component {
             <label>Hide Timecodes</label>
             <Toggle 
               label={ 'Hide Timecodes' } 
-              handleToggle={ () => {console.log('Hide Timecodes toggle');} }
+              handleToggle={ this.props.handleShowTimecodes }
             />
           </section>
           <section className={ style.settingElement }>
             <label>Hide Speaker Labels</label>
             <Toggle 
               label={ 'Hide Speaker Labels' } 
-              handleToggle={ () => {console.log('Hide Speaker Labels toggle');} }
+              handleToggle={ this.props.handleShowSpeakers }
             />
           </section>
           <TimecodeOffset 

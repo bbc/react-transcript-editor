@@ -92,16 +92,19 @@ class WrapperBlock extends React.Component {
       startTimecode +=  this.props.blockProps.timecodeOffset;
     }
     // console.log('startTimecode: ',startTimecode);
-    
+    const speakerElement = <SpeakerLabel
+      name={ this.state.speaker }
+      handleOnClickEdit={ this.handleOnClickEdit }
+    />;
+
+    const timecodeElement =  <span className={ style.time } onClick={ this.handleTimecodeClick }>{shortTimecode(startTimecode)}</span>;
+
     return (
       <div className={ style.WrapperBlock }>
         <div className={ style.markers }>
-          <SpeakerLabel
-            name={ this.state.speaker }
-            handleOnClickEdit={ this.handleOnClickEdit }
-          />
-          <span className={ style.time } onClick={ this.handleTimecodeClick }>{shortTimecode(startTimecode)}</span>
-          
+          {this.props.blockProps.showSpeakers? speakerElement: ''}
+         
+          {this.props.blockProps.showTimecodes? timecodeElement: ''}
         </div>
         <div className={ style.text }>
           <EditorBlock { ...this.props } />

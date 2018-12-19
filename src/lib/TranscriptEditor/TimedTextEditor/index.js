@@ -17,6 +17,7 @@ import WrapperBlock from './WrapperBlock';
 import sttJsonAdapter from '../../Util/adapters/index.js';
 import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
+import { throws } from 'assert';
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -327,6 +328,8 @@ class TimedTextEditor extends React.Component {
       component: WrapperBlock,
       editable: true,
       props: {
+        showSpeakers: this.props.showSpeakers,
+        showTimecodes: this.props.showTimecodes,
         timecodeOffset: this.props.timecodeOffset,
         editorState: this.state.editorState,
         setEditorNewContentState: this.setEditorNewContentState,
