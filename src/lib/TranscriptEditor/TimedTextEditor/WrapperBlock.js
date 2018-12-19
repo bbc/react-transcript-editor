@@ -30,10 +30,11 @@ class WrapperBlock extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log('componentDidUpdate ',prevProps, this.state.timecodeOffset);
-  // if (prevProps.blockProps.timecodeOffset !== this.state.timecodeOffset) {
-  // this.setState({ timecodeOffset: this.prevProps.blockProps.timecodeOffset });
-  // }
-  // return true
+    if (prevProps.blockProps.timecodeOffset !== prevState.timecodeOffset) {
+      // this.setState({ timecodeOffset: this.prevProps.blockProps.timecodeOffset });
+      return true; 
+    }
+ 
   }
 
   componentDidMount() {

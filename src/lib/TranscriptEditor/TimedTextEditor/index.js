@@ -29,6 +29,8 @@ class TimedTextEditor extends React.Component {
       isEditable: this.props.isEditable,
       sttJsonType: this.props.sttJsonType,
       timecodeOffset: this.props.timecodeOffset,
+      showSpeakers: this.props.showSpeakers,
+      showTimecodes: this.props.showTimecodes,
       inputCount: 0,
       currentWord: {}
     };
@@ -40,10 +42,14 @@ class TimedTextEditor extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.transcriptData !== null) {
+      console.log('TimedTextEditor getDerivedStateFromProps', nextProps);
+      
       return {
         transcriptData: nextProps.transcriptData,
         isEditable: nextProps.isEditable,
-        timecodeOffset: nextProps.timecodeOffset
+        timecodeOffset: nextProps.timecodeOffset,
+        showSpeakers: nextProps.showSpeakers,
+        showTimecodes: nextProps.showTimecodes
       };
     }
 
@@ -54,8 +60,17 @@ class TimedTextEditor extends React.Component {
     if (prevState.transcriptData !== this.state.transcriptData) {
       this.loadData();
     }
-    if (prevState.timecodeOffset !== this.state.timecodeOffset) {
-      return true;
+    if (prevState.timecodeOffset !== this.state.timecodeOffset
+      || prevState.showSpeakers !== this.state.showSpeakers
+      || prevState.showTimecodes !== this.state.showTimecodes) {
+      // forcing a re-render is an expensive operation and 
+      // there might be a way of optimising this at a later refactor (?)
+      // the issue is that WrapperBlock is not update on TimedTextEditor 
+      // state change otherwise.
+      // for now compromising on this, as setting timecode offset, and 
+      // display preferences for speakers and timecodes are not expected to 
+      // be very frequent operations but rather one time setup in most cases.
+      this.forceRenderDecorator();
     }
   }
 
@@ -170,6 +185,24 @@ class TimedTextEditor extends React.Component {
     // eslint-disable-next-line no-use-before-define
     const editorState = EditorState.createWithContent(contentState, decorator);
     this.setState({ editorState });
+  }
+
+  // Helper function to re-render this component
+  // used to re-render WrapperBlock on timecode offset change
+  // or when show / hide preferences for speaker labels and timecodes change
+  forceRenderDecorator= () => {
+    // const { editorState, updateEditorState } = this.props;
+    const contentState =   this.state.editorState.getCurrentContent();
+    const decorator =   this.state.editorState.getDecorator();
+  
+    const newState = EditorState.createWithContent(
+      contentState,
+      decorator
+    );
+  
+    // this.setEditorNewContentState(newState);
+    const newEditorState = EditorState.push(newState, contentState);
+    this.setState({ editorState: newEditorState });
   }
 
   /**
@@ -328,9 +361,9 @@ class TimedTextEditor extends React.Component {
       component: WrapperBlock,
       editable: true,
       props: {
-        showSpeakers: this.props.showSpeakers,
-        showTimecodes: this.props.showTimecodes,
-        timecodeOffset: this.props.timecodeOffset,
+        showSpeakers: this.state.showSpeakers,
+        showTimecodes: this.state.showTimecodes,
+        timecodeOffset: this.state.timecodeOffset,
         editorState: this.state.editorState,
         setEditorNewContentState: this.setEditorNewContentState,
         onWordClick: this.props.onWordClick
