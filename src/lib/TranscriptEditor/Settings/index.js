@@ -40,6 +40,7 @@ class Settings extends React.Component {
           <section className={ style.settingElement }>
             <label>Hide Timecodes</label>
             <Toggle 
+              defaultValue={ this.props.showTimecodes }
               label={ 'Hide Timecodes' } 
               handleToggle={ this.props.handleShowTimecodes }
             />
@@ -47,6 +48,7 @@ class Settings extends React.Component {
           <section className={ style.settingElement }>
             <label>Hide Speaker Labels</label>
             <Toggle 
+              defaultValue={ this.props.showSpeakers }
               label={ 'Hide Speaker Labels' } 
               handleToggle={ this.props.handleShowSpeakers }
             />
