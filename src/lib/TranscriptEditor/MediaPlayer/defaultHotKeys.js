@@ -22,13 +22,13 @@ function returnHotKeys(self) {
     },
     'ctrl+3': {
       priority: 1,
-      handler: () => { self.decreasePlaybackRate(); console.log('Speed Up - increase playbackRate'); },
-      helperText: 'Speed Up ',
+      handler: () => { self.decreasePlaybackRate(); },
+      helperText: 'Speed Down ',
     },
     'ctrl+4': {
       priority: 1,
-      handler: () => { self.increasePlaybackRate(); console.log('Speed Down - Decrease playbackRate'); },
-      helperText: 'Speed Down',
+      handler: () => { self.increasePlaybackRate(); },
+      helperText: 'Speed Up',
     },
     'ctrl+5': {
       priority: 1,

@@ -10,7 +10,7 @@ class Select extends React.Component {
     });
     
     return (
-      <select className={ style.selectPlayerControl }name={ this.props.name } defaultValue={ this.props.currentValue } onChange={ this.props.handleChange }>
+      <select className={ style.selectPlayerControl }name={ this.props.name } defaultValue={ this.props.currentValue } value={ this.props.currentValue }  onChange={ this.props.handleChange }>
         {options}
       </select>
     );
