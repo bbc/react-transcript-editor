@@ -17,26 +17,6 @@ class WrapperBlock extends React.Component {
     };
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    console.log('getDerivedStateFromProps',nextProps.blockProps );
-    if (nextProps.blockProps.timecodeOffset !== null) {
-      return {
-        timecodeOffset: nextProps.blockProps.timecodeOffset
-      };
-    }
-
-    return null;
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate ',prevProps, this.state.timecodeOffset);
-    if (prevProps.blockProps.timecodeOffset !== prevState.timecodeOffset) {
-      // this.setState({ timecodeOffset: this.prevProps.blockProps.timecodeOffset });
-      return true; 
-    }
- 
-  }
-
   componentDidMount() {
     const { block } = this.props;
     const speaker = block.getData().get('speaker');

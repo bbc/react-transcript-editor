@@ -42,7 +42,6 @@ class TimedTextEditor extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.transcriptData !== null) {
-      console.log('TimedTextEditor getDerivedStateFromProps', nextProps);
       
       return {
         transcriptData: nextProps.transcriptData,
@@ -355,7 +354,6 @@ class TimedTextEditor extends React.Component {
   }
 
   renderBlockWithTimecodes = () => {
-    console.log('this.props.timecodeOffset',this.props.timecodeOffset);
     
     return {
       component: WrapperBlock,

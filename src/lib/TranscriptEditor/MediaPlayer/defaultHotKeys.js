@@ -1,6 +1,6 @@
 function returnHotKeys(self) {
   return {
-    esc: {
+    'esc': {
       priority: 1,
       handler: () => { self.togglePlayMedia(); },
       helperText: 'Play Media',

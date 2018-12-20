@@ -85,9 +85,21 @@ class MediaPlayer extends React.Component {
     }
   }
 
+  /**
+   * Prompts for a time stamp or time code to set media current time
+   * Also handles use can when the user has set a timecode offset via settings
+   * and the prompt is expected to be relative to that offset
+   */
   promptSetCurrentTime = () => {
-    console.log('promptSetCurrentTime');
-    this.setCurrentTime( prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds'));
+    let userTimecodeValue = prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds');
+    if (userTimecodeValue.includes(':')) {
+      userTimecodeValue = timecodeToSeconds(userTimecodeValue);
+    }
+    // remove timecode offset if preset
+    if (this.state.timecodeOffset!== 0) {
+      userTimecodeValue -= this.state.timecodeOffset;
+    }
+    this.setCurrentTime(userTimecodeValue);
   }
 
   setTimeCodeOffset = (newTimeCodeOffSet) => {
