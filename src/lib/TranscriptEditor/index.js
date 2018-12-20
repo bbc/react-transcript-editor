@@ -87,8 +87,8 @@ class TranscriptEditor extends React.Component {
   }
 
   handleSetTimecodeOffset = (timecodeOffset) => {
-    console.log('TranscriptEditor',timecodeOffset );
-    
+    console.log('TranscriptEditor', timecodeOffset );
+
     this.setState({ timecodeOffset: timecodeOffset },
       () => {
         // eslint-disable-next-line react/no-string-refs
@@ -100,7 +100,7 @@ class TranscriptEditor extends React.Component {
   handleShowTimecodes = (e) => {
     console.log(e);
     const isChecked = e.target.checked;
-    this.setState({ showTimecodes: isChecked },() => {
+    this.setState({ showTimecodes: isChecked }, () => {
       // eslint-disable-next-line react/no-string-refs
       // this.refs.timedTextEditor.forceUpdate();
     });
@@ -109,15 +109,10 @@ class TranscriptEditor extends React.Component {
   handleShowSpeakers = (e) => {
     console.log(e);
     const isChecked = e.target.checked;
-    this.setState({ showSpeakers: isChecked },() => {
+    this.setState({ showSpeakers: isChecked }, () => {
       // eslint-disable-next-line react/no-string-refs
       // this.refs.timedTextEditor.forceUpdate();
     });
-  }
-
-  getEditorContent = (exportFormat) => {
-    // eslint-disable-next-line react/no-string-refs
-    // return this.refs.timedTextEditor.getEditorContent(exportFormat);
   }
 
   handleSettingsToggle = () => {
@@ -146,7 +141,7 @@ class TranscriptEditor extends React.Component {
     />;
     const settings = <div className={ styleSettings.settings }>
       <span  onClick={ this.handleSettingsToggle }>X</span>
-      <Settings 
+      <Settings
         defaultValuePauseWhileTyping={ this.state.isPauseWhileTypingOn }
         defaultvalueScrollSync={ this.state.isScrollIntoViewOn }
         defaultRollBackValueInSeconds={ this.state.rollBackValueInSeconds }
@@ -159,14 +154,14 @@ class TranscriptEditor extends React.Component {
         handleSetTimecodeOffset={ this.handleSetTimecodeOffset }
         handleShowTimecodes={ this.handleShowTimecodes }
         handleShowSpeakers={ this.handleShowSpeakers }
-      /> 
+      />
     </div>;
 
     const KeyboardShortcutHelpElement = <div className={ KeyboardShortcutHelpSettings.settings }>
       <span  onClick={ this.handleKeyboardShortcutsHelpToggle }>X</span>
       <KeyboardShortcutHelp />
     </div>;
-    
+
     return (
       <div className={ style.container }>
         <aside className={ style.aside }>

@@ -17,7 +17,6 @@ import WrapperBlock from './WrapperBlock';
 import sttJsonAdapter from '../../Util/adapters/index.js';
 import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
-import { throws } from 'assert';
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -40,9 +39,9 @@ class TimedTextEditor extends React.Component {
     this.loadData();
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps) {
     if (nextProps.transcriptData !== null) {
-      
+
       return {
         transcriptData: nextProps.transcriptData,
         isEditable: nextProps.isEditable,
@@ -62,12 +61,12 @@ class TimedTextEditor extends React.Component {
     if (prevState.timecodeOffset !== this.state.timecodeOffset
       || prevState.showSpeakers !== this.state.showSpeakers
       || prevState.showTimecodes !== this.state.showTimecodes) {
-      // forcing a re-render is an expensive operation and 
+      // forcing a re-render is an expensive operation and
       // there might be a way of optimising this at a later refactor (?)
-      // the issue is that WrapperBlock is not update on TimedTextEditor 
+      // the issue is that WrapperBlock is not update on TimedTextEditor
       // state change otherwise.
-      // for now compromising on this, as setting timecode offset, and 
-      // display preferences for speakers and timecodes are not expected to 
+      // for now compromising on this, as setting timecode offset, and
+      // display preferences for speakers and timecodes are not expected to
       // be very frequent operations but rather one time setup in most cases.
       this.forceRenderDecorator();
     }
@@ -96,7 +95,7 @@ class TimedTextEditor extends React.Component {
     }
 
     if (this.state.isEditable) {
-      this.setState((prevState, props) => ({
+      this.setState((prevState) => ({
         editorState,
         inputCount: prevState.inputCount + 1,
       }), () => {
@@ -121,7 +120,7 @@ class TimedTextEditor extends React.Component {
 
   getEditorContent(exportFormat) {
     const format = exportFormat || 'draftjs';
-    
+
     return exportAdapter(convertToRaw(this.state.editorState.getCurrentContent()), format);
   }
 
@@ -193,12 +192,12 @@ class TimedTextEditor extends React.Component {
     // const { editorState, updateEditorState } = this.props;
     const contentState =   this.state.editorState.getCurrentContent();
     const decorator =   this.state.editorState.getDecorator();
-  
+
     const newState = EditorState.createWithContent(
       contentState,
       decorator
     );
-  
+
     // this.setEditorNewContentState(newState);
     const newEditorState = EditorState.push(newState, contentState);
     this.setState({ editorState: newEditorState });
@@ -231,7 +230,7 @@ class TimedTextEditor extends React.Component {
     if (command === 'split-paragraph') {
       this.splitParagraph();
     }
-    
+
     return 'not-handled';
   }
 
@@ -265,13 +264,13 @@ class TimedTextEditor extends React.Component {
       // identify the entity (word) at the selection/cursor point on split.
       // eslint-disable-next-line prefer-const
       let entityKey = originalBlock.getEntityAt(currentSelection.getStartOffset());
-      // if there is no word entity associated with a char then there is no entity key 
+      // if there is no word entity associated with a char then there is no entity key
       // at that selection point
       if (entityKey === null) {
-        const closestEntityToSelection = this.findClosestEntityKeyToSelectionPoint(currentSelection,originalBlock);
+        const closestEntityToSelection = this.findClosestEntityKeyToSelectionPoint(currentSelection, originalBlock);
         entityKey = closestEntityToSelection.entityKey;
         isEndOfParagraph = closestEntityToSelection.isEndOfParagraph;
-        // handle edge case when it doesn't find a closest entity (word) 
+        // handle edge case when it doesn't find a closest entity (word)
         // eg pres enter on an empty line
         if (entityKey === null) {
           return 'not-handled';
@@ -299,25 +298,25 @@ class TimedTextEditor extends React.Component {
         }
       );
       this.setEditorNewContentState(afterMergeContentState);
-  
+
       return 'handled';
     }
-  
+
     return 'not-handled';
   }
-  
+
   /**
-   * Helper function for splitParagraph 
-   * to find the closest entity (word) to a selection point 
+   * Helper function for splitParagraph
+   * to find the closest entity (word) to a selection point
    * that does not fall on an entity to begin with
    * Looks before if it's last char in a paragraph block.
    * After for everything else.
    */
-  findClosestEntityKeyToSelectionPoint = (currentSelection,originalBlock) => {
+  findClosestEntityKeyToSelectionPoint = (currentSelection, originalBlock) => {
     // set defaults
     let entityKey = null;
     let isEndOfParagraph = false;
-  
+
     // selection offset from beginning of the paragraph block
     const startSelectionOffsetKey = currentSelection.getStartOffset();
     // length of the plain text for the ContentBlock
@@ -330,19 +329,19 @@ class TimedTextEditor extends React.Component {
       for (let j = lengthPlainTextForTheBlock; j >0 ; j--) {
         entityKey = originalBlock.getEntityAt(j);
         if (entityKey!== null) {
-          // if it finds it then return 
+          // if it finds it then return
           return { entityKey, isEndOfParagraph };
         }
       }
     }
-    // if it's first char or another within the block - get next entity 
+    // if it's first char or another within the block - get next entity
     else {
       console.log('Main part of paragraph');
       let initialSelectionOffset = currentSelection.getStartOffset();
       for (let i = 0; i < remainingCharNumber ; i++) {
         initialSelectionOffset +=i;
         entityKey = originalBlock.getEntityAt(initialSelectionOffset);
-        // if it finds it then return 
+        // if it finds it then return
         if (entityKey !== null) {
           return { entityKey, isEndOfParagraph };
         }
@@ -350,11 +349,10 @@ class TimedTextEditor extends React.Component {
     }
 
     // cover edge cases where it doesn't find it
-    return { entityKey, isEndOfParagraph }; 
+    return { entityKey, isEndOfParagraph };
   }
 
   renderBlockWithTimecodes = () => {
-    
     return {
       component: WrapperBlock,
       editable: true,
@@ -377,7 +375,7 @@ class TimedTextEditor extends React.Component {
 
     if (this.state.transcriptData) {
       const contentState = this.state.editorState.getCurrentContent();
-      // TODO: using convertToRaw here might be slowing down performance(?) 
+      // TODO: using convertToRaw here might be slowing down performance(?)
       const contentStateConvertEdToRaw = convertToRaw(contentState);
       const entityMap = contentStateConvertEdToRaw.entityMap;
 
@@ -391,7 +389,7 @@ class TimedTextEditor extends React.Component {
         }
       }
     }
-    
+
     if (currentWord.start !== 'NA') {
       if (this.props.isScrollIntoViewOn) {
         const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);

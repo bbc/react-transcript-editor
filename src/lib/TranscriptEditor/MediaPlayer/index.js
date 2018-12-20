@@ -22,18 +22,18 @@ class MediaPlayer extends React.Component {
       timecodeOffset: this.props.timecodeOffset,
       hotKeys: returnHotKeys(this),
       isPlaying: false,
-      playbackRateOptions: [ { value:'0.2',label:'0.2' },
-        { value:'0.25',label:'0.25' },
-        { value:'0.5',label:'0.5' },
-        { value:'0.75',label:'0.75' },
-        { value:'1',label:'1' },
-        { value:'1.25',label:'1.25' },
-        { value:'1.5',label:'1.5' },
-        { value:'1.75',label:'1.75' },
-        { value:'2',label:'2' },
-        { value:'2.5',label:'2.5' },
-        { value:'3',label:'3' },
-        { value:'3.5',label:'3.5' } ]
+      playbackRateOptions: [ { value:'0.2', label:'0.2' },
+        { value:'0.25', label:'0.25' },
+        { value:'0.5', label:'0.5' },
+        { value:'0.75', label:'0.75' },
+        { value:'1', label:'1' },
+        { value:'1.25', label:'1.25' },
+        { value:'1.5', label:'1.5' },
+        { value:'1.75', label:'1.75' },
+        { value:'2', label:'2' },
+        { value:'2.5', label:'2.5' },
+        { value:'3', label:'3' },
+        { value:'3.5', label:'3.5' } ]
     };
   }
   /*eslint-disable camelcase */
@@ -42,12 +42,12 @@ class MediaPlayer extends React.Component {
   static getDerivedStateFromProps(nextProps) {
     if (nextProps.timecodeOffset !== null) {
       let newCurrentTimeInSeconds = nextProps.timecodeOffset ;
-      if (typeof newCurrentTimeInSeconds ==='string' 
+      if (typeof newCurrentTimeInSeconds ==='string'
         && newCurrentTimeInSeconds.includes(':')
         && !newCurrentTimeInSeconds.includes('NaN')) {
         newCurrentTimeInSeconds = timecodeToSeconds(nextProps.timecodeOffset );
       }
-      
+
       return {
         timecodeOffset: newCurrentTimeInSeconds,
         rollBackValueInSeconds: nextProps.rollBackValueInSeconds

@@ -1,29 +1,27 @@
 .settings {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: auto;
-    margin-left: auto;
-    width: 30%;
-    height: auto;
-    text-align: center;
-    vertical-align: middle;
-    color:black;
-    background: #F2F2F2;
-    /* padding: 25px; */
-  }
-  
-  .controlsContainer{
-      display: flex;
-     flex-direction: column;
-     flex-wrap: wrap;
-     /* justify-content: flex-start; */
-     align-content: flex-start 
-  }
-  
-  .settingElement{
-    text-align: left;
-    align-self: auto;
-  }
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: auto;
+  margin-left: auto;
+  width: 30%;
+  height: auto;
+  text-align: center;
+  vertical-align: middle;
+  color:black;
+  background: #F2F2F2;
+}
+
+.controlsContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start
+}
+
+.settingElement {
+  text-align: left;
+  align-self: auto;
+}
