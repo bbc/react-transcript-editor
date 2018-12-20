@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Toggle from './Toggle/index.js';
 import style from './index.module.css';
-import TimecodeOffset from './TimecodeOffset/index.js';
+
+import TimecodeOffset from './TimecodeOffset';
 
 class Settings extends React.Component {
   // eslint-disable-next-line class-methods-use-this
@@ -14,46 +15,46 @@ class Settings extends React.Component {
         <div className={ style.controlsContainer }>
           <section className={ style.settingElement }>
             <label>Pause While Typing</label>
-            <Toggle 
+            <Toggle
               defaultValue={ this.props.defaultValuePauseWhileTyping }
-              label={ 'Pause while typing' } 
+              label={ 'Pause while typing' }
               handleToggle={ this.props.handlePauseWhileTyping }
             />
           </section>
           <section className={ style.settingElement }>
             <label> Scroll Sync</label>
-            <Toggle 
+            <Toggle
               defaultValue={ this.props.defaultvalueScrollSync }
-              label={ 'ScrollSync' } 
+              label={ 'ScrollSync' }
               handleToggle={ this.props.handleIsScrollIntoViewChange }
             />
           </section>
           <section className={ style.settingElement }>
             <label>RollBack Interval, seconds</label>
-            <input 
-              type="text" 
-              value={ this.props.defaultRollBackValueInSeconds } 
+            <input
+              type="text"
+              value={ this.props.defaultRollBackValueInSeconds }
               onChange={ this.props.handleRollBackValueInSeconds }
               name="lname"/>
             {/* <input type="range" value="15" min="1" max="60" step="1"/> */}
           </section>
           <section className={ style.settingElement }>
             <label>Hide Timecodes</label>
-            <Toggle 
+            <Toggle
               defaultValue={ this.props.showTimecodes }
-              label={ 'Hide Timecodes' } 
+              label={ 'Hide Timecodes' }
               handleToggle={ this.props.handleShowTimecodes }
             />
           </section>
           <section className={ style.settingElement }>
             <label>Hide Speaker Labels</label>
-            <Toggle 
+            <Toggle
               defaultValue={ this.props.showSpeakers }
-              label={ 'Hide Speaker Labels' } 
+              label={ 'Hide Speaker Labels' }
               handleToggle={ this.props.handleShowSpeakers }
             />
           </section>
-          <TimecodeOffset 
+          <TimecodeOffset
             timecodeOffset={ this.props.timecodeOffset }
             handleSetTimecodeOffset={ this.props.handleSetTimecodeOffset }
           />
@@ -63,6 +64,8 @@ class Settings extends React.Component {
   }
 }
 
-Settings.propTypes = {};
+Settings.propTypes = {
+
+};
 
 export default Settings;

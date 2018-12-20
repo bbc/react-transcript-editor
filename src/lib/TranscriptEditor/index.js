@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
 import Settings from './Settings';
-import KeyboardShortcutHelp from './KeyboardShortcutHelp';
+import Shortcuts from './Settings/Shortcuts';
+
 import style from './index.module.css';
 import styleSettings from './Settings/index.module.css';
-import KeyboardShortcutHelpSettings from './KeyboardShortcutHelp/index.module.css';
-// import { timecodeToSeconds } from '../Util/timecode-converter/index';
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
@@ -20,7 +19,7 @@ class TranscriptEditor extends React.Component {
       transcriptData: null,
       isScrollIntoViewOn: false,
       showSettings: false,
-      showKeyboardShortcutsHelp: false,
+      showShortcuts: false,
       isPauseWhileTypingOn: true,
       rollBackValueInSeconds: 15,
       timecodeOffset: 0,
@@ -121,9 +120,9 @@ class TranscriptEditor extends React.Component {
     }));
   }
 
-  handleKeyboardShortcutsHelpToggle = () => {
+  handleShortcutsToggle = () => {
     this.setState(prevState => ({
-      showKeyboardShortcutsHelp: !prevState.showKeyboardShortcutsHelp
+      showShortcuts: !prevState.showShortcuts
     }));
   }
 
@@ -139,8 +138,9 @@ class TranscriptEditor extends React.Component {
       hookOnTimeUpdate={ this.handleTimeUpdate }
       mediaUrl={ this.props.mediaUrl }
     />;
+
     const settings = <div className={ styleSettings.settings }>
-      <span  onClick={ this.handleSettingsToggle }>X</span>
+      <span onClick={ this.handleSettingsToggle }>X</span>
       <Settings
         defaultValuePauseWhileTyping={ this.state.isPauseWhileTypingOn }
         defaultvalueScrollSync={ this.state.isScrollIntoViewOn }
@@ -157,11 +157,6 @@ class TranscriptEditor extends React.Component {
       />
     </div>;
 
-    const KeyboardShortcutHelpElement = <div className={ KeyboardShortcutHelpSettings.settings }>
-      <span  onClick={ this.handleKeyboardShortcutsHelpToggle }>X</span>
-      <KeyboardShortcutHelp />
-    </div>;
-
     return (
       <div className={ style.container }>
         <aside className={ style.aside }>
@@ -169,9 +164,9 @@ class TranscriptEditor extends React.Component {
         </aside>
 
         <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }> ⚙ </button>
-        { this.state.showSettings? settings : null }
-        <button className={ style.settingsButton } onClick={ this.handleKeyboardShortcutsHelpToggle }> ℹ </button>
-        { this.state.showKeyboardShortcutsHelp? KeyboardShortcutHelpElement : null }
+        { this.state.showSettings ? settings : null }
+        <button className={ style.settingsButton } onClick={ this.handleShortcutsToggle }> ℹ </button>
+        { this.state.showShortcuts ? <Shortcuts /> : null }
 
         <main className={ style.main }>
           <TimedTextEditor

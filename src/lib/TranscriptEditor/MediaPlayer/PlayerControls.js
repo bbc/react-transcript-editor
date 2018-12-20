@@ -63,11 +63,11 @@ class PlayerControls extends React.Component {
             name={ 'playbackRate' }
             handleChange={ this.props.setPlayBackRate }
           />
-         
+
         </button>
 
         <div className={ style.timeBox }>
-          <span className={ style.currentTime } 
+          <span className={ style.currentTime }
             onClick={ this.props.promptSetCurrentTime }
           >{ this.props.currentTime }</span>
           <span className={ style.separator }>|</span>

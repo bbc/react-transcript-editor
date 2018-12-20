@@ -2,9 +2,9 @@ import React from 'react';
 
 import returnHotKeys from '../MediaPlayer/defaultHotKeys';
 
-import style from './index.module.css';
+import style from './Shortcuts.module.css';
 
-class KeyboardShortcutHelp extends React.Component {
+class Shortcuts extends React.Component {
   render() {
     const hotKeys = returnHotKeys(this);
     const hotKeysCheatsheet = Object.keys(hotKeys).map((key, i) => {
@@ -24,4 +24,4 @@ class KeyboardShortcutHelp extends React.Component {
   }
 }
 
-export default KeyboardShortcutHelp;
+export default Shortcuts;
