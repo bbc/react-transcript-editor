@@ -71,11 +71,9 @@ import { TranscriptEditor } from '@bbc/react-transcript-editor';
 
 <!-- _High level overview of system architecture_ -->
 
-uses [`create-component-lib`](https://www.npmjs.com/package/create-component-lib) as explaied in this [blog post](https://hackernoon.com/creating-a-library-of-react-components-using-create-react-app-without-ejecting-d182df690c6b) to setup the environment to develop this React.
+Uses [`create-component-lib`](https://www.npmjs.com/package/create-component-lib) as explaied in this [blog post](https://hackernoon.com/creating-a-library-of-react-components-using-create-react-app-without-ejecting-d182df690c6b) to setup the environment to develop this React component.
 
 This uses [Create React App 2.0](https://reactjs.org/blog/2018/10/01/create-react-app-v2.html) so we are using [CSS Modules](https://github.com/css-modules/css-modules) to contain the scope of the css for this component.
-<!-- 
-Uses CSS grid-layout https://medium.com/samsung-internet-dev/common-responsive-layouts-with-css-grid-and-some-without-245a862f48df -->
 
 > Place everything you want to publish to npm inside `src/lib`. 
 
@@ -112,7 +110,7 @@ Demo can be viewed at [https://bbc.github.io/react-transcript-editor](https://bb
 -->
 
 
-## build - demo 
+## Build - demo 
 
 This github repository uses [github pages](https://pages.github.com/) to host a demo of the component, in [docs/demo](./docs/demo)
 
@@ -157,13 +155,14 @@ This runs `npm run build:component` and `npm publish --access public` under the 
 
 ## Contributing 
 
-<!-- Contributing guidance, and link to contributing code of conduct -->
+See [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) guidelines.
+
 
 ## Licence
 
-<!-- mention MIT Licence -->
+See [LICENCE.md](./LICENCE.md)
 
 
-<!-- ## Legal Disclaimer
+## Legal Disclaimer
 
-Despite using React and Draftjs, the BBC is not promoting any FB product or other commercial interest. -->
+Despite using React and DraftJs, the BBC is not promoting any Facebook products or other commercial interest.
