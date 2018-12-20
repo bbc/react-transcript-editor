@@ -34,7 +34,7 @@ If any participants engages in harassing behaviour, the project team may take an
 
 ## Reporting Issues
 
-If you experience or witness unacceptable behaviour—or have any other concerns—please report it by contacting us via *@*<!-- TODO: we need to add an email for contact  eg at textAV we had - textav@bbcnewslabs.co.uk. --> All reports will be handled with discretion. In your report please include:
+ If you experience or witness unacceptable behaviour—or have any other concerns—please report it by contacting us via **newslabs@bbc.co.uk**<!-- TODO: we need to add an email for contact  eg at textAV we had - textav@bbcnewslabs.co.uk. --> All reports will be handled with discretion. In your report please include:
 
 - Your contact information.
 - Names (real, nicknames, or pseudonyms) of any individuals involved. If there are additional witnesses, please include them as well. Your account of what occurred, and if you believe the incident is ongoing. If there is a publicly available record (e.g. a mailing list archive or a public slack channel), please include a link.
