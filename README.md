@@ -5,6 +5,8 @@ A React component to make transcribing audio and video easier and faster.
 
 [![install size](https://packagephobia.now.sh/badge?p=@bbc/react-transcript-editor)](https://packagephobia.now.sh/result?p=@bbc/react-transcript-editor)
 
+The project uses [this github project board to organise and the co-ordinate development](https://github.com/bbc/react-transcript-editor/projects/1).
+
 _--> Work in progress <--_ 
 
 <!-- _Screenshot of UI - optional_ -->
