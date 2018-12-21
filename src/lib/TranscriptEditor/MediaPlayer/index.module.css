@@ -1,11 +1,7 @@
 @value color-light-grey from '../colours.module.css';
 
 .topSection {
-  /* height: 100%; */
   background: black;
-  /* position: fixed; */
-  /* top: 0; */
-  /* left: 0; */
 }
 
 .playerSection {

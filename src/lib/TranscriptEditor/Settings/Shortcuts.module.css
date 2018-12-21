@@ -10,6 +10,7 @@
   vertical-align: middle;
   color: black;
   background: color-lightest-grey;
+  z-index: 2;
 }
 
 .header {
