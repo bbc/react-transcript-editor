@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styles from '../index.module.css';
+
+import style from './index.module.css';
+
 import { timecodeToSeconds, secondsToTimecode } from '../../../Util/timecode-converter/index';
 
 class TimecodeOffset extends React.Component {
@@ -41,15 +43,16 @@ class TimecodeOffset extends React.Component {
 
   render() {
     return (
-      <div >
-        <label>Timecode Offset ℹ </label>
+      <div className={ style.offsetContainer }>
         <input
+          className={ style.inputBox }
           type="text"
           value={ this.state.timecodeOffset }
           onChange={ this.handleChange }
           name="lname"/>
-        <small onClick={ this.resetTimecodeOffset }><u>Reset</u></small> |
-        <small onClick={ this.setTimecodeOffset }><u>Save</u></small>
+        <span className={ style.button } onClick={ this.resetTimecodeOffset }><u>Reset</u></span>
+        <span> | </span>
+        <span className={ style.button } onClick={ this.setTimecodeOffset }><u>Save</u></span>
       </div>
     );
   }

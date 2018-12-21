@@ -16,55 +16,58 @@ class Settings extends React.Component {
 
         <div className={ style.controlsContainer }>
           <section className={ style.settingElement }>
+            <div className={ style.label }>Pause While Typing</div>
             <Toggle
               defaultValue={ this.props.defaultValuePauseWhileTyping }
               label={ 'Pause while typing' }
               handleToggle={ this.props.handlePauseWhileTyping }
             />
-            <label>Pause While Typing</label>
           </section>
 
           <section className={ style.settingElement }>
+            <div className={ style.label }>Scroll Sync</div>
             <Toggle
               defaultValue={ this.props.defaultvalueScrollSync }
               label={ 'ScrollSync' }
               handleToggle={ this.props.handleIsScrollIntoViewChange }
             />
-            <label>Scroll Sync</label>
           </section>
 
           <section className={ style.settingElement }>
+            <div className={ style.label }>Rollback Interval (sec)</div>
             <input
               className={ style.rollbackValue }
               type="text"
               value={ this.props.defaultRollBackValueInSeconds }
               onChange={ this.props.handleRollBackValueInSeconds }
               name="lname"/>
-            <label>RollBack Interval, seconds</label>
           </section>
 
           <section className={ style.settingElement }>
+            <div className={ style.label }>Show Timecodes</div>
             <Toggle
               defaultValue={ this.props.showTimecodes }
               label={ 'Hide Timecodes' }
               handleToggle={ this.props.handleShowTimecodes }
             />
-            <label>Show Timecodes</label>
           </section>
 
           <section className={ style.settingElement }>
+            <div className={ style.label }>Show Speaker Labels</div>
             <Toggle
               defaultValue={ this.props.showSpeakers }
               label={ 'Hide Speaker Labels' }
               handleToggle={ this.props.handleShowSpeakers }
             />
-            <label>Show Speaker Labels</label>
           </section>
 
-          <TimecodeOffset
-            timecodeOffset={ this.props.timecodeOffset }
-            handleSetTimecodeOffset={ this.props.handleSetTimecodeOffset }
-          />
+          <section className={ style.settingElement }>
+            <div className={ style.timecodeLabel }>Timecode Offset ℹ</div>
+            <TimecodeOffset
+              timecodeOffset={ this.props.timecodeOffset }
+              handleSetTimecodeOffset={ this.props.handleSetTimecodeOffset }
+            />
+          </section>
         </div>
       </div>
     );

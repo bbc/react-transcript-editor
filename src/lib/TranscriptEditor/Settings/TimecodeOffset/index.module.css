@@ -1,14 +1,19 @@
-.switchContainer {
-    display: inline-block;
-    position: relative;
-    height: 48px;
-    width: 48px;
-    display:inline-block;
-    vertical-align:middle;
-  }
+.offsetContainer {
+  display: inline-block;
+}
 
+.inputBox {
+  height: 2em;
+  width: 96px;
+  box-sizing: border-box;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 16px;
+  vertical-align: middle;
+}
 
-  .settingElement{
-    text-align: left;
-    align-self: auto;
-  }
+.button {
+  font-weight: lighter;
+  font-size: 0.8em;
+}
