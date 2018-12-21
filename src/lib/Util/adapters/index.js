@@ -1,5 +1,6 @@
 import bbcKaldiToDraft from './bbc-kaldi/index';
 import autoEdit2ToDraft from './autoEdit2/index';
+import ibmToDraft from './ibm/index';
 /**
  * Adapters for STT conversion
  * @param {json} transcriptData - A json transcript with some word accurate timecode
@@ -38,11 +39,15 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
     blocks = autoEdit2ToDraft(transcriptData);
 
     return { blocks, entityMap: createEntityMap(blocks) };
+  case 'ibm':
+    blocks = ibmToDraft(transcriptData);
+
+    return { blocks, entityMap: createEntityMap(blocks) };
   case 'draftjs':
     return transcriptData; // (typeof transcriptData === 'string')? JSON.parse(transcriptData): transcriptData;
   default:
     // code block
-    console.error('not recognised the stt enginge');
+    console.error('Did not recognize the stt engine.');
   }
 };
 
