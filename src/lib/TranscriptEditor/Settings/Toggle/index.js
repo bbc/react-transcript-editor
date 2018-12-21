@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './index.module.css';
-import style from '../index.module.css';
-class Toggle extends React.Component {
 
+import style from './index.module.css';
+
+class Toggle extends React.Component {
   render() {
     return (
-      <div className={  style.settingElement  }>
-        <label className={ styles.switch }>
-          <input type="checkbox"
+      <div className={ style.switchContainer }>
+        <label className={ style.switch }>
+          <input type='checkbox'
             defaultChecked={ this.props.defaultValue }
             onChange={ this.props.handleToggle }
           />
-          <span className={ styles.slider }></span>
+          <span className={ style.slider }></span>
         </label>
-        {/* <label className={ styles.label }>{this.props.label}</label> */}
       </div>
     );
   }
