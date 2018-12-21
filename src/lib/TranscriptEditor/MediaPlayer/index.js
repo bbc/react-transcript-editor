@@ -89,15 +89,18 @@ class MediaPlayer extends React.Component {
    */
   promptSetCurrentTime = () => {
     let userTimecodeValue = prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds');
-    if (userTimecodeValue.includes(':')) {
-      userTimecodeValue = timecodeToSeconds(userTimecodeValue);
+    // user clicks cancel to prompt, prompt returns null
+    if (userTimecodeValue !== null) {
+      if (userTimecodeValue.includes(':')) {
+        userTimecodeValue = timecodeToSeconds(userTimecodeValue);
+      }
+      // remove timecode offset if preset
+      if (this.state.timecodeOffset !== 0) {
+        userTimecodeValue -= this.state.timecodeOffset;
+      }
+  
+      this.setCurrentTime(userTimecodeValue);
     }
-    // remove timecode offset if preset
-    if (this.state.timecodeOffset !== 0) {
-      userTimecodeValue -= this.state.timecodeOffset;
-    }
-
-    this.setCurrentTime(userTimecodeValue);
   }
 
   setTimeCodeOffset = (newTimeCodeOffSet) => {
