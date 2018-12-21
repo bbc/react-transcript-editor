@@ -34,8 +34,11 @@ Save
 - [ ] ~Save to server API end point - on interval~ 
 
 Export <-- for proof of concept
-- [ ] Export plain text
+- [X] Export plain text - without speaker names or timecodes
 - [ ] Customizable Export plain text, eg with timecodes, speakers names etc..
+    - [ ] with speaker names 
+    - [ ] with timecodes
+    - [ ] with timecodes & speaker names
 - [ ] Other?
 
 
