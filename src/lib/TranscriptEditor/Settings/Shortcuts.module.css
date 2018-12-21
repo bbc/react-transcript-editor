@@ -1,24 +1,47 @@
-.settings {
+@value color-lightest-grey, color-labs-red, color-dark-grey from '../colours.module.css';
+
+.shortcuts {
   position: absolute;
-  left: 0;
+  top: 2em;
   right: 0;
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: auto;
-  margin-left: auto;
+  margin: 0 auto;
   width: 30%;
   height: auto;
-  text-align: center;
   vertical-align: middle;
-  color:black;
-  background: #F2F2F2;
+  color: black;
+  background: color-lightest-grey;
 }
 
-.controlsContainer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: flex-start
+.header {
+  padding: 0.2em 1em;
+}
+
+.list {
+  list-style: none;
+  padding: 1em;
+  margin: 0;
+}
+
+.listItem {
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+}
+
+.shortcut {
+  display: inline-block;
+  min-width: 4em;
+  background: color-labs-red;
+  font-weight: lighter;
+  color: white;
+  padding: 0em 1em;
+  border-radius: 1em;
+  text-align: center;
+  margin-right: 2em;
+}
+
+.shortcutLabel {
+  display: inline-block;
+  text-align: left;
 }
 
 .settingElement {
