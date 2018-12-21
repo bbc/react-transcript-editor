@@ -3,37 +3,37 @@ function returnHotKeys(self) {
     'esc': {
       priority: 1,
       handler: () => { self.togglePlayMedia(); },
-      helperText: 'Play Media',
+      label: 'Play Media',
     },
     'ctrl+k': { // combo from mousetrap
       priority: 1,
       handler: () => { self.promptSetCurrentTime(); },
-      helperText: 'set current time',
+      label: 'set current time',
     },
     'ctrl+1': {
       priority: 1,
       handler: () => { self.skipForward(); console.log('Skip Forward'); },
-      helperText: 'Skip Forward',
+      label: 'Skip Forward',
     },
     'ctrl+2': {
       priority: 1,
       handler: () => { self.skipBackward(); console.log('Skip Backward'); },
-      helperText: 'Skip Backward',
+      label: 'Skip Backward',
     },
     'ctrl+3': {
       priority: 1,
       handler: () => { self.decreasePlaybackRate(); },
-      helperText: 'Speed Down ',
+      label: 'Speed Down',
     },
     'ctrl+4': {
       priority: 1,
       handler: () => { self.increasePlaybackRate(); },
-      helperText: 'Speed Up',
+      label: 'Speed Up',
     },
     'ctrl+5': {
       priority: 1,
       handler: () => { self.rollBack(); },
-      helperText: 'Roll Back',
+      label: 'Roll Back',
     }
     // ,'ctrl+/': {
     //     priority: 1,

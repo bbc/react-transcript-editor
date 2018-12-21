@@ -1,7 +1,8 @@
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
 import PropTypes from 'prop-types';
-import Toggle from './Toggle/index.js';
+
+import Toggle from './Toggle/';
+
 import style from './index.module.css';
 
 import TimecodeOffset from './TimecodeOffset';
@@ -10,8 +11,9 @@ class Settings extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   render() {
     return (
-      <div>
+      <div className={ style.settings }>
         <span>Settings Panel</span>
+        <span onClick={ this.props.handleSettingsToggle }>X</span>
         <div className={ style.controlsContainer }>
           <section className={ style.settingElement }>
             <label>Pause While Typing</label>
@@ -64,8 +66,6 @@ class Settings extends React.Component {
   }
 }
 
-Settings.propTypes = {
-
-};
+Settings.propTypes = {};
 
 export default Settings;

@@ -7,7 +7,6 @@ import Settings from './Settings';
 import Shortcuts from './Settings/Shortcuts';
 
 import style from './index.module.css';
-import styleSettings from './Settings/index.module.css';
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
@@ -128,45 +127,42 @@ class TranscriptEditor extends React.Component {
 
   render() {
     const mediaPlayer = <MediaPlayer
-      ref={ 'MediaPlayer' }
-      // eslint-disable-next-line no-return-assign
-      rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
-      timecodeOffset={ this.state.timecodeOffset }
       hookSeek={ foo => this.setCurrentTime = foo }
       hookPlayMedia={ foo => this.playMedia = foo }
       hookIsPlaying={ foo => this.isPlaying = foo }
+      rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
+      timecodeOffset={ this.state.timecodeOffset }
       hookOnTimeUpdate={ this.handleTimeUpdate }
       mediaUrl={ this.props.mediaUrl }
+      ref={ 'MediaPlayer' }
     />;
 
-    const settings = <div className={ styleSettings.settings }>
-      <span onClick={ this.handleSettingsToggle }>X</span>
-      <Settings
-        defaultValuePauseWhileTyping={ this.state.isPauseWhileTypingOn }
-        defaultvalueScrollSync={ this.state.isScrollIntoViewOn }
-        defaultRollBackValueInSeconds={ this.state.rollBackValueInSeconds }
-        timecodeOffset={ this.state.timecodeOffset }
-        showTimecodes={ this.state.showTimecodes }
-        showSpeakers={ this.state.showSpeakers }
-        handlePauseWhileTyping={ this.handlePauseWhileTyping }
-        handleIsScrollIntoViewChange={ this.handleIsScrollIntoViewChange }
-        handleRollBackValueInSeconds={ this.handleRollBackValueInSeconds }
-        handleSetTimecodeOffset={ this.handleSetTimecodeOffset }
-        handleShowTimecodes={ this.handleShowTimecodes }
-        handleShowSpeakers={ this.handleShowSpeakers }
-      />
-    </div>;
+    const settings = <Settings
+      handleSettingsToggle={ this.handleSettingsToggle }
+      defaultValuePauseWhileTyping={ this.state.isPauseWhileTypingOn }
+      defaultvalueScrollSync={ this.state.isScrollIntoViewOn }
+      defaultRollBackValueInSeconds={ this.state.rollBackValueInSeconds }
+      timecodeOffset={ this.state.timecodeOffset }
+      showTimecodes={ this.state.showTimecodes }
+      showSpeakers={ this.state.showSpeakers }
+      handlePauseWhileTyping={ this.handlePauseWhileTyping }
+      handleIsScrollIntoViewChange={ this.handleIsScrollIntoViewChange }
+      handleRollBackValueInSeconds={ this.handleRollBackValueInSeconds }
+      handleSetTimecodeOffset={ this.handleSetTimecodeOffset }
+      handleShowTimecodes={ this.handleShowTimecodes }
+      handleShowSpeakers={ this.handleShowSpeakers }
+    />;;
 
     return (
       <div className={ style.container }>
-        <aside className={ style.aside }>
-          { this.props.mediaUrl ? mediaPlayer : null }
-        </aside>
+        <aside className={ style.aside }>{ this.props.mediaUrl ? mediaPlayer : null }</aside>
 
-        <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }> ⚙ </button>
-        { this.state.showSettings ? settings : null }
-        <button className={ style.settingsButton } onClick={ this.handleShortcutsToggle }> ℹ </button>
-        { this.state.showShortcuts ? <Shortcuts /> : null }
+        <div className={ style.settingsContainer }>
+          <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }> ⚙ </button>
+          { this.state.showSettings ? settings : null }
+          <button className={ style.settingsButton } onClick={ this.handleShortcutsToggle }> ℹ </button>
+          { this.state.showShortcuts ? <Shortcuts /> : null }
+        </div>
 
         <main className={ style.main }>
           <TimedTextEditor
@@ -178,12 +174,12 @@ class TranscriptEditor extends React.Component {
             currentTime={ this.state.currentTime }
             isEditable={ this.props.isEditable }
             sttJsonType={ this.props.sttJsonType }
-            ref={ 'timedTextEditor' }
             mediaUrl={ this.props.mediaUrl }
             isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
             isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
             showTimecodes={ this.state.showTimecodes }
             showSpeakers={ this.state.showSpeakers }
+            ref={ 'timedTextEditor' }
           />
         </main>
       </div>
