@@ -150,7 +150,7 @@ class TranscriptEditor extends React.Component {
         <aside className={ style.aside }>{ this.props.mediaUrl ? mediaPlayer : null }</aside>
 
         <div className={ style.settingsContainer }>
-          <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }>⚙︎</button>
+          <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }>⚙</button>
           <button className={ style.settingsButton } onClick={ this.handleShortcutsToggle }>ℹ</button>
         </div>
 

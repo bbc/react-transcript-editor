@@ -22,7 +22,7 @@ function returnHotKeys(self) {
     },
     'ctrl+3': {
       priority: 1,
-      handler: () => { self.decreasePlaybackRate(); },
+      handler: () => { self.decreasePlaybackRate(); console.log('decrease'); },
       label: 'Speed Down',
     },
     'ctrl+4': {

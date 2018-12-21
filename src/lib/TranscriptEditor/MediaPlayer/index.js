@@ -12,18 +12,18 @@ import styles from './index.module.css';
 import { secondsToTimecode, timecodeToSeconds } from '../../Util/timecode-converter/index';
 
 const PLAYBACK_RATES = [
-  { value:'0.2', label:'0.2' },
-  { value:'0.25', label:'0.25' },
-  { value:'0.5', label:'0.5' },
-  { value:'0.75', label:'0.75' },
-  { value:'1', label:'1' },
-  { value:'1.25', label:'1.25' },
-  { value:'1.5', label:'1.5' },
-  { value:'1.75', label:'1.75' },
-  { value:'2', label:'2' },
-  { value:'2.5', label:'2.5' },
-  { value:'3', label:'3' },
-  { value:'3.5', label:'3.5' }
+  { value: 0.2, label:'0.2' },
+  { value: 0.25, label:'0.25' },
+  { value: 0.5, label:'0.5' },
+  { value: 0.75, label:'0.75' },
+  { value: 1, label:'1' },
+  { value: 1.25, label:'1.25' },
+  { value: 1.5, label:'1.5' },
+  { value: 1.75, label:'1.75' },
+  { value: 2, label:'2' },
+  { value: 2.5, label:'2.5' },
+  { value: 3, label:'3' },
+  { value: 3.5, label:'3.5' }
 ];
 
 class MediaPlayer extends React.Component {
@@ -126,9 +126,12 @@ class MediaPlayer extends React.Component {
   }
 
   handlePlayBackRateChange = (e) => {
-    this.setPlayBackRate(e.target.value);
+    this.setPlayBackRate(parseFloat(e.target.value));
   }
 
+  /**
+   * @param {float} input - playback rate value as a float
+   */
   setPlayBackRate = (input) => {
     if (this.videoRef.current !== null) {
       if (input >= 0.2 && input <= 3.5) {
@@ -146,8 +149,7 @@ class MediaPlayer extends React.Component {
     const slower = speeds.find((option) => {
       return option.value < this.state.playbackRate;
     });
-
-    const newSpeed = slower ? slower : 0.2;
+    const newSpeed = slower ? slower.value : 0.2;
 
     this.setPlayBackRate(newSpeed);
   }
@@ -158,7 +160,7 @@ class MediaPlayer extends React.Component {
       return option.value > this.state.playbackRate;
     });
 
-    const newSpeed = faster ? faster : 3.5;
+    const newSpeed = faster ? faster.value : 3.5;
 
     this.setPlayBackRate(newSpeed);
   }
