@@ -32,7 +32,7 @@ class MediaPlayer extends React.Component {
     this.videoRef = React.createRef();
 
     this.state = {
-      playBackRate: 1,
+      playbackRate: 1,
       rollBackValueInSeconds: this.props.rollBackValueInSeconds,
       timecodeOffset: this.props.timecodeOffset,
       hotKeys: returnHotKeys(this),
@@ -59,13 +59,6 @@ class MediaPlayer extends React.Component {
     }
 
     return null;
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.timecodeOffset !== this.state.timecodeOffset) {
-      //   this.loadData();
-      // this.setTimeCodeOffset(this.statetimecodeOffset);
-    }
   }
 
   componentDidMount() {
@@ -100,9 +93,10 @@ class MediaPlayer extends React.Component {
       userTimecodeValue = timecodeToSeconds(userTimecodeValue);
     }
     // remove timecode offset if preset
-    if (this.state.timecodeOffset!== 0) {
+    if (this.state.timecodeOffset !== 0) {
       userTimecodeValue -= this.state.timecodeOffset;
     }
+
     this.setCurrentTime(userTimecodeValue);
   }
 
@@ -128,7 +122,6 @@ class MediaPlayer extends React.Component {
   }
 
   handleTimeUpdate = (e) => {
-    // eslint-disable-next-line react/prop-types
     this.props.hookOnTimeUpdate(e.target.currentTime);
   }
 
@@ -136,50 +129,38 @@ class MediaPlayer extends React.Component {
     this.setPlayBackRate(e.target.value);
   }
 
-  getCurrentPlaybackRate = () => {
+  setPlayBackRate = (input) => {
     if (this.videoRef.current !== null) {
-      return this.videoRef.current.playbackRate;
-    }
-  }
-
-  setPlayBackRate = (speedValue) => {
-    console.log(speedValue);
-    // value between 0.2 and 3.5
-    if (this.videoRef.current !== null) {
-      if (speedValue >= 0.2 && speedValue <= 3.5) {
+      if (input >= 0.2 && input <= 3.5) {
         this.setState({
-          playBackRate: speedValue,
+          playbackRate: input,
         }, () => {
-          this.videoRef.current.playbackRate = speedValue;
+          this.videoRef.current.playbackRate = input;
         });
       }
     }
   }
 
   decreasePlaybackRate = () => {
-    const currentPlaybackRate = this.getCurrentPlaybackRate();
-    const playbackRateOption = this.state.playbackRateOptions.find((playbackRateOption) => {
-      return playbackRateOption.value === currentPlaybackRate.toString();
+    const speeds = [ ...PLAYBACK_RATES ].reverse();
+    const slower = speeds.find((option) => {
+      return option.value < this.state.playbackRate;
     });
 
-    const indexPlaybackRateOption = this.state.playbackRateOptions.indexOf(playbackRateOption);
-    if (currentPlaybackRate > 0.2 && currentPlaybackRate <= 3.5) {
-      const newPlaybackRateValue = this.state.playbackRateOptions[indexPlaybackRateOption-1].value;
-      this.setPlayBackRate(newPlaybackRateValue);
-    }
+    const newSpeed = slower ? slower : 0.2;
+
+    this.setPlayBackRate(newSpeed);
   }
 
   increasePlaybackRate = () => {
-    const currentPlaybackRate = this.getCurrentPlaybackRate();
-    const playbackRateOption = this.state.playbackRateOptions.find((playbackRateOption) => {
-      return playbackRateOption.value === currentPlaybackRate.toString();
+    const speeds = [ ...PLAYBACK_RATES ];
+    const faster = speeds.find((option) => {
+      return option.value > this.state.playbackRate;
     });
-    const indexPlaybackRateOption = this.state.playbackRateOptions.indexOf(playbackRateOption);
-    if (currentPlaybackRate >= 0.2 && currentPlaybackRate < 3.5) {
-      const newPlaybackRateValue = this.state.playbackRateOptions[indexPlaybackRateOption+1].value;
-      console.log(newPlaybackRateValue);
-      this.setPlayBackRate(newPlaybackRateValue);
-    }
+
+    const newSpeed = faster ? faster : 3.5;
+
+    this.setPlayBackRate(newSpeed);
   }
 
   handleChangeReplayRollbackValue = (e) => {
@@ -286,7 +267,7 @@ class MediaPlayer extends React.Component {
         <PlayerControls
           playMedia={ this.togglePlayMedia.bind(this) }
           isPlaying={ this.state.isPlaying }
-          playBackRate={ this.state.playBackRate }
+          playbackRate={ this.state.playbackRate }
           skipBackward={ this.skipBackward.bind(this) }
           skipForward={ this.skipForward.bind(this) }
           rollback={ this.rollBack }

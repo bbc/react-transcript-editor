@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import VolumeControl from './VolumeControl';
+import VolumeControl from './VolumeControl';
 import Select from './Select';
+
 import style from './PlayerControls.module.css';
 
 class PlayerControls extends React.Component {
@@ -59,7 +60,7 @@ class PlayerControls extends React.Component {
           className={ style.playBackRate }>
           x<Select
             options={ this.props.playbackRateOptions }
-            currentValue={ this.props.playBackRate.toString() }
+            currentValue={ this.props.playbackRate.toString() }
             name={ 'playbackRate' }
             handleChange={ this.props.setPlayBackRate }
           />
@@ -74,9 +75,9 @@ class PlayerControls extends React.Component {
           <span className={ style.duration }>{this.props.duration}</span>
         </div>
 
-        {/* <VolumeControl
+        <VolumeControl
           handleMuteVolume={ this.props.handleMuteVolume }
-        /> */}
+        />
       </div>
     );
   }
@@ -92,7 +93,10 @@ PlayerControls.propTypes = {
   duration: PropTypes.string,
   isPlaying: PropTypes.bool,
   skipBackward: PropTypes.func,
-  skipForward: PropTypes.func
+  skipForward: PropTypes.func,
+  playbackRate: PropTypes.number,
+  playbackRateOptions: PropTypes.array,
+  setPlayBackRate: PropTypes.func
 };
 
 export default PlayerControls;
