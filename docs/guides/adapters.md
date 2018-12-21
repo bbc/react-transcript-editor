@@ -93,6 +93,13 @@ wordsByParagraphs.forEach((paragraph, i) => {
 
 5. If you have speaker diarization info you can also add this to the block info - _optional_
 
+## Speaker Labels
+
+If the speech to text returns speaker label (speaker diarization info) you can either use that in the adapter, to associated that info at a paragraph level. Or leave it out for a later implementation.
+
+If you decide to incorporate speaker labels, then change the `TBC` to `Speaker ${speakerLabelFromSTTprovider}`,
+
+We have been (informally) using `TBC` as a place holder when the STT service doesn't return any speaker diarization info, and/or when it has not been incorporated in the adapter yet.
 
 ## Tests
 
