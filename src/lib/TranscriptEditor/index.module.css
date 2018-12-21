@@ -12,6 +12,12 @@
     position: relative;
   }
 
+  .header {
+    background-color: black;
+    width: 100%;
+    height: 2em;
+  }
+
   .main {
     width: 100%;
     margin: 0 auto;
@@ -30,7 +36,7 @@
 
   .settingsButton {
     line-height: 1em;
-    margin-right: 0.2em;
+    margin-left: 0.2em;
     background: color-darkest-grey;
     display: inline-block;
     border: 0;
@@ -38,8 +44,12 @@
     font-size: 1em;
     cursor: pointer;
     text-align: center;
-    width: 3em;
+    width: 5em;
     height: 2em;
+  }
+
+  .cog {
+    font-weight: lighter;
   }
 }
 

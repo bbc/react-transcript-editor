@@ -12,6 +12,7 @@
   background: #4A4A4A;
   padding: 1em;
   font-weight: lighter;
+  z-index: 2;
 }
 
 .header {

@@ -145,7 +145,7 @@ class App extends React.Component {
            type="file"
            onChange={ e => this.handleChangeLoadMedia(e.target.files) }
          />
-         or 
+         or
          <button onClick={ () => this.handleChangeLoadMediaUrl() }>
           Load Media From Url
          </button>

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import style from './Select.module.css';
+
 class Select extends React.Component {
 
   render() {
@@ -8,9 +10,9 @@ class Select extends React.Component {
       // eslint-disable-next-line react/no-array-index-key
       return <option key={ index } value={ option.value }>{option.label}</option>;
     });
-    
+
     return (
-      <select className={ style.selectPlayerControl }name={ this.props.name } value={ this.props.currentValue }  onChange={ this.props.handleChange }>
+      <select className={ style.selectPlayerControl } name={ this.props.name } value={ this.props.currentValue } onChange={ this.props.handleChange }>
         {options}
       </select>
     );
