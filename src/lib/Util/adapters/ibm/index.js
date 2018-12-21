@@ -207,7 +207,7 @@ const ibmToDraft = (ibmJson) => {
           punctuatedWord = capitalizeFirstLetter(word);
           firstWordOfSentence = word;
           newSentence = false;
-          data.speaker = 'TBC ' + topLvlResult.speaker_labels[z].speaker;
+           data.speaker = 'Speaker ' + topLvlResult.speaker_labels[z].speaker;
           data.start = result.alternatives[0].timestamps[z][1];
         } else {
           punctuatedWord = word;
