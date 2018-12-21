@@ -27,8 +27,8 @@ By submitting code as an individual or as an entity you agree that your code is 
 ## Code Quality 
 - Aim for solutions that are easy to explain and reason around so that others can contribute to it.
 - Use meaningfull descriptive variables and function names. eg avoid using `x`,`y`,`z` as variable names.
-- Keep short lines
-- Keep functions small and avoid side effects.
+- Keep lines short 
+- Keep functions small and avoid [side effects](https://en.wikipedia.org/wiki/Side_effect_(computer_science)) when possible.
 - etc..
 
 See [this blog post for more on this](https://medium.com/mindorks/how-to-write-clean-code-lessons-learnt-from-the-clean-code-robert-c-martin-9ffc7aef870c)
