@@ -12,17 +12,17 @@ function returnHotKeys(self) {
     },
     'ctrl+1': {
       priority: 1,
-      handler: () => { self.skipForward(); console.log('Skip Forward'); },
+      handler: () => { self.skipForward(); },
       label: 'Skip Forward',
     },
     'ctrl+2': {
       priority: 1,
-      handler: () => { self.skipBackward(); console.log('Skip Backward'); },
+      handler: () => { self.skipBackward(); },
       label: 'Skip Backward',
     },
     'ctrl+3': {
       priority: 1,
-      handler: () => { self.decreasePlaybackRate(); console.log('decrease'); },
+      handler: () => { self.decreasePlaybackRate(); },
       label: 'Speed Down',
     },
     'ctrl+4': {
@@ -35,16 +35,6 @@ function returnHotKeys(self) {
       handler: () => { self.rollBack(); },
       label: 'Roll Back',
     }
-    // ,'ctrl+/': {
-    //     priority: 1,
-    //     handler: (event) => { console.log('show hide shortcuts');},
-    //     helperText: 'Show/Hide shortcuts'
-    // }
-    // ,'ctrl+s': {
-    //     priority: 1,
-    //     handler: (event) => { console.log('save');},
-    //     helperText: 'Save'
-    // }
   };
 }
 export default returnHotKeys;
