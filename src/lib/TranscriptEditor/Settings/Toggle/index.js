@@ -21,7 +21,8 @@ class Toggle extends React.Component {
 
 Toggle.propTypes = {
   handleToggle: PropTypes.func,
-  label: PropTypes.string
+  label: PropTypes.string,
+  defaultValue: PropTypes.bool
 };
 
 export default Toggle;

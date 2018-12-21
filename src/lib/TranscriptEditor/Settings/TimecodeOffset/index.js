@@ -60,7 +60,8 @@ class TimecodeOffset extends React.Component {
 
 TimecodeOffset.propTypes = {
   handleSetTimecodeOffset: PropTypes.func,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  timecodeOffset: PropTypes.number
 };
 
 export default TimecodeOffset;

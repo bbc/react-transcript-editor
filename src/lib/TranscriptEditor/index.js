@@ -39,7 +39,6 @@ class TranscriptEditor extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.transcriptData !== this.state.transcriptData) {
-      //   this.loadData();
       if (this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
         console.log('was already present in local storage');
         this.refs.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
@@ -92,25 +91,18 @@ class TranscriptEditor extends React.Component {
         // eslint-disable-next-line react/no-string-refs
         this.refs.timedTextEditor.forceUpdate();
       });
-    // this.refs.MediaPlayer.setTimeCodeOffset('01:00:00:00');
   }
 
   handleShowTimecodes = (e) => {
-    console.log(e);
     const isChecked = e.target.checked;
-    this.setState({ showTimecodes: isChecked }, () => {
-      // eslint-disable-next-line react/no-string-refs
-      // this.refs.timedTextEditor.forceUpdate();
-    });
+
+    this.setState({ showTimecodes: isChecked });
   }
 
   handleShowSpeakers = (e) => {
-    console.log(e);
     const isChecked = e.target.checked;
-    this.setState({ showSpeakers: isChecked }, () => {
-      // eslint-disable-next-line react/no-string-refs
-      // this.refs.timedTextEditor.forceUpdate();
-    });
+
+    this.setState({ showSpeakers: isChecked });
   }
 
   handleSettingsToggle = () => {
@@ -140,7 +132,7 @@ class TranscriptEditor extends React.Component {
     const settings = <Settings
       handleSettingsToggle={ this.handleSettingsToggle }
       defaultValuePauseWhileTyping={ this.state.isPauseWhileTypingOn }
-      defaultvalueScrollSync={ this.state.isScrollIntoViewOn }
+      defaultValueScrollSync={ this.state.isScrollIntoViewOn }
       defaultRollBackValueInSeconds={ this.state.rollBackValueInSeconds }
       timecodeOffset={ this.state.timecodeOffset }
       showTimecodes={ this.state.showTimecodes }

@@ -27,7 +27,7 @@ class Settings extends React.Component {
           <section className={ style.settingElement }>
             <div className={ style.label }>Scroll Sync</div>
             <Toggle
-              defaultValue={ this.props.defaultvalueScrollSync }
+              defaultValue={ this.props.defaultValueScrollSync }
               label={ 'ScrollSync' }
               handleToggle={ this.props.handleIsScrollIntoViewChange }
             />
@@ -74,6 +74,20 @@ class Settings extends React.Component {
   }
 }
 
-Settings.propTypes = {};
+Settings.propTypes = {
+  showTimecodes: PropTypes.bool,
+  showSpeakers: PropTypes.bool,
+  timecodeOffset: PropTypes.number,
+  handleShowTimecodes: PropTypes.func,
+  handleShowSpeakers: PropTypes.func,
+  handleSetTimecodeOffset: PropTypes.func,
+  handleSettingsToggle: PropTypes.func,
+  handlePauseWhileTyping: PropTypes.func,
+  handleIsScrollIntoViewChange: PropTypes.func,
+  handleRollBackValueInSeconds: PropTypes.func,
+  defaultValueScrollSync: PropTypes.bool,
+  defaultValuePauseWhileTyping: PropTypes.bool,
+  defaultRollBackValueInSeconds: PropTypes.number
+};
 
 export default Settings;
