@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import VolumeControl from './VolumeControl';
+import Select from './Select';
 
 import style from './PlayerControls.module.css';
 
@@ -55,8 +56,21 @@ class PlayerControls extends React.Component {
           {'▶▶'}
         </button>
 
+        <button
+          className={ style.playBackRate }>
+          x<Select
+            options={ this.props.playbackRateOptions }
+            currentValue={ this.props.playbackRate.toString() }
+            name={ 'playbackRate' }
+            handleChange={ this.props.setPlayBackRate }
+          />
+
+        </button>
+
         <div className={ style.timeBox }>
-          <span className={ style.currentTime }>{ this.props.currentTime }</span>
+          <span className={ style.currentTime }
+            onClick={ this.props.promptSetCurrentTime }
+          >{ this.props.currentTime }</span>
           <span className={ style.separator }>|</span>
           <span className={ style.duration }>{this.props.duration}</span>
         </div>
@@ -64,7 +78,6 @@ class PlayerControls extends React.Component {
         <VolumeControl
           handleMuteVolume={ this.props.handleMuteVolume }
         />
-
       </div>
     );
   }
@@ -80,7 +93,10 @@ PlayerControls.propTypes = {
   duration: PropTypes.string,
   isPlaying: PropTypes.bool,
   skipBackward: PropTypes.func,
-  skipForward: PropTypes.func
+  skipForward: PropTypes.func,
+  playbackRate: PropTypes.number,
+  playbackRateOptions: PropTypes.array,
+  setPlayBackRate: PropTypes.func
 };
 
 export default PlayerControls;

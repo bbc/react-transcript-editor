@@ -7,7 +7,7 @@ class Word extends PureComponent {
     if (data.confidence) {
       return  data.confidence > 0.6 ? 'high' : 'low';
     }
-    // if confidence score not present then mark all as high
+
     return 'high';
   }
 

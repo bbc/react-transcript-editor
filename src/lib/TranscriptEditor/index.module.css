@@ -1,4 +1,4 @@
-@value color-subt-green from './colours.module.css';
+@value color-subt-green, color-darkest-grey from './colours.module.css';
 
 /* Desktop size */
 @media (min-width: 768px) {
@@ -12,6 +12,12 @@
     position: relative;
   }
 
+  .header {
+    background-color: black;
+    width: 100%;
+    height: 2em;
+  }
+
   .main {
     width: 100%;
     margin: 0 auto;
@@ -19,6 +25,31 @@
 
   .aside {
     width: 100%;
+  }
+
+  .settingsContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0em;
+  }
+
+  .settingsButton {
+    line-height: 1em;
+    margin-left: 0.2em;
+    background: color-darkest-grey;
+    display: inline-block;
+    border: 0;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    width: 5em;
+    height: 2em;
+  }
+
+  .cog {
+    font-weight: lighter;
   }
 }
 

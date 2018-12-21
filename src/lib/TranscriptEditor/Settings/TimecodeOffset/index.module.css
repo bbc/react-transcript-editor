@@ -1,0 +1,19 @@
+.offsetContainer {
+  display: inline-block;
+}
+
+.inputBox {
+  height: 2em;
+  width: 96px;
+  box-sizing: border-box;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 16px;
+  vertical-align: middle;
+}
+
+.button {
+  font-weight: lighter;
+  font-size: 0.8em;
+}

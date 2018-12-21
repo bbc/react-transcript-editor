@@ -42,6 +42,7 @@
     "newline-before-return": "error",
     "space-before-blocks": "error",
     "no-unused-vars": "error",
+    "comma-spacing": ["error", { "before": false, "after": true }],
     "prefer-destructuring": ["error", {
       "VariableDeclarator": {
         "array": false,

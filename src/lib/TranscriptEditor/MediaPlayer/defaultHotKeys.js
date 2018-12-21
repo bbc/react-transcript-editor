@@ -1,50 +1,40 @@
 function returnHotKeys(self) {
   return {
-    esc: {
+    'esc': {
       priority: 1,
       handler: () => { self.togglePlayMedia(); },
-      helperText: 'Play Media',
+      label: 'Play Media',
     },
     'ctrl+k': { // combo from mousetrap
       priority: 1,
       handler: () => { self.promptSetCurrentTime(); },
-      helperText: 'set current time',
+      label: 'set current time',
     },
     'ctrl+1': {
       priority: 1,
-      handler: () => { self.skipForward(); console.log('Skip Forward'); },
-      helperText: 'Skip Forward',
+      handler: () => { self.skipForward(); },
+      label: 'Skip Forward',
     },
     'ctrl+2': {
       priority: 1,
-      handler: () => { self.skipBackward(); console.log('Skip Backward'); },
-      helperText: 'Skip Backward',
+      handler: () => { self.skipBackward(); },
+      label: 'Skip Backward',
     },
     'ctrl+3': {
       priority: 1,
-      handler: () => { self.decreasePlaybackRate(); console.log('Speed Up - increase playbackRate'); },
-      helperText: 'Speed Up ',
+      handler: () => { self.decreasePlaybackRate(); },
+      label: 'Speed Down',
     },
     'ctrl+4': {
       priority: 1,
-      handler: () => { self.increasePlaybackRate(); console.log('Speed Down - Decrease playbackRate'); },
-      helperText: 'Speed Down',
+      handler: () => { self.increasePlaybackRate(); },
+      label: 'Speed Up',
     },
     'ctrl+5': {
       priority: 1,
       handler: () => { self.rollBack(); },
-      helperText: 'Roll Back',
+      label: 'Roll Back',
     }
-    // ,'ctrl+/': {
-    //     priority: 1,
-    //     handler: (event) => { console.log('show hide shortcuts');},
-    //     helperText: 'Show/Hide shortcuts'
-    // }
-    // ,'ctrl+s': {
-    //     priority: 1,
-    //     handler: (event) => { console.log('save');},
-    //     helperText: 'Save'
-    // }
   };
 }
 export default returnHotKeys;

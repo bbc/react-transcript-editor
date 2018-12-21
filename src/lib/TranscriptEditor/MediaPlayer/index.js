@@ -11,21 +11,55 @@ import styles from './index.module.css';
 
 import { secondsToTimecode, timecodeToSeconds } from '../../Util/timecode-converter/index';
 
+const PLAYBACK_RATES = [
+  { value: 0.2, label: '0.2' },
+  { value: 0.25, label: '0.25' },
+  { value: 0.5, label: '0.5' },
+  { value: 0.75, label: '0.75' },
+  { value: 1, label: '1' },
+  { value: 1.25, label: '1.25' },
+  { value: 1.5, label: '1.5' },
+  { value: 1.75, label: '1.75' },
+  { value: 2, label: '2' },
+  { value: 2.5, label: '2.5' },
+  { value: 3, label: '3' },
+  { value: 3.5, label: '3.5' }
+];
+
 class MediaPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.videoRef = React.createRef();
 
     this.state = {
-      playBackRate: 1,
-      rollBackValueInSeconds: 15,
-      timecodeOffset: 0,
+      playbackRate: 1,
+      rollBackValueInSeconds: this.props.rollBackValueInSeconds,
+      timecodeOffset: this.props.timecodeOffset,
       hotKeys: returnHotKeys(this),
-      isPlaying: false
+      isPlaying: false,
+      playbackRateOptions: PLAYBACK_RATES
     };
   }
   /*eslint-disable camelcase */
   hot_keys = returnHotKeys(this);
+
+  static getDerivedStateFromProps(nextProps) {
+    if (nextProps.timecodeOffset !== null) {
+      let newCurrentTimeInSeconds = nextProps.timecodeOffset ;
+      if (typeof newCurrentTimeInSeconds ==='string'
+        && newCurrentTimeInSeconds.includes(':')
+        && !newCurrentTimeInSeconds.includes('NaN')) {
+        newCurrentTimeInSeconds = timecodeToSeconds(nextProps.timecodeOffset );
+      }
+
+      return {
+        timecodeOffset: newCurrentTimeInSeconds,
+        rollBackValueInSeconds: nextProps.rollBackValueInSeconds
+      };
+    }
+
+    return null;
+  }
 
   componentDidMount() {
     this.props.hookSeek(this.setCurrentTime);
@@ -48,8 +82,22 @@ class MediaPlayer extends React.Component {
     }
   }
 
+  /**
+   * Prompts for a time stamp or time code to set media current time
+   * Also handles use can when the user has set a timecode offset via settings
+   * and the prompt is expected to be relative to that offset
+   */
   promptSetCurrentTime = () => {
-    this.setCurrentTime( prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds'));
+    let userTimecodeValue = prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds');
+    if (userTimecodeValue.includes(':')) {
+      userTimecodeValue = timecodeToSeconds(userTimecodeValue);
+    }
+    // remove timecode offset if preset
+    if (this.state.timecodeOffset !== 0) {
+      userTimecodeValue -= this.state.timecodeOffset;
+    }
+
+    this.setCurrentTime(userTimecodeValue);
   }
 
   setTimeCodeOffset = (newTimeCodeOffSet) => {
@@ -74,31 +122,46 @@ class MediaPlayer extends React.Component {
   }
 
   handleTimeUpdate = (e) => {
-    // eslint-disable-next-line react/prop-types
     this.props.hookOnTimeUpdate(e.target.currentTime);
   }
 
   handlePlayBackRateChange = (e) => {
-    this.setPlayBackRate(e.target.value);
+    this.setPlayBackRate(parseFloat(e.target.value));
   }
 
-  getCurrentPlaybackRate = () => {
+  /**
+   * @param {float} input - playback rate value as a float
+   */
+  setPlayBackRate = (input) => {
     if (this.videoRef.current !== null) {
-      return this.videoRef.current.playbackRate;
-    }
-  }
-
-  setPlayBackRate = (speedValue) => {
-    // value between 0.2 and 3.5
-    if (this.videoRef.current !== null) {
-      if (speedValue >= 0.2 && speedValue <= 3.5) {
+      if (input >= 0.2 && input <= 3.5) {
         this.setState({
-          playBackRate: speedValue,
+          playbackRate: input,
         }, () => {
-          this.videoRef.current.playbackRate = speedValue;
+          this.videoRef.current.playbackRate = input;
         });
       }
     }
+  }
+
+  decreasePlaybackRate = () => {
+    const speeds = [ ...PLAYBACK_RATES ].reverse();
+    const slower = speeds.find((option) => {
+      return option.value < this.state.playbackRate;
+    });
+    const newSpeed = slower ? slower.value : 0.2;
+
+    this.setPlayBackRate(newSpeed);
+  }
+
+  increasePlaybackRate = () => {
+    const speeds = [ ...PLAYBACK_RATES ];
+    const faster = speeds.find((option) => {
+      return option.value > this.state.playbackRate;
+    });
+    const newSpeed = faster ? faster.value : 3.5;
+
+    this.setPlayBackRate(newSpeed);
   }
 
   handleChangeReplayRollbackValue = (e) => {
@@ -205,6 +268,7 @@ class MediaPlayer extends React.Component {
         <PlayerControls
           playMedia={ this.togglePlayMedia.bind(this) }
           isPlaying={ this.state.isPlaying }
+          playbackRate={ this.state.playbackRate }
           skipBackward={ this.skipBackward.bind(this) }
           skipForward={ this.skipForward.bind(this) }
           rollback={ this.rollBack }
@@ -216,6 +280,8 @@ class MediaPlayer extends React.Component {
           setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
           timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
           handleMuteVolume={ this.handleMuteVolume.bind(this) }
+          setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
+          playbackRateOptions={ this.state.playbackRateOptions }
         />
       </div>
     );
@@ -241,9 +307,11 @@ class MediaPlayer extends React.Component {
 MediaPlayer.propTypes = {
   hookSeek: PropTypes.func,
   hookPlayMedia: PropTypes.func,
-  hookIsPlaying: PropTypes. func,
+  hookIsPlaying: PropTypes.func,
   mediaUrl: PropTypes.string,
   hookOnTimeUpdate: PropTypes.func,
+  rollBackValueInSeconds: PropTypes.number,
+  timecodeOffset: PropTypes.number
 };
 
 export default hotkeys(MediaPlayer);

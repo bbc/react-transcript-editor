@@ -16,6 +16,20 @@
   cursor: pointer;
 }
 
+.playBackRate{
+  background: color-darkest-grey;
+  width: 90px;
+  height: 48px;
+  padding: 0.5em;
+  margin-right: 0.5em;
+  border: 0;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+
+
 .timeBox {
   display: inline-block;
   background: color-darkest-grey;
@@ -27,6 +41,7 @@
 
 .currentTime {
   color: color-labs-red;
+  cursor: pointer;
 }
 
 .separator {

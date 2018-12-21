@@ -5,7 +5,7 @@ class VolumeControl extends React.Component {
 
   render() {
     return (
-      <div className={ styles.volumeSwitchContainer }>
+      <div className={ styles.switchContainer }>
         <label className={ styles.switch }>
           <input type="checkbox"
             defaultChecked="true"

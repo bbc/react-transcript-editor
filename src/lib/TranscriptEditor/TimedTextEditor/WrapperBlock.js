@@ -12,7 +12,8 @@ class WrapperBlock extends React.Component {
 
     this.state = {
       speaker: '',
-      start: 0
+      start: 0,
+      timecodeOffset: this.props.blockProps.timecodeOffset
     };
   }
 
@@ -21,9 +22,10 @@ class WrapperBlock extends React.Component {
     const speaker = block.getData().get('speaker');
 
     const start = block.getData().get('start');
+    
     this.setState({
       speaker: speaker,
-      start: start
+      start: start 
     });
   }
 
@@ -65,14 +67,25 @@ class WrapperBlock extends React.Component {
   }
 
   render() {
+    let startTimecode = this.state.start; 
+    if ( this.props.blockProps.timecodeOffset) {
+      // console.log(' this.props.blockProps.timecodeOffset: ', this.props.blockProps.timecodeOffset);
+      startTimecode +=  this.props.blockProps.timecodeOffset;
+    }
+    // console.log('startTimecode: ',startTimecode);
+    const speakerElement = <SpeakerLabel
+      name={ this.state.speaker }
+      handleOnClickEdit={ this.handleOnClickEdit }
+    />;
+
+    const timecodeElement =  <span className={ style.time } onClick={ this.handleTimecodeClick }>{shortTimecode(startTimecode)}</span>;
+
     return (
       <div className={ style.WrapperBlock }>
         <div className={ style.markers }>
-          <SpeakerLabel
-            name={ this.state.speaker }
-            handleOnClickEdit={ this.handleOnClickEdit }
-          />
-          <span className={ style.time } onClick={ this.handleTimecodeClick }>{shortTimecode(this.state.start)}</span>
+          {this.props.blockProps.showSpeakers? speakerElement: ''}
+         
+          {this.props.blockProps.showTimecodes? timecodeElement: ''}
         </div>
         <div className={ style.text }>
           <EditorBlock { ...this.props } />
