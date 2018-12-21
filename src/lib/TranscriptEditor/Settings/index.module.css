@@ -9,18 +9,42 @@
   vertical-align: middle;
   color:white;
   background: #4A4A4A;
-  padding: 25px;
+  padding: 1em;
 }
 
-.controlsContainer{
-    display: flex;
-   flex-direction: column;
-   flex-wrap: wrap;
-   /* justify-content: flex-start; */
-   align-content: flex-start 
+.header {
+  margin-top: 0;
+  margin-bottom: 1em;
 }
 
-.settingElement{
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.controlsContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start
+}
+
+.settingElement {
   text-align: left;
   align-self: auto;
+  margin-bottom: 0.5em;
+}
+
+.rollbackValue {
+  height: 2em;
+  width: 48px;
+  box-sizing: border-box;
+  border: none;
+  text-align: center;
+  font-weight: bold; 
+  margin-right: 16px;
+  vertical-align: middle;
 }

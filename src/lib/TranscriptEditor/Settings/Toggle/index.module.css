@@ -3,10 +3,10 @@
 .switchContainer {
   display: inline-block;
   position: relative;
-  height: 48px;
   width: 48px;
   display:inline-block;
-  vertical-align:middle;
+  vertical-align: middle;
+  margin-right: 1em;
 }
 
 .label {
