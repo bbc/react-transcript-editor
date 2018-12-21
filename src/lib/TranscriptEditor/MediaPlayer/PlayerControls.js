@@ -12,12 +12,14 @@ class PlayerControls extends React.Component {
   // backward or forward function
   // on mouseUp the interval is cleared
   setIntervalHelperBackward = () => {
+    this.props.skipBackward();
     this.interval = setInterval(() => {
       this.props.skipBackward();
     }, 300);
   }
 
   setIntervalHelperForward = () => {
+    this.props.skipForward();
     this.interval = setInterval(() => {
       this.props.skipForward();
     }, 300);
