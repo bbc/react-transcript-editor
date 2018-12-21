@@ -22,8 +22,16 @@ By submitting code as an individual or as an entity you agree that your code is 
 9. Once the work is complete push the branch up on to GitHub for review. Make sure your branch is up to date with `master` before making a pull request. eg use `git merge origin/master`
 10. Once a branch has been merged into `master`, delete it.
 
-
 `master` is rarely committed to directly unless the change is quite trivial or a code review is unnecessary (code formatting or documentation updates for example).
+
+## Code Quality 
+- Aim for solutions that are easy to explain and reason around so that others can contribute to it.
+- Use meaningfull descriptive variables and function names. eg avoid using `x`,`y`,`z` as variable names.
+- Keep short lines
+- Keep functions small and avoid side effects.
+- etc..
+
+See [this blog post for more on this](https://medium.com/mindorks/how-to-write-clean-code-lessons-learnt-from-the-clean-code-robert-c-martin-9ffc7aef870c)
 
 ## Contributing checklist
 
@@ -32,6 +40,7 @@ By submitting code as an individual or as an entity you agree that your code is 
 - [ ] Add automated tests where appropriate 
 - [ ] Ensure test suite passes (`npm run test`)
 - [ ] Make sure your code lints. (`npm run lint`)
+- [ ] consider re-factoring for code quality and readability
 - [ ] Update documentation where appropriate [updating the documentation](https://github.com/bbc/react-transcript-editor#documentation)
 - [ ] Setup your PR for review 
 
