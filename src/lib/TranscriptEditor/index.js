@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog, faKeyboard } from '@fortawesome/free-solid-svg-icons';
+
 import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
 import Settings from './Settings';
@@ -145,18 +148,26 @@ class TranscriptEditor extends React.Component {
       handleShowSpeakers={ this.handleShowSpeakers }
     />;
 
+    const shortcuts = <Shortcuts
+      handleShortcutsToggle={ this.handleShortcutsToggle }
+    />;
+
     return (
       <div className={ style.container }>
         <header className={ style.header }>
           { this.state.showSettings ? settings : null }
-          { this.state.showShortcuts ? <Shortcuts /> : null }
+          { this.state.showShortcuts ? shortcuts : null }
         </header>
 
         <aside className={ style.aside }>{ this.props.mediaUrl ? mediaPlayer : null }</aside>
 
         <div className={ style.settingsContainer }>
-          <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }><div className={ style.cog }>Settings</div></button>
-          <button className={ style.settingsButton } onClick={ this.handleShortcutsToggle }>ℹ</button>
+          <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }>
+            <FontAwesomeIcon icon={ faCog } />
+          </button>
+          <button className={ style.settingsButton } onClick={ this.handleShortcutsToggle }>
+            <FontAwesomeIcon icon={ faKeyboard } />
+          </button>
         </div>
 
         <main className={ style.main }>

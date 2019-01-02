@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
+
 import Toggle from './Toggle/';
 
 import style from './index.module.css';
@@ -12,7 +15,9 @@ class Settings extends React.Component {
     return (
       <div className={ style.settings }>
         <h2 className={ style.header }>Settings Panel</h2>
-        <div className={ style.closeButton } onClick={ this.props.handleSettingsToggle }>X</div>
+        <div className={ style.closeButton } onClick={ this.props.handleSettingsToggle }>
+          <FontAwesomeIcon icon={ faWindowClose } />
+        </div>
 
         <div className={ style.controlsContainer }>
           <section className={ style.settingElement }>
