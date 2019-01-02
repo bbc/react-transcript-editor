@@ -11,6 +11,7 @@
 .markers {
   width: 25%;
   font-size: 0.8em;
+  line-height: 1.2em;
   float: left;
 }
 
@@ -23,7 +24,7 @@
 
 .speaker {
   display: inline-block;
-  width: 55%;
+  width: 50%;
   padding-right: 2em;
   vertical-align: middle;
   color: color-mid-grey;
@@ -41,6 +42,9 @@
   font-weight: lighter;
   vertical-align: middle;
   cursor: pointer;
+  float: right;
+  line-height: 1.4em;
+  margin-right: 0.5em;
 }
 
 .EditLabel {
