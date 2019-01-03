@@ -1,4 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
 import returnHotKeys from '../MediaPlayer/defaultHotKeys';
 
@@ -18,11 +22,18 @@ class Shortcuts extends React.Component {
 
     return (
       <div className={ style.shortcuts }>
-        <div className={ style.header }>ℹ Keyboard Shortcuts Help</div>
+        <h2 className={ style.header }>Shortcuts</h2>
+        <div className={ style.closeButton } onClick={ this.props.handleShortcutsToggle }>
+          <FontAwesomeIcon icon={ faWindowClose } />
+        </div>
         <ul className={ style.list }>{ hotKeysCheatsheet }</ul>
       </div>
     );
   }
 }
+
+Shortcuts.propTypes = {
+  handleShortcutsToggle: PropTypes.func
+};
 
 export default Shortcuts;

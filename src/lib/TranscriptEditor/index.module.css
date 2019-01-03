@@ -36,7 +36,7 @@
 
   .settingsButton {
     line-height: 1em;
-    margin-left: 0.2em;
+    margin-left: 0.5em;
     background: color-darkest-grey;
     display: inline-block;
     border: 0;
@@ -44,7 +44,7 @@
     font-size: 1em;
     cursor: pointer;
     text-align: center;
-    width: 5em;
+    width: 2em;
     height: 2em;
   }
 

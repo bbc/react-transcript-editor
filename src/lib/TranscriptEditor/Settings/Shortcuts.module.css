@@ -1,6 +1,7 @@
 @value color-lightest-grey, color-labs-red, color-dark-grey from '../colours.module.css';
 
 .shortcuts {
+  padding: 1em;
   position: absolute;
   top: 2em;
   right: 0;
@@ -14,7 +15,17 @@
 }
 
 .header {
-  padding: 0.2em 1em;
+  margin-top: 0;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  cursor: pointer;
 }
 
 .list {
