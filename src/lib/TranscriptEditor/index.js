@@ -120,6 +120,10 @@ class TranscriptEditor extends React.Component {
     }));
   }
 
+  getEditorContent = (exportFormat) => {
+    return this.refs.timedTextEditor.getEditorContent(exportFormat);
+  }
+  
   render() {
     const mediaPlayer = <MediaPlayer
       hookSeek={ foo => this.setCurrentTime = foo }
