@@ -94,9 +94,9 @@ class MediaPlayer extends React.Component {
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({
         category: 'MediaPlayer',
-        action: 'promptSetCurrentTime', 
-        name: 'userTimecodeValue', 
-        value: userTimecodeValue 
+        action: 'promptSetCurrentTime',
+        name: 'userTimecodeValue',
+        value: userTimecodeValue
       });
     }
     // user clicks cancel to prompt, prompt returns null
@@ -108,22 +108,22 @@ class MediaPlayer extends React.Component {
       if (this.state.timecodeOffset !== 0) {
         userTimecodeValue -= this.state.timecodeOffset;
       }
-    
+
       this.setCurrentTime(userTimecodeValue);
     }
   }
 
   setTimeCodeOffset = (newTimeCodeOffSet) => {
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'MediaPlayer', 
-        action: 'setTimeCodeOffset', 
-        name: 'timecodeOffsetValue', 
-        value: newTimeCodeOffSet 
+      this.props.handleAnalyticsEvents({
+        category: 'MediaPlayer',
+        action: 'setTimeCodeOffset',
+        name: 'timecodeOffsetValue',
+        value: newTimeCodeOffSet
       });
     }
 
-    if (newTimeCodeOffSet !== '' && newTimeCodeOffSet !== null) {  
+    if (newTimeCodeOffSet !== '' && newTimeCodeOffSet !== null) {
       // use similar helper function from above to convert
       let newCurrentTimeInSeconds = newTimeCodeOffSet;
       if (newTimeCodeOffSet.includes(':')) {
@@ -135,13 +135,13 @@ class MediaPlayer extends React.Component {
 
   rollBack = () => {
     if (this.videoRef.current !== null) {
-      
+
       if (this.props.handleAnalyticsEvents !== undefined) {
-        this.props.handleAnalyticsEvents({ 
-          category: 'MediaPlayer', 
-          action: 'rollBack', 
-          name: 'rollBackValue', 
-          value: this.state.rollBackValueInSeconds 
+        this.props.handleAnalyticsEvents({
+          category: 'MediaPlayer',
+          action: 'rollBack',
+          name: 'rollBackValue',
+          value: this.state.rollBackValueInSeconds
         });
       }
       // get video duration
@@ -149,7 +149,7 @@ class MediaPlayer extends React.Component {
       const tmpDesiredCurrentTime = videoElem.currentTime - this.state.rollBackValueInSeconds;
       // > 0 < duration of video
       this.setCurrentTime(tmpDesiredCurrentTime);
-      
+
     }
   }
 
@@ -173,11 +173,11 @@ class MediaPlayer extends React.Component {
           this.videoRef.current.playbackRate = input;
 
           if (this.props.handleAnalyticsEvents !== undefined) {
-            this.props.handleAnalyticsEvents({ 
-              category: 'MediaPlayer', 
-              action: 'setPlayBackRate', 
-              name: 'playbackRateNewValue', 
-              value: input 
+            this.props.handleAnalyticsEvents({
+              category: 'MediaPlayer',
+              action: 'setPlayBackRate',
+              name: 'playbackRateNewValue',
+              value: input
             });
           }
 
@@ -238,10 +238,10 @@ class MediaPlayer extends React.Component {
     this.setState({ isPlaying: false }, () => this.videoRef.current.pause());
 
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'MediaPlayer', 
-        action: 'pauseMedia', 
-        name: 'pauseMedia', 
+      this.props.handleAnalyticsEvents({
+        category: 'MediaPlayer',
+        action: 'pauseMedia',
+        name: 'pauseMedia',
         value: secondsToTimecode(this.videoRef.current.currentTime)
       });
     }
@@ -249,16 +249,16 @@ class MediaPlayer extends React.Component {
 
   playMedia = () => {
     this.setState({ isPlaying: true }, () => this.videoRef.current.play());
-  
+
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'MediaPlayer', 
-        action: 'playMedia', 
-        name: 'playMedia', 
+      this.props.handleAnalyticsEvents({
+        category: 'MediaPlayer',
+        action: 'playMedia',
+        name: 'playMedia',
         value: secondsToTimecode(this.videoRef.current.currentTime)
       });
     }
-  
+
   }
 
   // Sets isPlaying state and toggles modes on the video player
@@ -299,11 +299,11 @@ class MediaPlayer extends React.Component {
     this.setCurrentTime(time);
 
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'MediaPlayer', 
-        action: 'handleProgressBarClick', 
-        name: 'roundNewCurrentTime', 
-        value: time 
+      this.props.handleAnalyticsEvents({
+        category: 'MediaPlayer',
+        action: 'handleProgressBarClick',
+        name: 'roundNewCurrentTime',
+        value: time
       });
     }
   }
@@ -317,11 +317,11 @@ class MediaPlayer extends React.Component {
   }
   handleMediaDurationChange =(e) => {
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'MediaPlayer', 
-        action: 'mediaDuration', 
-        name: secondsToTimecode(e.target.duration), 
-        value: e.target.duration 
+      this.props.handleAnalyticsEvents({
+        category: 'MediaPlayer',
+        action: 'mediaDuration',
+        name: secondsToTimecode(e.target.duration),
+        value: e.target.duration
       });
     }
   }
@@ -336,11 +336,11 @@ class MediaPlayer extends React.Component {
     });
 
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'MediaPlayer', 
-        action: 'onLoadedDataGetDuration', 
-        name: 'durationInSeconds-WithoutOffset', 
-        value: secondsToTimecode( currentDuration)  
+      this.props.handleAnalyticsEvents({
+        category: 'MediaPlayer',
+        action: 'onLoadedDataGetDuration',
+        name: 'durationInSeconds-WithoutOffset',
+        value: secondsToTimecode( currentDuration)
       });
     }
 
