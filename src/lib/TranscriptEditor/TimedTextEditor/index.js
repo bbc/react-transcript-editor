@@ -1,9 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tooltip from 'react-simple-tooltip';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuestionCircle, faMousePointer, faICursor, faUserEdit, faKeyboard, faSave } from '@fortawesome/free-solid-svg-icons';
 
 import {
   Editor,
@@ -405,13 +401,6 @@ class TimedTextEditor extends React.Component {
   }
 
   render() {
-    const helpMessage = <div className={ style.helpMessage }>
-      <span><FontAwesomeIcon className={ style.icon } icon={ faMousePointer } />Double click on a word or timestamp to jump to that point in the video.</span>
-      <span><FontAwesomeIcon className={ style.icon } icon={ faICursor } />Start typing to edit text.</span>
-      <span><FontAwesomeIcon className={ style.icon } icon={ faUserEdit } />You can add and change names of speakers in your transcript.</span>
-      <span><FontAwesomeIcon className={ style.icon } icon={ faKeyboard } />Use keyboard shortcuts for quick control.</span>
-      <span><FontAwesomeIcon className={ style.icon } icon={ faSave } />Save & export to get a copy to your desktop.</span>
-    </div>;
 
     const currentWord = this.getCurrentWord();
     const highlightColour = '#69e3c2';
@@ -447,17 +436,6 @@ class TimedTextEditor extends React.Component {
 
     return (
       <section>
-        <Tooltip
-          className={ style.help }
-          content={ helpMessage }
-          fadeDuration={ 250 }
-          fadeEasing={ 'ease-in' }
-          placement={ 'bottom' }
-          radius={ 5 }>
-          <FontAwesomeIcon className={ style.icon } icon={ faQuestionCircle } />
-          How does this work?
-        </Tooltip>
-
         { this.props.transcriptData !== null ? editor : null }
       </section>
     );
