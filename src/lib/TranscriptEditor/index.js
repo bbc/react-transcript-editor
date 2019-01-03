@@ -164,6 +164,7 @@ class TranscriptEditor extends React.Component {
     this.setState(prevState => ({
       showSettings: !prevState.showSettings
     }));
+    
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({ 
         category: 'TranscriptEditor', 

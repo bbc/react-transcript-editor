@@ -1,7 +1,7 @@
 # Analytics
 
 * Status: being evaluated
-* Deciders: Pietro, James
+* Deciders: Pietro, Luke, James
 * Date: 2018-12-06
 
 ## Context and Problem Statement

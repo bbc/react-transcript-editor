@@ -172,7 +172,6 @@ class TimedTextEditor extends React.Component {
     return '';
   }
 
-  // helper function for analytics 
   // originally from
   // https://github.com/draft-js-plugins/draft-js-plugins/blob/master/draft-js-counter-plugin/src/WordCounter/index.js#L12
   getWordCount = (editorState) => {
