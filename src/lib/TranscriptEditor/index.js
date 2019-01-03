@@ -85,36 +85,42 @@ class TranscriptEditor extends React.Component {
     const isChecked = e.target.checked;
     this.setState({ isScrollIntoViewOn: isChecked });
 
-    this.props.handleAnalyticsEvents({ 
-      category: 'TranscriptEditor', 
-      action: 'handleIsScrollIntoViewChange', 
-      name: 'isScrollIntoViewOn', 
-      value: isChecked
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'TranscriptEditor', 
+        action: 'handleIsScrollIntoViewChange', 
+        name: 'isScrollIntoViewOn', 
+        value: isChecked
+      });
+    }
 
   }
   handlePauseWhileTyping = (e) => {
     const isChecked = e.target.checked;
     this.setState({ isPauseWhileTypingOn: isChecked });
 
-    this.props.handleAnalyticsEvents({ 
-      category: 'TranscriptEditor', 
-      action: 'handlePauseWhileTyping', 
-      name: 'isPauseWhileTypingOn', 
-      value: isChecked
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'TranscriptEditor', 
+        action: 'handlePauseWhileTyping', 
+        name: 'isPauseWhileTypingOn', 
+        value: isChecked
+      });
+    }
   }
 
   handleRollBackValueInSeconds = (e) => {
     const rollBackValue = e.target.value;
     this.setState({ rollBackValueInSeconds: rollBackValue });
 
-    this.props.handleAnalyticsEvents({ 
-      category: 'TranscriptEditor', 
-      action: 'handleRollBackValueInSeconds', 
-      name: 'rollBackValueInSeconds', 
-      value: rollBackValue
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'TranscriptEditor', 
+        action: 'handleRollBackValueInSeconds', 
+        name: 'rollBackValueInSeconds', 
+        value: rollBackValue
+      });
+    }
   }
 
   handleSetTimecodeOffset = (timecodeOffset) => {
@@ -128,41 +134,44 @@ class TranscriptEditor extends React.Component {
 
   handleShowTimecodes = (e) => {
     const isChecked = e.target.checked;
-
     this.setState({ showTimecodes: isChecked });
 
-    this.props.handleAnalyticsEvents({ 
-      category: 'TranscriptEditor', 
-      action: 'handleShowTimecodes', 
-      name: 'showTimecodes', 
-      value: isChecked
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'TranscriptEditor', 
+        action: 'handleShowTimecodes', 
+        name: 'showTimecodes', 
+        value: isChecked
+      });
+    }
   }
 
   handleShowSpeakers = (e) => {
     const isChecked = e.target.checked;
-
     this.setState({ showSpeakers: isChecked });
 
-    this.props.handleAnalyticsEvents({ 
-      category: 'TranscriptEditor', 
-      action: 'handleShowSpeakers', 
-      name: 'showSpeakers', 
-      value:  isChecked
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'TranscriptEditor', 
+        action: 'handleShowSpeakers', 
+        name: 'showSpeakers', 
+        value:  isChecked
+      });
+    }
   }
 
   handleSettingsToggle = () => {
     this.setState(prevState => ({
       showSettings: !prevState.showSettings
     }));
-
-    this.props.handleAnalyticsEvents({ 
-      category: 'TranscriptEditor', 
-      action: 'handleSettingsToggle', 
-      name: 'showSettings', 
-      value:  !this.state.showSettings
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'TranscriptEditor', 
+        action: 'handleSettingsToggle', 
+        name: 'showSettings', 
+        value:  !this.state.showSettings
+      });
+    }
   }
 
   handleShortcutsToggle = () => {
@@ -170,12 +179,14 @@ class TranscriptEditor extends React.Component {
       showShortcuts: !prevState.showShortcuts
     }));
 
-    this.props.handleAnalyticsEvents({ 
-      category: 'TranscriptEditor', 
-      action: 'handleShortcutsToggle', 
-      name: 'showShortcuts', 
-      value:  !this.state.showShortcuts
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'TranscriptEditor', 
+        action: 'handleShortcutsToggle', 
+        name: 'showShortcuts', 
+        value:  !this.state.showShortcuts
+      });
+    }
   }
 
   getEditorContent = (exportFormat) => {

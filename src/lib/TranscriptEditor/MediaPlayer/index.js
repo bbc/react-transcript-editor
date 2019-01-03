@@ -90,6 +90,7 @@ class MediaPlayer extends React.Component {
    */
   promptSetCurrentTime = () => {
     let userTimecodeValue = prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds');
+
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({
         category: 'MediaPlayer',
@@ -113,6 +114,7 @@ class MediaPlayer extends React.Component {
   }
 
   setTimeCodeOffset = (newTimeCodeOffSet) => {
+
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({ 
         category: 'MediaPlayer', 
@@ -171,12 +173,14 @@ class MediaPlayer extends React.Component {
         }, () => {
           this.videoRef.current.playbackRate = input;
 
-          this.props.handleAnalyticsEvents({ 
-            category: 'MediaPlayer', 
-            action: 'setPlayBackRate', 
-            name: 'playbackRateNewValue', 
-            value: input 
-          });
+          if (this.props.handleAnalyticsEvents !== undefined) {
+            this.props.handleAnalyticsEvents({ 
+              category: 'MediaPlayer', 
+              action: 'setPlayBackRate', 
+              name: 'playbackRateNewValue', 
+              value: input 
+            });
+          }
 
         });
       }
@@ -234,23 +238,27 @@ class MediaPlayer extends React.Component {
   pauseMedia = () => {
     this.setState({ isPlaying: false }, () => this.videoRef.current.pause());
 
-    this.props.handleAnalyticsEvents({ 
-      category: 'MediaPlayer', 
-      action: 'pauseMedia', 
-      name: 'pauseMedia', 
-      value: secondsToTimecode(this.videoRef.current.currentTime)
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'MediaPlayer', 
+        action: 'pauseMedia', 
+        name: 'pauseMedia', 
+        value: secondsToTimecode(this.videoRef.current.currentTime)
+      });
+    }
   }
 
   playMedia = () => {
     this.setState({ isPlaying: true }, () => this.videoRef.current.play());
   
-    this.props.handleAnalyticsEvents({ 
-      category: 'MediaPlayer', 
-      action: 'playMedia', 
-      name: 'playMedia', 
-      value: secondsToTimecode(this.videoRef.current.currentTime)
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'MediaPlayer', 
+        action: 'playMedia', 
+        name: 'playMedia', 
+        value: secondsToTimecode(this.videoRef.current.currentTime)
+      });
+    }
   
   }
 
@@ -290,6 +298,7 @@ class MediaPlayer extends React.Component {
   handleProgressBarClick = (e) => {
     const time = e.target.value;
     this.setCurrentTime(time);
+
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({ 
         category: 'MediaPlayer', 
@@ -309,7 +318,12 @@ class MediaPlayer extends React.Component {
   }
   handleMediaDurationChange =(e) => {
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ category: 'MediaPlayer', action: 'mediaDuration', name: secondsToTimecode(e.target.duration), value: e.target.duration });
+      this.props.handleAnalyticsEvents({ 
+        category: 'MediaPlayer', 
+        action: 'mediaDuration', 
+        name: secondsToTimecode(e.target.duration), 
+        value: e.target.duration 
+      });
     }
   }
 
@@ -322,12 +336,14 @@ class MediaPlayer extends React.Component {
       mediaDuration: durationInSeconds
     });
 
-    this.props.handleAnalyticsEvents({ 
-      category: 'MediaPlayer', 
-      action: 'onLoadedDataGetDuration', 
-      name: 'durationInSeconds-WithoutOffset', 
-      value: secondsToTimecode( currentDuration)  
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({ 
+        category: 'MediaPlayer', 
+        action: 'onLoadedDataGetDuration', 
+        name: 'durationInSeconds-WithoutOffset', 
+        value: secondsToTimecode( currentDuration)  
+      });
+    }
 
   }
 
