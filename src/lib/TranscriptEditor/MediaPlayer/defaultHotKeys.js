@@ -1,13 +1,13 @@
 function returnHotKeys(self) {
   return {
-    'esc': {
+    'alt+space': {
       priority: 1,
       handler: () => { 
         self.togglePlayMedia(); 
         
         self.props.handleAnalyticsEvents({ 
           category: 'defaultHotKeys', 
-          action: 'esc', 
+          action: 'alt+space', 
           name: 'togglePlayMedia', 
           value: 'na'
         });
@@ -15,29 +15,14 @@ function returnHotKeys(self) {
       },
       label: 'Play Media',
     },
-    'esc': {
-      priority: 1,
-      handler: () => { 
-        self.promptSetCurrentTime();
-        
-        self.props.handleAnalyticsEvents({ 
-          category: 'defaultHotKeys', 
-          action: 'ctrl+k', 
-          name: 'promptSetCurrentTime', 
-          value: 'na'
-        });
-
-      },
-      label: 'set current time',
-    },
-    'alt+right': {
+    'shift+right': {
       priority: 1,
       handler: () => {
         self.skipForward(); 
 
         self.props.handleAnalyticsEvents({ 
           category: 'defaultHotKeys', 
-          action: 'ctrl+1', 
+          action: 'alt+right', 
           name: 'skipForward', 
           value: 'na'
         });
@@ -45,14 +30,14 @@ function returnHotKeys(self) {
       },
       label: 'Skip Forward',
     },
-    'alt+left': {
+    'shift+left': {
       priority: 1,
       handler: () => { 
         self.skipBackward(); 
 
         self.props.handleAnalyticsEvents({ 
           category: 'defaultHotKeys', 
-          action: 'ctrl+2', 
+          action: 'alt+left', 
           name: 'skipBackward', 
           value: 'na'
         });
@@ -60,14 +45,14 @@ function returnHotKeys(self) {
       },
       label: 'Skip Backward',
     },
-    'alt+down': {
+    'shift+down': {
       priority: 1,
       handler: () => { 
         self.decreasePlaybackRate(); 
 
         self.props.handleAnalyticsEvents({ 
           category: 'defaultHotKeys', 
-          action: 'ctrl+3', 
+          action: 'command+down', 
           name: 'decreasePlaybackRate', 
           value: 'na'
         });
@@ -75,14 +60,14 @@ function returnHotKeys(self) {
       },
       label: 'Speed Down',
     },
-    'alt+up': {
+    'shift+up': {
       priority: 1,
       handler: () => { 
         self.increasePlaybackRate(); 
 
         self.props.handleAnalyticsEvents({ 
           category: 'defaultHotKeys', 
-          action: 'ctrl+4', 
+          action: 'command+up', 
           name: 'increasePlaybackRate', 
           value: 'na'
         });
@@ -90,20 +75,35 @@ function returnHotKeys(self) {
       },
       label: 'Speed Up',
     },
-    'command+left': {
+    'alt+shift+left': {
       priority: 1,
       handler: () => { 
         self.rollBack(); 
         
         self.props.handleAnalyticsEvents({ 
           category: 'defaultHotKeys', 
-          action: 'ctrl+5', 
+          action: 'command+left', 
           name: 'rollBack', 
           value: 'na'
         });
 
       },
       label: 'Roll Back',
+    },
+    'alt+k': {
+      priority: 1,
+      handler: () => { 
+        self.promptSetCurrentTime();
+        
+        self.props.handleAnalyticsEvents({ 
+          category: 'defaultHotKeys', 
+          action: 'alt+k', 
+          name: 'promptSetCurrentTime', 
+          value: 'na'
+        });
+
+      },
+      label: 'set current time',
     }
   };
 }
