@@ -90,7 +90,9 @@ class MediaPlayer extends React.Component {
    */
   promptSetCurrentTime = () => {
     let userTimecodeValue = prompt('Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds');
-
+    // TODO: add some validation, eg if user types just a string it won't crash.
+    // needs function to check it's either timecode on the formats specified above or a number
+    // this could be part of the timecode module(?)
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({
         category: 'MediaPlayer',
