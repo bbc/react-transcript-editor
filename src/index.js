@@ -114,11 +114,7 @@ class App extends React.Component {
    }
 
    handleAnalyticsEvents = (event) => {
-     const tmpAnalyticsEventsList = this.state.analyticsEvents;
-     tmpAnalyticsEventsList.push(event);
-     this.setState({
-       analyticsEvents: tmpAnalyticsEventsList
-     });
+     this.setState({ analyticsEvents: [ ...this.state.analyticsEvents, event ] });
    }  
 
    render() {

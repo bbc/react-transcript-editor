@@ -24,7 +24,7 @@ class TimecodeOffset extends React.Component {
     const resetTimecodeOffsetValue = 0;
 
     this.props.handleAnalyticsEvents({ 
-      category: 'Settings - TimecodeOffset', 
+      category: 'TimecodeOffset', 
       action: 'resetTimecodeOffset', 
       name: 'resetTimecodeOffset', 
       value: 0
@@ -39,7 +39,7 @@ class TimecodeOffset extends React.Component {
 
   setTimecodeOffset = () => {
     this.props.handleAnalyticsEvents({ 
-      category: 'Settings - TimecodeOffset', 
+      category: 'TimecodeOffset', 
       action: 'setTimecodeOffset', 
       name: 'setTimecodeOffset', 
       value: this.state.timecodeOffset

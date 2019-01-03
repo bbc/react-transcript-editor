@@ -114,7 +114,6 @@ class MediaPlayer extends React.Component {
   }
 
   setTimeCodeOffset = (newTimeCodeOffSet) => {
-
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({ 
         category: 'MediaPlayer', 
@@ -123,8 +122,8 @@ class MediaPlayer extends React.Component {
         value: newTimeCodeOffSet 
       });
     }
-    if (newTimeCodeOffSet !== '' && newTimeCodeOffSet !== null) {
-      
+
+    if (newTimeCodeOffSet !== '' && newTimeCodeOffSet !== null) {  
       // use similar helper function from above to convert
       let newCurrentTimeInSeconds = newTimeCodeOffSet;
       if (newTimeCodeOffSet.includes(':')) {
