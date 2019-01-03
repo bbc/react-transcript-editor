@@ -71,7 +71,7 @@ From left to right
 | 1.1.4 |play          | click         | play media, audio or video  |
 | 1.1.5 |fast forward  | click         | Fast forward 10 sec   |
 | 1.1.6 |fast forward  | click - hold  | Continue to fast forward until release of btn  |
-| 1.1.7 |Playback rate | click - select| change the playback rate, of amount from dropdown  |
+| 1.1.7 |Playback speed | click - select| change the playback speed, of amount from dropdown  |
 | 1.1.8 |current time  | display       | display current time of media, updates while playing  |
 | 1.1.9 |current time  | click         | triggers prompt to jump to set time, using custom formats options  |
 | 1.1.10|Duration      | display       | display duration of media    |
@@ -288,9 +288,9 @@ scroll into view
 | 2 | set current time   | click keyboard shortcut combination | to prompt change current time dialog
 | 3 | Fast Forward  | click keyboard shortcut combination | To fast forward media 
 | 4 | Rewind  | click keyboard shortcut combination | to rewind media
-| 5 |  Increase playback rate  | click keyboard shortcut combination | to Increase playback rate  of the media, and show current playback rate in playback rate btn
-| 6 |  Decrease playback rate  | click keyboard shortcut combination | to Decrease playback rate of the media, and show current playback rate in playback rate btn
-| 6 |  RollBack  | click keyboard shortcut combination | to RollBack playhead default amount of 15 sec, or custom amount set in settings
+| 5 |  Increase playback speed  | click keyboard shortcut combination | to Increase playback speed  of the media, and show current playback speed in playback speed btn
+| 6 |  Decrease playback speed  | click keyboard shortcut combination | to Decrease playback speed of the media, and show current playback speed in playback speed btn
+| 6 |  Roll Back  | click keyboard shortcut combination | to RollBack playhead default amount of 15 sec, or custom amount set in settings
 
 ---
 
@@ -314,8 +314,9 @@ _these we'd expect to be triggered first_
 - [ ] click on progress bar
 - [ ] double click on word // now also triggered when  clicking on time-codes
 - [ ] click on time-codes, at paragraph level
-- [ ] Jump to time, click on current time display 
+- [ ] Set current time, Jump to time, click on current time display 
 - [ ] play/pause, click on media preview // but triggered by other events as well
+- [ ] playback speed change
 - [ ] use of keyboard shortcuts // see keyboard shortcut cheat sheet and test each individually
 - [ ] edit speaker label 
 - [ ] ~skip forward~
@@ -325,7 +326,7 @@ _these we'd expect to be triggered first_
 - [ ] set timecode offset
 - [ ] pause while typing
 - [ ] scroll into view
-- [ ] playback rate change
+
 - [ ] rollback 
 - [ ] Toggles speaker names - show/hide 
 
