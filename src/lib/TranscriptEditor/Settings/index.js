@@ -71,6 +71,7 @@ class Settings extends React.Component {
             <TimecodeOffset
               timecodeOffset={ this.props.timecodeOffset }
               handleSetTimecodeOffset={ this.props.handleSetTimecodeOffset }
+              handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
             />
           </section>
         </div>

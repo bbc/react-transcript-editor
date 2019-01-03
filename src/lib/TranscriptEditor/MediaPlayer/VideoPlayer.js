@@ -12,6 +12,7 @@ class VideoPlayer extends React.Component {
         type="video/mp4"
         data-testid="media-player-id"
         onClick={ this.props.onClick }
+        onLoadedData={ this.props.onLoadedDataGetDuration }
         ref={ this.props.videoRef }
       />
     );
@@ -22,7 +23,8 @@ VideoPlayer.propTypes = {
   mediaUrl: PropTypes.string,
   onTimeUpdate: PropTypes.func,
   onClick: PropTypes.func,
-  videoRef: PropTypes.object
+  videoRef: PropTypes.object,
+  onLoadedDataGetDuration: PropTypes.func
 };
 
 export default VideoPlayer;
