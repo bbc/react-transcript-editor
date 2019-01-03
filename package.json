@@ -20,7 +20,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build:example": "react-scripts build",
-    "build:component": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore */__tests__,*/spec.js,*/test.js,*/__snapshots__,*/sample.json,*/sample.js",
+    "build:component": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --ignore '**/*__tests__,**/*.spec.js,**/*.test.js,**/*__snapshots__,**/*.sample.js,**/*.sample.json,/**/example-usage.js' --copy-files",
     "deploy:ghpages": "npm run build:example && gh-pages -d build",
     "test-ci": "CI=true react-scripts test --env=jsdom --verbose",
     "lint": "eslint --ignore-path .eslintignore .",
