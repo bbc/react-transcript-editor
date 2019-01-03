@@ -19,7 +19,7 @@ By submitting code as an individual or as an entity you agree that your code is 
 6. Ensure the test suite passes.
 7. Make sure your code lints.
 8. If you've changed APIs, consider [updating the documentation](https://github.com/bbc/react-transcript-editor#documentation).
-9. Once the work is complete push the branch up on to GitHub for review. Make sure your branch is up to date with `master` before making a pull request. eg use `git merge origin/master`
+9. Once the work is complete push the branch up on to GitHub for review. Make sure your branch is up to date with `master` before making a pull request. eg use [`git merge origin/master`](https://git-scm.com/docs/git-merge) or [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 10. Once a branch has been merged into `master`, delete it.
 
 `master` is rarely committed to directly unless the change is quite trivial or a code review is unnecessary (code formatting or documentation updates for example).
