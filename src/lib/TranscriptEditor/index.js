@@ -55,10 +55,10 @@ class TranscriptEditor extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   handleWordClick = (startTime) => {
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'TranscriptEditor', 
-        action: 'doubleClickOnWord', 
-        name: 'startTime', 
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'doubleClickOnWord',
+        name: 'startTime',
         value: secondsToTimecode(startTime)
       });
     }
@@ -86,10 +86,10 @@ class TranscriptEditor extends React.Component {
     this.setState({ isScrollIntoViewOn: isChecked });
 
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'TranscriptEditor', 
-        action: 'handleIsScrollIntoViewChange', 
-        name: 'isScrollIntoViewOn', 
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handleIsScrollIntoViewChange',
+        name: 'isScrollIntoViewOn',
         value: isChecked
       });
     }
@@ -100,10 +100,10 @@ class TranscriptEditor extends React.Component {
     this.setState({ isPauseWhileTypingOn: isChecked });
 
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'TranscriptEditor', 
-        action: 'handlePauseWhileTyping', 
-        name: 'isPauseWhileTypingOn', 
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handlePauseWhileTyping',
+        name: 'isPauseWhileTypingOn',
         value: isChecked
       });
     }
@@ -114,10 +114,10 @@ class TranscriptEditor extends React.Component {
     this.setState({ rollBackValueInSeconds: rollBackValue });
 
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'TranscriptEditor', 
-        action: 'handleRollBackValueInSeconds', 
-        name: 'rollBackValueInSeconds', 
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handleRollBackValueInSeconds',
+        name: 'rollBackValueInSeconds',
         value: rollBackValue
       });
     }
@@ -137,10 +137,10 @@ class TranscriptEditor extends React.Component {
     this.setState({ showTimecodes: isChecked });
 
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'TranscriptEditor', 
-        action: 'handleShowTimecodes', 
-        name: 'showTimecodes', 
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handleShowTimecodes',
+        name: 'showTimecodes',
         value: isChecked
       });
     }
@@ -151,10 +151,10 @@ class TranscriptEditor extends React.Component {
     this.setState({ showSpeakers: isChecked });
 
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'TranscriptEditor', 
-        action: 'handleShowSpeakers', 
-        name: 'showSpeakers', 
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handleShowSpeakers',
+        name: 'showSpeakers',
         value:  isChecked
       });
     }
@@ -164,12 +164,12 @@ class TranscriptEditor extends React.Component {
     this.setState(prevState => ({
       showSettings: !prevState.showSettings
     }));
-    
+
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'TranscriptEditor', 
-        action: 'handleSettingsToggle', 
-        name: 'showSettings', 
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handleSettingsToggle',
+        name: 'showSettings',
         value:  !this.state.showSettings
       });
     }
@@ -181,10 +181,10 @@ class TranscriptEditor extends React.Component {
     }));
 
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'TranscriptEditor', 
-        action: 'handleShortcutsToggle', 
-        name: 'showShortcuts', 
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handleShortcutsToggle',
+        name: 'showShortcuts',
         value:  !this.state.showShortcuts
       });
     }
@@ -193,7 +193,7 @@ class TranscriptEditor extends React.Component {
   getEditorContent = (exportFormat) => {
     return this.refs.timedTextEditor.getEditorContent(exportFormat);
   }
-  
+
   render() {
     const mediaPlayer = <MediaPlayer
       hookSeek={ foo => this.setCurrentTime = foo }

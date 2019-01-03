@@ -11,6 +11,7 @@
     "jest": true
   },
   "rules": {
+    "no-trailing-spaces": "error",
     "indent": ["warn", 2],
     "arrow-spacing": ["error", { "before": true, "after": true }],
     "space-in-parens": [ 0, "never" ],
