@@ -5,6 +5,8 @@ version: _>=0.2.0_
 
 This doc provides a lightweight set of steps and checklists for manual QA test. This should be done before every major release.
 
+_The assumption underlying this doc is that anyone, even without technical skills, should be able to conduct QA testing._
+
 ## Overview
 React Transcript Editor it's a react component, to make transcribing audio and video easier and faster. Please see project repository the Github [README](https://github.com/bbc/react-transcript-editor/blob/master/README.md) page,for an overview of what the component does and how it works (https://github.com/bbc/react-transcript-editor). 
 
