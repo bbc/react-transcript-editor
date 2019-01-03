@@ -27,14 +27,14 @@ https://github.com/facebook/draft-js/issues/528
 .help {
   cursor: pointer;
   float: right;
-  padding-right: 1em;
-  padding-left: 12em;
+  padding-right: 0.5em;
+  padding-left: 11em;
   margin: 0.5em 0;
 }
 
 .icon {
   color: color-labs-red;
-  margin-right: 1em;
+  margin-right: 0.5em;
 }
 
 .helpMessage span {
