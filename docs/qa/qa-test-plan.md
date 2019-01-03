@@ -1,9 +1,12 @@
 # QA Test Plan: React Transcript Editor
 
-Last updated: _3rd Jan 2018_
+Last updated: _3rd Jan 2018_     
+version: _>=0.2.0_
+
+This doc provides a lightweight set of steps and checklists for manual QA test. This should be done before every major release.
 
 ## Overview
-React Transcript Editor it's a react component, to make transcribing audio and video easier and faster. Please see project repository the Github README page,for an overview of what the app does and how it works (https://github.com/bbc/react-transcript-editor). 
+React Transcript Editor it's a react component, to make transcribing audio and video easier and faster. Please see project repository the Github [README](https://github.com/bbc/react-transcript-editor/blob/master/README.md) page,for an overview of what the component does and how it works (https://github.com/bbc/react-transcript-editor). 
 
 <!-- Here is a video demo of the  main use case: https://youtu.be/4z143-nJlzs.  -->
 
@@ -29,11 +32,13 @@ By default we aim for the component to work on the latest major version of the f
 
 Desktop (Mac, Win and Linux), Tablet (iOS, Android, Win), Mobile (iOS, Android, Win), on Chrome, Firefox, Safari, Internet Explorer and Edge.
 
-When you raise an issue please indicate if operating system, device, and browser.
+When you raise an issue please indicate the operating system, device, and browser.
 
 ---
 
 ## Items to test
+
+There are 5 main parts for QA testing
 
 1. Player Controls
 2. Timed Text Editor 
