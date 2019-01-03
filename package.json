@@ -82,6 +82,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-keyboard-shortcuts": "^1.1.3"
+    "react-keyboard-shortcuts": "^1.1.3",
+    "react-simple-tooltip": "^2.3.3"
   }
 }
