@@ -1,5 +1,14 @@
 @value color-subt-green, color-darkest-grey from './colours.module.css';
 
+::selection {
+  background: color-subt-green;
+}
+
+::moz-selection {
+  background: color-subt-green;
+}
+
+
 /* Desktop size */
 @media (min-width: 768px) {
   .container {
@@ -28,22 +37,10 @@
     flex: 50%;
   }
 
-  /* .aside{
-    
-  } */
-
   .row {
     display: flex;
     margin-top: 1em;
   }
-
-  /* .columnPreview {
-    flex: 50%;
-  }
-
-  .columnTimedTextEditor {
-    flex: 50%;
-  } */
 
   .settingsContainer {
     position: absolute;
@@ -77,23 +74,60 @@
     flex-wrap: wrap;
     position: relative;
   }
-  .main {
+
+  .header {
+    background-color: black;
     width: 100%;
-    flex: 50%;
+    /* height: 2em; */
   }
+
   .nav {
     width: 100%;
   }
+
+  .main {
+    width: 100%;
+    flex: 100%;
+  }
+  
   .row {
     /* display: flex; */
     margin-top: 1em;
   }
+
+  .aside{
+    width:100%;
+  }
+
+  .aside video{
+    max-height: auto;
+    max-width: 100vw;
+  }
+
+  .settingsContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0em;
+  }
+
+  .settingsButton {
+    line-height: 1em;
+    margin-left: 0.5em;
+    background: color-darkest-grey;
+    display: inline-block;
+    border: 0;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    width: 2em;
+    height: 2em;
+  }
+
+  .cog {
+    font-weight: lighter;
+  }
+
 }
 
-::selection {
-  background: color-subt-green;
-}
-
-::moz-selection {
-  background: color-subt-green;
-}

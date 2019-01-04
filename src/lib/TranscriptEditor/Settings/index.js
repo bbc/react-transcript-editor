@@ -84,8 +84,8 @@ class Settings extends React.Component {
               className={ style.rollbackValue }
               type="number"
               step="1"
-              max="30"
-              min="10"
+              max="40"
+              min="15"
               value={ this.props.previewViewWidth }
               onChange={ this.props.handleChangePreviewViewWidth }
               name="lname"/>

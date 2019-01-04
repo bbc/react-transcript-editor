@@ -32,7 +32,7 @@ class TranscriptEditor extends React.Component {
       showSpeakers: true,
       previewIsDisplayed: true,
       mediaDuration: '00:00:00:00',
-      previewViewWidth: '15'
+      previewViewWidth: '25'
     };
   }
 
@@ -314,7 +314,9 @@ class TranscriptEditor extends React.Component {
             <FontAwesomeIcon icon={ faKeyboard } />
           </button>
         </div>
+
         <section className={ style.row }>
+
           <aside className={ style.aside }>
             { videoPlayer }
           </aside>
