@@ -115,7 +115,7 @@ class App extends React.Component {
 
    handleAnalyticsEvents = (event) => {
      this.setState({ analyticsEvents: [ ...this.state.analyticsEvents, event ] });
-   }  
+   }
 
    render() {
      return (
@@ -187,9 +187,9 @@ class App extends React.Component {
          />
          <hr/>
          <label>Components Analytics</label>
-         <textarea 
-           style={ { height: '200px', width: '100%' } } 
-           value={ JSON.stringify(this.state.analyticsEvents, null, 2) } 
+         <textarea
+           style={ { height: '200px', width: '100%' } }
+           value={ JSON.stringify(this.state.analyticsEvents, null, 2) }
            disabled>
          </textarea>
        </div>

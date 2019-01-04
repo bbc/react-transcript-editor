@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tooltip from 'react-simple-tooltip';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuestionCircle, faMousePointer, faICursor, faUserEdit, faKeyboard, faSave } from '@fortawesome/free-solid-svg-icons';
 
 import {
   Editor,
@@ -176,10 +180,10 @@ class TimedTextEditor extends React.Component {
   // https://github.com/draft-js-plugins/draft-js-plugins/blob/master/draft-js-counter-plugin/src/WordCounter/index.js#L12
   getWordCount = (editorState) => {
     const plainText = editorState.getCurrentContent().getPlainText('');
-    const regex = /(?:\r\n|\r|\n)/g;  // new line, carriage return, line feed
+    const regex = /(?:\r\n|\r|\n)/g; // new line, carriage return, line feed
     const cleanString = plainText.replace(regex, ' ').trim(); // replace above characters w/ space
-    const wordArray = cleanString.match(/\S+/g);  // matches words according to whitespace
-    
+    const wordArray = cleanString.match(/\S+/g); // matches words according to whitespace
+
     return wordArray ? wordArray.length : 0;
   }
 
@@ -193,26 +197,26 @@ class TimedTextEditor extends React.Component {
     const contentState = convertFromRaw(data);
     // eslint-disable-next-line no-use-before-define
     const editorState = EditorState.createWithContent(contentState, decorator);
-    
+
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'TimedTextEditor', 
-        action: 'setEditorContentState', 
-        name: 'getWordCount', 
+      this.props.handleAnalyticsEvents({
+        category: 'TimedTextEditor',
+        action: 'setEditorContentState',
+        name: 'getWordCount',
         value: this.getWordCount(editorState)
       });
     }
-    
+
     this.setState({ editorState });
   }
 
   // Helper function to re-render this component
   // used to re-render WrapperBlock on timecode offset change
   // or when show / hide preferences for speaker labels and timecodes change
-  forceRenderDecorator= () => {
+  forceRenderDecorator = () => {
     // const { editorState, updateEditorState } = this.props;
-    const contentState =   this.state.editorState.getCurrentContent();
-    const decorator =   this.state.editorState.getDecorator();
+    const contentState = this.state.editorState.getCurrentContent();
+    const decorator = this.state.editorState.getDecorator();
 
     const newState = EditorState.createWithContent(
       contentState,
@@ -423,6 +427,25 @@ class TimedTextEditor extends React.Component {
   }
 
   render() {
+    const helpMessage = <div className={ style.helpMessage }>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faMousePointer } />Double click on a word or timestamp to jump to that point in the video.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faICursor } />Start typing to edit text.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faUserEdit } />You can add and change names of speakers in your transcript.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faKeyboard } />Use keyboard shortcuts for quick control.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faSave } />Save & export to get a copy to your desktop.</span>
+    </div>;
+
+    const tooltip = <Tooltip
+      className={ style.help }
+      content={ helpMessage }
+      fadeDuration={ 250 }
+      fadeEasing={ 'ease-in' }
+      placement={ 'bottom' }
+      radius={ 5 }>
+      <FontAwesomeIcon className={ style.icon } icon={ faQuestionCircle } />
+      How does this work?
+    </Tooltip>;
+
     const currentWord = this.getCurrentWord();
     const highlightColour = '#69e3c2';
     const unplayedColor = '#767676';
@@ -457,6 +480,7 @@ class TimedTextEditor extends React.Component {
 
     return (
       <section>
+        { tooltip }
         { this.props.transcriptData !== null ? editor : null }
       </section>
     );

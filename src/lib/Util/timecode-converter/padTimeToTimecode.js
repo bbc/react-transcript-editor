@@ -37,7 +37,7 @@ const padTimeToTimecode = (time) => {
       if (isOneDigit(time)) {
         return `00:00:0${ time }:00`;
       }
-      
+
       return `00:00:${ time }:00`;
     }
     // edge case if it's number return a number coz cannot refactor

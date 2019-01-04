@@ -19,7 +19,7 @@ class RollBack extends React.Component {
           onChange={ this.props.handleChangeReplayRollbackValue }
         />
         <br/>
-        <button type="button" onClick={ this.props.rollBack  }>↺</button>
+        <button type="button" onClick={ this.props.rollBack }>↺</button>
 
       </div>
     );
