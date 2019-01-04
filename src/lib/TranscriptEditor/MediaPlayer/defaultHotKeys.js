@@ -28,7 +28,7 @@ function returnHotKeys(self) {
         });
 
       },
-      label: 'Skip Forward',
+      label: 'Fast Forward',
     },
     'shift+left': {
       priority: 1,
@@ -43,7 +43,7 @@ function returnHotKeys(self) {
         });
 
       },
-      label: 'Skip Backward',
+      label: 'Rewind',
     },
     'shift+down': {
       priority: 1,
@@ -58,7 +58,7 @@ function returnHotKeys(self) {
         });
 
       },
-      label: 'Speed Down',
+      label: 'Decrease Playback Speed',
     },
     'shift+up': {
       priority: 1,
@@ -73,7 +73,7 @@ function returnHotKeys(self) {
         });
 
       },
-      label: 'Speed Up',
+      label: 'Increase Playback Speed',
     },
     'alt+shift+left': {
       priority: 1,
