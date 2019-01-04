@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './VideoPlayer.module.css';
 
 class VideoPlayer extends React.Component {
   constructor(props) {
@@ -32,7 +31,11 @@ class VideoPlayer extends React.Component {
         onLoadedData={ this.props.onLoadedDataGetDuration }
         ref={ this.props.videoRef }
         // className={ style.videoPreview }
-        style={ { display: isDisplayed, 'max-width':  viewWith } }
+        style={ {
+          display: isDisplayed,
+          'max-width':  viewWith,
+          cursor: 'pointer'
+        } }
       />
     );
   }
