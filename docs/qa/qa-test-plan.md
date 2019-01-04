@@ -202,7 +202,7 @@ scroll into view
 - Make sure media current time is not zero
 - Click on roll back btn 
 ##### Expected Results: 
--  Expect current time to roll back by the the custom ammount set in previous steps
+-  [ ] Expect current time to roll back by the the custom ammount set in previous steps
 - Expect progress bar, media preview, and timed text editor words hilight to update accordingly
 
 
