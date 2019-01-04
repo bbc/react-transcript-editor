@@ -1,7 +1,9 @@
 @value color-darkest-grey, color-light-grey, color-labs-red from '../colours.module.css';
 
 .playerControls {
-  margin: 1em;
+  /* margin: 1em; */
+  margin-top: 0.5em;
+  margin-left: 0.5em;
 }
 
 .playerButton {

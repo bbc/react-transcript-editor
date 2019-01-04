@@ -6,6 +6,7 @@ import { faCog, faKeyboard } from '@fortawesome/free-solid-svg-icons';
 
 import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
+import VideoPlayer from './MediaPlayer/VideoPlayer';
 import Settings from './Settings';
 import Shortcuts from './Settings/Shortcuts';
 import { secondsToTimecode } from '../Util/timecode-converter/index';
@@ -15,6 +16,7 @@ import style from './index.module.css';
 class TranscriptEditor extends React.Component {
   constructor(props) {
     super(props);
+    this.videoRef = React.createRef();
 
     this.state = {
       currentTime: 0,
@@ -27,7 +29,9 @@ class TranscriptEditor extends React.Component {
       rollBackValueInSeconds: 15,
       timecodeOffset: 0,
       showTimecodes: true,
-      showSpeakers: true
+      showSpeakers: true,
+      previewIsDisplayed: true,
+      mediaDuration: '00:00:00:00',
     };
   }
 
@@ -67,7 +71,8 @@ class TranscriptEditor extends React.Component {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  handleTimeUpdate = (currentTime) => {
+  handleTimeUpdate = (e) => {
+    const currentTime = e.target.currentTime;
     this.setState({
       currentTime,
     });
@@ -194,17 +199,68 @@ class TranscriptEditor extends React.Component {
     return this.refs.timedTextEditor.getEditorContent(exportFormat);
   }
 
+  handlePreviewIsDisplayed = () => {
+    this.setState({
+      previewIsDisplayed: !this.state.previewIsDisplayed
+    });
+  }
+
+  onLoadedDataGetDuration = (e) => {
+    const currentDuration = e.target.duration;
+    const currentDurationWithOffset = currentDuration+ this.state.timecodeOffset;
+    const durationInSeconds = secondsToTimecode( currentDuration+ currentDurationWithOffset);
+
+    this.setState({
+      mediaDuration: durationInSeconds
+    });
+
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'onLoadedDataGetDuration',
+        name: 'durationInSeconds-WithoutOffset',
+        value: secondsToTimecode( currentDuration)
+      });
+    }
+
+  }
+
   render() {
-    const mediaPlayer = <MediaPlayer
+    const videoPlayer = <VideoPlayer
+      mediaUrl={ this.props.mediaUrl }
+      onTimeUpdate= { this.handleTimeUpdate }
+      onClick= { this.props.onClick  }
+      videoRef={ this.videoRef }
+      previewIsDisplayed={ this.state.previewIsDisplayed }
+      onLoadedDataGetDuration={ this.onLoadedDataGetDuration }
+    />;
+
+    //   <video
+    //   id="video"
+    //   playsInline
+    //   src={ this.props.mediaUrl }
+    //   onTimeUpdate={ this.handleTimeUpdate }
+    //   type="video/mp4"
+    //   data-testid="media-player-id"
+    //   onClick={ this.handlePlayMedia }
+    //   // onLoadedData={ this.props.onLoadedDataGetDuration }
+    //   ref={ this.videoRef }
+    // // style={ { display: 'none' } }
+    // />;
+
+    const mediaControls = <MediaPlayer
+      title={ this.props.title? this.props.title: '' }
+      mediaDuration={ this.state.mediaDuration }
       hookSeek={ foo => this.setCurrentTime = foo }
       hookPlayMedia={ foo => this.playMedia = foo }
       hookIsPlaying={ foo => this.isPlaying = foo }
       rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
       timecodeOffset={ this.state.timecodeOffset }
-      hookOnTimeUpdate={ this.handleTimeUpdate }
+      // hookOnTimeUpdate={ this.handleTimeUpdate }
       mediaUrl={ this.props.mediaUrl }
       // ref={ 'MediaPlayer' }
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+      videoRef={ this.videoRef }
     />;
 
     const settings = <Settings
@@ -222,6 +278,8 @@ class TranscriptEditor extends React.Component {
       handleShowTimecodes={ this.handleShowTimecodes }
       handleShowSpeakers={ this.handleShowSpeakers }
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+      previewIsDisplayed={ this.state.previewIsDisplayed }
+      handlePreviewIsDisplayed={ this.handlePreviewIsDisplayed }
     />;
 
     const shortcuts = <Shortcuts
@@ -235,7 +293,7 @@ class TranscriptEditor extends React.Component {
           { this.state.showShortcuts ? shortcuts : null }
         </header>
 
-        <aside className={ style.aside }>{ this.props.mediaUrl ? mediaPlayer : null }</aside>
+        <nav className={ style.nav }>{ this.props.mediaUrl ? mediaControls : null }</nav>
 
         <div className={ style.settingsContainer }>
           <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }>
@@ -245,26 +303,31 @@ class TranscriptEditor extends React.Component {
             <FontAwesomeIcon icon={ faKeyboard } />
           </button>
         </div>
+        <section className={ style.row }>
+          <aside className={ style.aside }>
+            { videoPlayer }
+          </aside>
 
-        <main className={ style.main }>
-          <TimedTextEditor
-            transcriptData={ this.state.transcriptData }
-            timecodeOffset={ this.state.timecodeOffset }
-            onWordClick={ this.handleWordClick }
-            playMedia={ this.handlePlayMedia }
-            isPlaying={ this.handleIsPlaying }
-            currentTime={ this.state.currentTime }
-            isEditable={ this.props.isEditable }
-            sttJsonType={ this.props.sttJsonType }
-            mediaUrl={ this.props.mediaUrl }
-            isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
-            isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
-            showTimecodes={ this.state.showTimecodes }
-            showSpeakers={ this.state.showSpeakers }
-            ref={ 'timedTextEditor' }
-            handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
-          />
-        </main>
+          <main className={ style.main }>
+            <TimedTextEditor
+              transcriptData={ this.state.transcriptData }
+              timecodeOffset={ this.state.timecodeOffset }
+              onWordClick={ this.handleWordClick }
+              playMedia={ this.handlePlayMedia }
+              isPlaying={ this.handleIsPlaying }
+              currentTime={ this.state.currentTime }
+              isEditable={ this.props.isEditable }
+              sttJsonType={ this.props.sttJsonType }
+              mediaUrl={ this.props.mediaUrl }
+              isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
+              isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
+              showTimecodes={ this.state.showTimecodes }
+              showSpeakers={ this.state.showSpeakers }
+              ref={ 'timedTextEditor' }
+              handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+            />
+          </main>
+        </section>
       </div>
     );
   }

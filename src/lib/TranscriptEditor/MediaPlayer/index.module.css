@@ -10,12 +10,6 @@
   width: 100%;
 }
 
-video {
-  width: 30%;
-  max-height: 160px;
-  cursor: pointer;
-}
-
 .controlsSection {
   width: 100%;
   display: flex;

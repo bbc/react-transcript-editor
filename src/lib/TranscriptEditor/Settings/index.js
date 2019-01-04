@@ -67,6 +67,15 @@ class Settings extends React.Component {
           </section>
 
           <section className={ style.settingElement }>
+            <div className={ style.label }>Display Preview</div>
+            <Toggle
+              defaultValue={ this.props.previewIsDisplayed }
+              label={ 'Display Preview' }
+              handleToggle={ this.props.handlePreviewIsDisplayed }
+            />
+          </section>
+
+          <section className={ style.settingElement }>
             <div className={ style.timecodeLabel }>Timecode Offset ℹ</div>
             <TimecodeOffset
               timecodeOffset={ this.props.timecodeOffset }

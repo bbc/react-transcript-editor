@@ -2,7 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class VideoPlayer extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handlePlayMedia = () => {
+    console.log('handle media', this.props.videoRef.current, this.props.videoRef);
+    if (this.props.videoRef.current !== null) {
+      this.props.videoRef.current.paused?  this.props.videoRef.current.play():  this.props.videoRef.current.pause();
+    }
+  };
   render() {
+    const isDisplayed = this.props.previewIsDisplayed? 'inline' : 'none';
+
     return (
       <video
         id="video"
@@ -11,9 +23,10 @@ class VideoPlayer extends React.Component {
         onTimeUpdate={ this.props.onTimeUpdate }
         type="video/mp4"
         data-testid="media-player-id"
-        onClick={ this.props.onClick }
+        onClick={ this.handlePlayMedia }
         onLoadedData={ this.props.onLoadedDataGetDuration }
         ref={ this.props.videoRef }
+        style={ { 'max-height': '15vw', cursor: 'pointer',  display: isDisplayed } }
       />
     );
   }
@@ -24,7 +37,8 @@ VideoPlayer.propTypes = {
   onTimeUpdate: PropTypes.func,
   onClick: PropTypes.func,
   videoRef: PropTypes.object,
-  onLoadedDataGetDuration: PropTypes.func
+  onLoadedDataGetDuration: PropTypes.func,
+  previewIsDisplayed: PropTypes.bool
 };
 
 export default VideoPlayer;

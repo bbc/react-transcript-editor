@@ -18,7 +18,8 @@ class App extends React.Component {
       mediaUrl: null,
       isTextEditable: true,
       sttType: 'bbckaldi',
-      analyticsEvents: []
+      analyticsEvents: [],
+      title: 'Ted Talk Kate Kate Darling'
     };
     // this.handleChangeLoadTranscriptJson = this.handleChangeLoadTranscriptJson.bind(this);
   }
@@ -115,7 +116,13 @@ class App extends React.Component {
 
    handleAnalyticsEvents = (event) => {
      this.setState({ analyticsEvents: [ ...this.state.analyticsEvents, event ] });
-   }  
+   }
+
+   handleChangeTranscripTitle = (newTitle) => {
+     this.setState({
+       title: newTitle
+     });
+   }
 
    render() {
      return (
@@ -173,6 +180,13 @@ class App extends React.Component {
            />
            <span className={ style.slider }></span>
          </label>
+         <br/>
+         <label>Optional Transcript Name</label>
+         <input
+           type="text"
+           value={ this.state.title }
+           onChange={ e => this.handleChangeTranscripTitle(e.target.value) }
+         />
          <br />
          <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
          <hr/>
@@ -183,13 +197,14 @@ class App extends React.Component {
            isEditable={ this.state.isTextEditable }
            sttJsonType={ this.state.sttType }
            handleAnalyticsEvents={ this.handleAnalyticsEvents }
+           title={ this.state.title }
            ref={ 'transcriptEditor' }
          />
          <hr/>
          <label>Components Analytics</label>
-         <textarea 
-           style={ { height: '200px', width: '100%' } } 
-           value={ JSON.stringify(this.state.analyticsEvents, null, 2) } 
+         <textarea
+           style={ { height: '200px', width: '100%' } }
+           value={ JSON.stringify(this.state.analyticsEvents, null, 2) }
            disabled>
          </textarea>
        </div>
