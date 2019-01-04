@@ -18,7 +18,7 @@ By submitting code as an individual or as an entity you agree that your code is 
 5. If you've added code that should be tested, add tests, if you need help with automated testing, feel free to raise an [issue](https://github.com/bbc/react-transcript-editor/issues/new?template=feature_request.md).
 6. Ensure the test suite passes.
 7. Make sure your code lints.
-8. If you've changed APIs, consider [updating the documentation](https://github.com/bbc/react-transcript-editor#documentation).
+8. If you've changed APIs, consider [updating the documentation](https://github.com/bbc/react-transcript-editor#documentation) and QA Testing docs.
 9. Once the work is complete push the branch up on to GitHub for review. Make sure your branch is up to date with `master` before making a pull request. eg use [`git merge origin/master`](https://git-scm.com/docs/git-merge) or [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 10. Once a branch has been merged into `master`, delete it.
 
@@ -41,7 +41,7 @@ See [this blog post for more on this](https://medium.com/mindorks/how-to-write-c
 - [ ] Ensure test suite passes (`npm run test`)
 - [ ] Make sure your code lints. (`npm run lint`)
 - [ ] consider re-factoring for code quality and readability
-- [ ] Update documentation where appropriate [updating the documentation](https://github.com/bbc/react-transcript-editor#documentation)
+- [ ] Update documentation and QA docs where appropriate - [see updating the documentation](https://github.com/bbc/react-transcript-editor#documentation)
 - [ ] Setup your PR for review 
 
 <!-- 
