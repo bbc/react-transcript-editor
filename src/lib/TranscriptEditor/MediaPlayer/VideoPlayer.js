@@ -30,7 +30,6 @@ class VideoPlayer extends React.Component {
         onClick={ this.handlePlayMedia }
         onLoadedData={ this.props.onLoadedDataGetDuration }
         ref={ this.props.videoRef }
-        // className={ style.videoPreview }
         style={ {
           display: isDisplayed,
           'max-width':  viewWith,

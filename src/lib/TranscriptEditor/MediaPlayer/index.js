@@ -315,9 +315,6 @@ class MediaPlayer extends React.Component {
 
     const playerControlsSection = (
       <div className={ styles.controlsSection }>
-        {/* <div className={ styles.titleBox }> */}
-        {/* <h1 className={ styles.title }>{ this.props.mediaUrl }</h1> */}
-        {/* </div> */}
         <PlayerControls
           title={ this.props.title? this.props.title: '' }
           playMedia={ this.togglePlayMedia.bind(this) }
@@ -349,7 +346,6 @@ class MediaPlayer extends React.Component {
     return (
       <section className={ styles.topSection }>
         <div className={ styles.playerSection }>
-          {/* { this.props.mediaUrl !== null ? player : null } */}
           { this.props.mediaUrl !== null ? playerControlsSection : null }
         </div>
         { this.props.mediaUrl !== null ? progressBar : null }
