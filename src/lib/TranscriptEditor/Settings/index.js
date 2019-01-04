@@ -42,7 +42,10 @@ class Settings extends React.Component {
             <div className={ style.label }>Rollback Interval (sec)</div>
             <input
               className={ style.rollbackValue }
-              type="text"
+              type="number"
+              step="1"
+              max="60"
+              min="1"
               value={ this.props.defaultRollBackValueInSeconds }
               onChange={ this.props.handleRollBackValueInSeconds }
               name="lname"/>
@@ -73,6 +76,19 @@ class Settings extends React.Component {
               label={ 'Display Preview' }
               handleToggle={ this.props.handlePreviewIsDisplayed }
             />
+          </section>
+
+          <section className={ style.settingElement }>
+            <div className={ style.label }>Video Preview width</div>
+            <input
+              className={ style.rollbackValue }
+              type="number"
+              step="1"
+              max="30"
+              min="10"
+              value={ this.props.previewViewWidth }
+              onChange={ this.props.handleChangePreviewViewWidth }
+              name="lname"/>
           </section>
 
           <section className={ style.settingElement }>

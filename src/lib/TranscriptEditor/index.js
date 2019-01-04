@@ -32,6 +32,7 @@ class TranscriptEditor extends React.Component {
       showSpeakers: true,
       previewIsDisplayed: true,
       mediaDuration: '00:00:00:00',
+      previewViewWidth: '15'
     };
   }
 
@@ -225,6 +226,13 @@ class TranscriptEditor extends React.Component {
 
   }
 
+  handleChangePreviewViewWidth = (e) => {
+    const newPreviewViewWidth = e.target.value;
+    this.setState({
+      previewViewWidth: newPreviewViewWidth
+    });
+  }
+
   render() {
     const videoPlayer = <VideoPlayer
       mediaUrl={ this.props.mediaUrl }
@@ -233,6 +241,7 @@ class TranscriptEditor extends React.Component {
       videoRef={ this.videoRef }
       previewIsDisplayed={ this.state.previewIsDisplayed }
       onLoadedDataGetDuration={ this.onLoadedDataGetDuration }
+      viewWith={ this.state.previewViewWidth }
     />;
 
     //   <video
@@ -280,6 +289,8 @@ class TranscriptEditor extends React.Component {
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
       previewIsDisplayed={ this.state.previewIsDisplayed }
       handlePreviewIsDisplayed={ this.handlePreviewIsDisplayed }
+      previewViewWidth={ this.state.previewViewWidth }
+      handleChangePreviewViewWidth={ this.handleChangePreviewViewWidth }
     />;
 
     const shortcuts = <Shortcuts

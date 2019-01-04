@@ -15,6 +15,8 @@ class VideoPlayer extends React.Component {
   render() {
     const isDisplayed = this.props.previewIsDisplayed? 'inline' : 'none';
 
+    const viewWith = this.props.viewWith? this.props.viewWith+'vw' : '15vw';
+
     return (
       <video
         id="video"
@@ -26,7 +28,7 @@ class VideoPlayer extends React.Component {
         onClick={ this.handlePlayMedia }
         onLoadedData={ this.props.onLoadedDataGetDuration }
         ref={ this.props.videoRef }
-        style={ { 'max-height': '15vw', cursor: 'pointer',  display: isDisplayed } }
+        style={ { 'max-height': viewWith, cursor: 'pointer',  display: isDisplayed } }
       />
     );
   }
