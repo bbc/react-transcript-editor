@@ -96,7 +96,7 @@ From left to right
 - [ ] Expect the progress bar play head to change to clicked point
 - [ ] Expect current time  display in player controls to update accordingly
 - [ ] If media was paused, expect media to start playing
-
+- [ ] Expect the editor to jump to the current word below
 ---
 
 ### Item to test #2: Timed Text Editor 
