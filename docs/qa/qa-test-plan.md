@@ -203,7 +203,7 @@ scroll into view
 - Click on roll back btn 
 ##### Expected Results: 
 -  [ ] Expect current time to roll back by the the custom ammount set in previous steps
-- Expect progress bar, media preview, and timed text editor words hilight to update accordingly
+- [ ] Expect progress bar, media preview, and timed text editor words hilight to update accordingly
 
 
 #### Item to test #3.8: Settings - Show/hide timecodes - off
