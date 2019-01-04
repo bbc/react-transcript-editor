@@ -384,7 +384,7 @@ class MediaPlayer extends React.Component {
     );
 
     const progressBar = <ProgressBar
-      max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration) : 100 }
+      max={ this.videoRef.current !== null ? parseInt(this.videoRef.current.duration).toString() : '100' }
       value={ this.videoRef.current !== null ? parseInt(this.videoRef.current.currentTime) : 0 }
       buttonClick={ this.handleProgressBarClick.bind(this) }
     />;
