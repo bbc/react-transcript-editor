@@ -2,13 +2,13 @@ function returnHotKeys(self) {
   return {
     'alt+space': {
       priority: 1,
-      handler: () => { 
-        self.togglePlayMedia(); 
-        
-        self.props.handleAnalyticsEvents({ 
-          category: 'defaultHotKeys', 
-          action: 'alt+space', 
-          name: 'togglePlayMedia', 
+      handler: () => {
+        self.togglePlayMedia();
+
+        self.props.handleAnalyticsEvents({
+          category: 'defaultHotKeys',
+          action: 'alt+space',
+          name: 'togglePlayMedia',
           value: 'na'
         });
 
@@ -18,12 +18,12 @@ function returnHotKeys(self) {
     'shift+right': {
       priority: 1,
       handler: () => {
-        self.skipForward(); 
+        self.skipForward();
 
-        self.props.handleAnalyticsEvents({ 
-          category: 'defaultHotKeys', 
-          action: 'alt+right', 
-          name: 'skipForward', 
+        self.props.handleAnalyticsEvents({
+          category: 'defaultHotKeys',
+          action: 'alt+right',
+          name: 'skipForward',
           value: 'na'
         });
 
@@ -32,13 +32,13 @@ function returnHotKeys(self) {
     },
     'shift+left': {
       priority: 1,
-      handler: () => { 
-        self.skipBackward(); 
+      handler: () => {
+        self.skipBackward();
 
-        self.props.handleAnalyticsEvents({ 
-          category: 'defaultHotKeys', 
-          action: 'alt+left', 
-          name: 'skipBackward', 
+        self.props.handleAnalyticsEvents({
+          category: 'defaultHotKeys',
+          action: 'alt+left',
+          name: 'skipBackward',
           value: 'na'
         });
 
@@ -47,13 +47,13 @@ function returnHotKeys(self) {
     },
     'shift+down': {
       priority: 1,
-      handler: () => { 
-        self.decreasePlaybackRate(); 
+      handler: () => {
+        self.decreasePlaybackRate();
 
-        self.props.handleAnalyticsEvents({ 
-          category: 'defaultHotKeys', 
-          action: 'command+down', 
-          name: 'decreasePlaybackRate', 
+        self.props.handleAnalyticsEvents({
+          category: 'defaultHotKeys',
+          action: 'command+down',
+          name: 'decreasePlaybackRate',
           value: 'na'
         });
 
@@ -62,13 +62,13 @@ function returnHotKeys(self) {
     },
     'shift+up': {
       priority: 1,
-      handler: () => { 
-        self.increasePlaybackRate(); 
+      handler: () => {
+        self.increasePlaybackRate();
 
-        self.props.handleAnalyticsEvents({ 
-          category: 'defaultHotKeys', 
-          action: 'command+up', 
-          name: 'increasePlaybackRate', 
+        self.props.handleAnalyticsEvents({
+          category: 'defaultHotKeys',
+          action: 'command+up',
+          name: 'increasePlaybackRate',
           value: 'na'
         });
 
@@ -77,13 +77,13 @@ function returnHotKeys(self) {
     },
     'alt+shift+left': {
       priority: 1,
-      handler: () => { 
-        self.rollBack(); 
-        
-        self.props.handleAnalyticsEvents({ 
-          category: 'defaultHotKeys', 
-          action: 'command+left', 
-          name: 'rollBack', 
+      handler: () => {
+        self.rollBack();
+
+        self.props.handleAnalyticsEvents({
+          category: 'defaultHotKeys',
+          action: 'command+left',
+          name: 'rollBack',
           value: 'na'
         });
 
@@ -92,13 +92,13 @@ function returnHotKeys(self) {
     },
     'alt+k': {
       priority: 1,
-      handler: () => { 
+      handler: () => {
         self.promptSetCurrentTime();
-        
-        self.props.handleAnalyticsEvents({ 
-          category: 'defaultHotKeys', 
-          action: 'alt+k', 
-          name: 'promptSetCurrentTime', 
+
+        self.props.handleAnalyticsEvents({
+          category: 'defaultHotKeys',
+          action: 'alt+k',
+          name: 'promptSetCurrentTime',
           value: 'na'
         });
 
