@@ -360,7 +360,7 @@ class MediaPlayer extends React.Component {
     const playerControlsSection = (
       <div className={ styles.controlsSection }>
         <div className={ styles.titleBox }>
-          <h1 className={ styles.title }>{ this.props.mediaUrl }</h1>
+          <h1 className={ styles.title }>{ this.props.fileName? this.props.fileName : this.props.mediaUrl }</h1>
         </div>
         <PlayerControls
           playMedia={ this.togglePlayMedia.bind(this) }
@@ -402,6 +402,7 @@ class MediaPlayer extends React.Component {
 }
 
 MediaPlayer.propTypes = {
+  fileName: PropTypes.string,
   hookSeek: PropTypes.func,
   hookPlayMedia: PropTypes.func,
   hookIsPlaying: PropTypes.func,
