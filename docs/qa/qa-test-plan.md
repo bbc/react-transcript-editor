@@ -142,7 +142,7 @@ Similar to above - expect same behaviour so perhaps not worth testing gain?
 #### Item to test #3.1: Settings - show
 
 ##### Steps:
-- click on settings, cog  icon top left
+- click on settings, cog  icon top right
 ##### Expected Results: 
 -  Expect settings panel to come up 
 
