@@ -41,7 +41,7 @@
 
 .shortcut {
   display: inline-block;
-  min-width: 4em;
+  width:  7em;
   background: color-labs-red;
   font-weight: lighter;
   color: white;
