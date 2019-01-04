@@ -1,3 +1,5 @@
+@value color-subt-green, color-darkest-grey, color-labs-red from '../colours.module.css';
+
 .DraftEditor-root {
   background: #f9f9f9;
 }
@@ -5,7 +7,7 @@
 /*
 Giving the editor a oveflow
 https://github.com/facebook/draft-js/issues/528
- */
+*/
 .editor :global(.public-DraftEditor-content) {
   max-height: 75vh;
   overflow: auto;
@@ -20,4 +22,24 @@ https://github.com/facebook/draft-js/issues/528
     width: 100%;
     margin: 0 auto;
   }
+}
+
+.help {
+  cursor: pointer;
+  float: right;
+  padding-right: 0.5em;
+  padding-left: 11em;
+  margin: 0.5em 0;
+}
+
+.icon {
+  color: color-labs-red;
+  margin-right: 0.5em;
+}
+
+.helpMessage span {
+  display: block;
+  font-size: 0.8em;
+  font-weight: lighter;
+  margin-top: 1em;
 }
