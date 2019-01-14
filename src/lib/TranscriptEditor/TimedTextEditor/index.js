@@ -162,12 +162,13 @@ class TimedTextEditor extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   isPresentInLocalStorage(mediaUrl) {
-    console.log('mediaUrl: ', mediaUrl);
     if (mediaUrl !== null) {
       let mediaUrlName = mediaUrl;
+
       if (mediaUrl.includes('blob')) {
         mediaUrlName = this.props.fileName;
       }
+
       const data = localStorage.getItem(`draftJs-${ mediaUrlName }`);
       if (data !== null) {
         return true;

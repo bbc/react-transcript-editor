@@ -21,7 +21,6 @@ class App extends React.Component {
       analyticsEvents: [],
       fileName: 'Kate Darling Ted Talk'
     };
-    // this.handleChangeLoadTranscriptJson = this.handleChangeLoadTranscriptJson.bind(this);
   }
 
   loadDemo() {
@@ -49,6 +48,9 @@ class App extends React.Component {
         fileName: file.name
       });
     }
+    else {
+      alert('select a valid audio or video file');
+    }
   }
 
   handleChangeLoadMediaUrl() {
@@ -60,27 +62,23 @@ class App extends React.Component {
     });
   }
 
-  handleChangeLoadTranscriptJson(e) {
-    const files = e.target.files;
-    if (this.state.mediaUrl === null) {
-      e.preventDefault();
-      alert('fist add a video or audio file, and then re-import the transcription');
-    }
-    else {
-      const self = this;
-      const file = files[0];
-      // let type = file.type;
-      // TODO: add checks
-      // let transcriptJsonContent = FileReader.readAsText(file)
+  handleChangeLoadTranscriptJson(files) {
+    const file = files[0];
+
+    if (file.type ==='application/json') {
       const fr = new FileReader();
-      fr.onload = function (e) {
-        // e.target.result should contain the text
-        console.log(JSON.parse(e.target.result));
-        self.setState({
-          transcriptData: JSON.parse(e.target.result)
+
+      fr.onload = (evt) => {
+        this.setState({
+          transcriptData: JSON.parse(evt.target.result)
         });
       };
+
       fr.readAsText(file);
+
+    }
+    else {
+      alert('select a valid json file');
     }
   }
 
@@ -128,6 +126,7 @@ class App extends React.Component {
    handleChangeTranscriptName = (value) => {
      this.setState({ fileName: value });
    }
+
    render() {
      return (
        <div className={ style.container }>
@@ -162,7 +161,7 @@ class App extends React.Component {
          />
          <input
            type="file"
-           onChange={ e => this.handleChangeLoadTranscriptJson(e) }
+           onChange={ e => this.handleChangeLoadTranscriptJson(e.target.files) }
          />
 
          <br />
