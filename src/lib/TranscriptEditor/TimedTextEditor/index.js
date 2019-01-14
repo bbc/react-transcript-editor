@@ -145,29 +145,49 @@ class TimedTextEditor extends React.Component {
   }
 
   localSave = () => {
-    const mediaUrl = this.props.mediaUrl;
+    let mediaUrlName = this.props.mediaUrl;
+    // if using local media instead of using random blob name
+    // that makes it impossible to retrieve from on page refresh
+    // use file name
+    if (this.props.mediaUrl.includes('blob')) {
+      mediaUrlName = this.props.fileName;
+    }
     const data = convertToRaw(this.state.editorState.getCurrentContent());
-    localStorage.setItem(`draftJs-${ mediaUrl }`, JSON.stringify(data));
+    localStorage.setItem(`draftJs-${ mediaUrlName }`, JSON.stringify(data));
     const newLastLocalSavedDate = new Date().toString();
-    localStorage.setItem(`timestamp-${ mediaUrl }`, newLastLocalSavedDate);
+    localStorage.setItem(`timestamp-${ mediaUrlName }`, newLastLocalSavedDate);
 
     return newLastLocalSavedDate;
   }
 
   // eslint-disable-next-line class-methods-use-this
   isPresentInLocalStorage(mediaUrl) {
-    const data = localStorage.getItem(`draftJs-${ mediaUrl }`);
-    if (data !== null) {
-      return true;
+    if (mediaUrl !== null) {
+      let mediaUrlName = mediaUrl;
+
+      if (mediaUrl.includes('blob')) {
+        mediaUrlName = this.props.fileName;
+      }
+
+      const data = localStorage.getItem(`draftJs-${ mediaUrlName }`);
+      if (data !== null) {
+        return true;
+      }
+
+      return false;
     }
 
     return false;
   }
 
   loadLocalSavedData(mediaUrl) {
-    const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrl }`));
+    let mediaUrlName = mediaUrl;
+    if (mediaUrl.includes('blob')) {
+      mediaUrlName = this.props.fileName;
+    }
+    const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrlName }`));
     if (data !== null) {
-      const lastLocalSavedDate = localStorage.getItem(`timestamp-${ mediaUrl }`);
+      const lastLocalSavedDate = localStorage.getItem(`timestamp-${ mediaUrlName }`);
       this.setEditorContentState(data);
 
       return lastLocalSavedDate;

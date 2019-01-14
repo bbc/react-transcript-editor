@@ -30,6 +30,7 @@ video {
 .title {
   margin: 1em;
   color: white;
+  height: 1em;
 }
 
 .helpText {

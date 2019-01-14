@@ -196,6 +196,7 @@ class TranscriptEditor extends React.Component {
 
   render() {
     const mediaPlayer = <MediaPlayer
+      fileName={ this.props.fileName }
       hookSeek={ foo => this.setCurrentTime = foo }
       hookPlayMedia={ foo => this.playMedia = foo }
       hookIsPlaying={ foo => this.isPlaying = foo }
@@ -248,6 +249,7 @@ class TranscriptEditor extends React.Component {
 
         <main className={ style.main }>
           <TimedTextEditor
+            fileName={ this.props.fileName }
             transcriptData={ this.state.transcriptData }
             timecodeOffset={ this.state.timecodeOffset }
             onWordClick={ this.handleWordClick }
@@ -274,7 +276,8 @@ TranscriptEditor.propTypes = {
   mediaUrl: PropTypes.string,
   isEditable: PropTypes.bool,
   sttJsonType: PropTypes.string,
-  handleAnalyticsEvents: PropTypes.func
+  handleAnalyticsEvents: PropTypes.func,
+  fileName: PropTypes.string
 };
 
 export default TranscriptEditor;

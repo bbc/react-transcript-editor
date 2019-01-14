@@ -18,9 +18,9 @@ class App extends React.Component {
       mediaUrl: null,
       isTextEditable: true,
       sttType: 'bbckaldi',
-      analyticsEvents: []
+      analyticsEvents: [],
+      fileName: 'Kate Darling Ted Talk'
     };
-    // this.handleChangeLoadTranscriptJson = this.handleChangeLoadTranscriptJson.bind(this);
   }
 
   loadDemo() {
@@ -45,7 +45,11 @@ class App extends React.Component {
       this.setState({
         // transcriptData: kaldiTedTalkTranscript,
         mediaUrl: fileURL,
+        fileName: file.name
       });
+    }
+    else {
+      alert('select a valid audio or video file');
     }
   }
 
@@ -59,21 +63,23 @@ class App extends React.Component {
   }
 
   handleChangeLoadTranscriptJson(files) {
-    const self = this;
     const file = files[0];
-    // let type = file.type;
-    // TODO: add checks
-    // let transcriptJsonContent = FileReader.readAsText(file)
-    const fr = new FileReader();
-    fr.onload = function (e) {
-      // e.target.result should contain the text
-      console.log(JSON.parse(e.target.result));
-      self.setState({
-        transcriptData: JSON.parse(e.target.result),
-        // mediaUrl: tedTalkVideoUrl
-      });
-    };
-    fr.readAsText(file);
+
+    if (file.type ==='application/json') {
+      const fr = new FileReader();
+
+      fr.onload = (evt) => {
+        this.setState({
+          transcriptData: JSON.parse(evt.target.result)
+        });
+      };
+
+      fr.readAsText(file);
+
+    }
+    else {
+      alert('select a valid json file');
+    }
   }
 
   handleIsTextEditable = () => {
@@ -117,6 +123,10 @@ class App extends React.Component {
      this.setState({ analyticsEvents: [ ...this.state.analyticsEvents, event ] });
    }
 
+   handleChangeTranscriptName = (value) => {
+     this.setState({ fileName: value });
+   }
+
    render() {
      return (
        <div className={ style.container }>
@@ -133,6 +143,16 @@ class App extends React.Component {
          <br />
          <button onClick={ () => this.loadDemo() }>load demo</button>
          <hr />
+         <label>Load Local Media</label>
+         <input
+           type="file"
+           onChange={ e => this.handleChangeLoadMedia(e.target.files) }
+         />
+         or
+         <button onClick={ () => this.handleChangeLoadMediaUrl() }>
+          Load Media From Url
+         </button>
+         <br/>
          <label>open Transcript Json</label>
          <SttTypeSelect
            name={ 'sttType' }
@@ -143,17 +163,6 @@ class App extends React.Component {
            type="file"
            onChange={ e => this.handleChangeLoadTranscriptJson(e.target.files) }
          />
-
-         <br />
-         <label>Load Local Media</label>
-         <input
-           type="file"
-           onChange={ e => this.handleChangeLoadMedia(e.target.files) }
-         />
-         or
-         <button onClick={ () => this.handleChangeLoadMediaUrl() }>
-          Load Media From Url
-         </button>
 
          <br />
          <label>Export transcript</label>
@@ -174,11 +183,19 @@ class App extends React.Component {
            <span className={ style.slider }></span>
          </label>
          <br />
+         <label>Transcript Name</label>
+         <input
+           type="text"
+           onChange={ e => this.handleChangeTranscriptName(e.target.value) }
+           value={ this.state.fileName }
+         />
+         <br />
          <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
          <hr/>
 
          <TranscriptEditor
            transcriptData={ this.state.transcriptData }
+           fileName={ this.state.fileName }
            mediaUrl={ this.state.mediaUrl }
            isEditable={ this.state.isTextEditable }
            sttJsonType={ this.state.sttType }

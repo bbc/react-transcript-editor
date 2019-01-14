@@ -14,7 +14,7 @@ class ProgressBar extends React.Component {
           onChange={ this.props.buttonClick }
           value={ this.props.value }
           min='0'
-          max={ this.props.max }
+          max={ this.props.max.toString() }
         />
       </div>
     );
