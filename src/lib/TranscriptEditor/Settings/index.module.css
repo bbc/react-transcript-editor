@@ -5,7 +5,7 @@
   margin: 0 auto;
   width: 30%;
   min-width: 300px;
-  height: 300px;
+  min-height: 300px;
   text-align: center;
   vertical-align: middle;
   color:white;
