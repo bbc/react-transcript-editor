@@ -1,7 +1,7 @@
 {
   "name": "@bbc/react-transcript-editor",
   "description": "A React component to make transcribing audio and video easier and faster.",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "keywords": [
     "transcript",
     "transcriptions",
@@ -20,7 +20,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build:example": "react-scripts build",
-    "build:component":  "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files && rimraf dist/**/*.sample.json dist/**/*.sample.js dist/**/example-usage.js dist/**/*.test.js dist/**/*__tests__ dist/**/*__snapshots__ dist/**/*.spec.js", 
+    "build:component": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files && rimraf dist/**/*.sample.json dist/**/*.sample.js dist/**/example-usage.js dist/**/*.test.js dist/**/*__tests__ dist/**/*__snapshots__ dist/**/*.spec.js",
     "deploy:ghpages": "npm run build:example && gh-pages -d build",
     "test-ci": "CI=true react-scripts test --env=jsdom --verbose",
     "lint": "eslint --ignore-path .eslintignore .",
@@ -32,8 +32,10 @@
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-minify": "^0.5.0",
     "enzyme": "^3.7.0",
     "eslint": "5.6.0",
     "eslint-config-airbnb-base": "^13.1.0",

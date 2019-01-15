@@ -65,7 +65,7 @@ import { TranscriptEditor } from '@bbc/react-transcript-editor';
     transcriptData=// Transcript json
     mediaUrl=// string url to media file - audio or video 
     isEditable={true}// se to true if you want to be able to edit the text
-    sttJsonType={ 'bbcKaldi' }// the type of STT Json transcript supported.
+    sttJsonType={ 'bbckaldi' }// the type of STT Json transcript supported.
     fileName={ this.state.fileName }// optional*
 />
 ```
