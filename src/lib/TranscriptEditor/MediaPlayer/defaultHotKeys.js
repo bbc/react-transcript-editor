@@ -1,21 +1,5 @@
 function returnHotKeys(self) {
   return {
-    'alt+space': {
-      priority: 1,
-      handler: () => {
-        self.togglePlayMedia();
-
-        self.props.handleAnalyticsEvents({
-          category: 'defaultHotKeys',
-          action: 'alt+space',
-          name: 'togglePlayMedia',
-          value: 'na'
-        });
-
-      },
-      displayKeyCombination: 'alt + space',
-      label: 'Play Media',
-    },
     'alt+k': {
       priority: 1,
       handler: () => {
