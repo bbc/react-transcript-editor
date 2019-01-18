@@ -145,26 +145,67 @@ const groupWordsInParagraphs = (words) => {
   return results;
 };
 
+const groupWordsInParagraphsBySpeakers = (words, speakerSegments) => {
+
+  const results = [];
+  let paragraph = { words: [], text: [], speaker:'' };
+  speakerSegments.forEach((segment) => {
+    const segmentStart = segment.start;
+    const segmentEnd = segment.duration+segment.start;
+    words.forEach((word) => {
+      if (word.start >= segmentStart && word.end <= segmentEnd) {
+        paragraph.words.push(word);
+        paragraph.text.push(word.punct);
+        paragraph.speaker = segment.speaker['@id'];
+      }
+      else {
+        paragraph.words.push(word);
+        paragraph.text.push(word.punct);
+      }
+    });
+    results.push(paragraph);
+    paragraph = { words: [], text: [], speaker:'' };
+  });
+
+  return results;
+};
+
 const bbcKaldiToDraft = (bbcKaldiJson) => {
   const results = [];
   let tmpWords;
+  let speakerSegmentation = null;
+  let wordsByParagraphs =[];
 
   // BBC Octo Labs API Response wraps Kaldi response around retval,
   // while kaldi contains word attribute at root
   if (bbcKaldiJson.retval !== undefined) {
     tmpWords = bbcKaldiJson.retval.words;
+    if (bbcKaldiJson.retval.segmentation!== undefined) {
+      speakerSegmentation = bbcKaldiJson.retval.segmentation;
+    }
   } else {
     tmpWords = bbcKaldiJson.words;
+    if (bbcKaldiJson.segmentation!== undefined) {
+      speakerSegmentation = bbcKaldiJson.segmentation;
+    }
   }
 
-  const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
+  if (speakerSegmentation === null) {
+    wordsByParagraphs = groupWordsInParagraphs(tmpWords);
+  }
+  else {
+    wordsByParagraphs = groupWordsInParagraphsBySpeakers(tmpWords, speakerSegmentation.segments);
+    // console.log('wordsByParagraphs - speaker segments', JSON.stringify(wordsByParagraphs, null, 2));
+  }
 
   wordsByParagraphs.forEach((paragraph, i) => {
+    const speakerLabel = `TBC ${ i }`;
+
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
       type: 'paragraph',
       data: {
-        speaker: `TBC ${ i }`,
+        speaker: speakerLabel,
         words: paragraph.words,
         start: paragraph.words[0].start
       },
