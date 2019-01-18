@@ -66,7 +66,6 @@ class PlayerControls extends React.Component {
             name={ 'playbackRate' }
             handleChange={ this.props.setPlayBackRate }
           />
-
         </button>
 
         <div className={ style.timeBox }>
