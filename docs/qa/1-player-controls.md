@@ -18,6 +18,7 @@ From left to right
 | 1.1.8 |current time  | display       | display current time of media, updates while playing  |
 | 1.1.9 |current time  | click         | triggers prompt to jump to set time, using custom formats options  |
 | 1.1.10|Duration      | display       | display duration of media    |
+| 1.1.10|'Picture in Picture'  📺    | click       | hide or show video as separate window always on top   |
 | 1.1.11|Volume        | click - Toggle| Mutes and un-mutes media   |
 
 #### Item to test #1.2: Player Controls - Preview
@@ -40,3 +41,15 @@ From left to right
 - [ ] Expect current time  display in player controls to update accordingly
 - [ ] If media was paused, expect media to start playing
 - [ ] Expect the editor to jump to the current word below
+
+
+#### Item to test #1.4: Player Controls - 'Picture in Picture'
+
+!['Picture in Picture' screenshot](./images/picture-in-picture.png)
+
+##### Steps:
+- Click the 'Picture in Picture' icon 📺
+
+##### Expected Results: 
+- [ ] If video, expect the video to appear as resizable floating window always on top
+- [ ] Expect if click picture in picture icon again for video to go back to it's original place
