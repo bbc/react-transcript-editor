@@ -298,17 +298,6 @@ class TimedTextEditor extends React.Component {
   }
 
   /**
-   * Handle arrow keys down events
-   */
-  handleArrowKeysDown = (e) => {
-    // Prevent the selection of text through arrows + shift to avoid
-    // text selection while trying to control the playback
-    if (e.shiftKey) {
-      e.preventDefault();
-    }
-  }
-
-  /**
    * Handle draftJs custom key commands
    */
   handleKeyCommand = (command) => {
@@ -518,13 +507,6 @@ class TimedTextEditor extends React.Component {
     // Time to the nearest half second
     const time = Math.round(this.props.currentTime * 4.0) / 4.0;
 
-    const arrowDownProps = {
-      onUpArrow: this.handleArrowKeysDown,
-      onRightArrow: this.handleArrowKeysDown,
-      onDownArrow: this.handleArrowKeysDown,
-      onLeftArrow: this.handleArrowKeysDown
-    };
-
     const editor = (
       <section
         className={ style.editor }
@@ -545,7 +527,6 @@ class TimedTextEditor extends React.Component {
           blockRendererFn={ this.renderBlockWithTimecodes }
           handleKeyCommand={ command => this.handleKeyCommand(command) }
           keyBindingFn={ e => this.customKeyBindingFn(e) }
-          { ...arrowDownProps }
         />
       </section>
     );
