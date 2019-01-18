@@ -18,8 +18,8 @@ From left to right
 | 1.1.8 |current time  | display       | display current time of media, updates while playing  |
 | 1.1.9 |current time  | click         | triggers prompt to jump to set time, using custom formats options  |
 | 1.1.10|Duration      | display       | display duration of media    |
-| 1.1.10|'Picture in Picture'  📺    | click       | hide or show video as separate window always on top   |
-| 1.1.11|Volume        | click - Toggle| Mutes and un-mutes media   |
+| 1.1.11|'Picture in Picture'  📺    | click       | hide or show video as separate window always on top   |
+| 1.1.12|Volume        | click - Toggle| Mutes and un-mutes media   |
 
 #### Item to test #1.2: Player Controls - Preview
 
