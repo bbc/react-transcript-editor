@@ -348,6 +348,25 @@ class MediaPlayer extends React.Component {
 
   }
 
+  handlePictureInPicture = () => {
+    if (this.videoRef.current !== null) {
+      // from https://developers.google.com/web/updates/2017/09/picture-in-picture
+      if (!document.pictureInPictureElement) {
+        this.videoRef.current.requestPictureInPicture()
+          .catch(error => {
+          // Video failed to enter Picture-in-Picture mode.
+            console.error('Video failed to enter Picture-in-Picture mode', error);
+          });
+      } else {
+        document.exitPictureInPicture()
+          .catch(error => {
+          // Video failed to leave Picture-in-Picture mode.
+            console.error('Video failed to leave Picture-in-Picture mode', error);
+          });
+      }
+    }
+  }
+
   render() {
     const player = <VideoPlayer
       mediaUrl={ this.props.mediaUrl }
@@ -379,6 +398,7 @@ class MediaPlayer extends React.Component {
           handleMuteVolume={ this.handleMuteVolume.bind(this) }
           setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
           playbackRateOptions={ this.state.playbackRateOptions }
+          pictureInPicture={ this.handlePictureInPicture }
         />
       </div>
     );
