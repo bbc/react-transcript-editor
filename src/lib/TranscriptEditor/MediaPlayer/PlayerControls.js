@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import VolumeControl from './VolumeControl';
 import Select from './Select';
 
@@ -43,6 +42,7 @@ class PlayerControls extends React.Component {
           onMouseDown={ this.setIntervalHelperBackward }
           onMouseUp={ this.clearIntervalHelper }>
           {'◀◀'}
+
         </button>
 
         <button
@@ -74,6 +74,13 @@ class PlayerControls extends React.Component {
           <span className={ style.duration }>{this.props.duration}</span>
         </div>
 
+        <button
+          className={ style.playerButton }
+          onClick={ this.props.pictureInPicture }
+        >
+          {'📺'}
+        </button>
+
         <VolumeControl
           handleMuteVolume={ this.props.handleMuteVolume }
         />
@@ -95,7 +102,8 @@ PlayerControls.propTypes = {
   skipForward: PropTypes.func,
   playbackRate: PropTypes.number,
   playbackRateOptions: PropTypes.array,
-  setPlayBackRate: PropTypes.func
+  setPlayBackRate: PropTypes.func,
+  pictureInPicture: PropTypes.func
 };
 
 export default PlayerControls;
