@@ -58,16 +58,13 @@ class PlayerControls extends React.Component {
           {'▶▶'}
         </button>
 
-        <button
-          className={ style.playBackRate }>
-          x<Select
+        <span className={ style.playBackRate }>
+          <Select
             options={ this.props.playbackRateOptions }
             currentValue={ this.props.playbackRate.toString() }
             name={ 'playbackRate' }
-            handleChange={ this.props.setPlayBackRate }
-          />
-
-        </button>
+            handleChange={ this.props.setPlayBackRate } />
+        </span>
 
         <div className={ style.timeBox }>
           <span className={ style.currentTime }
