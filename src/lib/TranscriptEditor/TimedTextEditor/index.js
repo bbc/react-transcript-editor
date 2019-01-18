@@ -12,7 +12,8 @@ import {
   convertFromRaw,
   convertToRaw,
   getDefaultKeyBinding,
-  Modifier
+  Modifier,
+  KeyBindingUtil
 } from 'draft-js';
 
 import Word from './Word';
@@ -21,6 +22,8 @@ import WrapperBlock from './WrapperBlock';
 import sttJsonAdapter from '../../Util/adapters/index.js';
 import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
+
+const { hasCommandModifier } = KeyBindingUtil;
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -98,6 +101,7 @@ class TimedTextEditor extends React.Component {
       }
     }
 
+    // TODO: This need to be refactored using _ debounce instead of 5 char count.
     if (this.state.isEditable) {
       this.setState((prevState) => ({
         editorState,
@@ -260,9 +264,34 @@ class TimedTextEditor extends React.Component {
    * Listen for draftJs custom key bindings
    */
   customKeyBindingFn = (e) => {
+    console.log('customKeyBindingFn', e.keyCode);
     const enterKey = 13;
+    const spaceKey =32;
+    const kKey = 75;
+    const lKey = 76;
+    const jKey = 74;
+    const equalKey = 187;//used for +
+    const minusKey = 189; // -
+    const rKey = 82;
+    const tKey = 84;
+
     if (e.keyCode === enterKey ) {
       return 'split-paragraph';
+    }
+    // if alt key is pressed in combination with these other keys
+    if (e.altKey && ((e.keyCode === spaceKey)
+    || (e.keyCode === spaceKey)
+    || (e.keyCode === kKey)
+    || (e.keyCode === lKey)
+    || (e.keyCode === jKey)
+    || (e.keyCode === equalKey)
+    || (e.keyCode === minusKey)
+    || (e.keyCode === rKey)
+    || (e.keyCode === tKey))
+    ) {
+      e.preventDefault();
+
+      return 'keyboard-shortcuts';
     }
 
     return getDefaultKeyBinding(e);
@@ -274,6 +303,10 @@ class TimedTextEditor extends React.Component {
   handleKeyCommand = (command) => {
     if (command === 'split-paragraph') {
       this.splitParagraph();
+    }
+
+    if (command === 'keyboard-shortcuts') {
+      return 'handled';
     }
 
     return 'not-handled';

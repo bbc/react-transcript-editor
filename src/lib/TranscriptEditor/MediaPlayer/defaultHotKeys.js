@@ -1,108 +1,116 @@
 function returnHotKeys(self) {
   return {
-    'alt+space': {
+    'alt+k': {
       priority: 1,
       handler: () => {
         self.togglePlayMedia();
 
         self.props.handleAnalyticsEvents({
           category: 'defaultHotKeys',
-          action: 'alt+space',
+          action: 'alt+k',
           name: 'togglePlayMedia',
           value: 'na'
         });
 
       },
+      displayKeyCombination: 'alt + k',
       label: 'Play Media',
     },
-    'shift+right': {
+    'alt+l': {
       priority: 1,
       handler: () => {
         self.skipForward();
 
         self.props.handleAnalyticsEvents({
           category: 'defaultHotKeys',
-          action: 'alt+right',
+          action: 'alt+l',
           name: 'skipForward',
           value: 'na'
         });
 
       },
+      displayKeyCombination: 'alt + l',
       label: 'Fast Forward',
     },
-    'shift+left': {
+    'alt+j': {
       priority: 1,
       handler: () => {
         self.skipBackward();
 
         self.props.handleAnalyticsEvents({
           category: 'defaultHotKeys',
-          action: 'alt+left',
+          action: 'alt+j',
           name: 'skipBackward',
           value: 'na'
         });
 
       },
+      displayKeyCombination: 'alt + j',
       label: 'Rewind',
     },
-    'shift+down': {
+    'alt+-': {
       priority: 1,
       handler: () => {
         self.decreasePlaybackRate();
 
         self.props.handleAnalyticsEvents({
           category: 'defaultHotKeys',
-          action: 'command+down',
+          action: 'alt+-',
           name: 'decreasePlaybackRate',
           value: 'na'
         });
 
       },
+      displayKeyCombination: 'alt + -',
       label: 'Decrease Playback Speed',
     },
-    'shift+up': {
+    // https://github.com/ccampbell/mousetrap/issues/266
+    'alt+=': {
       priority: 1,
       handler: () => {
         self.increasePlaybackRate();
 
         self.props.handleAnalyticsEvents({
           category: 'defaultHotKeys',
-          action: 'command+up',
+          action: 'alt+plus',
           name: 'increasePlaybackRate',
           value: 'na'
         });
 
       },
+      displayKeyCombination: 'alt + +',
       label: 'Increase Playback Speed',
     },
-    'alt+shift+left': {
+    'alt+r': {
       priority: 1,
       handler: () => {
         self.rollBack();
 
         self.props.handleAnalyticsEvents({
           category: 'defaultHotKeys',
-          action: 'command+left',
+          action: 'alt+r',
           name: 'rollBack',
           value: 'na'
         });
 
       },
+      displayKeyCombination: 'alt + r',
       label: 'Roll Back',
     },
-    'alt+k': {
+    'alt+t': {
       priority: 1,
       handler: () => {
         self.promptSetCurrentTime();
 
         self.props.handleAnalyticsEvents({
           category: 'defaultHotKeys',
-          action: 'alt+k',
+          action: 'alt+t',
           name: 'promptSetCurrentTime',
           value: 'na'
         });
 
       },
+      displayKeyCombination: 'alt + t',
       label: 'set current time',
     }
   };
