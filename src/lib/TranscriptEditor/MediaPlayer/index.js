@@ -350,19 +350,56 @@ class MediaPlayer extends React.Component {
 
   handlePictureInPicture = () => {
     if (this.videoRef.current !== null) {
+      if (document.pictureInPictureElement !== undefined) {
       // from https://developers.google.com/web/updates/2017/09/picture-in-picture
-      if (!document.pictureInPictureElement) {
-        this.videoRef.current.requestPictureInPicture()
-          .catch(error => {
-          // Video failed to enter Picture-in-Picture mode.
-            console.error('Video failed to enter Picture-in-Picture mode', error);
+        if (!document.pictureInPictureElement) {
+
+          this.props.handleAnalyticsEvents({
+            category: 'MediaPlayer',
+            action: 'handlePictureInPicture',
+            name: 'turning-picture-in-picture-on'
           });
+
+          this.videoRef.current.requestPictureInPicture()
+            .catch(error => {
+              // Video failed to enter Picture-in-Picture mode.
+              console.error('Video failed to enter Picture-in-Picture mode', error);
+
+              this.props.handleAnalyticsEvents({
+                category: 'MediaPlayer',
+                action: 'handlePictureInPicture',
+                name: 'turning-picture-in-picture-on-error'
+              });
+
+            });
+
+        } else {
+          this.props.handleAnalyticsEvents({
+            category: 'MediaPlayer',
+            action: 'handlePictureInPicture',
+            name: 'turning-picture-in-picture-off'
+          });
+          document.exitPictureInPicture()
+            .catch(error => {
+              // Video failed to leave Picture-in-Picture mode.
+              console.error('Video failed to leave Picture-in-Picture mode', error);
+
+              this.props.handleAnalyticsEvents({
+                category: 'MediaPlayer',
+                action: 'handlePictureInPicture',
+                name: 'turning-picture-in-picture-off-error'
+              });
+            });
+        }
       } else {
-        document.exitPictureInPicture()
-          .catch(error => {
-          // Video failed to leave Picture-in-Picture mode.
-            console.error('Video failed to leave Picture-in-Picture mode', error);
-          });
+        alert('Picture in Picture not supported in this browser, try chrome.');
+
+        this.props.handleAnalyticsEvents({
+          category: 'MediaPlayer',
+          action: 'handlePictureInPicture',
+          name: 'picture-in-picture-not-supported'
+        });
+
       }
     }
   }
