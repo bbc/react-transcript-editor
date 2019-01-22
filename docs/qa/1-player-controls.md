@@ -47,9 +47,13 @@ From left to right
 
 !['Picture in Picture' screenshot](./images/picture-in-picture.png)
 
+
+
 ##### Steps:
 - Click the 'Picture in Picture' icon 📺
 
 ##### Expected Results: 
 - [ ] If video, expect the video to appear as resizable floating window always on top
 - [ ] Expect if click picture in picture icon again for video to go back to it's original place
+- [ ] if in chrome expect it to work
+- [ ] if in browser other then chrome (Safari, Firefox etc) expect to get warning message saying browser is not supported and to use in chrome instead.
