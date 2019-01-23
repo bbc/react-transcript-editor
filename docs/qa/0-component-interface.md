@@ -32,7 +32,7 @@ This QA section shows how to use the demo app to test that this works as expecte
 - [ ] 'open Transcript Json' + 'Choose file'
 - [ ] Edit text
 - [ ] refresh browser
-- [ ] 'Load demo'
+- [ ] repeat step 2 and 3
 ##### Expected Results: 
 - [ ] Expect the text change in step 4 to have persisted
 
@@ -40,13 +40,12 @@ This QA section shows how to use the demo app to test that this works as expecte
 ####  Media first - url
 
 ##### Steps:
-- [ ]click 'clear local storage'
-- [ ]'Load media from Url' 
-- [ ]add this url: https://download.ted.com/talks/KateDarling_2018S-950k.mp4
-- [ ]'open Transcript Json' + 'Choose file'
-- [ ]Edit text
+- [ ] click 'clear local storage'
+- [ ] 'Load media from Url'  and add this url: https://download.ted.com/talks/KateDarling_2018S-950k.mp4
+- [ ] 'open Transcript Json' + 'Choose file'
+- [ ] Edit text
 - [ ]refresh browser
-- [ ]'Load demo'
+- [ ] repeat step 2 and 3
 ##### Expected Results: 
 - [ ] Expect the text change in step 4 to have persisted
 
@@ -54,25 +53,25 @@ This QA section shows how to use the demo app to test that this works as expecte
 ####  Transcript first - local media
 
 ##### Steps:
-- [ ]click 'clear local storage'
-- [ ]'open Transcript Json' + 'Choose file'
-- [ ]'Load Local Media' + 'Chose File'
-- [ ]Edit text
-- [ ]refresh browser
-- [ ]'Load demo'
+- [ ] click 'clear local storage'
+- [ ] 'open Transcript Json' + 'Choose file'
+- [ ] 'Load Local Media' + 'Chose File'
+- [ ] Edit text
+- [ ] refresh browser
+- [ ] repeat step 2 and 3
 ##### Expected Results: 
 - [ ] Expect the text change in step 4 to have persisted
 
 #### Transcript first - url 
 
 ##### Steps:
-- [ ]click 'clear local storage'
-- [ ]'open Transcript Json' + 'Choose file'
-- [ ]'Load media from Url' 
-- [ ]add this url: https://download.ted.com/talks/KateDarling_2018S-950k.mp4
-- [ ]Edit text
-- [ ]refresh browser
-- [ ]'Load demo'
+- [ ] click 'clear local storage'
+- [ ] 'open Transcript Json' + 'Choose file'
+- [ ] 'Load media from Url' 
+- [ ] add this url: https://download.ted.com/talks/KateDarling_2018S-950k.mp4
+- [ ] Edit text
+- [ ] refresh browser
+- [ ] repeat step 2 and 3
 ##### Expected Results: 
 - [ ] Expect the text change in step 4 to have persisted
 

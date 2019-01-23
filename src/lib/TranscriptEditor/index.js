@@ -33,6 +33,8 @@ class TranscriptEditor extends React.Component {
 
   static getDerivedStateFromProps(nextProps) {
     if (nextProps.transcriptData !== null) {
+      console.log('getDerivedStateFromProps');
+
       return {
         transcriptData: nextProps.transcriptData
       };
@@ -42,12 +44,38 @@ class TranscriptEditor extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.transcriptData !== this.state.transcriptData) {
-      if (this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
-        console.log('was already present in local storage');
-        this.refs.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
-      } else {
-        console.log('not present in local storage');
+    if (
+      ((prevState.transcriptData !== this.state.transcriptData)
+      && (prevProps.mediaUrl !== this.props.mediaUrl ))
+    ) {
+      console.log('mediaUrl not null and transcriptData present');
+      console.log(this.refs.timedTextEditor!== undefined);
+      if (this.refs.timedTextEditor!== undefined) {
+        console.log('this.refs.timedTextEditor!== undefined');
+        if (this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
+          console.log('was already present in local storage');
+          this.refs.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
+        } else {
+          console.log('not present in local storage');
+        }
+      }
+    }
+    else if (
+      (prevState.transcriptData === this.state.transcriptData)
+      && (
+        (prevProps.mediaUrl !== this.props.mediaUrl)
+          || (prevProps.mediaUrl !== this.props.mediaUrl)
+      )
+    ) {
+      console.log('else', this.state.transcriptData, this.props.mediaUrl);
+      if (this.refs.timedTextEditor!== undefined) {
+        console.log('this.refs.timedTextEditor!== undefined');
+        if (this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
+          console.log('was already present in local storage');
+          this.refs.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
+        } else {
+          console.log('not present in local storage');
+        }
       }
     }
   }
@@ -229,6 +257,25 @@ class TranscriptEditor extends React.Component {
       handleShortcutsToggle={ this.handleShortcutsToggle }
     />;
 
+    const timedTextEditor = <TimedTextEditor
+      fileName={ this.props.fileName }
+      transcriptData={ this.state.transcriptData }
+      timecodeOffset={ this.state.timecodeOffset }
+      onWordClick={ this.handleWordClick }
+      playMedia={ this.handlePlayMedia }
+      isPlaying={ this.handleIsPlaying }
+      currentTime={ this.state.currentTime }
+      isEditable={ this.props.isEditable }
+      sttJsonType={ this.props.sttJsonType }
+      mediaUrl={ this.props.mediaUrl }
+      isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
+      isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
+      showTimecodes={ this.state.showTimecodes }
+      showSpeakers={ this.state.showSpeakers }
+      ref={ 'timedTextEditor' }
+      handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+    />;
+
     return (
       <div className={ style.container }>
         <header className={ style.header }>
@@ -248,24 +295,7 @@ class TranscriptEditor extends React.Component {
         </div>
 
         <main className={ style.main }>
-          <TimedTextEditor
-            fileName={ this.props.fileName }
-            transcriptData={ this.state.transcriptData }
-            timecodeOffset={ this.state.timecodeOffset }
-            onWordClick={ this.handleWordClick }
-            playMedia={ this.handlePlayMedia }
-            isPlaying={ this.handleIsPlaying }
-            currentTime={ this.state.currentTime }
-            isEditable={ this.props.isEditable }
-            sttJsonType={ this.props.sttJsonType }
-            mediaUrl={ this.props.mediaUrl }
-            isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
-            isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
-            showTimecodes={ this.state.showTimecodes }
-            showSpeakers={ this.state.showSpeakers }
-            ref={ 'timedTextEditor' }
-            handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
-          />
+          {this.props.mediaUrl === null? null : timedTextEditor}
         </main>
       </div>
     );

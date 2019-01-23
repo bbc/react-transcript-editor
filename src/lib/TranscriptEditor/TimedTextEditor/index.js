@@ -40,6 +40,7 @@ class TimedTextEditor extends React.Component {
       inputCount: 0,
       currentWord: {}
     };
+    console.log('TimedTextEditor Initialised');
   }
 
   componentDidMount() {
