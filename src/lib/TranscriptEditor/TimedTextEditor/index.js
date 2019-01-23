@@ -264,7 +264,6 @@ class TimedTextEditor extends React.Component {
    * Listen for draftJs custom key bindings
    */
   customKeyBindingFn = (e) => {
-    console.log('customKeyBindingFn', e.keyCode);
     const enterKey = 13;
     const spaceKey =32;
     const kKey = 75;
