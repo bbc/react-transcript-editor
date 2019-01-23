@@ -106,7 +106,7 @@ class TimedTextEditor extends React.Component {
       this.setState(() => ({
         editorState
       }), () => {
-        // saving when user has stopped typing for more then two seconds
+        // saving when user has stopped typing for more then five seconds
         if (this.saveTimer!== undefined) {
           clearTimeout(this.saveTimer);
         }
