@@ -5,6 +5,9 @@ import Tooltip from 'react-simple-tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle, faMousePointer, faICursor, faUserEdit, faKeyboard, faSave } from '@fortawesome/free-solid-svg-icons';
 
+// https://stackoverflow.com/questions/35250500/correct-way-to-import-lodash
+import debounce from 'lodash/debounce';
+
 import {
   Editor,
   EditorState,
@@ -37,7 +40,7 @@ class TimedTextEditor extends React.Component {
       timecodeOffset: this.props.timecodeOffset,
       showSpeakers: this.props.showSpeakers,
       showTimecodes: this.props.showTimecodes,
-      inputCount: 0,
+      // inputCount: 0,
       currentWord: {}
     };
     console.log('TimedTextEditor Initialised');
@@ -104,18 +107,17 @@ class TimedTextEditor extends React.Component {
 
     // TODO: This need to be refactored using _ debounce instead of 5 char count.
     if (this.state.isEditable) {
-      this.setState((prevState) => ({
-        editorState,
-        inputCount: prevState.inputCount + 1,
+      this.setState(() => ({
+        editorState
       }), () => {
-        // Saving every 5 keystrokes
-        if (this.state.inputCount > 5) {
-          this.setState({
-            inputCount: 0,
-          });
-
+        const save = debounce( () => {
           this.localSave(this.props.mediaUrl);
-        }
+        },
+        500, {
+          maxWait: 5000
+        });
+
+        save();
       });
     }
   }
@@ -150,6 +152,7 @@ class TimedTextEditor extends React.Component {
   }
 
   localSave = () => {
+    console.log('local save');
     let mediaUrlName = this.props.mediaUrl;
     // if using local media instead of using random blob name
     // that makes it impossible to retrieve from on page refresh
@@ -157,12 +160,13 @@ class TimedTextEditor extends React.Component {
     if (this.props.mediaUrl.includes('blob')) {
       mediaUrlName = this.props.fileName;
     }
+
     const data = convertToRaw(this.state.editorState.getCurrentContent());
     localStorage.setItem(`draftJs-${ mediaUrlName }`, JSON.stringify(data));
     const newLastLocalSavedDate = new Date().toString();
     localStorage.setItem(`timestamp-${ mediaUrlName }`, newLastLocalSavedDate);
 
-    return newLastLocalSavedDate;
+    // return newLastLocalSavedDate;
   }
 
   // eslint-disable-next-line class-methods-use-this
