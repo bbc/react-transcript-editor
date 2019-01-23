@@ -5,9 +5,6 @@ import Tooltip from 'react-simple-tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle, faMousePointer, faICursor, faUserEdit, faKeyboard, faSave } from '@fortawesome/free-solid-svg-icons';
 
-// https://stackoverflow.com/questions/35250500/correct-way-to-import-lodash
-import debounce from 'lodash/debounce';
-
 import {
   Editor,
   EditorState,
@@ -105,19 +102,17 @@ class TimedTextEditor extends React.Component {
       }
     }
 
-    // TODO: This need to be refactored using _ debounce instead of 5 char count.
     if (this.state.isEditable) {
       this.setState(() => ({
         editorState
       }), () => {
-        const save = debounce( () => {
+        // saving when user has stopped typing for more then two seconds
+        if (this.saveTimer!== undefined) {
+          clearTimeout(this.saveTimer);
+        }
+        this.saveTimer = setTimeout(() => {
           this.localSave(this.props.mediaUrl);
-        },
-        500, {
-          maxWait: 5000
-        });
-
-        save();
+        }, 5000);
       });
     }
   }
@@ -152,7 +147,8 @@ class TimedTextEditor extends React.Component {
   }
 
   localSave = () => {
-    console.log('local save');
+    console.log('localSave');
+    clearTimeout(this.saveTimer);
     let mediaUrlName = this.props.mediaUrl;
     // if using local media instead of using random blob name
     // that makes it impossible to retrieve from on page refresh
