@@ -44,38 +44,39 @@ class TranscriptEditor extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    // Transcript and media passed to component at same time
     if (
-      ((prevState.transcriptData !== this.state.transcriptData)
-      && (prevProps.mediaUrl !== this.props.mediaUrl ))
+      (prevState.transcriptData !== this.state.transcriptData)
+        && (prevProps.mediaUrl !== this.props.mediaUrl )
     ) {
-      console.log('mediaUrl not null and transcriptData present');
-      console.log(this.refs.timedTextEditor!== undefined);
-      if (this.refs.timedTextEditor!== undefined) {
-        console.log('this.refs.timedTextEditor!== undefined');
-        if (this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
-          console.log('was already present in local storage');
-          this.refs.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
-        } else {
-          console.log('not present in local storage');
-        }
-      }
+      console.info('Transcript and media');
+      this.ifPresentRetrieveTranscriptFromLocalStorage();
     }
+    // Transcript first and then media passed to component
     else if (
       (prevState.transcriptData === this.state.transcriptData)
-      && (
-        (prevProps.mediaUrl !== this.props.mediaUrl)
-          || (prevProps.mediaUrl !== this.props.mediaUrl)
-      )
+      && (prevProps.mediaUrl !== this.props.mediaUrl)
     ) {
-      console.log('else', this.state.transcriptData, this.props.mediaUrl);
-      if (this.refs.timedTextEditor!== undefined) {
-        console.log('this.refs.timedTextEditor!== undefined 2');
-        if (this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
-          console.log('was already present in local storage');
-          this.refs.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
-        } else {
-          console.log('not present in local storage');
-        }
+      console.info('Transcript first and then media');
+      this.ifPresentRetrieveTranscriptFromLocalStorage();
+    }
+    // Media first and then transcript passed to component
+    else if (
+      (prevState.transcriptData !== this.state.transcriptData)
+      && (prevProps.mediaUrl === this.props.mediaUrl)
+    ) {
+      console.info('Media first and then transcript');
+      this.ifPresentRetrieveTranscriptFromLocalStorage();
+    }
+  }
+
+  ifPresentRetrieveTranscriptFromLocalStorage = () => {
+    if (this.refs.timedTextEditor!== undefined) {
+      if (this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
+        console.log('was already present in local storage');
+        this.refs.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
+      } else {
+        console.log('not present in local storage');
       }
     }
   }
