@@ -97,7 +97,7 @@ There's a [docs](./docs) folder in this repository.
 
 We are using [this template for ADR](https://gist.github.com/iaincollins/92923cc2c309c2751aea6f1b34b31d95)
 
-[There also QA testing docs](./docs/qa/0-README.md) to manual test the component before a major release, (QA testing does not require any technical knowledge).
+[There also QA testing docs](./docs/qa/README.md) to manual test the component before a major release, (QA testing does not require any technical knowledge).
 
 ## Build
 
