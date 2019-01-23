@@ -44,7 +44,7 @@ This QA section shows how to use the demo app to test that this works as expecte
 - [ ] 'Load media from Url'  and add this url: https://download.ted.com/talks/KateDarling_2018S-950k.mp4
 - [ ] 'open Transcript Json' + 'Choose file'
 - [ ] Edit text
-- [ ]refresh browser
+- [ ] refresh browser
 - [ ] repeat step 2 and 3
 ##### Expected Results: 
 - [ ] Expect the text change in step 4 to have persisted
