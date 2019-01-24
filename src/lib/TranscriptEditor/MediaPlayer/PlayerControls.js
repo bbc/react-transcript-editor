@@ -5,6 +5,18 @@ import Select from './Select';
 
 import style from './PlayerControls.module.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import {
+  faSave,
+  faTv,
+  faPlay,
+  faPause,
+  faBackward,
+  faForward,
+  faUndo
+} from '@fortawesome/free-solid-svg-icons';
+
 class PlayerControls extends React.Component {
   // to handle backward and forward mouse pressed on btn
   // set a 300 ms  interval to repeat the
@@ -34,28 +46,28 @@ class PlayerControls extends React.Component {
         <button
           className={ style.playerButton }
           onClick={ this.props.rollback }>
-          {'↺'}
+          <FontAwesomeIcon icon={ faUndo } />
         </button>
 
         <button
           className={ style.playerButton }
           onMouseDown={ this.setIntervalHelperBackward }
           onMouseUp={ this.clearIntervalHelper }>
-          {'◀◀'}
+          <FontAwesomeIcon icon={ faBackward } />
 
         </button>
 
         <button
           className={ style.playerButton }
           onClick={ this.props.playMedia }>
-          {this.props.isPlaying ? '❚❚' : '▶'}
+          {this.props.isPlaying ? <FontAwesomeIcon icon={ faPause } /> : <FontAwesomeIcon icon={ faPlay } />}
         </button>
 
         <button
           className={ style.playerButton }
           onMouseDown={ this.setIntervalHelperForward }
           onMouseUp={ this.clearIntervalHelper }>
-          {'▶▶'}
+          <FontAwesomeIcon icon={ faForward } />
         </button>
 
         <span className={ style.playBackRate }>
@@ -76,9 +88,15 @@ class PlayerControls extends React.Component {
 
         <button
           className={ style.playerButton }
+          onClick={ this.props.handleSaveTranscript }>
+          <FontAwesomeIcon icon={ faSave } />
+        </button>
+
+        <button
+          className={ style.playerButton }
           onClick={ this.props.pictureInPicture }
         >
-          {'📺'}
+          <FontAwesomeIcon icon={ faTv } />
         </button>
 
         <VolumeControl

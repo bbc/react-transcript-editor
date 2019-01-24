@@ -62,7 +62,10 @@ class TimedTextEditor extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.transcriptData !== this.state.transcriptData) {
+    if (
+      (prevState.transcriptData !== this.state.transcriptData)
+      && ( this.props.mediaUrl!== null && !this.isPresentInLocalStorage(this.props.mediaUrl) )
+    ) {
       this.loadData();
     }
     if (prevState.timecodeOffset !== this.state.timecodeOffset
