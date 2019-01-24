@@ -405,10 +405,6 @@ class MediaPlayer extends React.Component {
     }
   }
 
-  handleSaveTranscript = () => {
-    this.props.handleSaveTranscript();
-  }
-
   render() {
     const player = <VideoPlayer
       mediaUrl={ this.props.mediaUrl }
