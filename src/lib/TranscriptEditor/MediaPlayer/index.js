@@ -10,6 +10,7 @@ import returnHotKeys from './defaultHotKeys';
 import styles from './index.module.css';
 
 import { secondsToTimecode, timecodeToSeconds } from '../../Util/timecode-converter/index';
+import { timingSafeEqual } from 'crypto';
 
 const PLAYBACK_RATES = [
   { value: 0.2, label: '0.2' },
@@ -436,6 +437,7 @@ class MediaPlayer extends React.Component {
           setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
           playbackRateOptions={ this.state.playbackRateOptions }
           pictureInPicture={ this.handlePictureInPicture }
+          handleSaveTranscript={ () => {this.props.handleSaveTranscript();} }
         />
       </div>
     );

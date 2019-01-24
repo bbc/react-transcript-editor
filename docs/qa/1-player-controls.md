@@ -18,15 +18,16 @@ From left to right
 | 1.1.8 |current time  | display       | display current time of media, updates while playing  |
 | 1.1.9 |current time  | click         | triggers prompt to jump to set time, using custom formats options  |
 | 1.1.10|Duration      | display       | display duration of media    |
-| 1.1.11|'Picture in Picture'  📺    | click       | hide or show video as separate window always on top   |
-| 1.1.12|Volume        | click - Toggle| Mutes and un-mutes media   |
+| 1.1.11|Save      | click on 💾       | should save content to local storage    |
+| 1.1.12|'Picture in Picture'  📺    | click       | hide or show video as separate window always on top   |
+| 1.1.13|Volume        | click - Toggle| Mutes and un-mutes media   |
 
 #### Item to test #1.2: Player Controls - Preview
 
 ![player-controls-preview](./images/player-controls-preview.png)
 
 ##### Steps:
-- Click on the media preview on the left
+- [ ] Click on the media preview on the left
 ##### Expected Results: 
 - [ ] if media paused expect to start playing
 - [ ] if media playing expect to pause playing
@@ -50,10 +51,19 @@ From left to right
 
 
 ##### Steps:
-- Click the 'Picture in Picture' icon 📺
+- [ ] Click the 'Picture in Picture' icon 📺
 
 ##### Expected Results: 
 - [ ] If video, expect the video to appear as resizable floating window always on top
 - [ ] Expect if click picture in picture icon again for video to go back to it's original place
 - [ ] if in chrome expect it to work
 - [ ] if in browser other then chrome (Safari, Firefox etc) expect to get warning message saying browser is not supported and to use in chrome instead.
+
+#### Item to test #1.11: Player Controls - Save  💾 
+
+##### Steps:
+- [ ] edit some text
+- [ ] Click the 'Save' icon 📺
+- [ ] refresh browser
+##### Expected Results: 
+- [ ] Expect the text to persist after refresh
