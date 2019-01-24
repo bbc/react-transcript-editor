@@ -5,6 +5,9 @@ import Select from './Select';
 
 import style from './PlayerControls.module.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSave } from '@fortawesome/free-solid-svg-icons';
+
 class PlayerControls extends React.Component {
   // to handle backward and forward mouse pressed on btn
   // set a 300 ms  interval to repeat the
@@ -73,6 +76,12 @@ class PlayerControls extends React.Component {
           <span className={ style.separator }>|</span>
           <span className={ style.duration }>{this.props.duration}</span>
         </div>
+
+        <button
+          className={ style.playerButton }
+          onClick={ this.props.handleSaveTranscript }>
+          <FontAwesomeIcon icon={ faSave } />
+        </button>
 
         <button
           className={ style.playerButton }
