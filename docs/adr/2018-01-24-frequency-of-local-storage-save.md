@@ -10,7 +10,7 @@
 
 <!-- [Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.] -->
 
-It uses a timer that can be consolidated into one final one rather then having a lot of saves being delayed, we just have one final save once after user has stopped typing for more then 5 seconds.
+The issue is how often to save to local storage when a user types, previous implementation saved every 5 characters. But that caused issues [#86](https://github.com/bbc/react-transcript-editor/issues/86)
 
 
 
@@ -51,7 +51,9 @@ https://lodash.com/docs/4.17.11#debounce
 
 Chosen option: **using a js timer**. 
 
-The timer is cleared before being called so that there is only the final one left. Leaving only one final save at the end. as performance optimization.
+It uses a timer that can be consolidated into one final one rather then having a lot of saves being delayed, we just have one final save once after user has stopped typing for more then 5 seconds.
+
+The timer is cleared before being called so that there is only the final one left. Leaving only one final save at the end. As a performance optimization.
 
 ```js
 if (this.saveTimer!== undefined) {
