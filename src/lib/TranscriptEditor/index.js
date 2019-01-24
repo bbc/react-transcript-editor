@@ -33,8 +33,6 @@ class TranscriptEditor extends React.Component {
 
   static getDerivedStateFromProps(nextProps) {
     if (nextProps.transcriptData !== null) {
-      console.log('getDerivedStateFromProps');
-
       return {
         transcriptData: nextProps.transcriptData
       };
@@ -73,10 +71,10 @@ class TranscriptEditor extends React.Component {
   ifPresentRetrieveTranscriptFromLocalStorage = () => {
     if (this.refs.timedTextEditor!== undefined) {
       if (this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
-        console.log('was already present in local storage');
+        console.info('was already present in local storage');
         this.refs.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
       } else {
-        console.log('not present in local storage');
+        console.info('not present in local storage');
       }
     }
   }
