@@ -21,6 +21,7 @@ This QA section shows how to use the demo app to test that this works as expecte
 - [ ] refresh browser
 - [ ] 'Load demo'
 ##### Expected Results: 
+- [ ] wait 5 seconds
 - [ ] Expect the text change in step 3 to have persisted
 
 
@@ -34,6 +35,7 @@ This QA section shows how to use the demo app to test that this works as expecte
 - [ ] refresh browser
 - [ ] repeat step 2 and 3
 ##### Expected Results: 
+- [ ] wait 5 seconds
 - [ ] Expect the text change in step 4 to have persisted
 
 
@@ -47,6 +49,7 @@ This QA section shows how to use the demo app to test that this works as expecte
 - [ ] refresh browser
 - [ ] repeat step 2 and 3
 ##### Expected Results: 
+- [ ] wait 5 seconds
 - [ ] Expect the text change in step 4 to have persisted
 
 
@@ -60,6 +63,7 @@ This QA section shows how to use the demo app to test that this works as expecte
 - [ ] refresh browser
 - [ ] repeat step 2 and 3
 ##### Expected Results: 
+- [ ] wait 5 seconds
 - [ ] Expect the text change in step 4 to have persisted
 
 #### Transcript first - url 
@@ -73,5 +77,6 @@ This QA section shows how to use the demo app to test that this works as expecte
 - [ ] refresh browser
 - [ ] repeat step 2 and 3
 ##### Expected Results: 
+- [ ] wait 5 seconds
 - [ ] Expect the text change in step 4 to have persisted
 
