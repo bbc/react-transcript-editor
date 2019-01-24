@@ -221,6 +221,10 @@ class TranscriptEditor extends React.Component {
     return this.refs.timedTextEditor.getEditorContent(exportFormat);
   }
 
+  handleSaveTranscript = () => {
+    return this.refs.timedTextEditor.localSave(this.props.mediaUrl);
+  }
+
   render() {
     const mediaPlayer = <MediaPlayer
       fileName={ this.props.fileName }
@@ -233,6 +237,7 @@ class TranscriptEditor extends React.Component {
       mediaUrl={ this.props.mediaUrl }
       // ref={ 'MediaPlayer' }
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+      handleSaveTranscript={ this.handleSaveTranscript }
     />;
 
     const settings = <Settings
