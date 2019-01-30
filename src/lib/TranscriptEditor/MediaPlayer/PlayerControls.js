@@ -44,12 +44,14 @@ class PlayerControls extends React.Component {
     return (
       <div className={ style.playerControls }>
         <button
+          title="Rollback"
           className={ style.playerButton }
           onClick={ this.props.rollback }>
           <FontAwesomeIcon icon={ faUndo } />
         </button>
 
         <button
+          title="Rewind"
           className={ style.playerButton }
           onMouseDown={ this.setIntervalHelperBackward }
           onMouseUp={ this.clearIntervalHelper }>
@@ -58,12 +60,14 @@ class PlayerControls extends React.Component {
         </button>
 
         <button
+          title="Play"
           className={ style.playerButton }
           onClick={ this.props.playMedia }>
           {this.props.isPlaying ? <FontAwesomeIcon icon={ faPause } /> : <FontAwesomeIcon icon={ faPlay } />}
         </button>
 
         <button
+          title="Forward"
           className={ style.playerButton }
           onMouseDown={ this.setIntervalHelperForward }
           onMouseUp={ this.clearIntervalHelper }>
@@ -72,6 +76,7 @@ class PlayerControls extends React.Component {
 
         <span className={ style.playBackRate }>
           <Select
+            title="Playback rate"
             options={ this.props.playbackRateOptions }
             currentValue={ this.props.playbackRate.toString() }
             name={ 'playbackRate' }
@@ -87,12 +92,14 @@ class PlayerControls extends React.Component {
         </div>
 
         <button
+          title="Save"
           className={ style.playerButton }
           onClick={ this.props.handleSaveTranscript }>
           <FontAwesomeIcon icon={ faSave } />
         </button>
 
         <button
+          title="Picture-in-picture"
           className={ style.playerButton }
           onClick={ this.props.pictureInPicture }
         >
