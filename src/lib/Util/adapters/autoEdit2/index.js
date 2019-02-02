@@ -80,7 +80,7 @@ const autoEdit2ToDraft = (autoEdit2Json) => {
       type: 'paragraph',
       data: {
         speaker: `TBC ${ i }`,
-        words: paragraph.words, 
+        words: paragraph.words,
         start: paragraph.words[0].start
       },
       // the entities as ranges are each word in the space-joined text,

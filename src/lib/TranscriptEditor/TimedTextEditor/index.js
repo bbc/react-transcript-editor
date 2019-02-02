@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tooltip from 'react-simple-tooltip';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuestionCircle, faMousePointer, faICursor, faUserEdit, faKeyboard, faSave } from '@fortawesome/free-solid-svg-icons';
 
 import {
   Editor,
@@ -8,7 +12,8 @@ import {
   convertFromRaw,
   convertToRaw,
   getDefaultKeyBinding,
-  Modifier
+  Modifier,
+  KeyBindingUtil
 } from 'draft-js';
 
 import Word from './Word';
@@ -17,6 +22,8 @@ import WrapperBlock from './WrapperBlock';
 import sttJsonAdapter from '../../Util/adapters/index.js';
 import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
+
+const { hasCommandModifier } = KeyBindingUtil;
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -30,7 +37,7 @@ class TimedTextEditor extends React.Component {
       timecodeOffset: this.props.timecodeOffset,
       showSpeakers: this.props.showSpeakers,
       showTimecodes: this.props.showTimecodes,
-      inputCount: 0,
+      // inputCount: 0,
       currentWord: {}
     };
   }
@@ -55,7 +62,10 @@ class TimedTextEditor extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.transcriptData !== this.state.transcriptData) {
+    if (
+      (prevState.transcriptData !== this.state.transcriptData)
+      && ( this.props.mediaUrl!== null && !this.isPresentInLocalStorage(this.props.mediaUrl) )
+    ) {
       this.loadData();
     }
     if (prevState.timecodeOffset !== this.state.timecodeOffset
@@ -95,18 +105,16 @@ class TimedTextEditor extends React.Component {
     }
 
     if (this.state.isEditable) {
-      this.setState((prevState) => ({
-        editorState,
-        inputCount: prevState.inputCount + 1,
+      this.setState(() => ({
+        editorState
       }), () => {
-        // Saving every 5 keystrokes
-        if (this.state.inputCount > 5) {
-          this.setState({
-            inputCount: 0,
-          });
-
-          this.localSave(this.props.mediaUrl);
+        // saving when user has stopped typing for more then five seconds
+        if (this.saveTimer!== undefined) {
+          clearTimeout(this.saveTimer);
         }
+        this.saveTimer = setTimeout(() => {
+          this.localSave(this.props.mediaUrl);
+        }, 5000);
       });
     }
   }
@@ -141,29 +149,52 @@ class TimedTextEditor extends React.Component {
   }
 
   localSave = () => {
-    const mediaUrl = this.props.mediaUrl;
-    const data = convertToRaw(this.state.editorState.getCurrentContent());
-    localStorage.setItem(`draftJs-${ mediaUrl }`, JSON.stringify(data));
-    const newLastLocalSavedDate = new Date().toString();
-    localStorage.setItem(`timestamp-${ mediaUrl }`, newLastLocalSavedDate);
+    console.log('localSave');
+    clearTimeout(this.saveTimer);
+    let mediaUrlName = this.props.mediaUrl;
+    // if using local media instead of using random blob name
+    // that makes it impossible to retrieve from on page refresh
+    // use file name
+    if (this.props.mediaUrl.includes('blob')) {
+      mediaUrlName = this.props.fileName;
+    }
 
-    return newLastLocalSavedDate;
+    const data = convertToRaw(this.state.editorState.getCurrentContent());
+    localStorage.setItem(`draftJs-${ mediaUrlName }`, JSON.stringify(data));
+    const newLastLocalSavedDate = new Date().toString();
+    localStorage.setItem(`timestamp-${ mediaUrlName }`, newLastLocalSavedDate);
+
+    // return newLastLocalSavedDate;
   }
 
   // eslint-disable-next-line class-methods-use-this
   isPresentInLocalStorage(mediaUrl) {
-    const data = localStorage.getItem(`draftJs-${ mediaUrl }`);
-    if (data !== null) {
-      return true;
+    if (mediaUrl !== null) {
+      let mediaUrlName = mediaUrl;
+
+      if (mediaUrl.includes('blob')) {
+        mediaUrlName = this.props.fileName;
+      }
+
+      const data = localStorage.getItem(`draftJs-${ mediaUrlName }`);
+      if (data !== null) {
+        return true;
+      }
+
+      return false;
     }
 
     return false;
   }
 
   loadLocalSavedData(mediaUrl) {
-    const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrl }`));
+    let mediaUrlName = mediaUrl;
+    if (mediaUrl.includes('blob')) {
+      mediaUrlName = this.props.fileName;
+    }
+    const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrlName }`));
     if (data !== null) {
-      const lastLocalSavedDate = localStorage.getItem(`timestamp-${ mediaUrl }`);
+      const lastLocalSavedDate = localStorage.getItem(`timestamp-${ mediaUrlName }`);
       this.setEditorContentState(data);
 
       return lastLocalSavedDate;
@@ -176,10 +207,10 @@ class TimedTextEditor extends React.Component {
   // https://github.com/draft-js-plugins/draft-js-plugins/blob/master/draft-js-counter-plugin/src/WordCounter/index.js#L12
   getWordCount = (editorState) => {
     const plainText = editorState.getCurrentContent().getPlainText('');
-    const regex = /(?:\r\n|\r|\n)/g;  // new line, carriage return, line feed
+    const regex = /(?:\r\n|\r|\n)/g; // new line, carriage return, line feed
     const cleanString = plainText.replace(regex, ' ').trim(); // replace above characters w/ space
-    const wordArray = cleanString.match(/\S+/g);  // matches words according to whitespace
-    
+    const wordArray = cleanString.match(/\S+/g); // matches words according to whitespace
+
     return wordArray ? wordArray.length : 0;
   }
 
@@ -193,26 +224,26 @@ class TimedTextEditor extends React.Component {
     const contentState = convertFromRaw(data);
     // eslint-disable-next-line no-use-before-define
     const editorState = EditorState.createWithContent(contentState, decorator);
-    
+
     if (this.props.handleAnalyticsEvents !== undefined) {
-      this.props.handleAnalyticsEvents({ 
-        category: 'TimedTextEditor', 
-        action: 'setEditorContentState', 
-        name: 'getWordCount', 
+      this.props.handleAnalyticsEvents({
+        category: 'TimedTextEditor',
+        action: 'setEditorContentState',
+        name: 'getWordCount',
         value: this.getWordCount(editorState)
       });
     }
-    
+
     this.setState({ editorState });
   }
 
   // Helper function to re-render this component
   // used to re-render WrapperBlock on timecode offset change
   // or when show / hide preferences for speaker labels and timecodes change
-  forceRenderDecorator= () => {
+  forceRenderDecorator = () => {
     // const { editorState, updateEditorState } = this.props;
-    const contentState =   this.state.editorState.getCurrentContent();
-    const decorator =   this.state.editorState.getDecorator();
+    const contentState = this.state.editorState.getCurrentContent();
+    const decorator = this.state.editorState.getDecorator();
 
     const newState = EditorState.createWithContent(
       contentState,
@@ -235,10 +266,34 @@ class TimedTextEditor extends React.Component {
   /**
    * Listen for draftJs custom key bindings
    */
-  customKeyBindingFn = ( e) => {
+  customKeyBindingFn = (e) => {
     const enterKey = 13;
+    const spaceKey =32;
+    const kKey = 75;
+    const lKey = 76;
+    const jKey = 74;
+    const equalKey = 187;//used for +
+    const minusKey = 189; // -
+    const rKey = 82;
+    const tKey = 84;
+
     if (e.keyCode === enterKey ) {
       return 'split-paragraph';
+    }
+    // if alt key is pressed in combination with these other keys
+    if (e.altKey && ((e.keyCode === spaceKey)
+    || (e.keyCode === spaceKey)
+    || (e.keyCode === kKey)
+    || (e.keyCode === lKey)
+    || (e.keyCode === jKey)
+    || (e.keyCode === equalKey)
+    || (e.keyCode === minusKey)
+    || (e.keyCode === rKey)
+    || (e.keyCode === tKey))
+    ) {
+      e.preventDefault();
+
+      return 'keyboard-shortcuts';
     }
 
     return getDefaultKeyBinding(e);
@@ -250,6 +305,10 @@ class TimedTextEditor extends React.Component {
   handleKeyCommand = (command) => {
     if (command === 'split-paragraph') {
       this.splitParagraph();
+    }
+
+    if (command === 'keyboard-shortcuts') {
+      return 'handled';
     }
 
     return 'not-handled';
@@ -415,7 +474,7 @@ class TimedTextEditor extends React.Component {
     if (currentWord.start !== 'NA') {
       if (this.props.isScrollIntoViewOn) {
         const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
-        currentWordElement.scrollIntoView({ block: 'center', inline: 'center' });
+        currentWordElement.scrollIntoView({ block: 'nearest', inline: 'center' });
       }
     }
 
@@ -423,6 +482,25 @@ class TimedTextEditor extends React.Component {
   }
 
   render() {
+    const helpMessage = <div className={ style.helpMessage }>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faMousePointer } />Double click on a word or timestamp to jump to that point in the video.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faICursor } />Start typing to edit text.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faUserEdit } />You can add and change names of speakers in your transcript.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faKeyboard } />Use keyboard shortcuts for quick control.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faSave } />Save & export to get a copy to your desktop.</span>
+    </div>;
+
+    const tooltip = <Tooltip
+      className={ style.help }
+      content={ helpMessage }
+      fadeDuration={ 250 }
+      fadeEasing={ 'ease-in' }
+      placement={ 'bottom' }
+      radius={ 5 }>
+      <FontAwesomeIcon className={ style.icon } icon={ faQuestionCircle } />
+      How does this work?
+    </Tooltip>;
+
     const currentWord = this.getCurrentWord();
     const highlightColour = '#69e3c2';
     const unplayedColor = '#767676';
@@ -457,6 +535,7 @@ class TimedTextEditor extends React.Component {
 
     return (
       <section>
+        { tooltip }
         { this.props.transcriptData !== null ? editor : null }
       </section>
     );

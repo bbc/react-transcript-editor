@@ -15,7 +15,7 @@ class Shortcuts extends React.Component {
     	const shortcut = hotKeys[key];
 
       return <li key={ i } className={ style.listItem }>
-        <div className={ style.shortcut }>{key}</div>
+        <div className={ style.shortcut }>{shortcut.displayKeyCombination}</div>
         <div className={ style.shortcutLabel }>{shortcut.label}</div>
       </li>;
     });

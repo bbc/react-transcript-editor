@@ -5,7 +5,7 @@ class Word extends PureComponent {
   generateConfidence = (data) => {
     // handling edge case where confidence score not present
     if (data.confidence) {
-      return  data.confidence > 0.6 ? 'high' : 'low';
+      return data.confidence > 0.6 ? 'high' : 'low';
     }
 
     return 'high';

@@ -65,9 +65,13 @@ import { TranscriptEditor } from '@bbc/react-transcript-editor';
     transcriptData=// Transcript json
     mediaUrl=// string url to media file - audio or video 
     isEditable={true}// se to true if you want to be able to edit the text
-    sttJsonType={ 'bbcKaldi' }// the type of STT Json transcript supported.
+    sttJsonType={ 'bbckaldi' }// the type of STT Json transcript supported.
+    fileName={ this.state.fileName }// optional*
 />
 ```
+
+_Note: `fileName` it is optional but it's needed if working with user uploaded local media in the browser, to be able to save and retrieve from local storage. For instance if you are passing a blob url to `mediaUrl` using `createObjectURL` this url is randomly re-generated on every page refresh so you wouldn't be able to restore a session, as `mediaUrl` is used as the local storage key. See demo app for more detail example of this[`./src/index.js`](./src/index.js)_
+
 
 ## System Architecture
 
@@ -93,6 +97,7 @@ There's a [docs](./docs) folder in this repository.
 
 We are using [this template for ADR](https://gist.github.com/iaincollins/92923cc2c309c2751aea6f1b34b31d95)
 
+[There also QA testing docs](./docs/qa/README.md) to manual test the component before a major release, (QA testing does not require any technical knowledge).
 
 ## Build
 

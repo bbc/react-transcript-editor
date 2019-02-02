@@ -9,7 +9,7 @@ class VideoPlayer extends React.Component {
   handlePlayMedia = () => {
     console.log('handle media', this.props.videoRef.current, this.props.videoRef);
     if (this.props.videoRef.current !== null) {
-      this.props.videoRef.current.paused?  this.props.videoRef.current.play():  this.props.videoRef.current.pause();
+      this.props.videoRef.current.paused? this.props.videoRef.current.play(): this.props.videoRef.current.pause();
     }
   };
   render() {
@@ -17,7 +17,7 @@ class VideoPlayer extends React.Component {
 
     let viewWith = this.props.viewWith? this.props.viewWith+'vw' : '15vw';
     // making responsive for mobile screen size
-    viewWith = window.innerWidth >'768'?   viewWith  : 'auto';
+    viewWith = window.innerWidth >'768'? viewWith : 'auto';
 
     return (
       <video
@@ -32,7 +32,7 @@ class VideoPlayer extends React.Component {
         ref={ this.props.videoRef }
         style={ {
           display: isDisplayed,
-          'max-width':  viewWith,
+          maxWidth:  viewWith,
           cursor: 'pointer'
         } }
       />

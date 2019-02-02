@@ -8,6 +8,7 @@ import returnHotKeys from './defaultHotKeys';
 import styles from './index.module.css';
 
 import { secondsToTimecode, timecodeToSeconds } from '../../Util/timecode-converter/index';
+import { timingSafeEqual } from 'crypto';
 
 const PLAYBACK_RATES = [
   { value: 0.2, label: '0.2' },
@@ -311,10 +312,70 @@ class MediaPlayer extends React.Component {
     return '00:00:00:00';
   }
 
+  handlePictureInPicture = () => {
+    // console.log('this.props.videoRef', this.props.videoRef, this.props.videoRef.current );
+    if (this.props.videoRef.current !== undefined) {
+      if (document.pictureInPictureElement !== undefined) {
+      // from https://developers.google.com/web/updates/2017/09/picture-in-picture
+        if (!document.pictureInPictureElement) {
+
+          this.props.handleAnalyticsEvents({
+            category: 'MediaPlayer',
+            action: 'handlePictureInPicture',
+            name: 'turning-picture-in-picture-on'
+          });
+
+          this.props.videoRef.current.requestPictureInPicture()
+            .catch(error => {
+              // Video failed to enter Picture-in-Picture mode.
+              console.error('Video failed to enter Picture-in-Picture mode', error);
+
+              this.props.handleAnalyticsEvents({
+                category: 'MediaPlayer',
+                action: 'handlePictureInPicture',
+                name: 'turning-picture-in-picture-on-error'
+              });
+
+            });
+
+        } else {
+          this.props.handleAnalyticsEvents({
+            category: 'MediaPlayer',
+            action: 'handlePictureInPicture',
+            name: 'turning-picture-in-picture-off'
+          });
+          document.exitPictureInPicture()
+            .catch(error => {
+              // Video failed to leave Picture-in-Picture mode.
+              console.error('Video failed to leave Picture-in-Picture mode', error);
+
+              this.props.handleAnalyticsEvents({
+                category: 'MediaPlayer',
+                action: 'handlePictureInPicture',
+                name: 'turning-picture-in-picture-off-error'
+              });
+            });
+        }
+      } else {
+        alert('Picture in Picture not supported in this browser, try chrome.');
+
+        this.props.handleAnalyticsEvents({
+          category: 'MediaPlayer',
+          action: 'handlePictureInPicture',
+          name: 'picture-in-picture-not-supported'
+        });
+
+      }
+    }
+  }
+
   render() {
 
     const playerControlsSection = (
       <div className={ styles.controlsSection }>
+        {/* <div className={ styles.titleBox }>
+          <h1 className={ styles.title }>{ this.props.fileName? this.props.fileName : this.props.mediaUrl }</h1>
+        </div> */}
         <PlayerControls
           title={ this.props.title? this.props.title: '' }
           playMedia={ this.togglePlayMedia.bind(this) }
@@ -333,12 +394,14 @@ class MediaPlayer extends React.Component {
           handleMuteVolume={ this.handleMuteVolume.bind(this) }
           setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
           playbackRateOptions={ this.state.playbackRateOptions }
+          pictureInPicture={ this.handlePictureInPicture }
+          handleSaveTranscript={ () => {this.props.handleSaveTranscript();} }
         />
       </div>
     );
 
     const progressBar = <ProgressBar
-      max={ this.props.videoRef.current !== null ? parseInt(this.props.videoRef.current.duration) : 100 }
+      max={ this.props.videoRef.current !== null ? parseInt(this.props.videoRef.current.duration).toString() : '100' }
       value={ this.props.videoRef.current !== null ? parseInt(this.props.videoRef.current.currentTime) : 0 }
       buttonClick={ this.handleProgressBarClick.bind(this) }
     />;
@@ -346,15 +409,16 @@ class MediaPlayer extends React.Component {
     return (
       <section className={ styles.topSection }>
         <div className={ styles.playerSection }>
-          { this.props.mediaUrl !== null ? playerControlsSection : null }
+          { this.props.mediaUrl === null ? null: playerControlsSection }
         </div>
-        { this.props.mediaUrl !== null ? progressBar : null }
+        { this.props.mediaUrl === null ? null: progressBar }
       </section>
     );
   }
 }
 
 MediaPlayer.propTypes = {
+  fileName: PropTypes.string,
   hookSeek: PropTypes.func,
   hookPlayMedia: PropTypes.func,
   hookIsPlaying: PropTypes.func,

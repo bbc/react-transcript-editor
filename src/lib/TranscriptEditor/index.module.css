@@ -1,4 +1,4 @@
-@value color-subt-green, color-darkest-grey from './colours.module.css';
+@value color-subt-green, color-darkest-grey, color-labs-red from './colours.module.css';
 
 ::selection {
   background: color-subt-green;
@@ -61,10 +61,6 @@
     text-align: center;
     width: 2em;
     height: 2em;
-  }
-
-  .cog {
-    font-weight: lighter;
   }
 }
 

@@ -1,6 +1,12 @@
 {
 	"presets": [
-		"@babel/preset-react"
+		"@babel/preset-react",
+		"@babel/preset-env",
+		["minify", {
+			"builtIns": false,
+			"evaluate": false,
+			"mangle": false,
+		  }]
 	],
 	"plugins": [
 		"@babel/plugin-proposal-object-rest-spread", 

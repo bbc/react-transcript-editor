@@ -1,10 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import VolumeControl from './VolumeControl';
 import Select from './Select';
 
 import style from './PlayerControls.module.css';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import {
+  faSave,
+  faTv,
+  faPlay,
+  faPause,
+  faBackward,
+  faForward,
+  faUndo
+} from '@fortawesome/free-solid-svg-icons';
 
 class PlayerControls extends React.Component {
   // to handle backward and forward mouse pressed on btn
@@ -35,7 +46,7 @@ class PlayerControls extends React.Component {
         <button
           className={ style.playerButton }
           onClick={ this.props.rollback }>
-          {'↺'}
+          <FontAwesomeIcon icon={ faUndo } />
         </button>
 
         <button
@@ -43,13 +54,13 @@ class PlayerControls extends React.Component {
           onMouseDown={ this.setIntervalHelperBackward }
           onMouseUp={ this.clearIntervalHelper }
           onClick={ () => {this.props.skipBackward(); } }>
-          {'◀◀'}
+          <FontAwesomeIcon icon={ faBackward } />
         </button>
 
         <button
           className={ style.playerButton }
           onClick={ this.props.playMedia }>
-          {this.props.isPlaying ? '❚❚' : '▶'}
+          {this.props.isPlaying ? <FontAwesomeIcon icon={ faPause } /> : <FontAwesomeIcon icon={ faPlay } />}
         </button>
 
         <button
@@ -57,19 +68,16 @@ class PlayerControls extends React.Component {
           onMouseDown={ this.setIntervalHelperForward }
           onMouseUp={ this.clearIntervalHelper }
           onClick={ () => {this.props.skipForward(); } }>
-          {'▶▶'}
+          <FontAwesomeIcon icon={ faForward } />
         </button>
 
-        <button
-          className={ style.playBackRate }>
-          x<Select
+        <span className={ style.playBackRate }>
+          <Select
             options={ this.props.playbackRateOptions }
             currentValue={ this.props.playbackRate.toString() }
             name={ 'playbackRate' }
-            handleChange={ this.props.setPlayBackRate }
-          />
-
-        </button>
+            handleChange={ this.props.setPlayBackRate } />
+        </span>
 
         <div className={ style.timeBox }>
           <span className={ style.currentTime }
@@ -79,18 +87,31 @@ class PlayerControls extends React.Component {
           <span className={ style.duration }>{this.props.duration}</span>
         </div>
 
+        <button
+          className={ style.playerButton }
+          onClick={ this.props.handleSaveTranscript }>
+          <FontAwesomeIcon icon={ faSave } />
+        </button>
+
+        <button
+          className={ style.playerButton }
+          onClick={ this.props.pictureInPicture }
+        >
+          <FontAwesomeIcon icon={ faTv } />
+        </button>
+
         <VolumeControl
           handleMuteVolume={ this.props.handleMuteVolume }
         />
 
         <div style={ {
           color: 'white',
-          'text-overflow': 'ellipsis',
-          'white-space': 'nowrap',
-          'overflow': 'hidden',
-          'width': '40vw',
-          'display': 'inline-block',
-          'margin-left': '1em'
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          width: '40vw',
+          display: 'inline-block',
+          marginLeft: '1em'
         } }>
           {this.props.title}
         </div>
@@ -113,7 +134,8 @@ PlayerControls.propTypes = {
   skipForward: PropTypes.func,
   playbackRate: PropTypes.number,
   playbackRateOptions: PropTypes.array,
-  setPlayBackRate: PropTypes.func
+  setPlayBackRate: PropTypes.func,
+  pictureInPicture: PropTypes.func
 };
 
 export default PlayerControls;
