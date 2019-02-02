@@ -6,6 +6,7 @@
   margin-left: 0.5em;
   margin: 1em;
   display: flex;
+  justify-content: flex-start;
 }
 
 .playerControls > * {
@@ -23,13 +24,18 @@
   padding: 0.5em;
   border: 0;
   color: white;
+  background: color-darkest-grey;
   font-size: 1em;
   cursor: pointer;
+  /* border-color: black;
+  border-width: 0.1rem;
+  border-style: solid; */
 }
 
 .playBackRate{
   border: 0;
   color: white;
+  background: color-darkest-grey;
   font-size: 1em;
   cursor: pointer;
   position: relative;
@@ -39,7 +45,7 @@
 .playBackRate::before{
   content: '×';
   position: absolute;
-  bottom: 11px;
+  bottom: -2px;
   left: 12px;
 }
 
@@ -50,6 +56,8 @@
   outline: none;
   width: auto;
   width: 100%;
+  color:white;
+  background-color: color-darkest-grey;
 }
 
 .timeBox {

@@ -43,41 +43,6 @@ class PlayerControls extends React.Component {
   render() {
     return (
       <div className={ style.playerControls }>
-        <button
-          className={ style.playerButton }
-          onClick={ this.props.rollback }>
-          <FontAwesomeIcon icon={ faUndo } />
-        </button>
-
-        <button
-          className={ style.playerButton }
-          onMouseDown={ this.setIntervalHelperBackward }
-          onMouseUp={ this.clearIntervalHelper }
-          onClick={ () => {this.props.skipBackward(); } }>
-          <FontAwesomeIcon icon={ faBackward } />
-        </button>
-
-        <button
-          className={ style.playerButton }
-          onClick={ this.props.playMedia }>
-          {this.props.isPlaying ? <FontAwesomeIcon icon={ faPause } /> : <FontAwesomeIcon icon={ faPlay } />}
-        </button>
-
-        <button
-          className={ style.playerButton }
-          onMouseDown={ this.setIntervalHelperForward }
-          onMouseUp={ this.clearIntervalHelper }
-          onClick={ () => {this.props.skipForward(); } }>
-          <FontAwesomeIcon icon={ faForward } />
-        </button>
-
-        <span className={ style.playBackRate }>
-          <Select
-            options={ this.props.playbackRateOptions }
-            currentValue={ this.props.playbackRate.toString() }
-            name={ 'playbackRate' }
-            handleChange={ this.props.setPlayBackRate } />
-        </span>
 
         <div className={ style.timeBox }>
           <span className={ style.currentTime }
@@ -87,18 +52,58 @@ class PlayerControls extends React.Component {
           <span className={ style.duration }>{this.props.duration}</span>
         </div>
 
-        <button
-          className={ style.playerButton }
-          onClick={ this.props.handleSaveTranscript }>
-          <FontAwesomeIcon icon={ faSave } />
-        </button>
+        <div className={ style.btnsGroup }>
+          <button
+            className={ style.playerButton }
+            onClick={ this.props.rollback }>
+            <FontAwesomeIcon icon={ faUndo } />
+          </button>
 
-        <button
-          className={ style.playerButton }
-          onClick={ this.props.pictureInPicture }
-        >
-          <FontAwesomeIcon icon={ faTv } />
-        </button>
+          <button
+            className={ style.playerButton }
+            onMouseDown={ this.setIntervalHelperBackward }
+            onMouseUp={ this.clearIntervalHelper }
+            onClick={ () => {this.props.skipBackward(); } }>
+            <FontAwesomeIcon icon={ faBackward } />
+          </button>
+
+          <button
+            className={ style.playerButton }
+            onClick={ this.props.playMedia }>
+            {this.props.isPlaying ? <FontAwesomeIcon icon={ faPause } /> : <FontAwesomeIcon icon={ faPlay } />}
+          </button>
+
+          <button
+            className={ style.playerButton }
+            onMouseDown={ this.setIntervalHelperForward }
+            onMouseUp={ this.clearIntervalHelper }
+            onClick={ () => {this.props.skipForward(); } }>
+            <FontAwesomeIcon icon={ faForward } />
+          </button>
+        </div>
+
+        <div className={ style.btnsGroup }>
+          <span className={ style.playBackRate }>
+            <Select
+              options={ this.props.playbackRateOptions }
+              currentValue={ this.props.playbackRate.toString() }
+              name={ 'playbackRate' }
+              handleChange={ this.props.setPlayBackRate } />
+          </span>
+
+          <button
+            className={ style.playerButton }
+            onClick={ this.props.handleSaveTranscript }>
+            <FontAwesomeIcon icon={ faSave } />
+          </button>
+
+          <button
+            className={ style.playerButton }
+            onClick={ this.props.pictureInPicture }
+          >
+            <FontAwesomeIcon icon={ faTv } />
+          </button>
+        </div>
 
         <VolumeControl
           handleMuteVolume={ this.props.handleMuteVolume }
@@ -109,7 +114,7 @@ class PlayerControls extends React.Component {
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
           overflow: 'hidden',
-          width: '40vw',
+          width: '20vw',
           display: 'inline-block',
           marginLeft: '1em'
         } }>
