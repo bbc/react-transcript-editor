@@ -1,123 +1,11 @@
 /**
  * Convert BBC Kaldi json
- ```
- {
-    "action": "audio-transcribe",
-    "retval": {
-      "status": true,
-      "wonid": "octo:2692ea33-d595-41d8-bfd5-aa7f2d2f89ee",
-      "punct": "There is a day. About ten years ago when  ...",
-      "words": [
-        {
-          "start": 13.02,
-          "confidence": 0.68,
-          "end": 13.17,
-          "word": "there",
-          "punct": "There",
-          "index": 0
-        },
-        {
-          "start": 13.17,
-          "confidence": 0.61,
-          "end": 13.38,
-          "word": "is",
-          "punct": "is",
-          "index": 1
-        },
-        ...
-```
- *
- * into
- *
- ```
- const blocks = [
-  {
-    "text": "There is a day.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "TBC 0",
-      "words": [
-        {
-          "start": 13.02,
-          "confidence": 0.68,
-          "end": 13.17,
-          "word": "there",
-          "punct": "There",
-          "index": 0
-        },
-        {
-          "start": 13.17,
-          "confidence": 0.61,
-          "end": 13.38,
-          "word": "is",
-          "punct": "is",
-          "index": 1
-        },
-        {
-          "start": 13.38,
-          "confidence": 0.99,
-          "end": 13.44,
-          "word": "a",
-          "punct": "a",
-          "index": 2
-        },
-        {
-          "start": 13.44,
-          "confidence": 1,
-          "end": 13.86,
-          "word": "day",
-          "punct": "day.",
-          "index": 3
-        }
-      ],
-      "start": 13.02
-    },
-    "entityRanges": [
-      {
-        "start": 13.02,
-        "end": 13.17,
-        "confidence": 0.68,
-        "text": "There",
-        "offset": 0,
-        "length": 5,
-        "key": "li6c6ld"
-      },
-      {
-        "start": 13.17,
-        "end": 13.38,
-        "confidence": 0.61,
-        "text": "is",
-        "offset": 6,
-        "length": 2,
-        "key": "pcgzkp6"
-      },
-      {
-        "start": 13.38,
-        "end": 13.44,
-        "confidence": 0.99,
-        "text": "a",
-        "offset": 9,
-        "length": 1,
-        "key": "ngomd9"
-      },
-      {
-        "start": 13.44,
-        "end": 13.86,
-        "confidence": 1,
-        "text": "day.",
-        "offset": 11,
-        "length": 4,
-        "key": "sgmfl4f"
-      }
-    ]
-  },
-  ...
-```
+ * See sample folder for example data structures
  *
  */
 
 import generateEntitiesRanges from '../generate-entities-ranges/index.js';
-
+import groupWordsInParagraphsBySpeakers from './group-words-by-speakers.js';
 /**
  * groups words list from kaldi transcript based on punctuation.
  * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
@@ -133,6 +21,7 @@ const groupWordsInParagraphs = (words) => {
     if (/[.?!]/.test(word.punct)) {
       paragraph.words.push(word);
       paragraph.text.push(word.punct);
+      paragraph.text = paragraph.text.join(' ');
       results.push(paragraph);
       // reset paragraph
       paragraph = { words: [], text: [] };
@@ -145,30 +34,13 @@ const groupWordsInParagraphs = (words) => {
   return results;
 };
 
-const groupWordsInParagraphsBySpeakers = (words, speakerSegments) => {
+// const groupWordsInParagraphsBySpeakers = (words, speakerSegments) => {
 
-  const results = [];
-  let paragraph = { words: [], text: [], speaker:'' };
-  speakerSegments.forEach((segment) => {
-    const segmentStart = segment.start;
-    const segmentEnd = segment.duration+segment.start;
-    words.forEach((word) => {
-      if (word.start >= segmentStart && word.end <= segmentEnd) {
-        paragraph.words.push(word);
-        paragraph.text.push(word.punct);
-        paragraph.speaker = segment.speaker['@id'];
-      }
-      else {
-        paragraph.words.push(word);
-        paragraph.text.push(word.punct);
-      }
-    });
-    results.push(paragraph);
-    paragraph = { words: [], text: [], speaker:'' };
-  });
+// };
 
-  return results;
-};
+// const getSpeaker = (segments, index) =>{
+
+// }
 
 const bbcKaldiToDraft = (bbcKaldiJson) => {
   const results = [];
@@ -190,31 +62,41 @@ const bbcKaldiToDraft = (bbcKaldiJson) => {
     }
   }
 
+  // TODO: adjust this part
   if (speakerSegmentation === null) {
     wordsByParagraphs = groupWordsInParagraphs(tmpWords);
   }
   else {
-    wordsByParagraphs = groupWordsInParagraphsBySpeakers(tmpWords, speakerSegmentation.segments);
+    wordsByParagraphs = groupWordsInParagraphsBySpeakers(tmpWords, speakerSegmentation);
     // console.log('wordsByParagraphs - speaker segments', JSON.stringify(wordsByParagraphs, null, 2));
   }
 
-  wordsByParagraphs.forEach((paragraph, i) => {
-    const speakerLabel = `TBC ${ i }`;
+  // console.log('wordsByParagraphs', JSON.stringify(wordsByParagraphs, null, 2));
 
-    const draftJsContentBlockParagraph = {
-      text: paragraph.text.join(' '),
-      type: 'paragraph',
-      data: {
-        speaker: speakerLabel,
-        words: paragraph.words,
-        start: paragraph.words[0].start
-      },
-      // the entities as ranges are each word in the space-joined text,
-      // so it needs to be compute for each the offset from the beginning of the paragraph and the length
-      entityRanges: generateEntitiesRanges(paragraph.words, 'punct'), // wordAttributeName
-    };
-    // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
-    results.push(draftJsContentBlockParagraph);
+  wordsByParagraphs.forEach((paragraph, i) => {
+    // if paragraph contain words
+    // eg sometimes the speaker segmentation might not contain words :man-shrugging:
+    if (paragraph.words[0]!== undefined) {
+      let speakerLabel = `TBC ${ i }`;
+      if (speakerSegmentation !== null) {
+        speakerLabel= paragraph.speaker;
+      }
+
+      const draftJsContentBlockParagraph = {
+        text: paragraph.text, //paragraph.text.join(' '),
+        type: 'paragraph',
+        data: {
+          speaker: speakerLabel,
+          words: paragraph.words,
+          start: paragraph.words[0].start
+        },
+        // the entities as ranges are each word in the space-joined text,
+        // so it needs to be compute for each the offset from the beginning of the paragraph and the length
+        entityRanges: generateEntitiesRanges(paragraph.words, 'punct'), // wordAttributeName
+      };
+      // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
+      results.push(draftJsContentBlockParagraph);
+    }
   });
 
   return results;
