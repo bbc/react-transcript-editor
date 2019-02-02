@@ -12,7 +12,8 @@ import {
   convertFromRaw,
   convertToRaw,
   getDefaultKeyBinding,
-  Modifier
+  Modifier,
+  KeyBindingUtil
 } from 'draft-js';
 
 import Word from './Word';
@@ -21,6 +22,8 @@ import WrapperBlock from './WrapperBlock';
 import sttJsonAdapter from '../../Util/adapters/index.js';
 import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
+
+const { hasCommandModifier } = KeyBindingUtil;
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -34,7 +37,7 @@ class TimedTextEditor extends React.Component {
       timecodeOffset: this.props.timecodeOffset,
       showSpeakers: this.props.showSpeakers,
       showTimecodes: this.props.showTimecodes,
-      inputCount: 0,
+      // inputCount: 0,
       currentWord: {}
     };
   }
@@ -59,7 +62,10 @@ class TimedTextEditor extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.transcriptData !== this.state.transcriptData) {
+    if (
+      (prevState.transcriptData !== this.state.transcriptData)
+      && ( this.props.mediaUrl!== null && !this.isPresentInLocalStorage(this.props.mediaUrl) )
+    ) {
       this.loadData();
     }
     if (prevState.timecodeOffset !== this.state.timecodeOffset
@@ -99,18 +105,16 @@ class TimedTextEditor extends React.Component {
     }
 
     if (this.state.isEditable) {
-      this.setState((prevState) => ({
-        editorState,
-        inputCount: prevState.inputCount + 1,
+      this.setState(() => ({
+        editorState
       }), () => {
-        // Saving every 5 keystrokes
-        if (this.state.inputCount > 5) {
-          this.setState({
-            inputCount: 0,
-          });
-
-          this.localSave(this.props.mediaUrl);
+        // saving when user has stopped typing for more then five seconds
+        if (this.saveTimer!== undefined) {
+          clearTimeout(this.saveTimer);
         }
+        this.saveTimer = setTimeout(() => {
+          this.localSave(this.props.mediaUrl);
+        }, 5000);
       });
     }
   }
@@ -145,6 +149,8 @@ class TimedTextEditor extends React.Component {
   }
 
   localSave = () => {
+    console.log('localSave');
+    clearTimeout(this.saveTimer);
     let mediaUrlName = this.props.mediaUrl;
     // if using local media instead of using random blob name
     // that makes it impossible to retrieve from on page refresh
@@ -152,12 +158,13 @@ class TimedTextEditor extends React.Component {
     if (this.props.mediaUrl.includes('blob')) {
       mediaUrlName = this.props.fileName;
     }
+
     const data = convertToRaw(this.state.editorState.getCurrentContent());
     localStorage.setItem(`draftJs-${ mediaUrlName }`, JSON.stringify(data));
     const newLastLocalSavedDate = new Date().toString();
     localStorage.setItem(`timestamp-${ mediaUrlName }`, newLastLocalSavedDate);
 
-    return newLastLocalSavedDate;
+    // return newLastLocalSavedDate;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -261,8 +268,32 @@ class TimedTextEditor extends React.Component {
    */
   customKeyBindingFn = (e) => {
     const enterKey = 13;
+    const spaceKey =32;
+    const kKey = 75;
+    const lKey = 76;
+    const jKey = 74;
+    const equalKey = 187;//used for +
+    const minusKey = 189; // -
+    const rKey = 82;
+    const tKey = 84;
+
     if (e.keyCode === enterKey ) {
       return 'split-paragraph';
+    }
+    // if alt key is pressed in combination with these other keys
+    if (e.altKey && ((e.keyCode === spaceKey)
+    || (e.keyCode === spaceKey)
+    || (e.keyCode === kKey)
+    || (e.keyCode === lKey)
+    || (e.keyCode === jKey)
+    || (e.keyCode === equalKey)
+    || (e.keyCode === minusKey)
+    || (e.keyCode === rKey)
+    || (e.keyCode === tKey))
+    ) {
+      e.preventDefault();
+
+      return 'keyboard-shortcuts';
     }
 
     return getDefaultKeyBinding(e);
@@ -274,6 +305,10 @@ class TimedTextEditor extends React.Component {
   handleKeyCommand = (command) => {
     if (command === 'split-paragraph') {
       this.splitParagraph();
+    }
+
+    if (command === 'keyboard-shortcuts') {
+      return 'handled';
     }
 
     return 'not-handled';

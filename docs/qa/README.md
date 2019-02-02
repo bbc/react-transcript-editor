@@ -45,6 +45,7 @@ When you raise an issue please indicate the operating system, device, and browse
 
 There are 5 main parts for QA testing
 
+0. [Component Interface](0-component-interface.md)
 1. [Player Controls](1-player-controls.md)
 2. [Timed Text Editor](2-timed-text-editor.md) 
 3. [Settings](3-settings.md)

@@ -10,6 +10,7 @@ import returnHotKeys from './defaultHotKeys';
 import styles from './index.module.css';
 
 import { secondsToTimecode, timecodeToSeconds } from '../../Util/timecode-converter/index';
+import { timingSafeEqual } from 'crypto';
 
 const PLAYBACK_RATES = [
   { value: 0.2, label: '0.2' },
@@ -348,6 +349,62 @@ class MediaPlayer extends React.Component {
 
   }
 
+  handlePictureInPicture = () => {
+    if (this.videoRef.current !== null) {
+      if (document.pictureInPictureElement !== undefined) {
+      // from https://developers.google.com/web/updates/2017/09/picture-in-picture
+        if (!document.pictureInPictureElement) {
+
+          this.props.handleAnalyticsEvents({
+            category: 'MediaPlayer',
+            action: 'handlePictureInPicture',
+            name: 'turning-picture-in-picture-on'
+          });
+
+          this.videoRef.current.requestPictureInPicture()
+            .catch(error => {
+              // Video failed to enter Picture-in-Picture mode.
+              console.error('Video failed to enter Picture-in-Picture mode', error);
+
+              this.props.handleAnalyticsEvents({
+                category: 'MediaPlayer',
+                action: 'handlePictureInPicture',
+                name: 'turning-picture-in-picture-on-error'
+              });
+
+            });
+
+        } else {
+          this.props.handleAnalyticsEvents({
+            category: 'MediaPlayer',
+            action: 'handlePictureInPicture',
+            name: 'turning-picture-in-picture-off'
+          });
+          document.exitPictureInPicture()
+            .catch(error => {
+              // Video failed to leave Picture-in-Picture mode.
+              console.error('Video failed to leave Picture-in-Picture mode', error);
+
+              this.props.handleAnalyticsEvents({
+                category: 'MediaPlayer',
+                action: 'handlePictureInPicture',
+                name: 'turning-picture-in-picture-off-error'
+              });
+            });
+        }
+      } else {
+        alert('Picture in Picture not supported in this browser, try chrome.');
+
+        this.props.handleAnalyticsEvents({
+          category: 'MediaPlayer',
+          action: 'handlePictureInPicture',
+          name: 'picture-in-picture-not-supported'
+        });
+
+      }
+    }
+  }
+
   render() {
     const player = <VideoPlayer
       mediaUrl={ this.props.mediaUrl }
@@ -379,6 +436,8 @@ class MediaPlayer extends React.Component {
           handleMuteVolume={ this.handleMuteVolume.bind(this) }
           setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
           playbackRateOptions={ this.state.playbackRateOptions }
+          pictureInPicture={ this.handlePictureInPicture }
+          handleSaveTranscript={ () => {this.props.handleSaveTranscript();} }
         />
       </div>
     );
