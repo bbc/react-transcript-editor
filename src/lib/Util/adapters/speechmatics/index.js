@@ -58,18 +58,15 @@ const speechmaticsToDraft = (speechmaticsJson) => {
 
   tmpWords = curatePunctuation(speechmaticsJson.words);
   
-  let index = 0;
-  tmpWords = tmpWords.map((element) => { 
-    let value = {
-      start: element.time,
-      end: (parseFloat(element.time) + parseFloat(element.duration)).toString(),
-      confidence: element.confidence,
-      word: element.name.toLowerCase().replace(/[.?!]/g,''),
-      punct: element.name,
-      index: index,
-    }
-    index = index + 1;
-    return(value)
+  tmpWords = tmpWords.map((element, index) => { 
+      return({
+        start: element.time,
+        end: (parseFloat(element.time) + parseFloat(element.duration)).toString(),
+        confidence: element.confidence,
+        word: element.name.toLowerCase().replace(/[.?!]/g,''),
+        punct: element.name,
+        index: index,
+      })
     }
   )
 

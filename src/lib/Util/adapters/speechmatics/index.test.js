@@ -1,12 +1,12 @@
-import bbcKaldiToDraft from './index';
+import speechmaticsToDraft from './index';
 
 import draftTranscriptExample from './sample/bbcKaldiToDraft.sample.js';
-import kaldiTedTalkTranscript from './sample/kaldiTedTalkTranscript.sample.json';
+import speechmaticsTedTalkTranscript from './sample/speechmaticsTedTalkTranscript.sample.json';
 
 // TODO: figure out why the second of these two tests hang
 // might need to review the draftJS data structure output
-describe('bbcKaldiToDraft', () => {
-  const result = bbcKaldiToDraft(kaldiTedTalkTranscript);
+describe('speechmaticsToDraft', () => {
+  const result = speechmaticsToDraft(speechmaticsTedTalkTranscript);
   it('Should be defined', ( ) => {
     expect(result).toBeDefined();
   });
