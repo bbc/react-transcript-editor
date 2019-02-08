@@ -34,41 +34,39 @@ const groupWordsInParagraphs = (words) => {
 
 /**
  * Speechmatics treats punctuation as own words. This function merges punctuations with
- * the pevious word and adjusts the total duration of the word. 
+ * the pevious word and adjusts the total duration of the word.
  * @param {array} words - array of words objects from speechmatics transcript
  */
 const curatePunctuation = (words) => {
-  let curatedWords = [];
+  const curatedWords = [];
   words.forEach((word) => {
-      if (/[.?!]/.test(word.name)) {
-        curatedWords[curatedWords.length-1].name = curatedWords[curatedWords.length-1].name + word.name
-        curatedWords[curatedWords.length-1].duration = curatedWords[curatedWords.length-1].duration + word.duration
-      } else {
-        curatedWords.push(word)
-      }
+    if (/[.?!]/.test(word.name)) {
+      curatedWords[curatedWords.length-1].name = curatedWords[curatedWords.length-1].name + word.name;
+      curatedWords[curatedWords.length-1].duration = curatedWords[curatedWords.length-1].duration + word.duration;
+    } else {
+      curatedWords.push(word);
     }
-  )
-  return(curatedWords)
-}
+  }
+  );
+
+  return curatedWords;
+};
 
 const speechmaticsToDraft = (speechmaticsJson) => {
   const results = [];
   let tmpWords;
 
-
   tmpWords = curatePunctuation(speechmaticsJson.words);
-  
-  tmpWords = tmpWords.map((element, index) => { 
-      return({
-        start: element.time,
-        end: (parseFloat(element.time) + parseFloat(element.duration)).toString(),
-        confidence: element.confidence,
-        word: element.name.toLowerCase().replace(/[.?!]/g,''),
-        punct: element.name,
-        index: index,
-      })
-    }
-  )
+  tmpWords = tmpWords.map((element, index) => {
+    return ({
+      start: element.time,
+      end: (parseFloat(element.time) + parseFloat(element.duration)).toString(),
+      confidence: element.confidence,
+      word: element.name.toLowerCase().replace(/[.?!]/g, ''),
+      punct: element.name,
+      index: index,
+    });
+  });
 
   const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
 
