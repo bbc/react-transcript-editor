@@ -29,6 +29,7 @@ class TranscriptEditor extends React.Component {
       showTimecodes: true,
       showSpeakers: true
     };
+    this.timedTextEditorRef = React.createRef();
   }
 
   static getDerivedStateFromProps(nextProps) {
@@ -69,10 +70,10 @@ class TranscriptEditor extends React.Component {
   }
 
   ifPresentRetrieveTranscriptFromLocalStorage = () => {
-    if (this.refs.timedTextEditor!== undefined) {
-      if (this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
+    if (this.timedTextEditorRef.current!== undefined) {
+      if (this.timedTextEditorRef.current.isPresentInLocalStorage(this.props.mediaUrl)) {
         console.info('was already present in local storage');
-        this.refs.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
+        this.timedTextEditorRef.current.loadLocalSavedData(this.props.mediaUrl);
       } else {
         console.info('not present in local storage');
       }
@@ -155,7 +156,7 @@ class TranscriptEditor extends React.Component {
     this.setState({ timecodeOffset: timecodeOffset },
       () => {
         // eslint-disable-next-line react/no-string-refs
-        this.refs.timedTextEditor.forceUpdate();
+        this.timedTextEditorRef.current.forceUpdate();
       });
   }
 
@@ -218,11 +219,11 @@ class TranscriptEditor extends React.Component {
   }
 
   getEditorContent = (exportFormat) => {
-    return this.refs.timedTextEditor.getEditorContent(exportFormat);
+    return this.timedTextEditorRef.current.getEditorContent(exportFormat);
   }
 
   handleSaveTranscript = () => {
-    return this.refs.timedTextEditor.localSave(this.props.mediaUrl);
+    return this.timedTextEditorRef.current.localSave(this.props.mediaUrl);
   }
 
   render() {
@@ -276,7 +277,7 @@ class TranscriptEditor extends React.Component {
       isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
       showTimecodes={ this.state.showTimecodes }
       showSpeakers={ this.state.showSpeakers }
-      ref={ 'timedTextEditor' }
+      ref={ this.timedTextEditorRef }
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
     />;
 
