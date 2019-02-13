@@ -33,6 +33,23 @@ const groupWordsInParagraphs = (words) => {
 };
 
 /**
+ * Determines the speaker of a paragraph by comparing the start time of the paragraph with
+ * the speaker times.
+ * @param {float} start - Starting point of paragraph
+ * @param {array} speakers - list of all speakers with start and end time
+ */
+const getSpeaker = (start, speakers) => {
+  for (var speakerIdx in speakers) {
+    const speaker = speakers[speakerIdx];
+    if (start >= speaker.start & start < speaker.end) {
+      return speaker.name;
+    }
+  }
+
+  return 'UNK';
+};
+
+/**
  * Speechmatics treats punctuation as own words. This function merges punctuations with
  * the pevious word and adjusts the total duration of the word.
  * @param {array} words - array of words objects from speechmatics transcript
@@ -54,8 +71,8 @@ const curatePunctuation = (words) => {
 
 const speechmaticsToDraft = (speechmaticsJson) => {
   const results = [];
-  let tmpWords;
 
+  let tmpWords;
   tmpWords = curatePunctuation(speechmaticsJson.words);
   tmpWords = tmpWords.map((element, index) => {
     return ({
@@ -68,16 +85,27 @@ const speechmaticsToDraft = (speechmaticsJson) => {
     });
   });
 
+  let tmpSpeakers;
+  tmpSpeakers = speechmaticsJson.speakers;
+  tmpSpeakers = tmpSpeakers.map((element) => {
+    return ({
+      start: element.time,
+      end: (parseFloat(element.time) + parseFloat(element.duration)).toString(),
+      name: element.name,
+    });
+  });
+
   const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
 
-  wordsByParagraphs.forEach((paragraph, i) => {
+  wordsByParagraphs.forEach((paragraph) => {
+    const paragraphStart = paragraph.words[0].start;
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
       type: 'paragraph',
       data: {
-        speaker: `TBC ${ i }`,
+        speaker: getSpeaker(paragraphStart, tmpSpeakers),
         words: paragraph.words,
-        start: paragraph.words[0].start
+        start: paragraphStart
       },
       // the entities as ranges are each word in the space-joined text,
       // so it needs to be compute for each the offset from the beginning of the paragraph and the length
