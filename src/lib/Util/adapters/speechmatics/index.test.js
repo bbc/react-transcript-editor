@@ -1,6 +1,6 @@
 import speechmaticsToDraft from './index';
 
-import draftTranscriptExample from './sample/bbcKaldiToDraft.sample.js';
+import draftTranscriptExample from './sample/speechmaticsToDraft.sample.js';
 import speechmaticsTedTalkTranscript from './sample/speechmaticsTedTalkTranscript.sample.json';
 
 // TODO: figure out why the second of these two tests hang
