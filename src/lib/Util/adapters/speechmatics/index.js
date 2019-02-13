@@ -42,7 +42,7 @@ const curatePunctuation = (words) => {
   words.forEach((word) => {
     if (/[.?!]/.test(word.name)) {
       curatedWords[curatedWords.length-1].name = curatedWords[curatedWords.length-1].name + word.name;
-      curatedWords[curatedWords.length-1].duration = curatedWords[curatedWords.length-1].duration + word.duration;
+      curatedWords[curatedWords.length-1].duration = (parseFloat(curatedWords[curatedWords.length-1].duration) + parseFloat(word.duration)).toString();
     } else {
       curatedWords.push(word);
     }
