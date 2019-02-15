@@ -5,10 +5,10 @@ and handle edge case where it doesn't find a match
 - more words then segments - orphan words
  */
 function groupWordsInParagraphsBySpeakers(words, segments) {
-  let uknownSpeakerLabel = 'U_UKN';
-  let results = [ ];
+  const uknownSpeakerLabel = 'U_UKN';
+  const results = [ ];
   // add speakers to each word
-  let wordsWithSpeakers = addSpeakerToEachWord(words, segments.segments);
+  const wordsWithSpeakers = addSpeakerToEachWord(words, segments.segments);
   let currentSpeaker = '';
   // group words by speakers sequentally
   currentSpeaker = wordsWithSpeakers[0].speaker;
@@ -49,9 +49,9 @@ function groupWordsInParagraphsBySpeakers(words, segments) {
 * @param {*} semgnets
 */
 function addSpeakerToEachWord(words, segments) {
-  let tmpwordsWithSpeakers =[];
+  const tmpwordsWithSpeakers =[];
   words.forEach((word) => {
-    let tmpSpeakerSegment = findSegmentForWord(word, segments);
+    const tmpSpeakerSegment = findSegmentForWord(word, segments);
 
     word.speaker = _formatSpeakerName(tmpSpeakerSegment.speaker);
     tmpwordsWithSpeakers.push(word);
@@ -76,7 +76,7 @@ function addSpeakerToEachWord(words, segments) {
 function findSegmentForWord(word, segments) {
 
   const tmpSegment = segments.find((seg) => {
-    let segEnd = seg.start + seg.duration;
+    const segEnd = seg.start + seg.duration;
 
     return ((word.start >= seg.start) && (word.end <= segEnd));
     // return word.end  <= segEnd;
