@@ -5,20 +5,47 @@ and handle edge case where it doesn't find a match
 - more words then segments - orphan words
  */
 function groupWordsInParagraphsBySpeakers(words, segments) {
-  const uknownSpeakerLabel = 'U_UKN';
-  const results = [ ];
   // add speakers to each word
   const wordsWithSpeakers = addSpeakerToEachWord(words, segments.segments);
-  let currentSpeaker = '';
-  // group words by speakers sequentally
-  currentSpeaker = wordsWithSpeakers[0].speaker;
-  let paragraph = { words: [], text: '', speaker:'' };
+  // group words by speakers sequentially
+  const result = groupWordsBySpeaker(wordsWithSpeakers);
 
+  return result;
+};
+
+/**
+* Add speakers to each words
+* if it doesn't have add uknw
+* @param {*} words
+* @param {*} semgnets
+*/
+function addSpeakerToEachWord(words, segments) {
+  let tmpWordsWithSpeakers =[];
+  words.forEach((word) => {
+    const tmpSpeakerSegment = findSegmentForWord(word, segments);
+
+    word.speaker = _formatSpeakerName(tmpSpeakerSegment.speaker);
+    tmpWordsWithSpeakers.push(word);
+  });
+
+  return tmpWordsWithSpeakers;
+}
+
+/**
+ * Groups Words by speaker attribute
+ * @param {array} wordsWithSpeakers - same as kaldi words list but with a `speaker` label attribute on each word
+ * @return {array} - list of paragraph objcts, with words, text and sepaker attributes.
+ * where words is an array and the other two are strings.
+ */
+function groupWordsBySpeaker(wordsWithSpeakers) {
+  let currentSpeaker = wordsWithSpeakers[0].speaker;
+  const results = [ ];
+  let paragraph = { words: [], text: '', speaker:'' };
   wordsWithSpeakers.forEach((word) => {
     // if current speaker same as word speaker add words to paragraph
     if (currentSpeaker === word.speaker) {
       paragraph.words.push(word);
-      paragraph.text += word.punct+' ';
+      paragraph.text += word.punct +' ';
       paragraph.speaker = currentSpeaker;
     }
     // if it's not same speaker
@@ -30,7 +57,7 @@ function groupWordsInParagraphsBySpeakers(words, segments) {
       //save  previous paragraph
       results.push(paragraph);
       // reset paragraph
-      paragraph = { words: [], text: '', speaker: uknownSpeakerLabel };
+      paragraph = { words: [], text: '', speaker: 'U_UKN' };
       // add words attributes to new
       paragraph.words.push(word);
       paragraph.text += word.punct+' ';
@@ -40,28 +67,10 @@ function groupWordsInParagraphsBySpeakers(words, segments) {
   results.push(paragraph);
 
   return results;
-};
-
-/**
-* Add speakers to each words
-* if it doesn't have add uknw
-* @param {*} words
-* @param {*} semgnets
-*/
-function addSpeakerToEachWord(words, segments) {
-  const tmpwordsWithSpeakers =[];
-  words.forEach((word) => {
-    const tmpSpeakerSegment = findSegmentForWord(word, segments);
-
-    word.speaker = _formatSpeakerName(tmpSpeakerSegment.speaker);
-    tmpwordsWithSpeakers.push(word);
-  });
-
-  return tmpwordsWithSpeakers;
 }
 
 /**
-* Helper funcitons
+* Helper functions
 */
 
 /**
