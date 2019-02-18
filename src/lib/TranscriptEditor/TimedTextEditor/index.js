@@ -494,16 +494,17 @@ class TimedTextEditor extends React.Component {
       // TODO: using convertToRaw here might be slowing down performance(?)
       const contentStateConvertEdToRaw = convertToRaw(contentState);
       const blocks = contentStateConvertEdToRaw.blocks;
+      const entityMap = contentStateConvertEdToRaw.entityMap;
 
       for (var blockIdx in blocks) {
         const currentBlock = blocks[blockIdx];
         const blockKey = currentBlock.key;
-        const words = currentBlock.data.words;
         const ranges = currentBlock.entityRanges;
 
-        for (var idx in words) {
+        for (var idx in ranges) {
           const range = ranges[idx];
-          const word = words[idx];
+          // Need to access entityMap and not currentBlock.data.words, as it seems to be not in sync with edits.
+          const word = entityMap[range.key].data;
 
           if (word.start <= this.props.currentTime) {
             currentFocus.blockKey = blockKey;
