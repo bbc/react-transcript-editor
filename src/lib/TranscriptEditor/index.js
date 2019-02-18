@@ -218,6 +218,10 @@ class TranscriptEditor extends React.Component {
     }
   }
 
+  handleSetFocus = () => {
+    this.setFocus();
+  }
+
   getEditorContent = (exportFormat) => {
     return this.timedTextEditorRef.current.getEditorContent(exportFormat);
   }
@@ -239,6 +243,7 @@ class TranscriptEditor extends React.Component {
       // ref={ 'MediaPlayer' }
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
       handleSaveTranscript={ this.handleSaveTranscript }
+      setFocus = { this.handleSetFocus }
     />;
 
     const settings = <Settings
@@ -279,6 +284,7 @@ class TranscriptEditor extends React.Component {
       showSpeakers={ this.state.showSpeakers }
       ref={ this.timedTextEditorRef }
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+      hookSetFocus={ foo => this.setFocus = foo }
     />;
 
     return (

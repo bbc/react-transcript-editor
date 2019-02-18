@@ -8,6 +8,7 @@ import { faQuestionCircle, faMousePointer, faICursor, faUserEdit, faKeyboard, fa
 import {
   Editor,
   EditorState,
+  SelectionState,
   CompositeDecorator,
   convertFromRaw,
   convertToRaw,
@@ -43,6 +44,7 @@ class TimedTextEditor extends React.Component {
   }
 
   componentDidMount() {
+    this.props.hookSetFocus(this.setFocusOnCurrentWord);
     this.loadData();
   }
 
@@ -481,6 +483,59 @@ class TimedTextEditor extends React.Component {
     return currentWord;
   }
 
+  getCurrentFocus = () => {
+    const currentFocus = {
+      blockKey: 'NA',
+      offset: 'NA'
+    };
+
+    if (this.state.transcriptData) {
+      const contentState = this.state.editorState.getCurrentContent();
+      // TODO: using convertToRaw here might be slowing down performance(?)
+      const contentStateConvertEdToRaw = convertToRaw(contentState);
+      const blocks = contentStateConvertEdToRaw.blocks;
+
+      for (var blockIdx in blocks) {
+        const currentBlock = blocks[blockIdx];
+        const blockKey = currentBlock.key;
+        const words = currentBlock.data.words;
+        const ranges = currentBlock.entityRanges;
+
+        for (var idx in words) {
+          const range = ranges[idx];
+          const word = words[idx];
+
+          if (word.start <= this.props.currentTime) {
+            currentFocus.blockKey = blockKey;
+            currentFocus.offset = range.offset + range.length;
+            currentFocus.start = word.start;
+          } else {
+            break;
+          }
+        }
+      }
+    }
+
+    return currentFocus;
+  }
+
+  setFocusOnCurrentWord = () => {
+
+    const currentFocus = this.getCurrentFocus();
+
+    const selectionState = this.state.editorState.getSelection();
+    const selection = selectionState.merge({
+      anchorOffset: currentFocus.offset,
+      focusOffset: currentFocus.offset,
+      focusKey: currentFocus.blockKey,
+      anchorKey: currentFocus.blockKey,
+    });
+
+    const newState = EditorState.forceSelection(this.state.editorState, selection);
+    const newEditorState = EditorState.push(newState, this.state.editorState.getCurrentContent());
+    this.setState({ editorState: newEditorState });
+  }
+
   render() {
     const helpMessage = <div className={ style.helpMessage }>
       <span><FontAwesomeIcon className={ style.icon } icon={ faMousePointer } />Double click on a word or timestamp to jump to that point in the video.</span>
@@ -576,7 +631,8 @@ TimedTextEditor.propTypes = {
   isScrollIntoViewOn: PropTypes.bool,
   isPauseWhileTypingOn: PropTypes.bool,
   timecodeOffset: PropTypes.number,
-  handleAnalyticsEvents: PropTypes.func
+  handleAnalyticsEvents: PropTypes.func,
+  hookSetFocus: PropTypes.func,
 };
 
 export default TimedTextEditor;

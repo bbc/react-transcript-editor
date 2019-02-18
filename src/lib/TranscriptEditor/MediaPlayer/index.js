@@ -468,7 +468,8 @@ MediaPlayer.propTypes = {
   mediaUrl: PropTypes.string,
   hookOnTimeUpdate: PropTypes.func,
   rollBackValueInSeconds: PropTypes.number,
-  timecodeOffset: PropTypes.number
+  timecodeOffset: PropTypes.number,
+  setFocus: PropTypes.func,
 };
 
 export default hotkeys(MediaPlayer);
