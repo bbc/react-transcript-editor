@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import VolumeControl from './VolumeControl';
 import Select from './Select';
 
 import style from './PlayerControls.module.css';
@@ -14,8 +13,7 @@ import {
   faPause,
   faBackward,
   faForward,
-  faUndo,
-  faStepBackward
+  faUndo
 } from '@fortawesome/free-solid-svg-icons';
 
 class PlayerControls extends React.Component {
@@ -45,21 +43,28 @@ class PlayerControls extends React.Component {
     return (
       <div className={ style.playerControls }>
         <div className={ style.timeBox }>
-          <span title="Current time" className={ style.currentTime }
+          <span
+            title="Current time"
+            className={ style.currentTime }
             onClick={ this.props.promptSetCurrentTime }
           >{ this.props.currentTime }</span>
           <span className={ style.separator }>|</span>
-          <span title="Clip duration" className={ style.duration }>{this.props.duration}</span>
+          <span
+            title="Clip duration"
+            className={ style.duration }
+          >{this.props.duration}</span>
         </div>
 
         <div className={ style.btnsGroup }>
           <button
+            title="seek backward by a set interval"
             className={ style.playerButton }
             onClick={ this.props.rollback }>
             <FontAwesomeIcon icon={ faUndo } />
           </button>
 
           <button
+            title="seek backward"
             className={ style.playerButton }
             onMouseDown={ this.setIntervalHelperBackward }
             onMouseUp={ this.clearIntervalHelper }
@@ -68,12 +73,14 @@ class PlayerControls extends React.Component {
           </button>
 
           <button
+            title="Play/Pause"
             className={ style.playerButton }
             onClick={ this.props.playMedia }>
             {this.props.isPlaying ? <FontAwesomeIcon icon={ faPause } /> : <FontAwesomeIcon icon={ faPlay } />}
           </button>
 
           <button
+            title="seek forward"
             className={ style.playerButton }
             onMouseDown={ this.setIntervalHelperForward }
             onMouseUp={ this.clearIntervalHelper }
@@ -83,7 +90,9 @@ class PlayerControls extends React.Component {
         </div>
 
         <div className={ style.btnsGroup }>
-          <span className={ style.playBackRate }>
+          <span className={ style.playBackRate }
+            title="Playback rate"
+          >
             <Select
               options={ this.props.playbackRateOptions }
               currentValue={ this.props.playbackRate.toString() }
@@ -105,10 +114,6 @@ class PlayerControls extends React.Component {
           >
             <FontAwesomeIcon icon={ faTv } />
           </button>
-
-          <VolumeControl
-            handleMuteVolume={ this.props.handleMuteVolume }
-          />
 
         </div>
       </div>
