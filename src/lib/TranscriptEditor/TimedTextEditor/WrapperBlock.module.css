@@ -1,19 +1,74 @@
 @value color-labs-red, color-light-grey, color-mid-grey, color-dark-grey from '../colours.module.css';
 
-.WrapperBlock {
-  height: 100%;
-  width: 100%;
-  margin-bottom: 2em;
-  line-height: 1.2em;
-  overflow: hidden;
+/* Desktop size */
+@media (min-width: 768px) {
+
+  .markers {
+    width: 25%;
+    font-size: 0.8em;
+    line-height: 1.2em;
+    float: left;
+  }
+
+  .WrapperBlock {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 2em;
+    line-height: 1.2em;
+    overflow: hidden;
+  }
+
+  .speaker {
+    display: inline-block;
+    width: 50%;
+    padding-right: 2em;
+    vertical-align: middle;
+    color: color-mid-grey;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: right;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
 }
 
-.markers {
-  width: 25%;
-  font-size: 0.8em;
-  line-height: 1.2em;
-  float: left;
+/* Mobile devices */
+@media (max-width: 768px) {
+
+  .markers {
+    width: 100%;
+    font-size: 0.8em;
+    line-height: 1.2em;
+    float: left;
+  }
+  .WrapperBlock {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 2em;
+    line-height: 1.2em;
+    overflow: hidden;
+    /* display: inline-grid; */
+  }
+  
+  .speaker {
+    display: inline-block;
+    width: 60%;
+    padding-right: 2em;
+    vertical-align: middle;
+    color: color-mid-grey;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: right;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+  }
+
 }
+
 
 .text {
   width: 75%;
@@ -22,19 +77,7 @@
   clear: right;
 }
 
-.speaker {
-  display: inline-block;
-  width: 50%;
-  padding-right: 2em;
-  vertical-align: middle;
-  color: color-mid-grey;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: right;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
+
 
 .time {
   display: inline-block;
