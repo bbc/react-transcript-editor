@@ -19,8 +19,7 @@ class App extends React.Component {
       isTextEditable: true,
       sttType: 'bbckaldi',
       analyticsEvents: [],
-      title: 'Ted Talk Kate Kate Darling',
-      fileName: 'Kate Darling Ted Talk'
+      title: 'Ted Talk Kate Darling'
     };
   }
 
@@ -196,13 +195,6 @@ class App extends React.Component {
            type="text"
            value={ this.state.title }
            onChange={ e => this.handleChangeTranscriptTitle(e.target.value) }
-         />
-         <br />
-         <label>Transcript Name</label>
-         <input
-           type="text"
-           onChange={ e => this.handleChangeTranscriptName(e.target.value) }
-           value={ this.state.fileName }
          />
          <br />
          <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>

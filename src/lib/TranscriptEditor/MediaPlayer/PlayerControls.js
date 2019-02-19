@@ -110,18 +110,6 @@ class PlayerControls extends React.Component {
           handleMuteVolume={ this.props.handleMuteVolume }
         />
 
-        <div style={ {
-          color: 'white',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          width: '20vw',
-          display: 'inline-block',
-          marginLeft: '1em'
-        } }>
-          {this.props.title}
-        </div>
-
       </div>
     );
   }

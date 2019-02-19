@@ -2,9 +2,9 @@
 
 .playerControls {
   /* margin: 1em; */
-  margin-top: 0.5em;
+  margin-top: 0.25em;
   margin-left: 0.5em;
-  margin: 1em;
+  /* margin: 1em; */
   /* display: flex; */
   /* justify-content: flex-start; */
   
@@ -28,11 +28,8 @@
   background: color-darkest-grey;
   font-size: 1em;
   cursor: pointer;
-  /* border-color: black;
-  border-width: 0.1rem;
-  border-style: solid; */
-
   margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 
 .playBackRate{
@@ -72,6 +69,7 @@
   line-height: 48px;
   padding: 0 1em;
   background-color: color-darkest-grey;
+  margin-bottom: 0.3rem;
 }
 
 .currentTime {
