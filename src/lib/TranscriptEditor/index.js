@@ -393,7 +393,6 @@ class TranscriptEditor extends React.Component {
         </section>
 
       </div>
-
     );
   }
 }
