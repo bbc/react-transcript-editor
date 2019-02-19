@@ -131,43 +131,44 @@ class PlayerControls extends React.Component {
               handleChange={ this.props.setPlayBackRate } />
           </span>
 
-        <button
-          title="Save"
-          className={ style.playerButton }
-          onClick={ this.props.handleSaveTranscript }>
-          <FontAwesomeIcon icon={ faSave } />
-        </button>
+          <button
+            title="Save"
+            className={ style.playerButton }
+            onClick={ this.props.handleSaveTranscript }>
+            <FontAwesomeIcon icon={ faSave } />
+          </button>
 
-        <button
-          title="Picture-in-picture"
-          className={ style.playerButton }
-          onClick={ this.props.pictureInPicture }
-        >
-          <FontAwesomeIcon icon={ faTv } />
-        </button>
+          <button
+            title="Picture-in-picture"
+            className={ style.playerButton }
+            onClick={ this.props.pictureInPicture }
+          >
+            <FontAwesomeIcon icon={ faTv } />
+          </button>
 
-        <VolumeControl
-          handleMuteVolume={ this.props.handleMuteVolume }
-        />
+          <VolumeControl
+            handleMuteVolume={ this.props.handleMuteVolume }
+          />
 
-        <div style={ {
-          color: 'white',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          width: '20vw',
-          display: 'inline-block',
-          marginLeft: '1em'
-        } }>
-          {this.props.title}
+          <div style={ {
+            color: 'white',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            width: '20vw',
+            display: 'inline-block',
+            marginLeft: '1em'
+          } }>
+            {this.props.title}
+          </div>
         </div>
-
       </div>
     );
   }
 }
 
 PlayerControls.propTypes = {
+
   playMedia: PropTypes.func,
   currentTime: PropTypes.string,
   timecodeOffset: PropTypes.string,
