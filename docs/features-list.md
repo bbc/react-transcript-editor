@@ -58,7 +58,7 @@ Import Transcript Json - Adapters
 - [ ] Gentle Transcription 
 - [ ] Gentle Alignment Json
 - [ ] IBM Watson STT
-- [ ] Speechmatics
+- [X] Speechmatics
 - [ ] AssemblyAI
 - [ ] Rev
 - [ ] Srt
