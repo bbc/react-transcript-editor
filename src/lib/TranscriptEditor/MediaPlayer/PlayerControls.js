@@ -44,13 +44,52 @@ class PlayerControls extends React.Component {
   render() {
     return (
       <div className={ style.playerControls }>
+        <button
+          title="Rollback"
+          className={ style.playerButton }
+          onClick={ this.props.rollback }>
+          <FontAwesomeIcon icon={ faUndo } />
+        </button>
+
+        <button
+          title="Rewind"
+          className={ style.playerButton }
+          onMouseDown={ this.setIntervalHelperBackward }
+          onMouseUp={ this.clearIntervalHelper }>
+          <FontAwesomeIcon icon={ faBackward } />
+
+        </button>
+
+        <button
+          title="Play"
+          className={ style.playerButton }
+          onClick={ this.props.playMedia }>
+          {this.props.isPlaying ? <FontAwesomeIcon icon={ faPause } /> : <FontAwesomeIcon icon={ faPlay } />}
+        </button>
+
+        <button
+          title="Forward"
+          className={ style.playerButton }
+          onMouseDown={ this.setIntervalHelperForward }
+          onMouseUp={ this.clearIntervalHelper }>
+          <FontAwesomeIcon icon={ faForward } />
+        </button>
+
+        <span className={ style.playBackRate }>
+          <Select
+            title="Playback rate"
+            options={ this.props.playbackRateOptions }
+            currentValue={ this.props.playbackRate.toString() }
+            name={ 'playbackRate' }
+            handleChange={ this.props.setPlayBackRate } />
+        </span>
 
         <div className={ style.timeBox }>
-          <span className={ style.currentTime }
+          <span title="Current time" className={ style.currentTime }
             onClick={ this.props.promptSetCurrentTime }
           >{ this.props.currentTime }</span>
           <span className={ style.separator }>|</span>
-          <span className={ style.duration }>{this.props.duration}</span>
+          <span title="Clip duration" className={ style.duration }>{this.props.duration}</span>
         </div>
 
         <div className={ style.btnsGroup }>
@@ -92,19 +131,20 @@ class PlayerControls extends React.Component {
               handleChange={ this.props.setPlayBackRate } />
           </span>
 
-          <button
-            className={ style.playerButton }
-            onClick={ this.props.handleSaveTranscript }>
-            <FontAwesomeIcon icon={ faSave } />
-          </button>
+        <button
+          title="Save"
+          className={ style.playerButton }
+          onClick={ this.props.handleSaveTranscript }>
+          <FontAwesomeIcon icon={ faSave } />
+        </button>
 
-          <button
-            className={ style.playerButton }
-            onClick={ this.props.pictureInPicture }
-          >
-            <FontAwesomeIcon icon={ faTv } />
-          </button>
-        </div>
+        <button
+          title="Picture-in-picture"
+          className={ style.playerButton }
+          onClick={ this.props.pictureInPicture }
+        >
+          <FontAwesomeIcon icon={ faTv } />
+        </button>
 
         <VolumeControl
           handleMuteVolume={ this.props.handleMuteVolume }

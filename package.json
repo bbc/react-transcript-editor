@@ -1,7 +1,7 @@
 {
   "name": "@bbc/react-transcript-editor",
   "description": "A React component to make transcribing audio and video easier and faster.",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "keywords": [
     "transcript",
     "transcriptions",
@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "start": "PORT=3006 react-scripts start",
+    "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build:example": "react-scripts build",
