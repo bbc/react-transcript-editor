@@ -47,6 +47,11 @@
   margin-right: 0.5em;
 }
 
+.time:hover{
+  text-decoration: underline;
+   /* color: blue; */
+}
+
 .EditLabel {
   cursor: pointer;
   margin-right: 0.5em;

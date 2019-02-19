@@ -14,7 +14,8 @@ import {
   faPause,
   faBackward,
   faForward,
-  faUndo
+  faUndo,
+  faStepBackward
 } from '@fortawesome/free-solid-svg-icons';
 
 class PlayerControls extends React.Component {
