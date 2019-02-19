@@ -199,13 +199,7 @@ class App extends React.Component {
            value={ this.state.title }
            onChange={ e => this.handleChangeTranscriptTitle(e.target.value) }
          />
-         <br />
-         <label>Transcript Name</label>
-         <input
-           type="text"
-           onChange={ e => this.handleChangeTranscriptName(e.target.value) }
-           value={ this.state.fileName }
-         />
+
          <br />
          <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
          <hr/>

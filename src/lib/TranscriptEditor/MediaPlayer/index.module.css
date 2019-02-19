@@ -22,11 +22,13 @@
 }
 
 .title {
-  margin: 1em;
+  margin-left: 1em;
   color: white;
   height: 1.3em;
+  width: 97vw;
   font-size: 16px;
   overflow: hidden;
+  display: inline-block;
   white-space: nowrap;
   text-overflow: ellipsis;
 }

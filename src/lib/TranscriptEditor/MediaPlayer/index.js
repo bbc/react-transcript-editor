@@ -373,19 +373,10 @@ class MediaPlayer extends React.Component {
 
     const playerControlsSection = (
       <div className={ styles.controlsSection }>
-        <div style={ {
-          color: 'white',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          width: '20vw',
-          display: 'inline-block',
-          marginLeft: '1em'
-        } }>
+        <div className={ styles.title }>
           {this.props.title}
         </div>
         <PlayerControls
-          title={ this.props.title? this.props.title: '' }
           playMedia={ this.togglePlayMedia.bind(this) }
           isPlaying={ this.state.isPlaying }
           playbackRate={ this.state.playbackRate }
