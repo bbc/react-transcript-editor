@@ -8,15 +8,32 @@
   background: color-subt-green;
 }
 
+.help {
+  cursor: pointer;
+  float: right;
+  padding-right: 0.5em;
+  margin: 0.5em 0;
+  color: white;
+  display: block;
+  font-weight: lighter;
+  margin-top: 0.5em;
+  margin-right: 6em;
+}
+
+.icon {
+  color: color-labs-red;
+  margin-right: 0.5em;
+}
+
+.helpMessage span {
+  display: block;
+  font-weight: lighter;
+  margin-top: 1em; 
+}
 
 /* Desktop size */
 @media (min-width: 768px) {
   .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
-    /* min-height: 100vh; */
     background-color: #f9f9f9;
     position: relative;
   }
@@ -24,7 +41,6 @@
   .header {
     background-color: black;
     width: 100%;
-    /* height: 2em; */
   }
 
   .nav {
@@ -38,7 +54,6 @@
   .main {
     width: 100%;
     margin: 0 auto;
-    flex: 50%;
   }
 
   .row {
@@ -70,15 +85,19 @@
 
 /* Mobile devices */
 @media (max-width: 768px) {
+
   .container {
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    background-color: #f9f9f9;
     position: relative;
   }
 
   .header {
     background-color: black;
     width: 100%;
-    /* height: 2em; */
   }
 
   .nav {
@@ -87,21 +106,8 @@
 
   .main {
     width: 100%;
-    flex: 100%;
-  }
-  
-  .row {
-    /* display: flex; */
+    margin: 0 auto;
     margin-top: 1em;
-  }
-
-  .aside{
-    width:100%;
-  }
-
-  .aside video{
-    max-height: auto;
-    max-width: 100vw;
   }
 
   .settingsContainer {
@@ -124,35 +130,6 @@
     width: 2em;
     height: 2em;
   }
-
-  .cog {
-    font-weight: lighter;
-  }
-
 }
 
-.help {
-  cursor: pointer;
-  float: right;
-  padding-right: 0.5em;
-  padding-left: 11em;
-  margin: 0.5em 0;
-  color: white;
-  display: block;
-  /* font-size: 0.8em; */
-  font-weight: lighter;
-  margin-top: 0.5em;
-  margin-right: 6em;
-}
 
-.icon {
-  color: color-labs-red;
-  margin-right: 0.5em;
-}
-
-.helpMessage span {
-  display: block;
-  /* font-size: 0.8em; */
-  font-weight: lighter;
-  margin-top: 1em; 
-}

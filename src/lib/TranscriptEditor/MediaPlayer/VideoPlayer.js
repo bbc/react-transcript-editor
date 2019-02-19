@@ -17,7 +17,7 @@ class VideoPlayer extends React.Component {
 
     let viewWith = this.props.viewWith? this.props.viewWith+'vw' : '15vw';
     // making responsive for mobile screen size
-    viewWith = window.innerWidth >'768'? viewWith : 'auto';
+    viewWith = window.innerWidth <'768'? '100%' : viewWith ;
 
     return (
       <video

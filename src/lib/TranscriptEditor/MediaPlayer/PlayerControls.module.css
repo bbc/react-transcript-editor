@@ -2,7 +2,7 @@
 
 .playerControls {
   /* margin: 1em; */
-  margin-top: 0.5em;
+  /* margin-top: 0.5em; */
   margin-left: 1em;
   /* display: flex; */
   /* justify-content: flex-start; */
@@ -32,6 +32,7 @@
   border-style: solid; */
 
   margin-right: 0.3rem;
+  margin-top: 0.3rem;
 }
 
 .playBackRate{
@@ -43,7 +44,7 @@
   font-size: 1em;
   cursor: pointer;
   position: relative;
-  padding-left: 0.8em;
+  /* padding-left: 0.8em; */
   margin-right: 0.3rem;
 }
 
@@ -51,7 +52,7 @@
   content: '×';
   position: absolute;
   bottom: -2px;
-  left: 30px;/*<--  */
+  left: 21px;/*<--  */
 }
 
 .playBackRate > select {
