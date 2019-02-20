@@ -93,7 +93,12 @@ class WrapperBlock extends React.Component {
       handleOnClickEdit={ this.handleOnClickEdit }
     />;
 
-    const timecodeElement = <span className={ style.time } onClick={ this.handleTimecodeClick }>{shortTimecode(startTimecode)}</span>;
+    const timecodeElement = <span
+      contentEditable={ false }
+      className={ style.time }
+      onClick={ this.handleTimecodeClick }>
+      {shortTimecode(startTimecode)}
+    </span>;
 
     return (
       <div className={ style.WrapperBlock }>

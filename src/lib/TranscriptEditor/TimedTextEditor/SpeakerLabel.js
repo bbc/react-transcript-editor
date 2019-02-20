@@ -9,7 +9,8 @@ import style from './WrapperBlock.module.css';
 class SpeakerLabel extends PureComponent {
   render() {
     return (
-      <span className={ style.speaker }>
+      <span className={ style.speaker }
+        contentEditable={ false }>
         <span
           className={ style.EditLabel }
           onClick={ this.props.handleOnClickEdit }>
