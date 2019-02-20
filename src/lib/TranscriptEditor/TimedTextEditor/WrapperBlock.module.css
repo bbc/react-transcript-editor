@@ -32,6 +32,13 @@
     white-space: nowrap;
   }
 
+  .text {
+    width: 75%;
+    font-size: 1em;
+    float: right;
+    clear: right;
+  }
+
 }
 
 /* Mobile devices */
@@ -67,15 +74,17 @@
     text-align: left;
   }
 
+  .text {
+    width: 100%;
+    font-size: 1em;
+    float: left;
+    /* clear: right; */
+  }
+
 }
 
 
-.text {
-  width: 75%;
-  font-size: 1em;
-  float: right;
-  clear: right;
-}
+
 
 
 
