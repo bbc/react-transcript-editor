@@ -47,19 +47,22 @@
     width: 100%;
   }
 
-  .aside{
-    margin-left: 1em;
-  }
-
-  .main {
-    width: 100%;
-    margin: 0 auto;
-  }
-
   .row {
     display: flex;
     margin-top: 1em;
   }
+
+  .aside{
+    margin-left: auto;
+  }
+
+  .main {
+    /* width: 100%; */
+    width: 60%;
+    margin: auto;
+  }
+
+
 
   .settingsContainer {
     position: absolute;
@@ -83,8 +86,31 @@
   }
 }
 
-/* Mobile devices */
-@media (max-width: 768px) {
+/* Ipad */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+  .row {
+    display: flex;
+    margin-top: 1em;
+  }
+
+  .aside{
+    /* width: 40vw; */
+    /* margin: auto; */
+    margin-left: auto;
+  }
+
+  .main {
+    margin-top:0em;
+    /* width: 100%; */
+    /* width: 60vw; */
+    margin-right: auto;
+    /* margin: auto; */
+  }
+
+}
+
+/* Mobile devices - excluding ipad*/
+@media (max-width: 767px) {
 
   .container {
     display: flex;

@@ -81,7 +81,7 @@
 
 .time {
   display: inline-block;
-  width: 30%;
+  /* width: 30%; */
   font-weight: lighter;
   vertical-align: middle;
   cursor: pointer;

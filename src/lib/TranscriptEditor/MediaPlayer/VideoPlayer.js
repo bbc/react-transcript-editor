@@ -32,7 +32,7 @@ class VideoPlayer extends React.Component {
         ref={ this.props.videoRef }
         style={ {
           display: isDisplayed,
-          maxWidth:  viewWith,
+          maxWidth: viewWith,
           cursor: 'pointer'
         } }
       />
