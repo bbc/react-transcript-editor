@@ -72,6 +72,15 @@ import { TranscriptEditor } from '@bbc/react-transcript-editor';
 
 _Note: `fileName` it is optional but it's needed if working with user uploaded local media in the browser, to be able to save and retrieve from local storage. For instance if you are passing a blob url to `mediaUrl` using `createObjectURL` this url is randomly re-generated on every page refresh so you wouldn't be able to restore a session, as `mediaUrl` is used as the local storage key. See demo app for more detail example of this[`./src/index.js`](./src/index.js)_
 
+### Typescript projects
+
+If using in a parent project where [typescript](https://www.typescriptlang.org/) is being used you might need to add the `//@ts-ignore` before the import statment like this
+
+```
+//@ts-ignore
+import {TranscriptEditor} from "@bbc/react-transcript-editor";
+```
+
 
 ## System Architecture
 
