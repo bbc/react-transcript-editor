@@ -74,9 +74,9 @@ _Note: `fileName` it is optional but it's needed if working with user uploaded l
 
 ### Typescript projects
 
-If using in a parent project where [typescript](https://www.typescriptlang.org/) is being used you might need to add the `//@ts-ignore` before the import statment like this
+If using in a parent project where [typescript](https://www.typescriptlang.org/) is being used you might need to add `//@ts-ignore` before the import statment like this
 
-```
+```js
 //@ts-ignore
 import {TranscriptEditor} from "@bbc/react-transcript-editor";
 ```
