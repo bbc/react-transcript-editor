@@ -20,7 +20,7 @@ class App extends React.Component {
       sttType: 'bbckaldi',
       analyticsEvents: [],
       title: 'Ted Talk Kate Kate Darling',
-      fileName: 'Kate Darling Ted Talk'
+      fileName: ''
     };
 
     this.transcriptEditorRef = React.createRef();

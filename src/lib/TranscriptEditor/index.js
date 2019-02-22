@@ -280,7 +280,6 @@ class TranscriptEditor extends React.Component {
 
     const mediaControls = <MediaPlayer
       title={ this.props.title? this.props.title: '' }
-      fileName={ this.props.fileName }
       mediaDuration={ this.state.mediaDuration }
       hookSeek={ foo => this.setCurrentTime = foo }
       hookPlayMedia={ foo => this.playMedia = foo }
