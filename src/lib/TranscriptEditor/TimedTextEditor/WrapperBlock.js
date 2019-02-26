@@ -93,16 +93,12 @@ class WrapperBlock extends React.Component {
       handleOnClickEdit={ this.handleOnClickEdit }
     />;
 
-    const timecodeElement = <span
-      contentEditable={ false }
-      className={ style.time }
-      onClick={ this.handleTimecodeClick }>
-      {shortTimecode(startTimecode)}
-    </span>;
+    const timecodeElement = <span className={ style.time } onClick={ this.handleTimecodeClick }>{shortTimecode(startTimecode)}</span>;
 
     return (
       <div className={ style.WrapperBlock }>
-        <div className={ style.markers }>
+        <div className={ style.markers }
+          contentEditable={ false }>
           {this.props.blockProps.showSpeakers ? speakerElement : ''}
           {this.props.blockProps.showTimecodes ? timecodeElement : ''}
         </div>
