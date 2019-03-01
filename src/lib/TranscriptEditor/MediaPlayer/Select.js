@@ -3,12 +3,6 @@ import PropTypes from 'prop-types';
 
 import style from './Select.module.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import {
-  faCaretDown
-} from '@fortawesome/free-solid-svg-icons';
-
 class Select extends React.Component {
 
   render() {

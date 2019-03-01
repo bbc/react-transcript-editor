@@ -68,7 +68,7 @@ class App extends React.Component {
   handleChangeLoadTranscriptJson(files) {
     const file = files[0];
 
-    if (file.type ==='application/json') {
+    if (file.type === 'application/json') {
       const fr = new FileReader();
 
       fr.onload = (evt) => {

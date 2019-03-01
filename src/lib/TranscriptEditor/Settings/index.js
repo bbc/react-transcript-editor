@@ -77,7 +77,7 @@ class Settings extends React.Component {
               handleToggle={ this.props.handlePreviewIsDisplayed }
             />
           </section>
-
+          {/*
           <section className={ style.settingElement }>
             <div className={ style.label }>Video Preview width</div>
             <input
@@ -89,7 +89,7 @@ class Settings extends React.Component {
               value={ this.props.previewViewWidth }
               onChange={ this.props.handleChangePreviewViewWidth }
               name="lname"/>
-          </section>
+          </section> */}
 
           <section className={ style.settingElement }>
             <div className={ style.timecodeLabel }>Timecode Offset ℹ</div>
@@ -118,7 +118,12 @@ Settings.propTypes = {
   handleRollBackValueInSeconds: PropTypes.func,
   defaultValueScrollSync: PropTypes.bool,
   defaultValuePauseWhileTyping: PropTypes.bool,
-  defaultRollBackValueInSeconds: PropTypes.number
+  defaultRollBackValueInSeconds: PropTypes.number,
+  previewIsDisplayed: PropTypes.bool,
+  handlePreviewIsDisplayed: PropTypes.func,
+  // previewViewWidth: PropTypes.string,
+  handleChangePreviewViewWidth: PropTypes.func,
+  handleAnalyticsEvents: PropTypes.func
 };
 
 export default Settings;

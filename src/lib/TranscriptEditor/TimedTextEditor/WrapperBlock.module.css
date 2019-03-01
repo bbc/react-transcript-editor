@@ -49,14 +49,13 @@
     font-size: 0.8em;
     line-height: 1.2em;
     float: left;
+    margin-bottom: 0.5em;
   }
   .WrapperBlock {
-    height: 100%;
     width: 100%;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     line-height: 1.2em;
     overflow: hidden;
-    /* display: inline-grid; */
   }
   
   .speaker {
@@ -85,9 +84,6 @@
 
 
 
-
-
-
 .time {
   display: inline-block;
   /* width: 30%; */
@@ -103,8 +99,10 @@
   text-decoration: underline;
    /* color: blue; */
 }
+.speaker {
+  cursor: pointer;
+}
 
 .EditLabel {
-  cursor: pointer;
   margin-right: 0.5em;
 }

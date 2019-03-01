@@ -1,12 +1,7 @@
 @value color-darkest-grey, color-light-grey, color-labs-red from '../colours.module.css';
 
 .playerControls {
-  /* margin: 1em; */
-  /* margin-top: 0.5em; */
   margin-left: 1em;
-  /* display: flex; */
-  /* justify-content: flex-start; */
-  
 }
 
 .playerControls > * {
@@ -15,7 +10,6 @@
 
 .playerControls > *:not(:last-child) {
   margin-right: 0.5em;
-  /* background: color-darkest-grey; */
 }
 
 .playerButton {
@@ -27,24 +21,17 @@
   background: color-darkest-grey;
   font-size: 1em;
   cursor: pointer;
-  /* border-color: black;
-  border-width: 0.1rem;
-  border-style: solid; */
-
   margin-right: 0.3rem;
   margin-top: 0.3rem;
 }
 
 .playBackRate{
-  height: 48px;
   width: 70px;
   border: 0;
   color: white;
-  /* background: color-darkest-grey; */
   font-size: 1em;
   cursor: pointer;
   position: relative;
-  /* padding-left: 0.8em; */
   margin-right: 0.3rem;
 }
 
@@ -52,7 +39,7 @@
   content: '×';
   position: absolute;
   bottom: -2px;
-  left: 21px;/*<--  */
+  left: 21px;
 }
 
 .playBackRate > select {

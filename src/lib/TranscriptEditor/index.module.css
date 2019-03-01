@@ -9,6 +9,7 @@
 }
 
 .help {
+  text-align: center;
   cursor: pointer;
   float: right;
   padding-right: 0.5em;
@@ -57,7 +58,6 @@
   }
 
   .main {
-    /* width: 100%; */
     width: 60%;
     margin: auto;
   }
@@ -94,17 +94,12 @@
   }
 
   .aside{
-    /* width: 40vw; */
-    /* margin: auto; */
     margin-left: auto;
   }
 
   .main {
     margin-top:0em;
-    /* width: 100%; */
-    /* width: 60vw; */
     margin-right: auto;
-    /* margin: auto; */
   }
 
 }

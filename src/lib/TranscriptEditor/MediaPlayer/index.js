@@ -8,7 +8,6 @@ import returnHotKeys from './defaultHotKeys';
 import styles from './index.module.css';
 
 import { secondsToTimecode, timecodeToSeconds } from '../../Util/timecode-converter/index';
-import { timingSafeEqual } from 'crypto';
 
 const PLAYBACK_RATES = [
   { value: 0.2, label: '0.2' },
@@ -45,7 +44,7 @@ class MediaPlayer extends React.Component {
   static getDerivedStateFromProps(nextProps) {
     if (nextProps.timecodeOffset !== null) {
       let newCurrentTimeInSeconds = nextProps.timecodeOffset ;
-      if (typeof newCurrentTimeInSeconds ==='string'
+      if (typeof newCurrentTimeInSeconds === 'string'
         && newCurrentTimeInSeconds.includes(':')
         && !newCurrentTimeInSeconds.includes('NaN')) {
         newCurrentTimeInSeconds = timecodeToSeconds(nextProps.timecodeOffset );
@@ -408,15 +407,16 @@ class MediaPlayer extends React.Component {
     return (
       <section className={ styles.topSection }>
         <div className={ styles.playerSection }>
-          { this.props.mediaUrl === null ? null: playerControlsSection }
+          { this.props.mediaUrl === null ? null : playerControlsSection }
         </div>
-        { this.props.mediaUrl === null ? null: progressBar }
+        { this.props.mediaUrl === null ? null : progressBar }
       </section>
     );
   }
 }
 
 MediaPlayer.propTypes = {
+  videoRef: PropTypes.object,
   title: PropTypes.string,
   hookSeek: PropTypes.func,
   hookPlayMedia: PropTypes.func,
@@ -424,7 +424,10 @@ MediaPlayer.propTypes = {
   mediaUrl: PropTypes.string,
   hookOnTimeUpdate: PropTypes.func,
   rollBackValueInSeconds: PropTypes.number,
-  timecodeOffset: PropTypes.number
+  timecodeOffset: PropTypes.number,
+  handleAnalyticsEvents: PropTypes.func,
+  mediaDuration: PropTypes.string,
+  handleSaveTranscript: PropTypes.func
 };
 
 export default hotkeys(MediaPlayer);

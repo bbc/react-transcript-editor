@@ -33,8 +33,8 @@ class TranscriptEditor extends React.Component {
       showTimecodes: true,
       showSpeakers: true,
       previewIsDisplayed: true,
-      mediaDuration: '00:00:00:00',
-      previewViewWidth: '25'
+      mediaDuration: '00:00:00:00'
+      // previewViewWidth: '25'
     };
     this.timedTextEditorRef = React.createRef();
   }
@@ -77,7 +77,7 @@ class TranscriptEditor extends React.Component {
   }
 
   ifPresentRetrieveTranscriptFromLocalStorage = () => {
-    if (this.timedTextEditorRef.current!== undefined) {
+    if (this.timedTextEditorRef.current !== undefined) {
       if (this.timedTextEditorRef.current.isPresentInLocalStorage(this.props.mediaUrl)) {
         console.info('was already present in local storage');
         this.timedTextEditorRef.current.loadLocalSavedData(this.props.mediaUrl);
@@ -238,8 +238,8 @@ class TranscriptEditor extends React.Component {
 
   onLoadedDataGetDuration = (e) => {
     const currentDuration = e.target.duration;
-    const currentDurationWithOffset = currentDuration+ this.state.timecodeOffset;
-    const durationInSeconds = secondsToTimecode( currentDuration+ currentDurationWithOffset);
+    const currentDurationWithOffset = currentDuration + this.state.timecodeOffset;
+    const durationInSeconds = secondsToTimecode( currentDuration + currentDurationWithOffset);
 
     this.setState({
       mediaDuration: durationInSeconds
@@ -264,6 +264,8 @@ class TranscriptEditor extends React.Component {
   }
 
   handleSaveTranscript = () => {
+    alert('The changes to this transcript have been saved in your browser');
+
     return this.timedTextEditorRef.current.localSave(this.props.mediaUrl);
   }
 
@@ -275,11 +277,11 @@ class TranscriptEditor extends React.Component {
       videoRef={ this.videoRef }
       previewIsDisplayed={ this.state.previewIsDisplayed }
       onLoadedDataGetDuration={ this.onLoadedDataGetDuration }
-      viewWith={ this.state.previewViewWidth }
+      // viewWith={ this.state.previewViewWidth }
     />;
 
     const mediaControls = <MediaPlayer
-      title={ this.props.title? this.props.title: '' }
+      title={ this.props.title ? this.props.title : '' }
       mediaDuration={ this.state.mediaDuration }
       hookSeek={ foo => this.setCurrentTime = foo }
       hookPlayMedia={ foo => this.playMedia = foo }
@@ -311,7 +313,7 @@ class TranscriptEditor extends React.Component {
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
       previewIsDisplayed={ this.state.previewIsDisplayed }
       handlePreviewIsDisplayed={ this.handlePreviewIsDisplayed }
-      previewViewWidth={ this.state.previewViewWidth }
+      // previewViewWidth={ this.state.previewViewWidth }
       handleChangePreviewViewWidth={ this.handleChangePreviewViewWidth }
     />;
 
@@ -369,7 +371,7 @@ class TranscriptEditor extends React.Component {
           {tooltip}
         </header>
 
-        <nav className={ style.nav }>{ this.props.mediaUrl === null? null: mediaControls }</nav>
+        <nav className={ style.nav }>{ this.props.mediaUrl === null ? null : mediaControls }</nav>
 
         <div className={ style.settingsContainer }>
           <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }>
@@ -384,10 +386,10 @@ class TranscriptEditor extends React.Component {
 
         <section className={ style.row }>
           <aside className={ style.aside }>
-            {this.props.mediaUrl === null? null : videoPlayer}
+            {this.props.mediaUrl === null ? null : videoPlayer}
           </aside>
           <main className={ style.main }>
-            {this.props.mediaUrl === null? null : timedTextEditor}
+            {this.props.mediaUrl === null ? null : timedTextEditor}
           </main>
         </section>
 
@@ -397,6 +399,8 @@ class TranscriptEditor extends React.Component {
 }
 
 TranscriptEditor.propTypes = {
+  onClick: PropTypes.func,
+  title: PropTypes.string,
   mediaUrl: PropTypes.string,
   isEditable: PropTypes.bool,
   sttJsonType: PropTypes.string,

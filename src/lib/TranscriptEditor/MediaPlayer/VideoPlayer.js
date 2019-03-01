@@ -1,23 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './VideoPlayer.module.css';
 
 class VideoPlayer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   handlePlayMedia = () => {
-    console.log('handle media', this.props.videoRef.current, this.props.videoRef);
     if (this.props.videoRef.current !== null) {
-      this.props.videoRef.current.paused? this.props.videoRef.current.play(): this.props.videoRef.current.pause();
+      return this.props.videoRef.current.paused ? this.props.videoRef.current.play() : this.props.videoRef.current.pause();
     }
   };
   render() {
-    const isDisplayed = this.props.previewIsDisplayed? 'inline' : 'none';
-
-    let viewWith = this.props.viewWith? this.props.viewWith+'vw' : '15vw';
-    // making responsive for mobile screen size
-    viewWith = window.innerWidth <'768'? '100%' : viewWith ;
+    const isDisplayed = this.props.previewIsDisplayed ? 'inline' : 'none';
 
     return (
       <video
@@ -30,10 +23,9 @@ class VideoPlayer extends React.Component {
         onClick={ this.handlePlayMedia }
         onLoadedData={ this.props.onLoadedDataGetDuration }
         ref={ this.props.videoRef }
+        className={ styles.videoEl }
         style={ {
-          display: isDisplayed,
-          maxWidth: viewWith,
-          cursor: 'pointer'
+          display: isDisplayed
         } }
       />
     );
@@ -46,7 +38,8 @@ VideoPlayer.propTypes = {
   onClick: PropTypes.func,
   videoRef: PropTypes.object,
   onLoadedDataGetDuration: PropTypes.func,
-  previewIsDisplayed: PropTypes.bool
+  previewIsDisplayed: PropTypes.bool,
+  previewViewWidth: PropTypes.string
 };
 
 export default VideoPlayer;
