@@ -501,15 +501,14 @@ class TimedTextEditor extends React.Component {
         const blockKey = currentBlock.key;
         const ranges = currentBlock.entityRanges;
 
-        for (var idx in ranges) {
-          const range = ranges[idx];
+        for (var rangeIdx in ranges) {
+          const range = ranges[rangeIdx];
           // Need to access entityMap and not currentBlock.data.words, as it seems to be not in sync with edits.
           const word = entityMap[range.key].data;
 
           if (word.start <= this.props.currentTime) {
             currentFocus.blockKey = blockKey;
             currentFocus.offset = range.offset + range.length;
-            currentFocus.start = word.start;
           } else {
             break;
           }
@@ -527,9 +526,9 @@ class TimedTextEditor extends React.Component {
     const selectionState = this.state.editorState.getSelection();
     const selection = selectionState.merge({
       anchorOffset: currentFocus.offset,
+      anchorKey: currentFocus.blockKey,
       focusOffset: currentFocus.offset,
       focusKey: currentFocus.blockKey,
-      anchorKey: currentFocus.blockKey,
     });
 
     const newState = EditorState.forceSelection(this.state.editorState, selection);
