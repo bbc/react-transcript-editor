@@ -16,12 +16,13 @@
 */
 const generateEntitiesRanges = (words, wordAttributeName) => {
   let position = 0;
-  //debugger;
-  return words.map((word) => {
+  return words.map((word, index) => {
     const content = word.alternatives[0].content;
     const result = {
-      start: parseFloat(word.start_time),
-      end: parseFloat(word.end_time),
+      /**Amazon Transcribe punctuation does not have a start or end time
+       so set it to the previous word start end time (with a little extra time) if punctuation **/
+      start: /punctuation/.test(word.type) ? parseFloat(words[index-1].end_time) + 0.05 : parseFloat(word.start_time),
+      end: /punctuation/.test(word.type) ? parseFloat(words[index-1].start_time) + 0.06: parseFloat(word.end_time),
       confidence: parseFloat(word.alternatives[0].confidence),
       text: content,
       offset: parseFloat(position),
