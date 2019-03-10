@@ -24,7 +24,7 @@ const generateEntitiesRanges = (words, wordAttributeName) => {
       end: parseFloat(word.end_time),
       confidence: parseFloat(word.alternatives[0].confidence),
       text: content,
-      offset: position,
+      offset: parseFloat(position),
       length: content.length,
       key: Math.random()
         .toString(36)
