@@ -1,5 +1,5 @@
 /** Note Amazon Transcribe data shape doesn't work with the generic generateEntitiesRanges module so we are creating on inline here **/
-//import generateEntitiesRanges from '../generate-entities-ranges/index.js';
+import generateEntitiesRanges from '../generate-entities-ranges/index.js';
 
 
 /**
@@ -9,20 +9,40 @@
  */
 
 /**
-*  @param {json} words  - List of words
-*  @param {string} wordAttributeName - eg 'punct' or 'text' or etc.
-* attribute for the word object containing the text. eg word ={ punct:'helo', ... }
-*  or eg word ={ text:'helo', ... }
-*/
-const generateEntitiesRanges = (words, wordAttributeName) => {
+ *  @param {json} words  - List of words
+ *  @param {string} wordAttributeName - eg 'punct' or 'text' or etc.
+ * attribute for the word object containing the text. eg word ={ punct:'helo', ... }
+ *  or eg word ={ text:'helo', ... }
+ */
+
+const getBestAlternativeForWord = (word) => {
+  const alternatives = word.alternatives;
+  //return alternatives.reduce();
+  return word.alternatives[0].content
+}
+
+/**
+Normalizes words so they can be used in
+ the generic amazonTranscribeToDraft() method
+**/
+
+const normalizedWord = (currentWord, previousWord) => {
+  return {
+    start: /punctuation/.test(currentWord.type) ? parseFloat(previousWord.end_time) + 0.05 : parseFloat(currentWord.start_time),
+    end: /punctuation/.test(currentWord.type) ? parseFloat(previousWord.start_time) + 0.06 : parseFloat(currentWord.end_time),
+    text: getBestAlternativeForWord(currentWord)
+  }
+}
+
+const _generateEntitiesRanges = (words, wordAttributeName) => {
   let position = 0;
   return words.map((word, index) => {
     const content = word.alternatives[0].content;
     const result = {
       /**Amazon Transcribe punctuation does not have a start or end time
        so set it to the previous word start end time (with a little extra time) if punctuation **/
-      start: /punctuation/.test(word.type) ? parseFloat(words[index-1].end_time) + 0.05 : parseFloat(word.start_time),
-      end: /punctuation/.test(word.type) ? parseFloat(words[index-1].start_time) + 0.06: parseFloat(word.end_time),
+      start: /punctuation/.test(word.type) ? parseFloat(words[index - 1].end_time) + 0.05 : parseFloat(word.start_time),
+      end: /punctuation/.test(word.type) ? parseFloat(words[index - 1].start_time) + 0.06 : parseFloat(word.end_time),
       confidence: parseFloat(word.alternatives[0].confidence),
       text: content,
       offset: parseFloat(position),
@@ -47,19 +67,27 @@ const generateEntitiesRanges = (words, wordAttributeName) => {
 
 const groupWordsInParagraphs = (words) => {
   const results = [];
-  let paragraph = { words: [], text: [] };
+  let paragraph = {
+    words: [],
+    text: []
+  };
 
-  words.forEach((word) => {
-    // if word contains punctuation
+  words.forEach((word, index) => {
+    // if word type is punctuation
     const content = word.alternatives[0].content;
+    let previousWord = {};
     if (word.type === 'punctuation' && /[.?!]/.test(content)) {
-      paragraph.words.push(word);
+      previousWord = words[index-1]; //assuming here the very first word is never punctuation
+      paragraph.words.push(normalizedWord(word, previousWord));
       paragraph.text.push(content);
       results.push(paragraph);
       // reset paragraph
-      paragraph = { words: [], text: [] };
+      paragraph = {
+        words: [],
+        text: []
+      };
     } else {
-      paragraph.words.push(word);
+      paragraph.words.push(normalizedWord(word, previousWord));
       paragraph.text.push(content);
     }
   });

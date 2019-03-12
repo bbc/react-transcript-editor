@@ -34,7 +34,6 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
   let blocks;
   switch (sttJsonType) {
   case 'bbckaldi':
-    debugger;
     blocks = bbcKaldiToDraft(transcriptData);
 
     return { blocks, entityMap: createEntityMap(blocks) };
