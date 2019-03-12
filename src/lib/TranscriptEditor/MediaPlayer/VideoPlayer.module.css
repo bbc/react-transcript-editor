@@ -4,7 +4,7 @@
 /* Desktop size */
 @media (min-width: 768px) {
     .videoEl{
-        max-width:  33vw;
+        max-width:  95%;
     }
 }
 

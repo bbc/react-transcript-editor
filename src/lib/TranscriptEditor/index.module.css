@@ -49,20 +49,11 @@
   }
 
   .row {
-    display: flex;
+    display: grid;
     margin-top: 1em;
+    grid-template-columns: 27% 70%;
+    grid-column-gap: 1.5%;
   }
-
-  .aside{
-    margin-left: auto;
-  }
-
-  .main {
-    width: 60%;
-    margin: auto;
-  }
-
-
 
   .settingsContainer {
     position: absolute;
@@ -88,11 +79,6 @@
 
 /* Ipad */
 @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
-  .row {
-    display: flex;
-    margin-top: 1em;
-  }
-
   .aside{
     margin-left: auto;
   }
@@ -107,14 +93,14 @@
 /* Mobile devices - excluding ipad*/
 @media (max-width: 767px) {
 
-  .container {
+  /* .container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     flex-wrap: nowrap;
     background-color: #f9f9f9;
     position: relative;
-  }
+  } */
 
   .header {
     background-color: black;

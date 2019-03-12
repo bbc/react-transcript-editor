@@ -4,25 +4,21 @@
 @media (min-width: 768px) {
 
   .markers {
-    width: 25%;
-    font-size: 0.8em;
-    line-height: 1.2em;
-    float: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .WrapperBlock {
-    height: 100%;
-    width: 100%;
-    margin-bottom: 2em;
-    line-height: 1.2em;
+    margin-bottom: 1em;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: [col-speaker] 20% [col-text] 79%;
+    grid-column-gap: 1%;
+    justify-content: center;
+    align-content: center;
   }
 
   .speaker {
-    display: inline-block;
-    width: 50%;
-    padding-right: 2em;
-    vertical-align: middle;
     color: color-mid-grey;
     font-weight: bold;
     text-transform: uppercase;
@@ -30,10 +26,10 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    justify-self: start;
   }
 
   .text {
-    width: 75%;
     font-size: 1em;
     float: right;
     clear: right;
@@ -48,7 +44,6 @@
     width: 100%;
     font-size: 0.8em;
     line-height: 1.2em;
-    float: left;
     margin-bottom: 0.5em;
   }
   .WrapperBlock {
@@ -59,8 +54,6 @@
   }
   
   .speaker {
-    display: inline-block;
-    width: 60%;
     padding-right: 2em;
     vertical-align: middle;
     color: color-mid-grey;
@@ -82,17 +75,10 @@
 
 }
 
-
-
 .time {
-  display: inline-block;
-  /* width: 30%; */
   font-weight: lighter;
-  vertical-align: middle;
   cursor: pointer;
-  float: right;
-  line-height: 1.4em;
-  margin-right: 0.5em;
+  justify-self: end;
 }
 
 .time:hover{

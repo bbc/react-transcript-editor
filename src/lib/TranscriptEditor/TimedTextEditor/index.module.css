@@ -11,17 +11,10 @@ https://github.com/facebook/draft-js/issues/528
 .editor :global(.public-DraftEditor-content) {
   max-height: 75vh;
   overflow: auto;
+  padding: 10px  15px;
   background-color: white;
 }
 
-/* Desktop size */
-@media (min-width: 768px) {
-  .editor :global(.public-DraftEditor-content) {
-    padding: 20px;
-    width: 80%;
-    margin: 0 auto;
-  }
-}
 /* Mobile devices */
 @media (max-width: 768px) {
   .editor :global(.public-DraftEditor-content){
