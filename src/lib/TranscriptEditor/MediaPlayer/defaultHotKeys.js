@@ -4,9 +4,6 @@ function returnHotKeys(self) {
       priority: 1,
       handler: () => {
         self.togglePlayMedia();
-        if (!self.isPlaying() && self.props.focusOnPause) {
-          self.props.setFocus();
-        }
 
         self.props.handleAnalyticsEvents({
           category: 'defaultHotKeys',

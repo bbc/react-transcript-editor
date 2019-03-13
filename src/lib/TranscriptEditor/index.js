@@ -234,7 +234,9 @@ class TranscriptEditor extends React.Component {
   }
 
   handleSetFocus = () => {
-    this.setFocus();
+    if (this.state.focusOnPause) {
+      this.setFocus();
+    }
   }
 
   getEditorContent = (exportFormat) => {
@@ -259,7 +261,6 @@ class TranscriptEditor extends React.Component {
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
       handleSaveTranscript={ this.handleSaveTranscript }
       setFocus = { this.handleSetFocus }
-      focusOnPause = { this.state.focusOnPause }
     />;
 
     const settings = <Settings
