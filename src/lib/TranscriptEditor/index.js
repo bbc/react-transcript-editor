@@ -27,6 +27,7 @@ class TranscriptEditor extends React.Component {
       rollBackValueInSeconds: 15,
       timecodeOffset: 0,
       showTimecodes: true,
+      focusOnPause: true,
       showSpeakers: true
     };
     this.timedTextEditorRef = React.createRef();
@@ -188,6 +189,20 @@ class TranscriptEditor extends React.Component {
     }
   }
 
+  handleFocusOnPause = (e) => {
+    const isChecked = e.target.checked;
+    this.setState({ focusOnPause: isChecked });
+
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handleFocusOnPause',
+        name: 'focusOnPause',
+        value:  isChecked
+      });
+    }
+  }
+
   handleSettingsToggle = () => {
     this.setState(prevState => ({
       showSettings: !prevState.showSettings
@@ -244,6 +259,7 @@ class TranscriptEditor extends React.Component {
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
       handleSaveTranscript={ this.handleSaveTranscript }
       setFocus = { this.handleSetFocus }
+      focusOnPause = { this.state.focusOnPause }
     />;
 
     const settings = <Settings
@@ -254,11 +270,13 @@ class TranscriptEditor extends React.Component {
       timecodeOffset={ this.state.timecodeOffset }
       showTimecodes={ this.state.showTimecodes }
       showSpeakers={ this.state.showSpeakers }
+      focusOnPause={ this.state.focusOnPause }
       handlePauseWhileTyping={ this.handlePauseWhileTyping }
       handleIsScrollIntoViewChange={ this.handleIsScrollIntoViewChange }
       handleRollBackValueInSeconds={ this.handleRollBackValueInSeconds }
       handleSetTimecodeOffset={ this.handleSetTimecodeOffset }
       handleShowTimecodes={ this.handleShowTimecodes }
+      handleFocusOnPause={ this.handleFocusOnPause }
       handleShowSpeakers={ this.handleShowSpeakers }
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
     />;

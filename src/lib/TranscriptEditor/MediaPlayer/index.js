@@ -470,6 +470,7 @@ MediaPlayer.propTypes = {
   rollBackValueInSeconds: PropTypes.number,
   timecodeOffset: PropTypes.number,
   setFocus: PropTypes.func,
+  focusOnPause: PropTypes.bool,
 };
 
 export default hotkeys(MediaPlayer);

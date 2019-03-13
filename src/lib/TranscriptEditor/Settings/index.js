@@ -67,6 +67,15 @@ class Settings extends React.Component {
           </section>
 
           <section className={ style.settingElement }>
+            <div className={ style.label }>Focus On Pause</div>
+            <Toggle
+              defaultValue={ this.props.focusOnPause }
+              label={ 'Set Focus On Pause' }
+              handleToggle={ this.props.handleFocusOnPause }
+            />
+          </section>
+
+          <section className={ style.settingElement }>
             <div className={ style.timecodeLabel }>Timecode Offset ℹ</div>
             <TimecodeOffset
               timecodeOffset={ this.props.timecodeOffset }
@@ -83,9 +92,11 @@ class Settings extends React.Component {
 Settings.propTypes = {
   showTimecodes: PropTypes.bool,
   showSpeakers: PropTypes.bool,
+  focusOnPause: PropTypes.bool,
   timecodeOffset: PropTypes.number,
   handleShowTimecodes: PropTypes.func,
   handleShowSpeakers: PropTypes.func,
+  handleFocusOnPause: PropTypes.func,
   handleSetTimecodeOffset: PropTypes.func,
   handleSettingsToggle: PropTypes.func,
   handlePauseWhileTyping: PropTypes.func,
