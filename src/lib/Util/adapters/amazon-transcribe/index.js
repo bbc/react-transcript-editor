@@ -42,31 +42,6 @@ const normalizedWord = (currentWord, previousWord) => {
   }
 }
 
-const _generateEntitiesRanges = (words, wordAttributeName) => {
-  let position = 0;
-  return words.map((word, index) => {
-    const content = word.alternatives[0].content;
-    const result = {
-      /**Amazon Transcribe punctuation does not have a start or end time
-       so set it to the previous word start end time (with a little extra time) if punctuation **/
-      start: /punctuation/.test(word.type) ? parseFloat(words[index - 1].end_time) + 0.05 : parseFloat(word.start_time),
-      end: /punctuation/.test(word.type) ? parseFloat(words[index - 1].start_time) + 0.06 : parseFloat(word.end_time),
-      confidence: parseFloat(word.alternatives[0].confidence),
-      text: content,
-      offset: parseFloat(position),
-      length: content.length,
-      key: Math.random()
-        .toString(36)
-        .substring(6),
-    };
-    // increase position counter - to determine word offset in paragraph
-    position = position + content.length + 1;
-
-    return result;
-  });
-};
-
-
 /**
  * groups words list from kaldi transcript based on punctuation.
  * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
