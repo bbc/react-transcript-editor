@@ -18,7 +18,13 @@ import generateEntitiesRanges from '../generate-entities-ranges/index.js';
 const getBestAlternativeForWord = (word) => {
   const alternatives = word.alternatives;
   //return alternatives.reduce();
-  return word.alternatives[0].content
+  if (/punctuation/.test(word.type)) {
+    return Object.assign(word.alternatives[0],{confidence: 1}); //Transcribe doesn't provide a confidence for punctuation
+  }
+  const wordWithHighestConfidence = word.alternatives.reduce(function(prev, current) {
+    return (parseFloat(prev.confidence) > parseFloat(current.confidence)) ? prev : current
+  })
+  return wordWithHighestConfidence;
 }
 
 /**
@@ -27,10 +33,12 @@ Normalizes words so they can be used in
 **/
 
 const normalizedWord = (currentWord, previousWord) => {
+  const bestAlternative = getBestAlternativeForWord(currentWord);
   return {
     start: /punctuation/.test(currentWord.type) ? parseFloat(previousWord.end_time) + 0.05 : parseFloat(currentWord.start_time),
     end: /punctuation/.test(currentWord.type) ? parseFloat(previousWord.start_time) + 0.06 : parseFloat(currentWord.end_time),
-    text: getBestAlternativeForWord(currentWord)
+    text: bestAlternative.content,
+    confidence: parseFloat(bestAlternative.confidence)
   }
 }
 
@@ -71,13 +79,12 @@ const groupWordsInParagraphs = (words) => {
     words: [],
     text: []
   };
-
   words.forEach((word, index) => {
     // if word type is punctuation
     const content = word.alternatives[0].content;
     let previousWord = {};
     if (word.type === 'punctuation' && /[.?!]/.test(content)) {
-      previousWord = words[index-1]; //assuming here the very first word is never punctuation
+      previousWord = words[index - 1]; //assuming here the very first word is never punctuation
       paragraph.words.push(normalizedWord(word, previousWord));
       paragraph.text.push(content);
       results.push(paragraph);
@@ -108,7 +115,6 @@ const amazonTranscribeToDraft = (amazonTranscribeJson) => {
   }
 
   const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
-  //debugger;
   wordsByParagraphs.forEach((paragraph, i) => {
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
@@ -116,7 +122,7 @@ const amazonTranscribeToDraft = (amazonTranscribeJson) => {
       data: {
         speaker: `TBC ${ i }`,
         words: paragraph.words,
-        start: parseFloat(paragraph.words[0].start_time)
+        start: parseFloat(paragraph.words[0].start)
       },
       // the entities as ranges are each word in the space-joined text,
       // so it needs to be compute for each the offset from the beginning of the paragraph and the length
