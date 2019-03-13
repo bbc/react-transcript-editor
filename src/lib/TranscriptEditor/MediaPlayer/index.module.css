@@ -11,7 +11,9 @@
 }
 
 .controlsSection {
-  /* width: 98%; */
+  width: 98%;
+  margin:auto;
+  padding-bottom: 1em;
   /* display: flex; */
   /* flex-direction: column; */
 }
@@ -22,15 +24,24 @@
 }
 
 .title {
-  margin-left: 1em;
   color: white;
   height: 1.3em;
   width: 97vw;
-  font-size: 16px;
+  font-size: 1.2em;
   overflow: hidden;
   display: inline-block;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@media (max-width: 760px) {
+  .title {
+    width: 100%;
+    margin:0;
+    text-align: center;
+    font-size: 1.2em;
+    padding-top: 10px;
+  }
 }
 
 .helpText {

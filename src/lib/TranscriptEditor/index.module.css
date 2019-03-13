@@ -21,6 +21,12 @@
   margin-right: 6em;
 }
 
+@media (max-width: 760px) {
+  .help {
+    display:none;
+  }
+}
+
 .icon {
   color: color-labs-red;
   margin-right: 0.5em;

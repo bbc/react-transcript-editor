@@ -370,11 +370,18 @@ class MediaPlayer extends React.Component {
 
   render() {
 
+    const progressBar = <ProgressBar
+      max={ this.props.videoRef.current !== null ? parseInt(this.props.videoRef.current.duration).toString() : '100' }
+      value={ this.props.videoRef.current !== null ? parseInt(this.props.videoRef.current.currentTime) : 0 }
+      buttonClick={ this.handleProgressBarClick.bind(this) }
+    />;
+
     const playerControlsSection = (
       <div className={ styles.controlsSection }>
         <div className={ styles.title }>
           {this.props.title}
         </div>
+        { this.props.mediaUrl === null ? null : progressBar }
         <PlayerControls
           playMedia={ this.togglePlayMedia.bind(this) }
           isPlaying={ this.state.isPlaying }
@@ -398,18 +405,11 @@ class MediaPlayer extends React.Component {
       </div>
     );
 
-    const progressBar = <ProgressBar
-      max={ this.props.videoRef.current !== null ? parseInt(this.props.videoRef.current.duration).toString() : '100' }
-      value={ this.props.videoRef.current !== null ? parseInt(this.props.videoRef.current.currentTime) : 0 }
-      buttonClick={ this.handleProgressBarClick.bind(this) }
-    />;
-
     return (
       <section className={ styles.topSection }>
         <div className={ styles.playerSection }>
           { this.props.mediaUrl === null ? null : playerControlsSection }
         </div>
-        { this.props.mediaUrl === null ? null : progressBar }
       </section>
     );
   }
