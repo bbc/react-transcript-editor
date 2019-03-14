@@ -7,12 +7,11 @@
 input[type=range] {
   /*removes default webkit styles*/
   -webkit-appearance: none;
-  
-  /*fix for FF unable to apply focus style bug */
-  border: 1px solid black;
+  background-color:transparent;
   
   /*required for proper track sizing in FF*/
   width: 100%;
+  cursor: pointer;
 }
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
@@ -39,18 +38,17 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 input[type=range]::-moz-range-track {
-  width: 300px;
-  height: 5px;
-  background: #ddd;
+  width: 100%;
+  height: 3px;
+  background: #ccc;
   border: none;
-  border-radius: 3px;
 }
 input[type=range]::-moz-range-thumb {
   border: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: goldenrod;
+  height: 22px;
+  width: 22px;
+  border-radius: 22px;;
+  background: rgb(255, 0, 0);
 }
 
 /*hide the outline behind the border*/
@@ -60,8 +58,8 @@ input[type=range]:-moz-focusring{
 }
 
 input[type=range]::-ms-track {
-  width: 300px;
-  height: 5px;
+  width: 100%;
+  height: 3px;
   
   /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
   background: transparent;
@@ -87,10 +85,11 @@ input[type=range]::-ms-thumb {
   width: 16px;
   border-radius: 50%;
   background: goldenrod;
+  margin-top: 0px;
 }
 input[type=range]:focus::-ms-fill-lower {
   background: #888;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #ccc;
+  background: #eee;
 }

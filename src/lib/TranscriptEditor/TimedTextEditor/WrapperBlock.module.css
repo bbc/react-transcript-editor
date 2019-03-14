@@ -12,7 +12,7 @@
     margin-bottom: 1em;
     overflow: hidden;
     display: grid;
-    grid-template-columns: [col-speaker] 20% [col-text] 79%;
+    grid-template-columns: [col-speaker] minmax(200px,18%) [col-text] minmax(50%, 81%);
     grid-column-gap: 1%;
     justify-content: center;
     align-content: center;
@@ -78,7 +78,7 @@
 .time {
   font-weight: lighter;
   cursor: pointer;
-  justify-self: end;
+  justify-self: start;
 }
 
 .time:hover{
