@@ -374,10 +374,10 @@ class TranscriptEditor extends React.Component {
         <nav className={ style.nav }>{ this.props.mediaUrl === null ? null : mediaControls }</nav>
 
         <div className={ style.settingsContainer }>
-          <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }>
+          <button className={ style.settingsButton } title="Settings" onClick={ this.handleSettingsToggle }>
             <FontAwesomeIcon icon={ faCog } />
           </button>
-          <button className={ style.settingsButton } onClick={ this.handleShortcutsToggle }>
+          <button className={ style.settingsButton } title="view shortcuts" onClick={ this.handleShortcutsToggle }>
             <FontAwesomeIcon icon={ faKeyboard } />
           </button>
         </div>

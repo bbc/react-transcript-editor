@@ -1,4 +1,4 @@
-@value color-darkest-grey, color-light-grey, color-labs-red from '../colours.module.css';
+@value color-light-shilo, color-darkest-grey, color-light-grey, color-labs-red from '../colours.module.css';
 
 
 .playerControls > * {
@@ -61,7 +61,7 @@
 
 
 .currentTime {
-  color: color-labs-red;
+  color: color-light-shilo;
   cursor: pointer;
 }
 
@@ -134,7 +134,7 @@
   }
   
   .currentTime {
-    color: #DC8B84; /* improving contrast */
+    color: color-light-shilo;
     cursor: pointer;
     float:left;
     font-size: 0.7em;

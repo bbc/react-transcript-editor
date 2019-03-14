@@ -57,6 +57,7 @@ class PlayerControls extends React.Component {
 
         <div className={ style.btnsGroup }>
           <button
+            value="seek backward by a set interval: alt r"
             title="seek backward by a set interval: alt r"
             className={ style.playerButton }
             onClick={ this.props.rollback }>
@@ -64,6 +65,7 @@ class PlayerControls extends React.Component {
           </button>
 
           <button
+            value="seek backward: alt j"
             title="seek backward: alt j"
             className={ style.playerButton }
             onMouseDown={ this.setIntervalHelperBackward }
@@ -73,6 +75,7 @@ class PlayerControls extends React.Component {
           </button>
 
           <button
+            value="Play/Pause: alt k"
             title="Play/Pause: alt k"
             className={ style.playerButton }
             onClick={ this.props.playMedia }>
@@ -80,6 +83,7 @@ class PlayerControls extends React.Component {
           </button>
 
           <button
+            value="seek forward: alt l"
             title="seek forward: alt l"
             className={ style.playerButton }
             onMouseDown={ this.setIntervalHelperForward }
@@ -100,6 +104,7 @@ class PlayerControls extends React.Component {
           </span>
 
           <button
+            value="Save"
             title="Save"
             className={ style.playerButton }
             onClick={ this.props.handleSaveTranscript }>
@@ -107,6 +112,7 @@ class PlayerControls extends React.Component {
           </button>
 
           <button
+            value="Picture-in-picture"
             title="Picture-in-picture"
             className={ style.playerButton }
             onClick={ this.props.pictureInPicture }>

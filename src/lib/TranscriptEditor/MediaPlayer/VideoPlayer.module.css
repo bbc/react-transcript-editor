@@ -5,6 +5,7 @@
 @media (min-width: 768px) {
     .videoEl{
         max-width:  95%;
+        margin: 0 0 0 4%;
     }
 }
 
