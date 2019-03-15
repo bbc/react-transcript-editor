@@ -382,9 +382,7 @@ class MediaPlayer extends React.Component {
 
     const playerControlsSection = (
       <div className={ styles.controlsSection }>
-        <div className={ styles.title }>
-          {this.props.title}
-        </div>
+        <h2 className={ styles.title }>{this.props.title}</h2>
         { this.props.mediaUrl === null ? null : progressBar }
         <PlayerControls
           playMedia={ this.togglePlayMedia.bind(this) }

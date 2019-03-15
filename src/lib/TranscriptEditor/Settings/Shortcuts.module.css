@@ -1,12 +1,12 @@
 @value color-lightest-grey, color-labs-red, color-dark-grey from '../colours.module.css';
 
 .shortcuts {
+  font-size: 0.85em;
   padding: 1em;
   position: absolute;
   top: 2em;
   right: 0;
   margin: 0 auto;
-  width: 30%;
   height: auto;
   vertical-align: middle;
   color: black;
