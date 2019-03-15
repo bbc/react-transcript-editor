@@ -153,4 +153,8 @@
     float:right;
     line-height: 1em;
   }
+
+  .pip {
+    display:none;
+  }
 }

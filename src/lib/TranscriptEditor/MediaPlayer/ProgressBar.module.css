@@ -1,7 +1,7 @@
 @value color-light-grey, color-labs-red from '../colours.module.css';
 
 .progress {
-  margin-bottom:0.5em;
+  margin-bottom:1em;
 }
 
 input[type=range] {
@@ -48,7 +48,7 @@ input[type=range]::-moz-range-thumb {
   height: 22px;
   width: 22px;
   border-radius: 22px;;
-  background: rgb(255, 0, 0);
+  background:rgb(255, 255, 255);
 }
 
 /*hide the outline behind the border*/
@@ -84,7 +84,7 @@ input[type=range]::-ms-thumb {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background: goldenrod;
+  background:rgb(255, 255, 255);
   margin-top: 0px;
 }
 input[type=range]:focus::-ms-fill-lower {

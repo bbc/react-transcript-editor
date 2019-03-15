@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import Select from './Select';
 
 import style from './PlayerControls.module.css';
@@ -13,7 +14,9 @@ import {
   faPause,
   faBackward,
   faForward,
-  faUndo
+  faUndo,
+  faVolumeUp,
+  faVolumeOff
 } from '@fortawesome/free-solid-svg-icons';
 
 class PlayerControls extends React.Component {
@@ -114,11 +117,18 @@ class PlayerControls extends React.Component {
           <button
             value="Picture-in-picture"
             title="Picture-in-picture"
-            className={ style.playerButton }
+            className={ style.playerButton + " " + style.pip }
             onClick={ this.props.pictureInPicture }>
             <FontAwesomeIcon icon={ faTv } />
           </button>
 
+          <button
+            value="Toggle Sound"
+            title="Toggle Sound"
+            className={ style.playerButton }
+            onClick={ this.props.handleMuteVolume }>
+            { this.props.isMute ? <FontAwesomeIcon icon={ faVolumeOff } /> : <FontAwesomeIcon icon={ faVolumeUp } /> }
+          </button>
         </div>
       </div>
     );
@@ -135,6 +145,7 @@ PlayerControls.propTypes = {
   handleMuteVolume: PropTypes.func,
   duration: PropTypes.string,
   isPlaying: PropTypes.bool,
+  isMute: PropTypes.bool,
   skipBackward: PropTypes.func,
   skipForward: PropTypes.func,
   playbackRate: PropTypes.number,

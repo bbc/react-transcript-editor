@@ -35,7 +35,9 @@ class MediaPlayer extends React.Component {
       hotKeys: returnHotKeys(this),
       isPlaying: false,
       playbackRateOptions: PLAYBACK_RATES,
-      previewIsDisplayed: true
+      previewIsDisplayed: true,
+      isMute: false
+
     };
   }
   /*eslint-disable camelcase */
@@ -213,8 +215,10 @@ class MediaPlayer extends React.Component {
     if (this.props.videoRef.current !== null) {
       if (this.props.videoRef.current.volume > 0) {
         this.props.videoRef.current.volume = 0;
+        this.setState({ isMute: true });
       } else {
         this.props.videoRef.current.volume = 1;
+        this.setState({ isMute: false });
       }
     }
   }
@@ -385,6 +389,7 @@ class MediaPlayer extends React.Component {
         <PlayerControls
           playMedia={ this.togglePlayMedia.bind(this) }
           isPlaying={ this.state.isPlaying }
+          isMute={ this.state.isMute }
           playbackRate={ this.state.playbackRate }
           skipBackward={ this.skipBackward.bind(this) }
           skipForward={ this.skipForward.bind(this) }

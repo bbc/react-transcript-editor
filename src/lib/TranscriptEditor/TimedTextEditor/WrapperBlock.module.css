@@ -5,7 +5,7 @@
 
   .markers {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
   }
 
   .WrapperBlock {
@@ -22,11 +22,12 @@
     color: color-mid-grey;
     font-weight: bold;
     text-transform: uppercase;
-    text-align: right;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     justify-self: start;
+    max-width: 100px;
+    text-align: left;
   }
 
   .text {

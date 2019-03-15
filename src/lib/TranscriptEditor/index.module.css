@@ -8,6 +8,10 @@
   background: color-subt-green;
 }
 
+.container {
+  position:relative;
+}
+
 .help {
   text-align: center;
   cursor: pointer;
@@ -19,6 +23,11 @@
   font-weight: lighter;
   margin-top: 0.5em;
   margin-right: 6em;
+}
+
+.helpMessage {
+  min-width: 240px;
+  text-align: left;
 }
 
 @media (max-width: 760px) {
@@ -48,7 +57,7 @@
   .header {
     background-color: black;
     width: 100%;
-    overflow: hidden;
+    display:block;
   }
 
   .nav {
