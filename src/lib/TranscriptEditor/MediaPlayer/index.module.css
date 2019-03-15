@@ -12,10 +12,8 @@
 
 .controlsSection {
   width: 98%;
-  margin:auto;
+  margin: auto;
   padding-bottom: 1em;
-  /* display: flex; */
-  /* flex-direction: column; */
 }
 
 .title {
@@ -30,9 +28,10 @@
 }
 
 @media (max-width: 768px) {
+
   .title {
     width: 100%;
-    margin:0;
+    margin: 0;
     text-align: center;
     font-size: 1.2em;
     padding-top: 1em;

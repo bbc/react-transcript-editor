@@ -2,6 +2,7 @@
 
 /* Desktop size */
 @media (min-width: 768px) {
+
   .markers {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -11,7 +12,10 @@
     margin-bottom: 1em;
     overflow: hidden;
     display: grid;
-    grid-template-columns: [col-speaker] minmax(200px,18%) [col-text] minmax(50%, 81%);
+    grid-template-columns: [col-speaker] minmax(200px, 18%) [col-text] minmax(
+      50%,
+      81%
+    );
     grid-column-gap: 1%;
     justify-content: center;
     align-content: center;
@@ -34,7 +38,6 @@
     float: right;
     clear: right;
   }
-
 }
 
 /* Mobile devices */
@@ -46,6 +49,7 @@
     line-height: 1.2em;
     margin-bottom: 0.5em;
   }
+
   .WrapperBlock {
     width: 100%;
     margin-bottom: 1em;
@@ -70,9 +74,9 @@
     width: 100%;
     font-size: 1em;
     float: left;
+
     /* clear: right; */
   }
-
 }
 
 .time {
@@ -83,7 +87,8 @@
 
 .time:hover {
   text-decoration: underline;
-   /* color: blue; */
+
+  /* color: blue; */
 }
 
 .speaker {

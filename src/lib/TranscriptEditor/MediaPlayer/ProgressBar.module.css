@@ -1,69 +1,74 @@
 @value color-light-grey, color-labs-red from '../colours.module.css';
 
 .progress {
-  margin-bottom:1em;
+  margin-bottom: 1em;
 }
 
-input[type=range] {
+input[type='range'] {
   /*removes default webkit styles*/
   -webkit-appearance: none;
-  background-color:transparent;
-  
+  background-color: transparent;
+
   /*required for proper track sizing in FF*/
   width: 100%;
   cursor: pointer;
 }
-input[type=range]::-webkit-slider-runnable-track {
+
+input[type='range']::-webkit-slider-runnable-track {
   width: 100%;
   height: 3px;
   background: #ccc;
   border: none;
-  border-radius: 0px;
+  border-radius: 0;
 }
-input[type=range]::-webkit-slider-thumb {
+
+input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: none;
   height: 22px;
   width: 22px;
   border-radius: 22px;
-  background:rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
   margin-top: -10px;
 }
 
-input[type=range]:focus {
+input[type='range']:focus {
   outline: none;
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
+
+input[type='range']:focus::-webkit-slider-runnable-track {
   background: #ccc;
 }
 
-input[type=range]::-moz-range-track {
+input[type='range']::-moz-range-track {
   width: 100%;
   height: 3px;
   background: #ccc;
   border: none;
 }
-input[type=range]::-moz-range-thumb {
+
+input[type='range']::-moz-range-thumb {
   border: none;
   height: 22px;
   width: 22px;
-  border-radius: 22px;;
-  background:rgb(255, 255, 255);
+  border-radius: 22px;
+  background: rgb(255, 255, 255);
 }
 
 /*hide the outline behind the border*/
-input[type=range]:-moz-focusring{
+
+input[type='range']:-moz-focusring {
   outline: 1px solid white;
   outline-offset: -1px;
 }
 
-input[type=range]::-ms-track {
+input[type='range']::-ms-track {
   width: 100%;
   height: 3px;
-  
+
   /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
   background: transparent;
-  
+
   /*leave room for the larger thumb to overflow with a transparent border */
   border-color: transparent;
   border-width: 6px 0;
@@ -71,25 +76,30 @@ input[type=range]::-ms-track {
   /*remove default tick marks*/
   color: transparent;
 }
-input[type=range]::-ms-fill-lower {
+
+input[type='range']::-ms-fill-lower {
   background: #777;
   border-radius: 10px;
 }
-input[type=range]::-ms-fill-upper {
+
+input[type='range']::-ms-fill-upper {
   background: #ddd;
   border-radius: 10px;
 }
-input[type=range]::-ms-thumb {
+
+input[type='range']::-ms-thumb {
   border: none;
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background:rgb(255, 255, 255);
-  margin-top: 0px;
+  background: rgb(255, 255, 255);
+  margin-top: 0;
 }
-input[type=range]:focus::-ms-fill-lower {
+
+input[type='range']:focus::-ms-fill-lower {
   background: #888;
 }
-input[type=range]:focus::-ms-fill-upper {
+
+input[type='range']:focus::-ms-fill-upper {
   background: #eee;
 }

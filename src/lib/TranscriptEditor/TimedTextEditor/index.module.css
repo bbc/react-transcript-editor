@@ -8,17 +8,18 @@
 Giving the editor a oveflow
 https://github.com/facebook/draft-js/issues/528
 */
+
 .editor :global(.public-DraftEditor-content) {
   max-height: 75vh;
   overflow: auto;
-  padding: 10px  15px;
+  padding: 10px 15px;
   background-color: white;
 }
 
 /* Mobile devices */
 @media (max-width: 768px) {
-  .editor :global(.public-DraftEditor-content){
+
+  .editor :global(.public-DraftEditor-content) {
     margin: 0 auto;
   }
 }
-
