@@ -35,8 +35,8 @@ Normalizes words so they can be used in
 const normalizedWord = (currentWord, previousWord) => {
   const bestAlternative = getBestAlternativeForWord(currentWord);
   return {
-    start: /punctuation/.test(currentWord.type) ? parseFloat(previousWord.end_time) + 0.05 : parseFloat(currentWord.start_time),
-    end: /punctuation/.test(currentWord.type) ? parseFloat(previousWord.start_time) + 0.06 : parseFloat(currentWord.end_time),
+    start: /punctuation/.test(currentWord.type) ? (parseFloat(previousWord.end_time) + 0.05).toFixed(2) : parseFloat(currentWord.start_time),
+    end: /punctuation/.test(currentWord.type) ? (parseFloat(previousWord.start_time) + 0.06).toFixed(2) : parseFloat(currentWord.end_time),
     text: bestAlternative.content,
     confidence: parseFloat(bestAlternative.confidence)
   }
@@ -79,15 +79,7 @@ const groupWordsInParagraphs = (words) => {
 
 const amazonTranscribeToDraft = (amazonTranscribeJson) => {
   const results = [];
-  let tmpWords;
-
-  // BBC Octo Labs API Response wraps Kaldi response around retval,
-  // while kaldi contains word attribute at root
-  if (amazonTranscribeJson.retval !== undefined) {
-    tmpWords = amazonTranscribeJson.retval.words;
-  } else {
-    tmpWords = amazonTranscribeJson.results.items;
-  }
+  const tmpWords = amazonTranscribeJson.results.items;
 
   const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
   wordsByParagraphs.forEach((paragraph, i) => {
