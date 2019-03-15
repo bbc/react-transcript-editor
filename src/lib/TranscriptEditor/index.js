@@ -71,15 +71,15 @@ class TranscriptEditor extends React.Component {
   }
 
   ifPresentRetrieveTranscriptFromLocalStorage = () => {
-    if (this.refs.timedTextEditor!== undefined) {
-      if (this.refs.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
-        console.log('was already present in local storage');
-        this.refs.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
-      } else {
-        console.log('not present in local storage');
-      }
+    if (this.timedTextEditorRef!== undefined) {
+        if (this.timedTextEditorRef.isPresentInLocalStorage(this.props.mediaUrl)) {
+            console.info('was already present in local storage');
+            this.timedTextEditorRef.loadLocalSavedData(this.props.mediaUrl);
+        } else {
+            console.info('not present in local storage');
+        }
     }
-  }
+}
 
   // eslint-disable-next-line class-methods-use-this
   handleWordClick = (startTime) => {
@@ -273,7 +273,7 @@ class TranscriptEditor extends React.Component {
       isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
       showTimecodes={ this.state.showTimecodes }
       showSpeakers={ this.state.showSpeakers }
-      ref={ 'timedTextEditor' }
+      ref={ this.timedTextEditorRef }
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
     />;
 
