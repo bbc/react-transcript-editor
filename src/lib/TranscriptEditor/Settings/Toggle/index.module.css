@@ -9,15 +9,6 @@
   margin-right: 1em;
 }
 
-.label {
-  display: block;
-  margin: 0.2em 0;
-  font-weight: light;
-  color: white;
-  text-align: center;
-  font-size: 0.8em;
-}
-
 .switch {
   position: relative;
   display: inline-block;

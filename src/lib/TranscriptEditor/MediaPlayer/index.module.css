@@ -18,11 +18,6 @@
   /* flex-direction: column; */
 }
 
-.titleBox {
-  border-bottom: 0.02em solid color-light-grey;
-  margin-bottom: 1em;
-}
-
 .title {
   color: white;
   height: 1.3em;
@@ -41,17 +36,5 @@
     text-align: center;
     font-size: 1.2em;
     padding-top: 1em;
-  }
-}
-
-.helpText {
-  margin-top: 0px;
-  margin-bottom: 0.1em;
-}
-
-/* Mobile devices */
-@media (max-width: 767px) {
-  .hideInMobile {
-    display: none;
   }
 }

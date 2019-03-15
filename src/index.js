@@ -140,7 +140,7 @@ class App extends React.Component {
 
      return (
        <div className={ style.container }>
-         <span className={ style.title }>
+         <span>
             Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
            <a
              href="https://github.com/bbc/react-transcript-editor"
@@ -185,12 +185,11 @@ class App extends React.Component {
          />
          <br />
          <label>Text Is Editable</label>
-         <label className={ style.switch }>
+         <label>
            <input type="checkbox"
              defaultChecked="true"
              onChange={ this.handleIsTextEditable }
            />
-           <span className={ style.slider }></span>
          </label>
          <br/>
          <label>Optional Transcript Name</label>

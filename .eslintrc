@@ -1,10 +1,12 @@
 {
   "parser": "babel-eslint",
   "plugins": [
-    "react"
+    "react",
+    "css-modules"
   ],
   "extends": [
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:css-modules/recommended"
   ],
   "env": {
     "browser": true,
@@ -43,6 +45,7 @@
     "camelcase": [ 1 ],
     "no-underscore-dangle" : [0, "always"],
     "keyword-spacing": ["error", { "before": true, "after": true }],
+    "key-spacing": ["error", { "afterColon": true }],
     "newline-before-return": "error",
     "space-before-blocks": "error",
     "no-unused-vars": "error",

@@ -2,7 +2,6 @@
 
 /* Desktop size */
 @media (min-width: 768px) {
-
   .markers {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -53,7 +52,7 @@
     line-height: 1.2em;
     overflow: hidden;
   }
-  
+
   .speaker {
     padding-right: 2em;
     vertical-align: middle;
@@ -82,10 +81,11 @@
   justify-self: start;
 }
 
-.time:hover{
+.time:hover {
   text-decoration: underline;
    /* color: blue; */
 }
+
 .speaker {
   cursor: pointer;
 }
