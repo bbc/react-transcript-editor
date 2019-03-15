@@ -1,6 +1,5 @@
 import generateEntitiesRanges from '../generate-entities-ranges/index.js';
 
-
 /**
  * Helper function to generate draft.js entities,
  * see unit test for example data structure
@@ -18,13 +17,14 @@ const getBestAlternativeForWord = (word) => {
   const alternatives = word.alternatives;
   //return alternatives.reduce();
   if (/punctuation/.test(word.type)) {
-    return Object.assign(word.alternatives[0],{confidence: 1}); //Transcribe doesn't provide a confidence for punctuation
+    return Object.assign(word.alternatives[0], { confidence: 1 }); //Transcribe doesn't provide a confidence for punctuation
   }
   const wordWithHighestConfidence = word.alternatives.reduce(function(prev, current) {
-    return (parseFloat(prev.confidence) > parseFloat(current.confidence)) ? prev : current
-  })
+    return (parseFloat(prev.confidence) > parseFloat(current.confidence)) ? prev : current;
+  });
+
   return wordWithHighestConfidence;
-}
+};
 
 /**
 Normalizes words so they can be used in
@@ -33,13 +33,14 @@ Normalizes words so they can be used in
 
 const normalizedWord = (currentWord, previousWord) => {
   const bestAlternative = getBestAlternativeForWord(currentWord);
+
   return {
     start: /punctuation/.test(currentWord.type) ? (parseFloat(previousWord.end_time) + 0.05).toFixed(2) : parseFloat(currentWord.start_time),
     end: /punctuation/.test(currentWord.type) ? (parseFloat(previousWord.start_time) + 0.06).toFixed(2) : parseFloat(currentWord.end_time),
     text: bestAlternative.content,
     confidence: parseFloat(bestAlternative.confidence)
-  }
-}
+  };
+};
 
 /**
  * groups words list from kaldi transcript based on punctuation.
@@ -67,6 +68,10 @@ const groupWordsInParagraphs = (words) => {
         words: [],
         text: []
       };
+    } else if (word.type === 'punctuation' && /[,?!]/.test(content)) {
+      previousWord = words[index - 1]; //assuming here the very first word is never punctuation
+      paragraph.words.push(normalizedWord(word, previousWord));
+      paragraph.text.push(content);
     } else {
       paragraph.words.push(normalizedWord(word, previousWord));
       paragraph.text.push(content);
@@ -97,6 +102,7 @@ const amazonTranscribeToDraft = (amazonTranscribeJson) => {
     // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
     results.push(draftJsContentBlockParagraph);
   });
+
   return results;
 };
 
