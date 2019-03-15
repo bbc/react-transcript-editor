@@ -21,6 +21,8 @@ class App extends React.Component {
       analyticsEvents: [],
       fileName: 'Kate Darling Ted Talk'
     };
+
+    this.transcriptEditorRef = React.createRef();
   }
 
   loadDemo() {
@@ -99,7 +101,7 @@ class App extends React.Component {
 
   exportTranscript = () => {
     // eslint-disable-next-line react/no-string-refs
-    const { data, ext } = this.refs.transcriptEditor.getEditorContent(this.state.exportFormat);
+    const { data, ext } = this.transcriptEditorRef.current.getEditorContent(this.state.exportFormat);
     this.download(data, `${ this.state.mediaUrl }.${ ext }`);
   }
 
@@ -200,7 +202,7 @@ class App extends React.Component {
            isEditable={ this.state.isTextEditable }
            sttJsonType={ this.state.sttType }
            handleAnalyticsEvents={ this.handleAnalyticsEvents }
-           ref={ 'transcriptEditor' }
+           ref={ this.transcriptEditorRef }
          />
          <hr/>
          <label>Components Analytics</label>

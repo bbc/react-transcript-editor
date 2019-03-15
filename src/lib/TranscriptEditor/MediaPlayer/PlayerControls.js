@@ -5,6 +5,18 @@ import Select from './Select';
 
 import style from './PlayerControls.module.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import {
+  faSave,
+  faTv,
+  faPlay,
+  faPause,
+  faBackward,
+  faForward,
+  faUndo
+} from '@fortawesome/free-solid-svg-icons';
+
 class PlayerControls extends React.Component {
   // to handle backward and forward mouse pressed on btn
   // set a 300 ms  interval to repeat the
@@ -32,34 +44,39 @@ class PlayerControls extends React.Component {
     return (
       <div className={ style.playerControls }>
         <button
+          title="Rollback"
           className={ style.playerButton }
           onClick={ this.props.rollback }>
-          {'↺'}
+          <FontAwesomeIcon icon={ faUndo } />
         </button>
 
         <button
+          title="Rewind"
           className={ style.playerButton }
           onMouseDown={ this.setIntervalHelperBackward }
           onMouseUp={ this.clearIntervalHelper }>
-          {'◀◀'}
+          <FontAwesomeIcon icon={ faBackward } />
 
         </button>
 
         <button
+          title="Play"
           className={ style.playerButton }
           onClick={ this.props.playMedia }>
-          {this.props.isPlaying ? '❚❚' : '▶'}
+          {this.props.isPlaying ? <FontAwesomeIcon icon={ faPause } /> : <FontAwesomeIcon icon={ faPlay } />}
         </button>
 
         <button
+          title="Forward"
           className={ style.playerButton }
           onMouseDown={ this.setIntervalHelperForward }
           onMouseUp={ this.clearIntervalHelper }>
-          {'▶▶'}
+          <FontAwesomeIcon icon={ faForward } />
         </button>
 
         <span className={ style.playBackRate }>
           <Select
+            title="Playback rate"
             options={ this.props.playbackRateOptions }
             currentValue={ this.props.playbackRate.toString() }
             name={ 'playbackRate' }
@@ -67,18 +84,26 @@ class PlayerControls extends React.Component {
         </span>
 
         <div className={ style.timeBox }>
-          <span className={ style.currentTime }
+          <span title="Current time" className={ style.currentTime }
             onClick={ this.props.promptSetCurrentTime }
           >{ this.props.currentTime }</span>
           <span className={ style.separator }>|</span>
-          <span className={ style.duration }>{this.props.duration}</span>
+          <span title="Clip duration" className={ style.duration }>{this.props.duration}</span>
         </div>
 
         <button
+          title="Save"
+          className={ style.playerButton }
+          onClick={ this.props.handleSaveTranscript }>
+          <FontAwesomeIcon icon={ faSave } />
+        </button>
+
+        <button
+          title="Picture-in-picture"
           className={ style.playerButton }
           onClick={ this.props.pictureInPicture }
         >
-          {'📺'}
+          <FontAwesomeIcon icon={ faTv } />
         </button>
 
         <VolumeControl

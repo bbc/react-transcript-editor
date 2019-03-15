@@ -29,6 +29,7 @@ class TranscriptEditor extends React.Component {
       showTimecodes: true,
       showSpeakers: true
     };
+    this.timedTextEditorRef = React.createRef();
   }
 
   static getDerivedStateFromProps(nextProps) {
@@ -71,10 +72,10 @@ class TranscriptEditor extends React.Component {
   }
 
   ifPresentRetrieveTranscriptFromLocalStorage = () => {
-    if (this.timedTextEditorRef!== undefined) {
-        if (this.timedTextEditorRef.isPresentInLocalStorage(this.props.mediaUrl)) {
-            console.info('was already present in local storage');
-            this.timedTextEditorRef.loadLocalSavedData(this.props.mediaUrl);
+    if (this.timedTextEditor!== undefined) {
+        if (this.timedTextEditor.isPresentInLocalStorage(this.props.mediaUrl)) {
+            console.log('was already present in local storage');
+            this.timedTextEditor.loadLocalSavedData(this.props.mediaUrl);
         } else {
             console.info('not present in local storage');
         }
@@ -157,7 +158,7 @@ class TranscriptEditor extends React.Component {
     this.setState({ timecodeOffset: timecodeOffset },
       () => {
         // eslint-disable-next-line react/no-string-refs
-        this.refs.timedTextEditor.forceUpdate();
+        this.timedTextEditorRef.current.forceUpdate();
       });
   }
 
@@ -220,7 +221,11 @@ class TranscriptEditor extends React.Component {
   }
 
   getEditorContent = (exportFormat) => {
-    return this.refs.timedTextEditor.getEditorContent(exportFormat);
+    return this.timedTextEditorRef.current.getEditorContent(exportFormat);
+  }
+
+  handleSaveTranscript = () => {
+    return this.timedTextEditorRef.current.localSave(this.props.mediaUrl);
   }
 
   render() {
@@ -235,6 +240,7 @@ class TranscriptEditor extends React.Component {
       mediaUrl={ this.props.mediaUrl }
       // ref={ 'MediaPlayer' }
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+      handleSaveTranscript={ this.handleSaveTranscript }
     />;
 
     const settings = <Settings
