@@ -1,4 +1,3 @@
-/** Note Amazon Transcribe data shape doesn't work with the generic generateEntitiesRanges module so we are creating on inline here **/
 import generateEntitiesRanges from '../generate-entities-ranges/index.js';
 
 
