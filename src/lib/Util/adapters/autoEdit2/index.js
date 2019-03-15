@@ -85,7 +85,7 @@ const autoEdit2ToDraft = (autoEdit2Json) => {
       },
       // the entities as ranges are each word in the space-joined text,
       // so it needs to be compute for each the offset from the beginning of the paragraph and the length
-      entityRanges: generateEntitiesRanges(paragraph.words, 'text'),
+      entityRanges: generateEntitiesRanges(paragraph.words, 'content'),
     };
     // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
     results.push(draftJsContentBlockParagraph);
