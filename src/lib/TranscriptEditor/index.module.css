@@ -30,7 +30,7 @@
   text-align: left;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .help {
     display:none;
   }
@@ -44,7 +44,7 @@
 .helpMessage span {
   display: block;
   font-weight: lighter;
-  margin-top: 1em; 
+  margin-top: 1em;
 }
 
 /* Desktop size */
@@ -154,5 +154,3 @@
     height: 2em;
   }
 }
-
-

@@ -14,7 +14,7 @@
     padding-left: 32px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
     .selectPlayerControl[name="playbackRate"] {
         width: 100%;
     }

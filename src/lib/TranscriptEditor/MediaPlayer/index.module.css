@@ -34,7 +34,7 @@
   text-overflow: ellipsis;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .title {
     width: 100%;
     margin:0;
@@ -50,7 +50,7 @@
 }
 
 /* Mobile devices */
-@media (max-width: 769px) {
+@media (max-width: 767px) {
   .hideInMobile {
     display: none;
   }
