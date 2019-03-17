@@ -109,7 +109,6 @@ export const stripLeadingSpace = (word) => {
 const amazonTranscribeToDraft = (amazonTranscribeJson) => {
   const results = [];
   const tmpWords = amazonTranscribeJson.results.items;
-  debugger;
   const wordsWithRemappedPunctuation = mapPunctuationItemsToWords(tmpWords);
   const wordsByParagraphs = groupWordsInParagraphs(wordsWithRemappedPunctuation);
   wordsByParagraphs.forEach((paragraph, i) => {
