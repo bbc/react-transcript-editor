@@ -14,7 +14,7 @@ import generateEntitiesRanges from '../generate-entities-ranges/index.js';
  *  or eg word ={ text:'helo', ... }
  */
 
-const getBestAlternativeForWord = (word) => {
+export const getBestAlternativeForWord = (word) => {
   const alternatives = word.alternatives;
   //return alternatives.reduce();
   if (/punctuation/.test(word.type)) {
@@ -28,59 +28,90 @@ const getBestAlternativeForWord = (word) => {
 
 /**
 Normalizes words so they can be used in
- the generic amazonTranscribeToDraft() method
+ the generic generateEntitiesRanges() method
 **/
 
-const normalizedWord = (currentWord, previousWord) => {
+const normalizeWord = (currentWord, previousWord) => {
   const bestAlternative = getBestAlternativeForWord(currentWord);
   return {
-    start: /punctuation/.test(currentWord.type) ? (parseFloat(previousWord.end_time) + 0.05).toFixed(2) : parseFloat(currentWord.start_time),
-    end: /punctuation/.test(currentWord.type) ? (parseFloat(previousWord.start_time) + 0.06).toFixed(2) : parseFloat(currentWord.end_time),
+    start: parseFloat(currentWord.start_time),
+    end: parseFloat(currentWord.end_time),
     text: bestAlternative.content,
     confidence: parseFloat(bestAlternative.confidence)
   }
 }
 
+export const appendPunctuationToPreviousWord = (punctuation, previousWord) => {
+  const punctuationContent = punctuation.alternatives[0].content
+  return {
+    ...previousWord,
+    alternatives: previousWord.alternatives.map(w => ({
+      ...w,
+      content: w.content + stripLeadingSpace(punctuationContent)
+    }))
+  }
+}
+
+export const mapPunctuationItemsToWords = (words) => {
+  const itemsToRemove = [];
+  const dirtyArray = words.map((word, index) => {
+    let previousWord = {};
+    if (word.type === 'punctuation') {
+      itemsToRemove.push(index-1);
+      previousWord = words[index - 1];
+      return appendPunctuationToPreviousWord(word, previousWord)
+    }
+    else {
+      return word;
+    }
+  })
+  return dirtyArray.filter((item, index) => {
+    return !itemsToRemove.includes(index);
+  })
+}
+
+export const stripLeadingSpace = (word) => {
+  return word.replace(/^\s/, '');
+}
+
 /**
- * groups words list from kaldi transcript based on punctuation.
+ * groups words list from amazon transcribe transcript based on punctuation.
  * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
  * @param {array} words - array of words opbjects from kaldi transcript
  */
 
-const groupWordsInParagraphs = (words) => {
-  const results = [];
-  let paragraph = {
-    words: [],
-    text: []
-  };
-  words.forEach((word, index) => {
-    // if word type is punctuation
-    const content = word.alternatives[0].content;
-    let previousWord = {};
-    if (word.type === 'punctuation' && /[.?!]/.test(content)) {
-      previousWord = words[index - 1]; //assuming here the very first word is never punctuation
-      paragraph.words.push(normalizedWord(word, previousWord));
-      paragraph.text.push(content);
-      results.push(paragraph);
-      // reset paragraph
-      paragraph = {
-        words: [],
-        text: []
-      };
-    } else {
-      paragraph.words.push(normalizedWord(word, previousWord));
-      paragraph.text.push(content);
-    }
-  });
+ const groupWordsInParagraphs = (words) => {
+   const results = [];
+   let paragraph = {
+     words: [],
+     text: []
+   };
+   words.forEach((word, index) => {
+     const content = getBestAlternativeForWord(word).content;
+     const normalizedWord = normalizeWord(word);
+     let previousWord = {};
 
-  return results;
-};
+     if (/[.?!]/.test(content)) {
+       paragraph.words.push(normalizedWord);
+       paragraph.text.push(content);
+       results.push(paragraph);
+       // reset paragraph
+       paragraph = { words: [], text: [] };
+     } else {
+       paragraph.words.push(normalizedWord);
+       paragraph.text.push(content);
+     }
+   });
+
+   return results;
+ };
 
 const amazonTranscribeToDraft = (amazonTranscribeJson) => {
   const results = [];
   const tmpWords = amazonTranscribeJson.results.items;
-
-  const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
+  debugger;
+  const wordsWithRemappedPunctuation = mapPunctuationItemsToWords(tmpWords);
+  const wordsByParagraphs = groupWordsInParagraphs(wordsWithRemappedPunctuation);
   wordsByParagraphs.forEach((paragraph, i) => {
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
