@@ -1,0 +1,19 @@
+.videoEl {
+  cursor: pointer;
+}
+
+/* Desktop size */
+@media (min-width: 768px) {
+
+  .videoEl {
+    max-width: 100%;
+  }
+}
+
+/* Mobile devices - excluding ipad*/
+@media (max-width: 767px) {
+
+  .videoEl {
+    max-width: 100%;
+  }
+}

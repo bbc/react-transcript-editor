@@ -1,9 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tooltip from 'react-simple-tooltip';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuestionCircle, faMousePointer, faICursor, faUserEdit, faKeyboard, faSave } from '@fortawesome/free-solid-svg-icons';
 
 import {
   Editor,
@@ -12,8 +8,7 @@ import {
   convertFromRaw,
   convertToRaw,
   getDefaultKeyBinding,
-  Modifier,
-  KeyBindingUtil
+  Modifier
 } from 'draft-js';
 
 import Word from './Word';
@@ -22,8 +17,6 @@ import WrapperBlock from './WrapperBlock';
 import sttJsonAdapter from '../../Util/adapters/index.js';
 import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
-
-const { hasCommandModifier } = KeyBindingUtil;
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -64,7 +57,7 @@ class TimedTextEditor extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (
       (prevState.transcriptData !== this.state.transcriptData)
-      && ( this.props.mediaUrl!== null && !this.isPresentInLocalStorage(this.props.mediaUrl) )
+      && ( this.props.mediaUrl !== null && !this.isPresentInLocalStorage(this.props.mediaUrl) )
     ) {
       this.loadData();
     }
@@ -109,12 +102,12 @@ class TimedTextEditor extends React.Component {
         editorState
       }), () => {
         // saving when user has stopped typing for more then five seconds
-        if (this.saveTimer!== undefined) {
+        if (this.saveTimer !== undefined) {
           clearTimeout(this.saveTimer);
         }
         this.saveTimer = setTimeout(() => {
           this.localSave(this.props.mediaUrl);
-        }, 5000);
+        }, 1000);
       });
     }
   }
@@ -149,7 +142,6 @@ class TimedTextEditor extends React.Component {
   }
 
   localSave = () => {
-    console.log('localSave');
     clearTimeout(this.saveTimer);
     let mediaUrlName = this.props.mediaUrl;
     // if using local media instead of using random blob name
@@ -268,7 +260,7 @@ class TimedTextEditor extends React.Component {
    */
   customKeyBindingFn = (e) => {
     const enterKey = 13;
-    const spaceKey =32;
+    const spaceKey = 32;
     const kKey = 75;
     const lKey = 76;
     const jKey = 74;
@@ -406,9 +398,9 @@ class TimedTextEditor extends React.Component {
     // if it's the last char in the paragraph - get previous entity
     if (remainingCharNumber === 0 ) {
       isEndOfParagraph = true;
-      for (let j = lengthPlainTextForTheBlock; j >0 ; j--) {
+      for (let j = lengthPlainTextForTheBlock; j > 0 ; j--) {
         entityKey = originalBlock.getEntityAt(j);
-        if (entityKey!== null) {
+        if (entityKey !== null) {
           // if it finds it then return
           return { entityKey, isEndOfParagraph };
         }
@@ -416,10 +408,9 @@ class TimedTextEditor extends React.Component {
     }
     // if it's first char or another within the block - get next entity
     else {
-      console.log('Main part of paragraph');
       let initialSelectionOffset = currentSelection.getStartOffset();
       for (let i = 0; i < remainingCharNumber ; i++) {
-        initialSelectionOffset +=i;
+        initialSelectionOffset += i;
         entityKey = originalBlock.getEntityAt(initialSelectionOffset);
         // if it finds it then return
         if (entityKey !== null) {
@@ -482,25 +473,6 @@ class TimedTextEditor extends React.Component {
   }
 
   render() {
-    const helpMessage = <div className={ style.helpMessage }>
-      <span><FontAwesomeIcon className={ style.icon } icon={ faMousePointer } />Double click on a word or timestamp to jump to that point in the video.</span>
-      <span><FontAwesomeIcon className={ style.icon } icon={ faICursor } />Start typing to edit text.</span>
-      <span><FontAwesomeIcon className={ style.icon } icon={ faUserEdit } />You can add and change names of speakers in your transcript.</span>
-      <span><FontAwesomeIcon className={ style.icon } icon={ faKeyboard } />Use keyboard shortcuts for quick control.</span>
-      <span><FontAwesomeIcon className={ style.icon } icon={ faSave } />Save & export to get a copy to your desktop.</span>
-    </div>;
-
-    const tooltip = <Tooltip
-      className={ style.help }
-      content={ helpMessage }
-      fadeDuration={ 250 }
-      fadeEasing={ 'ease-in' }
-      placement={ 'bottom' }
-      radius={ 5 }>
-      <FontAwesomeIcon className={ style.icon } icon={ faQuestionCircle } />
-      How does this work?
-    </Tooltip>;
-
     const currentWord = this.getCurrentWord();
     const highlightColour = '#69e3c2';
     const unplayedColor = '#767676';
@@ -512,8 +484,12 @@ class TimedTextEditor extends React.Component {
     const editor = (
       <section
         className={ style.editor }
-        onDoubleClick={ event => this.handleDoubleClick(event) }>
-
+        onDoubleClick={ event => this.handleDoubleClick(event) }
+        // TODO: decide if on mobile want to have a way to "click" on words
+        // to play corresponding media
+        // a double tap would be the ideal solution
+        // onTouchStart={ event => this.handleDoubleClick(event) }
+      >
         <style scoped>
           {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
           {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
@@ -535,7 +511,6 @@ class TimedTextEditor extends React.Component {
 
     return (
       <section>
-        { tooltip }
         { this.props.transcriptData !== null ? editor : null }
       </section>
     );
@@ -576,7 +551,10 @@ TimedTextEditor.propTypes = {
   isScrollIntoViewOn: PropTypes.bool,
   isPauseWhileTypingOn: PropTypes.bool,
   timecodeOffset: PropTypes.number,
-  handleAnalyticsEvents: PropTypes.func
+  handleAnalyticsEvents: PropTypes.func,
+  showSpeakers: PropTypes.bool,
+  showTimecodes: PropTypes.bool,
+  fileName: PropTypes.string
 };
 
 export default TimedTextEditor;

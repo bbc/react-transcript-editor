@@ -4,18 +4,9 @@
   display: inline-block;
   position: relative;
   width: 48px;
-  display:inline-block;
+  display: inline-block;
   vertical-align: middle;
   margin-right: 1em;
-}
-
-.label {
-  display: block;
-  margin: 0.2em 0;
-  font-weight: light;
-  color: white;
-  text-align: center;
-  font-size: 0.8em;
 }
 
 .switch {
@@ -39,20 +30,20 @@
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 20px;
   width: 20px;
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {

@@ -2,10 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faKeyboard } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faKeyboard, faQuestionCircle, faMousePointer, faICursor, faUserEdit, faSave } from '@fortawesome/free-solid-svg-icons';
+
+import Tooltip from 'react-simple-tooltip';
 
 import TimedTextEditor from './TimedTextEditor';
 import MediaPlayer from './MediaPlayer';
+import VideoPlayer from './MediaPlayer/VideoPlayer';
 import Settings from './Settings';
 import Shortcuts from './Settings/Shortcuts';
 import { secondsToTimecode } from '../Util/timecode-converter/index';
@@ -15,6 +18,7 @@ import style from './index.module.css';
 class TranscriptEditor extends React.Component {
   constructor(props) {
     super(props);
+    this.videoRef = React.createRef();
 
     this.state = {
       currentTime: 0,
@@ -27,7 +31,10 @@ class TranscriptEditor extends React.Component {
       rollBackValueInSeconds: 15,
       timecodeOffset: 0,
       showTimecodes: true,
-      showSpeakers: true
+      showSpeakers: true,
+      previewIsDisplayed: true,
+      mediaDuration: '00:00:00:00'
+      // previewViewWidth: '25'
     };
     this.timedTextEditorRef = React.createRef();
   }
@@ -70,7 +77,7 @@ class TranscriptEditor extends React.Component {
   }
 
   ifPresentRetrieveTranscriptFromLocalStorage = () => {
-    if (this.timedTextEditorRef.current!== undefined) {
+    if (this.timedTextEditorRef.current !== undefined) {
       if (this.timedTextEditorRef.current.isPresentInLocalStorage(this.props.mediaUrl)) {
         console.info('was already present in local storage');
         this.timedTextEditorRef.current.loadLocalSavedData(this.props.mediaUrl);
@@ -95,7 +102,8 @@ class TranscriptEditor extends React.Component {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  handleTimeUpdate = (currentTime) => {
+  handleTimeUpdate = (e) => {
+    const currentTime = e.target.currentTime;
     this.setState({
       currentTime,
     });
@@ -183,7 +191,7 @@ class TranscriptEditor extends React.Component {
         category: 'TranscriptEditor',
         action: 'handleShowSpeakers',
         name: 'showSpeakers',
-        value:  isChecked
+        value: isChecked
       });
     }
   }
@@ -198,7 +206,7 @@ class TranscriptEditor extends React.Component {
         category: 'TranscriptEditor',
         action: 'handleSettingsToggle',
         name: 'showSettings',
-        value:  !this.state.showSettings
+        value: !this.state.showSettings
       });
     }
   }
@@ -213,7 +221,7 @@ class TranscriptEditor extends React.Component {
         category: 'TranscriptEditor',
         action: 'handleShortcutsToggle',
         name: 'showShortcuts',
-        value:  !this.state.showShortcuts
+        value: !this.state.showShortcuts
       });
     }
   }
@@ -222,22 +230,69 @@ class TranscriptEditor extends React.Component {
     return this.timedTextEditorRef.current.getEditorContent(exportFormat);
   }
 
+  handlePreviewIsDisplayed = () => {
+    this.setState({
+      previewIsDisplayed: !this.state.previewIsDisplayed
+    });
+  }
+
+  onLoadedDataGetDuration = (e) => {
+    const currentDuration = e.target.duration;
+    const currentDurationWithOffset = currentDuration + this.state.timecodeOffset;
+    const durationInSeconds = secondsToTimecode( currentDuration + currentDurationWithOffset);
+
+    this.setState({
+      mediaDuration: durationInSeconds
+    });
+
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'onLoadedDataGetDuration',
+        name: 'durationInSeconds-WithoutOffset',
+        value: secondsToTimecode( currentDuration)
+      });
+    }
+
+  }
+
+  handleChangePreviewViewWidth = (e) => {
+    const newPreviewViewWidth = e.target.value;
+    this.setState({
+      previewViewWidth: newPreviewViewWidth
+    });
+  }
+
   handleSaveTranscript = () => {
+    alert('The changes to this transcript have been saved in your browser');
+
     return this.timedTextEditorRef.current.localSave(this.props.mediaUrl);
   }
 
   render() {
-    const mediaPlayer = <MediaPlayer
-      fileName={ this.props.fileName }
+    const videoPlayer = <VideoPlayer
+      mediaUrl={ this.props.mediaUrl }
+      onTimeUpdate= { this.handleTimeUpdate }
+      onClick= { this.props.onClick }
+      videoRef={ this.videoRef }
+      previewIsDisplayed={ this.state.previewIsDisplayed }
+      onLoadedDataGetDuration={ this.onLoadedDataGetDuration }
+      // viewWith={ this.state.previewViewWidth }
+    />;
+
+    const mediaControls = <MediaPlayer
+      title={ this.props.title ? this.props.title : '' }
+      mediaDuration={ this.state.mediaDuration }
       hookSeek={ foo => this.setCurrentTime = foo }
       hookPlayMedia={ foo => this.playMedia = foo }
       hookIsPlaying={ foo => this.isPlaying = foo }
       rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
       timecodeOffset={ this.state.timecodeOffset }
-      hookOnTimeUpdate={ this.handleTimeUpdate }
+      // hookOnTimeUpdate={ this.handleTimeUpdate }
       mediaUrl={ this.props.mediaUrl }
       // ref={ 'MediaPlayer' }
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+      videoRef={ this.videoRef }
       handleSaveTranscript={ this.handleSaveTranscript }
     />;
 
@@ -256,6 +311,10 @@ class TranscriptEditor extends React.Component {
       handleShowTimecodes={ this.handleShowTimecodes }
       handleShowSpeakers={ this.handleShowSpeakers }
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+      previewIsDisplayed={ this.state.previewIsDisplayed }
+      handlePreviewIsDisplayed={ this.handlePreviewIsDisplayed }
+      // previewViewWidth={ this.state.previewViewWidth }
+      handleChangePreviewViewWidth={ this.handleChangePreviewViewWidth }
     />;
 
     const shortcuts = <Shortcuts
@@ -281,33 +340,67 @@ class TranscriptEditor extends React.Component {
       handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
     />;
 
+    const helpMessage = <div className={ style.helpMessage }>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faMousePointer } />Double click on a word or timestamp to jump to that point in the video.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faICursor } />Start typing to edit text.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faUserEdit } />You can add and change names of speakers in your transcript.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faKeyboard } />Use keyboard shortcuts for quick control.</span>
+      <span><FontAwesomeIcon className={ style.icon } icon={ faSave } />Save & export to get a copy to your desktop.</span>
+    </div>;
+
+    const tooltip = <Tooltip
+      className={ style.help }
+      content={ helpMessage }
+      fadeDuration={ 250 }
+      fadeEasing={ 'ease-in' }
+      placement={ 'bottom' }
+      radius={ 5 }
+      border={ '#ffffff' }
+      background={ '#f2f2f2' }
+      color={ '#000000' }
+    >
+      <FontAwesomeIcon className={ style.icon } icon={ faQuestionCircle } />
+    How does this work?
+    </Tooltip>;
+
     return (
       <div className={ style.container }>
         <header className={ style.header }>
           { this.state.showSettings ? settings : null }
           { this.state.showShortcuts ? shortcuts : null }
+          {tooltip}
         </header>
 
-        <aside className={ style.aside }>{ this.props.mediaUrl ? mediaPlayer : null }</aside>
+        <nav className={ style.nav }>{ this.props.mediaUrl === null ? null : mediaControls }</nav>
 
         <div className={ style.settingsContainer }>
-          <button className={ style.settingsButton } onClick={ this.handleSettingsToggle }>
+          <button className={ style.settingsButton } title="Settings" onClick={ this.handleSettingsToggle }>
             <FontAwesomeIcon icon={ faCog } />
           </button>
-          <button className={ style.settingsButton } onClick={ this.handleShortcutsToggle }>
+          <button className={ `${ style.settingsButton } ${ style.keyboardShortcutsButon }` } title="view shortcuts" onClick={ this.handleShortcutsToggle }>
             <FontAwesomeIcon icon={ faKeyboard } />
           </button>
         </div>
 
-        <main className={ style.main }>
-          {this.props.mediaUrl === null? null : timedTextEditor}
-        </main>
+        <div className={ style.grid }>
+          <section className={ style.row }>
+            <aside className={ style.aside }>
+              {this.props.mediaUrl === null ? null : videoPlayer}
+            </aside>
+            <main className={ style.main }>
+              {this.props.mediaUrl === null ? null : timedTextEditor}
+            </main>
+          </section>
+        </div>
+
       </div>
     );
   }
 }
 
 TranscriptEditor.propTypes = {
+  onClick: PropTypes.func,
+  title: PropTypes.string,
   mediaUrl: PropTypes.string,
   isEditable: PropTypes.bool,
   sttJsonType: PropTypes.string,

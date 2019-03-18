@@ -1,17 +1,22 @@
 {
   "parser": "babel-eslint",
   "plugins": [
-    "react"
+    "react",
+    "css-modules"
   ],
   "extends": [
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:css-modules/recommended"
   ],
   "env": {
     "browser": true,
     "jest": true
   },
   "rules": {
+    "no-unused-expressions": "error",
     "no-trailing-spaces": "error",
+    "no-nested-ternary": "error",
+    "space-infix-ops": "error",
     "indent": ["warn", 2],
     "arrow-spacing": ["error", { "before": true, "after": true }],
     "space-in-parens": [ 0, "never" ],
@@ -40,6 +45,7 @@
     "camelcase": [ 1 ],
     "no-underscore-dangle" : [0, "always"],
     "keyword-spacing": ["error", { "before": true, "after": true }],
+    "key-spacing": ["error", { "afterColon": true }],
     "newline-before-return": "error",
     "space-before-blocks": "error",
     "no-unused-vars": "error",

@@ -42,7 +42,10 @@ class Settings extends React.Component {
             <div className={ style.label }>Rollback Interval (sec)</div>
             <input
               className={ style.rollbackValue }
-              type="text"
+              type="number"
+              step="1"
+              max="60"
+              min="1"
               value={ this.props.defaultRollBackValueInSeconds }
               onChange={ this.props.handleRollBackValueInSeconds }
               name="lname"/>
@@ -65,6 +68,28 @@ class Settings extends React.Component {
               handleToggle={ this.props.handleShowSpeakers }
             />
           </section>
+
+          <section className={ style.settingElement }>
+            <div className={ style.label }>Display Preview</div>
+            <Toggle
+              defaultValue={ this.props.previewIsDisplayed }
+              label={ 'Display Preview' }
+              handleToggle={ this.props.handlePreviewIsDisplayed }
+            />
+          </section>
+          {/*
+          <section className={ style.settingElement }>
+            <div className={ style.label }>Video Preview width</div>
+            <input
+              className={ style.rollbackValue }
+              type="number"
+              step="1"
+              max="40"
+              min="15"
+              value={ this.props.previewViewWidth }
+              onChange={ this.props.handleChangePreviewViewWidth }
+              name="lname"/>
+          </section> */}
 
           <section className={ style.settingElement }>
             <div className={ style.timecodeLabel }>Timecode Offset ℹ</div>
@@ -93,7 +118,12 @@ Settings.propTypes = {
   handleRollBackValueInSeconds: PropTypes.func,
   defaultValueScrollSync: PropTypes.bool,
   defaultValuePauseWhileTyping: PropTypes.bool,
-  defaultRollBackValueInSeconds: PropTypes.number
+  defaultRollBackValueInSeconds: PropTypes.number,
+  previewIsDisplayed: PropTypes.bool,
+  handlePreviewIsDisplayed: PropTypes.func,
+  // previewViewWidth: PropTypes.string,
+  handleChangePreviewViewWidth: PropTypes.func,
+  handleAnalyticsEvents: PropTypes.func
 };
 
 export default Settings;

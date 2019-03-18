@@ -46,7 +46,7 @@ class TimecodeOffset extends React.Component {
     });
 
     let newCurrentTimeInSeconds = this.state.timecodeOffset;
-    if (typeof newCurrentTimeInSeconds ==='string'
+    if (typeof newCurrentTimeInSeconds === 'string'
     && newCurrentTimeInSeconds.includes(':')
     && !newCurrentTimeInSeconds.includes('NaN')) {
       newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTimeInSeconds );
@@ -74,7 +74,8 @@ class TimecodeOffset extends React.Component {
 TimecodeOffset.propTypes = {
   handleSetTimecodeOffset: PropTypes.func,
   onChange: PropTypes.func,
-  timecodeOffset: PropTypes.number
+  timecodeOffset: PropTypes.number,
+  handleAnalyticsEvents: PropTypes.func
 };
 
 export default TimecodeOffset;

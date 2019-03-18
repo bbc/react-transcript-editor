@@ -60,14 +60,18 @@ npm install @bbc/react-transcript-editor
 ```js
 import { TranscriptEditor } from '@bbc/react-transcript-editor';
 
-<TranscriptEditor
-    transcriptData=// Transcript json
-    mediaUrl=// string url to media file - audio or video
-    isEditable={true}// se to true if you want to be able to edit the text
-    sttJsonType={ 'bbckaldi' }// the type of STT Json transcript supported.
-    fileName={ this.state.fileName }// optional*
-/>
+  <TranscriptEditor
+     transcriptData=// Transcript json
+     mediaUrl=// string url to media file - audio or video 
+     isEditable={true}// se to true if you want to be able to edit the text
+     sttJsonType={ 'bbckaldi' }// the type of STT Json transcript supported.
+     handleAnalyticsEvents={ this.handleAnalyticsEvents } // optional - if you want to collect analytics events.
+     fileName=// optional - used for saving and retrieving local storage blob files 
+     title=// optional - defaults to ''
+     ref= // optional - if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.
+   />
 ```
+See [`./src/index.js` demo](./src/index.js) as a more detailed example usage of the component.
 
 _Note: `fileName` it is optional but it's needed if working with user uploaded local media in the browser, to be able to save and retrieve from local storage. For instance if you are passing a blob url to `mediaUrl` using `createObjectURL` this url is randomly re-generated on every page refresh so you wouldn't be able to restore a session, as `mediaUrl` is used as the local storage key. See demo app for more detail example of this[`./src/index.js`](./src/index.js)_
 
