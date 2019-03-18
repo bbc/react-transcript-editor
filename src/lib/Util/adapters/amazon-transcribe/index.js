@@ -1,6 +1,5 @@
 import generateEntitiesRanges from '../generate-entities-ranges/index.js';
 
-
 /**
  * Helper function to generate draft.js entities,
  * see unit test for example data structure
@@ -18,13 +17,14 @@ export const getBestAlternativeForWord = (word) => {
   const alternatives = word.alternatives;
   //return alternatives.reduce();
   if (/punctuation/.test(word.type)) {
-    return Object.assign(word.alternatives[0],{confidence: 1}); //Transcribe doesn't provide a confidence for punctuation
+    return Object.assign(word.alternatives[0], { confidence: 1 }); //Transcribe doesn't provide a confidence for punctuation
   }
   const wordWithHighestConfidence = word.alternatives.reduce(function(prev, current) {
-    return (parseFloat(prev.confidence) > parseFloat(current.confidence)) ? prev : current
-  })
+    return (parseFloat(prev.confidence) > parseFloat(current.confidence)) ? prev : current;
+  });
+
   return wordWithHighestConfidence;
-}
+};
 
 /**
 Normalizes words so they can be used in
@@ -33,13 +33,14 @@ Normalizes words so they can be used in
 
 const normalizeWord = (currentWord, previousWord) => {
   const bestAlternative = getBestAlternativeForWord(currentWord);
+
   return {
     start: parseFloat(currentWord.start_time),
     end: parseFloat(currentWord.end_time),
     text: bestAlternative.content,
     confidence: parseFloat(bestAlternative.confidence)
-  }
-}
+  };
+};
 
 export const appendPunctuationToPreviousWord = (punctuation, previousWord) => {
   const punctuationContent = punctuation.alternatives[0].content
@@ -90,7 +91,6 @@ export const stripLeadingSpace = (word) => {
      const content = getBestAlternativeForWord(word).content;
      const normalizedWord = normalizeWord(word);
      let previousWord = {};
-
      if (/[.?!]/.test(content)) {
        paragraph.words.push(normalizedWord);
        paragraph.text.push(content);
@@ -127,6 +127,7 @@ const amazonTranscribeToDraft = (amazonTranscribeJson) => {
     // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
     results.push(draftJsContentBlockParagraph);
   });
+
   return results;
 };
 
