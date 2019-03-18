@@ -1,13 +1,14 @@
 # React Transcript Editor
 
 <!-- _One liner_ -->
+
 A React component to make transcribing audio and video easier and faster.
 
 [![install size](https://packagephobia.now.sh/badge?p=@bbc/react-transcript-editor)](https://packagephobia.now.sh/result?p=@bbc/react-transcript-editor)
 
 The project uses [this github project board to organise and the co-ordinate development](https://github.com/bbc/react-transcript-editor/projects/1).
 
-_--> Work in progress <--_ 
+_--> Work in progress <--_
 
 <!-- _Screenshot of UI - optional_ -->
 
@@ -24,13 +25,12 @@ Node version is set in node version manager [`.nvmrc`](https://github.com/creati
 
 <!-- _Linting, github pre-push hook - optional_ -->
 
-
 ## Setup
 
 <!-- _stack - optional_ -->
 <!-- _How to build and run the code/app_ -->
 
-Fork this repository + git clone + cd into folder 
+Fork this repository + git clone + cd into folder
 
 ## Usage - development
 
@@ -43,7 +43,6 @@ npm start
 ```
 
 Visit [http://localhost:3000](http://localhost:3000)
-
 
 ## Usage - production
 
@@ -62,20 +61,28 @@ npm install @bbc/react-transcript-editor
 import { TranscriptEditor } from '@bbc/react-transcript-editor';
 
   <TranscriptEditor
-           transcriptData=// Transcript json
-           mediaUrl=// string url to media file - audio or video 
-           isEditable={true}// se to true if you want to be able to edit the text
-           sttJsonType={ 'bbckaldi' }// the type of STT Json transcript supported.
-           handleAnalyticsEvents={ this.handleAnalyticsEvents } // optional - if you want to collect analytics events.
-           fileName=// optional - used for saving and retrieving local storage blob files 
-           title=// optional - defaults to ''
-           ref= // optional - if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.
-         />
+     transcriptData=// Transcript json
+     mediaUrl=// string url to media file - audio or video 
+     isEditable={true}// se to true if you want to be able to edit the text
+     sttJsonType={ 'bbckaldi' }// the type of STT Json transcript supported.
+     handleAnalyticsEvents={ this.handleAnalyticsEvents } // optional - if you want to collect analytics events.
+     fileName=// optional - used for saving and retrieving local storage blob files 
+     title=// optional - defaults to ''
+     ref= // optional - if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.
+   />
 ```
 See [`./src/index.js` demo](./src/index.js) as a more detailed example usage of the component.
 
 _Note: `fileName` it is optional but it's needed if working with user uploaded local media in the browser, to be able to save and retrieve from local storage. For instance if you are passing a blob url to `mediaUrl` using `createObjectURL` this url is randomly re-generated on every page refresh so you wouldn't be able to restore a session, as `mediaUrl` is used as the local storage key. See demo app for more detail example of this[`./src/index.js`](./src/index.js)_
 
+### Typescript projects
+
+If using in a parent project where [typescript](https://www.typescriptlang.org/) is being used you might need to add `//@ts-ignore` before the import statment like this
+
+```js
+//@ts-ignore
+import { TranscriptEditor } from "@bbc/react-transcript-editor";
+```
 
 ## System Architecture
 
@@ -85,13 +92,13 @@ Uses [`create-component-lib`](https://www.npmjs.com/package/create-component-lib
 
 This uses [Create React App 2.0](https://reactjs.org/blog/2018/10/01/create-react-app-v2.html) so we are using [CSS Modules](https://github.com/css-modules/css-modules) to contain the scope of the css for this component.
 
-> Place everything you want to publish to npm inside `src/lib`. 
+> Place everything you want to publish to npm inside `src/lib`.
 
 > Outside `src/lib` (but inside src/), you can create example web pages to test or demonstrate the usage of your components.
 
-## Documentation 
+## Documentation
 
-There's a [docs](./docs) folder in this repository. 
+There's a [docs](./docs) folder in this repository.
 
 [docs/notes](./docs/notes) contains dev notes on various aspects of the project.
 
@@ -113,15 +120,14 @@ We are using [this template for ADR](https://gist.github.com/iaincollins/92923cc
 npm run build:component
 ```
 
-## Demo 
+## Demo
 
 Demo can be viewed at [https://bbc.github.io/react-transcript-editor](https://bbc.github.io/react-transcript-editor)
 
-<!-- https://github.com/gitname/react-gh-pages 
+<!-- https://github.com/gitname/react-gh-pages
 -->
 
-
-## Build - demo 
+## Build - demo
 
 This github repository uses [github pages](https://pages.github.com/) to host a demo of the component, in [docs/demo](./docs/demo)
 
@@ -145,15 +151,15 @@ npm run build:example
 
 Test coverage using [`jest`](https://jestjs.io/), to run tests
 
- ```
- npm run test
- ```
+```
+npm run test
+```
 
 ## Deployment
 
 <!-- _How to deploy the code/app into test/staging/production_ -->
 
-To push to  [npm - `@bbc/react-transcript-editor`](https://www.npmjs.com/package/@bbc/react-transcript-editor)
+To push to [npm - `@bbc/react-transcript-editor`](https://www.npmjs.com/package/@bbc/react-transcript-editor)
 
 ```
 npm publish:public
@@ -163,16 +169,13 @@ This runs `npm run build:component` and `npm publish --access public` under the 
 
 > Note that only `README.md` and the `dist` folders are published to npm.
 
-
-## Contributing 
+## Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) guidelines.
-
 
 ## Licence
 
 See [LICENCE.md](./LICENCE.md)
-
 
 ## Legal Disclaimer
 
