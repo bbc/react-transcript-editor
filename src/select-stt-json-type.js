@@ -15,6 +15,7 @@ const SttTypeSelect = props => (<select name={ props.name } value={ props.value 
   <option value="srt" disabled>Srt</option>
   <option value="vtt" disabled>VTT</option>
   <option value="vtt-youtube" disabled>Youtube VTT</option>
+  <option value="amazontranscribe">Amazon Transcribe</option>
 </select>);
 
 SttTypeSelect.propTypes = {
