@@ -377,7 +377,7 @@ class TranscriptEditor extends React.Component {
           <button className={ style.settingsButton } title="Settings" onClick={ this.handleSettingsToggle }>
             <FontAwesomeIcon icon={ faCog } />
           </button>
-          <button className={ style.settingsButton } title="view shortcuts" onClick={ this.handleShortcutsToggle }>
+          <button className={ `${ style.settingsButton } ${ style.keyboardShortcutsButon }` } title="view shortcuts" onClick={ this.handleShortcutsToggle }>
             <FontAwesomeIcon icon={ faKeyboard } />
           </button>
         </div>
