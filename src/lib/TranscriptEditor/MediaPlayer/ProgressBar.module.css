@@ -26,9 +26,14 @@
   width: 16px;
   background: color-labs-red;
   cursor: pointer;
+  border: 0;
 }
 
 .bar::-webkit-slider-runnable-track {
   width: 100%;
   cursor: pointer;
+}
+
+input[type=range]::-moz-focus-outer {
+  border: 0;
 }
