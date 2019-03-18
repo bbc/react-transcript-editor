@@ -383,7 +383,6 @@ class MediaPlayer extends React.Component {
     const playerControlsSection = (
       <div className={ styles.controlsSection }>
         <h2 className={ styles.title }>{this.props.title}</h2>
-        { this.props.mediaUrl === null ? null : progressBar }
         <PlayerControls
           playMedia={ this.togglePlayMedia.bind(this) }
           isPlaying={ this.state.isPlaying }
@@ -405,6 +404,7 @@ class MediaPlayer extends React.Component {
           pictureInPicture={ this.handlePictureInPicture }
           handleSaveTranscript={ () => {this.props.handleSaveTranscript();} }
         />
+        { this.props.mediaUrl === null ? null : progressBar }
       </div>
     );
 

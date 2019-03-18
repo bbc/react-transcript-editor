@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  padding: 10px;
+  padding: 0.5em;
 }
 
 .container {
@@ -9,7 +9,6 @@ body {
 }
 
 @media (max-width: 767px) {
-
   body {
     padding: 0;
   }

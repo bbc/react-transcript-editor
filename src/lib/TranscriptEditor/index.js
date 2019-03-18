@@ -191,7 +191,7 @@ class TranscriptEditor extends React.Component {
         category: 'TranscriptEditor',
         action: 'handleShowSpeakers',
         name: 'showSpeakers',
-        value:  isChecked
+        value: isChecked
       });
     }
   }
@@ -206,7 +206,7 @@ class TranscriptEditor extends React.Component {
         category: 'TranscriptEditor',
         action: 'handleSettingsToggle',
         name: 'showSettings',
-        value:  !this.state.showSettings
+        value: !this.state.showSettings
       });
     }
   }
@@ -221,7 +221,7 @@ class TranscriptEditor extends React.Component {
         category: 'TranscriptEditor',
         action: 'handleShortcutsToggle',
         name: 'showShortcuts',
-        value:  !this.state.showShortcuts
+        value: !this.state.showShortcuts
       });
     }
   }
@@ -382,16 +382,16 @@ class TranscriptEditor extends React.Component {
           </button>
         </div>
 
-        {/*  */}
-
-        <section className={ style.row }>
-          <aside className={ style.aside }>
-            {this.props.mediaUrl === null ? null : videoPlayer}
-          </aside>
-          <main className={ style.main }>
-            {this.props.mediaUrl === null ? null : timedTextEditor}
-          </main>
-        </section>
+        <div className={ style.grid }>
+          <section className={ style.row }>
+            <aside className={ style.aside }>
+              {this.props.mediaUrl === null ? null : videoPlayer}
+            </aside>
+            <main className={ style.main }>
+              {this.props.mediaUrl === null ? null : timedTextEditor}
+            </main>
+          </section>
+        </div>
 
       </div>
     );

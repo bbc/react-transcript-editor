@@ -1,5 +1,9 @@
 @value color-light-shilo, color-darkest-grey, color-light-grey, color-labs-red from '../colours.module.css';
 
+.playerControls {
+  margin-bottom: 0.5em;
+}
+
 .playerControls > * {
   display: inline-block;
 }

@@ -66,11 +66,16 @@
     width: 100%;
   }
 
+  .grid {
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
   .row {
     display: grid;
-    margin-top: 1em;
-    grid-template-columns: 27% 70%;
-    grid-column-gap: 1.5%;
+    grid-template-columns: 1fr 3fr;
+    grid-column-gap: 1em;
   }
 
   .settingsContainer {

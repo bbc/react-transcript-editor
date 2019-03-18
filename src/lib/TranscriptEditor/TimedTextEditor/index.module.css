@@ -12,7 +12,7 @@ https://github.com/facebook/draft-js/issues/528
 .editor :global(.public-DraftEditor-content) {
   max-height: 75vh;
   overflow: auto;
-  padding: 10px 15px;
+  padding: 8px 16px;
   background-color: white;
 }
 
