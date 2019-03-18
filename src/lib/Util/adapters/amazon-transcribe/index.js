@@ -14,8 +14,6 @@ import generateEntitiesRanges from '../generate-entities-ranges/index.js';
  */
 
 export const getBestAlternativeForWord = (word) => {
-  const alternatives = word.alternatives;
-  //return alternatives.reduce();
   if (/punctuation/.test(word.type)) {
     return Object.assign(word.alternatives[0], { confidence: 1 }); //Transcribe doesn't provide a confidence for punctuation
   }
@@ -90,7 +88,6 @@ export const stripLeadingSpace = (word) => {
    words.forEach((word, index) => {
      const content = getBestAlternativeForWord(word).content;
      const normalizedWord = normalizeWord(word);
-     let previousWord = {};
      if (/[.?!]/.test(content)) {
        paragraph.words.push(normalizedWord);
        paragraph.text.push(content);
@@ -124,7 +121,6 @@ const amazonTranscribeToDraft = (amazonTranscribeJson) => {
       // so it needs to be compute for each the offset from the beginning of the paragraph and the length
       entityRanges: generateEntitiesRanges(paragraph.words, 'text'), // wordAttributeName
     };
-    // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
     results.push(draftJsContentBlockParagraph);
   });
 

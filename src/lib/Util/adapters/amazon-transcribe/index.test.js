@@ -4,10 +4,10 @@ import amazonTranscribeToDraft, {
   appendPunctuationToPreviousWord,
   getBestAlternativeForWord
 } from './index';
-import amazonTranscribeTedTalkTranscript from './sample/amazonTranscribe.sample.json';
 import draftTranscriptSample from './sample/amazonTranscribe.sample.js';
+import amazonTranscribeTedTalkTranscript from './sample/amazonTranscribe.sample.json';
 
-describe.skip('amazonTranscribeToDraft', () => {
+describe('amazonTranscribeToDraft', () => {
   const result = amazonTranscribeToDraft(amazonTranscribeTedTalkTranscript);
   it('Should be defined', () => {
     expect(result).toBeDefined();
