@@ -19,7 +19,8 @@ class App extends React.Component {
       isTextEditable: true,
       sttType: 'bbckaldi',
       analyticsEvents: [],
-      fileName: 'Kate Darling Ted Talk'
+      title: 'Ted Talk Kate Kate Darling',
+      fileName: ''
     };
 
     this.transcriptEditorRef = React.createRef();
@@ -67,7 +68,7 @@ class App extends React.Component {
   handleChangeLoadTranscriptJson(files) {
     const file = files[0];
 
-    if (file.type ==='application/json') {
+    if (file.type === 'application/json') {
       const fr = new FileReader();
 
       fr.onload = (evt) => {
@@ -125,14 +126,21 @@ class App extends React.Component {
      this.setState({ analyticsEvents: [ ...this.state.analyticsEvents, event ] });
    }
 
+   handleChangeTranscriptTitle = (newTitle) => {
+     this.setState({
+       title: newTitle
+     });
+   }
+
    handleChangeTranscriptName = (value) => {
      this.setState({ fileName: value });
    }
 
    render() {
+
      return (
        <div className={ style.container }>
-         <span className={ style.title }>
+         <span>
             Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
            <a
              href="https://github.com/bbc/react-transcript-editor"
@@ -177,20 +185,20 @@ class App extends React.Component {
          />
          <br />
          <label>Text Is Editable</label>
-         <label className={ style.switch }>
+         <label>
            <input type="checkbox"
              defaultChecked="true"
              onChange={ this.handleIsTextEditable }
            />
-           <span className={ style.slider }></span>
          </label>
-         <br />
-         <label>Transcript Name</label>
+         <br/>
+         <label>Optional Transcript Name</label>
          <input
            type="text"
-           onChange={ e => this.handleChangeTranscriptName(e.target.value) }
-           value={ this.state.fileName }
+           value={ this.state.title }
+           onChange={ e => this.handleChangeTranscriptTitle(e.target.value) }
          />
+
          <br />
          <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
          <hr/>
@@ -202,6 +210,7 @@ class App extends React.Component {
            isEditable={ this.state.isTextEditable }
            sttJsonType={ this.state.sttType }
            handleAnalyticsEvents={ this.handleAnalyticsEvents }
+           title={ this.state.title }
            ref={ this.transcriptEditorRef }
          />
          <hr/>

@@ -12,7 +12,6 @@
 */
 const generateEntitiesRanges = (words, wordAttributeName) => {
   let position = 0;
-
   return words.map((word) => {
     const result = {
       start: word.start,
