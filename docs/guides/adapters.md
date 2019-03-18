@@ -34,7 +34,7 @@ checkout [a quick side note on how the DraftJS `block`, `entityRanges` and `enti
 In your branch 
 
 - [ ] Create a folder with the name of the STT service - eg `speechmatics`
-- [ ] add a `adapters/${sttServiceName}/sample` folder
+- [ ] add a `src/lib/Util/adapters/${sttServiceName}/sample` folder
 - [ ] add a sample json file from the STT service in this last folder - this will be useful for testing. Name it `${name of the stt service}.sample.json`
 <!-- TODO: we should check these json are excluded from the bundle -->
 - [ ] add option in [adapters/index.js](adapters/index.js)
@@ -106,6 +106,8 @@ We have been (informally) using `TBC` as a place holder when the STT service doe
 This project uses jest. and once you submit the PR the tests are run by TravisCI. It is recommended to write some basic tests at a minimum so that you can see at a glance if the adapter is working as expected. 
 
 In order to write your tests, you want to have a `sample` folder with transcript data from stt and expected draftJs data output with file extensions `.sample.json` and `.sample.js` - see `bbc-kaldi` and `autoEdit2` example. This is so that those stub/example files are not bundled with the component when packaging for npm.
+
+You can create and run your `example-usage.js` file and save the output json. This can be used to create the `.sample.js` file for the main test.
 
 _If you don't have much experience with automated testing don't let this put you off tho, feel free to raise it as an issue and we can help out._
 
