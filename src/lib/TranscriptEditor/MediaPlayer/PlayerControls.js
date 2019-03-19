@@ -16,7 +16,7 @@ import {
   faForward,
   faUndo,
   faVolumeUp,
-  faVolumeOff
+  faVolumeMute
 } from '@fortawesome/free-solid-svg-icons';
 
 class PlayerControls extends React.Component {
@@ -117,7 +117,7 @@ class PlayerControls extends React.Component {
           <button
             value="Picture-in-picture"
             title="Picture-in-picture"
-            className={ style.playerButton + " " + style.pip }
+            className={ style.playerButton + ' ' + style.pip }
             onClick={ this.props.pictureInPicture }>
             <FontAwesomeIcon icon={ faTv } />
           </button>
@@ -127,7 +127,7 @@ class PlayerControls extends React.Component {
             title="Toggle Sound"
             className={ style.playerButton }
             onClick={ this.props.handleMuteVolume }>
-            { this.props.isMute ? <FontAwesomeIcon icon={ faVolumeOff } /> : <FontAwesomeIcon icon={ faVolumeUp } /> }
+            { this.props.isMute ? <FontAwesomeIcon icon={ faVolumeMute } /> : <FontAwesomeIcon icon={ faVolumeUp } /> }
           </button>
         </div>
       </div>
