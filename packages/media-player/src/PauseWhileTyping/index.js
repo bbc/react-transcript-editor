@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 class PauseWhileTyping extends React.Component {
   render() {
@@ -7,9 +7,10 @@ class PauseWhileTyping extends React.Component {
       <div>
         <p>Pause While Typing</p>
         <label>
-          <input type="checkbox"
-            defaultChecked={ this.props.isPauseWhileTypingOn }
-            onChange={ this.props.handleToggle }
+          <input
+            type="checkbox"
+            defaultChecked={this.props.isPauseWhileTypingOn}
+            onChange={this.props.handleToggle}
           />
         </label>
       </div>

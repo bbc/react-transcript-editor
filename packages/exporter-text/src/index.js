@@ -1,5 +1,5 @@
-export default (blockData) => {
+export default blockData => {
   const lines = blockData.blocks.map(x => x.text);
 
-  return lines.join('\n\n');
+  return lines.join("\n\n");
 };

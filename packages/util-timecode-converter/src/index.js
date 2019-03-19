@@ -2,9 +2,9 @@
  * Wrapping around "time stamps" and timecode conversion modules
  * To provide more support for variety of formats.
  */
-import secondsToTimecode from './secondsToTimecode';
-import timecodeToSecondsHelper from './timecodeToSeconds';
-import padTimeToTimecode from './padTimeToTimecode';
+import secondsToTimecode from "./secondsToTimecode";
+import timecodeToSecondsHelper from "./timecodeToSeconds";
+import padTimeToTimecode from "./padTimeToTimecode";
 
 /**
  * @param {*} time
@@ -16,8 +16,8 @@ import padTimeToTimecode from './padTimeToTimecode';
  * - hh:mm:ff
  * @todo could be refactored with some helper functions for clarity
  */
-const timecodeToSeconds = (time) => {
-  if (typeof time === 'string') {
+const timecodeToSeconds = time => {
+  if (typeof time === "string") {
     const resultPadded = padTimeToTimecode(time);
     const resultConverted = timecodeToSecondsHelper(resultPadded);
 
@@ -28,7 +28,7 @@ const timecodeToSeconds = (time) => {
   return parseFloat(time);
 };
 
-const shortTimecode = (time) => {
+const shortTimecode = time => {
   const timecode = secondsToTimecode(time);
 
   return timecode.slice(0, -3);

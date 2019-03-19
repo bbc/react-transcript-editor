@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 class ScrollIntoView extends React.Component {
   render() {
@@ -7,9 +7,10 @@ class ScrollIntoView extends React.Component {
       <div>
         <p>ScrollIntoView</p>
         <label>
-          <input type="checkbox"
-            defaultChecked={ this.props.isScrollIntoViewOn }
-            onChange={ this.props.handleToggle }
+          <input
+            type="checkbox"
+            defaultChecked={this.props.isScrollIntoViewOn}
+            onChange={this.props.handleToggle}
           />
         </label>
       </div>
