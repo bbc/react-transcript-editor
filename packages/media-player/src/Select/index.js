@@ -5,14 +5,11 @@ import style from "./index.module.css";
 
 class Select extends React.Component {
   render() {
-    const options = this.props.options.map((option, index) => {
-      // eslint-disable-next-line react/no-array-index-key
-      return (
-        <option key={index} value={option.value}>
-          {option.label}
-        </option>
-      );
-    });
+    const options = this.props.options.map(option => (
+      <option key={option.value} value={option.value}>
+        {option.label}
+      </option>
+    ));
 
     return (
       <select

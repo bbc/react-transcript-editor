@@ -1,9 +1,5 @@
 @value color-subt-green, color-darkest-grey, color-labs-red from '@bbc-transcript-editor/style-guide/colours.module.css';
 
-.DraftEditor-root {
-  background: #f9f9f9;
-}
-
 /*
 Giving the editor a oveflow
 https://github.com/facebook/draft-js/issues/528

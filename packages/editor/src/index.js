@@ -448,7 +448,8 @@ TranscriptEditor.propTypes = {
   isEditable: PropTypes.bool,
   sttJsonType: PropTypes.string,
   handleAnalyticsEvents: PropTypes.func,
-  fileName: PropTypes.string
+  fileName: PropTypes.string,
+  transcriptData: PropTypes.object
 };
 
 export default TranscriptEditor;

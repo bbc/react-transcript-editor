@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import textExporter from "@bbc-transcript-editor/exporter-text";
 import {
   Editor,
   EditorState,
@@ -14,6 +13,7 @@ import {
 import Word from "./Word";
 import WrapperBlock from "./WrapperBlock";
 import getAdapter from "./get-adapter";
+import getExporter from "./get-exporter";
 
 import style from "./index.module.css";
 
@@ -135,7 +135,7 @@ class TimedTextEditor extends React.Component {
   getEditorContent(exportFormat) {
     const format = exportFormat || "draftjs";
 
-    return exportAdapter(
+    return getExporter(
       convertToRaw(this.state.editorState.getCurrentContent()),
       format
     );
@@ -525,7 +525,6 @@ class TimedTextEditor extends React.Component {
 
     const editor = (
       <section
-        className={style.editor}
         onDoubleClick={event => this.handleDoubleClick(event)}
         // TODO: decide if on mobile want to have a way to "click" on words
         // to play corresponding media
