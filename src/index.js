@@ -8,7 +8,8 @@ import style from './index.module.css';
 import SttTypeSelect from './select-stt-json-type';
 import ExportFormatSelect from './select-export-format';
 
-const tedTalkVideoUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
+const tedTalkVideoUrl =
+  'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
 
 class App extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class App extends React.Component {
     this.setState({
       transcriptData: kaldiTedTalkTranscript,
       mediaUrl: tedTalkVideoUrl,
-      sttType: 'bbckaldi',
+      sttType: 'bbckaldi'
     });
   }
 
@@ -50,8 +51,7 @@ class App extends React.Component {
         mediaUrl: fileURL,
         fileName: file.name
       });
-    }
-    else {
+    } else {
       alert('select a valid audio or video file');
     }
   }
@@ -61,7 +61,7 @@ class App extends React.Component {
 
     this.setState({
       // transcriptData: kaldiTedTalkTranscript,
-      mediaUrl: fileURL,
+      mediaUrl: fileURL
     });
   }
 
@@ -71,190 +71,188 @@ class App extends React.Component {
     if (file.type === 'application/json') {
       const fr = new FileReader();
 
-      fr.onload = (evt) => {
+      fr.onload = evt => {
         this.setState({
           transcriptData: JSON.parse(evt.target.result)
         });
       };
 
       fr.readAsText(file);
-
-    }
-    else {
+    } else {
       alert('select a valid json file');
     }
   }
 
   handleIsTextEditable = () => {
-    this.setState((prevState) => ({ isTextEditable: (prevState.isTextEditable) !== true }));
-  }
+    this.setState(prevState => ({
+      isTextEditable: prevState.isTextEditable !== true
+    }));
+  };
 
   // https://stackoverflow.com/questions/21733847/react-jsx-selecting-selected-on-selected-select-option
-  handleSttTypeChange = (event) => {
+  handleSttTypeChange = event => {
     console.log(event.target.name, event.target.value);
     this.setState({ [event.target.name]: event.target.value });
-  }
+  };
 
-  handleExportFormatChange = (event) => {
+  handleExportFormatChange = event => {
     console.log(event.target.name, event.target.value);
     this.setState({ [event.target.name]: event.target.value });
-  }
+  };
 
   exportTranscript = () => {
     // eslint-disable-next-line react/no-string-refs
-    const { data, ext } = this.transcriptEditorRef.current.getEditorContent(this.state.exportFormat);
+    const { data, ext } = this.transcriptEditorRef.current.getEditorContent(
+      this.state.exportFormat
+    );
     this.download(data, `${ this.state.mediaUrl }.${ ext }`);
-  }
+  };
 
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
-   download = (content, filename, contentType) => {
-     const type = contentType || 'application/octet-stream';
-     const a = document.createElement('a');
-     const blob = new Blob([ content ], { type: type });
+  download = (content, filename, contentType) => {
+    const type = contentType || 'application/octet-stream';
+    const a = document.createElement('a');
+    const blob = new Blob([ content ], { type: type });
 
-     a.href = window.URL.createObjectURL(blob);
-     a.download = filename;
-     a.click();
-   }
+    a.href = window.URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+  };
 
-   clearLocalStorage = () => {
-     localStorage.clear();
-     console.info('cleared local storage');
-   }
+  clearLocalStorage = () => {
+    localStorage.clear();
+    console.info('cleared local storage');
+  };
 
-   handleAnalyticsEvents = (event) => {
-     this.setState({ analyticsEvents: [ ...this.state.analyticsEvents, event ] });
-   }
+  handleAnalyticsEvents = event => {
+    this.setState({ analyticsEvents: [ ...this.state.analyticsEvents, event ] });
+  };
 
-   handleChangeTranscriptTitle = (newTitle) => {
-     this.setState({
-       title: newTitle
-     });
-   }
+  handleChangeTranscriptTitle = newTitle => {
+    this.setState({
+      title: newTitle
+    });
+  };
 
-   handleChangeTranscriptName = (value) => {
-     this.setState({ fileName: value });
-   }
+  handleChangeTranscriptName = value => {
+    this.setState({ fileName: value });
+  };
 
-   render() {
-
-     return (
-       <div className={ style.container }>
-         <span>
-            Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
-           <a
-             href="https://github.com/bbc/react-transcript-editor"
-             rel="noopener noreferrer"
-             target="_blank"
-           >
+  render() {
+    return (
+      <div className={ style.container }>
+        <span>
+          Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
+          <a
+            href="https://github.com/bbc/react-transcript-editor"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Github Repo
-           </a>
-           <hr/>
-         </span>
+          </a>
+          <hr />
+        </span>
 
-         <div className={ style.demoNav }>
-           <section className={ style.demoNavItem }>
-             <button onClick={ () => this.loadDemo() }>load demo</button>
+        <div className={ style.demoNav }>
+          <section className={ style.demoNavItem }>
+            <button onClick={ () => this.loadDemo() }>load demo</button>
+          </section>
+          <section className={ style.demoNavItem }>
+            <label>Load Local Media</label>
+            <br />
+            <input
+              className={ style.demoInput }
+              type="file"
+              onChange={ e => this.handleChangeLoadMedia(e.target.files) }
+            />
+            <br />
+            or
+            <br />
+            <button onClick={ () => this.handleChangeLoadMediaUrl() }>
+              Load Media From Url
+            </button>
+          </section>
+          <section className={ style.demoNavItem }>
+            <label>
+              open Transcript <code>Json</code>
+            </label>
+            <br />
+            <SttTypeSelect
+              name={ 'sttType' }
+              value={ this.state.sttType }
+              handleChange={ this.handleSttTypeChange }
+            />
+            <br />
+            <input
+              className={ style.demoInput }
+              type="file"
+              onChange={ e =>
+                this.handleChangeLoadTranscriptJson(e.target.files)
+              }
+            />
+          </section>
+          <section className={ style.demoNavItem }>
+            <label>Export transcript</label>
+            <br />
+            <ExportFormatSelect
+              name={ 'exportFormat' }
+              value={ this.state.exportFormat }
+              handleChange={ this.handleExportFormatChange }
+            />
+            <br />
+            <button onClick={ () => this.exportTranscript() }>Export file</button>
+          </section>
+          <section className={ style.demoNavItem }>
+            <label>Text Is Editable</label>
+            <br />
+            <label>
+              <input
+                type="checkbox"
+                defaultChecked="true"
+                onChange={ this.handleIsTextEditable }
+              />
+            </label>
+          </section>
+          <section className={ style.demoNavItem }>
+            <label>
+              Transcript Title <i>Optional</i>
+            </label>
+            <br />
+            <input
+              className={ style.demoInput }
+              type="text"
+              value={ this.state.title }
+              onChange={ e => this.handleChangeTranscriptTitle(e.target.value) }
+            />
+          </section>
+          <section className={ style.demoNavItem }>
+            <button onClick={ () => this.clearLocalStorage() }>
+              Clear Local Storage
+            </button>
+          </section>
+        </div>
+        <hr />
 
-           </section>
-           <section className={ style.demoNavItem }>
+        <TranscriptEditor
+          transcriptData={ this.state.transcriptData }
+          fileName={ this.state.fileName }
+          mediaUrl={ this.state.mediaUrl }
+          isEditable={ this.state.isTextEditable }
+          sttJsonType={ this.state.sttType }
+          handleAnalyticsEvents={ this.handleAnalyticsEvents }
+          title={ this.state.title }
+          ref={ this.transcriptEditorRef }
+        />
 
-             <label>Load Local Media</label>
-             <br/>
-             <input
-               className={ style.demoInput }
-               type="file"
-               onChange={ e => this.handleChangeLoadMedia(e.target.files) }
-             />
-             <br/>
-         or
-             <br/>
-             <button onClick={ () => this.handleChangeLoadMediaUrl() }>
-          Load Media From Url
-             </button>
-
-           </section>
-           <section className={ style.demoNavItem }>
-
-             <label>open Transcript <code>Json</code></label>
-             <br/>
-             <SttTypeSelect
-               name={ 'sttType' }
-               value={ this.state.sttType }
-               handleChange={ this.handleSttTypeChange }
-             />
-             <br/>
-             <input
-               className={ style.demoInput }
-               type="file"
-               onChange={ e => this.handleChangeLoadTranscriptJson(e.target.files) }
-             />
-
-           </section>
-           <section className={ style.demoNavItem }>
-
-             <label>Export transcript</label>
-             <br/>
-             <ExportFormatSelect
-               name={ 'exportFormat' }
-               value={ this.state.exportFormat }
-               handleChange={ this.handleExportFormatChange }
-             />
-             <br/>
-             <button onClick={ () => this.exportTranscript() }>Export file</button>
-           </section>
-           <section className={ style.demoNavItem }>
-             <label>Text Is Editable</label>
-             <br/>
-             <label>
-               <input
-                 type="checkbox"
-                 defaultChecked="true"
-                 onChange={ this.handleIsTextEditable }
-               />
-             </label>
-
-           </section>
-           <section className={ style.demoNavItem }>
-
-             <label>Transcript Title <i>Optional</i></label>
-             <br/>
-             <input
-               className={ style.demoInput }
-               type="text"
-               value={ this.state.title }
-               onChange={ e => this.handleChangeTranscriptTitle(e.target.value) }
-             />
-
-           </section>
-           <section className={ style.demoNavItem }>
-
-             <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
-           </section>
-
-         </div>
-         <hr/>
-
-         <TranscriptEditor
-           transcriptData={ this.state.transcriptData }
-           fileName={ this.state.fileName }
-           mediaUrl={ this.state.mediaUrl }
-           isEditable={ this.state.isTextEditable }
-           sttJsonType={ this.state.sttType }
-           handleAnalyticsEvents={ this.handleAnalyticsEvents }
-           title={ this.state.title }
-           ref={ this.transcriptEditorRef }
-         />
-
-         <label>Components Analytics</label>
-         <textarea
-           style={ { height: '200px', width: '100%' } }
-           value={ JSON.stringify(this.state.analyticsEvents, null, 2) }
-           disabled>
-         </textarea>
-       </div>
-     );
-   }
+        <label>Components Analytics</label>
+        <textarea
+          style={ { height: '200px', width: '100%' } }
+          value={ JSON.stringify(this.state.analyticsEvents, null, 2) }
+          disabled
+        />
+      </div>
+    );
+  }
 }
 
 render(<App />, document.getElementById('root'));
