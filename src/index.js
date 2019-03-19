@@ -149,58 +149,90 @@ class App extends React.Component {
            >
             Github Repo
            </a>
+           <hr/>
          </span>
-         <br />
-         <button onClick={ () => this.loadDemo() }>load demo</button>
-         <hr />
-         <label>Load Local Media</label>
-         <input
-           type="file"
-           onChange={ e => this.handleChangeLoadMedia(e.target.files) }
-         />
+
+         <div className={ style.demoNav }>
+           <section className={ style.demoNavItem }>
+             <button onClick={ () => this.loadDemo() }>load demo</button>
+
+           </section>
+           <section className={ style.demoNavItem }>
+
+             <label>Load Local Media</label>
+             <br/>
+             <input
+               className={ style.demoInput }
+               type="file"
+               onChange={ e => this.handleChangeLoadMedia(e.target.files) }
+             />
+             <br/>
          or
-         <button onClick={ () => this.handleChangeLoadMediaUrl() }>
+             <br/>
+             <button onClick={ () => this.handleChangeLoadMediaUrl() }>
           Load Media From Url
-         </button>
-         <br/>
-         <label>open Transcript Json</label>
-         <SttTypeSelect
-           name={ 'sttType' }
-           value={ this.state.sttType }
-           handleChange={ this.handleSttTypeChange }
-         />
-         <input
-           type="file"
-           onChange={ e => this.handleChangeLoadTranscriptJson(e.target.files) }
-         />
+             </button>
 
-         <br />
-         <label>Export transcript</label>
-         <button onClick={ () => this.exportTranscript() }>Export file</button>
+           </section>
+           <section className={ style.demoNavItem }>
 
-         <ExportFormatSelect
-           name={ 'exportFormat' }
-           value={ this.state.exportFormat }
-           handleChange={ this.handleExportFormatChange }
-         />
-         <br />
-         <label>Text Is Editable</label>
-         <label>
-           <input type="checkbox"
-             defaultChecked="true"
-             onChange={ this.handleIsTextEditable }
-           />
-         </label>
-         <br/>
-         <label>Optional Transcript Name</label>
-         <input
-           type="text"
-           value={ this.state.title }
-           onChange={ e => this.handleChangeTranscriptTitle(e.target.value) }
-         />
+             <label>open Transcript <code>Json</code></label>
+             <br/>
+             <SttTypeSelect
+               name={ 'sttType' }
+               value={ this.state.sttType }
+               handleChange={ this.handleSttTypeChange }
+             />
+             <br/>
+             <input
+               className={ style.demoInput }
+               type="file"
+               onChange={ e => this.handleChangeLoadTranscriptJson(e.target.files) }
+             />
 
-         <br />
-         <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
+           </section>
+           <section className={ style.demoNavItem }>
+
+             <label>Export transcript</label>
+             <br/>
+             <ExportFormatSelect
+               name={ 'exportFormat' }
+               value={ this.state.exportFormat }
+               handleChange={ this.handleExportFormatChange }
+             />
+             <br/>
+             <button onClick={ () => this.exportTranscript() }>Export file</button>
+           </section>
+           <section className={ style.demoNavItem }>
+             <label>Text Is Editable</label>
+             <br/>
+             <label>
+               <input
+                 type="checkbox"
+                 defaultChecked="true"
+                 onChange={ this.handleIsTextEditable }
+               />
+             </label>
+
+           </section>
+           <section className={ style.demoNavItem }>
+
+             <label>Transcript Title <i>Optional</i></label>
+             <br/>
+             <input
+               className={ style.demoInput }
+               type="text"
+               value={ this.state.title }
+               onChange={ e => this.handleChangeTranscriptTitle(e.target.value) }
+             />
+
+           </section>
+           <section className={ style.demoNavItem }>
+
+             <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
+           </section>
+
+         </div>
          <hr/>
 
          <TranscriptEditor
@@ -213,7 +245,7 @@ class App extends React.Component {
            title={ this.state.title }
            ref={ this.transcriptEditorRef }
          />
-         <hr/>
+
          <label>Components Analytics</label>
          <textarea
            style={ { height: '200px', width: '100%' } }
