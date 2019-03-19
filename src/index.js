@@ -7,9 +7,11 @@ import kaldiTedTalkTranscript from './sample-data/KateDarling_2018S-bbc-kaldi.js
 import style from './index.module.css';
 import SttTypeSelect from './select-stt-json-type';
 import ExportFormatSelect from './select-export-format';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faGithub } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-const tedTalkVideoUrl =
-  'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
+const tedTalkVideoUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
 
 class App extends React.Component {
   constructor(props) {
@@ -71,9 +73,9 @@ class App extends React.Component {
     if (file.type === 'application/json') {
       const fr = new FileReader();
 
-      fr.onload = evt => {
+      fr.onload = event => {
         this.setState({
-          transcriptData: JSON.parse(evt.target.result)
+          transcriptData: JSON.parse(event.target.result)
         });
       };
 
@@ -91,7 +93,6 @@ class App extends React.Component {
 
   // https://stackoverflow.com/questions/21733847/react-jsx-selecting-selected-on-selected-select-option
   handleSttTypeChange = event => {
-    console.log(event.target.name, event.target.value);
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -141,21 +142,19 @@ class App extends React.Component {
   render() {
     return (
       <div className={ style.container }>
-        <span>
-          Demo page for <mark>React Transcript Editor</mark> - Component |{' '}
-          <a
-            href="https://github.com/bbc/react-transcript-editor"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Github Repo
-          </a>
-          <hr />
-        </span>
+        Demo <mark>React Transcript Editor</mark> |{' '}
+        <a
+          href="https://github.com/bbc/react-transcript-editor"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <FontAwesomeIcon icon={ faGithub } />
+        </a>
+        <hr />
 
         <div className={ style.demoNav }>
           <section className={ style.demoNavItem }>
-            <button onClick={ () => this.loadDemo() }>load demo</button>
+            <button onClick={ () => this.loadDemo() }>Load demo</button>
           </section>
           <section className={ style.demoNavItem }>
             <label>Load Local Media</label>
@@ -174,7 +173,7 @@ class App extends React.Component {
           </section>
           <section className={ style.demoNavItem }>
             <label>
-              open Transcript <code>Json</code>
+              Open Transcript <code>Json</code>
             </label>
             <br />
             <SttTypeSelect
