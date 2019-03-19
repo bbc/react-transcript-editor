@@ -1,0 +1,23 @@
+{
+  "name": "@bbc-transcript-editor/timed-text-editor",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@bbc-transcript-editor/style-guide": "1.0.0",
+    "@bbc-transcript-editor/adapter-amazon-transcribe": "1.0.0",
+    "@bbc-transcript-editor/adapter-autoedit-2": "1.0.0",
+    "@bbc-transcript-editor/adapter-bbc-kaldi": "1.0.0",
+    "@bbc-transcript-editor/adapter-speechmatics": "1.0.0",
+    "@bbc-transcript-editor/exporter-text": "1.0.0"
+  },
+  "devDependencies": {
+    "@bbc-transcript-editor/eslint-config": "1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "@bbc-transcript-editor"
+  }
+}

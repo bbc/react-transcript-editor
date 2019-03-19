@@ -1,0 +1,40 @@
+@value color-labs-red, color-light-grey, color-mid-grey, color-dark-grey from '@bbc-transcript-editor/style-guide/colours.module.css';
+
+/* Desktop size */
+@media (min-width: 768px) {
+  .speaker {
+    color: color-mid-grey;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    justify-self: start;
+    max-width: 100px;
+    text-align: left;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .speaker {
+    padding-right: 2em;
+    vertical-align: middle;
+    color: color-mid-grey;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: right;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+  }
+}
+
+.speaker {
+  cursor: pointer;
+}
+
+.EditLabel {
+  margin-right: 0.5em;
+}

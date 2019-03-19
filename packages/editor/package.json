@@ -1,0 +1,24 @@
+{
+  "name": "@bbc-transcript-editor/editor",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@bbc-transcript-editor/timed-text-editor": "1.0.0",
+    "@bbc-transcript-editor/media-player": "1.0.0",
+    "@bbc-transcript-editor/video-player": "1.0.0",
+    "@bbc-transcript-editor/settings": "1.0.0",
+    "@bbc-transcript-editor/keyboard-shortcuts": "1.0.0",
+    "@bbc-transcript-editor/util-timecode-converter": "1.0.0",
+    "@bbc-transcript-editor/style-guide": "1.0.0"
+  },
+  "devDependencies": {
+    "@bbc-transcript-editor/eslint-config": "1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "@bbc-transcript-editor"
+  }
+}

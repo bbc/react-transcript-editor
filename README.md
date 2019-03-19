@@ -1,79 +1,60 @@
-# React Transcript Editor
+# BBC Transcript Editor
 
-<!-- _One liner_ -->
-
-A React component to make transcribing audio and video easier and faster.
+> A collection of React components for a fully-featured Transcript Editor
 
 [![install size](https://packagephobia.now.sh/badge?p=@bbc/react-transcript-editor)](https://packagephobia.now.sh/result?p=@bbc/react-transcript-editor)
 
 The project uses [this github project board to organise and the co-ordinate development](https://github.com/bbc/react-transcript-editor/projects/1).
 
-_--> Work in progress <--_
-
-<!-- _Screenshot of UI - optional_ -->
-
 ## Development env
 
- <!-- _How to run the development environment_ -->
-
-- npm > `6.1.0`
+- yarn > `1.12.3`
 - [Node 10 - dubnium](https://scotch.io/tutorials/whats-new-in-node-10-dubnium)
 
 Node version is set in node version manager [`.nvmrc`](https://github.com/creationix/nvm#nvmrc)
 
-<!-- _Coding style convention ref optional, eg which linter to use_ -->
-
-<!-- _Linting, github pre-push hook - optional_ -->
-
 ## Setup
-
-<!-- _stack - optional_ -->
-<!-- _How to build and run the code/app_ -->
 
 Fork this repository + git clone + cd into folder
 
 ## Usage - development
 
-<!-- git clone git@github.com:bbc/react-transcript-editor.git -->
-
-> To start the development server (with entry point `src/index.js`), run
+> Local development is done via [Storybook](https://storybook.js.org/), and can be launched with:
 
 ```
-npm start
+$ yarn storybook
 ```
 
-Visit [http://localhost:3000](http://localhost:3000)
+Visit [http://localhost:6006](http://localhost:6006) to see the full Storybook, browse the components, and use the demo application.
 
 ## Usage - production
 
-<!-- npm install react-transcript-editor -->
-
-<!-- exampel usage - require etc.. -->
-<!-- https://www.npmjs.com/package/@bbc/react-transcript-editor -->
-
-Available on [npm - `@bbc/react-transcript-editor`](https://www.npmjs.com/package/@bbc/react-transcript-editor)
+All packages in this monorepo are available on [npm](https://www.npmjs.com/org/@bbc-transcript-editor under the `@bbc-transcript-editor` org. You can install each one indepedently if you wish to build up your own UI using some of these components, or you can install the fully composed editor, as below:
 
 ```
-npm install @bbc/react-transcript-editor
+# Yarn
+yarn add @bbc-transcript-editor/editor
+
+# NPM
+npm install @bbc-transcript-editor/editor
 ```
 
 ```js
-import { TranscriptEditor } from '@bbc/react-transcript-editor';
+import TranscriptEditor from '@bbc-transcript-editor/editor';
 
-  <TranscriptEditor
-     transcriptData=// Transcript json
-     mediaUrl=// string url to media file - audio or video 
-     isEditable={true}// se to true if you want to be able to edit the text
-     sttJsonType={ 'bbckaldi' }// the type of STT Json transcript supported.
-     handleAnalyticsEvents={ this.handleAnalyticsEvents } // optional - if you want to collect analytics events.
-     fileName=// optional - used for saving and retrieving local storage blob files 
-     title=// optional - defaults to ''
-     ref= // optional - if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.
-   />
+<TranscriptEditor
+  transcriptData=// Transcript json
+  mediaUrl=// string url to media file - audio or video
+  isEditable={true}// se to true if you want to be able to edit the text
+  sttJsonType={ 'bbckaldi' }// the type of STT Json transcript supported.
+  handleAnalyticsEvents={ this.handleAnalyticsEvents } // optional - if you want to collect analytics events.
+  fileName=// optional - used for saving and retrieving local storage blob files
+  title=// optional - defaults to ''
+  ref= // optional - if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.
+/>
 ```
-See [`./src/index.js` demo](./src/index.js) as a more detailed example usage of the component.
 
-_Note: `fileName` it is optional but it's needed if working with user uploaded local media in the browser, to be able to save and retrieve from local storage. For instance if you are passing a blob url to `mediaUrl` using `createObjectURL` this url is randomly re-generated on every page refresh so you wouldn't be able to restore a session, as `mediaUrl` is used as the local storage key. See demo app for more detail example of this[`./src/index.js`](./src/index.js)_
+_Note: `fileName` it is optional but it's needed if working with user uploaded local media in the browser, to be able to save and retrieve from local storage. For instance if you are passing a blob url to `mediaUrl` using `createObjectURL` this url is randomly re-generated on every page refresh so you wouldn't be able to restore a session, as `mediaUrl` is used as the local storage key._
 
 ### Typescript projects
 
@@ -81,20 +62,12 @@ If using in a parent project where [typescript](https://www.typescriptlang.org/)
 
 ```js
 //@ts-ignore
-import { TranscriptEditor } from "@bbc/react-transcript-editor";
+import TranscriptEditor from "@bbc-transcript-editor/editor";
 ```
 
 ## System Architecture
 
-<!-- _High level overview of system architecture_ -->
-
-Uses [`create-component-lib`](https://www.npmjs.com/package/create-component-lib) as explaied in this [blog post](https://hackernoon.com/creating-a-library-of-react-components-using-create-react-app-without-ejecting-d182df690c6b) to setup the environment to develop this React component.
-
-This uses [Create React App 2.0](https://reactjs.org/blog/2018/10/01/create-react-app-v2.html) so we are using [CSS Modules](https://github.com/css-modules/css-modules) to contain the scope of the css for this component.
-
-> Place everything you want to publish to npm inside `src/lib`.
-
-> Outside `src/lib` (but inside src/), you can create example web pages to test or demonstrate the usage of your components.
+This monorepo uses Lerna and Yarn Workspaces to create a set of individual packages, each one a single component (or small bundle of components).
 
 ## Documentation
 
@@ -112,62 +85,33 @@ We are using [this template for ADR](https://gist.github.com/iaincollins/92923cc
 
 ## Build
 
-<!-- _How to run build_ -->
-
-> To transpile `src/lib` and create a build in the dist folder, run:
+> To build each component ready for distribution via NPM, run:
 
 ```
-npm run build:component
+# TBC
+```
+
+> You can also build the Storybook as a static site using:
+
+```
+$ yarn storybook:build
 ```
 
 ## Demo
 
 Demo can be viewed at [https://bbc.github.io/react-transcript-editor](https://bbc.github.io/react-transcript-editor)
 
-<!-- https://github.com/gitname/react-gh-pages
--->
-
-## Build - demo
-
-This github repository uses [github pages](https://pages.github.com/) to host a demo of the component, in [docs/demo](./docs/demo)
-
-```
-npm run deploy:ghpages
-```
-
-add to git, and push to origin master to update
-
-<!-- https://help.github.com/articles/user-organization-and-project-pages/#project-pages-sites -->
-
-Alternatively If you simply want to build the demo locally in the `build` folder then just
-
-```
-npm run build:example
-```
-
 ## Tests
 
-<!-- _How to carry out tests_ -->
-
-Test coverage using [`jest`](https://jestjs.io/), to run tests
+Tests are written using [`jest`](https://jestjs.io/), and can be run across all packages using the following command:
 
 ```
-npm run test
+$ yarn test
 ```
 
 ## Deployment
 
-<!-- _How to deploy the code/app into test/staging/production_ -->
-
-To push to [npm - `@bbc/react-transcript-editor`](https://www.npmjs.com/package/@bbc/react-transcript-editor)
-
-```
-npm publish:public
-```
-
-This runs `npm run build:component` and `npm publish --access public` under the hood
-
-> Note that only `README.md` and the `dist` folders are published to npm.
+- TBC
 
 ## Contributing
 

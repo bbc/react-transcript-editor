@@ -1,0 +1,23 @@
+{
+  "name": "@bbc-transcript-editor/adapter-speechmatics",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --coverage",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@bbc-transcript-editor/util-generate-entities-ranges": "1.0.0"
+  },
+  "devDependencies": {
+    "@bbc-transcript-editor/core": "1.0.0",
+    "@bbc-transcript-editor/eslint-config": "1.0.0"
+  },
+  "jest": {
+    "preset": "@bbc-transcript-editor/core"
+  },
+  "eslintConfig": {
+    "extends": "@bbc-transcript-editor"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@bbc-transcript-editor/media-player",
+  "version": "1.0.0",
+  "description": "The media player",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --coverage",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@bbc-transcript-editor/keyboard-shortcuts": "1.0.0",
+    "@bbc-transcript-editor/style-guide": "1.0.0"
+  },
+  "devDependencies": {
+    "@bbc-transcript-editor/core": "1.0.0",
+    "@bbc-transcript-editor/eslint-config": "1.0.0"
+  },
+  "jest": {
+    "preset": "@bbc-transcript-editor/core"
+  },
+  "eslintConfig": {
+    "extends": "@bbc-transcript-editor"
+  }
+}

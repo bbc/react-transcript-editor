@@ -1,0 +1,180 @@
+@value color-subt-green, color-darkest-grey, color-labs-red from '@bbc-transcript-editor/style-guide/colours.module.css';
+
+::selection {
+  background: color-subt-green;
+}
+
+::moz-selection {
+  background: color-subt-green;
+}
+
+.container {
+  position: relative;
+}
+
+.help {
+  text-align: center;
+  cursor: pointer;
+  float: right;
+  padding-right: 0.5em;
+  margin: 0.5em 0;
+  color: white;
+  display: block;
+  font-weight: lighter;
+  margin-top: 0.5em;
+  margin-right: 6em;
+}
+
+.helpMessage {
+  min-width: 240px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .help {
+    display: none;
+  }
+}
+
+.icon {
+  color: color-labs-red;
+  margin-right: 0.5em;
+}
+
+.helpMessage span {
+  display: block;
+  font-weight: lighter;
+  margin-top: 1em;
+}
+
+/* Desktop size */
+@media (min-width: 768px) {
+  .container {
+    background-color: #f9f9f9;
+    position: relative;
+  }
+
+  .header {
+    background-color: black;
+    width: 100%;
+    display: block;
+  }
+
+  .nav {
+    width: 100%;
+  }
+
+  .grid {
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-column-gap: 1em;
+  }
+
+  .settingsContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+  }
+
+  .settingsButton {
+    line-height: 1em;
+    margin-left: 0.5em;
+    background: color-darkest-grey;
+    display: inline-block;
+    border: 0;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    width: 2em;
+    height: 2em;
+  }
+}
+
+.settingsPanelContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 30%;
+  min-width: 300px;
+  min-height: 300px;
+  z-index: 10;
+}
+
+.shortcutsContainer {
+  position: absolute;
+  top: 2em;
+  right: 0;
+  z-index: 10;
+}
+
+/* Ipad */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+  .aside {
+    margin-left: auto;
+  }
+
+  .main {
+    margin-top: 0;
+    margin-right: auto;
+  }
+}
+
+/* Mobile devices - excluding ipad*/
+@media (max-width: 767px) {
+  /* .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    background-color: #f9f9f9;
+    position: relative;
+  } */
+
+  .header {
+    background-color: black;
+    width: 100%;
+  }
+
+  .nav {
+    width: 100%;
+  }
+
+  .main {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 1em;
+  }
+
+  .settingsContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+  }
+
+  .settingsButton {
+    line-height: 1em;
+    margin-left: 0.5em;
+    background: color-darkest-grey;
+    display: inline-block;
+    border: 0;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    width: 2em;
+    height: 2em;
+  }
+
+  .keyboardShortcutsButon {
+    display: none;
+  }
+}

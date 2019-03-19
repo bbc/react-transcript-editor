@@ -1,0 +1,19 @@
+{
+  "name": "@bbc-transcript-editor/core",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "files": [
+    "jest-preset.js"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.5.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.5.0"
+  }
+}

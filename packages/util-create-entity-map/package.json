@@ -1,0 +1,16 @@
+{
+  "name": "@bbc-transcript-editor/util-create-entity-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@bbc-transcript-editor/eslint-config": "1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "@bbc-transcript-editor"
+  }
+}

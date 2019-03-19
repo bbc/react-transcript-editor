@@ -1,0 +1,19 @@
+{
+  "name": "@bbc-transcript-editor/icons",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.12",
+    "@fortawesome/free-solid-svg-icons": "^5.6.3"
+  },
+  "devDependencies": {
+    "@bbc-transcript-editor/eslint-config": "1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "@bbc-transcript-editor"
+  }
+}

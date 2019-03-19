@@ -1,0 +1,65 @@
+@value color-labs-red, color-light-grey, color-mid-grey, color-dark-grey from '@bbc-transcript-editor/style-guide/colours.module.css';
+
+/* Desktop size */
+@media (min-width: 768px) {
+  .markers {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .WrapperBlock {
+    margin-bottom: 1em;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: [col-speaker] minmax(200px, 18%) [col-text] minmax(
+        50%,
+        81%
+      );
+    grid-column-gap: 1%;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .text {
+    font-size: 1em;
+    float: right;
+    clear: right;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .markers {
+    width: 100%;
+    font-size: 0.8em;
+    line-height: 1.2em;
+    margin-bottom: 0.5em;
+  }
+
+  .WrapperBlock {
+    width: 100%;
+    margin-bottom: 1em;
+    line-height: 1.2em;
+    overflow: hidden;
+  }
+
+  .text {
+    width: 100%;
+    font-size: 1em;
+    float: left;
+
+    /* clear: right; */
+  }
+}
+
+.time {
+  font-weight: lighter;
+  cursor: pointer;
+  justify-self: start;
+}
+
+.time:hover {
+  text-decoration: underline;
+
+  /* color: blue; */
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@bbc-transcript-editor/eslint-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "eslint-plugin-css-modules": "^2.11.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "prettier": "^1.16.4"
+  }
+}
