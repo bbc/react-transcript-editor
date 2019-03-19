@@ -79,12 +79,13 @@ class TranscriptEditor extends React.Component {
   }
 
   ifPresentRetrieveTranscriptFromLocalStorage = () => {
-    if (this.timedTextEditorRef.current !== undefined) {
+
+    if (this.timedTextEditorRef !== undefined && this.timedTextEditorRef.current !== null) {
       if (this.timedTextEditorRef.current.isPresentInLocalStorage(this.props.mediaUrl)) {
         console.info('was already present in local storage');
         this.timedTextEditorRef.current.loadLocalSavedData(this.props.mediaUrl);
       } else {
-        console.info('not present in local storage');
+        console.info('Not present in local storage');
       }
     }
   }

@@ -213,7 +213,7 @@ class App extends React.Component {
            title={ this.state.title }
            ref={ this.transcriptEditorRef }
          />
-         <hr/>
+
          <label>Components Analytics</label>
          <textarea
            style={ { height: '200px', width: '100%' } }
