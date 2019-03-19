@@ -7,13 +7,27 @@ import TimecodeOffset from "./TimecodeOffset";
 
 import style from "./index.module.css";
 
-const Settings = () => (
+const Settings = ({
+  handleSettingsToggle,
+  defaultValuePauseWhileTyping,
+  handlePauseWhileTyping,
+  defaultValueScrollSync,
+  handleIsScrollIntoViewChange,
+  defaultRollBackValueInSeconds,
+  handleRollBackValueInSeconds,
+  showTimecodes,
+  handleShowTimecodes,
+  showSpeakers,
+  handleShowSpeakers,
+  previewIsDisplayed,
+  handlePreviewIsDisplayed,
+  timecodeOffset,
+  handleSetTimecodeOffset,
+  handleAnalyticsEvents
+}) => (
   <div className={style.settings}>
     <h2 className={style.header}>Settings Panel</h2>
-    <div
-      className={style.closeButton}
-      onClick={this.props.handleSettingsToggle}
-    >
+    <div className={style.closeButton} onClick={handleSettingsToggle}>
       <FontAwesomeIcon icon="window-close" />
     </div>
 
@@ -21,18 +35,18 @@ const Settings = () => (
       <section className={style.settingElement}>
         <div className={style.label}>Pause While Typing</div>
         <Toggle
-          defaultValue={this.props.defaultValuePauseWhileTyping}
+          defaultValue={defaultValuePauseWhileTyping}
           label={"Pause while typing"}
-          handleToggle={this.props.handlePauseWhileTyping}
+          handleToggle={handlePauseWhileTyping}
         />
       </section>
 
       <section className={style.settingElement}>
         <div className={style.label}>Scroll Sync</div>
         <Toggle
-          defaultValue={this.props.defaultValueScrollSync}
+          defaultValue={defaultValueScrollSync}
           label={"ScrollSync"}
-          handleToggle={this.props.handleIsScrollIntoViewChange}
+          handleToggle={handleIsScrollIntoViewChange}
         />
       </section>
 
@@ -44,8 +58,8 @@ const Settings = () => (
           step="1"
           max="60"
           min="1"
-          value={this.props.defaultRollBackValueInSeconds}
-          onChange={this.props.handleRollBackValueInSeconds}
+          value={defaultRollBackValueInSeconds}
+          onChange={handleRollBackValueInSeconds}
           name="lname"
         />
       </section>
@@ -53,36 +67,36 @@ const Settings = () => (
       <section className={style.settingElement}>
         <div className={style.label}>Show Timecodes</div>
         <Toggle
-          defaultValue={this.props.showTimecodes}
+          defaultValue={showTimecodes}
           label={"Hide Timecodes"}
-          handleToggle={this.props.handleShowTimecodes}
+          handleToggle={handleShowTimecodes}
         />
       </section>
 
       <section className={style.settingElement}>
         <div className={style.label}>Show Speaker Labels</div>
         <Toggle
-          defaultValue={this.props.showSpeakers}
+          defaultValue={showSpeakers}
           label={"Hide Speaker Labels"}
-          handleToggle={this.props.handleShowSpeakers}
+          handleToggle={handleShowSpeakers}
         />
       </section>
 
       <section className={style.settingElement}>
         <div className={style.label}>Display Preview</div>
         <Toggle
-          defaultValue={this.props.previewIsDisplayed}
+          defaultValue={previewIsDisplayed}
           label={"Display Preview"}
-          handleToggle={this.props.handlePreviewIsDisplayed}
+          handleToggle={handlePreviewIsDisplayed}
         />
       </section>
 
       <section className={style.settingElement}>
         <div className={style.timecodeLabel}>Timecode Offset ℹ</div>
         <TimecodeOffset
-          timecodeOffset={this.props.timecodeOffset}
-          handleSetTimecodeOffset={this.props.handleSetTimecodeOffset}
-          handleAnalyticsEvents={this.props.handleAnalyticsEvents}
+          timecodeOffset={timecodeOffset}
+          handleSetTimecodeOffset={handleSetTimecodeOffset}
+          handleAnalyticsEvents={handleAnalyticsEvents}
         />
       </section>
     </div>
