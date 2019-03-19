@@ -1,41 +1,39 @@
 @value color-light-grey, color-labs-red from '../colours.module.css';
 
 .bar {
-  position: relative;
-  overflow: hidden;
-  height: 20px;
-  -webkit-appearance: none;
-  margin: 10px 0;
   width: 100%;
+  -webkit-appearance: none;
+  height: 10px;
+  background: #747474;
+  margin: 0px;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-.bar:focus {
-  outline: none;
+.bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 16px;
+  background: color-labs-red;
+  cursor: pointer;
+}
+
+.bar::-moz-range-thumb {
+  height: 30px;
+  width: 16px;
+  background: color-labs-red;
+  cursor: pointer;
+  border: 0;
 }
 
 .bar::-webkit-slider-runnable-track {
   width: 100%;
   cursor: pointer;
-  background: color-light-grey;
 }
 
-
-.bar::-webkit-slider-thumb {
-  background: color-labs-red;
-  cursor: pointer;
-  -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  background: #fff;
-  box-shadow: -100vw 0 0 100vw color-labs-red;
-  border: 2px solid #999;
-}
-
-/*
-  The ms-upper/low only works on IE: box-shadow solution is cross browser
-  TODO: make slider thumb bypass overflow:hidden (make taller than bar)
-*/
-
-.bar:focus::-webkit-slider-runnable-track {
-  background: color-light-grey;
+input[type=range]::-moz-focus-outer {
+  border: 0;
 }

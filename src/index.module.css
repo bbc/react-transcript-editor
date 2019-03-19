@@ -1,4 +1,15 @@
+body {
+  margin: 0;
+  padding: 0.5em;
+}
+
 .container {
   height: 100vh;
   font-family: ReithSerif, Fallback, sans-serif;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding: 0;
+  }
 }
