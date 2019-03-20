@@ -49,8 +49,6 @@ class TranscriptEditor extends React.Component {
 
   static getDerivedStateFromProps(nextProps) {
     if (nextProps.transcriptData !== null) {
-      console.log('getDerivedStateFromProps');
-
       return {
         transcriptData: nextProps.transcriptData
       };
@@ -87,20 +85,15 @@ class TranscriptEditor extends React.Component {
   }
 
   ifPresentRetrieveTranscriptFromLocalStorage = () => {
-    console.log('checking - ifPresentRetrieveTranscriptFromLocalStorage');
-    if (
-      this.timedTextEditorRef !== undefined &&
-      this.timedTextEditorRef.current !== null
-    ) {
+    const timedTextEditor = this.timedTextEditorRef;
+    if (timedTextEditor && timedTextEditor.current) {
       if (
-        this.timedTextEditorRef.current.isPresentInLocalStorage(
-          this.props.mediaUrl
-        )
+        timedTextEditor.current.isPresentInLocalStorage(this.props.mediaUrl)
       ) {
-        console.info('was already present in local storage');
-        this.timedTextEditorRef.current.loadLocalSavedData(this.props.mediaUrl);
+        console.info('Already present in local storage.');
+        timedTextEditor.current.loadLocalSavedData(this.props.mediaUrl);
       } else {
-        console.info('Not present in local storage');
+        console.info('Not present in local storage.');
       }
     }
   };
@@ -127,8 +120,8 @@ class TranscriptEditor extends React.Component {
     });
   };
 
-  handlePlayMedia = bool => {
-    this.playMedia(bool);
+  handlePlayMedia = isPlaying => {
+    this.playMedia(isPlaying);
   };
 
   handleIsPlaying = () => {
