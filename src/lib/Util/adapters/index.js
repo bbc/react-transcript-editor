@@ -1,5 +1,8 @@
 import bbcKaldiToDraft from './bbc-kaldi/index';
 import autoEdit2ToDraft from './autoEdit2/index';
+import speechmaticsToDraft from './speechmatics/index';
+import amazonTranscribeToDraft from './amazon-transcribe/index';
+
 /**
  * Adapters for STT conversion
  * @param {json} transcriptData - A json transcript with some word accurate timecode
@@ -38,8 +41,16 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
     blocks = autoEdit2ToDraft(transcriptData);
 
     return { blocks, entityMap: createEntityMap(blocks) };
+  case 'speechmatics':
+    blocks = speechmaticsToDraft(transcriptData);
+
+    return { blocks, entityMap: createEntityMap(blocks) };
   case 'draftjs':
     return transcriptData; // (typeof transcriptData === 'string')? JSON.parse(transcriptData): transcriptData;
+
+  case 'amazontranscribe':
+    blocks = amazonTranscribeToDraft(transcriptData);
+    return {blocks, entityMap: createEntityMap(blocks) };
   default:
     // code block
     console.error('not recognised the stt enginge');

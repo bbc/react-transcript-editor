@@ -1,0 +1,18 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "indentation": 2,
+    "string-quotes": "single",
+    "color-named": "always-where-possible",
+    "selector-combinator-space-after": "always",
+    "selector-attribute-quotes": "always",
+    "selector-attribute-operator-space-before": "always",
+    "selector-attribute-operator-space-after": "always",
+    "declaration-colon-space-before": "never",
+    "declaration-colon-space-after": "always",
+    "rule-empty-line-before": "always",
+    "media-feature-range-operator-space-before": "always",
+    "media-feature-range-operator-space-after": "always",
+    "media-feature-colon-space-after": "always"
+  }
+}
