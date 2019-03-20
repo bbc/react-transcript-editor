@@ -3,7 +3,7 @@ const draftTranscriptExample = [
     "text": "There is a day about ten years ago when I asked a friend to hold a baby dinosaur robot upside down.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 13.04,
       "words": [
         {
@@ -372,7 +372,7 @@ const draftTranscriptExample = [
     "text": "Use this toy call the pleroma that I had ordered and I was really excited about it because I've always loved robots and this one has really cool technical features it had motors and touch sensors and it had an infrared camera and one of the things that had with a tilt sensor so we knew what direction it was the thing and when you held it upside down would start to crack.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 21.86,
       "words": [
         {
@@ -1625,7 +1625,7 @@ const draftTranscriptExample = [
     "text": "And I thought this was super cool so I'm showing off to my friend and I said to hold it up by that helps you to.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 46.52,
       "words": [
         {
@@ -2079,7 +2079,7 @@ const draftTranscriptExample = [
     "text": "So we're watching the theatrics of this robot.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 55.24,
       "words": [
         {
@@ -2227,7 +2227,7 @@ const draftTranscriptExample = [
     "text": "Struggle and cry out.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 58.87,
       "words": [
         {
@@ -2307,7 +2307,7 @@ const draftTranscriptExample = [
     "text": "And after a few seconds first bother me a little.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 62.74,
       "words": [
         {
@@ -2489,7 +2489,7 @@ const draftTranscriptExample = [
     "text": "And I said okay.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 67.71,
       "words": [
         {
@@ -2569,7 +2569,7 @@ const draftTranscriptExample = [
     "text": "That's enough now.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 69.96,
       "words": [
         {
@@ -2632,7 +2632,7 @@ const draftTranscriptExample = [
     "text": "Let's put him back down.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 71.92,
       "words": [
         {
@@ -2729,7 +2729,7 @@ const draftTranscriptExample = [
     "text": "And then I packed the robot to make it stop crying.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 74.26,
       "words": [
         {
@@ -2928,7 +2928,7 @@ const draftTranscriptExample = [
     "text": "I was kind of a weird experience for me.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 79.08,
       "words": [
         {
@@ -3093,7 +3093,7 @@ const draftTranscriptExample = [
     "text": "For one thing I wasn't the most maternal person at the time.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 82.07,
       "words": [
         {
@@ -3309,7 +3309,7 @@ const draftTranscriptExample = [
     "text": "Although since then I've become a mother nine months ago and I've learned that babies also squirming hold them off and on.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 86.66,
       "words": [
         {
@@ -3695,7 +3695,7 @@ const draftTranscriptExample = [
     "text": "But my response this robot was also interesting because I know exactly how this machine work.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 95.01,
       "words": [
         {
@@ -3979,7 +3979,7 @@ const draftTranscriptExample = [
     "text": "And yet I still felt compelled to be kind to it.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 101.5,
       "words": [
         {
@@ -4178,7 +4178,7 @@ const draftTranscriptExample = [
     "text": "And that observation sparked the curiosity that I spent the fact the past decade pursuing.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 106.4,
       "words": [
         {
@@ -4445,7 +4445,7 @@ const draftTranscriptExample = [
     "text": "Why did I come for this robot?",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 112.91,
       "words": [
         {
@@ -4576,7 +4576,7 @@ const draftTranscriptExample = [
     "text": "And one of the things I discovered was that my treatment of this machine was more than just an awkward moment in my living room that in a world where were increasingly integrating robots into our lives an instance like that might actually have consequences.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 116.21,
       "words": [
         {
@@ -5353,7 +5353,7 @@ const draftTranscriptExample = [
     "text": "Because the first thing that I discovered is that it's not just me.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 133.44,
       "words": [
         {
@@ -5586,7 +5586,7 @@ const draftTranscriptExample = [
     "text": "In two thousand and seven The Washington Post reported that the United States military was testing this robot that defused land mines and we worked with it was shaped like a stick insect you would walk around the mine field on its legs and every time I stepped on a mine one of the legs would blow up would continue on the other likes to blow up our minds.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 139.24,
       "words": [
         {
@@ -6771,7 +6771,7 @@ const draftTranscriptExample = [
     "text": "And the colonel who is in charge of this testing exercise in the calling it off.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 159.22,
       "words": [
         {
@@ -7055,7 +7055,7 @@ const draftTranscriptExample = [
     "text": "Because he says it's too in humane to watch this damage of robot drag itself along the mine field.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 165.26,
       "words": [
         {
@@ -7390,7 +7390,7 @@ const draftTranscriptExample = [
     "text": "Now what would cause a hardened military officer and someone like myself.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 174.97,
       "words": [
         {
@@ -7606,7 +7606,7 @@ const draftTranscriptExample = [
     "text": "To have this response to robots.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 180.95,
       "words": [
         {
@@ -7720,7 +7720,7 @@ const draftTranscriptExample = [
     "text": "Well of course for prime by science fiction pop culture to really want to personify these things but it goes a little bit deeper than that.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 183.59,
       "words": [
         {
@@ -8174,7 +8174,7 @@ const draftTranscriptExample = [
     "text": "It turns out that we're biologically hard wired to project intent and life on to any movement in our physical space it seems a communist.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 192.24,
       "words": [
         {
@@ -8611,7 +8611,7 @@ const draftTranscriptExample = [
     "text": "Some people treat all sorts of robots like their life.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 203.2,
       "words": [
         {
@@ -8793,7 +8793,7 @@ const draftTranscriptExample = [
     "text": "These bomb disposal units get names they get medals of honor they've had funerals for them with gun salute.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 206.69,
       "words": [
         {
@@ -9128,7 +9128,7 @@ const draftTranscriptExample = [
     "text": "And research shows that we do this even with very simple household robots like the rumor vacuum cleaner.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 214.35,
       "words": [
         {
@@ -9446,7 +9446,7 @@ const draftTranscriptExample = [
     "text": "Just the desk that roams around your floor to clean it which is the fact that it's moving around on its own will cause people to name the room and feel bad for the room but when it gets stuck under the couch.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 221.68,
       "words": [
         {
@@ -10189,7 +10189,7 @@ const draftTranscriptExample = [
     "text": "And we can design robot specifically to invoke this response using our eyes and faces or movements the people automatically subconsciously associate with states of mind.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 234.43,
       "words": [
         {
@@ -10643,7 +10643,7 @@ const draftTranscriptExample = [
     "text": "And there's an entire body of research called human robot interaction that really shows how well this works so for example researchers at Stanford University found out that it makes people really uncomfortable when you ask them to touch a robust private parts.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 246.57,
       "words": [
         {
@@ -11386,7 +11386,7 @@ const draftTranscriptExample = [
     "text": "So from this but from many other studies we know we know the people respond to the cues given to them by these life like machines even if they know that they're not real.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 261.63,
       "words": [
         {
@@ -11976,7 +11976,7 @@ const draftTranscriptExample = [
     "text": "Now we're headed towards a world where robots are everywhere robotic technology is moving out from behind factory walls it's entering workplaces households and as these machines that can fence and make autonomous decisions and learn enter into the shared spaces I think that maybe the best analogy we have for this is our relationship with animals thousands of years ago we started to domesticate animals and we train them for work and weaponry and companionship and throughout history was treated some animals like tools or like products and other animals we treated with kindness we've given a place in society as our companions.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 273.6,
       "words": [
         {
@@ -13756,7 +13756,7 @@ const draftTranscriptExample = [
     "text": "I think it's plausible we might start to integrate robots in similar ways.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 315.8,
       "words": [
         {
@@ -13989,7 +13989,7 @@ const draftTranscriptExample = [
     "text": "ensure.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 321.45,
       "words": [
         {
@@ -14018,7 +14018,7 @@ const draftTranscriptExample = [
     "text": "Animals are live robots are not and I can tell you from working with roboticist that were pretty far away from developing robust I can feel anything.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 323.02,
       "words": [
         {
@@ -14489,7 +14489,7 @@ const draftTranscriptExample = [
     "text": "But we feel for them.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 335.03,
       "words": [
         {
@@ -14586,7 +14586,7 @@ const draftTranscriptExample = [
     "text": "And that matters because if we're trying to integrate robots into the shared spaces we need to understand that people will treat them differently than other devices.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 337.79,
       "words": [
         {
@@ -15057,7 +15057,7 @@ const draftTranscriptExample = [
     "text": "And that in some cases for example the case of a soldier who becomes emotionally attached to the robot that they work with that can be anything from an efficient too dangerous.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 347.33,
       "words": [
         {
@@ -15613,7 +15613,7 @@ const draftTranscriptExample = [
     "text": "But in other cases it can actually be useful to foster this emotional connection to robots.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 358.51,
       "words": [
         {
@@ -15897,7 +15897,7 @@ const draftTranscriptExample = [
     "text": "We're already seeing some great use cases for example robots working with autistic children to engage them in ways that we haven't seen previously or robots working with teachers to engage kids in learning with new results.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 364.15,
       "words": [
         {
@@ -16538,7 +16538,7 @@ const draftTranscriptExample = [
     "text": "And it's not just for kids.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 377.41,
       "words": [
         {
@@ -16652,7 +16652,7 @@ const draftTranscriptExample = [
     "text": "Early studies show that robots can help doctors and patients in health care settings.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 379.72,
       "words": [
         {
@@ -16902,7 +16902,7 @@ const draftTranscriptExample = [
     "text": "This is the part baby seal robot is used in nursing homes and with dementia patients been around for awhile and I remember years ago being at a party and telling someone about this robot.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 385.53,
       "words": [
         {
@@ -17509,7 +17509,7 @@ const draftTranscriptExample = [
     "text": "And her response was.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 398.26,
       "words": [
         {
@@ -17589,7 +17589,7 @@ const draftTranscriptExample = [
     "text": "Oh my gosh.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 400.33,
       "words": [
         {
@@ -17652,7 +17652,7 @@ const draftTranscriptExample = [
     "text": "That's horrible.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 402.49,
       "words": [
         {
@@ -17698,7 +17698,7 @@ const draftTranscriptExample = [
     "text": "I can't believe we're giving people robots instead of human care.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 405.01,
       "words": [
         {
@@ -17897,7 +17897,7 @@ const draftTranscriptExample = [
     "text": "And this is a really common response and I think it's absolutely correct because that would be terrible.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 410.53,
       "words": [
         {
@@ -18215,7 +18215,7 @@ const draftTranscriptExample = [
     "text": "But in this case it's not with his robot replaces with his robot replaces is animal fair.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 417.81,
       "words": [
         {
@@ -18516,7 +18516,7 @@ const draftTranscriptExample = [
     "text": "In contexts where we can't use real animals but we can use robots because people will consistently treat them like more like more like an animal in a device.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 424.07,
       "words": [
         {
@@ -19021,7 +19021,7 @@ const draftTranscriptExample = [
     "text": "Technology in this emotional connection to robots can also help us anticipate challenges as these devices move into more intimate areas of people's lives.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 435.5,
       "words": [
         {
@@ -19441,7 +19441,7 @@ const draftTranscriptExample = [
     "text": "For example is it okay if your child's teddy bear robot records private conversations is it okay if your sex robot have compelling in app purchases.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 444.08,
       "words": [
         {
@@ -19895,7 +19895,7 @@ const draftTranscriptExample = [
     "text": "Because of rope plus capitalism equals questions around consumer protection and privacy.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 455.28,
       "words": [
         {
@@ -20111,7 +20111,7 @@ const draftTranscriptExample = [
     "text": "And those aren't the only reasons that our behavior around these machines could matter.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 462.55,
       "words": [
         {
@@ -20361,7 +20361,7 @@ const draftTranscriptExample = [
     "text": "A few years after that first initial experience I had with this baby dinosaur robot.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 468.73,
       "words": [
         {
@@ -20628,7 +20628,7 @@ const draftTranscriptExample = [
     "text": "I did a workshop with my friend harness gossip and we took five of these baby dinosaur robots and we gave them the five teams of people and we have them name them and play with them and interact with them for about an hour.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 474.43,
       "words": [
         {
@@ -21405,7 +21405,7 @@ const draftTranscriptExample = [
     "text": "And then we unveiled a hammer and hatchet and we told them to torture and kill the robots.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 488.69,
       "words": [
         {
@@ -21723,7 +21723,7 @@ const draftTranscriptExample = [
     "text": "And this turned out to be a little more dramatic than we expected it to be because none of the participants would even so much a strike these baby dinosaur robots so we had to improvise a little and at some point he said okay.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 496.84,
       "words": [
         {
@@ -22500,7 +22500,7 @@ const draftTranscriptExample = [
     "text": "You can save your team's robot if you destroy another team's robot.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 510.06,
       "words": [
         {
@@ -22716,7 +22716,7 @@ const draftTranscriptExample = [
     "text": "And even that didn't work they couldn't do it so finally we said we're going to destroy all of the robots unless someone takes a hatchet to one of them.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 516.82,
       "words": [
         {
@@ -23238,7 +23238,7 @@ const draftTranscriptExample = [
     "text": "And this guy stood up and he took the hatchet.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 525.56,
       "words": [
         {
@@ -23420,7 +23420,7 @@ const draftTranscriptExample = [
     "text": "And the whole room winced as he brought the hatchet down on the robots neck and there was this half joking half serious moment of silence in the room for this fallen robot.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 529.18,
       "words": [
         {
@@ -23993,7 +23993,7 @@ const draftTranscriptExample = [
     "text": "So that was a really interesting experience no it wasn't a controlled study obviously but it did lead to some later research that I did it on my T. with plush non Dian Cynthia Brazil where we had people come into the lab and smash these hex bugs that move around in a really life like way like insects so instead of choosing something cute the people are drawn to which was something more basic and what we found was that high embassy people would hesitate more to hit the hex Bucks.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 543.2,
       "words": [
         {
@@ -25569,7 +25569,7 @@ const draftTranscriptExample = [
     "text": "I was just a little study but it's part of a larger body of research that is starting to indicate that there may be a connection between people's tendencies for empathy and their behavior around robots.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 573.58,
       "words": [
         {
@@ -26193,7 +26193,7 @@ const draftTranscriptExample = [
     "text": "But my question for the coming era of human robot interaction is not do we empathize with robots.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 585.7,
       "words": [
         {
@@ -26511,7 +26511,7 @@ const draftTranscriptExample = [
     "text": "It's Karen robots change people's empathy.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 593.19,
       "words": [
         {
@@ -26625,7 +26625,7 @@ const draftTranscriptExample = [
     "text": "Is there reason to for example prevent your child from kicking a robotic doc.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 597.46,
       "words": [
         {
@@ -26875,7 +26875,7 @@ const draftTranscriptExample = [
     "text": "Not just out of respect for property but because the child might be more likely to kick a real doc.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 603.19,
       "words": [
         {
@@ -27227,7 +27227,7 @@ const draftTranscriptExample = [
     "text": "And again it's not just kids.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 610.48,
       "words": [
         {
@@ -27341,7 +27341,7 @@ const draftTranscriptExample = [
     "text": "This is the violent video games question but it's on a completely new level because of this visceral physicality that we respond more intensely to into images on a screen.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 613.53,
       "words": [
         {
@@ -27863,7 +27863,7 @@ const draftTranscriptExample = [
     "text": "When we behave violently towards robots specifically robots that are designed to mimic life is that healthy outlet for violent behavior?",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 625.62,
       "words": [
         {
@@ -28232,7 +28232,7 @@ const draftTranscriptExample = [
     "text": "Or is that training or cruelty muscles.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 635.37,
       "words": [
         {
@@ -28363,7 +28363,7 @@ const draftTranscriptExample = [
     "text": "We don't know.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 639.48,
       "words": [
         {
@@ -28426,7 +28426,7 @@ const draftTranscriptExample = [
     "text": "But the answer this question has the potential to impact human behavior has the potential to impact social norms it has the potential to inspire rules around what we can and can't do with certain robots similar to our animal cruelty laws.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 642.59,
       "words": [
         {
@@ -29152,7 +29152,7 @@ const draftTranscriptExample = [
     "text": "Because even if robots can't feel our behavior towards them might matter for us.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 657.2,
       "words": [
         {
@@ -29402,7 +29402,7 @@ const draftTranscriptExample = [
     "text": "And regardless of whether we end up changing our rules.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 664.89,
       "words": [
         {
@@ -29584,7 +29584,7 @@ const draftTranscriptExample = [
     "text": "Robots might be able to help us come to a new understanding of ourselves.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 668.88,
       "words": [
         {
@@ -29834,7 +29834,7 @@ const draftTranscriptExample = [
     "text": "Most of what I've learned over the past ten years have not been about technology at all.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 674.22,
       "words": [
         {
@@ -30135,7 +30135,7 @@ const draftTranscriptExample = [
     "text": "It's been about human psychology and empathy and how we relate to others.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 678.96,
       "words": [
         {
@@ -30368,7 +30368,7 @@ const draftTranscriptExample = [
     "text": "Because when a child is kind to a room by a.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 685.48,
       "words": [
         {
@@ -30567,7 +30567,7 @@ const draftTranscriptExample = [
     "text": "When a soldier tries to save a robot on the battlefield?",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 689.23,
       "words": [
         {
@@ -30766,7 +30766,7 @@ const draftTranscriptExample = [
     "text": "Or when a group of people refuses to harm a robotic baby dinosaur.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 693.26,
       "words": [
         {
@@ -30999,7 +30999,7 @@ const draftTranscriptExample = [
     "text": "Those robots arches motors in years and algorithms.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 698.21,
       "words": [
         {
@@ -31147,7 +31147,7 @@ const draftTranscriptExample = [
     "text": "Their reflections of our own humanity.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 702.48,
       "words": [
         {
@@ -31261,7 +31261,7 @@ const draftTranscriptExample = [
     "text": "Thank you.",
     "type": "paragraph",
     "data": {
-      "speaker": "Speaker 1",
+      "speaker": "TBC 1",
       "start": 705.5,
       "words": [
         {

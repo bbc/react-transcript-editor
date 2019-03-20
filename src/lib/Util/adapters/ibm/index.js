@@ -137,130 +137,97 @@
 ```
  *
  */
+///////////////
+import generateEntitiesRanges from '../generate-entities-ranges/index.js';
 
-const ibmToDraft = (ibmJson) => {
+const ibmToDraft = ibmJson => {
+  // helper function to normalise IBM words at line level
+  const normalizeTimeStampsToWords = timestamps => {
+    return timestamps.map(ibmWord => {
+      return {
+        text: ibmWord[0],
+        start: ibmWord[1],
+        end: ibmWord[2]
+      };
+    });
+  };
 
-  let x, y, z, topLvlResult, result;
+  //
+  const normalizeIBMWordsList = ibmResults => {
+    const normalisedResults = [];
+    ibmResults.forEach(result => {
+      // nested array to keep paragraph segmentation same as IBM lines
+      normalisedResults.push(normalizeTimeStampsToWords(result.alternatives[0].timestamps));
+      // TODO: can be revisited - as separate PR by flattening the array like this
+      // normalisedResults = normalisedResults.concact(normalizeTimeStampsToWords(result.alternatives[0].timestamps));
+      // addSpeakersToWords function would need adjusting as would be dealing with a 1D array instead of 2D
+      // if edge case, like in example file, that there's one speaker recognised through all of speaker segemtnation info
+      // could break into paragraph when is over a minute? at end of IBM line?
+      // or punctuation, altho IBM does not seem to provide punctuation?
+    });
 
-  const addPunctuation = true;
-  let newSentence = true;
-  let firstWordOfSentence = null;
-  let punctuatedWord = null;
+    return normalisedResults;
+  };
 
-  // Watson doesn't include punctuation at this time (Dec-2018).
-  // Instead, manually capitalize first word after a "final" transcript block.
-  function capitalizeFirstLetter(string) {
-    if (!addPunctuation) {
-      return string;
+  // TODO: could be separate file
+  const findSpeakerSegmentForWord = (word, speakerSegments) => {
+    const tmpSegment = speakerSegments.find(seg => {
+      const segStart = seg.from;
+      const segEnd = seg.to;
+
+      return ((word.start === segStart) && (word.end === segEnd));
+    });
+    // if find doesn't find any matches it returns an undefined
+    if (tmpSegment === undefined) {
+      // covering edge case orphan word not belonging to any segments
+      // adding UKN speaker label
+      return 'UKN';
     } else {
-      return string.charAt(0).toUpperCase() + string.slice(1);
+      // find returns the first element that matches the criteria
+      return `S_${ tmpSegment.speaker }`;
     }
-  }
+  };
+  // add speakers to words
+  const addSpeakersToWords = (ibmWords, ibmSpeakers) => {
+    return ibmWords.map(lines => {
+      return lines.map(word => {
 
-  // Watson doesn't include punctuation at this time (Dec-2018).
-  // Instead, manually add punctuation on last word of "final" transcript blocks.
-  function punctuateEndOfSentence(firstWord, lastWord) {
-    if (!addPunctuation) {
-      return lastWord;
+        word.speaker = findSpeakerSegmentForWord(word, ibmSpeakers);
 
-    } else {
+        return word;
+      });
+    });
+  };
 
-      const interrogatives = [ 'when', 'where', 'why', 'how', 'does', "doesn't" ];
+  const ibmNormalisedWordsToDraftJs = (ibmNormalisedWordsWithSpeakers) => {
+    const drafJsParagraphsResults = [];
+    ibmNormalisedWordsWithSpeakers.forEach((ibmParagraph) => {
+      const draftJsContentBlockParagraph = {
+        text: ibmParagraph.map((word) => {return word.text;}).join(' '),
+        type: 'paragraph',
+        data: {
+          // TODO: Assuming each paragraph in IBM line is the same
+          speaker: ibmParagraph[0].speaker,
+          words: ibmParagraph,
+          start: ibmParagraph[0].start
+        },
+        // the entities as ranges are each word in the space-joined text,
+        // so it needs to be compute for each the offset from the beginning of the paragraph and the length
+        entityRanges: generateEntitiesRanges(ibmParagraph, 'text'), // wordAttributeName
+      };
+      drafJsParagraphsResults.push(draftJsContentBlockParagraph);
+    });
 
-      if (interrogatives.includes(firstWord)) {
+    return drafJsParagraphsResults;
+  };
 
-        return lastWord + '?';
+  const normalisedWords = normalizeIBMWordsList(ibmJson.results[0].results);
+  // nested array of words, to keep some sort of paragraphs, in case there's only one speaker
+  // can be refactored/optimised later
+  const ibmNormalisedWordsWithSpeakers = addSpeakersToWords(normalisedWords, ibmJson.results[0].speaker_labels);
+  const ibmDratJs = ibmNormalisedWordsToDraftJs(ibmNormalisedWordsWithSpeakers);
 
-      } else {
-
-        return lastWord + '.';
-
-      }
-    }
-  }
-
-  const results = [];
-  for (x = 0; x < ibmJson.results.length; x++) { // result top level
-
-    topLvlResult = ibmJson.results[x];
-
-    for (y = 0; y < topLvlResult.results.length; y++) { // sentence level
-
-      const block = {};
-      const data = {};
-      const words = [];
-      const entityRanges = [];
-      const sentenceArray = [];
-      let offset = 0;
-
-      result = topLvlResult.results[y];
-
-      for (z = 0; z < result.alternatives[0].timestamps.length; z++) { // word level
-
-        const word = result.alternatives[0].timestamps[z][0];
-        const startTime = result.alternatives[0].timestamps[z][1];
-        const endTime = result.alternatives[0].timestamps[z][2];
-        const wordConfidence = result.alternatives[0].hasOwnProperty('word_confidence') ?
-          result.alternatives[0].word_confidence[z][1] : 100;
-
-        if (newSentence === true) {
-          punctuatedWord = capitalizeFirstLetter(word);
-          firstWordOfSentence = word;
-          newSentence = false;
-           data.speaker = 'Speaker ' + topLvlResult.speaker_labels[z].speaker;
-          data.start = result.alternatives[0].timestamps[z][1];
-        } else {
-          punctuatedWord = word;
-        }
-
-        if ((z + 1) === (result.alternatives[0].timestamps.length) && result.final) { // end of block.
-          punctuatedWord = punctuateEndOfSentence(firstWordOfSentence, word);
-          newSentence = true;
-        }
-
-        const puncWordLength = punctuatedWord.length;
-
-        const aWord = {
-          start: startTime,
-          confidence: wordConfidence,
-          end: endTime,
-          word: word,
-          punct: punctuatedWord,
-          index: z
-        };
-
-        const anEntityRange = {
-          start: startTime,
-          end: endTime,
-          confidence: wordConfidence,
-          text: punctuatedWord,
-          offset: offset,
-          length: puncWordLength,
-          key: Math.random().toString(36).substring(6)
-        };
-
-        offset += puncWordLength + 1;
-
-        words.push(aWord);
-        entityRanges.push(anEntityRange);
-        sentenceArray.push(punctuatedWord);
-
-      }
-
-      data.words = words;
-
-      block['text'] = sentenceArray.join(' ');
-      block['type'] = 'paragraph';
-      block['data'] = data;
-      block['entityRanges'] = entityRanges;
-
-      results.push(block);
-
-    }
-
-  }
-
-  return results;
+  return ibmDratJs;
 };
 
 export default ibmToDraft;

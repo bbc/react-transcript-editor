@@ -56,10 +56,10 @@ Import Transcript Json - Adapters
 - [x] News Labs API - BBC Kaldi
 - [x] autoEdit 2
 - [x] AWS Transcriber
+- [x] IBM Watson STT
+- [X] Speechmatics
 - [ ] Gentle Transcription 
 - [ ] Gentle Alignment Json
-- [ ] IBM Watson STT
-- [X] Speechmatics
 - [ ] AssemblyAI
 - [ ] Rev
 - [ ] Srt
