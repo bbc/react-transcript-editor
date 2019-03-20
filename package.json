@@ -19,6 +19,7 @@
   "scripts": {
     "start": "yarn storybook",
     "test": "lerna run test",
+    "test-ci": "lerna run test -- -- --ci",
     "lint": "lerna run lint",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
