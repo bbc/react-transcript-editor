@@ -8,8 +8,42 @@ body {
   font-family: ReithSerif, Fallback, sans-serif;
 }
 
+.demoNavItem {
+  padding-right: 1em;
+}
+
+.demoInput {
+  width: 100%;
+}
+
+.demoNav section button {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 0.5em 0.5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  margin-top: 0.5em;
+}
+
+/* desktop */
+@media (min-width: 767px) {
+  .demoNav {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* phone */
 @media (max-width: 767px) {
   body {
     padding: 0;
+  }
+
+  .demoNavItem {
+    padding-bottom: 1em;
+    border-bottom: 0.1em solid grey;
   }
 }
