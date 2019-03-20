@@ -12,11 +12,11 @@ import groupWordsInParagraphsBySpeakers from './group-words-by-speakers.js';
  * @param {array} words - array of words opbjects from kaldi transcript
  */
 
-const groupWordsInParagraphs = (words) => {
+const groupWordsInParagraphs = words => {
   const results = [];
   let paragraph = { words: [], text: [] };
 
-  words.forEach((word) => {
+  words.forEach(word => {
     // if word contains punctuation
     if (/[.?!]/.test(word.punct)) {
       paragraph.words.push(word);
@@ -34,56 +34,43 @@ const groupWordsInParagraphs = (words) => {
   return results;
 };
 
-// const groupWordsInParagraphsBySpeakers = (words, speakerSegments) => {
-
-// };
-
-// const getSpeaker = (segments, index) =>{
-
-// }
-
-const bbcKaldiToDraft = (bbcKaldiJson) => {
+const bbcKaldiToDraft = bbcKaldiJson => {
   const results = [];
   let tmpWords;
   let speakerSegmentation = null;
-  let wordsByParagraphs =[];
+  let wordsByParagraphs = [];
 
   // BBC Octo Labs API Response wraps Kaldi response around retval,
   // while kaldi contains word attribute at root
   if (bbcKaldiJson.retval !== undefined) {
     tmpWords = bbcKaldiJson.retval.words;
-    if (bbcKaldiJson.retval.segmentation!== undefined) {
+    if (bbcKaldiJson.retval.segmentation !== undefined) {
       speakerSegmentation = bbcKaldiJson.retval.segmentation;
     }
   } else {
     tmpWords = bbcKaldiJson.words;
-    if (bbcKaldiJson.segmentation!== undefined) {
+    if (bbcKaldiJson.segmentation !== undefined) {
       speakerSegmentation = bbcKaldiJson.segmentation;
     }
   }
 
-  // TODO: adjust this part
   if (speakerSegmentation === null) {
     wordsByParagraphs = groupWordsInParagraphs(tmpWords);
-  }
-  else {
+  } else {
     wordsByParagraphs = groupWordsInParagraphsBySpeakers(tmpWords, speakerSegmentation);
-    // console.log('wordsByParagraphs - speaker segments', JSON.stringify(wordsByParagraphs, null, 2));
   }
-
-  // console.log('wordsByParagraphs', JSON.stringify(wordsByParagraphs, null, 2));
 
   wordsByParagraphs.forEach((paragraph, i) => {
     // if paragraph contain words
     // eg sometimes the speaker segmentation might not contain words :man-shrugging:
-    if (paragraph.words[0]!== undefined) {
+    if (paragraph.words[0] !== undefined) {
       let speakerLabel = `TBC ${ i }`;
       if (speakerSegmentation !== null) {
-        speakerLabel= paragraph.speaker;
+        speakerLabel = paragraph.speaker;
       }
 
       const draftJsContentBlockParagraph = {
-        text: paragraph.text, //paragraph.text.join(' '),
+        text: paragraph.text,
         type: 'paragraph',
         data: {
           speaker: speakerLabel,
@@ -92,9 +79,8 @@ const bbcKaldiToDraft = (bbcKaldiJson) => {
         },
         // the entities as ranges are each word in the space-joined text,
         // so it needs to be compute for each the offset from the beginning of the paragraph and the length
-        entityRanges: generateEntitiesRanges(paragraph.words, 'punct'), // wordAttributeName
+        entityRanges: generateEntitiesRanges(paragraph.words, 'punct') // wordAttributeName
       };
-      // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
       results.push(draftJsContentBlockParagraph);
     }
   });

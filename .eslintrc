@@ -11,6 +11,7 @@
     "jest": true
   },
   "rules": {
+    "space-infix-ops": ["error", {"int32Hint": false}],
     "no-trailing-spaces": "error",
     "indent": ["warn", 2],
     "arrow-spacing": ["error", { "before": true, "after": true }],

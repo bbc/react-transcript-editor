@@ -15,16 +15,16 @@ function groupWordsInParagraphsBySpeakers(words, segments) {
 
 /**
 * Add speakers to each words
-* if it doesn't have add uknw
+* if it doesn't have add unknown attribute `U_UKN`
 * @param {*} words
-* @param {*} semgnets
+* @param {*} segments
 */
 function addSpeakerToEachWord(words, segments) {
-  let tmpWordsWithSpeakers =[];
+  const tmpWordsWithSpeakers = [];
   words.forEach((word) => {
     const tmpSpeakerSegment = findSegmentForWord(word, segments);
 
-    word.speaker = _formatSpeakerName(tmpSpeakerSegment.speaker);
+    word.speaker = formatSpeakerName(tmpSpeakerSegment.speaker);
     tmpWordsWithSpeakers.push(word);
   });
 
@@ -45,7 +45,7 @@ function groupWordsBySpeaker(wordsWithSpeakers) {
     // if current speaker same as word speaker add words to paragraph
     if (currentSpeaker === word.speaker) {
       paragraph.words.push(word);
-      paragraph.text += word.punct +' ';
+      paragraph.text += word.punct + ' ';
       paragraph.speaker = currentSpeaker;
     }
     // if it's not same speaker
@@ -60,7 +60,7 @@ function groupWordsBySpeaker(wordsWithSpeakers) {
       paragraph = { words: [], text: '', speaker: 'U_UKN' };
       // add words attributes to new
       paragraph.words.push(word);
-      paragraph.text += word.punct+' ';
+      paragraph.text += word.punct + ' ';
     }
   });
   // add last paragraph
@@ -88,7 +88,6 @@ function findSegmentForWord(word, segments) {
     const segEnd = seg.start + seg.duration;
 
     return ((word.start >= seg.start) && (word.end <= segEnd));
-    // return word.end  <= segEnd;
   });
   // if find doesn't find any matches it returns an undefined
   if (tmpSegment === undefined) {
@@ -96,9 +95,6 @@ function findSegmentForWord(word, segments) {
     // adding UKN speaker label
     return {
       '@type': 'Segment',
-      // start: 13.01,
-      // duration: 6.75,
-      // bandwidth: 'S',
       // keeping both speaker id and gender as this is used later
       // to format speaker label combining the two
       speaker: { '@id': 'UKN', gender: 'U' }
@@ -115,8 +111,8 @@ function findSegmentForWord(word, segments) {
 * @param {object} speaker - BBC kaldi speaker object
 * @return {string} -
 */
-function _formatSpeakerName(speaker) {
-  return speaker.gender+'_'+speaker['@id'];
+function formatSpeakerName(speaker) {
+  return speaker.gender + '_' + speaker['@id'];
 }
 
 export default groupWordsInParagraphsBySpeakers;
