@@ -2,7 +2,7 @@ import bbcKaldiToDraft from './bbc-kaldi/index';
 import autoEdit2ToDraft from './autoEdit2/index';
 import speechmaticsToDraft from './speechmatics/index';
 import amazonTranscribeToDraft from './amazon-transcribe/index';
-
+import ibmToDraft from './ibm/index';
 /**
  * Adapters for STT conversion
  * @param {json} transcriptData - A json transcript with some word accurate timecode
@@ -45,15 +45,20 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
     blocks = speechmaticsToDraft(transcriptData);
 
     return { blocks, entityMap: createEntityMap(blocks) };
+  case 'ibm':
+    blocks = ibmToDraft(transcriptData);
+
+    return { blocks, entityMap: createEntityMap(blocks) };
   case 'draftjs':
     return transcriptData; // (typeof transcriptData === 'string')? JSON.parse(transcriptData): transcriptData;
 
   case 'amazontranscribe':
     blocks = amazonTranscribeToDraft(transcriptData);
-    return {blocks, entityMap: createEntityMap(blocks) };
+
+    return { blocks, entityMap: createEntityMap(blocks) };
   default:
     // code block
-    console.error('not recognised the stt enginge');
+    console.error('Did not recognize the stt engine.');
   }
 };
 
