@@ -41,37 +41,40 @@ const normalizeWord = (currentWord, previousWord) => {
 };
 
 export const appendPunctuationToPreviousWord = (punctuation, previousWord) => {
-  const punctuationContent = punctuation.alternatives[0].content
+  const punctuationContent = punctuation.alternatives[0].content;
+
   return {
     ...previousWord,
     alternatives: previousWord.alternatives.map(w => ({
       ...w,
       content: w.content + stripLeadingSpace(punctuationContent)
     }))
-  }
-}
+  };
+};
 
 export const mapPunctuationItemsToWords = (words) => {
   const itemsToRemove = [];
   const dirtyArray = words.map((word, index) => {
     let previousWord = {};
     if (word.type === 'punctuation') {
-      itemsToRemove.push(index-1);
+      itemsToRemove.push(index - 1);
       previousWord = words[index - 1];
-      return appendPunctuationToPreviousWord(word, previousWord)
+
+      return appendPunctuationToPreviousWord(word, previousWord);
     }
     else {
       return word;
     }
-  })
+  });
+
   return dirtyArray.filter((item, index) => {
     return !itemsToRemove.includes(index);
-  })
-}
+  });
+};
 
 export const stripLeadingSpace = (word) => {
   return word.replace(/^\s/, '');
-}
+};
 
 /**
  * groups words list from amazon transcribe transcript based on punctuation.
@@ -79,29 +82,29 @@ export const stripLeadingSpace = (word) => {
  * @param {array} words - array of words opbjects from kaldi transcript
  */
 
- const groupWordsInParagraphs = (words) => {
-   const results = [];
-   let paragraph = {
-     words: [],
-     text: []
-   };
-   words.forEach((word, index) => {
-     const content = getBestAlternativeForWord(word).content;
-     const normalizedWord = normalizeWord(word);
-     if (/[.?!]/.test(content)) {
-       paragraph.words.push(normalizedWord);
-       paragraph.text.push(content);
-       results.push(paragraph);
-       // reset paragraph
-       paragraph = { words: [], text: [] };
-     } else {
-       paragraph.words.push(normalizedWord);
-       paragraph.text.push(content);
-     }
-   });
+const groupWordsInParagraphs = (words) => {
+  const results = [];
+  let paragraph = {
+    words: [],
+    text: []
+  };
+  words.forEach((word, index) => {
+    const content = getBestAlternativeForWord(word).content;
+    const normalizedWord = normalizeWord(word);
+    if (/[.?!]/.test(content)) {
+      paragraph.words.push(normalizedWord);
+      paragraph.text.push(content);
+      results.push(paragraph);
+      // reset paragraph
+      paragraph = { words: [], text: [] };
+    } else {
+      paragraph.words.push(normalizedWord);
+      paragraph.text.push(content);
+    }
+  });
 
-   return results;
- };
+  return results;
+};
 
 const amazonTranscribeToDraft = (amazonTranscribeJson) => {
   const results = [];
