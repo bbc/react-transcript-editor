@@ -1,12 +1,5 @@
 language: node_js
 node_js:
   - "10"
-
-install:
-  - node --version
-  - npm i -g npm@5
-  - npm --version
-  - yarn
-
 script:
   - yarn test-ci
