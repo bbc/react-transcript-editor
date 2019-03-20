@@ -171,7 +171,6 @@ class TranscriptEditor extends React.Component {
 
   handleSetTimecodeOffset = timecodeOffset => {
     this.setState({ timecodeOffset: timecodeOffset }, () => {
-      // eslint-disable-next-line react/no-string-refs
       this.timedTextEditorRef.current.forceUpdate();
     });
   };
