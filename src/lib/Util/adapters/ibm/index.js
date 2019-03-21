@@ -137,7 +137,6 @@
 ```
  *
  */
-///////////////
 import generateEntitiesRanges from '../generate-entities-ranges/index.js';
 
 const ibmToDraft = ibmJson => {
