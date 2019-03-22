@@ -13,6 +13,7 @@
     "jest": true
   },
   "rules": {
+    "prefer-const": 1,
     "space-infix-ops": ["error", {"int32Hint": false}],
     "no-unused-expressions": "error",
     "no-trailing-spaces": "error",
