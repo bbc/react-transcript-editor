@@ -1,5 +1,6 @@
 /**
- *  Convert Speechmatics
+ *  Convert Speechmatics Json to DraftJs
+ *  see `sample` folder for example of input and output as well as `example-usage.js`
  */
 
 import generateEntitiesRanges from '../generate-entities-ranges/index.js';
@@ -10,7 +11,6 @@ import generateEntitiesRanges from '../generate-entities-ranges/index.js';
  * @todo As this function is also used in the bbc-kaldi adapter, should it be refactored into its own file?
  * @param {array} words - array of words objects from speechmatics transcript
  */
-
 const groupWordsInParagraphs = (words) => {
   const results = [];
   let paragraph = { words: [], text: [] };

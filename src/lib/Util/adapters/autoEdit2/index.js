@@ -1,31 +1,6 @@
 /**
- * Convert autoEdit2 Json
- *
- * into
- *
- ```
- const blocks = [
-        {
-            text: 'Hello',
-            type: 'paragraph',
-            data: {
-            speaker: 'Foo',
-            },
-            entityRanges: [],
-        },
-        {
-            text: 'World',
-            type: 'paragraph',
-            data: {
-            speaker: 'Bar',
-            },
-            entityRanges: [],
-        },
-        ];
-```
- *
- * See samples folder and test file
- * for reference data structures
+ * Convert autoEdit2 Json to draftJS
+ * see `sample` folder for example of input and output as well as `example-usage.js`
  */
 
 import generateEntitiesRanges from '../generate-entities-ranges/index';

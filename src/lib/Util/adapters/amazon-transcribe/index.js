@@ -1,10 +1,13 @@
+/**
+ * Converts AWS Transcribe Json to DraftJs
+ * see `sample` folder for example of input and output as well as `example-usage.js`
+ */
+
 import generateEntitiesRanges from '../generate-entities-ranges/index.js';
 
-/**
- * Helper function to generate draft.js entities,
- * see unit test for example data structure
- * it adds offset and length to recognise word in draftjs
- */
+export const stripLeadingSpace = word => {
+  return word.replace(/^\s/, '');
+};
 
 /**
  *  @param {json} words  - List of words
@@ -12,24 +15,27 @@ import generateEntitiesRanges from '../generate-entities-ranges/index.js';
  * attribute for the word object containing the text. eg word ={ punct:'helo', ... }
  *  or eg word ={ text:'helo', ... }
  */
-
-export const getBestAlternativeForWord = (word) => {
+export const getBestAlternativeForWord = word => {
   if (/punctuation/.test(word.type)) {
     return Object.assign(word.alternatives[0], { confidence: 1 }); //Transcribe doesn't provide a confidence for punctuation
   }
-  const wordWithHighestConfidence = word.alternatives.reduce(function(prev, current) {
-    return (parseFloat(prev.confidence) > parseFloat(current.confidence)) ? prev : current;
+  const wordWithHighestConfidence = word.alternatives.reduce(function(
+    prev,
+    current
+  ) {
+    return parseFloat(prev.confidence) > parseFloat(current.confidence)
+      ? prev
+      : current;
   });
 
   return wordWithHighestConfidence;
 };
 
 /**
-Normalizes words so they can be used in
- the generic generateEntitiesRanges() method
-**/
-
-const normalizeWord = (currentWord, previousWord) => {
+ * Normalizes words so they can be used in
+ * the generic generateEntitiesRanges() method
+ **/
+const normalizeWord = currentWord => {
   const bestAlternative = getBestAlternativeForWord(currentWord);
 
   return {
@@ -52,7 +58,7 @@ export const appendPunctuationToPreviousWord = (punctuation, previousWord) => {
   };
 };
 
-export const mapPunctuationItemsToWords = (words) => {
+export const mapPunctuationItemsToWords = words => {
   const itemsToRemove = [];
   const dirtyArray = words.map((word, index) => {
     let previousWord = {};
@@ -61,8 +67,7 @@ export const mapPunctuationItemsToWords = (words) => {
       previousWord = words[index - 1];
 
       return appendPunctuationToPreviousWord(word, previousWord);
-    }
-    else {
+    } else {
       return word;
     }
   });
@@ -72,17 +77,12 @@ export const mapPunctuationItemsToWords = (words) => {
   });
 };
 
-export const stripLeadingSpace = (word) => {
-  return word.replace(/^\s/, '');
-};
-
 /**
  * groups words list from amazon transcribe transcript based on punctuation.
  * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
- * @param {array} words - array of words opbjects from kaldi transcript
+ * @param {array} words - array of words objects from kaldi transcript
  */
-
-const groupWordsInParagraphs = (words) => {
+const groupWordsInParagraphs = words => {
   const results = [];
   let paragraph = {
     words: [],
@@ -106,11 +106,13 @@ const groupWordsInParagraphs = (words) => {
   return results;
 };
 
-const amazonTranscribeToDraft = (amazonTranscribeJson) => {
+const amazonTranscribeToDraft = amazonTranscribeJson => {
   const results = [];
   const tmpWords = amazonTranscribeJson.results.items;
   const wordsWithRemappedPunctuation = mapPunctuationItemsToWords(tmpWords);
-  const wordsByParagraphs = groupWordsInParagraphs(wordsWithRemappedPunctuation);
+  const wordsByParagraphs = groupWordsInParagraphs(
+    wordsWithRemappedPunctuation
+  );
   wordsByParagraphs.forEach((paragraph, i) => {
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
@@ -122,7 +124,7 @@ const amazonTranscribeToDraft = (amazonTranscribeJson) => {
       },
       // the entities as ranges are each word in the space-joined text,
       // so it needs to be compute for each the offset from the beginning of the paragraph and the length
-      entityRanges: generateEntitiesRanges(paragraph.words, 'text'), // wordAttributeName
+      entityRanges: generateEntitiesRanges(paragraph.words, 'text') // wordAttributeName
     };
     results.push(draftJsContentBlockParagraph);
   });
