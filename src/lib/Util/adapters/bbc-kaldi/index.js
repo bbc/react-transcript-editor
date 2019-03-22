@@ -1,6 +1,6 @@
 /**
- * Convert BBC Kaldi json
- * See sample folder for example data structures
+ * Convert BBC Kaldi json to draftJs
+ * see `sample` folder for example of input and output as well as `example-usage.js`
  *
  */
 
