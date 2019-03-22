@@ -13,6 +13,8 @@
     "jest": true
   },
   "rules": {
+    "prefer-const": 1,
+    "space-infix-ops": ["error", {"int32Hint": false}],
     "no-unused-expressions": "error",
     "no-trailing-spaces": "error",
     "no-nested-ternary": "error",
@@ -28,7 +30,6 @@
     "quotes": [ 1, "single", "avoid-escape" ],
     "no-use-before-define": [ 2, { "functions": false } ],
     "semi": [1, "always"],
-    "prefer-const": 1,
     "react/prefer-es6-class": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-curly-spacing": [ 2, "always" ],
