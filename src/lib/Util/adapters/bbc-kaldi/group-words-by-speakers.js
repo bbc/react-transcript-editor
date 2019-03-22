@@ -40,7 +40,7 @@ function addSpeakerToEachWord(words, segments) {
 function groupWordsBySpeaker(wordsWithSpeakers) {
   let currentSpeaker = wordsWithSpeakers[0].speaker;
   const results = [ ];
-  let paragraph = { words: [], text: '', speaker:'' };
+  let paragraph = { words: [], text: '', speaker: '' };
   wordsWithSpeakers.forEach((word) => {
     // if current speaker same as word speaker add words to paragraph
     if (currentSpeaker === word.speaker) {
