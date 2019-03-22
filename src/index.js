@@ -23,7 +23,7 @@ class App extends React.Component {
       isTextEditable: true,
       sttType: 'bbckaldi',
       analyticsEvents: [],
-      title: 'Ted Talk Kate Kate Darling',
+      title: 'Ted Talk Kate Darling',
       fileName: ''
     };
 
