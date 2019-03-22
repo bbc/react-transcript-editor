@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 const ExportFormatSelect = props => (<select name={ props.name } value={ props.value } onChange={ props.handleChange }>
   <option value="draftjs">Draft Js</option>
   <option value="txt">Text file</option>
+  <option value="docx">MS Word</option>
   <option value="html" disabled>HTML</option>
-  <option value="word" disabled>MS Word</option>
 </select>);
 
 ExportFormatSelect.propTypes = {
