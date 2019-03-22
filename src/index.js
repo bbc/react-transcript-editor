@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import { TranscriptEditor } from './lib';
 
 // import kaldiTedTalkTranscript from './sample-data/KateDarling_2018S-bbc-kaldi.json';
-import kaldiTedTalkTranscript from './sample-data/KateDarling_2018S-bbc-kaldi_speaker-segments.json';
+import kaldiTedTalkTranscript from './sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json';
 import style from './index.module.css';
 import SttTypeSelect from './select-stt-json-type';
 import ExportFormatSelect from './select-export-format';
