@@ -63,12 +63,12 @@ import { TranscriptEditor } from '@bbc/react-transcript-editor';
   <TranscriptEditor
      transcriptData=// Transcript json
      mediaUrl=// string url to media file - audio or video 
-     isEditable={true}// se to true if you want to be able to edit the text
-     sttJsonType={ 'bbckaldi' }// the type of STT Json transcript supported.
+     isEditable={true}// set to true if you want to be able to edit the text
+     sttJsonType={ 'bbckaldi' } // the type of STT Json transcript supported.
      handleAnalyticsEvents={ this.handleAnalyticsEvents } // optional - if you want to collect analytics events.
      fileName=// optional - used for saving and retrieving local storage blob files 
      title=// optional - defaults to ''
-     ref= // optional - if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.
+     ref={ this.transcriptEditorRef } // optional - if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.
    />
 ```
 See [`./src/index.js` demo](./src/index.js) as a more detailed example usage of the component.
