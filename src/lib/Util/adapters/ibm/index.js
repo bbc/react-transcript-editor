@@ -1,140 +1,6 @@
 /**
- * Convert IBM json
- ```
- {
-   "created": "2018-12-18T22:40:38.903Z",
-   "id": "f14cbe1e-0315-11e9-b590-a3e1e3acdd73",
-   "updated": "2018-12-18T22:47:30.392Z",
-   "results": [{
-      "result_index": 0,
-      "speaker_labels": [
-         {
-            "speaker": 1,
-            "confidence": 0.36,
-            "final": false,
-            "from": 13.04,
-            "to": 13.23
-         }, ...]
-      "results": [
-         {
-            "final": true,
-            "alternatives": [{
-               "transcript": "there is a day about ten years ago when I asked a friend to hold a baby dinosaur robot upside down ",
-               "timestamps": [
-                  [
-                     "there",
-                     13.04,
-                     13.23
-                  ],
-                  [
-                     "is",
-                     13.23,
-                     13.36
-                  ] ...
-
-               "confidence": 0.938,
-               "word_confidence": [
-                  [
-                     "there",
-                     0.902
-                  ],
-                  [
-                     "is",
-                     0.52
-                  ],
-                  [
-                     "a",
-                     0.819
-                  ] ...
-        ...
-```
- *
- * into
- *
- ```
- const blocks = [
-  {
-    "text": "There is a day.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "TBC 0",
-      "words": [
-        {
-          "start": 13.02,
-          "confidence": 0.68,
-          "end": 13.17,
-          "word": "there",
-          "punct": "There",
-          "index": 0
-        },
-        {
-          "start": 13.17,
-          "confidence": 0.61,
-          "end": 13.38,
-          "word": "is",
-          "punct": "is",
-          "index": 1
-        },
-        {
-          "start": 13.38,
-          "confidence": 0.99,
-          "end": 13.44,
-          "word": "a",
-          "punct": "a",
-          "index": 2
-        },
-        {
-          "start": 13.44,
-          "confidence": 1,
-          "end": 13.86,
-          "word": "day",
-          "punct": "day.",
-          "index": 3
-        }
-      ],
-      "start": 13.02
-    },
-    "entityRanges": [
-      {
-        "start": 13.02,
-        "end": 13.17,
-        "confidence": 0.68,
-        "text": "There",
-        "offset": 0,
-        "length": 5,
-        "key": "li6c6ld"
-      },
-      {
-        "start": 13.17,
-        "end": 13.38,
-        "confidence": 0.61,
-        "text": "is",
-        "offset": 6,
-        "length": 2,
-        "key": "pcgzkp6"
-      },
-      {
-        "start": 13.38,
-        "end": 13.44,
-        "confidence": 0.99,
-        "text": "a",
-        "offset": 9,
-        "length": 1,
-        "key": "ngomd9"
-      },
-      {
-        "start": 13.44,
-        "end": 13.86,
-        "confidence": 1,
-        "text": "day.",
-        "offset": 11,
-        "length": 4,
-        "key": "sgmfl4f"
-      }
-    ]
-  },
-  ...
-```
+ * Convert IBM json to draftJS
+ * see `sample` folder for example of input and output as well as `example-usage.js`
  *
  */
 import generateEntitiesRanges from '../generate-entities-ranges/index.js';
@@ -199,13 +65,15 @@ const ibmToDraft = ibmJson => {
   };
 
   const ibmNormalisedWordsToDraftJs = (ibmNormalisedWordsWithSpeakers) => {
-    const drafJsParagraphsResults = [];
+    const draftJsParagraphsResults = [];
     ibmNormalisedWordsWithSpeakers.forEach((ibmParagraph) => {
       const draftJsContentBlockParagraph = {
         text: ibmParagraph.map((word) => {return word.text;}).join(' '),
         type: 'paragraph',
         data: {
-          // TODO: Assuming each paragraph in IBM line is the same
+          // Assuming each paragraph in IBM line is the same
+          // for context it just seems like the IBM data structure gives you word level speakers,
+          // but also gives you "lines" so assuming each word in a line has the same speaker.
           speaker: ibmParagraph[0].speaker,
           words: ibmParagraph,
           start: ibmParagraph[0].start
@@ -214,14 +82,14 @@ const ibmToDraft = ibmJson => {
         // so it needs to be compute for each the offset from the beginning of the paragraph and the length
         entityRanges: generateEntitiesRanges(ibmParagraph, 'text'), // wordAttributeName
       };
-      drafJsParagraphsResults.push(draftJsContentBlockParagraph);
+      draftJsParagraphsResults.push(draftJsContentBlockParagraph);
     });
 
-    return drafJsParagraphsResults;
+    return draftJsParagraphsResults;
   };
 
   const normalisedWords = normalizeIBMWordsList(ibmJson.results[0].results);
-  // nested array of words, to keep some sort of paragraphs, in case there's only one speaker
+  // TODO: nested array of words, to keep some sort of paragraphs, in case there's only one speaker
   // can be refactored/optimised later
   const ibmNormalisedWordsWithSpeakers = addSpeakersToWords(normalisedWords, ibmJson.results[0].speaker_labels);
   const ibmDratJs = ibmNormalisedWordsToDraftJs(ibmNormalisedWordsWithSpeakers);
