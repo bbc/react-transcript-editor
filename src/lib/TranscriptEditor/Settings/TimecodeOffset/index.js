@@ -1,9 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import style from './index.module.css';
+import style from "./index.module.css";
 
-import { timecodeToSeconds, secondsToTimecode } from '../../../Util/timecode-converter/index';
+import {
+  timecodeToSeconds,
+  secondsToTimecode
+} from "../../../Util/timecode-converter/index";
 
 class TimecodeOffset extends React.Component {
   constructor(props) {
@@ -14,58 +17,71 @@ class TimecodeOffset extends React.Component {
     };
   }
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       timecodeOffset: e.target.value
     });
-  }
+  };
 
   resetTimecodeOffset = () => {
     const resetTimecodeOffsetValue = 0;
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({
+        category: "TimecodeOffset",
+        action: "resetTimecodeOffset",
+        name: "resetTimecodeOffset",
+        value: 0
+      });
+    }
 
-    this.props.handleAnalyticsEvents({
-      category: 'TimecodeOffset',
-      action: 'resetTimecodeOffset',
-      name: 'resetTimecodeOffset',
-      value: 0
-    });
-
-    this.setState({
-      timecodeOffset: secondsToTimecode(resetTimecodeOffsetValue)
-    }, () => {
-      this.props.handleSetTimecodeOffset(resetTimecodeOffsetValue);
-    });
-  }
+    this.setState(
+      {
+        timecodeOffset: secondsToTimecode(resetTimecodeOffsetValue)
+      },
+      () => {
+        this.props.handleSetTimecodeOffset(resetTimecodeOffsetValue);
+      }
+    );
+  };
 
   setTimecodeOffset = () => {
-    this.props.handleAnalyticsEvents({
-      category: 'TimecodeOffset',
-      action: 'setTimecodeOffset',
-      name: 'setTimecodeOffset',
-      value: this.state.timecodeOffset
-    });
+    if (this.props.handleAnalyticsEvents !== undefined) {
+      this.props.handleAnalyticsEvents({
+        category: "TimecodeOffset",
+        action: "setTimecodeOffset",
+        name: "setTimecodeOffset",
+        value: this.state.timecodeOffset
+      });
+    }
 
     let newCurrentTimeInSeconds = this.state.timecodeOffset;
-    if (typeof newCurrentTimeInSeconds === 'string'
-    && newCurrentTimeInSeconds.includes(':')
-    && !newCurrentTimeInSeconds.includes('NaN')) {
-      newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTimeInSeconds );
+    if (
+      typeof newCurrentTimeInSeconds === "string" &&
+      newCurrentTimeInSeconds.includes(":") &&
+      !newCurrentTimeInSeconds.includes("NaN")
+    ) {
+      newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTimeInSeconds);
     }
     this.props.handleSetTimecodeOffset(newCurrentTimeInSeconds);
-  }
+  };
 
   render() {
     return (
-      <div className={ style.offsetContainer }>
+      <div className={style.offsetContainer}>
         <input
-          className={ style.inputBox }
+          className={style.inputBox}
           type="text"
-          value={ this.state.timecodeOffset }
-          onChange={ this.handleChange }
-          name="lname"/>
-        <span className={ style.button } onClick={ this.resetTimecodeOffset }><u>Reset</u></span>
+          value={this.state.timecodeOffset}
+          onChange={this.handleChange}
+          name="lname"
+        />
+        <span className={style.button} onClick={this.resetTimecodeOffset}>
+          <u>Reset</u>
+        </span>
         <span> | </span>
-        <span className={ style.button } onClick={ this.setTimecodeOffset }><u>Save</u></span>
+        <span className={style.button} onClick={this.setTimecodeOffset}>
+          <u>Save</u>
+        </span>
       </div>
     );
   }

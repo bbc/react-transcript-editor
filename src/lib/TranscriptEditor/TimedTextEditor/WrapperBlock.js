@@ -34,7 +34,7 @@ class WrapperBlock extends React.Component {
 
     if (newSpeakerName !== '' && newSpeakerName !== null) {
       this.setState({ speaker: newSpeakerName });
-      if (this.props.blockProps.handleAnalyticsEvents !== undefined) {
+      if (this.props.blockProps.handleAnalyticsEvents) {
         this.props.blockProps.handleAnalyticsEvents({
           category: 'WrapperBlock',
           action: 'handleOnClickEdit',
@@ -71,7 +71,7 @@ class WrapperBlock extends React.Component {
 
   handleTimecodeClick = () => {
     this.props.blockProps.onWordClick(this.state.start);
-    if (this.props.blockProps.handleAnalyticsEvents !== undefined) {
+    if (this.props.blockProps.handleAnalyticsEvents) {
       this.props.blockProps.handleAnalyticsEvents({
         category: 'WrapperBlock',
         action: 'handleTimecodeClick',
