@@ -1,0 +1,11 @@
+{
+  "name": "@bbc/react-transcript-editor-media-player",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "@bbc/react-transcript-editor-style-guide": "1.0.0",
+    "@bbc/react-transcript-editor-util-timecode-converter": "1.0.0"
+  }
+}

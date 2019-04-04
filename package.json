@@ -27,7 +27,7 @@
     "lint-fix": "eslint --ignore-path .eslintignore . --fix",
     "publish:public": "npm run build:component && npm publish --access public",
     "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}'",
-    "storybook": "NODE_PATH=src start-storybook -p 6006 -s public"
+    "storybook": "start-storybook -p 6006 -s public"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",

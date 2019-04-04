@@ -1,4 +1,4 @@
-@value color-labs-red, color-light-grey, color-mid-grey, color-dark-grey from '../colours.module.css';
+@value color-labs-red, color-light-grey, color-mid-grey, color-dark-grey from '@bbc/react-transcript-editor-style-guide/colours.module.css';
 
 /* Desktop size */
 @media (min-width: 768px) {
