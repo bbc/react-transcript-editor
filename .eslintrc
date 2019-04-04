@@ -18,7 +18,6 @@
     "no-unused-expressions": "error",
     "no-trailing-spaces": "error",
     "no-nested-ternary": "error",
-    "space-infix-ops": "error",
     "indent": ["warn", 2],
     "arrow-spacing": ["error", { "before": true, "after": true }],
     "space-in-parens": [ 0, "never" ],
