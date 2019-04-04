@@ -26,7 +26,8 @@
     "lint": "eslint --ignore-path .eslintignore .",
     "lint-fix": "eslint --ignore-path .eslintignore . --fix",
     "publish:public": "npm run build:component && npm publish --access public",
-    "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}'"
+    "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}'",
+    "storybook": "NODE_PATH=src start-storybook -p 6006 -s public"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -35,6 +36,11 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/react": "^5.0.6",
+    "@storybook/addon-actions": "^5.0.6",
+    "@storybook/addon-links": "^5.0.6",
+    "@storybook/addons": "^5.0.6",
+    "babel-loader": "^8.0.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-minify": "^0.5.0",
     "enzyme": "^3.7.0",
@@ -60,6 +66,7 @@
     },
     {
       "name": "James Dooley",
+      "email": "james.dooley@bbc.co.uk",
       "url": "https://github.com/jamesdools"
     }
   ],

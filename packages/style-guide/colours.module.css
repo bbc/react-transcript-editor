@@ -1,0 +1,10 @@
+:global {
+  @value color-labs-red: #a0372d;
+  @value color-darkest-grey: #282828;
+  @value color-dark-grey: #4a4a4a;
+  @value color-mid-grey: #696969;
+  @value color-light-grey: #767676;
+  @value color-lightest-grey: #f2f2f2;
+  @value color-subt-green: #69e3c2;
+  @value color-light-shilo: #E2A9A2;
+}
