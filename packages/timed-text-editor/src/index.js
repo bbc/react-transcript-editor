@@ -14,7 +14,9 @@ import {
 import Word from './Word';
 import WrapperBlock from './WrapperBlock';
 
+// TODO: connect to local packages version
 import sttJsonAdapter from '../../Util/adapters/index.js';
+// TODO: connect to local packages version
 import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
 
