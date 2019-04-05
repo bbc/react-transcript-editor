@@ -20,13 +20,14 @@
     "storybook": "start-storybook -p 6006",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "build:component": "rimraf dist && NODE_ENV=production babel --root-mode upward packages/ --out-dir dist --copy-files && rimraf dist/**/*.sample.json dist/**/*.sample.js dist/**/example-usage.js dist/**/*.test.js dist/**/*__tests__ dist/**/*__snapshots__ dist/**/*.spec.js",
-    "deploy:ghpages": "npm run build:example && gh-pages -d build",
-    "test-ci": "jest --ci",
+    "test:ci": "jest --ci",
     "lint": "eslint --ignore-path .eslintignore .",
-    "lint-fix": "eslint --ignore-path .eslintignore . --fix",
-    "publish:public": "npm run build:component && npm publish --access public",
-    "fix-styles": "prettier-stylelint --write 'packages/**/*.{css,scss}'"
+    "lint:fix": "eslint --ignore-path .eslintignore . --fix",
+    "lint:fix-styles": "prettier-stylelint --write 'packages/**/*.{css,scss}'",
+    "build:component": "rimraf dist && NODE_ENV=production babel --root-mode upward packages/ --out-dir dist --copy-files && rimraf dist/**/*.sample.json dist/**/*.sample.js dist/**/example-usage.js dist/**/*.test.js dist/**/*__tests__ dist/**/*__snapshots__ dist/**/*.spec.js",
+    "build:storybook": "rimraf build && build-storybook -c .storybook -o build",
+    "deploy:ghpages": "rimraf build && npm run storybook:build && gh-pages -d build",
+    "publish:public": "npm run build:component && npm publish --access public"
   },
   "jest": {
     "moduleFileExtensions": [
