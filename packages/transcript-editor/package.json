@@ -1,0 +1,16 @@
+{
+  "name": "@bbc/react-transcript-editor",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "@bbc/react-transcript-editor-timed-text-editor": "1.0.0",
+    "@bbc/react-transcript-editor-media-player": "1.0.0",
+    "@bbc/react-transcript-editor-video-player": "1.0.0",
+    "@bbc/react-transcript-editor-settings": "1.0.0",
+    "@bbc/react-transcript-editor-keyboard-shortcuts": "1.0.0",
+    "@bbc/react-transcript-editor-util-timecode-converter": "1.0.0",
+    "@bbc/react-transcript-editor-style-guide": "1.0.0"
+  }
+}
