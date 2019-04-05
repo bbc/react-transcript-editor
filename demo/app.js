@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TranscriptEditor from '../packages/components/react-transcript-editor';
+import TranscriptEditor from '../packages/components/transcript-editor/index.js';
 import kaldiTedTalkTranscript from './sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json';
 import style from './index.module.css';
 import SttTypeSelect from './select-stt-json-type';

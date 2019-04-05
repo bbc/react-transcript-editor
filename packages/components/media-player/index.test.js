@@ -2,7 +2,7 @@ import React from 'react';
 import { render, cleanup } from 'react-testing-library';
 import { shallow } from 'enzyme';
 
-import MediaPlayer from '.';
+import MediaPlayer from './index.js';
 
 afterEach(cleanup);
 
