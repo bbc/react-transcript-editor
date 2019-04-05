@@ -20,7 +20,7 @@ import MediaPlayer from '@bbc/react-transcript-editor-media-player';
 import VideoPlayer from '@bbc/react-transcript-editor-video-player';
 import Settings from '@bbc/react-transcript-editor-settings';
 import Shortcuts from '@bbc/react-transcript-editor-keyboard-shortcuts';
-import { secondsToTimecode } from '@bbc/react-transcript-editor-util-timecode-converter';
+import { secondsToTimecode } from '@bbc/react-transcript-editor-timecode-converter';
 
 import style from './index.module.css';
 

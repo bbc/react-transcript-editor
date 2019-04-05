@@ -6,7 +6,7 @@
   "scripts": {},
   "dependencies": {
     "@bbc/react-transcript-editor-style-guide": "1.0.0",
-    "@bbc/react-transcript-editor-util-timecode-converter": "1.0.0",
+    "@bbc/react-transcript-editor-timecode-converter": "1.0.0",
     "@bbc/react-transcript-editor-draftjs-export-adapter": "1.0.0",
     "@bbc/react-transcript-editor-stt-json-adapter": "1.0.0"
   }

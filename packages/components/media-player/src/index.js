@@ -10,7 +10,7 @@ import styles from './index.module.css';
 import {
   secondsToTimecode,
   timecodeToSeconds
-} from '@bbc/react-transcript-editor-util-timecode-converter';
+} from '@bbc/react-transcript-editor-timecode-converter';
 
 const PLAYBACK_RATES = [
   { value: 0.2, label: '0.2' },

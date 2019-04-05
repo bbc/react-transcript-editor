@@ -10,7 +10,7 @@
     "@bbc/react-transcript-editor-video-player": "1.0.0",
     "@bbc/react-transcript-editor-settings": "1.0.0",
     "@bbc/react-transcript-editor-keyboard-shortcuts": "1.0.0",
-    "@bbc/react-transcript-editor-util-timecode-converter": "1.0.0",
+    "@bbc/react-transcript-editor-timecode-converter": "1.0.0",
     "@bbc/react-transcript-editor-style-guide": "1.0.0"
   }
 }
