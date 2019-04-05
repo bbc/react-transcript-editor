@@ -1,5 +1,5 @@
 {
-  "name": "@bbc-transcript-editor/timed-text-editor",
+  "name": "@bbc/react-transcript-editor-timed-text-editor",
   "version": "1.0.0",
   "main": "src/index.js",
   "license": "MIT",
