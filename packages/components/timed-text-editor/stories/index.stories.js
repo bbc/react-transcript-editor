@@ -5,7 +5,7 @@ import { action } from "@storybook/addon-actions";
 
 import bbcKaldiTranscript from "./fixtures/bbc-kaldi.json";
 
-import TimedTextEditor from "../src";
+import TimedTextEditor from "../index.js";
 
 const fixtureProps = {
   transcriptData: bbcKaldiTranscript,

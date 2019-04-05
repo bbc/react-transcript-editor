@@ -6,7 +6,7 @@ import style from './index.module.css';
 import {
   timecodeToSeconds,
   secondsToTimecode
-} from '@bbc/react-transcript-editor-timecode-converter';
+} from '../../../util/timecode-converter';
 
 class TimecodeOffset extends React.Component {
   constructor(props) {

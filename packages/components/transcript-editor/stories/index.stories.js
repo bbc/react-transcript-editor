@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 
 import bbcKaldiTranscript from './fixtures/bbc-kaldi.json';
 
-import TranscriptEditor from '../src';
+import TranscriptEditor from '../index.js';
 
 storiesOf('TranscriptEditor', module).add('default', () => {
   return (

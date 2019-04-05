@@ -1,3 +1,4 @@
+# Travis CI configuration to run automated test when pushing to github
 language: node_js
 node_js:
  - "10"
@@ -10,4 +11,4 @@ install:
 
 script:
   - npm run test-ci
-  # could also run lit 
+  # TODO: could also run lit 

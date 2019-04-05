@@ -1,9 +1,0 @@
-{
-  "name": "@bbc/react-transcript-editor-style-guide",
-  "version": "1.0.0",
-  "files": [
-    "colours.module.css"
-  ],
-  "private": true,
-  "license": "MIT"
-}

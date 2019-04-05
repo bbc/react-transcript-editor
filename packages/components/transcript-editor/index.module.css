@@ -1,4 +1,4 @@
-@value color-subt-green, color-darkest-grey, color-labs-red from './colours.module.css';
+@value color-subt-green, color-darkest-grey, color-labs-red from '../../config/style-guide/colours.module.css';
 
 ::selection {
   background: color-subt-green;
