@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// import "@bbc-transcript-editor/icons";
+// import "@bbc/react-transcript-editor/icons";
 import {
   faCog,
   faKeyboard,
@@ -15,12 +15,12 @@ import {
 
 import Tooltip from 'react-simple-tooltip';
 
-import TimedTextEditor from '@bbc-transcript-editor/timed-text-editor';
-import MediaPlayer from '@bbc-transcript-editor/media-player';
-import VideoPlayer from '@bbc-transcript-editor/video-player';
-import Settings from '@bbc-transcript-editor/settings';
-import Shortcuts from '@bbc-transcript-editor/keyboard-shortcuts';
-import { secondsToTimecode } from '@bbc-transcript-editor/util-timecode-converter';
+import TimedTextEditor from '@bbc/react-transcript-editor-timed-text-editor';
+import MediaPlayer from '@bbc/react-transcript-editor-media-player';
+import VideoPlayer from '@bbc/react-transcript-editor-video-player';
+import Settings from '@bbc/react-transcript-editor-settings';
+import Shortcuts from '@bbc/react-transcript-editor-keyboard-shortcuts';
+import { secondsToTimecode } from '@bbc/react-transcript-editor-util-timecode-converter';
 
 import style from './index.module.css';
 

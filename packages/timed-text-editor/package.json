@@ -5,11 +5,9 @@
   "license": "MIT",
   "scripts": {},
   "dependencies": {
-    "@bbc-transcript-editor/style-guide": "1.0.0",
-    "@bbc-transcript-editor/adapter-amazon-transcribe": "1.0.0",
-    "@bbc-transcript-editor/adapter-autoedit-2": "1.0.0",
-    "@bbc-transcript-editor/adapter-bbc-kaldi": "1.0.0",
-    "@bbc-transcript-editor/adapter-speechmatics": "1.0.0",
-    "@bbc-transcript-editor/exporter-text": "1.0.0"
+    "@bbc/react-transcript-editor-style-guide": "1.0.0",
+    "@bbc/react-transcript-editor-util-timecode-converter": "1.0.0",
+    "@bbc/react-transcript-editor-draftjs-export-adapter": "1.0.0",
+    "@bbc/react-transcript-editor-stt-json-adapter": "1.0.0"
   }
 }

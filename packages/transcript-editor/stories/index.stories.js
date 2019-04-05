@@ -10,7 +10,7 @@ import TranscriptEditor from '../src';
 storiesOf('Editor', module).add('default', () => {
   return (
     <TranscriptEditor
-      title={ title }
+      title={ 'Ted Talk' }
       mediaUrl={ 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4' }
       sttJsonType={ 'bbckaldi' }
       isEditable={ true }

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './VideoPlayer.module.css';
+import styles from './index.module.css';
 
 class VideoPlayer extends React.Component {
-
   handlePlayMedia = () => {
     if (this.props.videoRef.current !== null) {
-      return this.props.videoRef.current.paused ? this.props.videoRef.current.play() : this.props.videoRef.current.pause();
+      return this.props.videoRef.current.paused
+        ? this.props.videoRef.current.play()
+        : this.props.videoRef.current.pause();
     }
   };
   render() {

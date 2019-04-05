@@ -2,7 +2,12 @@ import React from 'react';
 import { EditorBlock, Modifier, EditorState, SelectionState } from 'draft-js';
 
 import SpeakerLabel from './SpeakerLabel';
-import { shortTimecode, secondsToTimecode } from '../../Util/timecode-converter/';
+// import { shortTimecode, secondsToTimecode } from '../../Util/timecode-converter/';
+
+import {
+  shortTimecode,
+  secondsToTimecode
+} from '@bbc/react-transcript-editor-util-timecode-converter';
 
 import style from './WrapperBlock.module.css';
 

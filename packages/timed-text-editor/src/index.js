@@ -15,9 +15,11 @@ import Word from './Word';
 import WrapperBlock from './WrapperBlock';
 
 // TODO: connect to local packages version
-import sttJsonAdapter from '../../Util/adapters/index.js';
+// import sttJsonAdapter from '../../Util/adapters/index.js';
+import sttJsonAdapter from '@bbc/react-transcript-editor-stt-json-adapter';
 // TODO: connect to local packages version
-import exportAdapter from '../../Util/export-adapters/index.js';
+import exportAdapter from '@bbc/react-transcript-editor-draftjs-export-adapter';
+// import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
 
 class TimedTextEditor extends React.Component {
