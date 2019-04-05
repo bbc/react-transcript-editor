@@ -7,7 +7,7 @@ import bbcKaldiTranscript from './fixtures/bbc-kaldi.json';
 
 import TranscriptEditor from '../src';
 
-storiesOf('Editor', module).add('default', () => {
+storiesOf('TranscriptEditor', module).add('default', () => {
   return (
     <TranscriptEditor
       title={ 'Ted Talk' }
