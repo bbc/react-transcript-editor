@@ -4,5 +4,6 @@
   "description": "Utilities for converting timecodes",
   "main": "src/index.js",
   "license": "MIT",
-  "scripts": {}
+  "scripts": {},
+  "private": true
 }

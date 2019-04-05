@@ -4,6 +4,7 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {},
+  "private": true,
   "dependencies": {
     "@bbc/react-transcript-editor-style-guide": "1.0.0",
     "@bbc/react-transcript-editor-timecode-converter": "1.0.0"

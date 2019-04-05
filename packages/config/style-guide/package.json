@@ -4,5 +4,6 @@
   "files": [
     "colours.module.css"
   ],
+  "private": true,
   "license": "MIT"
 }
