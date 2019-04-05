@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import Settings from "../index.js";
+import Settings from '../index.js';
 
 const fixtureProps = {
   handleSettingsToggle: action('Toggle settings'),

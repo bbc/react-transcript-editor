@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
-import KeyboardShortcuts from "../index.js";
+import KeyboardShortcuts from '../index.js';
 
 const fixtureProps = {
-  handleShortcutsToggle: action("Shortcuts toggle")
+  handleShortcutsToggle: action('Shortcuts toggle')
 };
 
-storiesOf("KeyboardShortcuts", module).add("default", () => (
-  <KeyboardShortcuts {...fixtureProps} />
+storiesOf('KeyboardShortcuts', module).add('default', () => (
+  <KeyboardShortcuts { ...fixtureProps } />
 ));

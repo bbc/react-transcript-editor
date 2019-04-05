@@ -20,17 +20,22 @@
     "storybook": "start-storybook -p 6006",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "build:component": "rimraf dist && NODE_ENV=production babel packages/ --out-dir dist --copy-files && rimraf packages/**/*.sample.json packages/**/*.sample.js packages/**/example-usage.js packages/**/*.test.js packages/**/*__tests__ packages/**/*__snapshots__ packages/**/*.spec.js",
+    "build:component": "rimraf dist && NODE_ENV=production babel --root-mode upward packages/ --out-dir dist --copy-files && rimraf dist/**/*.sample.json dist/**/*.sample.js dist/**/example-usage.js dist/**/*.test.js dist/**/*__tests__ dist/**/*__snapshots__ dist/**/*.spec.js",
     "deploy:ghpages": "npm run build:example && gh-pages -d build",
     "test-ci": "jest --ci",
     "lint": "eslint --ignore-path .eslintignore .",
     "lint-fix": "eslint --ignore-path .eslintignore . --fix",
     "publish:public": "npm run build:component && npm publish --access public",
-    "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}'"
+    "fix-styles": "prettier-stylelint --write 'packages/**/*.{css,scss}'"
   },
   "jest": {
-    "moduleFileExtensions": ["js", "jsx"],
-    "moduleDirectories": ["node_modules"],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
@@ -60,16 +65,18 @@
     "@storybook/addon-links": "^5.0.6",
     "@storybook/addons": "^5.0.6",
     "@storybook/react": "^5.0.6",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-minify": "^0.5.0",
     "css-loader": "^2.1.1",
     "enzyme": "^3.7.0",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-css-modules": "^2.11.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react": "^7.12.4",
     "gh-pages": "^2.0.1",
     "husky": "^1.1.3",
     "jest": "^24.7.1",
