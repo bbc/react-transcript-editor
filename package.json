@@ -26,6 +26,7 @@
     "lint:fix-styles": "prettier-stylelint --write 'packages/**/*.{css,scss}'",
     "build:component": "rimraf dist && NODE_ENV=production babel --root-mode upward packages/ --out-dir dist --copy-files && rimraf dist/**/*.sample.json dist/**/*.sample.js dist/**/example-usage.js dist/**/*.test.js dist/**/*__tests__ dist/**/*__snapshots__ dist/**/*.spec.js",
     "build:storybook": "rimraf build && build-storybook -c .storybook -o build",
+    "build:storybook:serve": "npx serve build",
     "deploy:ghpages": "rimraf build && npm run storybook:build && gh-pages -d build",
     "publish:public": "npm run build:component && npm publish --access public"
   },
