@@ -2,6 +2,18 @@ import generateEntitiesRanges from '../../Util/adapters/generate-entities-ranges
 import { createEntityMap } from '../../Util/adapters/index.js';
 import DiffMatchPatch from 'diff-match-patch';
 
+const convertContentToText = (content) => {
+  var text = [];
+
+  for (var blockIdx in content.blocks) {
+    const block = content.blocks[blockIdx];
+    const blockArray = block.text.match(/\S+/g) || [];
+    text = text.concat(blockArray);
+  }
+
+  return (text);
+};
+
 const createEntity = (start, end, confidence, word, wordIdx) => {
   return ({
     start: start,
@@ -51,7 +63,7 @@ const realignTimestamps = (differences, currentContent, referenceContent) => {
           wordIdx++;
           entityIdx++;
           wordMetaArray.push(wordMeta);
-        } else if (diffType === 'd' || diffType == 'si') {
+        } else if (diffType === 'd' || diffType === 'si') {
           entityIdx++;
         } else if (diffType === 'i') {
           entity = entities[entityIdx].data;
@@ -83,8 +95,6 @@ const realignTimestamps = (differences, currentContent, referenceContent) => {
 
   return updatedContent;
 };
-
-
 
 // https://github.com/google/diff-match-patch/wiki/Line-or-Word-Diffs
 const diffLineMode = (text1, text2) => {
@@ -138,8 +148,6 @@ const diff = (text1, text2) => {
 
   return diffArray;
 };
-
-
 
 const updateTimestamps = (currentContent, originalContent) => {
   const currentText = convertContentToText(currentContent);
