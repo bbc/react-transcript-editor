@@ -1,7 +1,8 @@
 import React from 'react';
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
 
-import { TranscriptEditor } from './lib';
+// import { TranscriptEditor } from './lib';
+import TranscriptEditor from '@bbc/react-transcript-editor';
 
 // import kaldiTedTalkTranscript from './sample-data/KateDarling_2018S-bbc-kaldi.json';
 import kaldiTedTalkTranscript from './sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json';
@@ -255,4 +256,6 @@ class App extends React.Component {
   }
 }
 
-render(<App />, document.getElementById('root'));
+// render(<App />, document.getElementById('root'));
+
+export default App;
