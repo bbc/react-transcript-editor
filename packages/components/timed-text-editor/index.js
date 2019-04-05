@@ -20,6 +20,7 @@ import sttJsonAdapter from '../../stt-adapters';
 // TODO: connect to local packages version
 import exportAdapter from '../../export-adapters';
 // import exportAdapter from '../../Util/export-adapters/index.js';
+import updateTimestamps from './UpdateTimestamps';
 import style from './index.module.css';
 
 class TimedTextEditor extends React.Component {
@@ -28,6 +29,7 @@ class TimedTextEditor extends React.Component {
 
     this.state = {
       editorState: EditorState.createEmpty(),
+      originalState: null,
       transcriptData: this.props.transcriptData,
       isEditable: this.props.isEditable,
       sttJsonType: this.props.sttJsonType,
@@ -116,13 +118,22 @@ class TimedTextEditor extends React.Component {
     }
   }
 
+  updateTimestampsForEditorState() {
+    // Update timestamps according to the original state.
+    const currentContent = convertToRaw(this.state.editorState.getCurrentContent());
+    const updatedContentRaw = updateTimestamps(currentContent, this.state.originalState);
+    const updatedContent = convertFromRaw(updatedContentRaw);
+
+    this.setEditorNewContentState(updatedContent);
+  }
+
   loadData() {
     if (this.props.transcriptData !== null) {
       const blocks = sttJsonAdapter(this.props.transcriptData, this.props.sttJsonType);
+      this.setState({ originalState: convertToRaw(convertFromRaw(blocks)) });
       this.setEditorContentState(blocks);
     }
   }
-
   getEditorContent(exportFormat) {
     const format = exportFormat || 'draftjs';
 

@@ -48,3 +48,4 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
 };
 
 export default sttJsonAdapter;
+export { createEntityMap };
