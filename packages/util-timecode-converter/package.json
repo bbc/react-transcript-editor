@@ -1,7 +1,0 @@
-{
-  "name": "@bbc/react-transcript-editor-util-timecode-converter",
-  "version": "1.0.0",
-  "description": "Utilities for converting timecodes",
-  "main": "src/index.js",
-  "license": "MIT"
-}

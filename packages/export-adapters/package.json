@@ -4,6 +4,7 @@
     "description": "BBC Transcript Editor adapters from DraftJs to various formats",
     "main": "index.js",
     "license": "MIT",
-    "scripts": {}
+    "scripts": {},
+    "private": true
   }
   
