@@ -76,8 +76,10 @@ class TimedTextEditor extends React.Component {
   }
 
   onChange = (editorState) => {
+ 
     // https://draftjs.org/docs/api-reference-editor-state#lastchangetype
     // https://draftjs.org/docs/api-reference-editor-change-type
+    // getLastChangeType()
     // doing editorStateChangeType === 'insert-characters'  is triggered even
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
@@ -95,6 +97,29 @@ class TimedTextEditor extends React.Component {
           }.bind(this), pauseWhileTypingIntervalInMilliseconds);
         }
       }
+      //////////////////////////////////////////////////
+      const lastChangeType =  editorState.getLastChangeType();
+      if(lastChangeType === 'insert-characters'){
+        console.log('insert-characters');
+        const currentSelection =editorState.getSelection();
+
+        const currentContent = editorState.getCurrentContent();
+
+        const originalBlock = currentContent.blockMap.get(currentContent.selectionBefore.getStartKey());
+        let entityKey = originalBlock.getEntityAt(currentSelection.getStartOffset());
+        console.log('entityData', entityKey);
+         // if entityKey is null, it's outside of a word entity
+        if(entityKey === null){
+          // find entity before 
+        
+        //if entityKey is not null it's either inside a word, or just before one <---
+        }else{
+          const entityInstance = currentContent.getEntity(entityKey);
+          const entityData = entityInstance.getData();
+          console.log('entityData', entityData)
+        }
+      }
+      //////////////////////////////////////////////////
     }
 
     if (this.state.isEditable) {
