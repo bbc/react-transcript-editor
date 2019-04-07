@@ -5,7 +5,7 @@ export const groupWordsBySpeaker = (words, speakerLabels) => {
     return groupWordsBySpeakerLabel(wordsWithSpeakers);
 }
 
-const groupWordsBySpeakerLabel = (words) => {
+export const groupWordsBySpeakerLabel = (words) => {
     const groupedWords = [];
     var currentSpeaker = "";
     words.forEach((word) => {
@@ -26,7 +26,7 @@ const addSpeakerLabelToWords = (words, segments) => {
     return words.map(w => Object.assign(w, {"speaker_label": findSpeakerForWord(w, segments)}));
 }
 
-const findSpeakerForWord = (word, segments)=> {
+export const findSpeakerForWord = (word, segments)=> {
     const startTime  = parseFloat(word.start_time);
     const endTime = parseFloat(word.end_time);
     const firstMatchingSegment = segments.find((seg) => {

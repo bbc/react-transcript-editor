@@ -123,10 +123,10 @@ const amazonTranscribeToDraft = amazonTranscribeJson => {
   const tmpWords = amazonTranscribeJson.results.items;
   const speakerLabels = amazonTranscribeJson.results.speaker_labels;
   const wordsWithRemappedPunctuation = mapPunctuationItemsToWords(tmpWords);
-  let speakerSegmentation = typeof speakerLabels != undefined; 
+  let speakerSegmentation = typeof(speakerLabels) != "undefined";
 
   const wordsByParagraphs =  speakerSegmentation ?
-    groupSpeakerWordsInParagraphs(wordsWithRemappedPunctuation, amazonTranscribeJson.results.speaker_labels) :
+    groupSpeakerWordsInParagraphs(wordsWithRemappedPunctuation, speakerLabels) :
     groupWordsInParagraphs(
       wordsWithRemappedPunctuation
     );
