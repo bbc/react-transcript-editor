@@ -4,7 +4,7 @@
  */
 
 import generateEntitiesRanges from '../generate-entities-ranges/index.js';
-import {groupWordsBySpeaker} from './group-words-by-speakers'
+import { groupWordsBySpeaker } from './group-words-by-speakers';
 
 export const stripLeadingSpace = word => {
   return word.replace(/^\s/, '');
@@ -89,7 +89,7 @@ const groupWordsInParagraphs = words => {
     words: [],
     text: []
   };
-  words.forEach((word, index) => {
+  words.forEach((word) => {
     const content = getBestAlternativeForWord(word).content;
     const normalizedWord = normalizeWord(word);
     if (/[.?!]/.test(content)) {
@@ -108,35 +108,36 @@ const groupWordsInParagraphs = words => {
 };
 
 const groupSpeakerWordsInParagraphs = (words, speakerLabels) => {
-  const wordsBySpeaker = groupWordsBySpeaker(words, speakerLabels)
+  const wordsBySpeaker = groupWordsBySpeaker(words, speakerLabels);
+
   return wordsBySpeaker.map((speakerGroup) => {
     return {
       words: speakerGroup.words.map(normalizeWord),
       text: speakerGroup.words.map((w) => getBestAlternativeForWord(w).content),
       speaker: speakerGroup.speaker
-    }
+    };
   });
-}
+};
 
 const amazonTranscribeToDraft = amazonTranscribeJson => {
   const results = [];
   const tmpWords = amazonTranscribeJson.results.items;
   const speakerLabels = amazonTranscribeJson.results.speaker_labels;
   const wordsWithRemappedPunctuation = mapPunctuationItemsToWords(tmpWords);
-  let speakerSegmentation = typeof(speakerLabels) != "undefined";
+  const speakerSegmentation = typeof(speakerLabels) != 'undefined';
 
-  const wordsByParagraphs =  speakerSegmentation ?
+  const wordsByParagraphs = speakerSegmentation ?
     groupSpeakerWordsInParagraphs(wordsWithRemappedPunctuation, speakerLabels) :
     groupWordsInParagraphs(
       wordsWithRemappedPunctuation
     );
-  
+
   wordsByParagraphs.forEach((paragraph, i) => {
     const draftJsContentBlockParagraph = {
       text: paragraph.text.join(' '),
       type: 'paragraph',
       data: {
-        speaker: paragraph.speaker ? `Speaker ${paragraph.speaker}` : `TBC ${ i }`,
+        speaker: paragraph.speaker ? `Speaker ${ paragraph.speaker }` : `TBC ${ i }`,
         words: paragraph.words,
         start: parseFloat(paragraph.words[0].start)
       },
