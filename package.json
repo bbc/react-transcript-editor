@@ -27,7 +27,7 @@
     "build:component": "webpack --config webpack.config.js",
     "build:storybook": "rimraf build && build-storybook -c .storybook -o build",
     "build:storybook:serve": "npx serve build",
-    "deploy:ghpages": "rimraf build && npm run storybook:build && gh-pages -d build",
+    "deploy:ghpages": "rimraf build && npm run build:storybook && gh-pages -d build",
     "publish:public": "npm run build:component && npm publish --access public"
   },
   "jest": {
