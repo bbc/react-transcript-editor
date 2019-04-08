@@ -80,7 +80,7 @@ const realignTimestamps = (differences, currentContent, referenceContent) => {
         text: wordMetaArray.map((entry) => entry.punct).join(' '),
         type: 'paragraph',
         data: {
-          speaker: 'speaker',
+          speaker: block.data.speaker,
           words: wordMetaArray,
           start: wordMetaArray[0].start
         },
@@ -118,40 +118,56 @@ const diff = (text1, text2) => {
   while (arrayIdx < lineModeDiff.length) {
     const diffEntry = lineModeDiff[arrayIdx];
     const numberOfWords = (diffEntry[1].match(/\n/g) || []).length;
-    var symbol = '-';
     if (diffEntry[0] === 0) {
-      symbol = 'm';
+      for (var i = 0; i < numberOfWords; i++) { diffArray.push('m'); }
     } else if (diffEntry[0] === 1) {
-      symbol = 'i';
+      for (var i = 0; i < numberOfWords; i++) { diffArray.push('i'); }
     } else if (diffEntry[0] === -1) {
       if (arrayIdx < lineModeDiff.length - 1 && lineModeDiff[arrayIdx + 1][0] === 1) {
-        symbol = 'ss';
+        // The matching number of words is substituted
+        const numberOfWordsSub = (lineModeDiff[arrayIdx + 1][1].match(/\n/g) || []).length;
+
+        for (var subItr = 0; subItr < Math.min(numberOfWords, numberOfWordsSub); subItr++) { diffArray.push('s'); }
+        for (var delItr = 0; delItr < numberOfWords - numberOfWordsSub; delItr++) { diffArray.push('d'); }
+        for (var insItr = 0; insItr < numberOfWordsSub - numberOfWords; insItr++) { diffArray.push('i'); }
+
+        // if (numberOfWordsSub < numberOfWords) {
+        //   diffArray.push('ss');
+        //   for (var i = 1; i < (numberOfWords - 1); i++) { diffArray.push('si'); }
+        //   diffArray.push('se');
+        //   for (var i = 0; i < (numberOfWords - numberOfWordsSub); i++) { diffArray.push('i'); }
+        // } else {
+        // }
+
+        // diffArray.push('ss');
+        // for (var i = 1; i < (numberOfWords - 1); i++) { diffArray.push('si'); }
+        // diffArray.push('se');
+        // if (numberOfWords > numberOfWordsSub) {
+        //   // If there are more words in the original substring, delete the rest.
+        //   for (var i = 0; i < (numberOfWords - numberOfWordsSub); i++) { diffArray.push('i'); }
+        // }
         arrayIdx++; // Increase an additional time to skip insert/delete syntax for substitution
       } else {
-        symbol = 'd';
+        for (var i = 0; i < numberOfWords; i++) { diffArray.push('diff'); }
       }
     }
-    for (var i = 0; i < numberOfWords; i++) {
-      if (symbol === 'ss' && numberOfWords === 1) {
-        symbol = 's';
-      }
-      diffArray.push(symbol);
-      if (symbol === 'ss') {
-        symbol = 'si';
-      }
-      if (symbol === 'si' && i === (numberOfWords - 2)) {
-        symbol = 'se';
-      }
-    };
     arrayIdx++;
   }
 
   return diffArray;
 };
 
+const diffAndRealign = (currentText, originalText) => {
+  const lineModeDiff = diffLineMode(originalText.join('\n') + '\n', currentText.join('\n') + '\n');
+
+  return lineModeDiff;
+};
+
 const updateTimestamps = (currentContent, originalContent) => {
   const currentText = convertContentToText(currentContent);
   const originalText = convertContentToText(originalContent);
+
+  // const updatedContent = diffAndRealign(currentText, originalText)
 
   const diffArray = diff(currentText, originalText);
   const updatedContent = realignTimestamps(diffArray, currentContent, originalContent);
