@@ -64,6 +64,7 @@
 .currentTime {
   color: color-light-shilo;
   cursor: pointer;
+  font-family: 'Lucida Console', monospace;
 }
 
 .separator {
@@ -73,6 +74,7 @@
 
 .duration {
   color: white;
+  font-family: 'Lucida Console',  monospace;
 }
 
 @media (max-width: 768px) {
