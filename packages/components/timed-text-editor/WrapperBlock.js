@@ -7,7 +7,7 @@ import SpeakerLabel from './SpeakerLabel';
 import {
   shortTimecode,
   secondsToTimecode
-} from '@bbc/react-transcript-editor-timecode-converter';
+} from '../../util/timecode-converter';
 
 import style from './WrapperBlock.module.css';
 

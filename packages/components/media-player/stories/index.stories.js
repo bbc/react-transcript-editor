@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import MediaPlayer from '../src';
+import MediaPlayer from '../index.js';
 
 const fixtureProps = {
   videoRef: {},

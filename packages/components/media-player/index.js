@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { hotkeys } from 'react-keyboard-shortcuts';
-import PlayerControls from './PlayerControls';
-import ProgressBar from './ProgressBar';
+import PlayerControls from './src/PlayerControls';
+import ProgressBar from './src/ProgressBar';
 
-import returnHotKeys from './defaultHotKeys';
+import returnHotKeys from './src/defaultHotKeys';
 import styles from './index.module.css';
 
 import {
   secondsToTimecode,
   timecodeToSeconds
-} from '@bbc/react-transcript-editor-timecode-converter';
+} from '../../util/timecode-converter';
 
 const PLAYBACK_RATES = [
   { value: 0.2, label: '0.2' },

@@ -1,16 +1,11 @@
 import React from 'react';
-// import { render } from 'react-dom';
 
-// import { TranscriptEditor } from './lib';
-import TranscriptEditor from '@bbc/react-transcript-editor';
-
-// import kaldiTedTalkTranscript from './sample-data/KateDarling_2018S-bbc-kaldi.json';
+import DemoTranscript from '../packages/components/transcript-editor/index.js';
 import kaldiTedTalkTranscript from './sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json';
 import style from './index.module.css';
 import SttTypeSelect from './select-stt-json-type';
 import ExportFormatSelect from './select-export-format';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faGithub } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const tedTalkVideoUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
@@ -234,7 +229,7 @@ class App extends React.Component {
         </div>
         <hr />
 
-        <TranscriptEditor
+        <DemoTranscript
           transcriptData={ this.state.transcriptData }
           fileName={ this.state.fileName }
           mediaUrl={ this.state.mediaUrl }

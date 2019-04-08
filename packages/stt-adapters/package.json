@@ -1,8 +1,0 @@
-{
-  "name": "@bbc/react-transcript-editor-stt-json-adapter",
-  "version": "1.0.0",
-  "description": "BBC Transcript Editor adapters from STT to draftJs",
-  "main": "index.js",
-  "license": "MIT",
-  "private": true
-}

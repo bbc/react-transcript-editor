@@ -1,4 +1,4 @@
-@value color-light-shilo, color-darkest-grey, color-light-grey, color-labs-red from '@bbc/react-transcript-editor-style-guide/colours.module.css';
+@value color-light-shilo, color-darkest-grey, color-light-grey, color-labs-red from '../../../config/style-guide/colours.module.css';
 
 .playerControls {
   margin-bottom: 0.5em;
@@ -64,6 +64,7 @@
 .currentTime {
   color: color-light-shilo;
   cursor: pointer;
+  font-family: 'Lucida Console', monospace;
 }
 
 .separator {
@@ -73,6 +74,7 @@
 
 .duration {
   color: white;
+  font-family: 'Lucida Console',  monospace;
 }
 
 @media (max-width: 768px) {

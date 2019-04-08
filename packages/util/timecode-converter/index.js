@@ -2,9 +2,9 @@
  * Wrapping around "time stamps" and timecode conversion modules
  * To provide more support for variety of formats.
  */
-import secondsToTimecode from './secondsToTimecode';
-import timecodeToSecondsHelper from './timecodeToSeconds';
-import padTimeToTimecode from './padTimeToTimecode';
+import secondsToTimecode from './src/secondsToTimecode';
+import timecodeToSecondsHelper from './src/timecodeToSeconds';
+import padTimeToTimecode from './src/padTimeToTimecode';
 
 /**
  * @param {*} time

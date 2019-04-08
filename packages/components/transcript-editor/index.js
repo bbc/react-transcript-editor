@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-// import "@bbc/react-transcript-editor/icons";
 import {
   faCog,
   faKeyboard,
@@ -15,12 +13,12 @@ import {
 
 import Tooltip from 'react-simple-tooltip';
 
-import TimedTextEditor from '@bbc/react-transcript-editor-timed-text-editor';
-import MediaPlayer from '@bbc/react-transcript-editor-media-player';
-import VideoPlayer from '@bbc/react-transcript-editor-video-player';
-import Settings from '@bbc/react-transcript-editor-settings';
-import Shortcuts from '@bbc/react-transcript-editor-keyboard-shortcuts';
-import { secondsToTimecode } from '@bbc/react-transcript-editor-timecode-converter';
+import TimedTextEditor from '../timed-text-editor';
+import MediaPlayer from '../media-player';
+import VideoPlayer from '../video-player';
+import Settings from '../settings';
+import Shortcuts from '../keyboard-shortcuts';
+import { secondsToTimecode } from '../../util/timecode-converter';
 
 import style from './index.module.css';
 
@@ -246,11 +244,8 @@ class TranscriptEditor extends React.Component {
 
   onLoadedDataGetDuration = e => {
     const currentDuration = e.target.duration;
-    const currentDurationWithOffset =
-      currentDuration + this.state.timecodeOffset;
-    const durationInSeconds = secondsToTimecode(
-      currentDuration + currentDurationWithOffset
-    );
+    const currentDurationWithOffset = currentDuration + this.state.timecodeOffset;
+    const durationInSeconds = secondsToTimecode(currentDurationWithOffset);
 
     this.setState({
       mediaDuration: durationInSeconds
@@ -461,7 +456,8 @@ TranscriptEditor.propTypes = {
   isEditable: PropTypes.bool,
   sttJsonType: PropTypes.string,
   handleAnalyticsEvents: PropTypes.func,
-  fileName: PropTypes.string
+  fileName: PropTypes.string,
+  transcriptData: PropTypes.object
 };
 
 export default TranscriptEditor;

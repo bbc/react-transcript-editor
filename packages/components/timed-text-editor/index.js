@@ -16,9 +16,9 @@ import WrapperBlock from './WrapperBlock';
 
 // TODO: connect to local packages version
 // import sttJsonAdapter from '../../Util/adapters/index.js';
-import sttJsonAdapter from '@bbc/react-transcript-editor-stt-json-adapter';
+import sttJsonAdapter from '../../stt-adapters';
 // TODO: connect to local packages version
-import exportAdapter from '@bbc/react-transcript-editor-draftjs-export-adapter';
+import exportAdapter from '../../export-adapters';
 // import exportAdapter from '../../Util/export-adapters/index.js';
 import style from './index.module.css';
 

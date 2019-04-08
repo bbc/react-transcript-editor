@@ -3,9 +3,7 @@
 This project has a [Code of Conduct](./CODE_OF_CONDUCT.md) that we expect all of our contributors to abide by, please check it out before contributing.
 
 ## Contributor license agreement
-
 By submitting code as an individual or as an entity you agree that your code is licensed the same as the [React Transcript Editor](./LICENCE.md).
-
 
 ## Pull requests and branching
 

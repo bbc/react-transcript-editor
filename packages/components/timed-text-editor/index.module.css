@@ -1,4 +1,4 @@
-@value color-subt-green, color-darkest-grey, color-labs-red from '@bbc/react-transcript-editor-style-guide/colours.module.css';
+@value color-subt-green, color-darkest-grey, color-labs-red from '../../config/style-guide/colours.module.css';
 
 .DraftEditor-root {
   background: #f9f9f9;
