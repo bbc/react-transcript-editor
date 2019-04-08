@@ -56,7 +56,7 @@ npm install @bbc/react-transcript-editor
 ```
 
 ```js
-import { TranscriptEditor } from '@bbc/react-transcript-editor';
+import  TranscriptEditor  from '@bbc/react-transcript-editor';
 ```
 
 ```js
@@ -84,15 +84,54 @@ If using in a parent project where [typescript](https://www.typescriptlang.org/)
 import { TranscriptEditor } from "@bbc/react-transcript-editor";
 ```
 
+#### Internal components
+
+You can also import some of the underlying React components directly. 
+
+- `TranscriptEditor`
+- `TimedTextEditor`
+- `VideoPlayer`
+- `Settings`
+- `KeyboardShortcuts`
+
+```js
+import TimedTextEditor from '@bbc/react-transcript-editor/TimedTextEditor';
+```
+```js
+import { TimedTextEditor } from '@bbc/react-transcript-editor';
+```
+
+However if you are not using `TranscriptEditor` it is recommended to follow the second option and import individual components like: `@bbc/react-transcript-editor/TimedTextEditor` rather than the entire library. Doing so pulls in only the specific components that you use, which can significantly reduce the amount of code you end up sending to the client. (Similarly to how [`react-bootstrap`](https://react-bootstrap.github.io/getting-started/introduction) works)
+
+See the storybook for for each component details on optional and required attributes.
+
+You can also use this node modules as standalone 
+
+```js
+import exportAdapter from '@bbc/react-transcript-editor/exportAdapter'
+```
+Converts from draftJs json format to other formats
+
+```js
+import  sttJsonAdapter from '@bbc/react-transcript-editor/sttJsonAdapter'
+```
+Converts various stt json formats to draftJs
+
+```js
+import { secondsToTimecode, timecodeToSeconds, shortTimecode} from '@bbc/react-transcript-editor/timecodeConverter'
+```
+some modules to convert to and from timecodes
+
 ## System Architecture
 
 <!-- _High level overview of system architecture_ -->
-
 - uses [`storybook`](https://storybook.js.org) with the setup as [explained in their docs](https://storybook.js.org/docs/guides/guide-react/) to develop this React.
 - This uses [CSS Modules](https://github.com/css-modules/css-modules) to contain the scope of the css for this component.
 - [`.storybook/webpack.config.js](./.storybook/webpack.config.js) enanches the storybook webpack config to add support for css modules.
 - The parts of the component are inside [`./packages`](./packages)
 - [babel.config.js](./babel.config.js) provides root level system config for [babel 7](https://babeljs.io/docs/en/next/config-files#project-wide-configuration).
+
+<!-- - for build, packaging, and deployment of the npm module, we use webpack with babel 7 -->
 
 ## Documentation
 
