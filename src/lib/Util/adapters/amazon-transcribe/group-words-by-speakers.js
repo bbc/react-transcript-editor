@@ -1,6 +1,6 @@
 export const groupWordsBySpeakerLabel = (words) => {
   const groupedWords = [];
-  var currentSpeaker = '';
+  let currentSpeaker = '';
   words.forEach((word) => {
     if (word.speaker_label === currentSpeaker) {
       groupedWords[groupedWords.length - 1].words.push(word);
