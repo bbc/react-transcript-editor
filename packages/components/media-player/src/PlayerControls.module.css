@@ -1,0 +1,163 @@
+@value color-light-shilo, color-darkest-grey, color-light-grey, color-labs-red from '../../../config/style-guide/colours.module.css';
+
+.playerControls {
+  margin-bottom: 0.5em;
+}
+
+.playerControls > * {
+  display: inline-block;
+}
+
+.playerControls > *:not(:last-child) {
+  margin-right: 0.5em;
+}
+
+.playerButton {
+  width: 48px;
+  height: 48px;
+  padding: 0.5em;
+  border: 0;
+  color: white;
+  background: color-darkest-grey;
+  font-size: 1em;
+  cursor: pointer;
+  margin-right: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+.playBackRate {
+  width: 70px;
+  border: 0;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  position: relative;
+  margin-right: 0.3rem;
+}
+
+.playBackRate::before {
+  content: '×';
+  position: absolute;
+  bottom: -2px;
+  left: 21px;
+}
+
+.playBackRate > select {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  height: 100%;
+  outline: none;
+  width: auto;
+  width: 100%;
+  color: white;
+  background-color: color-darkest-grey;
+}
+
+.timeBox {
+  display: inline-block;
+  text-align: center;
+  line-height: 48px;
+  padding: 0 1em;
+  background-color: color-darkest-grey;
+}
+
+.currentTime {
+  color: color-light-shilo;
+  cursor: pointer;
+  font-family: 'Lucida Console', monospace;
+}
+
+.separator {
+  color: color-light-grey;
+  margin: 0 1em;
+}
+
+.duration {
+  color: white;
+  font-family: 'Lucida Console',  monospace;
+}
+
+@media (max-width: 768px) {
+
+  .playerControls {
+    margin: 0 0 10px 0;
+    display: grid;
+    grid-template-rows: 10% 48px 48px;
+    grid-row-gap: 5px;
+  }
+
+  .playerControls > *:not(:last-child) {
+    margin: 0;
+  }
+
+  .btnsGroup {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0.2em;
+  }
+
+  .playerButton {
+    width: 100%;
+    height: 48px;
+    margin: 0;
+  }
+
+  .playBackRate {
+    width: 100%;
+    border: 0;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    position: relative;
+    grid-column: 1 / span 2;
+  }
+
+  .playBackRate::before {
+    content: '×';
+    position: absolute;
+    bottom: 30%;
+    left: 21px;
+  }
+
+  .playBackRate > select {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    height: 100%;
+    outline: none;
+    width: auto;
+    width: 100%;
+    color: white;
+    background-color: color-darkest-grey;
+  }
+
+  .timeBox {
+    background-color: transparent;
+    align-self: start;
+    padding: 0;
+  }
+
+  .currentTime {
+    color: color-light-shilo;
+    cursor: pointer;
+    float: left;
+    font-size: 0.7em;
+    line-height: 1em;
+  }
+
+  .separator {
+    color: color-light-grey;
+    margin: 0 1em;
+    display: none;
+  }
+
+  .duration {
+    color: white;
+    font-size: 0.7em;
+    float: right;
+    line-height: 1em;
+  }
+
+  .pip {
+    display: none;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@bbc/react-transcript-editor-util-generate-entities-ranges",
+  "version": "1.0.0",
+  "description": "Helper function to generate Draft.js entities",
+  "main": "src/index.js",
+  "license": "MIT",
+  "private": true
+}

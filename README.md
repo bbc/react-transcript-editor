@@ -6,11 +6,14 @@ A React component to make transcribing audio and video easier and faster.
 
 [![install size](https://packagephobia.now.sh/badge?p=@bbc/react-transcript-editor)](https://packagephobia.now.sh/result?p=@bbc/react-transcript-editor)
 
-The project uses [this github project board to organise and the co-ordinate development](https://github.com/bbc/react-transcript-editor/projects/1).
+The project uses [this github project boards to organise and the co-ordinate development](https://github.com/bbc/react-transcript-editor/projects).
 
 _--> Work in progress <--_
 
 <!-- _Screenshot of UI - optional_ -->
+
+- [You can see a demo by clicking here ](https://bbc.github.io/react-transcript-editor/iframe.html?id=demo--default) (and then click the `load demo` button)
+- [And you can see a list of features here](./docs/features-list.md).
 
 ## Development env
 
@@ -34,22 +37,17 @@ Fork this repository + git clone + cd into folder
 
 ## Usage - development
 
-<!-- git clone git@github.com:bbc/react-transcript-editor.git -->
+Git clone this repository and cd into the folder.
 
-> To start the development server (with entry point `src/index.js`), run
+To start the storybook run
 
 ```
 npm start
 ```
 
-Visit [http://localhost:3000](http://localhost:3000)
+Visit [http://localhost:6006](http://localhost:6006)
 
 ## Usage - production
-
-<!-- npm install react-transcript-editor -->
-
-<!-- exampel usage - require etc.. -->
-<!-- https://www.npmjs.com/package/@bbc/react-transcript-editor -->
 
 Available on [npm - `@bbc/react-transcript-editor`](https://www.npmjs.com/package/@bbc/react-transcript-editor)
 
@@ -58,8 +56,10 @@ npm install @bbc/react-transcript-editor
 ```
 
 ```js
-import { TranscriptEditor } from '@bbc/react-transcript-editor';
+import  TranscriptEditor  from '@bbc/react-transcript-editor';
+```
 
+```js
   <TranscriptEditor
      transcriptData=// Transcript json
      mediaUrl=// string url to media file - audio or video 
@@ -71,7 +71,7 @@ import { TranscriptEditor } from '@bbc/react-transcript-editor';
      ref={ this.transcriptEditorRef } // optional - if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.
    />
 ```
-See [`./src/index.js` demo](./src/index.js) as a more detailed example usage of the component.
+See [`./demo/app.js` demo](./demo/app.js) as a more detailed example usage of the component.
 
 _Note: `fileName` it is optional but it's needed if working with user uploaded local media in the browser, to be able to save and retrieve from local storage. For instance if you are passing a blob url to `mediaUrl` using `createObjectURL` this url is randomly re-generated on every page refresh so you wouldn't be able to restore a session, as `mediaUrl` is used as the local storage key. See demo app for more detail example of this[`./src/index.js`](./src/index.js)_
 
@@ -84,19 +84,54 @@ If using in a parent project where [typescript](https://www.typescriptlang.org/)
 import { TranscriptEditor } from "@bbc/react-transcript-editor";
 ```
 
+#### Internal components
+
+You can also import some of the underlying React components directly. 
+
+- `TranscriptEditor`
+- `TimedTextEditor`
+- `VideoPlayer`
+- `Settings`
+- `KeyboardShortcuts`
+
+```js
+import TimedTextEditor from '@bbc/react-transcript-editor/TimedTextEditor';
+```
+```js
+import { TimedTextEditor } from '@bbc/react-transcript-editor';
+```
+
+However if you are not using `TranscriptEditor` it is recommended to follow the second option and import individual components like: `@bbc/react-transcript-editor/TimedTextEditor` rather than the entire library. Doing so pulls in only the specific components that you use, which can significantly reduce the amount of code you end up sending to the client. (Similarly to how [`react-bootstrap`](https://react-bootstrap.github.io/getting-started/introduction) works)
+
+See the storybook for for each component details on optional and required attributes.
+
+You can also use this node modules as standalone 
+
+```js
+import exportAdapter from '@bbc/react-transcript-editor/exportAdapter'
+```
+Converts from draftJs json format to other formats
+
+```js
+import  sttJsonAdapter from '@bbc/react-transcript-editor/sttJsonAdapter'
+```
+Converts various stt json formats to draftJs
+
+```js
+import { secondsToTimecode, timecodeToSeconds, shortTimecode} from '@bbc/react-transcript-editor/timecodeConverter'
+```
+some modules to convert to and from timecodes
+
 ## System Architecture
 
 <!-- _High level overview of system architecture_ -->
+- uses [`storybook`](https://storybook.js.org) with the setup as [explained in their docs](https://storybook.js.org/docs/guides/guide-react/) to develop this React.
+- This uses [CSS Modules](https://github.com/css-modules/css-modules) to contain the scope of the css for this component.
+- [`.storybook/webpack.config.js](./.storybook/webpack.config.js) enanches the storybook webpack config to add support for css modules.
+- The parts of the component are inside [`./packages`](./packages)
+- [babel.config.js](./babel.config.js) provides root level system config for [babel 7](https://babeljs.io/docs/en/next/config-files#project-wide-configuration).
 
-uses [`create-component-lib`](https://www.npmjs.com/package/create-component-lib) as explaied in this [blog post](https://hackernoon.com/creating-a-library-of-react-components-using-create-react-app-without-ejecting-d182df690c6b) to setup the environment to develop this React.
-
-This uses [Create React App 2.0](https://reactjs.org/blog/2018/10/01/create-react-app-v2.html) so we are using [CSS Modules](https://github.com/css-modules/css-modules) to contain the scope of the css for this component.
-<!-- 
-Uses CSS grid-layout https://medium.com/samsung-internet-dev/common-responsive-layouts-with-css-grid-and-some-without-245a862f48df -->
-
-> Place everything you want to publish to npm inside `src/lib`.
-
-> Outside `src/lib` (but inside src/), you can create example web pages to test or demonstrate the usage of your components.
+<!-- - for build, packaging, and deployment of the npm module, we use webpack with babel 7 -->
 
 ## Documentation
 
@@ -116,22 +151,35 @@ We are using [this template for ADR](https://gist.github.com/iaincollins/92923cc
 
 <!-- _How to run build_ -->
 
-> To transpile `src/lib` and create a build in the dist folder, run:
+> To transpile `./packages` and create a build in the `./dist` folder, run:
 
 ```
 npm run build:component
 ```
 
-## Demo
+## Demo & storybook
 
-Demo can be viewed at [https://bbc.github.io/react-transcript-editor](https://bbc.github.io/react-transcript-editor)
+- **Storybook** can bew viewed at [https://bbc.github.io/react-transcript-editor/](https://bbc.github.io/react-transcript-editor/)
+
+- **Demo** can be viewed at [https://bbc.github.io/react-transcript-editor/iframe.html?id=demo--default](https://bbc.github.io/react-transcript-editor/iframe.html?id=demo--default)
+
+
+http://localhost:6006
+
 
 <!-- https://github.com/gitname/react-gh-pages
 -->
 
-## Build - demo
+## Build - storybook
+To build the storybook as a static site 
 
-This github repository uses [github pages](https://pages.github.com/) to host a demo of the component, in [docs/demo](./docs/demo)
+```
+npm run build:storybook
+```
+
+## publish storybook & demo to github pages
+
+This github repository uses [github pages](https://pages.github.com/) to host the storybook and the demo of the component
 
 ```
 npm run deploy:ghpages
@@ -144,11 +192,16 @@ add to git, and push to origin master to update
 Alternatively If you simply want to build the demo locally in the `build` folder then just
 
 ```
-npm run build:example
+npm run build:storybook
+```
+
+you can then run this command to serve the static site locally
+
+```
+npm run build:storybook:serve
 ```
 
 ## Tests
-
 <!-- _How to carry out tests_ -->
 
 Test coverage using [`jest`](https://jestjs.io/), to run tests
@@ -156,6 +209,16 @@ Test coverage using [`jest`](https://jestjs.io/), to run tests
 ```
 npm run test
 ```
+
+During development you can use 
+
+```
+npm run test:watch
+```
+
+## Travis CI
+
+On commit this repo uses the [.travis.yml](./.travis.yml) config tu run the automated test on [travis CI](https://travis-ci.org/bbc/react-transcript-editor).
 
 ## Deployment
 
@@ -176,9 +239,9 @@ This runs `npm run build:component` and `npm publish --access public` under the 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) guidelines.
 
 ## Licence
-
 <!-- mention MIT Licence -->
+See [LICENCE](./LICENCE.md)
 
 ## Legal Disclaimer
 
-Despite using React and DraftJs, the BBC is not promoting any Facebook products or other commercial interest.
+_Despite using React and DraftJs, the BBC is not promoting any Facebook products or other commercial interest._

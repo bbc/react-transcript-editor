@@ -43,7 +43,7 @@ Export <-- for proof of concept
 
 
 Mobile First
-- [ ] Works on mobile 
+- [x] Works on mobile 
 
 Browser compatibility
 - [X] Works on Chrome
@@ -62,12 +62,14 @@ Import Transcript Json - Adapters
 - [ ] Gentle Alignment Json
 - [ ] AssemblyAI
 - [ ] Rev
+- [ ] 3play Media Json
 - [ ] Srt
 - [ ] TTML
 - [ ] VTT
 - [ ] VTT (Youtube)
 - [ ] IIIF 
 - [ ] SMT and/or CTM ?<!-- SCLite -->
+
 
 Export Transcript Json - Adapters 
 - [ ] BBC Kaldi 
@@ -79,6 +81,7 @@ Export Transcript Json - Adapters
 - [ ] Speechmatics
 - [ ] AssemblyAI
 - [ ] Rev
+- [ ] 3play Media Json
 - [ ] Srt
 - [ ] TTML
 - [ ] VTT
