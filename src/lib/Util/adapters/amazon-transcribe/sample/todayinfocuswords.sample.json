@@ -1,0 +1,48 @@
+[{
+    "start_time": "8.65",
+    "end_time": "8.98",
+    "alternatives": [
+        {
+            "confidence": "0.9999",
+            "content": "one"
+        }
+    ],
+    "type": "pronunciation",
+    "speaker_label": "spk_0"
+},
+{
+    "start_time": "8.98",
+    "end_time": "9.05",
+    "alternatives": [
+        {
+            "confidence": "0.9999",
+            "content": "of"
+        }
+    ],
+    "type": "pronunciation",
+    "speaker_label": "spk_1"
+},
+{
+    "start_time": "9.05",
+    "end_time": "9.15",
+    "alternatives": [
+        {
+            "confidence": "1.0",
+            "content": "the"
+        }
+    ],
+    "type": "pronunciation",
+    "speaker_label": "spk_1"
+},
+{
+    "start_time": "9.15",
+    "end_time": "9.76",
+    "alternatives": [
+        {
+            "confidence": "1.0",
+            "content": "worst"
+        }
+    ],
+    "type": "pronunciation",
+    "speaker_label": "spk_0"
+}]
