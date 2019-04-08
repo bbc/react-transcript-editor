@@ -244,11 +244,8 @@ class TranscriptEditor extends React.Component {
 
   onLoadedDataGetDuration = e => {
     const currentDuration = e.target.duration;
-    const currentDurationWithOffset =
-      currentDuration + this.state.timecodeOffset;
-    const durationInSeconds = secondsToTimecode(
-      currentDuration + currentDurationWithOffset
-    );
+    const currentDurationWithOffset = currentDuration + this.state.timecodeOffset;
+    const durationInSeconds = secondsToTimecode(currentDurationWithOffset);
 
     this.setState({
       mediaDuration: durationInSeconds
