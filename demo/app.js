@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TranscriptEditor from '../packages/components/transcript-editor/index.js';
+import DemoTranscript from '../packages/components/transcript-editor/index.js';
 import kaldiTedTalkTranscript from './sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json';
 import style from './index.module.css';
 import SttTypeSelect from './select-stt-json-type';
@@ -229,7 +229,7 @@ class App extends React.Component {
         </div>
         <hr />
 
-        <TranscriptEditor
+        <DemoTranscript
           transcriptData={ this.state.transcriptData }
           fileName={ this.state.fileName }
           mediaUrl={ this.state.mediaUrl }
