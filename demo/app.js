@@ -162,17 +162,22 @@ class App extends React.Component {
           </section>
 
           <section className={ style.demoNavItem }>
-            <label className={ style.sectionLabel }>Open Transcript</label>
+            <label className={ style.sectionLabel }>Import Transcript</label>
             <SttTypeSelect
               className={ style.dropdown }
               name={ 'sttType' }
               value={ this.state.sttType }
               handleChange={ this.handleSttTypeChange }
             />
+
             <input
               type={ 'file' }
+              id={ 'transcriptFile' }
               onChange={ e => this.handleLoadTranscriptJson(e.target.files) }
             />
+            <label htmlFor="transcriptFile" >Load Transcript</label>
+            {this.state.transcriptData !== null ? <label className={ style.fileNameLabel }>Transcript loaded.</label> : null}
+
           </section>
 
           <section className={ style.demoNavItem }>
