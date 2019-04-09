@@ -1,6 +1,8 @@
-import { configure } from '@storybook/react';
+import { configure, addDecorator } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
+import { withA11y } from '@storybook/addon-a11y';
 
+addDecorator(withA11y);
 // automatically import all files ending in *.stories.js
 // https://webpack.js.org/guides/dependency-management/
 const components = require.context('../packages/components/', true, /.stories.js$/);

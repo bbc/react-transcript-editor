@@ -449,7 +449,7 @@ class MediaPlayer extends React.Component {
 }
 
 MediaPlayer.propTypes = {
-  videoRef: PropTypes.object,
+  videoRef: PropTypes.object.isRequired,
   title: PropTypes.string,
   hookSeek: PropTypes.func,
   hookPlayMedia: PropTypes.func,
