@@ -140,7 +140,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={ style.container }>
-        Demo <mark>React Transcript Editor</mark> | {' '}
+        <span>React Transcript Editor Demo </span>
         <a
           href="https://github.com/bbc/react-transcript-editor"
           rel="noopener noreferrer"
@@ -148,38 +148,26 @@ class App extends React.Component {
         >
           <FontAwesomeIcon icon={ faGithub } />
         </a>
-        <hr />
-
         <div className={ style.demoNav }>
           <section className={ style.demoNavItem }>
             <button onClick={ () => this.loadDemo() }>Load demo</button>
-          </section>
-          <section className={ style.demoNavItem }>
-            <label>Load Local Media</label>
-            <br />
+            <button onClick={ () => this.handleLoadMediaUrl() }>Load from URL</button>
             <input
-              className={ style.demoInput }
               type={ 'file' }
+              id={ 'mediaFile' }
               onChange={ e => this.handleLoadMedia(e.target.files) }
             />
-            <br />
-            or
-            <br />
-            <button onClick={ () => this.handleLoadMediaUrl() }>
-              Load Media From Url
-            </button>
+            <label htmlFor="mediaFile" >Load local media</label>
+            {this.state.fileName !== '' ? <label className={ style.fileNameLabel }>{this.state.fileName}</label> : null}
           </section>
+
           <section className={ style.demoNavItem }>
-            <label>
-              Open Transcript <code>Json</code>
-            </label>
-            <br />
+            <label className={ style.sectionLabel }>Open Transcript</label>
             <SttTypeSelect
               name={ 'sttType' }
               value={ this.state.sttType }
               handleChange={ this.handleSttTypeChange }
             />
-            <br />
             <input
               className={ style.demoInput }
               type={ 'file' }
@@ -189,19 +177,16 @@ class App extends React.Component {
             />
           </section>
           <section className={ style.demoNavItem }>
-            <label>Export transcript</label>
-            <br />
+            <label className={ style.sectionLabel }>Export Transcript</label>
             <ExportFormatSelect
               name={ 'exportFormat' }
               value={ this.state.exportFormat }
               handleChange={ this.handleExportFormatChange }
             />
-            <br />
-            <button onClick={ () => this.exportTranscript() }>Export file</button>
+            <button onClick={ () => this.exportTranscript() }>Export File</button>
           </section>
           <section className={ style.demoNavItem }>
-            <label>Text Is Editable</label>
-            <br />
+            <label className={ style.sectionLabel }>Text Is Editable</label>
             <label>
               <input
                 type="checkbox"
@@ -211,10 +196,9 @@ class App extends React.Component {
             </label>
           </section>
           <section className={ style.demoNavItem }>
-            <label>
+            <label className={ style.sectionLabel }>
               Transcript Title <i>Optional</i>
             </label>
-            <br />
             <input
               className={ style.demoInput }
               type="text"
@@ -223,9 +207,7 @@ class App extends React.Component {
             />
           </section>
           <section className={ style.demoNavItem }>
-            <button onClick={ () => this.clearLocalStorage() }>
-              Clear Local Storage
-            </button>
+            <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
           </section>
         </div>
         <hr />
