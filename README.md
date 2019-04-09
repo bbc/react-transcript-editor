@@ -62,11 +62,11 @@ import  TranscriptEditor  from '@bbc/react-transcript-editor';
 ```js
   <TranscriptEditor
      transcriptData=// Transcript json
-     mediaUrl=// string url to media file - audio or video 
+     mediaUrl=// string url to media file - audio or video
      isEditable={true}// set to true if you want to be able to edit the text
      sttJsonType={ 'bbckaldi' } // the type of STT Json transcript supported.
      handleAnalyticsEvents={ this.handleAnalyticsEvents } // optional - if you want to collect analytics events.
-     fileName=// optional - used for saving and retrieving local storage blob files 
+     fileName=// optional - used for saving and retrieving local storage blob files
      title=// optional - defaults to ''
      ref={ this.transcriptEditorRef } // optional - if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.
    />
@@ -86,7 +86,7 @@ import { TranscriptEditor } from "@bbc/react-transcript-editor";
 
 #### Internal components
 
-You can also import some of the underlying React components directly. 
+You can also import some of the underlying React components directly.
 
 - `TranscriptEditor`
 - `TimedTextEditor`
@@ -105,7 +105,7 @@ However if you are not using `TranscriptEditor` it is recommended to follow the 
 
 See [the storybook](https://bbc.github.io/react-transcript-editor) for each component details on optional and required attributes.
 
-You can also use this node modules as standalone 
+You can also use this node modules as standalone
 
 ```js
 import exportAdapter from '@bbc/react-transcript-editor/exportAdapter'
@@ -171,7 +171,7 @@ http://localhost:6006
 -->
 
 ## Build - storybook
-To build the storybook as a static site 
+To build the storybook as a static site
 
 ```
 npm run build:storybook
@@ -210,7 +210,7 @@ Test coverage using [`jest`](https://jestjs.io/), to run tests
 npm run test
 ```
 
-During development you can use 
+During development you can use
 
 ```
 npm run test:watch
