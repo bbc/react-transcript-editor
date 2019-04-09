@@ -27,12 +27,10 @@ class KeyboardShortcuts extends React.Component {
     return (
       <div className={ style.shortcuts }>
         <h2 className={ style.header }>Shortcuts</h2>
-        <div className={ style.buttonWrapper }>
-          <div
-            className={ style.closeButton }
-            onClick={ this.props.handleShortcutsToggle }>
-            <FontAwesomeIcon icon={ faWindowClose } />
-          </div>
+        <div
+          className={ style.closeButton }
+          onClick={ this.props.handleShortcutsToggle }>
+          <FontAwesomeIcon icon={ faWindowClose } />
         </div>
         <ul className={ style.list }>{hotKeysCheatsheet}</ul>
       </div>
