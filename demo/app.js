@@ -1,84 +1,85 @@
 import React from 'react';
 
-import DemoTranscript from '../packages/components/transcript-editor/index.js';
-import kaldiTedTalkTranscript from './sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json';
-import style from './index.module.css';
+import TranscriptEditor from '../packages/components/transcript-editor';
 import SttTypeSelect from './select-stt-json-type';
 import ExportFormatSelect from './select-export-format';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-const tedTalkVideoUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
+import demoTranscript from './sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json';
+const demoMediaUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
+const demoTitle = 'Ted Talk - Kate Darling';
+
+import style from './index.module.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       transcriptData: null,
       mediaUrl: null,
       isTextEditable: true,
       sttType: 'bbckaldi',
       analyticsEvents: [],
-      title: 'Ted Talk Kate Darling',
+      title: '',
       fileName: ''
     };
 
     this.transcriptEditorRef = React.createRef();
   }
 
-  loadDemo() {
+  loadDemo = () => {
     this.setState({
-      transcriptData: kaldiTedTalkTranscript,
-      mediaUrl: tedTalkVideoUrl,
+      transcriptData: demoTranscript,
+      mediaUrl: demoMediaUrl,
+      title: demoTitle,
       sttType: 'bbckaldi'
     });
   }
 
   // https://stackoverflow.com/questions/8885701/play-local-hard-drive-video-file-with-html5-video-tag
-  handleChangeLoadMedia(files) {
-    console.log(files);
+  handleLoadMedia = (files) => {
     const file = files[0];
-    const type = file.type;
-    // check if is playable
     const videoNode = document.createElement('video');
-    const canPlay = videoNode.canPlayType(type);
+    const canPlay = videoNode.canPlayType(file.type);
+
     if (canPlay) {
       const fileURL = URL.createObjectURL(file);
-      // videoNode.src = fileURL
       this.setState({
-        // transcriptData: kaldiTedTalkTranscript,
+        // transcriptData: demoTranscript,
         mediaUrl: fileURL,
         fileName: file.name
       });
     } else {
-      alert('select a valid audio or video file');
+      alert('Select a valid audio or video file.');
     }
   }
 
-  handleChangeLoadMediaUrl() {
-    const fileURL = prompt("Paste the URL you'd like to use here");
+  handleLoadMediaUrl = () => {
+    const fileURL = prompt("Paste the URL you'd like to use here:");
 
     this.setState({
-      // transcriptData: kaldiTedTalkTranscript,
+      // transcriptData: demoTranscript,
       mediaUrl: fileURL
     });
   }
 
-  handleChangeLoadTranscriptJson(files) {
+  handleLoadTranscriptJson = (files) => {
     const file = files[0];
 
     if (file.type === 'application/json') {
-      const fr = new FileReader();
+      const fileReader = new FileReader();
 
-      fr.onload = event => {
+      fileReader.onload = event => {
         this.setState({
           transcriptData: JSON.parse(event.target.result)
         });
       };
 
-      fr.readAsText(file);
+      fileReader.readAsText(file);
     } else {
-      alert('select a valid json file');
+      alert('Select a valid JSON file.');
     }
   }
 
@@ -109,17 +110,17 @@ class App extends React.Component {
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
   download = (content, filename, contentType) => {
     const type = contentType || 'application/octet-stream';
-    const a = document.createElement('a');
+    const link = document.createElement('a');
     const blob = new Blob([ content ], { type: type });
 
-    a.href = window.URL.createObjectURL(blob);
-    a.download = filename;
-    a.click();
+    link.href = window.URL.createObjectURL(blob);
+    link.download = filename;
+    link.click();
   };
 
   clearLocalStorage = () => {
     localStorage.clear();
-    console.info('cleared local storage');
+    console.info('Cleared local storage.');
   };
 
   handleAnalyticsEvents = event => {
@@ -139,7 +140,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={ style.container }>
-        Demo <mark>React Transcript Editor</mark> |{' '}
+        Demo <mark>React Transcript Editor</mark> | {' '}
         <a
           href="https://github.com/bbc/react-transcript-editor"
           rel="noopener noreferrer"
@@ -158,13 +159,13 @@ class App extends React.Component {
             <br />
             <input
               className={ style.demoInput }
-              type="file"
-              onChange={ e => this.handleChangeLoadMedia(e.target.files) }
+              type={ 'file' }
+              onChange={ e => this.handleLoadMedia(e.target.files) }
             />
             <br />
             or
             <br />
-            <button onClick={ () => this.handleChangeLoadMediaUrl() }>
+            <button onClick={ () => this.handleLoadMediaUrl() }>
               Load Media From Url
             </button>
           </section>
@@ -181,9 +182,9 @@ class App extends React.Component {
             <br />
             <input
               className={ style.demoInput }
-              type="file"
+              type={ 'file' }
               onChange={ e =>
-                this.handleChangeLoadTranscriptJson(e.target.files)
+                this.handleLoadTranscriptJson(e.target.files)
               }
             />
           </section>
@@ -229,7 +230,7 @@ class App extends React.Component {
         </div>
         <hr />
 
-        <DemoTranscript
+        <TranscriptEditor
           transcriptData={ this.state.transcriptData }
           fileName={ this.state.fileName }
           mediaUrl={ this.state.mediaUrl }
