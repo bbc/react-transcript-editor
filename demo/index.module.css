@@ -77,6 +77,14 @@ body {
   background-color: #b6332b !important;
 }
 
+.demoButton {
+  background-color: #74b567 !important;
+}
+
+.demoButton:hover {
+  background-color: #528946 !important;
+}
+
 .dropdown {
   display: block;
   margin: 0.5em auto;

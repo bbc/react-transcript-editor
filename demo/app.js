@@ -150,7 +150,7 @@ class App extends React.Component {
         </a>
         <div className={ style.demoNav }>
           <section className={ style.demoNavItem }>
-            <button onClick={ () => this.loadDemo() }>Load demo</button>
+            <button className={ style.demoButton } onClick={ () => this.loadDemo() }>Load demo</button>
             <button onClick={ () => this.handleLoadMediaUrl() }>Load from URL</button>
             <input
               type={ 'file' }
