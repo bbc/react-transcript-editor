@@ -103,7 +103,7 @@ import { TimedTextEditor } from '@bbc/react-transcript-editor';
 
 However if you are not using `TranscriptEditor` it is recommended to follow the second option and import individual components like: `@bbc/react-transcript-editor/TimedTextEditor` rather than the entire library. Doing so pulls in only the specific components that you use, which can significantly reduce the amount of code you end up sending to the client. (Similarly to how [`react-bootstrap`](https://react-bootstrap.github.io/getting-started/introduction) works)
 
-See the storybook for for each component details on optional and required attributes.
+See [the storybook](https://bbc.github.io/react-transcript-editor) for each component details on optional and required attributes.
 
 You can also use this node modules as standalone 
 
