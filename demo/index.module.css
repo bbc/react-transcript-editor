@@ -84,7 +84,8 @@ body {
 }
 
 .fileNameLabel {
-  display: inline-block;
+  display: block;
+  text-align: center;
   font-size: 0.5em;
   margin: 0.5em;
 }
