@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
 
 import bbcKaldiTranscript from './fixtures/bbc-kaldi.json';
 
@@ -16,21 +16,22 @@ storiesOf('TimedTextEditor', module)
     const fixtureProps = {
       transcriptData: bbcKaldiTranscript,
       mediaUrl: text('mediaUrl', mediaUrl),
-      isEditable: true,
+      isEditable: boolean('isEditable', true),
       onWordClick: action('onWordClick'),
-      sttJsonType: 'bbckaldi',
+      sttJsonType: text('sttJsonType', 'bbckaldi'),
       isPlaying: action('isPlaying'),
       playMedia: action('playMedia'),
-      currentTime: 0,
-      isScrollIntoViewOn: true,
-      isPauseWhileTypingOn: true,
-      timecodeOffset: 0,
+      currentTime: number('currentTime', 0),
+      isScrollIntoViewOn: boolean('isScrollIntoViewOn', true),
+      isPauseWhileTypingOn: boolean('isPauseWhileTypingOn', true),
+      timecodeOffset: number('timecodeOffset', 0),
       handleAnalyticsEvents: action('handleAnalyticsEvents'),
-      showSpeakers: true,
-      showTimecodes: true,
-      fileName: 'KateDarling_2018S-950k.mp4'
+      showSpeakers: boolean('showSpeakers', true),
+      showTimecodes: boolean('showTimecodes', true),
+      fileName: text('fileName', 'KateDarling_2018S-950k.mp4')
     };
 
     return (
       <TimedTextEditor { ...fixtureProps } />
-    );});
+    );
+  });
