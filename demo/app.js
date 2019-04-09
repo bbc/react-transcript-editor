@@ -150,7 +150,12 @@ class App extends React.Component {
         </a>
         <div className={ style.demoNav }>
           <section className={ style.demoNavItem }>
-            <button className={ style.demoButton } onClick={ () => this.loadDemo() }>Load demo</button>
+            <label className={ style.sectionLabel }>Start</label>
+            <button className={ style.demoButton } onClick={ () => this.loadDemo() }>Load Demo</button>
+          </section>
+
+          <section className={ style.demoNavItem }>
+            <label className={ style.sectionLabel }>Custom Media</label>
             <button onClick={ () => this.handleLoadMediaUrl() }>Load from URL</button>
             <input
               type={ 'file' }
@@ -204,16 +209,18 @@ class App extends React.Component {
           </section>
 
           <section className={ style.demoNavItem }>
-            <label htmlFor={ 'textIsEditableCheckbox' }>Text Is Editable</label>
-            <input
-              id={ 'textIsEditableCheckbox' }
-              type="checkbox"
-              defaultChecked="true"
-              onChange={ this.handleIsTextEditable }
-            />
-          </section>
+            <label className={ style.sectionLabel }>Options</label>
 
-          <section className={ style.demoNavItem }>
+            <div className={ style.checkbox }>
+              <label className={ style.editableLabel } htmlFor={ 'textIsEditableCheckbox' }>Text Is Editable</label>
+              <input
+                id={ 'textIsEditableCheckbox' }
+                type="checkbox"
+                defaultChecked="true"
+                onChange={ this.handleIsTextEditable }
+              />
+            </div>
+
             <button className={ style.warningButton } onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
           </section>
         </div>
