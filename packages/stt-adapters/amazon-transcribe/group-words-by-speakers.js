@@ -23,9 +23,9 @@ export const findSpeakerForWord = (word, segments) => {
     return startTime >= parseFloat(seg.start_time) && endTime <= parseFloat(seg.end_time);
   });
   if (firstMatchingSegment === undefined) {
-    return 'Speaker UKN';
+    return 'UKN';
   } else {
-    return `Speaker ${ firstMatchingSegment.speaker_label.replace('spk_', '') }`;
+    return firstMatchingSegment.speaker_label.replace('spk_', '');
   }
 };
 
