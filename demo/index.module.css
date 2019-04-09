@@ -56,7 +56,7 @@ body {
   padding: 0.75em 1.5em;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   font-size: 0.7em;
   margin-top: 0.5em;
   margin-right: 0.5em;
@@ -115,5 +115,9 @@ body {
     padding-bottom: 0.5em;
     padding-right: 0;
     border-bottom: 1px solid grey;
+  }
+
+  .demoNav section button {
+    display: inline-block;
   }
 }

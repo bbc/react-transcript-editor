@@ -199,7 +199,7 @@ class App extends React.Component {
           </section>
 
           <section className={ style.demoNavItem }>
-            <label className={ style.sectionLabel } htmlFor={ 'textIsEditableCheckbox' }>Text Is Editable</label>
+            <label htmlFor={ 'textIsEditableCheckbox' }>Text Is Editable</label>
             <input
               id={ 'textIsEditableCheckbox' }
               type="checkbox"
