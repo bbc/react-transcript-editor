@@ -14,7 +14,7 @@ body {
 
 .sectionLabel {
   display: block;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 [type="file"] {
@@ -69,11 +69,32 @@ body {
   background-color: #4f7bc0;
 }
 
+.warningButton {
+  background-color: #d25b56 !important;
+}
+
+.warningButton:hover {
+  background-color: #b6332b !important;
+}
+
+.dropdown {
+  display: block;
+  margin: 0.5em auto;
+  width: 140px;
+}
+
 .fileNameLabel {
   display: inline-block;
   font-size: 0.5em;
   margin: 0.5em;
 }
+
+.titleLabel {
+  margin-left: 0.5em;
+  font-style: italic;
+  font-size: 0.7em;
+}
+
 /* desktop */
 @media (min-width: 767px) {
   .demoNav {
@@ -86,10 +107,13 @@ body {
 @media (max-width: 767px) {
   body {
     padding: 0;
+    text-align: center;
   }
 
   .demoNavItem {
-    padding-bottom: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-right: 0;
     border-bottom: 1px solid grey;
   }
 }

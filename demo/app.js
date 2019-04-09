@@ -164,53 +164,54 @@ class App extends React.Component {
           <section className={ style.demoNavItem }>
             <label className={ style.sectionLabel }>Open Transcript</label>
             <SttTypeSelect
+              className={ style.dropdown }
               name={ 'sttType' }
               value={ this.state.sttType }
               handleChange={ this.handleSttTypeChange }
             />
             <input
-              className={ style.demoInput }
               type={ 'file' }
-              onChange={ e =>
-                this.handleLoadTranscriptJson(e.target.files)
-              }
+              onChange={ e => this.handleLoadTranscriptJson(e.target.files) }
             />
           </section>
+
           <section className={ style.demoNavItem }>
             <label className={ style.sectionLabel }>Export Transcript</label>
             <ExportFormatSelect
+              className={ style.dropdown }
               name={ 'exportFormat' }
               value={ this.state.exportFormat }
               handleChange={ this.handleExportFormatChange }
             />
             <button onClick={ () => this.exportTranscript() }>Export File</button>
           </section>
-          <section className={ style.demoNavItem }>
-            <label className={ style.sectionLabel }>Text Is Editable</label>
-            <label>
-              <input
-                type="checkbox"
-                defaultChecked="true"
-                onChange={ this.handleIsTextEditable }
-              />
-            </label>
-          </section>
+
           <section className={ style.demoNavItem }>
             <label className={ style.sectionLabel }>
-              Transcript Title <i>Optional</i>
+              Transcript Title
+              <span className={ style.titleLabel }>(Optional)</span>
             </label>
             <input
-              className={ style.demoInput }
               type="text"
               value={ this.state.title }
               onChange={ e => this.handleChangeTranscriptTitle(e.target.value) }
             />
           </section>
+
           <section className={ style.demoNavItem }>
-            <button onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
+            <label className={ style.sectionLabel } htmlFor={ 'textIsEditableCheckbox' }>Text Is Editable</label>
+            <input
+              id={ 'textIsEditableCheckbox' }
+              type="checkbox"
+              defaultChecked="true"
+              onChange={ this.handleIsTextEditable }
+            />
+          </section>
+
+          <section className={ style.demoNavItem }>
+            <button className={ style.warningButton } onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
           </section>
         </div>
-        <hr />
 
         <TranscriptEditor
           transcriptData={ this.state.transcriptData }
