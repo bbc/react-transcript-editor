@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import returnHotKeys from './hot-keys';
 
 import style from './index.module.css';
@@ -25,11 +27,12 @@ class KeyboardShortcuts extends React.Component {
     return (
       <div className={ style.shortcuts }>
         <h2 className={ style.header }>Shortcuts</h2>
-        <div
-          className={ style.closeButton }
-          onClick={ this.props.handleShortcutsToggle }
-        >
-          <FontAwesomeIcon icon="window-close" />
+        <div className={ style.buttonWrapper }>
+          <div
+            className={ style.closeButton }
+            onClick={ this.props.handleShortcutsToggle }>
+            <FontAwesomeIcon icon={ faWindowClose } />
+          </div>
         </div>
         <ul className={ style.list }>{hotKeysCheatsheet}</ul>
       </div>
