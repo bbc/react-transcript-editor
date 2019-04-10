@@ -1,5 +1,4 @@
-import { configure } from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
+import { addParameters, configure } from '@storybook/react';
 
 // automatically import all files ending in *.stories.js
 // https://webpack.js.org/guides/dependency-management/
@@ -13,10 +12,11 @@ function loadStories() {
   styles.keys().forEach((filename) => styles(filename));
 }
 
-setOptions({
-  name: 'react-transcript-editor',
-  url: 'https://github.com/bbc/react-transcript-editor',
-  addonPanelInRight: true
+addParameters({
+  options: {
+    panelPosition: 'right',
+    sidebarAnimations: true
+  },
 });
 
 configure(loadStories, module);

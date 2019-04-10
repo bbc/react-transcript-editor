@@ -9,6 +9,9 @@
   color: black;
   background: color-lightest-grey;
   z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .header {
@@ -23,12 +26,13 @@
   right: 0;
   padding: 1em;
   cursor: pointer;
+  z-index: 3;
 }
 
 .list {
   list-style: none;
   padding: 1em;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .listItem {
