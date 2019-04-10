@@ -34,7 +34,7 @@ describe('findSpeakerForWord', () => {
       'type': 'pronunciation'
     }, speakerLabels.segments);
 
-    expect(speaker).toBe('Speaker 0');
+    expect(speaker).toBe('0');
   });
 });
 
