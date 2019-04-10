@@ -58,6 +58,7 @@ const updateTimestamps = (currentContent, originalContent) => {
     const numberOfWords = (diffEntry[1].match(/\n/g) || []).length;
 
     if (diffType === 0) {
+      // Matched words.
       for (var wordItr = 0; wordItr < numberOfWords; wordItr++) {
         const word = currentText[currentTextIdx++];
         const entity = entities[entityIdx++].data;
@@ -66,24 +67,40 @@ const updateTimestamps = (currentContent, originalContent) => {
         newEntities.push(newEntity);
       }
     } else if (diffType === -1) {
+      // Deletion
       if (nextDiffEntry !== -1 && nextDiffEntry[0] === 1) {
-        const entityStart = entities[entityIdx].data.start;
-        const entityEnd = entities[entityIdx + numberOfWords - 1].data.end;
-
+        // If next entry is a insert, the operation is a replacement.
         const numberOfReplacements = (nextDiffEntry[1].match(/\n/g) || []).length;
 
-        for (var wordItr = 0; wordItr < numberOfReplacements; wordItr++) {
-          const word = currentText[currentTextIdx++];
+        if (numberOfReplacements === numberOfWords) {
+          // If the number of replacement words is equal to the number of original words
+          // it is easily possible to match them correctly.
+          for (var wordItr = 0; wordItr < numberOfWords; wordItr++) {
+            const word = currentText[currentTextIdx++];
+            const entity = entities[entityIdx++].data;
 
-          const newEntity = createEntity(entityStart, entityEnd, 0.0, word, -1);
-          newEntities.push(newEntity);
+            const newEntity = createEntity(entity.start, entity.end, 0.0, word, -1);
+            newEntities.push(newEntity);
+          }
+        } else {
+          // Otherwise, we give the whole segment the same timestamp.
+          const entityStart = entities[entityIdx].data.start;
+          const entityEnd = entities[entityIdx + numberOfWords - 1].data.end;
+
+          for (var wordItr = 0; wordItr < numberOfReplacements; wordItr++) {
+            const word = currentText[currentTextIdx++];
+            const newEntity = createEntity(entityStart, entityEnd, 0.0, word, -1);
+            newEntities.push(newEntity);
+          }
+          entityIdx += numberOfWords;
         }
-        entityIdx += numberOfWords;
         diffIdx++;
       } else {
+        // Deletions ignore the corresponding entity.
         entityIdx += numberOfWords;
       }
     } else if (diffType === 1) {
+      // Insertions get the same timestamp as the previous entity
       for (var wordItr = 0; wordItr < numberOfWords; wordItr++) {
         const word = currentText[currentTextIdx++];
         const entity = entities[entityIdx].data;
@@ -95,6 +112,7 @@ const updateTimestamps = (currentContent, originalContent) => {
     diffIdx ++;
   }
 
+  // Update entites to block structure.
   var updatedBlockArray = [];
   var totalWords = 0;
 
