@@ -1,5 +1,4 @@
 import { configure, addDecorator, addParameters } from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
 import { withA11y } from '@storybook/addon-a11y';
 
 // automatically import all files ending in *.stories.js
