@@ -1,4 +1,6 @@
-import { addParameters, configure } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
+import { setOptions } from '@storybook/addon-options';
+import { withA11y } from '@storybook/addon-a11y';
 
 // automatically import all files ending in *.stories.js
 // https://webpack.js.org/guides/dependency-management/
@@ -11,6 +13,8 @@ function loadStories() {
   components.keys().forEach((filename) => components(filename));
   styles.keys().forEach((filename) => styles(filename));
 }
+
+addDecorator(withA11y);
 
 addParameters({
   options: {
