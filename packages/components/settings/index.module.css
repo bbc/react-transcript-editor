@@ -31,9 +31,9 @@
 .controlsContainer {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-content: flex-start;
   align-items: center;
+  margin: 0 auto;
 }
 
 .settingElement {
