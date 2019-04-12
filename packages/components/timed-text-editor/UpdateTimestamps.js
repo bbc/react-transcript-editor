@@ -1,5 +1,5 @@
-import generateEntitiesRanges from '../../Util/adapters/generate-entities-ranges/index.js';
-import { createEntityMap } from '../../Util/adapters/index.js';
+import generateEntitiesRanges from '../../stt-adapters/generate-entities-ranges/index.js';
+import { createEntityMap } from '../../stt-adapters/index.js';
 import DiffMatchPatch from 'diff-match-patch';
 
 const convertContentToText = (content) => {

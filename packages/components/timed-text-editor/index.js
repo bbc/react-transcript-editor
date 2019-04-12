@@ -141,6 +141,7 @@ class TimedTextEditor extends React.Component {
       this.setEditorContentState(blocks);
     }
   }
+
   getEditorContent(exportFormat) {
     const format = exportFormat || 'draftjs';
 
@@ -273,21 +274,8 @@ class TimedTextEditor extends React.Component {
   * Update Editor content state
   */
   setEditorNewContentState = (newContentState) => {
-    var start = new Date().getTime();
-
     const newEditorState = EditorState.push(this.state.editorState, newContentState);
-
-    var end = new Date().getTime();
-    var time = end - start;
-    console.log('Execution time for Editor State push: ' + time);
-
-    start = new Date().getTime();
-
     this.setState({ editorState: newEditorState });
-
-    end = new Date().getTime();
-    time = end - start;
-    console.log('Execution time for Set State: ' + time);
   }
 
   /**
