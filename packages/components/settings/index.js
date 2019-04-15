@@ -5,10 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
 import Toggle from './Toggle/';
+import TimecodeOffset from './TimecodeOffset';
 
 import style from './index.module.css';
-
-import TimecodeOffset from './TimecodeOffset';
 
 class Settings extends React.Component {
   render() {
