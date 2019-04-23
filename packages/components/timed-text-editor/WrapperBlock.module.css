@@ -1,5 +1,19 @@
 @value color-labs-red, color-light-grey, color-mid-grey, color-dark-grey from '../../config/style-guide/colours.module.css';
 
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/user-select 
+TODO: only working in Chrome, not working in Firefox, and Safari - OSX
+if selecting text, not showing selection 
+Commented out because it means cannot select speakers and timecode anymore
+which is the intended default behavior but needs to come with export
+functionality to export as plain text, word etc.. otherwise user won't be able
+to get text out of component with timecodes and speaker names in the interim */
+ .unselectable {
+  /* -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
+} 
+
 /* Desktop size */
 @media (min-width: 768px) {
 
