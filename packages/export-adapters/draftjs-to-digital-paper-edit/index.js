@@ -4,7 +4,7 @@
  * https://github.com/bbc/digital-paper-edit
  */
 export default (blockData) => {
-    const result = {words: [], paragraphs: []};
+    let result = {words: [], paragraphs: []};
 
     blockData.blocks.forEach((block, index)=>{
         if(block.data.words !== undefined){
@@ -39,7 +39,8 @@ export default (blockData) => {
                 }
                 return tmpWord;
             })
-            result.words.push(tmpWords);
+            // flattening the list of words 
+            result.words = result.words.concat(tmpWords);
         }
     });
     return result;
