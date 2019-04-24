@@ -17,6 +17,7 @@ const SttTypeSelect = props => {
     <option value="vtt" disabled>VTT</option>
     <option value="vtt-youtube" disabled>Youtube VTT</option>
     <option value="amazontranscribe">Amazon Transcribe</option>
+    <option value="digitalpaperedit">Digital Paper Edit</option>
   </select>;
 };
 
