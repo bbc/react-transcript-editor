@@ -20,13 +20,11 @@ function groupWordsInParagraphsBySpeakers(words, segments) {
 * @param {*} segments
 */
 function addSpeakerToEachWord(words, segments) {
-  const tmpWordsWithSpeakers = [];
-  words.forEach((word) => {
+  return words.map((word) => {
     word.speaker = findSegmentForWord(word, segments);
-    tmpWordsWithSpeakers.push(word);
-  });
 
-  return tmpWordsWithSpeakers;
+    return word;
+  });
 }
 
 /**
