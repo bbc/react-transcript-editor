@@ -7,6 +7,7 @@ const ExportFormatSelect = props => {
     <option value="txt">Text file</option>
     <option value="html" disabled>HTML</option>
     <option value="word" disabled>MS Word</option>
+    <option value="digitalpaperedit">Digital Paper Edit</option>
   </select>;
 };
 

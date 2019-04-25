@@ -116,9 +116,9 @@ _If you don't have much experience with automated testing don't let this put you
 In practice, for instance In Visual code you can search using a regex (option `*`). So you could search for 
 
 ```js
-"key": "([a-zA-Z0-9]*)"
+"key": "([a-zA-Z0-9]*)",
 ```
 And replace all with 
 ```js
-"key": expect.any(String)//"ss8pm4p"
+"key": expect.any(String),//"ss8pm4p"
 ```
