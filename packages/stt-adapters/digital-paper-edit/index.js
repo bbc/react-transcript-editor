@@ -1,13 +1,12 @@
 /**
- * Convert BBC Kaldi json to draftJs
- * see `sample` folder for example of input and output as well as `example-usage.js`
- *
+ * Convert Digital Paper Edit transcript json format to DraftJS 
+ * More details see
+ * https://github.com/bbc/digital-paper-edit
  */
-
-// import generateEntitiesRanges from '../generate-entities-ranges/index.js';
-// import groupWordsInParagraphsBySpeakers from './group-words-by-speakers.js';
+import generateEntitiesRanges from '../generate-entities-ranges/index.js';
+import groupWordsInParagraphsBySpeakers from './group-words-by-speakers.js';
 /**
- * groups words list from kaldi transcript based on textuation.
+ * groups words list from kaldi transcript based on punctuation.
  * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
  * @param {array} words - array of words opbjects from kaldi transcript
  */
@@ -16,7 +15,7 @@ const groupWordsInParagraphs = words => {
   let paragraph = { words: [], text: [] };
 
   words.forEach(word => {
-    // if word contains textuation
+    // if word contains punctuation
     if (/[.?!]/.test(word.text)) {
       paragraph.words.push(word);
       paragraph.text.push(word.text);
@@ -36,21 +35,19 @@ const groupWordsInParagraphs = words => {
 const digitalPaperEditToDraft = (digitalPaperEditTranscriptJson) => {
   const results = [];
   let tmpWords;
-  let speakerSegmentation;
+  let speakerSegmentation = null;
   let wordsByParagraphs = [];
 
-  // BBC Octo Labs API Response wraps Kaldi response around retval,
-  // while kaldi contains word attribute at root
   tmpWords = digitalPaperEditTranscriptJson.words;
-  if (digitalPaperEditTranscriptJson.paragraphs) {
+  if (digitalPaperEditTranscriptJson.paragraphs !== undefined) {
     speakerSegmentation = digitalPaperEditTranscriptJson.paragraphs;
   }
-  // if (speakerSegmentation) {
+
+  if (speakerSegmentation === null) {
     wordsByParagraphs = groupWordsInParagraphs(tmpWords);
-  // } 
-  // else {
-  //   wordsByParagraphs = groupWordsInParagraphsBySpeakers(tmpWords, speakerSegmentation);
-  // }
+  } else {
+    wordsByParagraphs = groupWordsInParagraphsBySpeakers(tmpWords, digitalPaperEditTranscriptJson.paragraphs );
+  }
 
   wordsByParagraphs.forEach((paragraph, i) => {
     // if paragraph contain words

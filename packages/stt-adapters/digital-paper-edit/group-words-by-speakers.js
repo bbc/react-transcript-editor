@@ -6,7 +6,7 @@ and handle edge case where it doesn't find a match
  */
 function groupWordsInParagraphsBySpeakers(words, segments) {
   // add speakers to each word
-  const wordsWithSpeakers = addSpeakerToEachWord(words, segments.segments);
+  const wordsWithSpeakers = addSpeakerToEachWord(words, segments);
   // group words by speakers sequentially
   const result = groupWordsBySpeaker(wordsWithSpeakers);
 
@@ -44,6 +44,7 @@ function groupWordsBySpeaker(wordsWithSpeakers) {
   wordsWithSpeakers.forEach((word) => {
     // if current speaker same as word speaker add words to paragraph
     if (currentSpeaker === word.speaker) {
+      delete word.speaker;
       paragraph.words.push(word);
       paragraph.text += word.text + ' ';
       paragraph.speaker = currentSpeaker;
@@ -94,7 +95,7 @@ function findSegmentForWord(word, segments) {
     return 'UKN';
   } else {
     // find returns the first element that matches the criteria
-    return tmpSegment;
+    return tmpSegment.speaker;
   }
 }
 

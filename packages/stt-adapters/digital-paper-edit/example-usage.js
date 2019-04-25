@@ -1,7 +1,7 @@
-const digitalPaperEditToDraft = require('./index');
+import digitalPaperEditToDraft from './index.js';
 // using require, because of testing outside of React app
-const kaldiTedTalkTranscript = require('./sample/digitalPaperEdit.sample.json');
+import kaldiTedTalkTranscript from './sample/digitalPaperEdit.sample.json';
 
 const result = digitalPaperEditToDraft(kaldiTedTalkTranscript);
 
-console.log(result);
+console.log(JSON.stringify(result,null,2));

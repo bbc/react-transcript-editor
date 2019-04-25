@@ -35,13 +35,12 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
 
   case 'amazontranscribe':
     blocks = amazonTranscribeToDraft(transcriptData);
-    
+
     return { blocks, entityMap: createEntityMap(blocks) };
   case 'digitalpaperedit':
     blocks = digitalPaperEditToDraft(transcriptData);
-    const result = { blocks, entityMap: createEntityMap(blocks) };
-    console.log(JSON.stringify(result,null,2))
-    return result;
+
+    return { blocks, entityMap: createEntityMap(blocks) };
   default:
     // code block
     console.error('Did not recognize the stt engine.');
