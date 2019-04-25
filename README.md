@@ -90,6 +90,7 @@ You can also import some of the underlying React components directly.
 
 - `TranscriptEditor`
 - `TimedTextEditor`
+- `MediaPlayer`
 - `VideoPlayer`
 - `Settings`
 - `KeyboardShortcuts`
