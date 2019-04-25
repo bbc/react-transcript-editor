@@ -426,8 +426,8 @@ class TranscriptEditor extends React.Component {
         </div>
       </>
     );
-    
-return (
+
+    return (
       <div className={ style.container }>
         {this.props.mediaUrl === null ? null : header}
 

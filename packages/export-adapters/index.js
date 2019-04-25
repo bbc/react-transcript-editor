@@ -13,7 +13,7 @@ const exportAdapter = (blockData, exportFormat) => {
   case 'txt':
     return { data: draftToTxt(blockData), ext: 'txt' };
   case 'digitalpaperedit':
-    return { data: JSON.stringify(draftToDigitalPaperEdit(blockData),null,2), ext: 'json' };
+    return { data: JSON.stringify(draftToDigitalPaperEdit(blockData), null, 2), ext: 'json' };
   default:
     // code block
     console.error('Did not recognise the export format');
