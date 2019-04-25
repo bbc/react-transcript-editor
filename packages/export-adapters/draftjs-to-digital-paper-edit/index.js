@@ -23,7 +23,7 @@ export default (blockData) => {
           id: word.index,
           start: word.start,
           end: word.end,
-          // text: word.text
+          text: null
         };
         // TODO: need to normalise various stt adapters
         // so that when they create draftJs json, word text attribute

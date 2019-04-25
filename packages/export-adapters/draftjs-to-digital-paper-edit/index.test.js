@@ -1,6 +1,6 @@
 import draftToDigitalPaperEdit from './index.js';
 
-import digitalPaperTeditTranscript from './digitalPaperEdit.sample.json';
+import digitalPaperEditTranscript from './digitalPaperEdit.sample.json';
 import draftTranscriptExample from './draftjs.sample.json';
 
 describe('Draft Js to Digital Paper Edit', () => {
@@ -10,6 +10,6 @@ describe('Draft Js to Digital Paper Edit', () => {
   });
 
   it('Should be equal to expected value', ( ) => {
-    expect(result).toEqual(digitalPaperTeditTranscript);
+    expect(result).toEqual(digitalPaperEditTranscript);
   });
 });

@@ -34,16 +34,15 @@ const groupWordsInParagraphs = words => {
 
 const digitalPaperEditToDraft = (digitalPaperEditTranscriptJson) => {
   const results = [];
-  let tmpWords;
   let speakerSegmentation = null;
   let wordsByParagraphs = [];
+  const tmpWords = digitalPaperEditTranscriptJson.words;
 
-  tmpWords = digitalPaperEditTranscriptJson.words;
-  if (digitalPaperEditTranscriptJson.paragraphs !== undefined) {
+  if (digitalPaperEditTranscriptJson.paragraphs) {
     speakerSegmentation = digitalPaperEditTranscriptJson.paragraphs;
   }
 
-  if (speakerSegmentation === null) {
+  if (!speakerSegmentation) {
     wordsByParagraphs = groupWordsInParagraphs(tmpWords);
   } else {
     wordsByParagraphs = groupWordsInParagraphsBySpeakers(tmpWords, digitalPaperEditTranscriptJson.paragraphs );
@@ -52,9 +51,9 @@ const digitalPaperEditToDraft = (digitalPaperEditTranscriptJson) => {
   wordsByParagraphs.forEach((paragraph, i) => {
     // if paragraph contain words
     // eg sometimes the speaker segmentation might not contain words :man-shrugging:
-    if (paragraph.words[0] !== undefined) {
+    if (paragraph.words[0]) {
       let speakerLabel = `TBC ${ i }`;
-      if (speakerSegmentation !== null) {
+      if (speakerSegmentation) {
         speakerLabel = paragraph.speaker;
       }
 

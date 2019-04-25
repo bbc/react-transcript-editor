@@ -22,9 +22,7 @@ function groupWordsInParagraphsBySpeakers(words, segments) {
 function addSpeakerToEachWord(words, segments) {
   const tmpWordsWithSpeakers = [];
   words.forEach((word) => {
-    const tmpSpeaker = findSegmentForWord(word, segments);
-
-    word.speaker = tmpSpeaker;
+    word.speaker = findSegmentForWord(word, segments);
     tmpWordsWithSpeakers.push(word);
   });
 
