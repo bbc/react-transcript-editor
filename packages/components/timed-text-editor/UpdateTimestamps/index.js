@@ -83,7 +83,6 @@ const updateTimestamps = (currentContent, originalContent) => {
 
   while (diffIdx < lineModeDiff.length) {
     const diffEntry = lineModeDiff[diffIdx];
-    const nextDiffEntry = lineModeDiff[diffIdx + 1] || -1;
     const diffType = diffEntry[0];
     const numberOfWords = (diffEntry[1].match(/\n/g) || []).length;
 
@@ -97,14 +96,20 @@ const updateTimestamps = (currentContent, originalContent) => {
         newEntities.push(newEntity);
       }
     } else if (diffType === -1) {
+      // Get the following entry too, as it is needed to check if a replacement was done
+      // If at the last entry of the lineDiffModeArray, set the nextDiffEntry to -1
+      const nextDiffEntry = lineModeDiff[diffIdx + 1] || -1;
       // Deletion
       if (nextDiffEntry !== -1 && nextDiffEntry[0] === 1) {
         // If next entry is a insert, the operation is a replacement.
         const numberOfReplacements = (nextDiffEntry[1].match(/\n/g) || []).length;
-
         if (numberOfReplacements === numberOfWords) {
           // If the number of replacement words is equal to the number of original words
           // it is easily possible to match them correctly.
+          //
+          // This is exactly the same code as for matched words, but due to the amount of
+          // side effects (e.g. currentTextIdx and entityIdx increments) the code is copied
+          // instead of refactored into its own function.
           for (var wordItr = 0; wordItr < numberOfWords; wordItr++) {
             const word = currentText[currentTextIdx++];
             const entity = entities[entityIdx++].data;
