@@ -112,15 +112,9 @@ class TimedTextEditor extends React.Component {
           clearTimeout(this.saveTimer);
         }
         this.saveTimer = setTimeout(() => {
+          this.updateTimestampsForEditorState();
           this.localSave(this.props.mediaUrl);
         }, 1000);
-
-        if (this.timestampTimer !== undefined) {
-          clearTimeout(this.timestampTimer);
-        }
-        this.timestampTimer = setTimeout(() => {
-          this.updateTimestampsForEditorState();
-        }, 5000);
       });
     }
   }
