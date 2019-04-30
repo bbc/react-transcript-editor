@@ -9,11 +9,11 @@ import draftToDigitalPaperEdit from './draftjs-to-digital-paper-edit/index.js';
 const exportAdapter = (blockData, exportFormat) => {
   switch (exportFormat) {
   case 'draftjs':
-    return { data: JSON.stringify(blockData, null, 2), ext: 'json' };
+    return { data: blockData, ext: 'json' };
   case 'txt':
     return { data: draftToTxt(blockData), ext: 'txt' };
   case 'digitalpaperedit':
-    return { data: JSON.stringify(draftToDigitalPaperEdit(blockData), null, 2), ext: 'json' };
+    return { data: draftToDigitalPaperEdit(blockData), ext: 'json' };
   default:
     // code block
     console.error('Did not recognise the export format');

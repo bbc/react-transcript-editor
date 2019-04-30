@@ -105,7 +105,11 @@ class App extends React.Component {
     const { data, ext } = this.transcriptEditorRef.current.getEditorContent(
       this.state.exportFormat
     );
-    this.download(data, `${ this.state.mediaUrl }.${ ext }`);
+    let tmpData = data;
+    if (ext === 'json') {
+      tmpData = JSON.stringify(data, null, 2);
+    }
+    this.download(tmpData, `${ this.state.mediaUrl }.${ ext }`);
   };
 
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
