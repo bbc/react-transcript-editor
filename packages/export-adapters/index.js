@@ -1,4 +1,5 @@
 import draftToTxt from './txt/index';
+import draftToTxtSpeakersTimecodes from './txt-speakers-timecodes/index';
 import draftToDigitalPaperEdit from './draftjs-to-digital-paper-edit/index.js';
 /**
  * Adapters for Draft.js conversion
@@ -12,6 +13,8 @@ const exportAdapter = (blockData, exportFormat) => {
     return { data: blockData, ext: 'json' };
   case 'txt':
     return { data: draftToTxt(blockData), ext: 'txt' };
+  case 'txtspeakertimecodes':
+    return { data: draftToTxtSpeakersTimecodes(blockData), ext: 'txt' };
   case 'digitalpaperedit':
     return { data: draftToDigitalPaperEdit(blockData), ext: 'json' };
   default:
