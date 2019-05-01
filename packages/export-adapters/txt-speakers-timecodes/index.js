@@ -1,5 +1,11 @@
 /**
  * Convert DraftJS to plain text with timecodes and speaker names
+ *
+ * Example:
+ ```
+ F_S12 	 [00:00:13] 	 There is a day. About ten years ago when I asked a friend to hold a baby dinosaur robot upside down. It was a toy called plea. All
+ ```
+ *
  */
 import { shortTimecode } from '../../util/timecode-converter/index.js';
 
