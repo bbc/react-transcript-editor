@@ -95,6 +95,12 @@ You can also import some of the underlying React components directly.
 - `Settings`
 - `KeyboardShortcuts`
 
+- `ProgressBar`
+- `PlaybackRate`
+- `PlayerControls`
+- `RollBack`
+- `Select`
+
 ```js
 import TimedTextEditor from '@bbc/react-transcript-editor/TimedTextEditor';
 ```
