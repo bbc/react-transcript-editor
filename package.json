@@ -112,7 +112,7 @@
   "bugs": {
     "url": "https://github.com/bbc/react-transcript-editor/issues"
   },
-  "homepage": ".",
+  "homepage": "https://github.com/bbc/react-transcript-editor",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bbc/react-transcript-editor.git"
