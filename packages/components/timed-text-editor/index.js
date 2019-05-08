@@ -509,6 +509,7 @@ class TimedTextEditor extends React.Component {
           blockRendererFn={ this.renderBlockWithTimecodes }
           handleKeyCommand={ command => this.handleKeyCommand(command) }
           keyBindingFn={ e => this.customKeyBindingFn(e) }
+          spellCheck={ this.props.spellCheck }
         />
       </section>
     );
@@ -547,6 +548,7 @@ TimedTextEditor.propTypes = {
   transcriptData: PropTypes.object,
   mediaUrl: PropTypes.string,
   isEditable: PropTypes.bool,
+  spellCheck: PropTypes.bool,
   onWordClick: PropTypes.func,
   sttJsonType: PropTypes.string,
   isPlaying: PropTypes.func,
