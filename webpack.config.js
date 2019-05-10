@@ -4,6 +4,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
+  devtool: 'source-map',
   entry: {
     index: './packages/index.js',
     TranscriptEditor: './packages/components/transcript-editor/index.js',
