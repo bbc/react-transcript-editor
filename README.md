@@ -64,6 +64,7 @@ import  TranscriptEditor  from '@bbc/react-transcript-editor';
      transcriptData=// Transcript json
      mediaUrl=// string url to media file - audio or video
      isEditable={true}// set to true if you want to be able to edit the text
+     spellCheck={false}// set to true if you want the browser to spell check this transcript
      sttJsonType={ 'bbckaldi' } // the type of STT Json transcript supported.
      handleAnalyticsEvents={ this.handleAnalyticsEvents } // optional - if you want to collect analytics events.
      fileName=// optional - used for saving and retrieving local storage blob files

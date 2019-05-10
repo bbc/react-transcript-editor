@@ -20,6 +20,7 @@ class App extends React.Component {
       transcriptData: null,
       mediaUrl: null,
       isTextEditable: true,
+      spellCheck: false,
       sttType: 'bbckaldi',
       analyticsEvents: [],
       title: '',
@@ -83,10 +84,16 @@ class App extends React.Component {
     }
   }
 
-  handleIsTextEditable = () => {
-    this.setState(prevState => ({
-      isTextEditable: prevState.isTextEditable !== true
-    }));
+  handleIsTextEditable = (e) => {
+    this.setState({
+      isTextEditable: e.target.checked
+    });
+  };
+
+  handleSpellCheck = (e) => {
+    this.setState({
+      spellCheck: e.target.checked
+    });
   };
 
   // https://stackoverflow.com/questions/21733847/react-jsx-selecting-selected-on-selected-select-option
@@ -226,8 +233,18 @@ class App extends React.Component {
               <input
                 id={ 'textIsEditableCheckbox' }
                 type="checkbox"
-                defaultChecked="true"
+                checked={ this.state.isTextEditable }
                 onChange={ this.handleIsTextEditable }
+              />
+            </div>
+
+            <div className={ style.checkbox }>
+              <label className={ style.editableLabel } htmlFor={ 'spellCheckCheckbox' }>Spell Check</label>
+              <input
+                id={ 'spellCheckCheckbox' }
+                type="checkbox"
+                checked={ this.state.spellCheck }
+                onChange={ this.handleSpellCheck }
               />
             </div>
 
@@ -240,6 +257,7 @@ class App extends React.Component {
           fileName={ this.state.fileName }
           mediaUrl={ this.state.mediaUrl }
           isEditable={ this.state.isTextEditable }
+          spellCheck={ this.state.spellCheck }
           sttJsonType={ this.state.sttType }
           handleAnalyticsEvents={ this.handleAnalyticsEvents }
           title={ this.state.title }

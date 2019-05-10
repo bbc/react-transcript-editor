@@ -342,6 +342,7 @@ class TranscriptEditor extends React.Component {
         isPlaying={ this.handleIsPlaying }
         currentTime={ this.state.currentTime }
         isEditable={ this.props.isEditable }
+        spellCheck={ this.props.spellCheck }
         sttJsonType={ this.props.sttJsonType }
         mediaUrl={ this.props.mediaUrl }
         isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
@@ -454,6 +455,7 @@ TranscriptEditor.propTypes = {
   title: PropTypes.string,
   mediaUrl: PropTypes.string,
   isEditable: PropTypes.bool,
+  spellCheck: PropTypes.bool,
   sttJsonType: PropTypes.string,
   handleAnalyticsEvents: PropTypes.func,
   fileName: PropTypes.string,
