@@ -22,6 +22,45 @@ import { secondsToTimecode } from '../../util/timecode-converter';
 
 import style from './index.module.css';
 
+// const Header = (props) => {
+class Header extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    return false;
+  }
+  render() {
+    const props = this.props;
+
+    return ( <>
+      <header className={ style.header }>
+        {props.showSettings ? props.settings : null}
+        {props.showShortcuts ? props.shortcuts : null}
+        {props.tooltip}
+      </header>
+      <nav className={ style.nav }>
+        {props.mediaUrl === null ? null : props.mediaControls}
+      </nav>
+      <div className={ style.settingsContainer }>
+        <button
+          className={ style.settingsButton }
+          title="Settings"
+          onClick={ props.handleSettingsToggle }
+        >
+          <FontAwesomeIcon icon={ faCog } />
+        </button>
+        <button
+          className={ `${ style.settingsButton } ${
+            style.keyboardShortcutsButon
+          }` }
+          title="view shortcuts"
+          onClick={ props.handleShortcutsToggle }
+        >
+          <FontAwesomeIcon icon={ faKeyboard } />
+        </button>
+      </div>
+    </>);
+  };
+}
+
 class TranscriptEditor extends React.Component {
   constructor(props) {
     super(props);
@@ -397,40 +436,19 @@ class TranscriptEditor extends React.Component {
       </Tooltip>
     );
 
-    const header = (
-      <>
-        <header className={ style.header }>
-          {this.state.showSettings ? settings : null}
-          {this.state.showShortcuts ? shortcuts : null}
-          {tooltip}
-        </header>
-        <nav className={ style.nav }>
-          {this.props.mediaUrl === null ? null : mediaControls}
-        </nav>
-        <div className={ style.settingsContainer }>
-          <button
-            className={ style.settingsButton }
-            title="Settings"
-            onClick={ this.handleSettingsToggle }
-          >
-            <FontAwesomeIcon icon={ faCog } />
-          </button>
-          <button
-            className={ `${ style.settingsButton } ${
-              style.keyboardShortcutsButon
-            }` }
-            title="view shortcuts"
-            onClick={ this.handleShortcutsToggle }
-          >
-            <FontAwesomeIcon icon={ faKeyboard } />
-          </button>
-        </div>
-      </>
-    );
-
     return (
       <div className={ style.container }>
-        {this.props.mediaUrl === null ? null : header}
+        {this.props.mediaUrl === null ? null : <Header
+          showSettings={ this.state.showSettings }
+          showShortcuts={ this.state.showShortcuts }
+          settings={ settings }
+          shortcuts={ shortcuts }
+          tooltip={ tooltip }
+          mediaUrl={ this.props.mediaUrl }
+          mediaControls={ mediaControls }
+          handleSettingsToggle={ this.handleSettingsToggle }
+          handleShortcutsToggle={ this.handleShortcutsToggle }
+        />}
 
         <div className={ style.grid }>
           <section className={ style.row }>
