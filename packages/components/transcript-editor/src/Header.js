@@ -9,6 +9,7 @@ import style from '../index.module.css';
 
 class Header extends React.Component {
 
+  // to avoid unnecessary re-renders
   shouldComponentUpdate(nextProps) {
     if (nextProps.showSettings !== this.props.showSettings) {
       return true;

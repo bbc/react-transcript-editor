@@ -4,6 +4,7 @@ import styles from './index.module.css';
 
 class VideoPlayer extends React.Component {
 
+  // to avoid unnecessary re-renders
   shouldComponentUpdate(nextProps) {
     if (nextProps.previewIsDisplayed !== this.props.previewIsDisplayed) {
       return true;
