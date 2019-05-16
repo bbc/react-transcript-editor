@@ -6,7 +6,7 @@ import style from './PlayerControls.module.css';
 
 class PlaybackRate extends React.Component {
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     if (nextProps.playbackRate !== this.props.playbackRate) {
       return true;
     }

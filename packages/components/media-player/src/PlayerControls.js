@@ -32,6 +32,10 @@ class PlayerControls extends React.Component {
       return true;
     }
 
+    if (nextProps.isPlaying !== this.props.isPlaying) {
+      return true;
+    }
+
     return false;
   }
 
@@ -118,6 +122,7 @@ class PlayerControls extends React.Component {
             name={ 'playbackRate' }
             handlePlayBackRateChange={ this.props.setPlayBackRate }
           />
+
           <button
             value="Save"
             title="Save"
