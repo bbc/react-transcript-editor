@@ -72,6 +72,21 @@ class MediaPlayer extends React.Component {
     this.props.hookIsPlaying(this.isPlaying);
   }
 
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.rollBackValueInSeconds !== this.state.rollBackValueInSeconds) {
+      return true;
+    }
+    if (nextProps.timecodeOffset !== this.state.timecodeOffset) {
+      return true;
+    }
+
+    if (nextProps.playbackRate !== this.state.playbackRate) {
+      return true;
+    }
+
+    return false;
+  }
+
   setCurrentTime = newCurrentTime => {
     if (newCurrentTime !== '' && newCurrentTime !== null) {
       // hh:mm:ss:ff - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
