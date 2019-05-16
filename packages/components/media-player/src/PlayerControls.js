@@ -19,7 +19,22 @@ import {
   faVolumeMute
 } from '@fortawesome/free-solid-svg-icons';
 
+import PlaybackRate from './PlaybackRate';
+
 class PlayerControls extends React.Component {
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.currentTime !== this.props.currentTime) {
+      return true;
+    }
+
+    if (nextProps.playbackRate !== this.props.playbackRate) {
+      return true;
+    }
+
+    return false;
+  }
+
   // to handle backward and forward mouse pressed on btn
   // set a 300 ms  interval to repeat the
   // backward or forward function
@@ -97,15 +112,12 @@ class PlayerControls extends React.Component {
         </div>
 
         <div className={ style.btnsGroup }>
-          <span className={ style.playBackRate }
-            title="Playback rate: alt - & alt + ">
-            <Select
-              options={ this.props.playbackRateOptions }
-              currentValue={ this.props.playbackRate.toString() }
-              name={ 'playbackRate' }
-              handleChange={ this.props.setPlayBackRate } />
-          </span>
-
+          <PlaybackRate
+            playbackRateOptions={ this.props.playbackRateOptions }
+            playbackRate={ this.props.playbackRate }
+            name={ 'playbackRate' }
+            handlePlayBackRateChange={ this.props.setPlayBackRate }
+          />
           <button
             value="Save"
             title="Save"
@@ -136,7 +148,6 @@ class PlayerControls extends React.Component {
 }
 
 PlayerControls.propTypes = {
-
   playMedia: PropTypes.func,
   currentTime: PropTypes.string,
   timecodeOffset: PropTypes.string,

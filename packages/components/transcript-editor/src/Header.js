@@ -17,6 +17,10 @@ class Header extends React.Component {
       return true;
     }
 
+    if (nextProps.mediaControls !== this.props.mediaControls) {
+      return true;
+    }
+
     return false;
   }
   render() {

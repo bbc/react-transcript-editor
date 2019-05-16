@@ -11,6 +11,7 @@ import {
   secondsToTimecode,
   timecodeToSeconds
 } from '../../util/timecode-converter';
+
 import PLAYBACK_RATES from './src/PLAYBACK_RATES.js';
 
 class MediaPlayer extends React.Component {
@@ -58,15 +59,33 @@ class MediaPlayer extends React.Component {
     this.props.hookIsPlaying(this.isPlaying);
   }
 
-  shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(nextProps, nextState) {
     if (nextProps.rollBackValueInSeconds !== this.state.rollBackValueInSeconds) {
       return true;
     }
-    if (nextProps.timecodeOffset !== this.state.timecodeOffset) {
+    if (nextProps.timecodeOffset !== this.props.hookSeek) {
+      return true;
+    }
+    // ////////
+    if (nextProps.hookSeek !== this.props.hookSeek) {
       return true;
     }
 
-    if (nextProps.playbackRate !== this.state.playbackRate) {
+    if (nextProps.hookPlayMedia !== this.props.hookPlayMedia) {
+      return true;
+    }
+
+    if (nextProps.hookIsPlaying !== this.props.hookIsPlaying) {
+      return true;
+    }
+
+    if (nextProps.hookSeek !== this.state.timecodeOffset) {
+      return true;
+    }
+    // ////////
+    if (nextState.playbackRate !== this.state.playbackRate) {
+      console.log(nextState.playbackRate, this.state.playbackRate);
+
       return true;
     }
 
