@@ -298,6 +298,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 [React docs - Introducing the React Profiler](https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html)
 
+### add a `console.log` in render method
+add a `console.log` in render method of component, to see count of how often is called, before and after tweaks
+
 
 ## `getDerivedStateFromProps`
 
