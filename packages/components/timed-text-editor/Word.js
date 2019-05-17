@@ -1,7 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Word extends PureComponent {
+class Word extends Component {
+
+  shouldComponentUpdate(nextProps) {
+    if ( nextProps.decoratedText !== this.props.decoratedText) {
+      return true;
+    }
+
+    return false;
+  }
+
   generateConfidence = (data) => {
     // handling edge case where confidence score not present
     if (data.confidence) {
@@ -28,6 +37,7 @@ class Word extends PureComponent {
   }
 
   render() {
+    console.log('Render Word');
     const data = this.props.entityKey
       ? this.props.contentState.getEntity(this.props.entityKey).getData()
       : {};

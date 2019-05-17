@@ -164,6 +164,8 @@ use `React.StrictMode` to identify components with unsafe lifecycles
 
 [React docs - Strict Mode](https://reactjs.org/docs/strict-mode.html)
 
+[Strict mode warnings](https://fb.me/react-strict-mode-warnings)
+
 
 ## Error Handling
 

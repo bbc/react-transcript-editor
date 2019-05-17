@@ -35,20 +35,27 @@ class WrapperBlock extends React.Component {
   }
   // reducing unnecessary re-renders
   shouldComponentUpdate = (nextProps, nextState) => {
-    // console.log('wrapperBlock - nextProps', nextProps);
+    // console.log('wrapperBlock - nextProps', nextProps, nextState, nextProps.blockProps.showSpeakers);
     // console.log('wrapperBlock - nextState', nextState);
     // console.log('wrapperBlock - this.prop', this.props.block.getText());
     // console.log('wrapperBlock - this.state', this.state);
-
     if (nextProps.block.getText() !== this.props.block.getText()) {
       return true;
     }
 
-    if (nextState.speaker !== this.state.speaker) {
+    if (nextProps.blockProps.showSpeakers !== this.props.blockProps.showSpeakers) {
       return true;
     }
 
-    if (nextState.start !== this.state.start) {
+    if (nextProps.blockProps.showTimecodes !== this.props.blockProps.showTimecodes) {
+      return true;
+    }
+
+    if (nextProps.blockProps.timecodeOffset !== this.props.blockProps.timecodeOffset) {
+      return true;
+    }
+
+    if (nextState.speaker !== this.state.speaker) {
       return true;
     }
 

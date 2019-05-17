@@ -1,5 +1,9 @@
 import React from 'react';
-
+// https://github.com/maicki/why-did-you-update
+if (process.env.NODE_ENV !== 'production') {
+  const { whyDidYouUpdate } = require('why-did-you-update');
+  whyDidYouUpdate(React);
+}
 import TranscriptEditor from '../packages/components/transcript-editor';
 import SttTypeSelect from './select-stt-json-type';
 import ExportFormatSelect from './select-export-format';

@@ -79,6 +79,15 @@ class TimedTextEditor extends React.Component {
       return true;
     }
 
+    // DraftEditor
+    if (nextState.editorState !== this.state.editorState) {
+      return true;
+    }
+
+    if (nextProps.spellCheck !== this.props.spellCheck) {
+      return true;
+    }
+
     return false;
   }
 
