@@ -165,7 +165,7 @@ use `React.StrictMode` to identify components with unsafe lifecycles
 [React docs - Strict Mode](https://reactjs.org/docs/strict-mode.html)
 
 
-## Error Handling
+## Error Handling
 
 error, store it in your local state, and show a message to the user.
 
