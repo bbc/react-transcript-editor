@@ -2,7 +2,7 @@
 
 Some notes on how to How to prevent unnecessary re-renders in React
 
-## Start here
+## Start here
 
 [React docs - Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
 
@@ -43,7 +43,7 @@ if want to go deeper in ['the single responsibility principle' read this](https:
 [React docs - thinking in react](https://reactjs.org/docs/thinking-in-react.html)
 
 
-### updating state
+### updating state
 updating state is async
 
 >There is one crucial case where it makes sense to use a function over an object: when you update the state depending on the previous state or props. If you don't use a function, the local state management can cause bugs. The React setState() method is asynchronous. React batches setState() calls and executes them eventually. Sometimes, the previous state or props changes between before we can rely on it in our setState() call.
@@ -165,7 +165,7 @@ use `React.StrictMode` to identify components with unsafe lifecycles
 [React docs - Strict Mode](https://reactjs.org/docs/strict-mode.html)
 
 
-## Error Handling
+## Error Handling
 
 error, store it in your local state, and show a message to the user.
 
@@ -309,7 +309,7 @@ use `React.StrictMode` as described above to identify other issues in your code.
 [You Probably Don't Need Derived State](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
 
-### Blog
+### Blog
 - [REACT 16: PREVENT UNNECESSARY RE-RENDERS WITH FUNCTIONAL SETSTATE()
 ](https://x-team.com/blog/react-render-setstate/)
 - [5 Ways to Stop Wasting Renders in React/Redux](https://medium.com/voobans-tech-stories/5-ways-to-stop-wasting-renders-in-react-redux-73b3c5d86f50)
@@ -318,6 +318,6 @@ use `React.StrictMode` as described above to identify other issues in your code.
 - [How to Benchmark React Components: The Quick and Dirty Guide](https://engineering.musefind.com/how-to-benchmark-react-components-the-quick-and-dirty-guide-f595baf1014c)
 - [Pure Functional Components in React 16.6, Memoizing functional components with the React.memo() API](https://logrocket.com/blog/pure-functional-components/)
 
-### books
+### books
 - [book - The Road to learn React](https://github.com/the-road-to-learn-react/the-road-to-learn-react)
 - [Book - React.js Essentials ](https://github.com/fedosejev/react-essentials)
