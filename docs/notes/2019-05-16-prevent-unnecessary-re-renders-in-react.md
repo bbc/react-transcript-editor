@@ -254,7 +254,7 @@ From react BBC course
 - [React pure components](https://reactjs.org/docs/react-api.html#reactpurecomponent)
 
 
-## Actions
+## Actions you can take
 
 ### `shouldComponentUpdate`
 
@@ -301,6 +301,8 @@ if (process.env.NODE_ENV !== 'production') {
 ### add a `console.log` in render method
 add a `console.log` in render method of component, to see count of how often is called, before and after tweaks
 
+### `React.StrictMode`
+use `React.StrictMode` as described above to identify other issues in your code. 
 
 ## `getDerivedStateFromProps`
 

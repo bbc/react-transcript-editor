@@ -58,6 +58,30 @@ class TimedTextEditor extends React.Component {
     return null;
   }
 
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.transcriptData !== null) {
+      return true;
+    }
+
+    if (nextProps.isEditable !== this.props.isEditable) {
+      return true;
+    }
+
+    if (nextProps.timecodeOffset !== this.props.timecodeOffset) {
+      return true;
+    }
+
+    if (nextProps.showSpeakers !== this.props.showSpeakers) {
+      return true;
+    }
+
+    if (nextProps.showTimecodes !== this.props.showTimecodes) {
+      return true;
+    }
+
+    return false;
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (
       (prevState.transcriptData !== this.state.transcriptData)
