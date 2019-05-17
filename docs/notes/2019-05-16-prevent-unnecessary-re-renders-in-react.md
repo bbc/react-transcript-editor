@@ -165,7 +165,7 @@ use `React.StrictMode` to identify components with unsafe lifecycles
 [React docs - Strict Mode](https://reactjs.org/docs/strict-mode.html)
 
 
-## Error Handling
+## Error Handling
 
 error, store it in your local state, and show a message to the user.
 
@@ -218,7 +218,7 @@ From react BBC course
 ---
 
 
-### Error Handling API requests
+### Error Handling API requests
 [Error Handling - with fetch API](https://github.com/pietrop/the-road-to-learn-react/blob/master/manuscript/chapter3.md#error-handling)
 
 ## Loadng
@@ -254,7 +254,7 @@ From react BBC course
 - [React pure components](https://reactjs.org/docs/react-api.html#reactpurecomponent)
 
 
-## Actions you can take
+## Actions you can take to improve performance
 
 ### `shouldComponentUpdate`
 
@@ -303,6 +303,11 @@ add a `console.log` in render method of component, to see count of how often is 
 
 ### `React.StrictMode`
 use `React.StrictMode` as described above to identify other issues in your code. 
+
+### consider refactoring 
+consider refactoring the logic of the app and components to break them into smaller more manageable units.
+
+[source](https://medium.com/dailyjs/react-is-slow-react-is-fast-optimizing-react-apps-in-practice-394176a11fba)
 
 ## `getDerivedStateFromProps`
 
