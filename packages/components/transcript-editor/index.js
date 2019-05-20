@@ -1,17 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  faKeyboard,
-  faQuestionCircle,
-  faMousePointer,
-  faICursor,
-  faUserEdit,
-  faSave
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import Tooltip from 'react-simple-tooltip';
-
 import TimedTextEditor from '../timed-text-editor';
 import MediaPlayer from '../media-player';
 import VideoPlayer from '../video-player';
@@ -22,6 +10,9 @@ import Header from './src/Header.js';
 
 import style from './index.module.css';
 
+// TODO: move to another file with tooltip - rename HowDoesThisWork or HelpMessage
+import HowDoesThisWork from './src/HowDoesThisWork.js';
+
 class TranscriptEditor extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +20,6 @@ class TranscriptEditor extends React.Component {
 
     this.state = {
       currentTime: 0,
-      lastLocalSavedTime: '',
       transcriptData: null,
       isScrollIntoViewOn: false,
       showSettings: false,
@@ -54,6 +44,64 @@ class TranscriptEditor extends React.Component {
     }
 
     return null;
+  }
+
+  // performance optimization
+  shouldComponentUpdate = (nextProps, nextState) => {
+
+    if (nextState.transcriptData !== this.state.transcriptData) {
+      return true;
+    }
+
+    if (nextProps.mediaUrl !== this.props.mediaUrl) {
+      return true;
+    }
+
+    if (nextState.currentTime !== this.state.currentTime) {
+      return true;
+    }
+
+    if (nextState.isScrollIntoViewOn !== this.state.isScrollIntoViewOn) {
+      return true;
+    }
+
+    if (nextState.showSettings !== this.state.showSettings) {
+      return true;
+    }
+
+    if (nextState.showShortcuts !== this.state.showShortcuts) {
+      return true;
+    }
+
+    if (nextState.isPauseWhileTypingOn !== this.state.isPauseWhileTypingOn) {
+      return true;
+    }
+
+    if (nextState.rollBackValueInSeconds !== this.state.rollBackValueInSeconds) {
+      return true;
+    }
+
+    if (nextState.timecodeOffset !== this.state.timecodeOffset) {
+      return true;
+    }
+
+    if (nextState.showTimecodes !== this.state.showTimecodes) {
+      return true;
+    }
+
+    if (nextState.showSpeakers !== this.state.showSpeakers) {
+      return true;
+    }
+
+    if (nextState.previewIsDisplayed !== this.state.previewIsDisplayed) {
+      return true;
+    }
+
+    if (nextState.mediaDuration !== this.state.mediaDuration) {
+      return true;
+    }
+
+    return false;
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -291,6 +339,7 @@ class TranscriptEditor extends React.Component {
       <MediaPlayer
         title={ this.props.title ? this.props.title : '' }
         mediaDuration={ this.state.mediaDuration }
+        currentTime={ this.state.currentTime }
         hookSeek={ foo => (this.setCurrentTime = foo) }
         hookPlayMedia={ foo => (this.playMedia = foo) }
         hookIsPlaying={ foo => (this.isPlaying = foo) }
@@ -354,49 +403,6 @@ class TranscriptEditor extends React.Component {
       />
     );
 
-    const helpMessage = (
-      <div className={ style.helpMessage }>
-        <span>
-          <FontAwesomeIcon className={ style.icon } icon={ faMousePointer } />
-          Double click on a word or timestamp to jump to that point in the
-          video.
-        </span>
-        <span>
-          <FontAwesomeIcon className={ style.icon } icon={ faICursor } />
-          Start typing to edit text.
-        </span>
-        <span>
-          <FontAwesomeIcon className={ style.icon } icon={ faUserEdit } />
-          You can add and change names of speakers in your transcript.
-        </span>
-        <span>
-          <FontAwesomeIcon className={ style.icon } icon={ faKeyboard } />
-          Use keyboard shortcuts for quick control.
-        </span>
-        <span>
-          <FontAwesomeIcon className={ style.icon } icon={ faSave } />
-          Save & export to get a copy to your desktop.
-        </span>
-      </div>
-    );
-
-    const tooltip = (
-      <Tooltip
-        className={ style.help }
-        content={ helpMessage }
-        fadeDuration={ 250 }
-        fadeEasing={ 'ease-in' }
-        placement={ 'bottom' }
-        radius={ 5 }
-        border={ '#ffffff' }
-        background={ '#f2f2f2' }
-        color={ '#000000' }
-      >
-        <FontAwesomeIcon className={ style.icon } icon={ faQuestionCircle } />
-        How does this work?
-      </Tooltip>
-    );
-
     return (
       <div className={ style.container }>
         {this.props.mediaUrl === null ? null : <Header
@@ -404,7 +410,7 @@ class TranscriptEditor extends React.Component {
           showShortcuts={ this.state.showShortcuts }
           settings={ settings }
           shortcuts={ shortcuts }
-          tooltip={ tooltip }
+          tooltip={ HowDoesThisWork }
           mediaUrl={ this.props.mediaUrl }
           mediaControls={ mediaControls }
           handleSettingsToggle={ this.handleSettingsToggle }

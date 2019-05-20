@@ -37,7 +37,6 @@ class Word extends Component {
   }
 
   render() {
-    console.log('Render Word');
     const data = this.props.entityKey
       ? this.props.contentState.getEntity(this.props.entityKey).getData()
       : {};
