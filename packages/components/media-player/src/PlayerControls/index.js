@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Select from './Select';
-
-import style from './PlayerControls.module.css';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import style from './index.module.css';
 
 import {
   faSave,
@@ -18,13 +14,18 @@ import {
   faVolumeUp,
   faVolumeMute
 } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import PlaybackRate from './PlaybackRate';
+import PlaybackRate from '../PlaybackRate';
+import TimeBox from './TimeBox.js';
 
 class PlayerControls extends React.Component {
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     if (nextProps.currentTime !== this.props.currentTime) {
+      return true;
+    }
+    if (nextProps.duration !== this.props.duration) {
       return true;
     }
 
@@ -33,6 +34,10 @@ class PlayerControls extends React.Component {
     }
 
     if (nextProps.isPlaying !== this.props.isPlaying) {
+      return true;
+    }
+
+    if (nextProps.isMute !== this.props.isMute) {
       return true;
     }
 
@@ -64,18 +69,11 @@ class PlayerControls extends React.Component {
   render() {
     return (
       <div className={ style.playerControls }>
-        <div className={ style.timeBox }>
-          <span
-            title="Current time: alt t"
-            className={ style.currentTime }
-            onClick={ this.props.promptSetCurrentTime }>
-            { this.props.currentTime }</span>
-          <span className={ style.separator }>|</span>
-          <span
-            title="Clip duration"
-            className={ style.duration }>
-            {this.props.duration}</span>
-        </div>
+        <TimeBox
+          promptSetCurrentTime={ this.props.promptSetCurrentTime }
+          currentTime={ this.props.currentTime }
+          duration={ this.props.duration }
+        />
 
         <div className={ style.btnsGroup }>
           <button

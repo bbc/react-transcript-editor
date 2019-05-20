@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { hotkeys } from 'react-keyboard-shortcuts';
-import PlayerControls from './src/PlayerControls';
+import PlayerControls from './src/PlayerControls/index.js';
 import ProgressBar from './src/ProgressBar';
 
 import returnHotKeys from './src/defaultHotKeys';
@@ -54,6 +54,7 @@ class MediaPlayer extends React.Component {
 
   componentDidMount() {
     // TODO: Should these hook functions be optional? are they needed? what do they actually do?
+    // TODO: these hook functions need refactoring, they are causing performance problems
     this.props.hookSeek(this.setCurrentTime);
     this.props.hookPlayMedia(this.togglePlayMedia);
     this.props.hookIsPlaying(this.isPlaying);
@@ -63,29 +64,24 @@ class MediaPlayer extends React.Component {
     if (nextProps.rollBackValueInSeconds !== this.state.rollBackValueInSeconds) {
       return true;
     }
-    if (nextProps.timecodeOffset !== this.props.hookSeek) {
+    if (nextProps.timecodeOffset !== this.state.timecodeOffset) {
       return true;
     }
-    // ////////
-    if (nextProps.hookSeek !== this.props.hookSeek) {
-      return true;
-    }
-
-    if (nextProps.hookPlayMedia !== this.props.hookPlayMedia) {
+    // TODO: workaround to keep the hook functions, only call re-renders
+    // if current time has changed. And it seems eliminate component's unecessary re-renders.
+    if (nextProps.currentTime !== this.props.currentTime) {
       return true;
     }
 
-    if (nextProps.hookIsPlaying !== this.props.hookIsPlaying) {
-      return true;
-    }
-
-    if (nextProps.hookSeek !== this.state.timecodeOffset) {
-      return true;
-    }
-    // ////////
     if (nextState.playbackRate !== this.state.playbackRate) {
-      console.log(nextState.playbackRate, this.state.playbackRate);
+      return true;
+    }
 
+    if (nextProps.mediaDuration !== this.props.mediaDuration ) {
+      return true;
+    }
+
+    if (nextState.isMute !== this.state.isMute) {
       return true;
     }
 
@@ -412,20 +408,26 @@ class MediaPlayer extends React.Component {
     }
   };
 
+  // performance optimization
+  getProgressBarMax = () => {
+    return this.props.videoRef.current !== null
+      ? parseInt(this.props.videoRef.current.duration).toString()
+      : '100';
+  }
+
+  // performance optimization
+  getProgressBarValue = () => {
+    return this.props.videoRef.current !== null
+      ? parseInt(this.props.videoRef.current.currentTime)
+      : 0;
+  }
+
   render() {
     const progressBar = (
       <ProgressBar
-        max={
-          this.props.videoRef.current !== null
-            ? parseInt(this.props.videoRef.current.duration).toString()
-            : '100'
-        }
-        value={
-          this.props.videoRef.current !== null
-            ? parseInt(this.props.videoRef.current.currentTime)
-            : 0
-        }
-        buttonClick={ this.handleProgressBarClick.bind(this) }
+        max={ this.getProgressBarMax() }
+        value={ this.getProgressBarValue() }
+        buttonClick={ this.handleProgressBarClick }
       />
     );
 
