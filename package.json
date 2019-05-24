@@ -1,7 +1,7 @@
 {
   "name": "@bbc/react-transcript-editor",
   "description": "A React component to make transcribing audio and video easier and faster.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "keywords": [
     "transcript",
     "transcriptions",
@@ -24,7 +24,7 @@
     "build:storybook": "rimraf build && build-storybook -c .storybook -o build",
     "build:storybook:serve": "npx serve build",
     "deploy:ghpages": "rimraf build && npm run build:storybook && gh-pages -d build",
-    "publish:public": "npm run build:component && rm ./dist/package.json || true && cp package.json ./dist/package.json && npm publish dist --access public",
+    "publish:public": "npm run build:component && rm ./dist/package.json || true && cp package.json ./dist/package.json && rm ./dist/README.md || true && cp README.md ./dist/README.md || true && npm publish dist --access public",
     "publish:dry:run": "npm publish --dry-run"
   },
   "jest": {
