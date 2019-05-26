@@ -20,7 +20,7 @@ export const getBestAlternativeForWord = word => {
   if (/punctuation/.test(word.type)) {
     return Object.assign(word.alternatives[0], { confidence: 1 }); //Transcribe doesn't provide a confidence for punctuation
   }
-  const wordWithHighestConfidence = word.alternatives.reduce(function(
+  const wordWithHighestConfidence = word.alternatives.reduce(function (
     prev,
     current
   ) {
@@ -124,7 +124,7 @@ const amazonTranscribeToDraft = amazonTranscribeJson => {
   const tmpWords = amazonTranscribeJson.results.items;
   const speakerLabels = amazonTranscribeJson.results.speaker_labels;
   const wordsWithRemappedPunctuation = mapPunctuationItemsToWords(tmpWords);
-  const speakerSegmentation = typeof(speakerLabels) != 'undefined';
+  const speakerSegmentation = typeof (speakerLabels) != 'undefined';
 
   const wordsByParagraphs = speakerSegmentation ?
     groupSpeakerWordsInParagraphs(wordsWithRemappedPunctuation, speakerLabels) :
@@ -137,7 +137,7 @@ const amazonTranscribeToDraft = amazonTranscribeJson => {
       text: paragraph.text.join(' '),
       type: 'paragraph',
       data: {
-        speaker: paragraph.speaker ? `Speaker ${ paragraph.speaker }` : `TBC ${ i }`,
+        speaker: paragraph.speaker ? `Speaker ${paragraph.speaker}` : `TBC ${i}`,
         words: paragraph.words,
         start: parseFloat(paragraph.words[0].start)
       },
@@ -147,7 +147,8 @@ const amazonTranscribeToDraft = amazonTranscribeJson => {
     };
     results.push(draftJsContentBlockParagraph);
   });
-
+  console.log('paragraphs', wordsByParagraphs);
+  console.log('results', results);
   return results;
 };
 

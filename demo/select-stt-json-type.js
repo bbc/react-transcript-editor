@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SttTypeSelect = props => {
-  return <select className={ props.className } name={ props.name } value={ props.value } onChange={ props.handleChange }>
+  return <select className={props.className} name={props.name} value={props.value} onChange={props.handleChange}>
     <option value="bbckaldi">BBC Kaldi</option>
     <option value="draftjs">Draft Js</option>
     <option value="gentle-transcript" disabled>Gentle Transcript</option>
@@ -18,6 +18,7 @@ const SttTypeSelect = props => {
     <option value="vtt-youtube" disabled>Youtube VTT</option>
     <option value="amazontranscribe">Amazon Transcribe</option>
     <option value="digitalpaperedit">Digital Paper Edit</option>
+    <option value="trint">Trint</option>
   </select>;
 };
 

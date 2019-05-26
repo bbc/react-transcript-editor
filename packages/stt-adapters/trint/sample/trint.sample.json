@@ -1,0 +1,3060 @@
+{
+    "title": "testeisep.mp3",
+    "words": [
+        {
+            "duration": 330,
+            "time": 3050,
+            "paragraphId": "p0-0",
+            "value": "Primeiro",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 3380,
+            "paragraphId": "p0-0",
+            "value": "queria",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 320,
+            "time": 4290,
+            "paragraphId": "p0-0",
+            "value": "saber",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 4610,
+            "paragraphId": "p0-0",
+            "value": "como",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 4790,
+            "paragraphId": "p0-0",
+            "value": "é",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 4850,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 4960,
+            "paragraphId": "p0-0",
+            "value": "nasceu",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 80,
+            "time": 5840,
+            "paragraphId": "p0-0",
+            "value": "uma",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 560,
+            "time": 5970,
+            "paragraphId": "p0-0",
+            "value": "encomenda",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 7370,
+            "paragraphId": "p0-0",
+            "value": "uma",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 540,
+            "time": 7490,
+            "paragraphId": "p0-0",
+            "value": "encomenda",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 8029,
+            "paragraphId": "p0-0",
+            "value": "de",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 8150,
+            "paragraphId": "p0-0",
+            "value": "um",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 720,
+            "time": 8300,
+            "paragraphId": "p0-0",
+            "value": "espetáculo",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 9020,
+            "paragraphId": "p0-0",
+            "value": "não",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 9260,
+            "paragraphId": "p0-0",
+            "value": "de",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 590,
+            "time": 9420,
+            "paragraphId": "p0-0",
+            "value": "encomenda",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 420,
+            "time": 10010,
+            "paragraphId": "p0-0",
+            "value": "deste",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 640,
+            "time": 10430,
+            "paragraphId": "p0-0",
+            "value": "espetáculo",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 260,
+            "time": 11160,
+            "paragraphId": "p0-0",
+            "value": "Sonho",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 11480,
+            "paragraphId": "p0-0",
+            "value": "para",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 11900,
+            "paragraphId": "p0-0",
+            "value": "criar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 12170,
+            "paragraphId": "p0-0",
+            "value": "um",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 480,
+            "time": 12230,
+            "paragraphId": "p0-0",
+            "value": "espetáculo",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 12710,
+            "paragraphId": "p0-0",
+            "value": "para",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 12860,
+            "paragraphId": "p0-0",
+            "value": "esta",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 13070,
+            "paragraphId": "p0-0",
+            "value": "faixa",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 500,
+            "time": 13370,
+            "paragraphId": "p0-0",
+            "value": "etária",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 13880,
+            "paragraphId": "p0-0",
+            "value": "aqui",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 14090,
+            "paragraphId": "p0-0",
+            "value": "no",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 14180,
+            "paragraphId": "p0-0",
+            "value": "São",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 14390,
+            "paragraphId": "p0-0",
+            "value": "Luiz",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 350,
+            "time": 15270,
+            "paragraphId": "p0-0",
+            "value": "já",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 15620,
+            "paragraphId": "p0-0",
+            "value": "há",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 15680,
+            "paragraphId": "p0-0",
+            "value": "cerca",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 16010,
+            "paragraphId": "p0-0",
+            "value": "de",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 16070,
+            "paragraphId": "p0-0",
+            "value": "um",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 16190,
+            "paragraphId": "p0-0",
+            "value": "ano",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 16340,
+            "paragraphId": "p0-0",
+            "value": "e",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 16400,
+            "paragraphId": "p0-0",
+            "value": "meio",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 510,
+            "time": 17810,
+            "paragraphId": "p0-0",
+            "value": "ainda",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 18320,
+            "paragraphId": "p0-0",
+            "value": "este",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 18950,
+            "paragraphId": "p0-0",
+            "value": "este",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 19220,
+            "paragraphId": "p0-0",
+            "value": "tema",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 19430,
+            "paragraphId": "p0-0",
+            "value": "ainda",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 19790,
+            "paragraphId": "p0-0",
+            "value": "não",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 20060,
+            "paragraphId": "p0-0",
+            "value": "era",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 20480,
+            "paragraphId": "p0-0",
+            "value": "um",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 510,
+            "time": 20630,
+            "paragraphId": "p0-0",
+            "value": "tema",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 100,
+            "time": 21720,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 690,
+            "time": 21950,
+            "paragraphId": "p0-0",
+            "value": "fala",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 23030,
+            "paragraphId": "p0-0",
+            "value": "com",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 23210,
+            "paragraphId": "p0-0",
+            "value": "tanta",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 750,
+            "time": 23480,
+            "paragraphId": "p0-0",
+            "value": "frequência",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 24230,
+            "paragraphId": "p0-0",
+            "value": "nos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 24530,
+            "paragraphId": "p0-0",
+            "value": "meios",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 24710,
+            "paragraphId": "p0-0",
+            "value": "de",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 750,
+            "time": 24770,
+            "paragraphId": "p0-0",
+            "value": "comunicação",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 630,
+            "time": 26090,
+            "paragraphId": "p0-0",
+            "value": "mas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 26780,
+            "paragraphId": "p0-0",
+            "value": "achei",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 27050,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 27110,
+            "paragraphId": "p0-0",
+            "value": "era",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 420,
+            "time": 27230,
+            "paragraphId": "p0-0",
+            "value": "importante",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 27650,
+            "paragraphId": "p0-0",
+            "value": "falar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 27860,
+            "paragraphId": "p0-0",
+            "value": "sobre",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 28220,
+            "paragraphId": "p0-0",
+            "value": "isto",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 420,
+            "time": 28700,
+            "paragraphId": "p0-0",
+            "value": "porque",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 29120,
+            "paragraphId": "p0-0",
+            "value": "tenho",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 29360,
+            "paragraphId": "p0-0",
+            "value": "um",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 29450,
+            "paragraphId": "p0-0",
+            "value": "filho",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 510,
+            "time": 30440,
+            "paragraphId": "p0-0",
+            "value": "rapaz",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 30950,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 31040,
+            "paragraphId": "p0-0",
+            "value": "na",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 31130,
+            "paragraphId": "p0-0",
+            "value": "altura",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 260,
+            "time": 31400,
+            "paragraphId": "p0-0",
+            "value": "estava",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 31710,
+            "paragraphId": "p0-0",
+            "value": "em",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 32210,
+            "paragraphId": "p0-0",
+            "value": "idade",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 32509,
+            "paragraphId": "p0-0",
+            "value": "pré",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 510,
+            "time": 32689,
+            "paragraphId": "p0-0",
+            "value": "escolar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 33710,
+            "paragraphId": "p0-0",
+            "value": "e",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 33800,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 34010,
+            "paragraphId": "p0-0",
+            "value": "chegava",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 34400,
+            "paragraphId": "p0-0",
+            "value": "a",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 34460,
+            "paragraphId": "p0-0",
+            "value": "casa",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 34700,
+            "paragraphId": "p0-0",
+            "value": "com",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 34850,
+            "paragraphId": "p0-0",
+            "value": "os",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 600,
+            "time": 34940,
+            "paragraphId": "p0-0",
+            "value": "casamentos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 930,
+            "time": 35540,
+            "paragraphId": "p0-0",
+            "value": "muito",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 1080,
+            "time": 36800,
+            "paragraphId": "p0-0",
+            "value": "formatados",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 37880,
+            "paragraphId": "p0-0",
+            "value": "de",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 600,
+            "time": 38030,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 39140,
+            "paragraphId": "p0-0",
+            "value": "quando",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 39380,
+            "paragraphId": "p0-0",
+            "value": "ele",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 39560,
+            "paragraphId": "p0-0",
+            "value": "fosse",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 40070,
+            "paragraphId": "p0-0",
+            "value": "crescido",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 40430,
+            "paragraphId": "p0-0",
+            "value": "já",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 40550,
+            "paragraphId": "p0-0",
+            "value": "tinha",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 40760,
+            "paragraphId": "p0-0",
+            "value": "combinado",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 41120,
+            "paragraphId": "p0-0",
+            "value": "com",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 30,
+            "time": 41210,
+            "paragraphId": "p0-0",
+            "value": "a",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 420,
+            "time": 41240,
+            "paragraphId": "p0-0",
+            "value": "namorada",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 41660,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 41750,
+            "paragraphId": "p0-0",
+            "value": "ele",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 41840,
+            "paragraphId": "p0-0",
+            "value": "tinha",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 42050,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 42110,
+            "paragraphId": "p0-0",
+            "value": "comprar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 42410,
+            "paragraphId": "p0-0",
+            "value": "o",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 630,
+            "time": 42470,
+            "paragraphId": "p0-0",
+            "value": "carro",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 43100,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 43250,
+            "paragraphId": "p0-0",
+            "value": "ele",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 43340,
+            "paragraphId": "p0-0",
+            "value": "tinha",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 43550,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 50,
+            "time": 43640,
+            "paragraphId": "p0-0",
+            "value": "lhe",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 43700,
+            "paragraphId": "p0-0",
+            "value": "dar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 43880,
+            "paragraphId": "p0-0",
+            "value": "um",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 600,
+            "time": 44000,
+            "paragraphId": "p0-0",
+            "value": "anel",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 45140,
+            "paragraphId": "p0-0",
+            "value": "e",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 45230,
+            "paragraphId": "p0-0",
+            "value": "comecei",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 45620,
+            "paragraphId": "p0-0",
+            "value": "a",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 480,
+            "time": 45710,
+            "paragraphId": "p0-0",
+            "value": "perceber",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 46190,
+            "paragraphId": "p0-0",
+            "value": "nas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 480,
+            "time": 46520,
+            "paragraphId": "p0-0",
+            "value": "crianças",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 47000,
+            "paragraphId": "p0-0",
+            "value": "em",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 47090,
+            "paragraphId": "p0-0",
+            "value": "idade",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 47420,
+            "paragraphId": "p0-0",
+            "value": "pré",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 510,
+            "time": 47600,
+            "paragraphId": "p0-0",
+            "value": "escolar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 48170,
+            "paragraphId": "p0-0",
+            "value": "uma",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 570,
+            "time": 48320,
+            "paragraphId": "p0-0",
+            "value": "série",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 420,
+            "time": 48890,
+            "paragraphId": "p0-0",
+            "value": "de",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 200,
+            "time": 51290,
+            "paragraphId": "p0-0",
+            "value": "num",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 720,
+            "time": 51500,
+            "paragraphId": "p0-0",
+            "value": "discurso",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 52220,
+            "paragraphId": "p0-0",
+            "value": "muito",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 600,
+            "time": 52520,
+            "paragraphId": "p0-0",
+            "value": "vincado",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 53120,
+            "paragraphId": "p0-0",
+            "value": "e",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 53180,
+            "paragraphId": "p0-0",
+            "value": "muito",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 53420,
+            "paragraphId": "p0-0",
+            "value": "marcado",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 53810,
+            "paragraphId": "p0-0",
+            "value": "pelos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 930,
+            "time": 54080,
+            "paragraphId": "p0-0",
+            "value": "estereótipos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 55010,
+            "paragraphId": "p0-0",
+            "value": "de",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 410,
+            "time": 55100,
+            "paragraphId": "p0-0",
+            "value": "gênero",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 40,
+            "time": 55510,
+            "paragraphId": "p0-0",
+            "value": "e",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 55550,
+            "paragraphId": "p0-0",
+            "value": "achei",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 55760,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 55850,
+            "paragraphId": "p0-0",
+            "value": "era",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 840,
+            "time": 55970,
+            "paragraphId": "p0-0",
+            "value": "importante",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 56840,
+            "paragraphId": "p0-0",
+            "value": "porque",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 57110,
+            "paragraphId": "p0-0",
+            "value": "se",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 57230,
+            "paragraphId": "p0-0",
+            "value": "por",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 57350,
+            "paragraphId": "p0-0",
+            "value": "um",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 57410,
+            "paragraphId": "p0-0",
+            "value": "lado",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 57620,
+            "paragraphId": "p0-0",
+            "value": "é",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 480,
+            "time": 57680,
+            "paragraphId": "p0-0",
+            "value": "difícil",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 600,
+            "time": 58160,
+            "paragraphId": "p0-0",
+            "value": "falar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 58760,
+            "paragraphId": "p0-0",
+            "value": "destas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 59120,
+            "paragraphId": "p0-0",
+            "value": "questões",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 59480,
+            "paragraphId": "p0-0",
+            "value": "com",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 59570,
+            "paragraphId": "p0-0",
+            "value": "estas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 59870,
+            "paragraphId": "p0-0",
+            "value": "idades",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 60260,
+            "paragraphId": "p0-0",
+            "value": "também",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 60560,
+            "paragraphId": "p0-0",
+            "value": "nestas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 60950,
+            "paragraphId": "p0-0",
+            "value": "idades",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 61910,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 62000,
+            "paragraphId": "p0-0",
+            "value": "podes",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 62330,
+            "paragraphId": "p0-0",
+            "value": "criar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 650,
+            "time": 62700,
+            "paragraphId": "p0-0",
+            "value": "abertura",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 480,
+            "time": 63350,
+            "paragraphId": "p0-0",
+            "value": "para",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 420,
+            "time": 64280,
+            "paragraphId": "p0-0",
+            "value": "pensar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 64700,
+            "paragraphId": "p0-0",
+            "value": "de",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 64760,
+            "paragraphId": "p0-0",
+            "value": "outra",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 65000,
+            "paragraphId": "p0-0",
+            "value": "maneira",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 230,
+            "time": 65670,
+            "paragraphId": "p0-0",
+            "value": "como",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 65950,
+            "paragraphId": "p0-0",
+            "value": "falar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 66230,
+            "paragraphId": "p0-0",
+            "value": "aqui",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 320,
+            "time": 66440,
+            "paragraphId": "p0-0",
+            "value": "das",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 370,
+            "time": 66850,
+            "paragraphId": "p0-0",
+            "value": "três",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 350,
+            "time": 67220,
+            "paragraphId": "p0-0",
+            "value": "aos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 430,
+            "time": 67570,
+            "paragraphId": "p0-0",
+            "value": "seis",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 68050,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 68120,
+            "paragraphId": "p0-0",
+            "value": "são",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 540,
+            "time": 68270,
+            "paragraphId": "p0-0",
+            "value": "muito",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 660,
+            "time": 68810,
+            "paragraphId": "p0-0",
+            "value": "pequenininhos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 69470,
+            "paragraphId": "p0-0",
+            "value": "são",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 630,
+            "time": 69620,
+            "paragraphId": "p0-0",
+            "value": "mínimos.",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 71330,
+            "paragraphId": "p0-0",
+            "value": "Como",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 71510,
+            "paragraphId": "p0-0",
+            "value": "é",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 71600,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 72710,
+            "paragraphId": "p0-0",
+            "value": "estes",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 72950,
+            "paragraphId": "p0-0",
+            "value": "conceitos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 73400,
+            "paragraphId": "p0-0",
+            "value": "são",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 540,
+            "time": 73520,
+            "paragraphId": "p0-0",
+            "value": "trabalhados",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 74060,
+            "paragraphId": "p0-0",
+            "value": "para",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 160,
+            "time": 74240,
+            "paragraphId": "p0-0",
+            "value": "um",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 700,
+            "time": 74490,
+            "paragraphId": "p0-0",
+            "value": "espetáculo",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 470,
+            "time": 76860,
+            "paragraphId": "p0-0",
+            "value": "isto.",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 420,
+            "time": 77990,
+            "paragraphId": "p0-0",
+            "value": "Este",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 420,
+            "time": 78440,
+            "paragraphId": "p0-0",
+            "value": "processo",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 420,
+            "time": 78860,
+            "paragraphId": "p0-0",
+            "value": "começou",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 79280,
+            "paragraphId": "p0-0",
+            "value": "com",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 79370,
+            "paragraphId": "p0-0",
+            "value": "uma",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 750,
+            "time": 79520,
+            "paragraphId": "p0-0",
+            "value": "pesquisa",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 80390,
+            "paragraphId": "p0-0",
+            "value": "em",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 80510,
+            "paragraphId": "p0-0",
+            "value": "contexto",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 600,
+            "time": 80900,
+            "paragraphId": "p0-0",
+            "value": "escolar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 82250,
+            "paragraphId": "p0-0",
+            "value": "porque",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 82460,
+            "paragraphId": "p0-0",
+            "value": "achei",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 82610,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 82670,
+            "paragraphId": "p0-0",
+            "value": "era",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 82790,
+            "paragraphId": "p0-0",
+            "value": "importante",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 83180,
+            "paragraphId": "p0-0",
+            "value": "primeiro",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 83660,
+            "paragraphId": "p0-0",
+            "value": "saber",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 83900,
+            "paragraphId": "p0-0",
+            "value": "o",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 83960,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 84050,
+            "paragraphId": "p0-0",
+            "value": "é",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 84110,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 84200,
+            "paragraphId": "p0-0",
+            "value": "eles",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 510,
+            "time": 84410,
+            "paragraphId": "p0-0",
+            "value": "pensam",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 85220,
+            "paragraphId": "p0-0",
+            "value": "sobre",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 85610,
+            "paragraphId": "p0-0",
+            "value": "isto",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 100,
+            "time": 86410,
+            "paragraphId": "p0-0",
+            "value": "e",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 540,
+            "time": 86510,
+            "paragraphId": "p0-0",
+            "value": "confesso",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 87050,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 87230,
+            "paragraphId": "p0-0",
+            "value": "não",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 87410,
+            "paragraphId": "p0-0",
+            "value": "fiquei",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 87860,
+            "paragraphId": "p0-0",
+            "value": "muito",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 540,
+            "time": 88130,
+            "paragraphId": "p0-0",
+            "value": "tranquilo",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 88670,
+            "paragraphId": "p0-0",
+            "value": "em",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 88760,
+            "paragraphId": "p0-0",
+            "value": "relação",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 89150,
+            "paragraphId": "p0-0",
+            "value": "ao",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 89270,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 89840,
+            "paragraphId": "p0-0",
+            "value": "estas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 480,
+            "time": 90110,
+            "paragraphId": "p0-0",
+            "value": "crianças",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 90590,
+            "paragraphId": "p0-0",
+            "value": "ainda",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 570,
+            "time": 90860,
+            "paragraphId": "p0-0",
+            "value": "pensam",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 91430,
+            "paragraphId": "p0-0",
+            "value": "sobre",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 91730,
+            "paragraphId": "p0-0",
+            "value": "o",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 91790,
+            "paragraphId": "p0-0",
+            "value": "mundo",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 92120,
+            "paragraphId": "p0-0",
+            "value": "não",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 92240,
+            "paragraphId": "p0-0",
+            "value": "é",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 92330,
+            "paragraphId": "p0-0",
+            "value": "tão",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 690,
+            "time": 92510,
+            "paragraphId": "p0-0",
+            "value": "diferente",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 93760,
+            "paragraphId": "p0-0",
+            "value": "do",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 94600,
+            "paragraphId": "p0-0",
+            "value": "mundo",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 95300,
+            "paragraphId": "p0-0",
+            "value": "se",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 95390,
+            "paragraphId": "p0-0",
+            "value": "calhar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 95630,
+            "paragraphId": "p0-0",
+            "value": "do",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 95750,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 95870,
+            "paragraphId": "p0-0",
+            "value": "nós",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 660,
+            "time": 96110,
+            "paragraphId": "p0-0",
+            "value": "pensávamos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 96770,
+            "paragraphId": "p0-0",
+            "value": "há",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 96860,
+            "paragraphId": "p0-0",
+            "value": "uns",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 97070,
+            "paragraphId": "p0-0",
+            "value": "anos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 570,
+            "time": 97280,
+            "paragraphId": "p0-0",
+            "value": "atrás.",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 540,
+            "time": 99110,
+            "paragraphId": "p0-0",
+            "value": "Partindo",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 750,
+            "time": 99710,
+            "paragraphId": "p0-0",
+            "value": "dessas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 220,
+            "time": 100930,
+            "paragraphId": "p0-0",
+            "value": "de",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 101630,
+            "paragraphId": "p0-0",
+            "value": "grandes",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 660,
+            "time": 102080,
+            "paragraphId": "p0-0",
+            "value": "temas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 102770,
+            "paragraphId": "p0-0",
+            "value": "fui",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 102980,
+            "paragraphId": "p0-0",
+            "value": "falar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 103280,
+            "paragraphId": "p0-0",
+            "value": "com",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 103430,
+            "paragraphId": "p0-0",
+            "value": "eles",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 103640,
+            "paragraphId": "p0-0",
+            "value": "sobre",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 103850,
+            "paragraphId": "p0-0",
+            "value": "a",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 990,
+            "time": 103910,
+            "paragraphId": "p0-0",
+            "value": "consciência",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 104960,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 105080,
+            "paragraphId": "p0-0",
+            "value": "tem",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 105470,
+            "paragraphId": "p0-0",
+            "value": "de",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 105530,
+            "paragraphId": "p0-0",
+            "value": "ser",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 105710,
+            "paragraphId": "p0-0",
+            "value": "menino",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 30,
+            "time": 105980,
+            "paragraphId": "p0-0",
+            "value": "e",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 480,
+            "time": 106010,
+            "paragraphId": "p0-0",
+            "value": "menina",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 100,
+            "time": 106810,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 106910,
+            "paragraphId": "p0-0",
+            "value": "é",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 80,
+            "time": 106980,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 107060,
+            "paragraphId": "p0-0",
+            "value": "é",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 420,
+            "time": 107120,
+            "paragraphId": "p0-0",
+            "value": "diferente",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 107540,
+            "paragraphId": "p0-0",
+            "value": "sobre",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 107840,
+            "paragraphId": "p0-0",
+            "value": "os",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 960,
+            "time": 107960,
+            "paragraphId": "p0-0",
+            "value": "brinquedos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 109790,
+            "paragraphId": "p0-0",
+            "value": "sobre",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 110060,
+            "paragraphId": "p0-0",
+            "value": "como",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 110240,
+            "paragraphId": "p0-0",
+            "value": "é",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 110300,
+            "paragraphId": "p0-0",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 110360,
+            "paragraphId": "p0-0",
+            "value": "se",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 510,
+            "time": 110450,
+            "paragraphId": "p0-0",
+            "value": "projetam",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 110960,
+            "paragraphId": "p0-0",
+            "value": "no",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 750,
+            "time": 111080,
+            "paragraphId": "p0-0",
+            "value": "futuro.",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 110,
+            "time": 113660,
+            "paragraphId": "p0-1",
+            "value": "E",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 370,
+            "time": 113830,
+            "paragraphId": "p0-1",
+            "value": "estas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 810,
+            "time": 114200,
+            "paragraphId": "p0-1",
+            "value": "questões",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 250,
+            "time": 115660,
+            "paragraphId": "p0-1",
+            "value": "do",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 115930,
+            "paragraphId": "p0-1",
+            "value": "curso",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 540,
+            "time": 117590,
+            "paragraphId": "p0-1",
+            "value": "reverteram",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 118130,
+            "paragraphId": "p0-1",
+            "value": "se",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 118220,
+            "paragraphId": "p0-1",
+            "value": "para",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 118400,
+            "paragraphId": "p0-1",
+            "value": "dentro",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 118700,
+            "paragraphId": "p0-1",
+            "value": "do",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 630,
+            "time": 118820,
+            "paragraphId": "p0-1",
+            "value": "espetáculo.",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 480,
+            "time": 119570,
+            "paragraphId": "p0-1",
+            "value": "Estes",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 720,
+            "time": 120050,
+            "paragraphId": "p0-1",
+            "value": "grandes",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 121550,
+            "paragraphId": "p0-1",
+            "value": "temas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 121940,
+            "paragraphId": "p0-1",
+            "value": "dentro",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 122210,
+            "paragraphId": "p0-1",
+            "value": "do",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 122300,
+            "paragraphId": "p0-1",
+            "value": "tema",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 122540,
+            "paragraphId": "p0-1",
+            "value": "do",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 490,
+            "time": 122660,
+            "paragraphId": "p0-1",
+            "value": "gênero",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 80,
+            "time": 123950,
+            "paragraphId": "p0-1",
+            "value": "e",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 30,
+            "time": 124130,
+            "paragraphId": "p0-1",
+            "value": "a",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 270,
+            "time": 124160,
+            "paragraphId": "p0-1",
+            "value": "questão",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 124430,
+            "paragraphId": "p0-1",
+            "value": "dos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 900,
+            "time": 124580,
+            "paragraphId": "p0-1",
+            "value": "brinquedos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 125570,
+            "paragraphId": "p0-1",
+            "value": "é",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 125630,
+            "paragraphId": "p0-1",
+            "value": "uma",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 125780,
+            "paragraphId": "p0-1",
+            "value": "questão",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 126110,
+            "paragraphId": "p0-1",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 420,
+            "time": 128490,
+            "paragraphId": "p0-1",
+            "value": "são",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 130220,
+            "paragraphId": "p0-1",
+            "value": "objetos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 130669,
+            "paragraphId": "p0-1",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 130729,
+            "paragraphId": "p0-1",
+            "value": "são",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 930,
+            "time": 130880,
+            "paragraphId": "p0-1",
+            "value": "apelativos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 132110,
+            "paragraphId": "p0-1",
+            "value": "mas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 132320,
+            "paragraphId": "p0-1",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 310,
+            "time": 132470,
+            "paragraphId": "p0-1",
+            "value": "aqui",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 600,
+            "time": 132780,
+            "paragraphId": "p0-1",
+            "value": "tem",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 133380,
+            "paragraphId": "p0-1",
+            "value": "uma.",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 135800,
+            "paragraphId": "p0-1",
+            "value": "Também",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 136040,
+            "paragraphId": "p0-1",
+            "value": "queria",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 136280,
+            "paragraphId": "p0-1",
+            "value": "falar",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 136640,
+            "paragraphId": "p0-1",
+            "value": "sobre",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 137300,
+            "paragraphId": "p0-1",
+            "value": "de",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 137420,
+            "paragraphId": "p0-1",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 330,
+            "time": 137480,
+            "paragraphId": "p0-1",
+            "value": "forma",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 137810,
+            "paragraphId": "p0-1",
+            "value": "os",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 990,
+            "time": 137930,
+            "paragraphId": "p0-1",
+            "value": "brinquedos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 1050,
+            "time": 139190,
+            "paragraphId": "p0-1",
+            "value": "condicionam",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 960,
+            "time": 140960,
+            "paragraphId": "p0-1",
+            "value": "determinados",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 1500,
+            "time": 141920,
+            "paragraphId": "p0-1",
+            "value": "comportamentos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 1050,
+            "time": 143720,
+            "paragraphId": "p0-1",
+            "value": "espaços",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 960,
+            "time": 145370,
+            "paragraphId": "p0-1",
+            "value": "liberdade.",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 147470,
+            "paragraphId": "p0-1",
+            "value": "O",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 480,
+            "time": 147530,
+            "paragraphId": "p0-1",
+            "value": "espetáculo",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 450,
+            "time": 148010,
+            "paragraphId": "p0-1",
+            "value": "começa",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 149150,
+            "paragraphId": "p0-1",
+            "value": "tem",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 149510,
+            "paragraphId": "p0-1",
+            "value": "um",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 360,
+            "time": 149600,
+            "paragraphId": "p0-1",
+            "value": "pequeno",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 480,
+            "time": 149960,
+            "paragraphId": "p0-1",
+            "value": "discurso",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 150440,
+            "paragraphId": "p0-1",
+            "value": "no",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 150560,
+            "paragraphId": "p0-1",
+            "value": "início",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 30,
+            "time": 150860,
+            "paragraphId": "p0-1",
+            "value": "e",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 390,
+            "time": 150890,
+            "paragraphId": "p0-1",
+            "value": "começa",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 180,
+            "time": 151280,
+            "paragraphId": "p0-1",
+            "value": "por",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 260,
+            "time": 151460,
+            "paragraphId": "p0-1",
+            "value": "aí",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 151730,
+            "paragraphId": "p0-1",
+            "value": "pela",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 510,
+            "time": 151970,
+            "paragraphId": "p0-1",
+            "value": "descoberta",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 150,
+            "time": 152480,
+            "paragraphId": "p0-1",
+            "value": "dos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 540,
+            "time": 152630,
+            "paragraphId": "p0-1",
+            "value": "brinquedos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 153170,
+            "paragraphId": "p0-1",
+            "value": "do",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 510,
+            "time": 153260,
+            "paragraphId": "p0-1",
+            "value": "menino",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 154160,
+            "paragraphId": "p0-1",
+            "value": "e",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 154250,
+            "paragraphId": "p0-1",
+            "value": "da",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 510,
+            "time": 154370,
+            "paragraphId": "p0-1",
+            "value": "menina.",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 50,
+            "time": 155570,
+            "paragraphId": "p0-1",
+            "value": "E",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 156230,
+            "paragraphId": "p0-1",
+            "value": "o",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 156320,
+            "paragraphId": "p0-1",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 630,
+            "time": 156440,
+            "paragraphId": "p0-1",
+            "value": "acontece",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 157070,
+            "paragraphId": "p0-1",
+            "value": "é",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 157130,
+            "paragraphId": "p0-1",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 157220,
+            "paragraphId": "p0-1",
+            "value": "muitas",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 210,
+            "time": 157520,
+            "paragraphId": "p0-1",
+            "value": "vezes",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 157730,
+            "paragraphId": "p0-1",
+            "value": "os",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 480,
+            "time": 157850,
+            "paragraphId": "p0-1",
+            "value": "brinquedos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 120,
+            "time": 158330,
+            "paragraphId": "p0-1",
+            "value": "da",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 540,
+            "time": 158450,
+            "paragraphId": "p0-1",
+            "value": "menina",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 240,
+            "time": 158990,
+            "paragraphId": "p0-1",
+            "value": "são",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 540,
+            "time": 159230,
+            "paragraphId": "p0-1",
+            "value": "brinquedos",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 90,
+            "time": 159770,
+            "paragraphId": "p0-1",
+            "value": "que",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 159860,
+            "paragraphId": "p0-1",
+            "value": "a",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 300,
+            "time": 159920,
+            "paragraphId": "p0-1",
+            "value": "levam",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 60,
+            "time": 160220,
+            "paragraphId": "p0-1",
+            "value": "a",
+            "speaker": null,
+            "strikethrough": false
+        },
+        {
+            "duration": 570,
+            "time": 160280,
+            "paragraphId": "p0-1",
+            "value": "estar.",
+            "speaker": null,
+            "strikethrough": false
+        }
+    ],
+    "speakers": {},
+    "paragraphs": {
+        "p0-0": {
+            "verify": {
+                "author": null,
+                "status": "DEFAULT"
+            }
+        },
+        "p0-1": {
+            "verify": {
+                "author": null,
+                "status": "DEFAULT"
+            }
+        }
+    }
+}
