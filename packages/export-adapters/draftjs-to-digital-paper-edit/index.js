@@ -29,7 +29,7 @@ export default (blockData) => {
         // so that when they create draftJs json, word text attribute
         // has got consistent naming. `text` and not `punct` or `word`.
         if (word.text) {
-          tmpWord.text = word.punct;
+          tmpWord.text = word.text;
         }
         else if (word.punct) {
           tmpWord.text = word.punct;
