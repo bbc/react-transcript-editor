@@ -61,17 +61,31 @@ import  TranscriptEditor  from '@bbc/react-transcript-editor';
 
 ```js
   <TranscriptEditor
-     transcriptData=// Transcript json
-     mediaUrl=// string url to media file - audio or video
-     isEditable={true}// set to true if you want to be able to edit the text
-     spellCheck={false}// set to true if you want the browser to spell check this transcript
-     sttJsonType={ 'bbckaldi' } // the type of STT Json transcript supported.
-     handleAnalyticsEvents={ this.handleAnalyticsEvents } // optional - if you want to collect analytics events.
-     fileName=// optional - used for saving and retrieving local storage blob files
-     title=// optional - defaults to ''
-     ref={ this.transcriptEditorRef } // optional - if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.
+     transcriptData={ someJsonFile }
+     mediaUrl={'https://download.ted.com/talks/KateDarling_2018S-950k.mp4'}
+     isEditable={true}
+     spellCheck={false}
+     sttJsonType={ 'bbckaldi' } 
+     handleAnalyticsEvents={ this.handleAnalyticsEvents } 
+     fileName={'ted-talk.mp4'}
+     title={'Ted Talk'}
+     ref={ this.transcriptEditorRef }
    />
 ```
+
+
+| Attributes       | Description     | required     | type     |
+| :------------- | :---------- | :-----------: | :-----------: |
+|  transcriptData | Transcript json  | yes    | Json    |
+| mediaUrl  | string url to media file - audio or video | yes | String    |
+| isEditable   | set to true if you want to be able to edit the text |  no | Boolean    |
+|spellCheck  | set to true if you want the browser to spell check this transcript | no  | Boolean  |
+| handleAnalyticsEvents  | if you want to collect analytics events. | no | Function   |
+| fileName  |used for saving and retrieving local storage blob files | no | String   |
+| title  | defaults to empty string | no | String    |
+| ref  | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.| no | React ref    |
+
+
 See [`./demo/app.js` demo](./demo/app.js) as a more detailed example usage of the component.
 
 _Note: `fileName` it is optional but it's needed if working with user uploaded local media in the browser, to be able to save and retrieve from local storage. For instance if you are passing a blob url to `mediaUrl` using `createObjectURL` this url is randomly re-generated on every page refresh so you wouldn't be able to restore a session, as `mediaUrl` is used as the local storage key. See demo app for more detail example of this[`./src/index.js`](./src/index.js)_
@@ -101,6 +115,8 @@ You can also import some of the underlying React components directly.
 - `PlayerControls`
 - `RollBack`
 - `Select`
+
+To import the components you can do as follows
 
 ```js
 import TimedTextEditor from '@bbc/react-transcript-editor/TimedTextEditor';
@@ -185,7 +201,7 @@ To build the storybook as a static site
 npm run build:storybook
 ```
 
-## publish storybook & demo to github pages
+## Publish storybook & demo to github pages
 
 This github repository uses [github pages](https://pages.github.com/) to host the storybook and the demo of the component
 
