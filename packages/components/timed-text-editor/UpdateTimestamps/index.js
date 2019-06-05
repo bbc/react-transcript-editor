@@ -1,7 +1,7 @@
 import generateEntitiesRanges from '../../../stt-adapters/generate-entities-ranges/index.js';
 import { createEntityMap } from '../../../stt-adapters/index.js';
 import DiffMatchPatch from 'diff-match-patch';
-import alignJSONText from './stt-align-node.js';
+import alignWords from './stt-align-node.js';
 
 const convertContentToText = (content) => {
   var text = [];
@@ -164,12 +164,13 @@ const updateTimestampsSSTAlign = (currentContent, originalContent) => {
     entities.push({
       start: parseFloat(entityMap[entityIdx].data.start),
       end: parseFloat(entityMap[entityIdx].data.end),
-      word: entityMap[entityIdx].data.text.toLowerCase().replace(/[.?!]/g, ''),
+      word: entityMap[entityIdx].data.text,
     });
   }
 
-  const result = alignJSONText( { words: entities }, currentText.join(' '));
-  const newEntities = result.words.map((entry) => {
+  const result = alignWords( entities, currentText);
+
+  const newEntities = result.map((entry) => {
     return createEntity(entry.start, entry.end, 0.0, entry.word, -1);
   });
   const updatedContent = createContentFromEntityList(currentContent, newEntities);

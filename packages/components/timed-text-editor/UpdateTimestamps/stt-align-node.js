@@ -23,7 +23,7 @@ function normaliseWord(wordText) {
   if (wordText !== undefined) {
     const wordTextResult = wordText.toLowerCase().trim().replace(/[^a-z|0-9|.]+/g, '');
     if (isANumber(wordTextResult)) {
-      console.log(wordTextResult);
+      // console.log(wordTextResult);
 
       return converterNumbersToWords.toWords(wordTextResult);
     }
@@ -188,4 +188,4 @@ function alignJSONText(sttData, transcriptText) {
   return { 'text': transcriptText, 'words': aligned };
 }
 
-export default alignJSONText;
+export default alignWords;
