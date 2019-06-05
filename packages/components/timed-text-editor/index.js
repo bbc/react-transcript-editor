@@ -114,7 +114,7 @@ class TimedTextEditor extends React.Component {
         this.saveTimer = setTimeout(() => {
           this.updateTimestampsForEditorState();
           this.localSave(this.props.mediaUrl);
-        }, 1000);
+        }, 5000);
       });
     }
   }
@@ -125,7 +125,33 @@ class TimedTextEditor extends React.Component {
     const updatedContentRaw = updateTimestampsSSTAlign(currentContent, this.state.originalState);
     const updatedContent = convertFromRaw(updatedContentRaw);
 
-    this.setEditorNewContentState(updatedContent);
+    // Update editor state
+    const newEditorState = EditorState.push(this.state.editorState, updatedContent);
+
+    // Re-convert updated content to raw to gain access to block keys
+    const updatedContentBlocks = convertToRaw(updatedContent);
+
+    // Build block map, which maps the block keys of the previous content to the block keys of the
+    // updated content.
+    var blockMap = {};
+    for (var blockIdx = 0; blockIdx < currentContent.blocks.length; blockIdx++) {
+      blockMap[currentContent.blocks[blockIdx].key] = updatedContentBlocks.blocks[blockIdx].key;
+    }
+
+    // Get current selection state and update block keys
+    const selectionState = this.state.editorState.getSelection();
+
+    const selection = selectionState.merge({
+      anchorOffset: selectionState.getAnchorOffset(),
+      anchorKey: blockMap[selectionState.getAnchorKey()],
+      focusOffset: selectionState.getFocusOffset(),
+      focusKey: blockMap[selectionState.getFocusKey()],
+    });
+
+    // Set the updated selection state on the new editor state
+    const newEditorStateSelected = EditorState.forceSelection(newEditorState, selection);
+
+    this.setState({ editorState: newEditorStateSelected });
   }
 
   loadData() {
