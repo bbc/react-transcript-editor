@@ -20,7 +20,7 @@ import sttJsonAdapter from '../../stt-adapters';
 // TODO: connect to local packages version
 import exportAdapter from '../../export-adapters';
 // import exportAdapter from '../../Util/export-adapters/index.js';
-import { updateTimestamps, updateTimestampsSSTAlign } from './UpdateTimestamps/index.js';
+import updateTimestamps from './UpdateTimestamps/index.js';
 import style from './index.module.css';
 
 class TimedTextEditor extends React.Component {
@@ -129,7 +129,7 @@ class TimedTextEditor extends React.Component {
 
     // Update timestamps according to the original state.
     const currentContent = convertToRaw(this.state.editorState.getCurrentContent());
-    const updatedContentRaw = updateTimestampsSSTAlign(currentContent, this.state.originalState);
+    const updatedContentRaw = updateTimestamps(currentContent, this.state.originalState);
     const updatedContent = convertFromRaw(updatedContentRaw);
 
     // Update editor state

@@ -165,27 +165,4 @@ function alignWords(sttWords, transcriptWords) {
   return interpolate(transcriptData);
 }
 
-function normaliseReferenceText(refText) {
-  // remove new lines
-  return refText.trim().replace(/\n\n/g, '').replace(/\n/g, ' ');
-}
-
-/**
- *
- * @param {json} sttWords - stt transcript json
- * @param {array} sttWords.words
- * @param {float} sttWords.words[0].start
- * @param {float} sttWords.words[0].end
- * @param {float} sttWords.words[0].word
- * @param {string} transcriptText - plain text corrected transcript, base text
- */
-function alignJSONText(sttData, transcriptText) {
-  const sttWords = sttData.words;
-  const transcriptTextWithoutLineBreaks = normaliseReferenceText(transcriptText);
-  const transcriptTextArray = transcriptTextWithoutLineBreaks.split(' ');
-  const aligned = alignWords(sttWords, transcriptTextArray);
-
-  return { 'text': transcriptText, 'words': aligned };
-}
-
 export default alignWords;

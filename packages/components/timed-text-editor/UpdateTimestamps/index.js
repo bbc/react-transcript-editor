@@ -1,6 +1,5 @@
 import generateEntitiesRanges from '../../../stt-adapters/generate-entities-ranges/index.js';
 import { createEntityMap } from '../../../stt-adapters/index.js';
-import DiffMatchPatch from 'diff-match-patch';
 import alignWords from './stt-align-node.js';
 
 const convertContentToText = (content) => {
@@ -54,106 +53,8 @@ const createContentFromEntityList = (currentContent, newEntities) => {
   return { blocks: updatedBlockArray, entityMap: createEntityMap(updatedBlockArray) };
 };
 
-// https://github.com/google/diff-match-patch/wiki/Line-or-Word-Diffs
-const diffLineMode = (text1, text2) => {
-  var dmp = new DiffMatchPatch();
-  var a = dmp.diff_linesToChars_(text1, text2);
-  var lineText1 = a.chars1;
-  var lineText2 = a.chars2;
-  var lineArray = a.lineArray;
-  var diffs = dmp.diff_main(lineText1, lineText2, false);
-  dmp.diff_charsToLines_(diffs, lineArray);
-
-  return diffs;
-};
-
-// Update timestamps usign diff-match-patch.
-const updateTimestamps = (currentContent, originalContent) => {
-  const currentText = convertContentToText(currentContent);
-  const originalText = convertContentToText(originalContent);
-
-  const lineModeDiff = diffLineMode(originalText.join('\n') + '\n', currentText.join('\n') + '\n');
-  const entities = originalContent.entityMap;
-
-  var currentTextIdx = 0;
-  var entityIdx = 0;
-  var diffIdx = 0;
-
-  var newEntities = [];
-
-  while (diffIdx < lineModeDiff.length) {
-    const diffEntry = lineModeDiff[diffIdx];
-    const diffType = diffEntry[0];
-    const numberOfWords = (diffEntry[1].match(/\n/g) || []).length;
-
-    if (diffType === 0) {
-      // Matched words.
-      for (var wordItr = 0; wordItr < numberOfWords; wordItr++) {
-        const word = currentText[currentTextIdx++];
-        const entity = entities[entityIdx++].data;
-
-        const newEntity = createEntity(entity.start, entity.end, 0.0, word, -1);
-        newEntities.push(newEntity);
-      }
-    } else if (diffType === -1) {
-      // Get the following entry too, as it is needed to check if a replacement was done
-      // If at the last entry of the lineDiffModeArray, set the nextDiffEntry to -1
-      const nextDiffEntry = lineModeDiff[diffIdx + 1] || -1;
-      // Deletion
-      if (nextDiffEntry !== -1 && nextDiffEntry[0] === 1) {
-        // If next entry is a insert, the operation is a replacement.
-        const numberOfReplacements = (nextDiffEntry[1].match(/\n/g) || []).length;
-        if (numberOfReplacements === numberOfWords) {
-          // If the number of replacement words is equal to the number of original words
-          // it is easily possible to match them correctly.
-          //
-          // This is exactly the same code as for matched words, but due to the amount of
-          // side effects (e.g. currentTextIdx and entityIdx increments) the code is copied
-          // instead of refactored into its own function.
-          for (var wordItr = 0; wordItr < numberOfWords; wordItr++) {
-            const word = currentText[currentTextIdx++];
-            const entity = entities[entityIdx++].data;
-
-            const newEntity = createEntity(entity.start, entity.end, 0.0, word, -1);
-            newEntities.push(newEntity);
-          }
-        } else {
-          // Otherwise, we give the whole segment the same timestamp.
-          const entityStart = entities[entityIdx].data.start;
-          const entityEnd = entities[entityIdx + numberOfWords - 1].data.end;
-
-          for (var wordItr = 0; wordItr < numberOfReplacements; wordItr++) {
-            const word = currentText[currentTextIdx++];
-            const newEntity = createEntity(entityStart, entityEnd, 0.0, word, -1);
-            newEntities.push(newEntity);
-          }
-          entityIdx += numberOfWords;
-        }
-        diffIdx++;
-      } else {
-        // Deletions ignore the corresponding entity.
-        entityIdx += numberOfWords;
-      }
-    } else if (diffType === 1) {
-      // Insertions get the same timestamp as the previous entity
-      for (var wordItr = 0; wordItr < numberOfWords; wordItr++) {
-        const word = currentText[currentTextIdx++];
-        const entity = entities[entityIdx].data;
-
-        const newEntity = createEntity(entity.start, entity.end, 0.0, word, -1);
-        newEntities.push(newEntity);
-      }
-    }
-    diffIdx ++;
-  }
-
-  const updatedContent = createContentFromEntityList(currentContent, newEntities);
-
-  return updatedContent;
-};
-
 // Update timestamps usign stt-align (bbc).
-const updateTimestampsSSTAlign = (currentContent, originalContent) => {
+const updateTimestamps = (currentContent, originalContent) => {
   const currentText = convertContentToText(currentContent);
 
   const entityMap = originalContent.entityMap;
@@ -178,4 +79,4 @@ const updateTimestampsSSTAlign = (currentContent, originalContent) => {
   return updatedContent;
 };
 
-export { updateTimestamps, updateTimestampsSSTAlign };
+export default updateTimestamps;
