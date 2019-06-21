@@ -10,6 +10,13 @@ const ExportFormatSelect = props => {
     <option value="word" disabled>MS Word</option>
     <option value="digitalpaperedit">Digital Paper Edit</option>
     <option value="srt">Srt - Captions</option>
+    <option value="ttml">TTML - Captions</option>
+    <option value="premiereTTML">TTML for Adobe Premiere - Captions</option>
+    <option value="itt">iTT - Captions</option>
+    <option value="csv">CSV - Captions</option>
+    <option value="vtt">VTT - Captions</option>
+    <option value="pre-segment-txt">Pre-segment-txt - Captions</option>
+    <option value="json-captions">Json - Captions</option>
   </select>;
 };
 
