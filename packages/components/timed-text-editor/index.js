@@ -129,6 +129,7 @@ class TimedTextEditor extends React.Component {
 
     // Update timestamps according to the original state.
     const currentContent = convertToRaw(this.state.editorState.getCurrentContent());
+    console.log('updateTimestampsForEditorState currentContent::', currentContent);
     const updatedContentRaw = updateTimestamps(currentContent, this.state.originalState);
     const updatedContent = convertFromRaw(updatedContentRaw);
 
