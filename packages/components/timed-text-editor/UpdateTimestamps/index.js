@@ -3,7 +3,7 @@ import { createEntityMap } from '../../../stt-adapters/index.js';
 import alignWords from './stt-align-node.js';
 
 const convertContentToText = (content) => {
-  var text = [];
+  let text = [];
 
   for (var blockIdx in content.blocks) {
     const block = content.blocks[blockIdx];
@@ -84,8 +84,8 @@ const updateTimestamps = (currentContent, originalContent) => {
 
   const result = alignWords(entities, currentText);
 
-  const newEntities = result.map((entry) => {
-    return createEntity(entry.start, entry.end, 0.0, entry.word, -1);
+  const newEntities = result.map((entry, index) => {
+    return createEntity(entry.start, entry.end, 0.0, entry.word, index);
   });
   // console.log('newEntities', newEntities);
   const updatedContent = createContentFromEntityList(currentContent, newEntities);

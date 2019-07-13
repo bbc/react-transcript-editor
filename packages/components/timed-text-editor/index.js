@@ -178,6 +178,7 @@ class TimedTextEditor extends React.Component {
 
   getEditorContent(exportFormat) {
     const format = exportFormat || 'draftjs';
+    this.updateTimestampsForEditorState();
 
     return exportAdapter(convertToRaw(this.state.editorState.getCurrentContent()), format);
   }
