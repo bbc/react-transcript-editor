@@ -1,12 +1,12 @@
 @value color-subt-green, color-darkest-grey, color-labs-red from '../../config/style-guide/colours.module.css';
 
-::selection {
+/* ::selection {
   background: color-subt-green;
 }
 
-::moz-selection {
+::moz-selection  {
   background: color-subt-green;
-}
+} */
 
 .container {
   position: relative;

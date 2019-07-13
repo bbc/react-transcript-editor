@@ -34,13 +34,11 @@ class TimecodeOffset extends React.Component {
       });
     }
 
-    this.setState(
-      {
-        timecodeOffset: secondsToTimecode(resetTimecodeOffsetValue)
-      },
-      () => {
-        this.props.handleSetTimecodeOffset(resetTimecodeOffsetValue);
-      }
+    this.setState({
+      timecodeOffset: secondsToTimecode(resetTimecodeOffsetValue)
+    }, () => {
+      this.props.handleSetTimecodeOffset(resetTimecodeOffsetValue);
+    }
     );
   };
 
@@ -55,6 +53,7 @@ class TimecodeOffset extends React.Component {
     }
 
     let newCurrentTimeInSeconds = this.state.timecodeOffset;
+
     if (
       typeof newCurrentTimeInSeconds === 'string' &&
       newCurrentTimeInSeconds.includes(':') &&

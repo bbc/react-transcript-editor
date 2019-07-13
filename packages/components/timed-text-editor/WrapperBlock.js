@@ -102,7 +102,7 @@ class WrapperBlock extends React.Component {
 
     return (
       <div className={ style.WrapperBlock }>
-        <div className={ style.markers }
+        <div className={ [ style.markers, style.unselectable ].join(' ') }
           contentEditable={ false }>
           {this.props.blockProps.showSpeakers ? speakerElement : ''}
 

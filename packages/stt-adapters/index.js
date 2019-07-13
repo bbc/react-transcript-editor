@@ -3,6 +3,7 @@ import autoEdit2ToDraft from './autoEdit2/index';
 import speechmaticsToDraft from './speechmatics/index';
 import amazonTranscribeToDraft from './amazon-transcribe/index';
 import ibmToDraft from './ibm/index';
+import digitalPaperEditToDraft from './digital-paper-edit/index';
 import createEntityMap from './create-entity-map/index';
 
 /**
@@ -34,6 +35,10 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
 
   case 'amazontranscribe':
     blocks = amazonTranscribeToDraft(transcriptData);
+
+    return { blocks, entityMap: createEntityMap(blocks) };
+  case 'digitalpaperedit':
+    blocks = digitalPaperEditToDraft(transcriptData);
 
     return { blocks, entityMap: createEntityMap(blocks) };
   default:

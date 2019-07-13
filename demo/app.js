@@ -20,6 +20,7 @@ class App extends React.Component {
       transcriptData: null,
       mediaUrl: null,
       isTextEditable: true,
+      spellCheck: false,
       sttType: 'bbckaldi',
       analyticsEvents: [],
       title: '',
@@ -83,10 +84,16 @@ class App extends React.Component {
     }
   }
 
-  handleIsTextEditable = () => {
-    this.setState(prevState => ({
-      isTextEditable: prevState.isTextEditable !== true
-    }));
+  handleIsTextEditable = (e) => {
+    this.setState({
+      isTextEditable: e.target.checked
+    });
+  };
+
+  handleSpellCheck = (e) => {
+    this.setState({
+      spellCheck: e.target.checked
+    });
   };
 
   // https://stackoverflow.com/questions/21733847/react-jsx-selecting-selected-on-selected-select-option
@@ -100,22 +107,32 @@ class App extends React.Component {
   };
 
   exportTranscript = () => {
+    console.log('export');
     // eslint-disable-next-line react/no-string-refs
     const { data, ext } = this.transcriptEditorRef.current.getEditorContent(
       this.state.exportFormat
     );
-    this.download(data, `${ this.state.mediaUrl }.${ ext }`);
+    let tmpData = data;
+    if (ext === 'json') {
+      tmpData = JSON.stringify(data, null, 2);
+    }
+    this.download(tmpData, `${ this.state.mediaUrl }.${ ext }`);
   };
 
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
   download = (content, filename, contentType) => {
+    console.log('download');
     const type = contentType || 'application/octet-stream';
     const link = document.createElement('a');
     const blob = new Blob([ content ], { type: type });
 
     link.href = window.URL.createObjectURL(blob);
     link.download = filename;
+    // Firefox fix - cannot do link.click() if it's not attached to DOM in firefox
+    // https://stackoverflow.com/questions/32225904/programmatical-click-on-a-tag-not-working-in-firefox
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
 
   clearLocalStorage = () => {
@@ -216,8 +233,18 @@ class App extends React.Component {
               <input
                 id={ 'textIsEditableCheckbox' }
                 type="checkbox"
-                defaultChecked="true"
+                checked={ this.state.isTextEditable }
                 onChange={ this.handleIsTextEditable }
+              />
+            </div>
+
+            <div className={ style.checkbox }>
+              <label className={ style.editableLabel } htmlFor={ 'spellCheckCheckbox' }>Spell Check</label>
+              <input
+                id={ 'spellCheckCheckbox' }
+                type="checkbox"
+                checked={ this.state.spellCheck }
+                onChange={ this.handleSpellCheck }
               />
             </div>
 
@@ -230,6 +257,7 @@ class App extends React.Component {
           fileName={ this.state.fileName }
           mediaUrl={ this.state.mediaUrl }
           isEditable={ this.state.isTextEditable }
+          spellCheck={ this.state.spellCheck }
           sttJsonType={ this.state.sttType }
           handleAnalyticsEvents={ this.handleAnalyticsEvents }
           title={ this.state.title }

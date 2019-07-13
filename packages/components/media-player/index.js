@@ -66,6 +66,7 @@ class MediaPlayer extends React.Component {
   }
 
   componentDidMount() {
+    // TODO: Should these hook functions be optional? are they needed? what do they actually do?
     this.props.hookSeek(this.setCurrentTime);
     this.props.hookPlayMedia(this.togglePlayMedia);
     this.props.hookIsPlaying(this.isPlaying);
@@ -410,7 +411,7 @@ class MediaPlayer extends React.Component {
 
     const playerControlsSection = (
       <div className={ styles.controlsSection }>
-        <h2 className={ styles.title }>{this.props.title}</h2>
+        {this.props.title ? <h2 className={ styles.title }>{this.props.title}</h2> : null}
         <PlayerControls
           playMedia={ this.togglePlayMedia.bind(this) }
           isPlaying={ this.state.isPlaying }
