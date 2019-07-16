@@ -1,10 +1,8 @@
 /**
- * TODO: remove this and export from @bbc/react-transcript-editor digital-paper-edit STT import draftJs converter
-
  edge cases
 - more segments then words - not an issue if you start by matching words with segment
 and handle edge case where it doesn't find a match
-- more words then segments - orphan words
+- more words then segments - orphan words?
 *
 * Takes in list of words and list of paragraphs (paragraphs have speakers info associated with it)
 ```js
@@ -79,24 +77,18 @@ and handle edge case where it doesn't find a match
 ```
  */
 function groupWordsInParagraphsBySpeakers(words, segments) {
-  // add speakers to each word
-  // const wordsWithSpeakers = addSpeakerToEachWord(words, segments);
-  // group words by speakers sequentially
-  // const result = groupWordsBySpeaker(wordsWithSpeakers);
-
   const result = addWordsToSpeakersParagraphs(words, segments);
 
   return result;
 };
 
 function addWordsToSpeakersParagraphs (words, segments) {
-  let results = [];
+  const results = [];
   let currentSegment = 'UKN';
   let currentSegmentIndex = 0;
   let previousSegmentIndex = 0;
   let paragraph = { words: [], text: '', speaker: '' };
   words.forEach((word) => {
-    // console.log(word);
     currentSegment = findSegmentForWord(word, segments);
     // if a segment exists for the word
     if (currentSegment) {
@@ -108,31 +100,16 @@ function addWordsToSpeakersParagraphs (words, segments) {
       }
       else {
         previousSegmentIndex = currentSegmentIndex;
+        paragraph.text.trim();
         results.push(paragraph);
         paragraph = { words: [], text: '', speaker: '' };
-      }
-    }
-    // TODO: handling edge case orphan words
-    // TODO: this needs to be tested/check with input sequence that has
-    // orphan words
-    else {
-      currentSegment = 'UKN';
-      if (currentSegmentIndex === previousSegmentIndex) {
         paragraph.words.push(word);
         paragraph.text += word.text + ' ';
         paragraph.speaker = currentSegment.speaker;
       }
-      else {
-        previousSegmentIndex = currentSegmentIndex;
-        results.push(paragraph);
-        paragraph = { words: [], text: '', speaker: '' };
-      }
     }
   });
-
-  results = results.filter((p) => {
-    return p.words.length !== 0;
-  });
+  results.push(paragraph);
 
   return results;
 }
