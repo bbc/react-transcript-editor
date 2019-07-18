@@ -5,6 +5,7 @@ import amazonTranscribeToDraft from './amazon-transcribe/index';
 import ibmToDraft from './ibm/index';
 import digitalPaperEditToDraft from './digital-paper-edit/index';
 import createEntityMap from './create-entity-map/index';
+import gcpSttToDraft from './gcp/index';
 
 /**
  * Adapters for STT conversion
@@ -41,6 +42,12 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
     blocks = digitalPaperEditToDraft(transcriptData);
 
     return { blocks, entityMap: createEntityMap(blocks) };
+
+  case 'gcp':
+    blocks = gcpSttToDraft(transcriptData);
+
+    return { blocks, entityMap: createEntityMap(blocks) };
+
   default:
     // code block
     console.error('Did not recognize the stt engine.');
