@@ -43,7 +43,7 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
 
     return { blocks, entityMap: createEntityMap(blocks) };
 
-  case 'gcp':
+  case 'google-stt':
     blocks = gcpSttToDraft(transcriptData);
 
     return { blocks, entityMap: createEntityMap(blocks) };
