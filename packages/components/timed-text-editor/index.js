@@ -102,12 +102,12 @@ class TimedTextEditor extends React.Component {
         }
       }
 
-      if (this.timestampTimer !== undefined) {
-        clearTimeout(this.timestampTimer);
-      }
-      this.timestampTimer = setTimeout(() => {
-        this.updateTimestampsForEditorState();
-      }, 5000);
+      // if (this.timestampTimer !== undefined) {
+      //   clearTimeout(this.timestampTimer);
+      // }
+      // this.timestampTimer = setTimeout(() => {
+      //   this.updateTimestampsForEditorState();
+      // }, 5000);
     }
 
     if (this.state.isEditable) {
@@ -122,12 +122,12 @@ class TimedTextEditor extends React.Component {
           this.localSave(this.props.mediaUrl);
         }, 1000);
 
-        if (this.timestampTimer !== undefined) {
-          clearTimeout(this.timestampTimer);
-        }
-        this.timestampTimer = setTimeout(() => {
-          this.updateTimestampsForEditorState();
-        }, 5000);
+        // if (this.timestampTimer !== undefined) {
+        //   clearTimeout(this.timestampTimer);
+        // }
+        // this.timestampTimer = setTimeout(() => {
+        //   this.updateTimestampsForEditorState();
+        // }, 5000);
       });
     }
   }
@@ -202,6 +202,7 @@ class TimedTextEditor extends React.Component {
   localSave = () => {
     clearTimeout(this.saveTimer);
     let mediaUrlName = this.props.mediaUrl;
+    this.updateTimestampsForEditorState();
     // if using local media instead of using random blob name
     // that makes it impossible to retrieve from on page refresh
     // use file name
