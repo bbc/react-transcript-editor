@@ -5,7 +5,7 @@ import amazonTranscribeToDraft from './amazon-transcribe/index';
 import ibmToDraft from './ibm/index';
 import digitalPaperEditToDraft from './digital-paper-edit/index';
 import createEntityMap from './create-entity-map/index';
-import gcpSttToDraft from './gcp/index';
+import gcpSttToDraft from './google-stt/index';
 
 /**
  * Adapters for STT conversion
