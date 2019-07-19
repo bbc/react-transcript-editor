@@ -2,7 +2,7 @@ import gcpSttToDraft, {
   getBestAlternativeSentence,
   trimLeadingAndTailingWhiteSpace
 } from './index';
-import draftTranscriptSample from './sample/gcpStt.sample.js';
+import draftTranscriptSample from './sample/googleSttToDraftJs.sample.js';
 import gcpSttTedTalkTranscript from './sample/gcpSttPunctuation.sample.json';
 
 describe('gcpSttToDraft', () => {
