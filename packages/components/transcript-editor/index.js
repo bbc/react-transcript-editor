@@ -302,6 +302,7 @@ class TranscriptEditor extends React.Component {
         handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
         videoRef={ this.videoRef }
         handleSaveTranscript={ this.handleSaveTranscript }
+        showSaveButton={ this.props.showSaveButton }
       />
     );
 
@@ -459,7 +460,8 @@ TranscriptEditor.propTypes = {
   sttJsonType: PropTypes.string,
   handleAnalyticsEvents: PropTypes.func,
   fileName: PropTypes.string,
-  transcriptData: PropTypes.object
+  transcriptData: PropTypes.object,
+  showSaveButton: PropTypes.showSaveButton
 };
 
 export default TranscriptEditor;

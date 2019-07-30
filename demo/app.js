@@ -262,6 +262,7 @@ class App extends React.Component {
           handleAnalyticsEvents={ this.handleAnalyticsEvents }
           title={ this.state.title }
           ref={ this.transcriptEditorRef }
+          showSaveButton= { true }
         />
 
         <label>Components Analytics</label>

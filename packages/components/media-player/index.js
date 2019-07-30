@@ -431,6 +431,7 @@ class MediaPlayer extends React.Component {
           setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
           playbackRateOptions={ this.state.playbackRateOptions }
           pictureInPicture={ this.handlePictureInPicture }
+          renderSave={ this.props.showSaveButton }
           handleSaveTranscript={ () => {
             this.props.handleSaveTranscript();
           } }
@@ -461,7 +462,8 @@ MediaPlayer.propTypes = {
   timecodeOffset: PropTypes.number,
   handleAnalyticsEvents: PropTypes.func,
   mediaDuration: PropTypes.string,
-  handleSaveTranscript: PropTypes.func
+  handleSaveTranscript: PropTypes.func,
+  showSaveButton: PropTypes.bool,
 };
 
 export default hotkeys(MediaPlayer);

@@ -43,6 +43,19 @@ class PlayerControls extends React.Component {
   }
 
   render() {
+
+    let saveButton = null;
+
+    if (this.props.renderSave) {
+      saveButton = <button
+        value="Save"
+        title="Save"
+        className={ style.playerButton }
+        onClick={ this.props.handleSaveTranscript }>
+        <FontAwesomeIcon icon={ faSave } />
+      </button>;
+    }
+
     return (
       <div className={ style.playerControls }>
         <div className={ style.timeBox }>
@@ -106,13 +119,7 @@ class PlayerControls extends React.Component {
               handleChange={ this.props.setPlayBackRate } />
           </span>
 
-          <button
-            value="Save"
-            title="Save"
-            className={ style.playerButton }
-            onClick={ this.props.handleSaveTranscript }>
-            <FontAwesomeIcon icon={ faSave } />
-          </button>
+          { saveButton }
 
           <button
             value="Picture-in-picture"
@@ -152,7 +159,8 @@ PlayerControls.propTypes = {
   playbackRateOptions: PropTypes.array,
   setPlayBackRate: PropTypes.func,
   pictureInPicture: PropTypes.func,
-  handleSaveTranscript: PropTypes.func
+  handleSaveTranscript: PropTypes.func,
+  renderSave: PropTypes.bool,
 };
 
 export default PlayerControls;
