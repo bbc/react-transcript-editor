@@ -273,47 +273,48 @@ class TranscriptEditor extends React.Component {
   handleSettingsToggle = () => {
     this.setState(prevState => ({
       showSettings: !prevState.showSettings
-    }));
+    }), () => {
+      if (this.props.handleAnalyticsEvents) {
+        this.props.handleAnalyticsEvents({
+          category: 'TranscriptEditor',
+          action: 'handleSettingsToggle',
+          name: 'showSettings',
+          value: !this.state.showSettings
+        });
+      }
+    });
 
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
-        category: 'TranscriptEditor',
-        action: 'handleSettingsToggle',
-        name: 'showSettings',
-        value: !this.state.showSettings
-      });
-    }
   };
 
   handleShortcutsToggle = () => {
     this.setState(prevState => ({
       showShortcuts: !prevState.showShortcuts
-    }));
-
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
-        category: 'TranscriptEditor',
-        action: 'handleShortcutsToggle',
-        name: 'showShortcuts',
-        value: !this.state.showShortcuts
-      });
-    }
+    }), () => {
+      if (this.props.handleAnalyticsEvents) {
+        this.props.handleAnalyticsEvents({
+          category: 'TranscriptEditor',
+          action: 'handleShortcutsToggle',
+          name: 'showShortcuts',
+          value: !this.state.showShortcuts
+        });
+      }
+    });
   };
 
   handleExportToggle = () => {
     console.log('handleExportToggle', this.state.showExportOptions);
     this.setState(prevState => ({
       showExportOptions: !prevState.showExportOptions
-    }));
-
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
-        category: 'TranscriptEditor',
-        action: 'handleExportToggle',
-        name: 'showExportOptions',
-        value: !this.state.showExportOptions
-      });
-    }
+    }), () => {
+      if (this.props.handleAnalyticsEvents) {
+        this.props.handleAnalyticsEvents({
+          category: 'TranscriptEditor',
+          action: 'handleExportToggle',
+          name: 'showExportOptions',
+          value: !this.state.showExportOptions
+        });
+      }
+    });
   }
 
   handleExportOptionsChange = (e) => {
@@ -330,6 +331,15 @@ class TranscriptEditor extends React.Component {
       }
       if (ext !== 'docx') {
         this.download(tmpData, `${ fileName }.${ ext }`);
+      }
+
+      if (this.props.handleAnalyticsEvents) {
+        this.props.handleAnalyticsEvents({
+          category: 'TranscriptEditor',
+          action: 'handleExportOptionsChange',
+          name: 'exportFile',
+          value: exportFormat
+        });
       }
     }
   }
@@ -482,8 +492,6 @@ class TranscriptEditor extends React.Component {
         handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
       />
     );
-
-    // const export = (<h1>Export</h1>)
 
     return (
       <div className={ style.container }>
