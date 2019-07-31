@@ -8,14 +8,14 @@ import draftToDigitalPaperEdit from './draftjs-to-digital-paper-edit/index.js';
  * @param {string} exportFormat - the type of file supported by the available adapters
  */
 
-const exportAdapter = (blockData, exportFormat) => {
+const exportAdapter = (blockData, exportFormat, transcriptTitle) => {
   switch (exportFormat) {
   case 'draftjs':
     return { data: blockData, ext: 'json' };
   case 'txt':
     return { data: draftToTxt(blockData), ext: 'txt' };
   case 'docx':
-    return { data: draftToDocx(blockData), ext: 'docx' };
+    return { data: draftToDocx(blockData, transcriptTitle), ext: 'docx' };
   case 'txtspeakertimecodes':
     return { data: draftToTxtSpeakersTimecodes(blockData), ext: 'txt' };
   case 'digitalpaperedit':

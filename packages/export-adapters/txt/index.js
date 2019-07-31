@@ -18,7 +18,7 @@ he'd ordered and I was really excited about it because I've always loved about t
 I thought.
 ```
  */
-import { shortTimecode } from '../../timecode-converter/';
+import { shortTimecode } from '../../util/timecode-converter/';
 
 export default (blockData) => {
   // TODO: to export text without speaker or timecodes use line below

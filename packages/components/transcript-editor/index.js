@@ -281,7 +281,9 @@ class TranscriptEditor extends React.Component {
   };
 
   getEditorContent = exportFormat => {
-    return this.timedTextEditorRef.current.getEditorContent(exportFormat);
+    const title = this.props.title ? this.props.title : '' ;
+
+    return this.timedTextEditorRef.current.getEditorContent(exportFormat, title);
   };
 
   handlePreviewIsDisplayed = () => {
@@ -318,7 +320,7 @@ class TranscriptEditor extends React.Component {
 
   handleSaveTranscript = () => {
     alert('The changes to this transcript have been saved in your browser');
-    
+
     this.timedTextEditorRef.current.updateTimestampsForEditorState();
 
     return this.timedTextEditorRef.current.localSave(this.props.mediaUrl);
