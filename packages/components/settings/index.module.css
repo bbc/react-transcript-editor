@@ -1,0 +1,65 @@
+.settings {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 30%;
+  min-width: 300px;
+  min-height: 300px;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  background: #4a4a4a;
+  padding: 1em;
+  font-weight: lighter;
+  z-index: 2;
+}
+
+.header {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.controlsContainer {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.settingElement {
+  text-align: left;
+  align-self: auto;
+  margin-bottom: 0.5em;
+}
+
+.label {
+  display: inline-block;
+  min-width: 200px;
+  width: 200px;
+}
+
+.rollbackValue {
+  height: 2em;
+  width: 48px;
+  box-sizing: border-box;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 16px;
+  vertical-align: middle;
+}
+
+.timecodeLabel {
+  display: block;
+  text-align: center;
+}

@@ -1,0 +1,44 @@
+@value color-light-grey from '../../config/style-guide/colours.module.css';
+
+.topSection {
+  background: black;
+}
+
+.playerSection {
+  display: inline-flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.controlsSection {
+  width: 100%;
+  margin: auto;
+  padding: 1em;
+  position: relative;
+}
+
+.title {
+  color: white;
+  height: 1.2em;
+  width: 90vw;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+
+  .title {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    padding-top: 1em;
+  }
+}

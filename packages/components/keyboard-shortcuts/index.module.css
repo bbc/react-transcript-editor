@@ -1,0 +1,58 @@
+@value color-lightest-grey, color-labs-red, color-dark-grey from '../../config/style-guide/colours.module.css';
+
+.shortcuts {
+  font-size: 0.85em;
+  padding: 1em;
+  margin: 0 auto;
+  height: auto;
+  vertical-align: middle;
+  color: black;
+  background: color-lightest-grey;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.header {
+  margin-top: 0;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.list {
+  list-style: none;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+.listItem {
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+}
+
+.shortcut {
+  display: inline-block;
+  width: 6em;
+  background: color-labs-red;
+  font-weight: lighter;
+  color: white;
+  padding: 0 0;
+  border-radius: 1em;
+  text-align: center;
+  margin-right: 1em;
+}
+
+.shortcutLabel {
+  display: inline-block;
+  text-align: left;
+}

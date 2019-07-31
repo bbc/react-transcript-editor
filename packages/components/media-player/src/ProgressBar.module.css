@@ -1,0 +1,39 @@
+@value color-light-grey, color-labs-red from '../../../config/style-guide/colours.module.css';
+
+.bar {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 10px;
+  background: #747474;
+  margin: 0px;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 16px;
+  background: color-labs-red;
+  cursor: pointer;
+}
+
+.bar::-moz-range-thumb {
+  height: 30px;
+  width: 16px;
+  background: color-labs-red;
+  cursor: pointer;
+  border: 0;
+}
+
+.bar::-webkit-slider-runnable-track {
+  width: 100%;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-focus-outer {
+  border: 0;
+}
