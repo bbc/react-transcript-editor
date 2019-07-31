@@ -88,3 +88,8 @@
   height: 48px;
   margin: 0;
 }
+
+
+.playerButton:hover {
+  background-color: gray;
+}
