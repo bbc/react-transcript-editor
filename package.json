@@ -1,7 +1,7 @@
 {
   "name": "@bbc/react-transcript-editor",
   "description": "A React component to make transcribing audio and video easier and faster.",
-  "version": "1.0.4-alpha.1",
+  "version": "1.0.4-alpha.2",
   "keywords": [
     "transcript",
     "transcriptions",
@@ -48,16 +48,19 @@
     "@fortawesome/react-fontawesome": "^0.1.3",
     "babel-polyfill": "^6.26.0",
     "difflib": "^0.2.4",
+    "docx": "^4.7.1",
     "draft-js": "^0.10.5",
     "everpolate": "0.0.3",
     "mousetrap": "1.5.2",
     "number-to-words": "^1.2.4",
     "prop-types": "^15.6.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-keyboard-shortcuts": "^1.1.3",
     "react-simple-tooltip": "^2.3.3",
     "sbd": "^1.0.15",
     "smpte-timecode": "^1.2.3"
-    "react-visibility-sensor": "^5.0.2"
+    "react-visibility-sensor": "^5.1.1"
   },
   "peerDependencies": {
     "react": "^16.6.0",

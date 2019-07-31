@@ -16,6 +16,7 @@ const ExportFormatSelect = props => {
     <option value="csv">CSV - Captions</option>
     <option value="vtt">VTT - Captions</option>
     <option value="pre-segment-txt">Pre-segment-txt - Captions</option>
+    <option value="docx">MS Word</option>
     <option value="json-captions">Json - Captions</option>
   </select>;
 };

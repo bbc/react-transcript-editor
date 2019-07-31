@@ -1,4 +1,5 @@
 import draftToTxt from './txt/index';
+import draftToDocx from './docx/index';
 import draftToTxtSpeakersTimecodes from './txt-speakers-timecodes/index';
 import draftToDigitalPaperEdit from './draftjs-to-digital-paper-edit/index.js';
 import subtitlesGenerator from './subtitles-generator/index.js';
@@ -8,12 +9,14 @@ import subtitlesGenerator from './subtitles-generator/index.js';
  * @param {string} exportFormat - the type of file supported by the available adapters
  */
 
-const exportAdapter = (blockData, exportFormat) => {
+const exportAdapter = (blockData, exportFormat, transcriptTitle) => {
   switch (exportFormat) {
   case 'draftjs':
     return { data: blockData, ext: 'json' };
   case 'txt':
     return { data: draftToTxt(blockData), ext: 'txt' };
+  case 'docx':
+    return { data: draftToDocx(blockData, transcriptTitle), ext: 'docx' };
   case 'txtspeakertimecodes':
     return { data: draftToTxtSpeakersTimecodes(blockData), ext: 'txt' };
   case 'digitalpaperedit':
