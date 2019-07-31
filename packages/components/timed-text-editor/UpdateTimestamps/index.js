@@ -41,9 +41,7 @@ const createContentFromEntityList = (currentContent, newEntities) => {
     if (!speaker) {
       console.log('speaker', speaker, block);
       speaker = 'U_UKN';
-      // console.log(' originalContent[blockIdx] ', originalContent[blockIdx] );
     }
-    
     const updatedBlock = {
       text: blockEntites.map((entry) => entry.punct).join(' '),
       type: 'paragraph',
@@ -64,7 +62,6 @@ const createContentFromEntityList = (currentContent, newEntities) => {
 
 // Update timestamps usign stt-align (bbc).
 const updateTimestamps = (currentContent, originalContent) => {
-
   const currentText = convertContentToText(currentContent);
 
   const entityMap = originalContent.entityMap;
@@ -84,7 +81,6 @@ const updateTimestamps = (currentContent, originalContent) => {
   const newEntities = result.map((entry, index) => {
     return createEntity(entry.start, entry.end, 0.0, entry.word, index);
   });
-
   const updatedContent = createContentFromEntityList(currentContent, newEntities);
 
   return updatedContent;
