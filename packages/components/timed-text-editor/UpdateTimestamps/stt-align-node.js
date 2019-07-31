@@ -27,7 +27,6 @@ function normaliseWord(wordText) {
   if (wordText !== undefined) {
     const wordTextResult = wordText.toLowerCase().trim().replace(/[^a-z|0-9|.]+/g, '');
     if (isANumber(wordTextResult)) {
-      // console.log(wordTextResult);
       const sanitizedWord = removeTrailingPunctuation(wordTextResult);
       if (sanitizedWord !== '') {
         return converterNumbersToWords.toWords(sanitizedWord);
@@ -74,7 +73,6 @@ function interpolationOptimization(wordsList) {
     // TODO: handle last item ?
     return wordTmp;
   });
-// return words;
 }
 
 function interpolate(wordsList) {

@@ -4,7 +4,6 @@ import alignWords from './stt-align-node.js';
 
 const convertContentToText = (content) => {
   let text = [];
-
   for (var blockIdx in content.blocks) {
     const block = content.blocks[blockIdx];
     const blockArray = block.text.match(/\S+/g) || [];
@@ -32,14 +31,11 @@ const createContentFromEntityList = (currentContent, newEntities) => {
 
   for (var blockIdx in currentContent.blocks) {
     const block = currentContent.blocks[blockIdx];
-    // console.log('block', block);
     // if copy and pasting large chunk of text
     // currentContentBlock, would not have speaker and start/end time info
     // so for updatedBlock, getting start time from first word in blockEntities
     const wordsInBlock = (block.text.match(/\S+/g) || []).length;
     const blockEntites = newEntities.slice(totalWords, totalWords + wordsInBlock);
-    // console.log('blockEntites', blockEntites);
-    // console.log(' block.data.speaker', block.data.speaker);
     let speaker = block.data.speaker;
 
     if (!speaker) {
@@ -47,13 +43,14 @@ const createContentFromEntityList = (currentContent, newEntities) => {
       speaker = 'U_UKN';
       // console.log(' originalContent[blockIdx] ', originalContent[blockIdx] );
     }
+    
     const updatedBlock = {
       text: blockEntites.map((entry) => entry.punct).join(' '),
       type: 'paragraph',
       data: {
-        speaker: speaker, //block.data.speaker, //? block.data.speaker : 'UKN',
+        speaker: block.data.speaker,
         words: blockEntites,
-        start: blockEntites[0].start
+        start: block.data.start
       },
       entityRanges: generateEntitiesRanges(blockEntites, 'punct'),
     };
@@ -67,7 +64,7 @@ const createContentFromEntityList = (currentContent, newEntities) => {
 
 // Update timestamps usign stt-align (bbc).
 const updateTimestamps = (currentContent, originalContent) => {
-  console.log('currentContent', currentContent);
+
   const currentText = convertContentToText(currentContent);
 
   const entityMap = originalContent.entityMap;
@@ -87,7 +84,7 @@ const updateTimestamps = (currentContent, originalContent) => {
   const newEntities = result.map((entry, index) => {
     return createEntity(entry.start, entry.end, 0.0, entry.word, index);
   });
-  // console.log('newEntities', newEntities);
+
   const updatedContent = createContentFromEntityList(currentContent, newEntities);
 
   return updatedContent;
