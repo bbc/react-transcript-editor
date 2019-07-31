@@ -318,6 +318,8 @@ class TranscriptEditor extends React.Component {
 
   handleSaveTranscript = () => {
     alert('The changes to this transcript have been saved in your browser');
+    
+    this.timedTextEditorRef.current.updateTimestampsForEditorState();
 
     return this.timedTextEditorRef.current.localSave(this.props.mediaUrl);
   };

@@ -20,6 +20,7 @@ import sttJsonAdapter from '../../stt-adapters';
 // TODO: connect to local packages version
 import exportAdapter from '../../export-adapters';
 // import exportAdapter from '../../Util/export-adapters/index.js';
+import updateTimestamps from './UpdateTimestamps/index.js';
 import style from './index.module.css';
 
 class TimedTextEditor extends React.Component {
@@ -121,6 +122,13 @@ class TimedTextEditor extends React.Component {
           }.bind(this), pauseWhileTypingIntervalInMilliseconds);
         }
       }
+
+      if (this.timestampTimer !== undefined) {
+        clearTimeout(this.timestampTimer);
+      }
+      this.timestampTimer = setTimeout(() => {
+        this.updateTimestampsForEditorState();
+      }, 5000);
     }
 
     if (this.props.isEditable) {
@@ -138,9 +146,45 @@ class TimedTextEditor extends React.Component {
     }
   }
 
+  updateTimestampsForEditorState() {
+
+    // Update timestamps according to the original state.
+    const currentContent = convertToRaw(this.state.editorState.getCurrentContent());
+    const updatedContentRaw = updateTimestamps(currentContent, this.state.originalState);
+    const updatedContent = convertFromRaw(updatedContentRaw);
+
+    // Update editor state
+    const newEditorState = EditorState.push(this.state.editorState, updatedContent);
+
+    // Re-convert updated content to raw to gain access to block keys
+    const updatedContentBlocks = convertToRaw(updatedContent);
+
+    // Build block map, which maps the block keys of the previous content to the block keys of the
+    // updated content.
+    var blockMap = {};
+    for (var blockIdx = 0; blockIdx < currentContent.blocks.length; blockIdx++) {
+      blockMap[currentContent.blocks[blockIdx].key] = updatedContentBlocks.blocks[blockIdx].key;
+    }
+
+    // Get current selection state and update block keys
+    const selectionState = this.state.editorState.getSelection();
+
+    const selection = selectionState.merge({
+      anchorOffset: selectionState.getAnchorOffset(),
+      anchorKey: blockMap[selectionState.getAnchorKey()],
+      focusOffset: selectionState.getFocusOffset(),
+      focusKey: blockMap[selectionState.getFocusKey()],
+    });
+
+    // Set the updated selection state on the new editor state
+    const newEditorStateSelected = EditorState.forceSelection(newEditorState, selection);
+    this.setState({ editorState: newEditorStateSelected });
+  }
+
   loadData() {
     if (this.props.transcriptData !== null) {
       const blocks = sttJsonAdapter(this.props.transcriptData, this.props.sttJsonType);
+      this.setState({ originalState: convertToRaw(convertFromRaw(blocks)) });
       this.setEditorContentState(blocks);
     }
   }
