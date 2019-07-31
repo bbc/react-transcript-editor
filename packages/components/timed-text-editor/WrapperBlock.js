@@ -10,6 +10,7 @@ import {
 } from '../../util/timecode-converter';
 
 import style from './WrapperBlock.module.css';
+import VisibilitySensor from 'react-visibility-sensor';
 
 class WrapperBlock extends React.Component {
   constructor(props) {
@@ -33,6 +34,30 @@ class WrapperBlock extends React.Component {
       start: start
     });
   }
+  // reducing unnecessary re-renders
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.block.getText() !== this.props.block.getText()) {
+      return true;
+    }
+
+    if (nextProps.blockProps.showSpeakers !== this.props.blockProps.showSpeakers) {
+      return true;
+    }
+
+    if (nextProps.blockProps.showTimecodes !== this.props.blockProps.showTimecodes) {
+      return true;
+    }
+
+    if (nextProps.blockProps.timecodeOffset !== this.props.blockProps.timecodeOffset) {
+      return true;
+    }
+
+    if (nextState.speaker !== this.state.speaker) {
+      return true;
+    }
+
+    return false;
+  };
 
   handleOnClickEdit = () => {
     const newSpeakerName = prompt('New Speaker Name?');
@@ -57,8 +82,13 @@ class WrapperBlock extends React.Component {
       const keyForCurrentCurrentBlock = this.props.block.getKey();
       // create empty selection for current block
       // https://draftjs.org/docs/api-reference-selection-state#createempty
-      const currentBlockSelection = SelectionState.createEmpty(keyForCurrentCurrentBlock);
-      const editorStateWithSelectedCurrentBlock = EditorState.acceptSelection(this.props.blockProps.editorState, currentBlockSelection);
+      const currentBlockSelection = SelectionState.createEmpty(
+        keyForCurrentCurrentBlock
+      );
+      const editorStateWithSelectedCurrentBlock = EditorState.acceptSelection(
+        this.props.blockProps.editorState,
+        currentBlockSelection
+      );
 
       const currentBlockSelectionState = editorStateWithSelectedCurrentBlock.getSelection();
       const newBlockDataWithSpeakerName = { speaker: newSpeakerName };
@@ -72,7 +102,7 @@ class WrapperBlock extends React.Component {
 
       this.props.blockProps.setEditorNewContentState(newContentState);
     }
-  }
+  };
 
   handleTimecodeClick = () => {
     this.props.blockProps.onWordClick(this.state.start);
@@ -84,33 +114,72 @@ class WrapperBlock extends React.Component {
         value: secondsToTimecode(this.state.start)
       });
     }
-
-  }
+  };
 
   render() {
+    // console.log('render wrapper block');
     let startTimecode = this.state.start;
     if (this.props.blockProps.timecodeOffset) {
       startTimecode += this.props.blockProps.timecodeOffset;
     }
 
-    const speakerElement = <SpeakerLabel
-      name={ this.state.speaker }
-      handleOnClickEdit={ this.handleOnClickEdit }
-    />;
+    const speakerElement = (
+      <SpeakerLabel
+        name={ this.state.speaker }
+        handleOnClickEdit={ this.handleOnClickEdit }
+      />
+    );
 
-    const timecodeElement = <span className={ style.time } onClick={ this.handleTimecodeClick }>{shortTimecode(startTimecode)}</span>;
+    const timecodeElement = (
+      <span className={ style.time } onClick={ this.handleTimecodeClick }>
+        {shortTimecode(startTimecode)}
+      </span>
+    );
 
     return (
       <div className={ style.WrapperBlock }>
-        <div className={ [ style.markers, style.unselectable ].join(' ') }
-          contentEditable={ false }>
-          {this.props.blockProps.showSpeakers ? speakerElement : ''}
 
-          {this.props.blockProps.showTimecodes ? timecodeElement : ''}
-        </div>
-        <div className={ style.text }>
-          <EditorBlock { ...this.props } />
-        </div>
+        <VisibilitySensor
+          partialVisibility={ true }
+          // intervalCheck={ false }
+          scrollCheck
+        >
+          {
+            ({ isVisible }) => (
+              <>
+                {isVisible ? (
+                  <>
+                    <div
+                      className={ [ style.markers, style.unselectable ].join(' ') }
+                      contentEditable={ false }
+                    >
+                      {this.props.blockProps.showSpeakers ? speakerElement : ''}
+
+                      {this.props.blockProps.showTimecodes ? timecodeElement : ''}
+                    </div>
+                    <div className={ style.text }>
+                      <EditorBlock { ...this.props } />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div
+                      className={ [ style.markers, style.unselectable ].join(' ') }
+                      contentEditable={ false }
+                    >
+                      <span className={ style.speaker }>…</span>
+                      <span className={ style.time } >…</span>
+                    </div>
+                    <div className={ style.text }>
+                      <span>…</span>
+                    </div>
+                  </>
+                )}
+              </>
+            )
+
+          }
+        </VisibilitySensor>
       </div>
     );
   }
