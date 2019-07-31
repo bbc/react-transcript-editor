@@ -7,11 +7,27 @@ import Settings from '../settings';
 import Shortcuts from '../keyboard-shortcuts';
 import { secondsToTimecode } from '../../util/timecode-converter';
 import Header from './src/Header.js';
-
+import ExportOptions from './src/ExportOptions.js';
 import style from './index.module.css';
 
 // TODO: move to another file with tooltip - rename HowDoesThisWork or HelpMessage
 import HowDoesThisWork from './src/HowDoesThisWork.js';
+
+const exportOptionsList = [
+  { value: 'txt', label: 'Text file' },
+  { value: 'txtspeakertimecodes', label: 'Text file - with Speakers and Timecodes' },
+  { value: 'docx', label: 'MS Word' },
+  { value: 'srt', label: 'Srt - Captions' },
+  { value: 'ttml', label: 'TTML - Captions' },
+  { value: 'premiereTTML', label: 'TTML for Adobe Premiere - Captions' },
+  { value: 'itt', label: 'iTT - Captions' },
+  { value: 'csv', label: 'CSV - Captions' },
+  { value: 'vtt', label: 'VTT - Captions' },
+  { value: 'pre-segment-txt', label: 'Pre segmented txt - Captions' },
+  { value: 'json-captions', label: 'Json - Captions' },
+  { value: 'draftjs', label: 'Draft Js - json' },
+  { value: 'digitalpaperedit', label: 'Digital Paper Edit - Json' }
+];
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
@@ -24,6 +40,7 @@ class TranscriptEditor extends React.Component {
       isScrollIntoViewOn: false,
       showSettings: false,
       showShortcuts: false,
+      showExportOptions: false,
       isPauseWhileTypingOn: true,
       rollBackValueInSeconds: 15,
       timecodeOffset: 0,
@@ -70,6 +87,9 @@ class TranscriptEditor extends React.Component {
     }
 
     if (nextState.showShortcuts !== this.state.showShortcuts) {
+      return true;
+    }
+    if (nextState.showExportOptions !== this.state.showExportOptions) {
       return true;
     }
 
@@ -280,6 +300,55 @@ class TranscriptEditor extends React.Component {
     }
   };
 
+  handleExportToggle = () => {
+    console.log('handleExportToggle', this.state.showExportOptions);
+    this.setState(prevState => ({
+      showExportOptions: !prevState.showExportOptions
+    }));
+
+    if (this.props.handleAnalyticsEvents) {
+      this.props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handleExportToggle',
+        name: 'showExportOptions',
+        value: !this.state.showExportOptions
+      });
+    }
+  }
+
+  handleExportOptionsChange = (e) => {
+    const exportFormat = e.target.value;
+    console.log(exportFormat);
+    if (exportFormat !== 'instructions') {
+
+      const fileName = this.props.title ? this.props.title : this.props.mediaUrl;
+
+      const { data, ext } = this.getEditorContent(exportFormat);
+      let tmpData = data;
+      if (ext === 'json') {
+        tmpData = JSON.stringify(data, null, 2);
+      }
+      if (ext !== 'docx') {
+        this.download(tmpData, `${ fileName }.${ ext }`);
+      }
+    }
+  }
+
+    // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
+    download = (content, filename, contentType) => {
+      const type = contentType || 'application/octet-stream';
+      const link = document.createElement('a');
+      const blob = new Blob([ content ], { type: type });
+
+      link.href = window.URL.createObjectURL(blob);
+      link.download = filename;
+      // Firefox fix - cannot do link.click() if it's not attached to DOM in firefox
+      // https://stackoverflow.com/questions/32225904/programmatical-click-on-a-tag-not-working-in-firefox
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+
   getEditorContent = exportFormat => {
     const title = this.props.title ? this.props.title : '' ;
 
@@ -381,6 +450,13 @@ class TranscriptEditor extends React.Component {
       />
     );
 
+    const exportOptions = (
+      <ExportOptions
+        exportOptionsList={ exportOptionsList }
+        handleExportOptionsChange={ this.handleExportOptionsChange }
+        handleExportToggle={ this.handleExportToggle }
+      />);
+
     const shortcuts = (
       <Shortcuts handleShortcutsToggle={ this.handleShortcutsToggle } />
     );
@@ -407,18 +483,23 @@ class TranscriptEditor extends React.Component {
       />
     );
 
+    // const export = (<h1>Export</h1>)
+
     return (
       <div className={ style.container }>
         {this.props.mediaUrl === null ? null : <Header
           showSettings={ this.state.showSettings }
           showShortcuts={ this.state.showShortcuts }
+          showExportOptions={ this.state.showExportOptions }
           settings={ settings }
           shortcuts={ shortcuts }
+          exportOptions={ exportOptions }
           tooltip={ HowDoesThisWork }
           mediaUrl={ this.props.mediaUrl }
           mediaControls={ mediaControls }
           handleSettingsToggle={ this.handleSettingsToggle }
           handleShortcutsToggle={ this.handleShortcutsToggle }
+          handleExportToggle={ this.handleExportToggle }
         />}
 
         <div className={ style.grid }>

@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   faCog,
-  faKeyboard
+  faKeyboard,
+  faShare
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -31,6 +32,7 @@ class Header extends React.Component {
       <header className={ style.header }>
         {props.showSettings ? props.settings : null}
         {props.showShortcuts ? props.shortcuts : null}
+        {props.showExportOptions ? props.exportOptions : null}
         {props.tooltip}
       </header>
       <nav className={ style.nav }>
@@ -52,6 +54,15 @@ class Header extends React.Component {
           onClick={ props.handleShortcutsToggle }
         >
           <FontAwesomeIcon icon={ faKeyboard } />
+        </button>
+        <button
+          className={ `${ style.settingsButton } ${
+            style.keyboardShortcutsButon
+          }` }
+          title="Export"
+          onClick={ props.handleExportToggle }
+        >
+          <FontAwesomeIcon icon={ faShare } />
         </button>
       </div>
     </>);

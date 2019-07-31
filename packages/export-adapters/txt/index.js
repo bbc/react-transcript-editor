@@ -18,13 +18,14 @@ he'd ordered and I was really excited about it because I've always loved about t
 I thought.
 ```
  */
-import { shortTimecode } from '../../util/timecode-converter/';
+// import { shortTimecode } from '../../util/timecode-converter/';
 
 export default (blockData) => {
   // TODO: to export text without speaker or timecodes use line below
   // const lines = blockData.blocks.map(paragraph => paragraph.text);
   const lines = blockData.blocks.map(paragraph => {
-    return `${ shortTimecode(paragraph.data.words[0].start) }\t${ paragraph.data.speaker }\n${ paragraph.text }`;
+    // return `${ shortTimecode(paragraph.data.words[0].start) }\t${ paragraph.data.speaker }\n${ paragraph.text }`;
+    return `${ paragraph.text }`;
   });
 
   return lines.join('\n\n');
