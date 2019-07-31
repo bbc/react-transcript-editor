@@ -10,10 +10,9 @@ module.exports = {
     TranscriptEditor: './packages/components/transcript-editor/index.js',
     TimedTextEditor: './packages/components/timed-text-editor/index.js',
     MediaPlayer: './packages/components/media-player/index.js',
-    MediaPlayer: './packages/components/media-player/index.js',
     ProgressBar: './packages/components/media-player/src/ProgressBar.js',
     PlaybackRate: './packages/components/media-player/src/PlaybackRate.js',
-    PlayerControls: './packages/components/media-player/src/PlayerControls.js',
+    PlayerControls: './packages/components/media-player/src/PlayerControls/index.js',
     RollBack: './packages/components/media-player/src/RollBack.js',
     Select: './packages/components/media-player/src/Select.js',
     VideoPlayer: './packages/components/video-player/index.js',
@@ -22,6 +21,7 @@ module.exports = {
     timecodeConverter: './packages/util/timecode-converter/index.js',
     exportAdapter: './packages/export-adapters/index.js',
     sttJsonAdapter: './packages/stt-adapters/index.js',
+    groupWordsInParagraphsBySpeakersDPE: './packages/stt-adapters/digital-paper-edit/group-words-by-speakers.js'
   },
   output: {
     path: path.resolve('dist'),
