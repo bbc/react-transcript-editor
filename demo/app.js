@@ -1,5 +1,10 @@
 import React from 'react';
-
+// https://github.com/maicki/why-did-you-update
+// NOTE: This slows down performance, even during development
+// if (process.env.NODE_ENV !== 'production') {
+//   const { whyDidYouUpdate } = require('why-did-you-update');
+//   whyDidYouUpdate(React, { exclude: [ /^HotKeysWrapper/ ] } );
+// }
 import TranscriptEditor from '../packages/components/transcript-editor';
 import SttTypeSelect from './select-stt-json-type';
 import ExportFormatSelect from './select-export-format';

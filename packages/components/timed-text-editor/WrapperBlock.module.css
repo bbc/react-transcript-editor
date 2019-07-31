@@ -8,10 +8,10 @@ which is the intended default behavior but needs to come with export
 functionality to export as plain text, word etc.. otherwise user won't be able
 to get text out of component with timecodes and speaker names in the interim */
  .unselectable {
-  /* -moz-user-select: none;
+  -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  user-select: none; */
+  user-select: none;
 } 
 
 /* Desktop size */

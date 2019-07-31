@@ -3,6 +3,9 @@ import TimedTextEditor from './components/timed-text-editor/index.js';
 import Settings from './components/settings/index.js';
 import KeyboardShortcuts from './components/keyboard-shortcuts/index.js';
 import VideoPlayer from './components/video-player/index.js';
+import MediaPlayer from './components/media-player/index.js';
+import PlayerControls from './components/media-player/src/PlayerControls/index.js';
+import groupWordsInParagraphsBySpeakersDPE from './stt-adapters/digital-paper-edit/group-words-by-speakers.js';
 
 import {
   secondsToTimecode,
@@ -19,11 +22,14 @@ export {
   TranscriptEditor,
   TimedTextEditor,
   VideoPlayer,
+  MediaPlayer,
+  PlayerControls,
   Settings,
   KeyboardShortcuts,
   secondsToTimecode,
   timecodeToSeconds,
   shortTimecode,
   exportAdapter,
-  sttJsonAdapter
+  sttJsonAdapter,
+  groupWordsInParagraphsBySpeakersDPE
 };

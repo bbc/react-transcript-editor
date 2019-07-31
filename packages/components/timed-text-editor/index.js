@@ -20,6 +20,7 @@ import sttJsonAdapter from '../../stt-adapters';
 // TODO: connect to local packages version
 import exportAdapter from '../../export-adapters';
 // import exportAdapter from '../../Util/export-adapters/index.js';
+import updateTimestamps from './UpdateTimestamps/index.js';
 import style from './index.module.css';
 
 class TimedTextEditor extends React.Component {
@@ -27,15 +28,7 @@ class TimedTextEditor extends React.Component {
     super(props);
 
     this.state = {
-      editorState: EditorState.createEmpty(),
-      transcriptData: this.props.transcriptData,
-      isEditable: this.props.isEditable,
-      sttJsonType: this.props.sttJsonType,
-      timecodeOffset: this.props.timecodeOffset,
-      showSpeakers: this.props.showSpeakers,
-      showTimecodes: this.props.showTimecodes,
-      // inputCount: 0,
-      currentWord: {}
+      editorState: EditorState.createEmpty()
     };
   }
 
@@ -43,31 +36,61 @@ class TimedTextEditor extends React.Component {
     this.loadData();
   }
 
-  static getDerivedStateFromProps(nextProps) {
-    if (nextProps.transcriptData !== null) {
-
-      return {
-        transcriptData: nextProps.transcriptData,
-        isEditable: nextProps.isEditable,
-        timecodeOffset: nextProps.timecodeOffset,
-        showSpeakers: nextProps.showSpeakers,
-        showTimecodes: nextProps.showTimecodes
-      };
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.transcriptData !== this.props.transcriptData) {
+      return true;
     }
 
-    return null;
+    if (nextProps.isEditable !== this.props.isEditable) {
+      return true;
+    }
+
+    if (nextProps.timecodeOffset !== this.props.timecodeOffset) {
+      return true;
+    }
+
+    if (nextProps.showSpeakers !== this.props.showSpeakers) {
+      return true;
+    }
+
+    if (nextProps.showTimecodes !== this.props.showTimecodes) {
+      return true;
+    }
+
+    if (nextProps.fileName !== this.props.fileName) {
+      return true;
+    }
+
+    // updating TimedTextEditor on every currentTime causes re-renders
+    if (nextProps.currentTime !== this.props.currentTime ) {
+      return true;
+    }
+
+    if (nextState.editorState !== this.state.editorState ) {
+      return true;
+    }
+
+    if (nextProps.spellCheck !== this.props.spellCheck) {
+      return true;
+    }
+
+    if (nextProps.isPauseWhileTypingOn !== this.props.isPauseWhileTypingOn) {
+      return true;
+    }
+
+    return false;
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (
-      (prevState.transcriptData !== this.state.transcriptData)
+      (prevProps.transcriptData !== this.props.transcriptData)
       && ( this.props.mediaUrl !== null && !this.isPresentInLocalStorage(this.props.mediaUrl) )
     ) {
       this.loadData();
     }
-    if (prevState.timecodeOffset !== this.state.timecodeOffset
-      || prevState.showSpeakers !== this.state.showSpeakers
-      || prevState.showTimecodes !== this.state.showTimecodes) {
+    if (prevProps.timecodeOffset !== this.props.timecodeOffset
+      || prevProps.showSpeakers !== this.props.showSpeakers
+      || prevProps.showTimecodes !== this.props.showTimecodes) {
       // forcing a re-render is an expensive operation and
       // there might be a way of optimising this at a later refactor (?)
       // the issue is that WrapperBlock is not update on TimedTextEditor
@@ -99,9 +122,16 @@ class TimedTextEditor extends React.Component {
           }.bind(this), pauseWhileTypingIntervalInMilliseconds);
         }
       }
+
+      // if (this.timestampTimer !== undefined) {
+      //   clearTimeout(this.timestampTimer);
+      // }
+      // this.timestampTimer = setTimeout(() => {
+      //   this.updateTimestampsForEditorState();
+      // }, 5000);
     }
 
-    if (this.state.isEditable) {
+    if (this.props.isEditable) {
       this.setState(() => ({
         editorState
       }), () => {
@@ -112,19 +142,63 @@ class TimedTextEditor extends React.Component {
         this.saveTimer = setTimeout(() => {
           this.localSave(this.props.mediaUrl);
         }, 1000);
+
+        // if (this.timestampTimer !== undefined) {
+        //   clearTimeout(this.timestampTimer);
+        // }
+        // this.timestampTimer = setTimeout(() => {
+        //   this.updateTimestampsForEditorState();
+        // }, 5000);
       });
     }
+  }
+
+  updateTimestampsForEditorState() {
+
+    // Update timestamps according to the original state.
+    const currentContent = convertToRaw(this.state.editorState.getCurrentContent());
+    const updatedContentRaw = updateTimestamps(currentContent, this.state.originalState);
+    const updatedContent = convertFromRaw(updatedContentRaw);
+
+    // Update editor state
+    const newEditorState = EditorState.push(this.state.editorState, updatedContent);
+
+    // Re-convert updated content to raw to gain access to block keys
+    const updatedContentBlocks = convertToRaw(updatedContent);
+
+    // Build block map, which maps the block keys of the previous content to the block keys of the
+    // updated content.
+    var blockMap = {};
+    for (var blockIdx = 0; blockIdx < currentContent.blocks.length; blockIdx++) {
+      blockMap[currentContent.blocks[blockIdx].key] = updatedContentBlocks.blocks[blockIdx].key;
+    }
+
+    // Get current selection state and update block keys
+    const selectionState = this.state.editorState.getSelection();
+
+    const selection = selectionState.merge({
+      anchorOffset: selectionState.getAnchorOffset(),
+      anchorKey: blockMap[selectionState.getAnchorKey()],
+      focusOffset: selectionState.getFocusOffset(),
+      focusKey: blockMap[selectionState.getFocusKey()],
+    });
+
+    // Set the updated selection state on the new editor state
+    const newEditorStateSelected = EditorState.forceSelection(newEditorState, selection);
+    this.setState({ editorState: newEditorStateSelected });
   }
 
   loadData() {
     if (this.props.transcriptData !== null) {
       const blocks = sttJsonAdapter(this.props.transcriptData, this.props.sttJsonType);
+      this.setState({ originalState: convertToRaw(convertFromRaw(blocks)) });
       this.setEditorContentState(blocks);
     }
   }
 
   getEditorContent(exportFormat) {
     const format = exportFormat || 'draftjs';
+    this.updateTimestampsForEditorState();
 
     return exportAdapter(convertToRaw(this.state.editorState.getCurrentContent()), format);
   }
@@ -148,6 +222,7 @@ class TimedTextEditor extends React.Component {
   localSave = () => {
     clearTimeout(this.saveTimer);
     let mediaUrlName = this.props.mediaUrl;
+    this.updateTimestampsForEditorState();
     // if using local media instead of using random blob name
     // that makes it impossible to retrieve from on page refresh
     // use file name
@@ -263,6 +338,7 @@ class TimedTextEditor extends React.Component {
    * Listen for draftJs custom key bindings
    */
   customKeyBindingFn = (e) => {
+
     const enterKey = 13;
     const spaceKey = 32;
     const kKey = 75;
@@ -274,6 +350,8 @@ class TimedTextEditor extends React.Component {
     const tKey = 84;
 
     if (e.keyCode === enterKey ) {
+      console.log('customKeyBindingFn');
+
       return 'split-paragraph';
     }
     // if alt key is pressed in combination with these other keys
@@ -315,6 +393,7 @@ class TimedTextEditor extends React.Component {
    * on enter key, perform split paragraph at selection point.
    * Add timecode of next word after split to paragraph
    * as well as speaker name to new paragraph
+   * TODO: move into its own file as helper function
    */
   splitParagraph = () => {
     // https://github.com/facebook/draft-js/issues/723#issuecomment-367918580
@@ -427,29 +506,13 @@ class TimedTextEditor extends React.Component {
     return { entityKey, isEndOfParagraph };
   }
 
-  renderBlockWithTimecodes = () => {
-    return {
-      component: WrapperBlock,
-      editable: true,
-      props: {
-        showSpeakers: this.state.showSpeakers,
-        showTimecodes: this.state.showTimecodes,
-        timecodeOffset: this.state.timecodeOffset,
-        editorState: this.state.editorState,
-        setEditorNewContentState: this.setEditorNewContentState,
-        onWordClick: this.props.onWordClick,
-        handleAnalyticsEvents: this.props.handleAnalyticsEvents
-      }
-    };
-  }
-
   getCurrentWord = () => {
     const currentWord = {
       start: 'NA',
       end: 'NA'
     };
 
-    if (this.state.transcriptData) {
+    if (this.props.transcriptData) {
       const contentState = this.state.editorState.getCurrentContent();
       // TODO: using convertToRaw here might be slowing down performance(?)
       const contentStateConvertEdToRaw = convertToRaw(contentState);
@@ -476,7 +539,12 @@ class TimedTextEditor extends React.Component {
     return currentWord;
   }
 
+  onWordClick = (e) => {
+    this.props.onWordClick(e);
+  }
+
   render() {
+    // console.log('render TimedTextEditor');
     const currentWord = this.getCurrentWord();
     const highlightColour = '#69e3c2';
     const unplayedColor = '#767676';
@@ -488,7 +556,7 @@ class TimedTextEditor extends React.Component {
     const editor = (
       <section
         className={ style.editor }
-        onDoubleClick={ event => this.handleDoubleClick(event) }
+        onDoubleClick={ this.handleDoubleClick }
         // TODO: decide if on mobile want to have a way to "click" on words
         // to play corresponding media
         // a double tap would be the ideal solution
@@ -501,15 +569,20 @@ class TimedTextEditor extends React.Component {
           {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
         </style>
-
-        <Editor
+        <CustomEditor
           editorState={ this.state.editorState }
           onChange={ this.onChange }
           stripPastedStyles
-          blockRendererFn={ this.renderBlockWithTimecodes }
-          handleKeyCommand={ command => this.handleKeyCommand(command) }
-          keyBindingFn={ e => this.customKeyBindingFn(e) }
+          // renderBlockWithTimecodes={ this.renderBlockWithTimecodes }
+          handleKeyCommand={ this.handleKeyCommand }
+          customKeyBindingFn={ this.customKeyBindingFn }
           spellCheck={ this.props.spellCheck }
+          showSpeakers={ this.props.showSpeakers }
+          showTimecodes={ this.props.showTimecodes }
+          timecodeOffset={ this.props.timecodeOffset }
+          setEditorNewContentState={ this.setEditorNewContentState }
+          onWordClick={ this.onWordClick }
+          handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
         />
       </section>
     );
@@ -564,3 +637,54 @@ TimedTextEditor.propTypes = {
 };
 
 export default TimedTextEditor;
+
+// TODO: move CustomEditor in separate file
+class CustomEditor extends React.Component {
+
+  handleWordClick = (e) => {
+    this.props.onWordClick(e);
+  }
+
+  renderBlockWithTimecodes = () => {
+    return {
+      component: WrapperBlock,
+      editable: true,
+      props: {
+        showSpeakers: this.props.showSpeakers,
+        showTimecodes: this.props.showTimecodes,
+        timecodeOffset: this.props.timecodeOffset,
+        editorState: this.props.editorState,
+        setEditorNewContentState: this.props.setEditorNewContentState,
+        onWordClick: this.handleWordClick,
+        handleAnalyticsEvents: this.props.handleAnalyticsEvents
+      }
+    };
+  }
+
+  shouldComponentUpdate(nextProps) {
+    // https://stackoverflow.com/questions/39182657/best-performance-method-to-check-if-contentstate-changed-in-draftjs-or-just-edi
+    if (nextProps.editorState !== this.props.editorState) {
+      return true;
+    }
+
+    return false;
+  }
+
+  handleOnChange = (e) => {
+    this.props.onChange(e);
+  }
+
+  render() {
+    return (
+      <Editor
+        editorState={ this.props.editorState }
+        onChange={ this.handleOnChange }
+        stripPastedStyles
+        blockRendererFn={ this.renderBlockWithTimecodes }
+        handleKeyCommand={ this.props.handleKeyCommand }
+        keyBindingFn={ this.props.customKeyBindingFn }
+        spellCheck={ this.props.spellCheck }
+      />
+    );
+  }
+}
