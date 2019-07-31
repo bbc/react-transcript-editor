@@ -10,6 +10,7 @@ import TimecodeOffset from './TimecodeOffset';
 import style from './index.module.css';
 
 class Settings extends React.Component {
+
   render() {
     return (
       <div className={ style.settings }>
@@ -76,19 +77,6 @@ class Settings extends React.Component {
               handleToggle={ this.props.handlePreviewIsDisplayed }
             />
           </section>
-          {/*
-          <section className={ style.settingElement }>
-            <div className={ style.label }>Video Preview width</div>
-            <input
-              className={ style.rollbackValue }
-              type="number"
-              step="1"
-              max="40"
-              min="15"
-              value={ this.props.previewViewWidth }
-              onChange={ this.props.handleChangePreviewViewWidth }
-              name="lname"/>
-          </section> */}
 
           <section className={ style.settingElement }>
             <div className={ style.timecodeLabel }>Timecode Offset ℹ</div>

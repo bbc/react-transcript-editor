@@ -56,15 +56,15 @@
     position: relative;
   }
 
-  .header {
+  /* .header {
     background-color: black;
     width: 100%;
     display: block;
-  }
+  } */
 
-  .nav {
+  /* .nav {
     width: 100%;
-  }
+  } */
 
   .grid {
     margin-top: 1em;
@@ -124,14 +124,14 @@
     position: relative;
   } */
 
-  .header {
+  /* .header {
     background-color: black;
     width: 100%;
-  }
+  } */
 
-  .nav {
+  /* .nav {
     width: 100%;
-  }
+  } */
 
   .main {
     width: 100%;
@@ -144,9 +144,9 @@
     top: 0;
     right: 0;
     padding: 0;
-  }
+  } 
 
-  .settingsButton {
+   .settingsButton {
     line-height: 1em;
     margin-left: 0.5em;
     background: color-darkest-grey;

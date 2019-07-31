@@ -1,4 +1,4 @@
-@value color-light-shilo, color-darkest-grey, color-light-grey, color-labs-red from '../../../config/style-guide/colours.module.css';
+@value color-light-shilo, color-darkest-grey, color-light-grey, color-labs-red from '../../../../config/style-guide/colours.module.css';
 
 .playerControls {
   margin-bottom: 0.5em;
