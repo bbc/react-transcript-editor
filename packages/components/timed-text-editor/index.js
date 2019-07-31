@@ -142,6 +142,13 @@ class TimedTextEditor extends React.Component {
         this.saveTimer = setTimeout(() => {
           this.localSave(this.props.mediaUrl);
         }, 1000);
+
+        if (this.timestampTimer !== undefined) {
+          clearTimeout(this.timestampTimer);
+        }
+        this.timestampTimer = setTimeout(() => {
+          this.updateTimestampsForEditorState();
+        }, 5000);
       });
     }
   }
@@ -191,6 +198,7 @@ class TimedTextEditor extends React.Component {
 
   getEditorContent(exportFormat) {
     const format = exportFormat || 'draftjs';
+    this.updateTimestampsForEditorState();
 
     return exportAdapter(convertToRaw(this.state.editorState.getCurrentContent()), format);
   }

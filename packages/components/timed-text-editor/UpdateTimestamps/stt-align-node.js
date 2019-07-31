@@ -13,6 +13,10 @@ function isANumber(num) {
   return !isNaN(num);
 }
 
+function removeTrailingPunctuation(str) {
+  return str.replace(/\.$/, '');
+}
+
 /**
  * removes capitalization, punctuation and converts numbers to letters
  * @param {string} wordText - word text
@@ -23,9 +27,10 @@ function normaliseWord(wordText) {
   if (wordText !== undefined) {
     const wordTextResult = wordText.toLowerCase().trim().replace(/[^a-z|0-9|.]+/g, '');
     if (isANumber(wordTextResult)) {
-      // console.log(wordTextResult);
-
-      return converterNumbersToWords.toWords(wordTextResult);
+      const sanitizedWord = removeTrailingPunctuation(wordTextResult);
+      if (sanitizedWord !== '') {
+        return converterNumbersToWords.toWords(sanitizedWord);
+      }
     }
 
     return wordTextResult;
@@ -68,7 +73,6 @@ function interpolationOptimization(wordsList) {
     // TODO: handle last item ?
     return wordTmp;
   });
-// return words;
 }
 
 function interpolate(wordsList) {
