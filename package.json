@@ -25,7 +25,7 @@
     "build:storybook:serve": "npx serve build",
     "deploy:ghpages": "rimraf build && npm run build:storybook && gh-pages -d build",
     "pre:publish": "npm run build:component && rm ./dist/package.json || true && cp package.json ./dist/package.json && rm ./dist/README.md || true && cp README.md ./dist/README.md || true ",
-    "publish:public": "npm run pre:publish && npm publish dist --tag=alpha --access public",
+    "publish:public": "npm run pre:publish && npm publish dist --access public",
     "publish:dry:run": "npm publish --dry-run"
   },
   "jest": {
