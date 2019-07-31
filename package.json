@@ -59,7 +59,7 @@
     "react-keyboard-shortcuts": "^1.1.3",
     "react-simple-tooltip": "^2.3.3",
     "sbd": "^1.0.15",
-    "smpte-timecode": "^1.2.3"
+    "smpte-timecode": "^1.2.3",
     "react-visibility-sensor": "^5.1.1"
   },
   "peerDependencies": {
@@ -133,6 +133,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "prettier": {}
+  ]
 }
