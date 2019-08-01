@@ -10,14 +10,16 @@ function getTextFromWordsList(words) {
 const plainText = getTextFromWordsList(sampleWords);
 
 const subtitlesJson = subtitlesGenerator({ words: sampleWords, type: 'json' });
-const ttmlPremiere = subtitlesGenerator({ words: sampleWords, type: 'premiere' });
-const ittData = subtitlesGenerator({ words: sampleWords, type: 'itt' });
-const ttmlData = subtitlesGenerator({ words: sampleWords, type: 'ttml' });
-const srtData = subtitlesGenerator({ words: sampleWords, type: 'srt', numberOfCharPerLine: 35 });
-const vttData = subtitlesGenerator({ words: sampleWords, type: 'vtt' });
-const csvData = subtitlesGenerator({ words: sampleWords, type: 'csv' });
-const preSegmentTextData = subtitlesGenerator({ words: sampleWords, type: 'pre-segment-txt' });
-const testTet = subtitlesGenerator({ words: plainText, type: 'txt' });
+// const ttmlPremiere = subtitlesGenerator({ words: sampleWords, type: 'premiere' });
+// const ittData = subtitlesGenerator({ words: sampleWords, type: 'itt' });
+// const ttmlData = subtitlesGenerator({ words: sampleWords, type: 'ttml' });
+// const srtData = subtitlesGenerator({ words: sampleWords, type: 'srt', numberOfCharPerLine: 35 });
+// const vttData = subtitlesGenerator({ words: sampleWords, type: 'vtt' });
+// const csvData = subtitlesGenerator({ words: sampleWords, type: 'csv' });
+// const preSegmentTextData = subtitlesGenerator({ words: sampleWords, type: 'pre-segment-txt' });
+// const testTet = subtitlesGenerator({ words: plainText, type: 'txt' });
+
+console.log(subtitlesJson);
 
 // fs.writeFileSync('./example-output/test.json', JSON.stringify(subtitlesJson, null, 2));
 // fs.writeFileSync('./example-output/test-premiere.xml', ttmlPremiere);

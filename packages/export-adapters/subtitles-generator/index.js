@@ -25,6 +25,7 @@ function countWords(text) {
   return text
     .trim()
     .replace(/\n /g, '')
+    .replace(/\n/g, ' ')
     .split(' ').length;
 }
 
@@ -33,16 +34,14 @@ function countList(list) {
 }
 
 function addTimecodesToLines(wordsList, lines) {
-  let wordCounter = 0;
-  const linesCount = countList(lines);
-  const results = lines.map((line, index) => {
+  let startWordCounter = 0;
+  let endWordCounter = 0;
+  const results = lines.map((line) => {
+    endWordCounter += countWords(line);
     const jsonLine = { text: line.trim() };
-    jsonLine.start = wordsList[wordCounter].start;
-    // if not last line then increase counter for end word
-    if (linesCount !== index) {
-      wordCounter += countWords(line);
-    }
-    jsonLine.end = wordsList[wordCounter].end;
+    jsonLine.start = wordsList[startWordCounter].start;
+    jsonLine.end = wordsList[endWordCounter - 1].end;
+    startWordCounter = endWordCounter;
 
     return jsonLine;
   });
