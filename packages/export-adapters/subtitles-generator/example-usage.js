@@ -1,6 +1,7 @@
 import fs from 'fs';
 import subtitlesGenerator from './index.js';
-import transcript from './sample/words-list.sample.json';
+// import transcript from './sample/words-list.sample.json';
+import transcript from './sample/words-list-2.sample.json';
 const sampleWords = transcript.words;
 
 function getTextFromWordsList(words) {
