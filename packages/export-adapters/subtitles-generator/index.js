@@ -29,15 +29,12 @@ function countWords(text) {
     .split(' ').length;
 }
 
-function countList(list) {
-  return list.length - 1;
-}
-
 function addTimecodesToLines(wordsList, lines) {
   let startWordCounter = 0;
   let endWordCounter = 0;
   const results = lines.map((line) => {
     endWordCounter += countWords(line);
+
     const jsonLine = { text: line.trim() };
     jsonLine.start = wordsList[startWordCounter].start;
     jsonLine.end = wordsList[endWordCounter - 1].end;
