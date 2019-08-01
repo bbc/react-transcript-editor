@@ -11,6 +11,8 @@ class TimeBox extends React.Component {
     if (nextProps.duration !== this.props.duration) {
       return true;
     }
+
+    return false;
   }
   // as separate function above render for performance
   handleClick = (e) => {
