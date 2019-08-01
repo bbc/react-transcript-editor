@@ -43,7 +43,7 @@ function generateDocxFromDraftJs(blockData, transcriptTitle) {
   const packer = new Packer();
 
   packer.toBlob(doc).then(blob => {
-    const filename = 'transcript.docx';
+    const filename = `${ transcriptTitle }.docx`;
     // // const type =  'application/octet-stream';
     const a = document.createElement('a');
     a.href = window.URL.createObjectURL(blob);
