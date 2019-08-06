@@ -257,8 +257,13 @@ class MediaPlayer extends React.Component {
   };
 
   playMedia = () => {
-    this.setState({ isPlaying: true }, () =>
-      this.props.videoRef.current.play()
+    this.setState({ isPlaying: true }, () => {
+      this.props.videoRef.current.play();
+      if (!this.isPlaying()) {
+        alert('The video player is not able to play the file. Please ensure the video format and codec is compatible with HTML5.');
+        this.pauseMedia();
+      }
+    }
     );
 
     if (this.props.handleAnalyticsEvents) {
