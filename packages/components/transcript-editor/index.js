@@ -65,63 +65,9 @@ class TranscriptEditor extends React.Component {
 
   // performance optimization
   shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.mediaUrl !== this.props.mediaUrl) return true;
 
-    if (nextState.transcriptData !== this.state.transcriptData) {
-      return true;
-    }
-
-    if (nextProps.mediaUrl !== this.props.mediaUrl) {
-      return true;
-    }
-
-    if (nextState.currentTime !== this.state.currentTime) {
-      return true;
-    }
-
-    if (nextState.isScrollIntoViewOn !== this.state.isScrollIntoViewOn) {
-      return true;
-    }
-
-    if (nextState.showSettings !== this.state.showSettings) {
-      return true;
-    }
-
-    if (nextState.showShortcuts !== this.state.showShortcuts) {
-      return true;
-    }
-    if (nextState.showExportOptions !== this.state.showExportOptions) {
-      return true;
-    }
-
-    if (nextState.isPauseWhileTypingOn !== this.state.isPauseWhileTypingOn) {
-      return true;
-    }
-
-    if (nextState.rollBackValueInSeconds !== this.state.rollBackValueInSeconds) {
-      return true;
-    }
-
-    if (nextState.timecodeOffset !== this.state.timecodeOffset) {
-      return true;
-    }
-
-    if (nextState.showTimecodes !== this.state.showTimecodes) {
-      return true;
-    }
-
-    if (nextState.showSpeakers !== this.state.showSpeakers) {
-      return true;
-    }
-
-    if (nextState.previewIsDisplayed !== this.state.previewIsDisplayed) {
-      return true;
-    }
-
-    if (nextState.mediaDuration !== this.state.mediaDuration) {
-      return true;
-    }
-
-    return false;
+    return nextState !== this.state;
   }
 
   componentDidUpdate(prevProps, prevState) {
