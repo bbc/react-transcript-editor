@@ -12,16 +12,7 @@ class Header extends React.Component {
 
   // to avoid unnecessary re-renders
   shouldComponentUpdate(nextProps) {
-    if (nextProps.showSettings !== this.props.showSettings) {
-      return true;
-    }
-    if (nextProps.showShortcuts !== this.props.showShortcuts) {
-      return true;
-    }
-
-    if (nextProps.mediaControls !== this.props.mediaControls) {
-      return true;
-    }
+    if (nextProps !== this.props) return true;
 
     return false;
   }
