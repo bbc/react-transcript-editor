@@ -7,15 +7,7 @@ class ProgressBar extends React.Component {
 
   // performance optimization
   shouldComponentUpdate = (nextProps) => {
-    if (nextProps.buttonClick !== this.props.buttonClick) {
-      return true;
-    }
-
-    if (nextProps.value !== this.props.value) {
-      return true;
-    }
-
-    if (nextProps.max !== this.props.max) {
+    if (nextProps !== this.props) {
       return true;
     }
 
