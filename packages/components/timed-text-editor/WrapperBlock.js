@@ -10,7 +10,6 @@ import {
 } from '../../util/timecode-converter';
 
 import style from './WrapperBlock.module.css';
-import VisibilitySensor from 'react-visibility-sensor';
 
 class WrapperBlock extends React.Component {
   constructor(props) {
@@ -138,48 +137,17 @@ class WrapperBlock extends React.Component {
 
     return (
       <div className={ style.WrapperBlock }>
-
-        <VisibilitySensor
-          partialVisibility={ true }
-          // intervalCheck={ false }
-          scrollCheck
+        <div
+          className={ [ style.markers, style.unselectable ].join(' ') }
+          contentEditable={ false }
         >
-          {
-            ({ isVisible }) => (
-              <>
-                {isVisible ? (
-                  <>
-                    <div
-                      className={ [ style.markers, style.unselectable ].join(' ') }
-                      contentEditable={ false }
-                    >
-                      {this.props.blockProps.showSpeakers ? speakerElement : ''}
+          {this.props.blockProps.showSpeakers ? speakerElement : ''}
 
-                      {this.props.blockProps.showTimecodes ? timecodeElement : ''}
-                    </div>
-                    <div className={ style.text }>
-                      <EditorBlock { ...this.props } />
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div
-                      className={ [ style.markers, style.unselectable ].join(' ') }
-                      contentEditable={ false }
-                    >
-                      <span className={ style.speaker }>…</span>
-                      <span className={ style.time } >…</span>
-                    </div>
-                    <div className={ style.text }>
-                      <span>…</span>
-                    </div>
-                  </>
-                )}
-              </>
-            )
-
-          }
-        </VisibilitySensor>
+          {this.props.blockProps.showTimecodes ? timecodeElement : ''}
+        </div>
+        <div className={ style.text }>
+          <EditorBlock { ...this.props } />
+        </div>
       </div>
     );
   }
