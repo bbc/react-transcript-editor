@@ -1,19 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import style from './index.module.css';
 
 class TimeBox extends React.Component {
 
   shouldComponentUpdate(nextProps) {
-    if (nextProps.currentTime !== this.props.currentTime) {
-      return true;
-    }
-    if (nextProps.duration !== this.props.duration) {
+    if (nextProps !== this.props) {
       return true;
     }
 
     return false;
   }
+
   // as separate function above render for performance
   handleClick = (e) => {
     this.props.promptSetCurrentTime(e);
