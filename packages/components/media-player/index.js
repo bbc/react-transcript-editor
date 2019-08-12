@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { hotkeys } from 'react-keyboard-shortcuts';
-import PlayerControls from './src/PlayerControls/index.js';
+import PlayerControls from './src/PlayerControls';
 import ProgressBar from './src/ProgressBar';
 
 import returnHotKeys from './src/defaultHotKeys';

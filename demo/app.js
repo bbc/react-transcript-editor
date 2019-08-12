@@ -1,5 +1,4 @@
 import React from 'react';
-// https://github.com/maicki/why-did-you-update
 // NOTE: This slows down performance, even during development
 // if (process.env.NODE_ENV !== 'production') {
 //   const { whyDidYouUpdate } = require('why-did-you-update');
