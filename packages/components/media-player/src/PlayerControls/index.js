@@ -21,25 +21,8 @@ import TimeBox from './TimeBox.js';
 
 class PlayerControls extends React.Component {
 
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.currentTime !== this.props.currentTime) {
-      return true;
-    }
-    if (nextProps.duration !== this.props.duration) {
-      return true;
-    }
-
-    if (nextProps.playbackRate !== this.props.playbackRate) {
-      return true;
-    }
-
-    if (nextProps.isPlaying !== this.props.isPlaying) {
-      return true;
-    }
-
-    if (nextProps.isMute !== this.props.isMute) {
-      return true;
-    }
+  shouldComponentUpdate = (nextProps) => {
+    if (nextProps !== this.props) return true;
 
     return false;
   }
