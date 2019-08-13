@@ -1,6 +1,6 @@
 // code obtained from https://github.com/bbc/stt-align-node
 
-import converterNumbersToWords from 'number-to-words';
+import { toWords } from 'number-to-words';
 import difflib from 'difflib';
 import everpolate from 'everpolate';
 
@@ -24,12 +24,12 @@ function removeTrailingPunctuation(str) {
  * handles edge case if word is undefined, and returns undefined in that instance
  */
 function normaliseWord(wordText) {
-  if (wordText !== undefined) {
+  if (wordText) {
     const wordTextResult = wordText.toLowerCase().trim().replace(/[^a-z|0-9|.]+/g, '');
     if (isANumber(wordTextResult)) {
       const sanitizedWord = removeTrailingPunctuation(wordTextResult);
       if (sanitizedWord !== '') {
-        return converterNumbersToWords.toWords(sanitizedWord);
+        return toWords(sanitizedWord);
       }
     }
 
@@ -100,30 +100,28 @@ function adjustTimecodesBoundaries(words) {
 }
 
 function interpolate(wordsList) {
-  let words = interpolationOptimization(wordsList);
+  const words = interpolationOptimization(wordsList);
   const indicies = [ ...Array(words.length).keys() ];
   const indiciesWithStart = [];
   const indiciesWithEnd = [];
   const startTimes = [];
   const endTimes = [];
-  // interpolate times for start
-  for (let i = 0; i < words.length; i++) {
-    if ('start' in words[i]) {
-      indiciesWithStart.push(i);
-      startTimes.push(words[i].start);
+
+  words.forEach((word, index) => {
+    if ('start' in word) {
+      indiciesWithStart.push(index);
+      startTimes.push(word.start);
     }
-  }
-  // interpolate times for end
-  for (let i = 0; i < words.length; i++) {
-    if ('end' in words[i]) {
-      indiciesWithEnd.push(i);
-      endTimes.push(words[i].end);
+
+    if ('end' in word) {
+      indiciesWithEnd.push(index);
+      endTimes.push(word.end);
     }
-  }
+  });
   // http://borischumichev.github.io/everpolate/#linear
   const outStartTimes = everpolate.linear(indicies, indiciesWithStart, startTimes);
   const outEndTimes = everpolate.linear(indicies, indiciesWithEnd, endTimes);
-  words = words.map((word, index) => {
+  const wordsResults = words.map((word, index) => {
     if (!('start' in word)) {
       word.start = outStartTimes[index];
     }
@@ -134,40 +132,31 @@ function interpolate(wordsList) {
     return word;
   });
 
-  return adjustTimecodesBoundaries(words);
+  return adjustTimecodesBoundaries(wordsResults);
 }
 
 /**
  *
- * @param {array} sttData - array of STT words
+ * @param {array} sttWords - array of STT words
  * @param {array} transcriptWords - array of base text accurate words
  */
 function alignWords(sttWords, transcriptWords) {
-  // console.log(sttWords);
-  // # extract list of words
-  // sttWords=[words.get('word') for words in sttData]
-
   // # convert words to lowercase and remove numbers and special characters
-  // sttWordsStripped = [re.sub('[^a-z]', '', word.lower()) for word in sttWords]
   const sttWordsStripped = sttWords.map((word) => {
     return normaliseWord(word.word);
   });
 
-  // transcriptWordsStripped = [re.sub('[^a-z]', '', word.lower()) for word in transcriptWords]
   const transcriptWordsStripped = transcriptWords.map((word) => {
     return normaliseWord(word);
   });
   // # create empty list to receive data
-  // transcriptData = [{} for _ in range(len(transcriptWords))]
   const transcriptData = [];
   // empty objects as place holder
   transcriptWords.forEach(() => {
     transcriptData.push({});
   });
   // # populate transcriptData with matching words
-  // matcher = difflib.SequenceMatcher(None, sttWordsStripped, transcriptWordsStripped)
   // // if they are same length, just interpolate words ?
-  // const matcher = diffWordMode(transcriptWordsStripped, sttWordsStripped);
   // http://qiao.github.io/difflib.js/
   const matcher = new difflib.SequenceMatcher(null, sttWordsStripped, transcriptWordsStripped);
   const opCodes = matcher.getOpcodes();

@@ -1,36 +1,36 @@
-import generateEntitiesRanges from '../../../stt-adapters/generate-entities-ranges/index.js';
-import { createEntityMap } from '../../../stt-adapters/index.js';
+import generateEntitiesRanges from '../../../stt-adapters/generate-entities-ranges';
+import { createEntityMap } from '../../../stt-adapters';
 import alignWords from './stt-align-node.js';
 
 const convertContentToText = (content) => {
   let text = [];
-  for (var blockIdx in content.blocks) {
-    const block = content.blocks[blockIdx];
+  for (const blockIndex in content.blocks) {
+    const block = content.blocks[blockIndex];
     const blockArray = block.text.match(/\S+/g) || [];
     text = text.concat(blockArray);
   }
 
-  return (text);
+  return text;
 };
 
-const createEntity = (start, end, confidence, word, wordIdx) => {
+const createEntity = (start, end, confidence, word, wordIndex) => {
   return ({
     start: start,
     end: end,
     confidence: confidence,
     word: word.toLowerCase().replace(/[.?!]/g, ''),
     punct: word,
-    index: wordIdx,
+    index: wordIndex,
   });
 };
 
 const createContentFromEntityList = (currentContent, newEntities) => {
   // Update entites to block structure.
-  var updatedBlockArray = [];
-  var totalWords = 0;
+  const updatedBlockArray = [];
+  let totalWords = 0;
 
-  for (var blockIdx in currentContent.blocks) {
-    const block = currentContent.blocks[blockIdx];
+  for (const blockIndex in currentContent.blocks) {
+    const block = currentContent.blocks[blockIndex];
     // if copy and pasting large chunk of text
     // currentContentBlock, would not have speaker and start/end time info
     // so for updatedBlock, getting start time from first word in blockEntities
@@ -68,7 +68,7 @@ const updateTimestamps = (currentContent, originalContent) => {
 
   const entities = [];
 
-  for (var entityIdx in entityMap) {
+  for (const entityIdx in entityMap) {
     entities.push({
       start: parseFloat(entityMap[entityIdx].data.start),
       end: parseFloat(entityMap[entityIdx].data.end),
