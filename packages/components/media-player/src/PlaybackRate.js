@@ -1,33 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './PlaybackRate.module.css';
+// import styles from './PlaybackRate.module.css';
+import Select from './Select';
+import style from './PlayerControls/index.module.css';
+
 class PlaybackRate extends React.Component {
 
+  // to avoid unnecessary re-renders
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.playbackRate !== this.props.playbackRate) {
+      return true;
+    }
+
+    return false;
+  }
   render() {
     return (
-      <div>
-        <p className={ styles.helpText }>Playback Rate
-          <output className={ styles.playbackRateValue } >{ ` x${ this.props.playBackRate } ` }</output>
-        </p>
-        <input
-          type="range"
-          min="0.2"
-          value={ this.props.playBackRate }
-          max="3.5"
-          step="0.1"
-          onChange={ this.props.handlePlayBackRateChange }
+      <span className={ style.playBackRate }
+        title="Playback rate: alt - & alt + ">
+        <Select
+          options={ this.props.playbackRateOptions }
+          currentValue={ this.props.playbackRate.toString() }
+          name={ 'playbackRate' }
+          handleChange={ this.props.handlePlayBackRateChange }
         />
-        <br/>
-        <button type="button" onClick={ () => { this.props.setPlayBackRate(1); } }>Reset Playback Rate</button>
-      </div>
+      </span>
     );
   }
 }
 
 PlaybackRate.propTypes = {
-  handlePlayBackRateChange: PropTypes.func,
-  playBackRate: PropTypes.number,
-  setPlayBackRate: PropTypes.func
+  playbackRateOptions: PropTypes.array,
+  playbackRate: PropTypes.number,
+  handlePlayBackRateChange: PropTypes.func
 };
 
 export default PlaybackRate;

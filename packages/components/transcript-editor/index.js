@@ -1,26 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCog,
-  faKeyboard,
-  faQuestionCircle,
-  faMousePointer,
-  faICursor,
-  faUserEdit,
-  faSave
-} from '@fortawesome/free-solid-svg-icons';
-
-import Tooltip from 'react-simple-tooltip';
-
 import TimedTextEditor from '../timed-text-editor';
 import MediaPlayer from '../media-player';
 import VideoPlayer from '../video-player';
 import Settings from '../settings';
 import Shortcuts from '../keyboard-shortcuts';
 import { secondsToTimecode } from '../../util/timecode-converter';
-
+import Header from './src/Header.js';
+import ExportOptions from './src/ExportOptions.js';
 import style from './index.module.css';
+
+// TODO: move to another file with tooltip - rename HowDoesThisWork or HelpMessage
+import HowDoesThisWork from './src/HowDoesThisWork.js';
+
+const exportOptionsList = [
+  { value: 'txt', label: 'Text file' },
+  { value: 'txtspeakertimecodes', label: 'Text file - with Speakers and Timecodes' },
+  { value: 'docx', label: 'MS Word' },
+  { value: 'srt', label: 'Srt - Captions' },
+  { value: 'ttml', label: 'TTML - Captions' },
+  { value: 'premiereTTML', label: 'TTML for Adobe Premiere - Captions' },
+  { value: 'itt', label: 'iTT - Captions' },
+  { value: 'csv', label: 'CSV - Captions' },
+  { value: 'vtt', label: 'VTT - Captions' },
+  { value: 'pre-segment-txt', label: 'Pre segmented txt - Captions' },
+  { value: 'json-captions', label: 'Json - Captions' },
+  { value: 'draftjs', label: 'Draft Js - json' },
+  { value: 'digitalpaperedit', label: 'Digital Paper Edit - Json' }
+];
 
 class TranscriptEditor extends React.Component {
   constructor(props) {
@@ -29,11 +36,11 @@ class TranscriptEditor extends React.Component {
 
     this.state = {
       currentTime: 0,
-      lastLocalSavedTime: '',
       transcriptData: null,
       isScrollIntoViewOn: false,
       showSettings: false,
       showShortcuts: false,
+      showExportOptions: false,
       isPauseWhileTypingOn: true,
       rollBackValueInSeconds: 15,
       timecodeOffset: 0,
@@ -54,6 +61,13 @@ class TranscriptEditor extends React.Component {
     }
 
     return null;
+  }
+
+  // performance optimization
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.mediaUrl !== this.props.mediaUrl) return true;
+
+    return nextState !== this.state;
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -205,35 +219,96 @@ class TranscriptEditor extends React.Component {
   handleSettingsToggle = () => {
     this.setState(prevState => ({
       showSettings: !prevState.showSettings
-    }));
+    }), () => {
+      if (this.props.handleAnalyticsEvents) {
+        this.props.handleAnalyticsEvents({
+          category: 'TranscriptEditor',
+          action: 'handleSettingsToggle',
+          name: 'showSettings',
+          value: !this.state.showSettings
+        });
+      }
+    });
 
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
-        category: 'TranscriptEditor',
-        action: 'handleSettingsToggle',
-        name: 'showSettings',
-        value: !this.state.showSettings
-      });
-    }
   };
 
   handleShortcutsToggle = () => {
     this.setState(prevState => ({
       showShortcuts: !prevState.showShortcuts
-    }));
-
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
-        category: 'TranscriptEditor',
-        action: 'handleShortcutsToggle',
-        name: 'showShortcuts',
-        value: !this.state.showShortcuts
-      });
-    }
+    }), () => {
+      if (this.props.handleAnalyticsEvents) {
+        this.props.handleAnalyticsEvents({
+          category: 'TranscriptEditor',
+          action: 'handleShortcutsToggle',
+          name: 'showShortcuts',
+          value: !this.state.showShortcuts
+        });
+      }
+    });
   };
 
+  handleExportToggle = () => {
+    console.log('handleExportToggle', this.state.showExportOptions);
+    this.setState(prevState => ({
+      showExportOptions: !prevState.showExportOptions
+    }), () => {
+      if (this.props.handleAnalyticsEvents) {
+        this.props.handleAnalyticsEvents({
+          category: 'TranscriptEditor',
+          action: 'handleExportToggle',
+          name: 'showExportOptions',
+          value: !this.state.showExportOptions
+        });
+      }
+    });
+  }
+
+  handleExportOptionsChange = (e) => {
+    const exportFormat = e.target.value;
+    console.log(exportFormat);
+    if (exportFormat !== 'instructions') {
+
+      const fileName = this.props.title ? this.props.title : this.props.mediaUrl;
+
+      const { data, ext } = this.getEditorContent(exportFormat);
+      let tmpData = data;
+      if (ext === 'json') {
+        tmpData = JSON.stringify(data, null, 2);
+      }
+      if (ext !== 'docx') {
+        this.download(tmpData, `${ fileName }.${ ext }`);
+      }
+
+      if (this.props.handleAnalyticsEvents) {
+        this.props.handleAnalyticsEvents({
+          category: 'TranscriptEditor',
+          action: 'handleExportOptionsChange',
+          name: 'exportFile',
+          value: exportFormat
+        });
+      }
+    }
+  }
+
+    // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
+    download = (content, filename, contentType) => {
+      const type = contentType || 'application/octet-stream';
+      const link = document.createElement('a');
+      const blob = new Blob([ content ], { type: type });
+
+      link.href = window.URL.createObjectURL(blob);
+      link.download = filename;
+      // Firefox fix - cannot do link.click() if it's not attached to DOM in firefox
+      // https://stackoverflow.com/questions/32225904/programmatical-click-on-a-tag-not-working-in-firefox
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+
   getEditorContent = exportFormat => {
-    return this.timedTextEditorRef.current.getEditorContent(exportFormat);
+    const title = this.props.title ? this.props.title : '' ;
+
+    return this.timedTextEditorRef.current.getEditorContent(exportFormat, title);
   };
 
   handlePreviewIsDisplayed = () => {
@@ -271,6 +346,8 @@ class TranscriptEditor extends React.Component {
   handleSaveTranscript = () => {
     alert('The changes to this transcript have been saved in your browser');
 
+    this.timedTextEditorRef.current.updateTimestampsForEditorState();
+
     return this.timedTextEditorRef.current.localSave(this.props.mediaUrl);
   };
 
@@ -291,6 +368,7 @@ class TranscriptEditor extends React.Component {
       <MediaPlayer
         title={ this.props.title ? this.props.title : '' }
         mediaDuration={ this.state.mediaDuration }
+        currentTime={ this.state.currentTime }
         hookSeek={ foo => (this.setCurrentTime = foo) }
         hookPlayMedia={ foo => (this.playMedia = foo) }
         hookIsPlaying={ foo => (this.isPlaying = foo) }
@@ -328,6 +406,13 @@ class TranscriptEditor extends React.Component {
       />
     );
 
+    const exportOptions = (
+      <ExportOptions
+        exportOptionsList={ exportOptionsList }
+        handleExportOptionsChange={ this.handleExportOptionsChange }
+        handleExportToggle={ this.handleExportToggle }
+      />);
+
     const shortcuts = (
       <Shortcuts handleShortcutsToggle={ this.handleShortcutsToggle } />
     );
@@ -354,83 +439,22 @@ class TranscriptEditor extends React.Component {
       />
     );
 
-    const helpMessage = (
-      <div className={ style.helpMessage }>
-        <span>
-          <FontAwesomeIcon className={ style.icon } icon={ faMousePointer } />
-          Double click on a word or timestamp to jump to that point in the
-          video.
-        </span>
-        <span>
-          <FontAwesomeIcon className={ style.icon } icon={ faICursor } />
-          Start typing to edit text.
-        </span>
-        <span>
-          <FontAwesomeIcon className={ style.icon } icon={ faUserEdit } />
-          You can add and change names of speakers in your transcript.
-        </span>
-        <span>
-          <FontAwesomeIcon className={ style.icon } icon={ faKeyboard } />
-          Use keyboard shortcuts for quick control.
-        </span>
-        <span>
-          <FontAwesomeIcon className={ style.icon } icon={ faSave } />
-          Save & export to get a copy to your desktop.
-        </span>
-      </div>
-    );
-
-    const tooltip = (
-      <Tooltip
-        className={ style.help }
-        content={ helpMessage }
-        fadeDuration={ 250 }
-        fadeEasing={ 'ease-in' }
-        placement={ 'bottom' }
-        radius={ 5 }
-        border={ '#ffffff' }
-        background={ '#f2f2f2' }
-        color={ '#000000' }
-      >
-        <FontAwesomeIcon className={ style.icon } icon={ faQuestionCircle } />
-        How does this work?
-      </Tooltip>
-    );
-
-    const header = (
-      <>
-        <header className={ style.header }>
-          {this.state.showSettings ? settings : null}
-          {this.state.showShortcuts ? shortcuts : null}
-          {tooltip}
-        </header>
-        <nav className={ style.nav }>
-          {this.props.mediaUrl === null ? null : mediaControls}
-        </nav>
-        <div className={ style.settingsContainer }>
-          <button
-            className={ style.settingsButton }
-            title="Settings"
-            onClick={ this.handleSettingsToggle }
-          >
-            <FontAwesomeIcon icon={ faCog } />
-          </button>
-          <button
-            className={ `${ style.settingsButton } ${
-              style.keyboardShortcutsButon
-            }` }
-            title="view shortcuts"
-            onClick={ this.handleShortcutsToggle }
-          >
-            <FontAwesomeIcon icon={ faKeyboard } />
-          </button>
-        </div>
-      </>
-    );
-
     return (
       <div className={ style.container }>
-        {this.props.mediaUrl === null ? null : header}
+        {this.props.mediaUrl === null ? null : <Header
+          showSettings={ this.state.showSettings }
+          showShortcuts={ this.state.showShortcuts }
+          showExportOptions={ this.state.showExportOptions }
+          settings={ settings }
+          shortcuts={ shortcuts }
+          exportOptions={ exportOptions }
+          tooltip={ HowDoesThisWork }
+          mediaUrl={ this.props.mediaUrl }
+          mediaControls={ mediaControls }
+          handleSettingsToggle={ this.handleSettingsToggle }
+          handleShortcutsToggle={ this.handleShortcutsToggle }
+          handleExportToggle={ this.handleExportToggle }
+        />}
 
         <div className={ style.grid }>
           <section className={ style.row }>

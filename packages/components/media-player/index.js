@@ -12,20 +12,7 @@ import {
   timecodeToSeconds
 } from '../../util/timecode-converter';
 
-const PLAYBACK_RATES = [
-  { value: 0.2, label: '0.2' },
-  { value: 0.25, label: '0.25' },
-  { value: 0.5, label: '0.5' },
-  { value: 0.75, label: '0.75' },
-  { value: 1, label: '1' },
-  { value: 1.25, label: '1.25' },
-  { value: 1.5, label: '1.5' },
-  { value: 1.75, label: '1.75' },
-  { value: 2, label: '2' },
-  { value: 2.5, label: '2.5' },
-  { value: 3, label: '3' },
-  { value: 3.5, label: '3.5' }
-];
+import PLAYBACK_RATES from './src/PLAYBACK_RATES.js';
 
 class MediaPlayer extends React.Component {
   constructor(props) {
@@ -67,9 +54,38 @@ class MediaPlayer extends React.Component {
 
   componentDidMount() {
     // TODO: Should these hook functions be optional? are they needed? what do they actually do?
+    // TODO: these hook functions need refactoring, they are causing performance problems
     this.props.hookSeek(this.setCurrentTime);
     this.props.hookPlayMedia(this.togglePlayMedia);
     this.props.hookIsPlaying(this.isPlaying);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.rollBackValueInSeconds !== this.state.rollBackValueInSeconds) {
+      return true;
+    }
+    if (nextProps.timecodeOffset !== this.state.timecodeOffset) {
+      return true;
+    }
+    // TODO: workaround to keep the hook functions, only call re-renders
+    // if current time has changed. And it seems eliminate component's unecessary re-renders.
+    if (nextProps.currentTime !== this.props.currentTime) {
+      return true;
+    }
+
+    if (nextState.playbackRate !== this.state.playbackRate) {
+      return true;
+    }
+
+    if (nextProps.mediaDuration !== this.props.mediaDuration ) {
+      return true;
+    }
+
+    if (nextState.isMute !== this.state.isMute) {
+      return true;
+    }
+
+    return false;
   }
 
   setCurrentTime = newCurrentTime => {
@@ -392,20 +408,26 @@ class MediaPlayer extends React.Component {
     }
   };
 
+  // performance optimization
+  getProgressBarMax = () => {
+    return this.props.videoRef.current !== null
+      ? parseInt(this.props.videoRef.current.duration).toString()
+      : '100';
+  }
+
+  // performance optimization
+  getProgressBarValue = () => {
+    return this.props.videoRef.current !== null
+      ? parseInt(this.props.videoRef.current.currentTime)
+      : 0;
+  }
+
   render() {
     const progressBar = (
       <ProgressBar
-        max={
-          this.props.videoRef.current !== null
-            ? parseInt(this.props.videoRef.current.duration).toString()
-            : '100'
-        }
-        value={
-          this.props.videoRef.current !== null
-            ? parseInt(this.props.videoRef.current.currentTime)
-            : 0
-        }
-        buttonClick={ this.handleProgressBarClick.bind(this) }
+        max={ this.getProgressBarMax() }
+        value={ this.getProgressBarValue() }
+        buttonClick={ this.handleProgressBarClick }
       />
     );
 

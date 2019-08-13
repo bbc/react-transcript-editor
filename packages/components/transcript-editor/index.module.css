@@ -1,13 +1,5 @@
 @value color-subt-green, color-darkest-grey, color-labs-red from '../../config/style-guide/colours.module.css';
 
-/* ::selection {
-  background: color-subt-green;
-}
-
-::moz-selection  {
-  background: color-subt-green;
-} */
-
 .container {
   position: relative;
 }
@@ -55,17 +47,6 @@
     background-color: #f9f9f9;
     position: relative;
   }
-
-  .header {
-    background-color: black;
-    width: 100%;
-    display: block;
-  }
-
-  .nav {
-    width: 100%;
-  }
-
   .grid {
     margin-top: 1em;
     margin-left: 1em;
@@ -115,24 +96,6 @@
 
 /* Mobile devices - excluding ipad*/
 @media (max-width: 767px) {
-  /* .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
-    background-color: #f9f9f9;
-    position: relative;
-  } */
-
-  .header {
-    background-color: black;
-    width: 100%;
-  }
-
-  .nav {
-    width: 100%;
-  }
-
   .main {
     width: 100%;
     margin: 0 auto;
@@ -144,9 +107,9 @@
     top: 0;
     right: 0;
     padding: 0;
-  }
+  } 
 
-  .settingsButton {
+   .settingsButton {
     line-height: 1em;
     margin-left: 0.5em;
     background: color-darkest-grey;

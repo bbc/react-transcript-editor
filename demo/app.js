@@ -1,5 +1,9 @@
 import React from 'react';
-
+// NOTE: This slows down performance, even during development
+// if (process.env.NODE_ENV !== 'production') {
+//   const { whyDidYouUpdate } = require('why-did-you-update');
+//   whyDidYouUpdate(React, { exclude: [ /^HotKeysWrapper/ ] } );
+// }
 import TranscriptEditor from '../packages/components/transcript-editor';
 import SttTypeSelect from './select-stt-json-type';
 import ExportFormatSelect from './select-export-format';
@@ -116,7 +120,9 @@ class App extends React.Component {
     if (ext === 'json') {
       tmpData = JSON.stringify(data, null, 2);
     }
-    this.download(tmpData, `${ this.state.mediaUrl }.${ ext }`);
+    if (ext !== 'docx') {
+      this.download(tmpData, `${ this.state.mediaUrl }.${ ext }`);
+    }
   };
 
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
