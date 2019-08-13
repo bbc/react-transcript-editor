@@ -101,6 +101,7 @@
     "style-loader": "^0.23.1",
     "stylelint-config-standard": "^18.2.0",
     "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.6",
     "why-did-you-update": "^1.0.6"
   },
   "contributors": [
