@@ -1,5 +1,3 @@
-@value color-light-grey from '../../config/style-guide/colours.module.css';
-
 .topSection {
   background: black;
 }

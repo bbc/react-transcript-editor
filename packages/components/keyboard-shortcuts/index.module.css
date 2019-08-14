@@ -1,4 +1,4 @@
-@value color-lightest-grey, color-labs-red, color-dark-grey from '../../config/style-guide/colours.module.css';
+@import '../../config/style-guide/colours.scss';
 
 .shortcuts {
   font-size: 0.85em;
@@ -7,7 +7,7 @@
   height: auto;
   vertical-align: middle;
   color: black;
-  background: color-lightest-grey;
+  background: $color-lightest-grey;
   z-index: 2;
   position: absolute;
   top: 0;
@@ -43,7 +43,7 @@
 .shortcut {
   display: inline-block;
   width: 6em;
-  background: color-labs-red;
+  background: $color-labs-red;
   font-weight: lighter;
   color: white;
   padding: 0 0;

@@ -1,4 +1,4 @@
-@value color-light-grey, color-labs-red from '../../../config/style-guide/colours.module.css';
+@import '../../../config/style-guide/colours.scss';
 
 .bar {
   width: 100%;
@@ -17,14 +17,14 @@
   -webkit-appearance: none;
   height: 30px;
   width: 16px;
-  background: color-labs-red;
+  background: $color-labs-red;
   cursor: pointer;
 }
 
 .bar::-moz-range-thumb {
   height: 30px;
   width: 16px;
-  background: color-labs-red;
+  background: $color-labs-red;
   cursor: pointer;
   border: 0;
 }
