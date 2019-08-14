@@ -43,7 +43,7 @@
     "no-param-reassign": [ 1 ],
     "no-shadow": [ 1 ],
     "camelcase": [ 1 ],
-    "no-underscore-dangle" : [0, "always"],
+    "no-underscore-dangle": [0, "always"],
     "keyword-spacing": ["error", { "before": true, "after": true }],
     "key-spacing": ["error", { "afterColon": true }],
     "newline-before-return": "error",
