@@ -38,4 +38,9 @@ ProgressBar.propTypes = {
   buttonClick: PropTypes.func
 };
 
+ProgressBar.defaultProps = {
+  value: '0',
+  max: '0',
+};
+
 export default ProgressBar;
