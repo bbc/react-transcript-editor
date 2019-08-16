@@ -8,19 +8,19 @@ From left to right
 
 | item | Buttons      |  Steps        | Expected Results   |
 |---|---           |---            |---                 |
-| 1.1.1 |RollBack      | click         | To rewind of a set amount, 15 sec default  |
-| 1.1.2 |rewind        | click         | Rewind 10 sec  |
-| 1.1.3 |rewind        | click - hold  | Continue to rewind until release of btn  |
-| 1.1.4 |play          | click         | play media, audio or video  |
-| 1.1.5 |fast forward  | click         | Fast forward 10 sec   |
-| 1.1.6 |fast forward  | click - hold  | Continue to fast forward until release of btn  |
-| 1.1.7 |Playback speed | click - select| change the playback speed, of amount from dropdown  |
-| 1.1.8 |current time  | display       | display current time of media, updates while playing  |
-| 1.1.9 |current time  | click         | triggers prompt to jump to set time, using custom formats options  |
-| 1.1.10|Duration      | display       | display duration of media    |
-| 1.1.11|Save      | click on 💾       | should save content to local storage    |
-| 1.1.12|'Picture in Picture'  📺    | click       | hide or show video as separate window always on top   |
-| 1.1.13|Volume        | click - Toggle| Mutes and un-mutes media   |
+| 1.1.1 |current time  | display       | display current time of media, updates while playing  |
+| 1.1.2 |current time  | click         | triggers prompt to jump to set time, using custom formats options  |
+| 1.1.3|Duration      | display       | display duration of media    |
+| 1.1.4 |RollBack      | click         | To rewind of a set amount, 15 sec default  |
+| 1.1.5 |rewind        | click         | Rewind 10 sec  |
+| 1.1.6 |rewind        | click - hold  | Continue to rewind until release of btn  |
+| 1.1.7 |play          | click         | play media, audio or video  |
+| 1.1.8 |fast forward  | click         | Fast forward 10 sec   |
+| 1.1.9 |fast forward  | click - hold  | Continue to fast forward until release of btn  |
+| 1.1.10 |Playback speed | click - select| change the playback speed, of amount from dropdown  |
+| 1.1.12|Save      | click on 💾       | should save content to local storage    |
+| 1.1.13|'Picture in Picture'  📺    | click       | hide or show video as separate window always on top   |
+| 1.1.14|Volume        | click - Toggle| Mutes and un-mutes media   |
 
 #### Item to test #1.2: Player Controls - Preview
 
