@@ -10,6 +10,10 @@ class VideoPlayer extends React.Component {
       return true;
     }
 
+    if (nextProps.mediaUrl !== this.props.mediaUrl) {
+      return true;
+    }
+
     return false;
   }
 
