@@ -129,26 +129,32 @@ class TimedTextEditor extends React.Component {
     // Re-convert updated content to raw to gain access to block keys
     const updatedContentBlocks = convertToRaw(updatedContent);
 
-    // Build block map, which maps the block keys of the previous content to the block keys of the
-    // updated content.
-    var blockMap = {};
-    for (var blockIdx = 0; blockIdx < currentContent.blocks.length; blockIdx++) {
-      blockMap[currentContent.blocks[blockIdx].key] = updatedContentBlocks.blocks[blockIdx].key;
-    }
-
     // Get current selection state and update block keys
     const selectionState = this.state.editorState.getSelection();
 
-    const selection = selectionState.merge({
-      anchorOffset: selectionState.getAnchorOffset(),
-      anchorKey: blockMap[selectionState.getAnchorKey()],
-      focusOffset: selectionState.getFocusOffset(),
-      focusKey: blockMap[selectionState.getFocusKey()],
-    });
+    // Check if editor has currently the focus. If yes, keep current selection.
+    if (selectionState.getHasFocus()) {
 
-    // Set the updated selection state on the new editor state
-    const newEditorStateSelected = EditorState.forceSelection(newEditorState, selection);
-    this.setState({ editorState: newEditorStateSelected });
+      // Build block map, which maps the block keys of the previous content to the block keys of the
+      // updated content.
+      var blockMap = {};
+      for (var blockIdx = 0; blockIdx < currentContent.blocks.length; blockIdx++) {
+        blockMap[currentContent.blocks[blockIdx].key] = updatedContentBlocks.blocks[blockIdx].key;
+      }
+
+      const selection = selectionState.merge({
+        anchorOffset: selectionState.getAnchorOffset(),
+        anchorKey: blockMap[selectionState.getAnchorKey()],
+        focusOffset: selectionState.getFocusOffset(),
+        focusKey: blockMap[selectionState.getFocusKey()],
+      });
+
+      // Set the updated selection state on the new editor state
+      const newEditorStateSelected = EditorState.forceSelection(newEditorState, selection);
+      this.setState({ editorState: newEditorStateSelected });
+    } else {
+      this.setState({ editorState: newEditorState });
+    }
   }
 
   loadData() {
