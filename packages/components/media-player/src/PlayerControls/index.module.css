@@ -23,6 +23,10 @@
   cursor: pointer;
   margin-right: 0.3rem;
   margin-top: 0.3rem;
+
+  &:hover {
+    background: $color-dark-grey;
+  }
 }
 
 .playBackRate {
@@ -51,6 +55,11 @@
   width: 100%;
   color: white;
   background-color: $color-darkest-grey;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-dark-grey;
+  }
 }
 
 .timeBox {

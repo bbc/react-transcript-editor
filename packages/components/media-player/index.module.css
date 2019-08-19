@@ -31,12 +31,12 @@
 @media (max-width: 768px) {
 
   .title {
-    width: 100%;
     margin-top: 0;
     margin-bottom: 0.5em;
     text-align: center;
     font-size: 1.2em;
     line-height: 1.2em;
     padding-top: 1em;
+    white-space: normal;
   }
 }

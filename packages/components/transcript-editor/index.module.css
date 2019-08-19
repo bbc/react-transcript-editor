@@ -22,6 +22,24 @@
   text-align: left;
 }
 
+.settingsButton {
+  line-height: 1em;
+  margin-left: 0.5em;
+  background: $color-darkest-grey;
+  display: inline-block;
+  border: 0;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  text-align: center;
+  width: 2em;
+  height: 2em;
+
+  &:hover {
+    background: $color-dark-grey;
+  }
+}
+
 @media (max-width: 768px) {
 
   .help {
@@ -65,20 +83,6 @@
     right: 0;
     padding: 0;
   }
-
-  .settingsButton {
-    line-height: 1em;
-    margin-left: 0.5em;
-    background: $color-darkest-grey;
-    display: inline-block;
-    border: 0;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    text-align: center;
-    width: 2em;
-    height: 2em;
-  }
 }
 
 /* Ipad */
@@ -107,20 +111,6 @@
     top: 0;
     right: 0;
     padding: 0;
-  }
-
-   .settingsButton {
-    line-height: 1em;
-    margin-left: 0.5em;
-    background: $color-darkest-grey;
-    display: inline-block;
-    border: 0;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    text-align: center;
-    width: 2em;
-    height: 2em;
   }
 
   .keyboardShortcutsButon {
