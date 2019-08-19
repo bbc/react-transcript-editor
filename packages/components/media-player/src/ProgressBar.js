@@ -5,15 +5,10 @@ import style from './ProgressBar.module.css';
 
 class ProgressBar extends React.Component {
 
-  // performance optimization
   shouldComponentUpdate = (nextProps) => {
-    if (nextProps !== this.props) {
-      return true;
-    }
-
-    return false;
+    return nextProps !== this.props;
   }
-  // performance optimization
+
   handleOnChange = (e) => {
     this.props.buttonClick(e);
   }

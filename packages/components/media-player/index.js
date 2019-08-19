@@ -237,9 +237,7 @@ class MediaPlayer extends React.Component {
   // TEMP: keeping this in for now. Might be replaced by state
   // The pauseWhileTyping logic (in TimedTextEditor) currently uses this
   isPlaying = () => {
-    if (this.props.videoRef.current.paused) return false;
-
-    return true;
+    return !this.props.videoRef.current.paused;
   };
 
   pauseMedia = () => {

@@ -6,14 +6,10 @@ import style from './PlayerControls/index.module.css';
 
 class PlaybackRate extends React.Component {
 
-  // to avoid unnecessary re-renders
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.playbackRate !== this.props.playbackRate) {
-      return true;
-    }
-
-    return false;
+  shouldComponentUpdate = (nextProps) => {
+    return nextProps.playbackRate !== this.props.playbackRate;
   }
+
   render() {
     return (
       <span className={ style.playBackRate }
