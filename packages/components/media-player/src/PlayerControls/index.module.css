@@ -37,28 +37,28 @@
   cursor: pointer;
   position: relative;
   margin-right: 0.3rem;
-}
 
-.playBackRate::before {
-  content: '×';
-  position: absolute;
-  bottom: -2px;
-  left: 21px;
-}
+  &::before {
+    content: '×';
+    position: absolute;
+    bottom: -2px;
+    left: 21px;
+  }
 
-.playBackRate > select {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  height: 100%;
-  outline: none;
-  width: auto;
-  width: 100%;
-  color: white;
-  background-color: $color-darkest-grey;
-  cursor: pointer;
+  & > select {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    height: 100%;
+    outline: none;
+    width: auto;
+    width: 100%;
+    color: white;
+    background-color: $color-darkest-grey;
+    cursor: pointer;
 
-  &:hover {
-    background-color: $color-dark-grey;
+    &:hover {
+      background-color: $color-dark-grey;
+    }
   }
 }
 
@@ -68,31 +68,31 @@
   line-height: 48px;
   padding: 0 1em;
   background-color: $color-darkest-grey;
-}
 
-.currentTime {
-  color: $color-light-shilo;
-  cursor: pointer;
-  font-family: 'Lucida Console', monospace;
-}
+  .currentTime {
+    color: $color-light-shilo;
+    cursor: pointer;
+    font-family: 'Lucida Console', monospace;
+  }
 
-.separator {
-  color: $color-light-grey;
-  margin: 0 1em;
-}
+  .separator {
+    color: $color-light-grey;
+    margin: 0 1em;
+  }
 
-.duration {
-  color: white;
-  font-family: 'Lucida Console',  monospace;
+  .duration {
+    color: white;
+    font-family: 'Lucida Console',  monospace;
+  }
 }
 
 @media (max-width: 768px) {
 
   .playerControls {
-    margin: 0 0 10px 0;
     display: grid;
-    grid-template-rows: 10% 48px 48px;
+    grid-template-rows: 10% 3rem 3rem;
     grid-row-gap: 5px;
+    margin: 0 0 0.5rem 0;
   }
 
   .playerControls > *:not(:last-child) {
@@ -113,57 +113,34 @@
 
   .playBackRate {
     width: 100%;
-    border: 0;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    position: relative;
     grid-column: 1 / span 2;
-  }
 
-  .playBackRate::before {
-    content: '×';
-    position: absolute;
-    bottom: 30%;
-    left: 21px;
-  }
-
-  .playBackRate > select {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    height: 100%;
-    outline: none;
-    width: auto;
-    width: 100%;
-    color: white;
-    background-color: $color-darkest-grey;
+    &::before {
+      bottom: 30%;
+    }
   }
 
   .timeBox {
     background-color: transparent;
     align-self: start;
     padding: 0;
-  }
 
-  .currentTime {
-    color: $color-light-shilo;
-    cursor: pointer;
-    float: left;
-    font-size: 0.7em;
-    line-height: 1em;
-  }
+    .currentTime {
+      float: left;
+      font-size: 0.7em;
+      line-height: 1em;
+    }
 
-  .separator {
-    color: $color-light-grey;
-    margin: 0 1em;
-    display: none;
-  }
+    .separator {
+      display: none;
+    }
 
-  .duration {
-    color: white;
-    font-size: 0.7em;
-    float: right;
-    line-height: 1em;
+    .duration {
+      color: white;
+      font-size: 0.7em;
+      float: right;
+      line-height: 1em;
+    }
   }
 
   .pip {

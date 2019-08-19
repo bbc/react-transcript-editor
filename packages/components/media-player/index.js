@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { hotkeys } from 'react-keyboard-shortcuts';
+
 import PlayerControls from './src/PlayerControls';
 import ProgressBar from './src/ProgressBar';
 
 import returnHotKeys from './src/defaultHotKeys';
+
 import styles from './index.module.css';
 
 import {
@@ -12,7 +14,7 @@ import {
   timecodeToSeconds
 } from '../../util/timecode-converter';
 
-import PLAYBACK_RATES from './src/PLAYBACK_RATES.js';
+import PLAYBACK_RATES from './src/config/playbackRates.js';
 
 class MediaPlayer extends React.Component {
   constructor(props) {
