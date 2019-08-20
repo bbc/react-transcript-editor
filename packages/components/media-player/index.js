@@ -5,9 +5,9 @@ import { hotkeys } from 'react-keyboard-shortcuts';
 import PlayerControls from './src/PlayerControls';
 import ProgressBar from './src/ProgressBar';
 
-import returnHotKeys from './src/defaultHotKeys';
+import returnHotKeys from './src/config/defaultHotKeys';
 
-import styles from './index.module.css';
+import styles from './index.module.scss';
 
 import {
   secondsToTimecode,

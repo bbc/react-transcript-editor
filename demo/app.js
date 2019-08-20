@@ -10,7 +10,7 @@ import DEMO_TRANSCRIPT from './sample-data/KateDarling-bbcKaldiTranscriptWithSpe
 const DEMO_MEDIA_URL = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
 const DEMO_TITLE = 'TED Talk | Kate Darling - Why we have an emotional connection to robots';
 
-import style from './index.module.css';
+import style from './index.module.scss';
 
 class App extends React.Component {
   constructor(props) {

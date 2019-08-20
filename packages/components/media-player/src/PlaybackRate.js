@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Select from './Select';
 
-import style from './PlayerControls/index.module.css';
+import style from './PlayerControls/index.module.scss';
 
 class PlaybackRate extends React.Component {
 

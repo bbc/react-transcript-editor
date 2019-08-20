@@ -1,6 +1,9 @@
 // based on https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
 // and http://jasonwatmore.com/post/2018/04/14/react-npm-how-to-publish-a-react-component-to-npm
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   mode: 'production',
@@ -31,26 +34,41 @@ module.exports = {
   optimization: {
     minimize: true
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
+    })
+  ],
   module: {
     rules: [
       {
-        test: /\.module.css$/,
+        test: /\.module.(sa|sc|c)ss$/,
         use: [
-          {
-            loader: 'style-loader'
-          },
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {
-              modules: true
-            }
+            options: { modules: true, sourcemap: isDevelopment }
           },
           {
             loader: 'sass-loader',
-            options: {
-              modules: true
-            }
+            options: { sourcemap: isDevelopment }
+          }
+        ]
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        exclude: /\.module.(s(a|c)ss)$/,
+        use: [
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: { sourcemap: isDevelopment }
           },
+          {
+            loader: 'sass-loader',
+            options: { sourcemap: isDevelopment }
+          }
         ]
       },
       {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import style from './Select.module.css';
+import style from './Select.module.scss';
 
 class Select extends React.Component {
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import style from './index.module.css';
-
 import {
   faSave,
   faTv,
@@ -19,18 +17,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PlaybackRate from '../PlaybackRate';
 import TimeBox from './TimeBox.js';
 
+import style from './index.module.scss';
+
 class PlayerControls extends React.Component {
 
   shouldComponentUpdate = (nextProps) => {
-    if (nextProps !== this.props) return true;
-
-    return false;
+    return nextProps !== this.props;
   }
 
-  // to handle backward and forward mouse pressed on btn
-  // set a 300 ms  interval to repeat the
-  // backward or forward function
-  // on mouseUp the interval is cleared
   setIntervalHelperBackward = () => {
     // this.props.skipBackward();
     this.interval = setInterval(() => {
@@ -115,7 +109,7 @@ class PlayerControls extends React.Component {
           <button
             value="Picture-in-picture"
             title="Picture-in-picture"
-            className={ style.playerButton + ' ' + style.pip }
+            className={ `${ style.playerButton } ${ style.pip }` }
             onClick={ this.props.pictureInPicture }>
             <FontAwesomeIcon icon={ faTv } />
           </button>

@@ -10,7 +10,8 @@
   ],
   "env": {
     "browser": true,
-    "jest": true
+    "jest": true,
+    "node": true,
   },
   "rules": {
     "prefer-const": 1,
