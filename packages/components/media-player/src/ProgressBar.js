@@ -15,14 +15,16 @@ class ProgressBar extends React.Component {
 
   render() {
     return (
-      <input
-        type='range'
-        className={ style.bar }
-        onChange={ this.handleOnChange }
-        value={ this.props.value }
-        min='0'
-        max={ this.props.max.toString() }
-      />
+      <div className={ style.wrapper }>
+        <input
+          type='range'
+          className={ style.bar }
+          onChange={ this.handleOnChange }
+          value={ this.props.value }
+          min='0'
+          max={ this.props.max.toString() }
+        />
+      </div>
     );
   }
 }
