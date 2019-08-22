@@ -1,39 +1,90 @@
 @import '../../../config/style-guide/colours.scss';
 
-.bar {
+$slider-width-number: 1440;
+$slider-width: #{$slider-width-number}px;
+$slider-height: 10px;
+$background-slider: $color-light-grey;
+$bar-slider-filled: $color-labs-red;
+$thumb-width: 16px;
+$thumb-height: 24px;
+$shadow-size: -7px;
+$fit-thumb-in-slider: -7px;
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function makelongshadow($color, $size) {
+  $val: 1px 0 0 $size $color;
+
+  @for $i from 1 through $slider-width-number {
+    $val: #{$val}, #{$i}px 0 0 $size #{$color};
+  }
+
+  @return $val;
+}
+
+.wrapper {
   width: 100%;
-  -webkit-appearance: none;
-  height: 10px;
-  background: #747474;
-  margin: 0px;
-  outline: none;
-  cursor: pointer;
+  overflow-x: hidden;
   position: absolute;
-  bottom: 0;
   left: 0;
+  bottom: -5px;
 }
 
-.bar::-webkit-slider-thumb {
+.bar {
   -webkit-appearance: none;
-  height: 30px;
-  width: 16px;
-  background: $color-labs-red;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
   cursor: pointer;
-}
-
-.bar::-moz-range-thumb {
-  height: 30px;
-  width: 16px;
-  background: $color-labs-red;
-  cursor: pointer;
-  border: 0;
-}
-
-.bar::-webkit-slider-runnable-track {
   width: 100%;
-  cursor: pointer;
-}
+  margin: 0;
 
-input[type=range]::-moz-focus-outer {
-  border: 0;
+  &::-webkit-slider-runnable-track {
+    height: $slider-height;
+    width: $slider-width;
+    content: '';
+    pointer-events: none;
+    background: $bar-slider-filled;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: $thumb-height;
+    width: $thumb-width;
+    margin-top: $fit-thumb-in-slider;
+    background: $color-labs-red;
+    box-shadow: makelongshadow($color-light-grey, $shadow-size);
+    cursor: pointer;
+  }
+
+  &::-moz-range-track {
+    height: $slider-height;
+    width: $slider-width;
+    content: '';
+    pointer-events: none;
+    background: $bar-slider-filled;
+  }
+
+  &::-moz-range-thumb {
+    -moz-appearance: none;
+    height: $thumb-height;
+    width: $thumb-width;
+    margin-top: $fit-thumb-in-slider;
+    background: $color-labs-red;
+    box-shadow: makelongshadow($color-light-grey, $shadow-size);
+    cursor: pointer;
+  }
+
+  &::-moz-range-progress {
+    height: $slider-height;
+    background: $bar-slider-filled;
+    border: 0;
+    margin-top: 0;
+  }
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
 }
