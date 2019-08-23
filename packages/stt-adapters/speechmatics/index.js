@@ -6,34 +6,6 @@
 import generateEntitiesRanges from '../generate-entities-ranges/index.js';
 
 /**
- * groups words list from speechmatics based on punctuation.
- * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
- * @todo As this function is also used in the bbc-kaldi adapter, should it be refactored into its own file?
- * @param {array} words - array of words objects from speechmatics transcript
- */
-const groupWordsInParagraphs = (words) => {
-  const results = [];
-  let paragraph = { words: [], text: [] };
-  debugger;
-
-  words.forEach((word) => {
-    // if word contains punctuation
-    if (/[.?!]/.test(word.punct)) {
-      paragraph.words.push(word);
-      paragraph.text.push(word.punct);
-      results.push(paragraph);
-      // reset paragraph
-      paragraph = { words: [], text: [] };
-    } else {
-      paragraph.words.push(word);
-      paragraph.text.push(word.punct);
-    }
-  });
-
-  return results;
-};
-
-/**
  * Determines the speaker of a paragraph by comparing the start time of the paragraph with
  * the speaker times.
  * @param {float} start - Starting point of paragraph
@@ -49,6 +21,38 @@ const getSpeaker = (start, speakers) => {
   }
 
   return 'UNK';
+};
+
+/**
+ * groups words list from speechmatics based on punctuation.
+ * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
+ * @todo As this function is also used in the bbc-kaldi adapter, should it be refactored into its own file?
+ * @param {array} words - array of words objects from speechmatics transcript
+ */
+const groupWordsInParagraphs = (words, speakers) => {
+  const results = [];
+  let paragraph = { words: [], text: [], speaker: '' };
+  let oldSpeaker = getSpeaker(words[0].start, speakers);
+  let newSpeaker;
+
+  words.forEach((word) => {
+    newSpeaker = getSpeaker(word.start, speakers);
+    // if speaker changes
+    if (newSpeaker !== oldSpeaker) {
+      paragraph.speaker = oldSpeaker;
+      results.push(paragraph);
+      oldSpeaker = newSpeaker;
+      // reset paragraph
+      paragraph = { words: [], text: [] };
+    }
+    paragraph.words.push(word);
+    paragraph.text.push(word.punct);
+  });
+
+  paragraph.speaker = oldSpeaker;
+  results.push(paragraph);
+
+  return results;
 };
 
 /**
@@ -97,7 +101,7 @@ const speechmaticsToDraft = (speechmaticsJson) => {
     });
   });
 
-  const wordsByParagraphs = groupWordsInParagraphs(tmpWords);
+  const wordsByParagraphs = groupWordsInParagraphs(tmpWords, tmpSpeakers);
 
   wordsByParagraphs.forEach((paragraph) => {
     const paragraphStart = paragraph.words[0].start;
@@ -105,7 +109,7 @@ const speechmaticsToDraft = (speechmaticsJson) => {
       text: paragraph.text.join(' '),
       type: 'paragraph',
       data: {
-        speaker: getSpeaker(paragraphStart, tmpSpeakers),
+        speaker: paragraph.speaker,
         words: paragraph.words,
         start: paragraphStart
       },
