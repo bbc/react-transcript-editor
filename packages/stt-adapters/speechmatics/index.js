@@ -29,16 +29,17 @@ const getSpeaker = (start, speakers) => {
  * @todo As this function is also used in the bbc-kaldi adapter, should it be refactored into its own file?
  * @param {array} words - array of words objects from speechmatics transcript
  */
-const groupWordsInParagraphs = (words, speakers) => {
+const groupWordsInParagraphs = (words, speakers, maxParagraphWords) => {
   const results = [];
   let paragraph = { words: [], text: [], speaker: '' };
   let oldSpeaker = getSpeaker(words[0].start, speakers);
   let newSpeaker;
+  let sentenceEnd = false;
 
   words.forEach((word) => {
     newSpeaker = getSpeaker(word.start, speakers);
     // if speaker changes
-    if (newSpeaker !== oldSpeaker) {
+    if (newSpeaker !== oldSpeaker || (paragraph.words.length > maxParagraphWords && sentenceEnd)) {
       paragraph.speaker = oldSpeaker;
       results.push(paragraph);
       oldSpeaker = newSpeaker;
@@ -47,6 +48,7 @@ const groupWordsInParagraphs = (words, speakers) => {
     }
     paragraph.words.push(word);
     paragraph.text.push(word.punct);
+    sentenceEnd = /[.?!]/.test(word.punct) ? true : false;
   });
 
   paragraph.speaker = oldSpeaker;
@@ -101,7 +103,7 @@ const speechmaticsToDraft = (speechmaticsJson) => {
     });
   });
 
-  const wordsByParagraphs = groupWordsInParagraphs(tmpWords, tmpSpeakers);
+  const wordsByParagraphs = groupWordsInParagraphs(tmpWords, tmpSpeakers, 150);
 
   wordsByParagraphs.forEach((paragraph) => {
     const paragraphStart = paragraph.words[0].start;
