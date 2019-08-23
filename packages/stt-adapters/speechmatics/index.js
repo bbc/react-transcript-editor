@@ -14,6 +14,7 @@ import generateEntitiesRanges from '../generate-entities-ranges/index.js';
 const groupWordsInParagraphs = (words) => {
   const results = [];
   let paragraph = { words: [], text: [] };
+  debugger;
 
   words.forEach((word) => {
     // if word contains punctuation
@@ -41,7 +42,8 @@ const groupWordsInParagraphs = (words) => {
 const getSpeaker = (start, speakers) => {
   for (var speakerIdx in speakers) {
     const speaker = speakers[speakerIdx];
-    if (start >= speaker.start & start < speaker.end) {
+    const segmentStart = parseFloat(start);
+    if (segmentStart >= speaker.start & segmentStart < speaker.end) {
       return speaker.name;
     }
   }
@@ -89,8 +91,8 @@ const speechmaticsToDraft = (speechmaticsJson) => {
   tmpSpeakers = speechmaticsJson.speakers;
   tmpSpeakers = tmpSpeakers.map((element) => {
     return ({
-      start: element.time,
-      end: (parseFloat(element.time) + parseFloat(element.duration)).toString(),
+      start: parseFloat(element.time),
+      end: (parseFloat(element.time) + parseFloat(element.duration)),
       name: element.name,
     });
   });
