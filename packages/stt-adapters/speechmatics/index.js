@@ -24,10 +24,10 @@ const getSpeaker = (start, speakers) => {
 };
 
 /**
- * groups words list from speechmatics based on punctuation.
- * @todo To be more accurate, should introduce an honorifics library to do the splitting of the words.
- * @todo As this function is also used in the bbc-kaldi adapter, should it be refactored into its own file?
+ * groups words list from speechmatics based on speaker change and paragraph length.
  * @param {array} words - array of words objects from speechmatics transcript
+ * @param {array} speakers - array of speaker objects from speechmatics transcript
+ * @param {int} words - number of words which trigger a paragraph break
  */
 const groupWordsInParagraphs = (words, speakers, maxParagraphWords) => {
   const results = [];
