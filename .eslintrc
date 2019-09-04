@@ -2,7 +2,8 @@
   "parser": "babel-eslint",
   "plugins": [
     "react",
-    "css-modules"
+    "css-modules",
+    "react-hooks"
   ],
   "extends": [
     "plugin:react/recommended",
@@ -13,6 +14,8 @@
     "jest": true
   },
   "rules": {
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
     "prefer-const": 1,
     "space-infix-ops": ["error", {"int32Hint": false}],
     "no-unused-expressions": "error",
