@@ -351,6 +351,10 @@ class TranscriptEditor extends React.Component {
     return this.timedTextEditorRef.current.localSave(this.props.mediaUrl);
   };
 
+  handleSave = () => {
+    console.log('SAve');
+  }
+
   render() {
     const videoPlayer = (
       <VideoPlayer
@@ -424,14 +428,15 @@ class TranscriptEditor extends React.Component {
         timecodeOffset={ this.state.timecodeOffset }
         onWordClick={ this.handleWordClick }
         playMedia={ this.handlePlayMedia }
+        handleSave={ this.handleSave }
         isPlaying={ this.handleIsPlaying }
         currentTime={ this.state.currentTime }
         isEditable={ this.props.isEditable }
-        spellCheck={ this.props.spellCheck }
+        isSpellCheck={ this.props.spellCheck }
         sttJsonType={ this.props.sttJsonType }
         mediaUrl={ this.props.mediaUrl }
-        isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
-        isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
+        isScrollIntoView={ this.state.isScrollIntoViewOn }
+        isPauseWhileTyping={ this.state.isPauseWhileTypingOn }
         showTimecodes={ this.state.showTimecodes }
         showSpeakers={ this.state.showSpeakers }
         ref={ this.timedTextEditorRef }

@@ -5,7 +5,7 @@ import {
 } from 'draft-js';
 import WrapperBlock from './WrapperBlock';
 
-const CustomEditor = React.memo((props) => {
+const CustomEditor = (props) => {
 
   const handleWordClick = e => {
     props.onWordClick(e);
@@ -42,6 +42,6 @@ const CustomEditor = React.memo((props) => {
       spellCheck={ props.spellCheck }
     />
   );
-});
+};
 
-export default CustomEditor;
+export default React.memo(CustomEditor);
