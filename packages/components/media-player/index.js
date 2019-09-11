@@ -21,6 +21,7 @@ class MediaPlayer extends React.Component {
     super(props);
 
     this.state = {
+      currentTime: this.props.currentTime,
       playbackRate: 1,
       rollBackValueInSeconds: this.props.rollBackValueInSeconds,
       timecodeOffset: this.props.timecodeOffset,
@@ -28,9 +29,10 @@ class MediaPlayer extends React.Component {
       isPlaying: false,
       playbackRateOptions: PLAYBACK_RATES,
       previewIsDisplayed: true,
-      isMute: false
+      isMute: false,
     };
   }
+
   /*eslint-disable camelcase */
   hot_keys = returnHotKeys(this);
 
@@ -56,59 +58,41 @@ class MediaPlayer extends React.Component {
   }
 
   componentDidMount() {
-    // TODO: Should these hook functions be optional? are they needed? what do they actually do?
-    // TODO: these hook functions need refactoring, they are causing performance problems
+    // TODO: Refactor hook functions - are they still needed? Causing performance issues.
     this.props.hookSeek(this.setCurrentTime);
     this.props.hookPlayMedia(this.togglePlayMedia);
     this.props.hookIsPlaying(this.isPlaying);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.rollBackValueInSeconds !== this.state.rollBackValueInSeconds) {
-      return true;
-    }
-    if (nextProps.timecodeOffset !== this.state.timecodeOffset) {
-      return true;
-    }
-    // TODO: workaround to keep the hook functions, only call re-renders
-    // if current time has changed. And it seems eliminate component's unecessary re-renders.
-    if (nextProps.currentTime !== this.props.currentTime) {
-      return true;
-    }
+    if (nextProps.rollBackValueInSeconds !== this.state.rollBackValueInSeconds) return true;
+    if (nextProps.timecodeOffset !== this.state.timecodeOffset) return true;
 
-    if (nextState.playbackRate !== this.state.playbackRate) {
-      return true;
-    }
-
-    if (nextProps.mediaDuration !== this.props.mediaDuration ) {
-      return true;
-    }
-
-    if (nextState.isMute !== this.state.isMute) {
-      return true;
-    }
+    if (nextProps.currentTime !== this.props.currentTime) return true;
+    if (nextState.playbackRate !== this.state.playbackRate) return true;
+    if (nextProps.mediaDuration !== this.props.mediaDuration ) return true;
+    if (nextState.isMute !== this.state.isMute) return true;
 
     return false;
   }
 
   setCurrentTime = newCurrentTime => {
-    if (newCurrentTime !== '' && newCurrentTime !== null) {
-      // hh:mm:ss:ff - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
+    if (newCurrentTime) {
       const newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTime);
-      const videoRef = this.props.videoRef.current;
 
-      if (videoRef.readyState === 4) {
-        videoRef.currentTime = newCurrentTimeInSeconds;
-        this.playMedia();
-      }
+      this.setState({
+        currentTime: newCurrentTimeInSeconds
+      }, () => {
+        const videoRef = this.props.videoRef.current;
+        if (videoRef.readyState === 4) {
+          videoRef.currentTime = newCurrentTimeInSeconds;
+        }
+
+        if (!this.state.isPlaying) this.playMedia();
+      });
     }
   };
 
-  /**
-   * Prompts for a time stamp or time code to set media current time
-   * Also handles use can when the user has set a timecode offset via settings
-   * and the prompt is expected to be relative to that offset
-   */
   promptSetCurrentTime = () => {
     let userTimecodeValue = prompt(
       'Jump to time - hh:mm:ss:ff hh:mm:ss mm:ss m:ss m.ss seconds'
@@ -125,11 +109,11 @@ class MediaPlayer extends React.Component {
       });
     }
     // user clicks cancel to prompt, prompt returns null
-    if (userTimecodeValue !== null) {
+    if (userTimecodeValue) {
       if (userTimecodeValue.includes(':')) {
         userTimecodeValue = timecodeToSeconds(userTimecodeValue);
       }
-      // remove timecode offset if preset
+
       if (this.state.timecodeOffset !== 0) {
         userTimecodeValue -= this.state.timecodeOffset;
       }
@@ -139,6 +123,14 @@ class MediaPlayer extends React.Component {
   };
 
   setTimeCodeOffset = newTimeCodeOffSet => {
+    if (newTimeCodeOffSet) {
+      if (newTimeCodeOffSet.includes(':')) {
+        this.setState({
+          timecodeOffset: timecodeToSeconds(newTimeCodeOffSet)
+        });
+      }
+    }
+
     if (this.props.handleAnalyticsEvents) {
       this.props.handleAnalyticsEvents({
         category: 'MediaPlayer',
@@ -147,18 +139,14 @@ class MediaPlayer extends React.Component {
         value: newTimeCodeOffSet
       });
     }
-
-    if (newTimeCodeOffSet !== '' && newTimeCodeOffSet !== null) {
-      // use similar helper function from above to convert
-      let newCurrentTimeInSeconds = newTimeCodeOffSet;
-      if (newTimeCodeOffSet.includes(':')) {
-        newCurrentTimeInSeconds = timecodeToSeconds(newTimeCodeOffSet);
-        this.setState({ timecodeOffset: newCurrentTimeInSeconds });
-      }
-    }
   };
 
   rollBack = () => {
+    const videoRef = this.props.videoRef.current;
+    const newTime = this.state.currentTime - this.state.rollBackValueInSeconds;
+
+    this.setCurrentTime(newTime);
+
     if (this.props.handleAnalyticsEvents) {
       this.props.handleAnalyticsEvents({
         category: 'MediaPlayer',
@@ -167,12 +155,6 @@ class MediaPlayer extends React.Component {
         value: this.state.rollBackValueInSeconds
       });
     }
-    // get video duration
-    const videoElem = this.props.videoRef.current;
-    const tmpDesiredCurrentTime =
-        videoElem.currentTime - this.state.rollBackValueInSeconds;
-      // > 0 < duration of video
-    this.setCurrentTime(tmpDesiredCurrentTime);
   };
 
   handlePlayBackRateChange = e => {
@@ -180,23 +162,20 @@ class MediaPlayer extends React.Component {
   };
 
   /**
-   * @param {float} input - playback rate value as a float
+   * @param {float} rate - playback rate
    */
-  setPlayBackRate = input => {
-    if (input >= 0.2 && input <= 3.5) {
-      this.setState(
-        {
-          playbackRate: input
-        },
+  setPlayBackRate = rate => {
+    if (rate >= 0.2 && rate <= 3.5) {
+      this.setState({ playbackRate: rate },
         () => {
-          this.props.videoRef.current.playbackRate = input;
+          this.props.videoRef.current.playbackRate = rate;
 
           if (this.props.handleAnalyticsEvents) {
             this.props.handleAnalyticsEvents({
               category: 'MediaPlayer',
               action: 'setPlayBackRate',
               name: 'playbackRateNewValue',
-              value: input
+              value: rate
             });
           }
         }
@@ -236,8 +215,7 @@ class MediaPlayer extends React.Component {
     }
   };
 
-  // TEMP: keeping this in for now. Might be replaced by state
-  // The pauseWhileTyping logic (in TimedTextEditor) currently uses this
+  // TEMP: Needs replacing - but pauseWhileTyping (in TimedTextEditor) currently uses this
   isPlaying = () => {
     return !this.props.videoRef.current.paused;
   };
@@ -250,7 +228,7 @@ class MediaPlayer extends React.Component {
         category: 'MediaPlayer',
         action: 'pauseMedia',
         name: 'pauseMedia',
-        value: secondsToTimecode(this.props.videoRef.current.currentTime)
+        value: secondsToTimecode(this.state.currentTime)
       });
     }
   };
@@ -263,13 +241,11 @@ class MediaPlayer extends React.Component {
         category: 'MediaPlayer',
         action: 'playMedia',
         name: 'playMedia',
-        value: secondsToTimecode(this.props.videoRef.current.currentTime)
+        value: secondsToTimecode(this.state.currentTime)
       });
     }
   };
 
-  // Sets isPlaying state and toggles modes on the video player
-  // TODO: modularise these / enable specific play / pause action
   togglePlayMedia = () => {
     if (this.state.isPlaying) {
       this.pauseMedia();
@@ -279,7 +255,7 @@ class MediaPlayer extends React.Component {
   };
 
   skipForward = () => {
-    const currentTime = this.props.videoRef.current.currentTime;
+    const currentTime = this.state.currentTime;
     const newCurrentTimeIncreased = currentTime + 10;
     const newCurrentTime = Number(newCurrentTimeIncreased.toFixed(1));
 
@@ -287,7 +263,7 @@ class MediaPlayer extends React.Component {
   };
 
   skipBackward = () => {
-    const currentTime = this.props.videoRef.current.currentTime;
+    const currentTime = this.state.currentTime;
     const newCurrentTimeIncreased = currentTime - 10;
     const newCurrentTime = Number(newCurrentTimeIncreased.toFixed(1));
 
@@ -308,7 +284,7 @@ class MediaPlayer extends React.Component {
     }
   };
 
-  getMediaCurrentTime = () => secondsToTimecode(this.props.videoRef.current.currentTime + this.state.timecodeOffset);
+  getMediaCurrentTime = () => secondsToTimecode(this.state.currentTime + this.state.timecodeOffset);
 
   handlePictureInPicture = () => {
     if (document.pictureInPictureElement !== undefined) {
@@ -366,14 +342,11 @@ class MediaPlayer extends React.Component {
     }
   };
 
-  getProgressBarMax = () => parseInt(this.props.videoRef.current.duration).toString();
-  getProgressBarValue = () => parseInt(this.props.videoRef.current.currentTime).toString();
-
   render() {
     const progressBar = (
       <ProgressBar
-        max={ this.getProgressBarMax() }
-        value={ this.getProgressBarValue() }
+        max={ this.props.videoRef.current.duration }
+        value={ this.state.currentTime }
         buttonClick={ this.handleProgressBarClick }
       />
     );
@@ -400,9 +373,7 @@ class MediaPlayer extends React.Component {
           setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
           playbackRateOptions={ this.state.playbackRateOptions }
           pictureInPicture={ this.handlePictureInPicture }
-          handleSaveTranscript={ () => {
-            this.props.handleSaveTranscript();
-          } }
+          handleSaveTranscript={ () => { this.props.handleSaveTranscript(); } }
         />
         {this.props.mediaUrl ? progressBar : null}
       </div>
@@ -419,6 +390,7 @@ class MediaPlayer extends React.Component {
 }
 
 MediaPlayer.propTypes = {
+  currentTime: PropTypes.number,
   videoRef: PropTypes.object.isRequired,
   title: PropTypes.string,
   hookSeek: PropTypes.func,

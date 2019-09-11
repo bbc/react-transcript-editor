@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import style from './ProgressBar.module.scss';
 
 class ProgressBar extends React.Component {
-
   shouldComponentUpdate = (nextProps) => {
     return nextProps !== this.props;
   }
@@ -20,7 +19,7 @@ class ProgressBar extends React.Component {
           type='range'
           className={ style.bar }
           onChange={ this.handleOnChange }
-          value={ this.props.value }
+          value={ this.props.value.toString() }
           min='0'
           max={ this.props.max.toString() }
         />
