@@ -24,7 +24,7 @@
     "build:storybook": "rimraf build && build-storybook -c .storybook -o build",
     "build:storybook:serve": "npx serve build",
     "deploy:ghpages": "rimraf build && npm run build:storybook && gh-pages -d build",
-    "pre:publish": "npm run build:component && rm ./dist/package.json || true && cp package.json ./dist/package.json && rm ./dist/README.md || true && cp README.md ./dist/README.md || true ",
+    "pre:publish": "npm run build:component && /bin/cp -rf package.json dist && /bin/cp -rf README.md dist",
     "publish:public": "npm run pre:publish && npm publish dist --access public",
     "publish:dry:run": "npm publish --dry-run"
   },
