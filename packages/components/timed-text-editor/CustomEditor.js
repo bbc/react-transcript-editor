@@ -4,6 +4,7 @@ import {
   Editor,
 } from 'draft-js';
 import WrapperBlock from './WrapperBlock';
+import PropTypes from 'prop-types';
 
 const CustomEditor = (props) => {
 
@@ -42,6 +43,20 @@ const CustomEditor = (props) => {
       spellCheck={ props.spellCheck }
     />
   );
+};
+
+CustomEditor.propTypes = {
+  customKeyBindingFn: PropTypes.any,
+  editorState: PropTypes.any,
+  handleAnalyticsEvents: PropTypes.any,
+  handleKeyCommand: PropTypes.any,
+  onChange: PropTypes.any,
+  onWordClick: PropTypes.any,
+  setEditorNewContentState: PropTypes.any,
+  showSpeakers: PropTypes.any,
+  showTimecodes: PropTypes.any,
+  spellCheck: PropTypes.any,
+  timecodeOffset: PropTypes.any
 };
 
 export default React.memo(CustomEditor);

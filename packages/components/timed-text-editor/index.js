@@ -1,92 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CustomEditor from './CustomEditor';
+import { compositeDecorator, customKeyBindingFn } from './draftJsConfig';
+import { getWordCount, splitParagraphs } from './draftJsHelper';
+import updateEditorTimestamps from './updateEditorTimestamps';
 
 import {
   EditorState,
-  CompositeDecorator,
   convertFromRaw,
   convertToRaw,
-  getDefaultKeyBinding,
-  Modifier
 } from 'draft-js';
-
-import Word from './Word';
 
 // TODO: connect to local packages version
 import sttJsonAdapter from '../../stt-adapters';
 // TODO: connect to local packages version
-import exportAdapter from '../../export-adapters';
-import updateTimestamps from './updateTimestamps/index.js';
+// import exportAdapter from '../../export-adapters';
 import style from './index.module.css';
 
 // DraftJs decorator to recognize which entity is which
 // and know what to apply to what component
-const getEntityStrategy = mutability => {
-  const strategy = (contentBlock, callback, contentState) => {
-    contentBlock.findEntityRanges((character) => {
-      const entity = character.getEntity();
-      if (entity) {
-        const entityMutability = contentState.getEntity(entity).getMutability();
-
-        return (entityMutability === mutability);
-      } else {
-        return false;
-      }
-    }, callback);
-  };
-
-  return strategy;
-};
-
-const compositeDecorator = new CompositeDecorator([
-  {
-    strategy: getEntityStrategy('MUTABLE'),
-    component: Word,
-  },
-]);
-
-const getPrevEntity = (block) => {
-  for (let j = block.getLength(); j > 0 ; j--) {
-    const entity = block.getEntityAt(j);
-    if (entity) {
-      return entity;
-    }
-  }
-};
-
-const getNextEntity = (offset, block) => {
-  const startingIndex = offset + 1;
-  for (let i = startingIndex; i < block.getLength() - offset ; i++) {
-    const entity = block.getEntityAt(i);
-    if (entity) {
-      return entity;
-    }
-  }
-};
-
-const isEndOfBlock = (offset, block) => {
-  const blockLength = block.getLength();
-  const remainder = blockLength - offset;
-
-  return (remainder === 0) ? true : false;
-
-};
-
-const findNearestEntity = (offset, block) => {
-  const nearestEntity = isEndOfBlock(offset, block) ? getPrevEntity(block) : getNextEntity(offset, block);
-
-  return nearestEntity;
-};
-
-const getWordCount = (editorState) => {
-  const plainText = editorState.getCurrentContent().getPlainText('');
-  const regex = /(?:\r\n|\r|\n)/g; // new line, carriage return, line feed
-  const cleanString = plainText.replace(regex, ' ').trim(); // replace above characters w/ space
-  const wordArray = cleanString.match(/\S+/g); // matches words according to whitespace
-
-  return wordArray ? wordArray.length : 0;
-};
 
 const TimedTextEditor = (props) => {
   const [ editorState, setEditorState ] = useState(EditorState.createEmpty());
@@ -114,47 +46,36 @@ const TimedTextEditor = (props) => {
       setTimeout(() => props.handlePlayMedia(true), ms));
   };
 
-  const handleChange = () => {
-    if (isTranscriptChange) {
-      // for when to update config and force rerender
-      onChange();
-    }
-  };
+  /**
+   * Handle draftJs custom key commands
+   */
+  const handleKeyCommand = (command) => {
+    const handleSplitParagraph = () => {
+      const currentSelection = editorState.getSelection();
 
-  const getUpdatedSelection = (selectionState, currentBlocks, updatedBlocks) => {
-    // Build block map, which maps the block keys of the previous content to the block keys of the
-    // updated content.
-    const blockMap = {};
-    for (let i = 0; i < currentBlocks.length; i++) {
-      blockMap[currentBlocks[i].key] = updatedBlocks[i].key;
-    }
+      if (currentSelection.isCollapsed) {
+        try {
+          const newEditorState = splitParagraphs(editorState, currentSelection);
+          setEditorState(newEditorState);
+        } catch (e) {
+          console.log(e);
 
-    const selection = selectionState.merge({
-      anchorOffset: selectionState.getAnchorOffset(),
-      anchorKey: blockMap[selectionState.getAnchorKey()],
-      focusOffset: selectionState.getFocusOffset(),
-      focusKey: blockMap[selectionState.getFocusKey()],
-    });
+          return 'not-handled';
+        }
 
-    return selection;
-  };
+        return 'handled';
+      }
 
-  const updateEditorStateTimestamps = () => {
-    // Update timestamps according to the original state.
-    const currentContentRaw = convertToRaw(editorState.getCurrentContent());
-    const updatedContentRaw = updateTimestamps(currentContentRaw, originalState);
-    const updatedContent = convertFromRaw(updatedContentRaw);
+      return 'not-handled';
+    };
 
-    const newEditorState = EditorState.push(editorState, updatedContent);
-    const selectionState = editorState.getSelection();
-
-    // Check if editor has currently the focus. If yes, keep current selection.
-    if (selectionState.getHasFocus()) {
-      const selection = getUpdatedSelection(selectionState, currentContentRaw.blocks, updatedContentRaw.blocks);
-      const newEditorStateSelected = EditorState.forceSelection(newEditorState, selection);
-      setEditorState(newEditorStateSelected);
-    } else {
-      setEditorState(newEditorState);
+    switch (command) {
+    case 'split-paragraph':
+      return handleSplitParagraph();
+    case 'keyboard-shortcuts':
+      return 'handled';
+    default:
+      return 'not-handled';
     }
   };
 
@@ -181,7 +102,7 @@ const TimedTextEditor = (props) => {
         } else {
           setSaveTimer(
             setTimeout(() => {
-              updateEditorStateTimestamps();
+              setEditorState(updateEditorTimestamps(editorState, originalState));
               saveLocally();
               clearTimeout(saveTimer);
             },
@@ -191,133 +112,19 @@ const TimedTextEditor = (props) => {
     }
   };
 
-  const getEntity = (block, offset) => {
-    let entity = block.getEntityAt(offset); // get word where the paragraph breaks
-
-    if (!entity) {
-      entity = findNearestEntity(offset, block);
-      if (!entity) {
-        throw Error('no close entity');
-      }
-    }
-
-    return entity;
-  };
-
-  const getSplitBlockWordStartTime = (content, block, offset) => {
-    const entity = getEntity(block, offset);
-    const word = content.getEntity(entity).getData();
-    if (word) {
-      return isEndOfBlock(offset, block) ? word.end : word.start;
-    } else {
-      return 'NA';
+  const handleChange = () => {
+    if (isTranscriptChange) {
+      // for when to update config and force rerender
+      onChange();
     }
   };
 
-  const updateBlockOnSplit = (content, startKey, offset) => {
-    const block = content.getBlockForKey(startKey);
-    const wordStartTime = getSplitBlockWordStartTime(content, block, offset);
-    const speaker = block.getData().get('speaker');
-
-    return {
-      'start': wordStartTime,
-      'speaker': speaker
-    };
-  };
   /**
-   * Helper function to handle splitting paragraphs with return key
-   * on enter key, perform split paragraph at selection point.
-   * Add timecode of next word after split to paragraph
-   * as well as speaker name to new paragraph
-   * TODO: move into its own file as helper function
-   */
-  // https://github.com/facebook/draft-js/issues/723#issuecomment-367918580
-  // https://draftjs.org/docs/
-  const splitParagraphCollapsed = (selection) => {
-    const content = editorState.getCurrentContent();
-    const splitContent = Modifier.splitBlock(content, selection);
-    const splitState = EditorState.push(editorState, splitContent, 'split-block');
-
-    const offset = selection.getStartOffset();
-    const previousBlockStartKey = splitContent.selectionBefore.getStartKey();
-
-    const newSplitContentState = Modifier.mergeBlockData(
-      splitState.getCurrentContent(),
-      splitState.getSelection(),
-      updateBlockOnSplit(content, previousBlockStartKey, offset)
-    );
-
-    const newEditorState = EditorState.push(editorState, newSplitContentState);
+  * Update Editor content state
+  */
+  const updateEditorState = (newContentState) => {
+    const newEditorState = EditorState.push(editorState, newContentState);
     setEditorState(newEditorState);
-  };
-
-  /**
-   * Listen for draftJs custom key bindings
-   */
-  const customKeyBindingFn = (e) => {
-
-    const enterKey = 13;
-    const spaceKey = 32;
-    const kKey = 75;
-    const lKey = 76;
-    const jKey = 74;
-    const equalKey = 187;//used for +
-    const minusKey = 189; // -
-    const rKey = 82;
-    const tKey = 84;
-
-    if (e.keyCode === enterKey ) {
-      return 'split-paragraph';
-    }
-    // if alt key is pressed in combination with these other keys
-    if (e.altKey && ((e.keyCode === spaceKey)
-    || (e.keyCode === spaceKey)
-    || (e.keyCode === kKey)
-    || (e.keyCode === lKey)
-    || (e.keyCode === jKey)
-    || (e.keyCode === equalKey)
-    || (e.keyCode === minusKey)
-    || (e.keyCode === rKey)
-    || (e.keyCode === tKey))
-    ) {
-      e.preventDefault();
-
-      return 'keyboard-shortcuts';
-    }
-
-    return getDefaultKeyBinding(e);
-  };
-
-  /**
-   * Handle draftJs custom key commands
-   */
-  const handleKeyCommand = (command) => {
-    const handleSplitParagraph = () => {
-      const currentSelection = editorState.getSelection();
-
-      if (currentSelection.isCollapsed) {
-        try {
-          splitParagraphCollapsed(currentSelection);
-        } catch (e) {
-          console.log(e);
-
-          return 'not-handled';
-        }
-
-        return 'handled';
-      }
-
-      return 'not-handled';
-    };
-
-    switch (command) {
-    case 'split-paragraph':
-      return handleSplitParagraph();
-    case 'keyboard-shortcuts':
-      return 'handled';
-    default:
-      return 'not-handled';
-    }
   };
 
   const handleConfigChange = () => {
@@ -394,7 +201,7 @@ const TimedTextEditor = (props) => {
   const correctionBorder = '1px dotted blue';
 
   // Time to the nearest half second
-  const time = Math.round(this.props.currentTime * 4.0) / 4.0;
+  const time = Math.round(props.currentTime * 4.0) / 4.0;
 
   const editor = (
     <section
@@ -416,14 +223,13 @@ const TimedTextEditor = (props) => {
         editorState={ editorState }
         onChange={ handleChange }
         stripPastedStyles
-        // renderBlockWithTimecodes={ this.renderBlockWithTimecodes }
         handleKeyCommand={ handleKeyCommand }
         customKeyBindingFn={ customKeyBindingFn }
         spellCheck={ props.spellCheck }
         showSpeakers={ props.showSpeakers }
         showTimecodes={ props.showTimecodes }
         timecodeOffset={ props.timecodeOffset }
-        setEditorNewContentState={ setEditorNewContentState }
+        setEditorNewContentState={ updateEditorState }
         onWordClick={ onWordClick }
         handleAnalyticsEvents={ props.handleAnalyticsEvents }
       />
@@ -503,29 +309,32 @@ const TimedTextEditor = (props) => {
 
   return (
     <section>
-      { this.props.transcriptData !== null ? editor : null }
+      { props.transcriptData !== null ? editor : null }
     </section>
   );
 };
 
 TimedTextEditor.propTypes = {
-  transcriptData: PropTypes.object,
-  mediaUrl: PropTypes.string,
-  isEditable: PropTypes.bool,
-  isSpellCheck: PropTypes.bool,
-  isScrollIntoView: PropTypes.bool,
-  isPauseWhileTyping: PropTypes.bool,
-  handleWordClick: PropTypes.func,
-  handleSave: PropTypes.func,
-  sttJsonType: PropTypes.string,
-  isPlaying: PropTypes.func,
-  handlePlayMedia: PropTypes.func,
   currentTime: PropTypes.number,
-  timecodeOffset: PropTypes.number,
+  fileName: PropTypes.string,
   handleAnalyticsEvents: PropTypes.func,
+  handlePlayMedia: PropTypes.func,
+  handleSave: PropTypes.func,
+  handleWordClick: PropTypes.func,
+  isEditable: PropTypes.bool,
+  isPauseWhileTyping: PropTypes.bool,
+  isPlaying: PropTypes.func,
+  isScrollIntoView: PropTypes.bool,
+  isScrollIntoViewOn: PropTypes.any,
+  isSpellCheck: PropTypes.bool,
+  mediaUrl: PropTypes.string,
+  onWordClick: PropTypes.any,
   showSpeakers: PropTypes.bool,
   showTimecodes: PropTypes.bool,
-  fileName: PropTypes.string
+  spellCheck: PropTypes.any,
+  sttJsonType: PropTypes.string,
+  timecodeOffset: PropTypes.number,
+  transcriptData: PropTypes.object
 };
 
 export default TimedTextEditor;

@@ -2,6 +2,12 @@ import generateEntitiesRanges from '../../../stt-adapters/generate-entities-rang
 import { createEntityMap } from '../../../stt-adapters';
 import alignWords from './stt-align-node.js';
 
+import {
+  EditorState,
+  convertFromRaw,
+  convertToRaw,
+} from 'draft-js';
+
 const convertContentToText = (content) => {
   let text = [];
   for (const blockIndex in content.blocks) {
@@ -86,4 +92,42 @@ const updateTimestamps = (currentContent, originalContent) => {
   return updatedContent;
 };
 
-export default updateTimestamps;
+const getUpdatedSelection = (selectionState, currentBlocks, updatedBlocks) => {
+  // Build block map, which maps the block keys of the previous content to the block keys of the
+  // updated content.
+  const blockMap = {};
+  for (let i = 0; i < currentBlocks.length; i++) {
+    blockMap[currentBlocks[i].key] = updatedBlocks[i].key;
+  }
+
+  const selection = selectionState.merge({
+    anchorOffset: selectionState.getAnchorOffset(),
+    anchorKey: blockMap[selectionState.getAnchorKey()],
+    focusOffset: selectionState.getFocusOffset(),
+    focusKey: blockMap[selectionState.getFocusKey()],
+  });
+
+  return selection;
+};
+
+const updateEditorTimestamps = (currentState, originalState) => {
+  // Update timestamps according to the original state.
+  const currentContentRaw = convertToRaw(currentState.getCurrentContent());
+  const updatedContentRaw = updateTimestamps(currentContentRaw, originalState);
+  const updatedContent = convertFromRaw(updatedContentRaw);
+
+  const newEditorState = EditorState.push(currentState, updatedContent);
+  const selectionState = currentState.getSelection();
+
+  let editorState = newEditorState;
+
+  // Check if editor has currently the focus. If yes, keep current selection.
+  if (selectionState.getHasFocus()) {
+    const selection = getUpdatedSelection(selectionState, currentContentRaw.blocks, updatedContentRaw.blocks);
+    editorState = EditorState.forceSelection(newEditorState, selection);
+  }
+
+  return editorState;
+};
+
+export default updateEditorTimestamps;

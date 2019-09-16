@@ -1,8 +1,8 @@
 // code obtained from https://github.com/bbc/stt-align-node
 
-import { toWords } from './node_modules/number-to-words';
-import difflib from './node_modules/difflib';
-import everpolate from './node_modules/everpolate';
+import { toWords } from 'number-to-words';
+import difflib from 'difflib';
+import everpolate from 'everpolate';
 
 /**
  * https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
