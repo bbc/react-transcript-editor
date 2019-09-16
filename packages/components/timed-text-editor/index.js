@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CustomEditor from './CustomEditor';
 
 import {
-  Editor,
   EditorState,
   CompositeDecorator,
   convertFromRaw,
@@ -12,7 +12,6 @@ import {
 } from 'draft-js';
 
 import Word from './Word';
-import WrapperBlock from './WrapperBlock';
 
 // TODO: connect to local packages version
 // import sttJsonAdapter from '../../Util/adapters/index.js';
@@ -158,7 +157,7 @@ class TimedTextEditor extends React.Component {
   }
 
   loadData() {
-    if (this.props.transcriptData && this.props.sttJsonType) {
+    if (this.props.transcriptData !== null) {
       const blocks = sttJsonAdapter(this.props.transcriptData, this.props.sttJsonType);
       this.setState({ originalState: convertToRaw(convertFromRaw(blocks)) });
       this.setEditorContentState(blocks);
@@ -201,8 +200,9 @@ class TimedTextEditor extends React.Component {
 
     const data = convertToRaw(this.state.editorState.getCurrentContent());
     localStorage.setItem(`draftJs-${ mediaUrlName }`, JSON.stringify(data));
-    // const newLastLocalSavedDate = new Date().toString();
-    // localStorage.setItem(`timestamp-${ mediaUrlName }`, newLastLocalSavedDate);
+    const newLastLocalSavedDate = new Date().toString();
+    localStorage.setItem(`timestamp-${ mediaUrlName }`, newLastLocalSavedDate);
+
     // return newLastLocalSavedDate;
   }
 
@@ -605,54 +605,3 @@ TimedTextEditor.propTypes = {
 };
 
 export default TimedTextEditor;
-
-// TODO: move CustomEditor in separate file
-class CustomEditor extends React.Component {
-
-  handleWordClick = (e) => {
-    this.props.onWordClick(e);
-  }
-
-  renderBlockWithTimecodes = () => {
-    return {
-      component: WrapperBlock,
-      editable: true,
-      props: {
-        showSpeakers: this.props.showSpeakers,
-        showTimecodes: this.props.showTimecodes,
-        timecodeOffset: this.props.timecodeOffset,
-        editorState: this.props.editorState,
-        setEditorNewContentState: this.props.setEditorNewContentState,
-        onWordClick: this.handleWordClick,
-        handleAnalyticsEvents: this.props.handleAnalyticsEvents
-      }
-    };
-  }
-
-  shouldComponentUpdate(nextProps) {
-    // https://stackoverflow.com/questions/39182657/best-performance-method-to-check-if-contentstate-changed-in-draftjs-or-just-edi
-    if (nextProps.editorState !== this.props.editorState) {
-      return true;
-    }
-
-    return false;
-  }
-
-  handleOnChange = (e) => {
-    this.props.onChange(e);
-  }
-
-  render() {
-    return (
-      <Editor
-        editorState={ this.props.editorState }
-        onChange={ this.handleOnChange }
-        stripPastedStyles
-        blockRendererFn={ this.renderBlockWithTimecodes }
-        handleKeyCommand={ this.props.handleKeyCommand }
-        keyBindingFn={ this.props.customKeyBindingFn }
-        spellCheck={ this.props.spellCheck }
-      />
-    );
-  }
-}
