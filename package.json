@@ -44,7 +44,10 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
     },
-    "verbose": true
+    "verbose": true,
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
@@ -84,14 +87,18 @@
     "@storybook/addon-viewport": "^5.0.8",
     "@storybook/addons": "^5.0.8",
     "@storybook/react": "^5.0.8",
+    "@testing-library/dom": "^6.2.0",
+    "@testing-library/react": "^9.1.4",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-minify": "^0.5.0",
+    "chai": "^4.2.0",
     "css-loader": "^2.1.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-css-modules": "^2.11.0",

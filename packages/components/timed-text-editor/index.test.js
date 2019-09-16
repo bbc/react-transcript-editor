@@ -1,34 +1,43 @@
 import React from 'react';
-import { expect } from 'chai';
-import { shallow } from 'enzyme';
-import sinon from 'sinon';
-
+import { render, cleanup } from 'react-testing-library';
 import TimeTextEditor from './index';
 
-describe('<TimeTextEditor />', () => {
-  it('renders three <Foo /> components', () => {
-    const wrapper = shallow(<TimeTextEditor />);
-    expect(wrapper.find(TimeTextEditor)).to.have.lengthOf(3);
+import bbcKaldiTranscript from './stories/fixtures/bbc-kaldi.json';
+
+const mediaUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
+
+const defaultProps = {
+  transcriptData: bbcKaldiTranscript,
+  mediaUrl: mediaUrl,
+  isEditable: true,
+  spellCheck: false,
+  onWordClick: () => {},
+  sttJsonType: 'bbckaldi',
+  isPlaying: () => {},
+  playMedia: () => {},
+  currentTime: 0,
+  isScrollIntoViewOn: true,
+  isPauseWhileTypingOn: true,
+  timecodeOffset: 0,
+  handleAnalyticsEvents: () => {},
+  showSpeakers: true,
+  showTimecodes: true,
+  fileName: 'KateDarling_2018S-950k.mp4'
+};
+
+afterEach(cleanup);
+
+describe('TimeTextEditor', () => {
+  it('renders the editor correctly', () => {
+    const { getByText } = render(<TimeTextEditor { ...defaultProps }/>);
+    getByText('');
   });
 
-  it('renders an `.icon-star`', () => {
-    const wrapper = shallow(<TimeTextEditor />);
-    expect(wrapper.find('.icon-star')).to.have.lengthOf(1);
-  });
+  it('realigns the timecodes of text when text is written to');
+  it('realigns the timecodes of text when text is deleted');
+  it('pops up a modal when the speaker is selected');
+  it('edits the speaker');
+  it('underlines the time codes on hover');
+  it('creates a new block of text when the "enter" is inserted');
 
-  it('renders children when passed in', () => {
-    const wrapper = shallow((
-      <TimeTextEditor>
-        <div className="unique" />
-      </TimeTextEditor>
-    ));
-    expect(wrapper.contains(<div className="unique" />)).to.equal(true);
-  });
-
-  it('simulates click events', () => {
-    const onButtonClick = sinon.spy();
-    const wrapper = shallow(<TimeTextEditor onButtonClick={ onButtonClick } />);
-    wrapper.find('button').simulate('click');
-    expect(onButtonClick).to.have.property('callCount', 1);
-  });
 });

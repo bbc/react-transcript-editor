@@ -158,7 +158,7 @@ class TimedTextEditor extends React.Component {
   }
 
   loadData() {
-    if (this.props.transcriptData !== null) {
+    if (this.props.transcriptData && this.props.sttJsonType) {
       const blocks = sttJsonAdapter(this.props.transcriptData, this.props.sttJsonType);
       this.setState({ originalState: convertToRaw(convertFromRaw(blocks)) });
       this.setEditorContentState(blocks);
@@ -201,9 +201,8 @@ class TimedTextEditor extends React.Component {
 
     const data = convertToRaw(this.state.editorState.getCurrentContent());
     localStorage.setItem(`draftJs-${ mediaUrlName }`, JSON.stringify(data));
-    const newLastLocalSavedDate = new Date().toString();
-    localStorage.setItem(`timestamp-${ mediaUrlName }`, newLastLocalSavedDate);
-
+    // const newLastLocalSavedDate = new Date().toString();
+    // localStorage.setItem(`timestamp-${ mediaUrlName }`, newLastLocalSavedDate);
     // return newLastLocalSavedDate;
   }
 
