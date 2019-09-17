@@ -7,7 +7,7 @@ import {
 const MemoEditor = (props) => {
 
   return (
-    <Editor data-testid="memo-editor"
+    <Editor data-testid="editor"
       editorState={ props.editorState }
       onChange={ props.onChange }
       stripPastedStyles
