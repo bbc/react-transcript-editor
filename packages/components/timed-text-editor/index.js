@@ -541,7 +541,6 @@ class TimedTextEditor extends React.Component {
           editorState={ this.state.editorState }
           onChange={ this.onChange }
           stripPastedStyles
-          // renderBlockWithTimecodes={ this.renderBlockWithTimecodes }
           handleKeyCommand={ this.handleKeyCommand }
           customKeyBindingFn={ this.customKeyBindingFn }
           spellCheck={ this.props.spellCheck }
