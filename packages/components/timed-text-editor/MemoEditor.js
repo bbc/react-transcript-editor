@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   Editor,
@@ -11,11 +12,20 @@ const MemoEditor = (props) => {
       editorState={ props.editorState }
       onChange={ props.onChange }
       stripPastedStyles
-      blockRendererFn={ props.renderBlockWithTimecodes }
+      blockRendererFn={ props.blockRendererFn }
       handleKeyCommand={ props.handleKeyCommand }
-      keyBindingFn={ props.customKeyBindingFn }
+      keyBindingFn={ props.keyBindingFn }
       spellCheck={ props.spellCheck }
     />);
+};
+
+MemoEditor.propTypes = {
+  keyBindingFn: PropTypes.any,
+  editorState: PropTypes.any,
+  handleKeyCommand: PropTypes.any,
+  onChange: PropTypes.any,
+  blockRendererFn: PropTypes.any,
+  spellCheck: PropTypes.any
 };
 
 export default React.memo(MemoEditor);

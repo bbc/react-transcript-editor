@@ -303,7 +303,7 @@ class TimedTextEditor extends React.Component {
   /**
    * Listen for draftJs custom key bindings
    */
-  customKeyBindingFn = (e) => {
+  keyBindingFn = (e) => {
 
     const enterKey = 13;
     const spaceKey = 32;
@@ -509,7 +509,7 @@ class TimedTextEditor extends React.Component {
     this.props.onWordClick(e);
   }
 
-  renderBlockWithTimecodes = () => {
+  blockRendererFn = () => {
     return {
       component: WrapperBlock,
       editable: true,
@@ -556,9 +556,9 @@ class TimedTextEditor extends React.Component {
           editorState={ this.state.editorState }
           onChange={ this.onChange }
           stripPastedStyles
-          blockRendererFn={ this.renderBlockWithTimecodes }
+          blockRendererFn={ this.blockRendererFn }
           handleKeyCommand={ this.handleKeyCommand }
-          keyBindingFn={ this.customKeyBindingFn }
+          keyBindingFn={ this.keyBindingFn }
           spellCheck={ this.props.spellCheck }
         />
 
