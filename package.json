@@ -29,9 +29,13 @@
     "publish:dry:run": "npm publish --dry-run"
   },
   "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>packages/components/setupTests.js"
+    ],
     "moduleFileExtensions": [
       "js",
-      "jsx"
+      "jsx",
+      "json"
     ],
     "moduleDirectories": [
       "node_modules"
@@ -39,7 +43,8 @@
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-    }
+    },
+    "verbose": true
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
@@ -54,6 +59,8 @@
     "mousetrap": "1.5.2",
     "number-to-words": "^1.2.4",
     "prop-types": "^15.6.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-keyboard-shortcuts": "^1.1.3",
     "react-simple-tooltip": "^2.3.3",
     "sbd": "^1.0.15",
@@ -77,27 +84,34 @@
     "@storybook/addon-viewport": "^5.0.8",
     "@storybook/addons": "^5.0.8",
     "@storybook/react": "^5.0.8",
+    "@testing-library/dom": "^6.2.0",
+    "@testing-library/react": "^9.1.4",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-minify": "^0.5.0",
+    "chai": "^4.2.0",
     "css-loader": "^2.1.1",
-    "enzyme": "^3.7.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-css-modules": "^2.11.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
     "gh-pages": "^2.0.1",
     "husky": "^1.1.3",
     "jest": "^24.7.1",
     "node-sass": "^4.12.0",
     "prettier-stylelint": "^0.4.2",
+    "react-test-renderer": "^16.9.0",
     "react-testing-library": "^5.2.3",
     "regenerator-runtime": "^0.12.1",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
+    "sinon": "^7.4.2",
     "style-loader": "^0.23.1",
     "stylelint-config-standard": "^18.2.0",
     "webpack": "^4.29.6",

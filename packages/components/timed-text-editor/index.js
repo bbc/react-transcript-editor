@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import WrapperBlock from './WrapperBlock';
+import MemoEditor from './MemoEditor';
 import {
-  Editor,
   EditorState,
   CompositeDecorator,
   convertFromRaw,
@@ -12,8 +12,6 @@ import {
 } from 'draft-js';
 
 import Word from './Word';
-import WrapperBlock from './WrapperBlock';
-
 // TODO: connect to local packages version
 // import sttJsonAdapter from '../../Util/adapters/index.js';
 import sttJsonAdapter from '../../stt-adapters';
@@ -38,7 +36,6 @@ class TimedTextEditor extends React.Component {
 
   shouldComponentUpdate = (nextProps, nextState) => {
     if (nextProps !== this.props) return true;
-
     if (nextState !== this.state ) return true;
 
     return false;
@@ -47,7 +44,7 @@ class TimedTextEditor extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (
       (prevProps.transcriptData !== this.props.transcriptData)
-      && ( this.props.mediaUrl !== null && !this.isPresentInLocalStorage(this.props.mediaUrl) )
+      && ( this.props.mediaUrl && !this.isPresentInLocalStorage(this.props.mediaUrl) )
     ) {
       this.loadData();
     }
@@ -306,7 +303,7 @@ class TimedTextEditor extends React.Component {
   /**
    * Listen for draftJs custom key bindings
    */
-  customKeyBindingFn = (e) => {
+  keyBindingFn = (e) => {
 
     const enterKey = 13;
     const spaceKey = 32;
@@ -512,6 +509,22 @@ class TimedTextEditor extends React.Component {
     this.props.onWordClick(e);
   }
 
+  blockRendererFn = () => {
+    return {
+      component: WrapperBlock,
+      editable: true,
+      props: {
+        showSpeakers: this.props.showSpeakers,
+        showTimecodes: this.props.showTimecodes,
+        timecodeOffset: this.props.timecodeOffset,
+        editorState: this.state.editorState,
+        setEditorNewContentState: this.setEditorNewContentState,
+        onWordClick: this.handleWordClick,
+        handleAnalyticsEvents: this.props.handleAnalyticsEvents
+      }
+    };
+  }
+
   render() {
     // console.log('render TimedTextEditor');
     const currentWord = this.getCurrentWord();
@@ -523,7 +536,7 @@ class TimedTextEditor extends React.Component {
     const time = Math.round(this.props.currentTime * 4.0) / 4.0;
 
     const editor = (
-      <section
+      <section data-testid="section-editor"
         className={ style.editor }
         onDoubleClick={ this.handleDoubleClick }
         // TODO: decide if on mobile want to have a way to "click" on words
@@ -531,34 +544,30 @@ class TimedTextEditor extends React.Component {
         // a double tap would be the ideal solution
         // onTouchStart={ event => this.handleDoubleClick(event) }
       >
-        <style scoped>
+        <style scoped data-testid="section-style">
           {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
           {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
           {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
         </style>
-        <CustomEditor
+
+        <MemoEditor data-testid="memo-editor"
           editorState={ this.state.editorState }
           onChange={ this.onChange }
           stripPastedStyles
-          // renderBlockWithTimecodes={ this.renderBlockWithTimecodes }
+          blockRendererFn={ this.blockRendererFn }
           handleKeyCommand={ this.handleKeyCommand }
-          customKeyBindingFn={ this.customKeyBindingFn }
+          keyBindingFn={ this.keyBindingFn }
           spellCheck={ this.props.spellCheck }
-          showSpeakers={ this.props.showSpeakers }
-          showTimecodes={ this.props.showTimecodes }
-          timecodeOffset={ this.props.timecodeOffset }
-          setEditorNewContentState={ this.setEditorNewContentState }
-          onWordClick={ this.onWordClick }
-          handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
         />
+
       </section>
     );
 
     return (
-      <section>
-        { this.props.transcriptData !== null ? editor : null }
+      <section >
+        { this.props.transcriptData ? editor : null }
       </section>
     );
   }
@@ -569,7 +578,7 @@ class TimedTextEditor extends React.Component {
 const getEntityStrategy = mutability => (contentBlock, callback, contentState) => {
   contentBlock.findEntityRanges((character) => {
     const entityKey = character.getEntity();
-    if (entityKey === null) {
+    if (!entityKey) {
       return false;
     }
 
@@ -606,54 +615,3 @@ TimedTextEditor.propTypes = {
 };
 
 export default TimedTextEditor;
-
-// TODO: move CustomEditor in separate file
-class CustomEditor extends React.Component {
-
-  handleWordClick = (e) => {
-    this.props.onWordClick(e);
-  }
-
-  renderBlockWithTimecodes = () => {
-    return {
-      component: WrapperBlock,
-      editable: true,
-      props: {
-        showSpeakers: this.props.showSpeakers,
-        showTimecodes: this.props.showTimecodes,
-        timecodeOffset: this.props.timecodeOffset,
-        editorState: this.props.editorState,
-        setEditorNewContentState: this.props.setEditorNewContentState,
-        onWordClick: this.handleWordClick,
-        handleAnalyticsEvents: this.props.handleAnalyticsEvents
-      }
-    };
-  }
-
-  shouldComponentUpdate(nextProps) {
-    // https://stackoverflow.com/questions/39182657/best-performance-method-to-check-if-contentstate-changed-in-draftjs-or-just-edi
-    if (nextProps.editorState !== this.props.editorState) {
-      return true;
-    }
-
-    return false;
-  }
-
-  handleOnChange = (e) => {
-    this.props.onChange(e);
-  }
-
-  render() {
-    return (
-      <Editor
-        editorState={ this.props.editorState }
-        onChange={ this.handleOnChange }
-        stripPastedStyles
-        blockRendererFn={ this.renderBlockWithTimecodes }
-        handleKeyCommand={ this.props.handleKeyCommand }
-        keyBindingFn={ this.props.customKeyBindingFn }
-        spellCheck={ this.props.spellCheck }
-      />
-    );
-  }
-}
