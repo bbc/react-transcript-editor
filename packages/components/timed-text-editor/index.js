@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CustomEditor from './CustomEditor';
+import WrapperBlock from './WrapperBlock';
 
 import {
+  Editor,
   EditorState,
   CompositeDecorator,
   convertFromRaw,
@@ -510,6 +511,22 @@ class TimedTextEditor extends React.Component {
     this.props.onWordClick(e);
   }
 
+  renderBlockWithTimecodes = () => {
+    return {
+      component: WrapperBlock,
+      editable: true,
+      props: {
+        showSpeakers: this.props.showSpeakers,
+        showTimecodes: this.props.showTimecodes,
+        timecodeOffset: this.props.timecodeOffset,
+        editorState: this.state.editorState,
+        setEditorNewContentState: this.setEditorNewContentState,
+        onWordClick: this.handleWordClick,
+        handleAnalyticsEvents: this.props.handleAnalyticsEvents
+      }
+    };
+  }
+
   render() {
     // console.log('render TimedTextEditor');
     const currentWord = this.getCurrentWord();
@@ -521,7 +538,7 @@ class TimedTextEditor extends React.Component {
     const time = Math.round(this.props.currentTime * 4.0) / 4.0;
 
     const editor = (
-      <section
+      <section data-testid="section-editor"
         className={ style.editor }
         onDoubleClick={ this.handleDoubleClick }
         // TODO: decide if on mobile want to have a way to "click" on words
@@ -529,32 +546,28 @@ class TimedTextEditor extends React.Component {
         // a double tap would be the ideal solution
         // onTouchStart={ event => this.handleDoubleClick(event) }
       >
-        <style scoped>
+        <style scoped data-testid="section-style">
           {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
           {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
           {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
         </style>
-        <CustomEditor
+        <Editor data-testid="custom-editor"
           editorState={ this.state.editorState }
-          onChange={ this.onChange }
+          onChange={ (e) => this.onChange(e) }
           stripPastedStyles
-          handleKeyCommand={ this.handleKeyCommand }
-          customKeyBindingFn={ this.customKeyBindingFn }
+          blockRendererFn={ this.renderBlockWithTimecodes }
+          handleKeyCommand={ (e) => this.handleKeyCommand(e) }
+          keyBindingFn={ this.customKeyBindingFn }
           spellCheck={ this.props.spellCheck }
-          showSpeakers={ this.props.showSpeakers }
-          showTimecodes={ this.props.showTimecodes }
-          timecodeOffset={ this.props.timecodeOffset }
-          setEditorNewContentState={ this.setEditorNewContentState }
-          onWordClick={ this.onWordClick }
-          handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
         />
+
       </section>
     );
 
     return (
-      <section>
+      <section >
         { this.props.transcriptData !== null ? editor : null }
       </section>
     );

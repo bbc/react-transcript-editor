@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup } from 'react-testing-library';
+import { render, cleanup, } from 'react-testing-library';
 import TimeTextEditor from './index';
 
 import bbcKaldiTranscript from './stories/fixtures/bbc-kaldi.json';
@@ -28,16 +28,9 @@ const defaultProps = {
 afterEach(cleanup);
 
 describe('TimeTextEditor', () => {
-  it('renders the editor correctly', () => {
-    const { getByText } = render(<TimeTextEditor { ...defaultProps }/>);
-    getByText('');
+  it('renders the editor sections correctly', async () => {
+    const { getByTestId } = render(<TimeTextEditor { ...defaultProps }/>);
+    getByTestId('section-editor');
+    getByTestId('section-style');
   });
-
-  it('realigns the timecodes of text when text is written to');
-  it('realigns the timecodes of text when text is deleted');
-  it('pops up a modal when the speaker is selected');
-  it('edits the speaker');
-  it('underlines the time codes on hover');
-  it('creates a new block of text when the "enter" is inserted');
-
 });
