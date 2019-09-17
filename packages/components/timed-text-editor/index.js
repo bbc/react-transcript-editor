@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WrapperBlock from './WrapperBlock';
-
+import MemoEditor from './MemoEditor';
 import {
-  Editor,
   EditorState,
   CompositeDecorator,
   convertFromRaw,
@@ -37,7 +36,6 @@ class TimedTextEditor extends React.Component {
 
   shouldComponentUpdate = (nextProps, nextState) => {
     if (nextProps !== this.props) return true;
-
     if (nextState !== this.state ) return true;
 
     return false;
@@ -46,7 +44,7 @@ class TimedTextEditor extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (
       (prevProps.transcriptData !== this.props.transcriptData)
-      && ( this.props.mediaUrl !== null && !this.isPresentInLocalStorage(this.props.mediaUrl) )
+      && ( this.props.mediaUrl && !this.isPresentInLocalStorage(this.props.mediaUrl) )
     ) {
       this.loadData();
     }
@@ -553,12 +551,13 @@ class TimedTextEditor extends React.Component {
           {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
         </style>
-        <Editor data-testid="custom-editor"
+
+        <MemoEditor data-testid="memo-editor"
           editorState={ this.state.editorState }
-          onChange={ (e) => this.onChange(e) }
+          onChange={ this.onChange }
           stripPastedStyles
           blockRendererFn={ this.renderBlockWithTimecodes }
-          handleKeyCommand={ (e) => this.handleKeyCommand(e) }
+          handleKeyCommand={ this.handleKeyCommand }
           keyBindingFn={ this.customKeyBindingFn }
           spellCheck={ this.props.spellCheck }
         />
@@ -568,7 +567,7 @@ class TimedTextEditor extends React.Component {
 
     return (
       <section >
-        { this.props.transcriptData !== null ? editor : null }
+        { this.props.transcriptData ? editor : null }
       </section>
     );
   }
@@ -579,7 +578,7 @@ class TimedTextEditor extends React.Component {
 const getEntityStrategy = mutability => (contentBlock, callback, contentState) => {
   contentBlock.findEntityRanges((character) => {
     const entityKey = character.getEntity();
-    if (entityKey === null) {
+    if (!entityKey) {
       return false;
     }
 
