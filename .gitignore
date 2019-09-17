@@ -114,3 +114,4 @@ stats.json
 *.vtt
 *.ttml
 *.itt
+.vscode

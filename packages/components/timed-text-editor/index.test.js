@@ -1,78 +1,36 @@
-// test file
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
-import sinon from 'sinon';
-import { expect } from 'chai';
-import TimedTextEditor from './index.js';
+import { render, cleanup, } from 'react-testing-library';
+import TimeTextEditor from './index';
 
-describe('<MyComponent />', () => {
-  it('renders three <Foo /> components', () => {
-    // const timedTextEditor = (
-    //   <TimedTextEditor
-    //     fileName={ this.props.fileName }
-    //     transcriptData={ this.state.transcriptData }
-    //     timecodeOffset={ this.state.timecodeOffset }
-    //     onWordClick={ this.handleWordClick }
-    //     playMedia={ this.handlePlayMedia }
-    //     handleSave={ this.handleSave }
-    //     isPlaying={ this.handleIsPlaying }
-    //     currentTime={ this.state.currentTime }
-    //     isEditable={ this.props.isEditable }
-    //     isSpellCheck={ this.props.spellCheck }
-    //     sttJsonType={ this.props.sttJsonType }
-    //     mediaUrl={ this.props.mediaUrl }
-    //     isScrollIntoView={ this.state.isScrollIntoViewOn }
-    //     isPauseWhileTyping={ this.state.isPauseWhileTypingOn }
-    //     showTimecodes={ this.state.showTimecodes }
-    //     showSpeakers={ this.state.showSpeakers }
-    //     ref={ this.timedTextEditorRef }
-    //     handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
-    //   />
-    // );
-    const wrapper = shallow(
-      <TimedTextEditor
-        fileName={ this.props.fileName }
-        transcriptData={ this.state.transcriptData }
-        timecodeOffset={ this.state.timecodeOffset }
-        onWordClick={ this.handleWordClick }
-        playMedia={ this.handlePlayMedia }
-        handleSave={ this.handleSave }
-        isPlaying={ this.handleIsPlaying }
-        currentTime={ this.state.currentTime }
-        isEditable={ this.props.isEditable }
-        isSpellCheck={ this.props.spellCheck }
-        sttJsonType={ this.props.sttJsonType }
-        mediaUrl={ this.props.mediaUrl }
-        isScrollIntoView={ this.state.isScrollIntoViewOn }
-        isPauseWhileTyping={ this.state.isPauseWhileTypingOn }
-        showTimecodes={ this.state.showTimecodes }
-        showSpeakers={ this.state.showSpeakers }
-        ref={ this.timedTextEditorRef }
-        handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
-      />);
-    expect(wrapper.find(TimedTextEditor)).to.have.lengthOf(3);
+import bbcKaldiTranscript from './stories/fixtures/bbc-kaldi.json';
+
+const mediaUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
+
+const defaultProps = {
+  transcriptData: bbcKaldiTranscript,
+  mediaUrl: mediaUrl,
+  isEditable: true,
+  spellCheck: false,
+  onWordClick: () => {},
+  sttJsonType: 'bbckaldi',
+  isPlaying: () => {},
+  playMedia: () => {},
+  currentTime: 0,
+  isScrollIntoViewOn: true,
+  isPauseWhileTypingOn: true,
+  timecodeOffset: 0,
+  handleAnalyticsEvents: () => {},
+  showSpeakers: true,
+  showTimecodes: true,
+  fileName: 'KateDarling_2018S-950k.mp4'
+};
+
+afterEach(cleanup);
+
+describe('TimeTextEditor', () => {
+  it('renders the editor sections correctly', async () => {
+    const { getByTestId } = render(<TimeTextEditor { ...defaultProps }/>);
+    getByTestId('section-editor');
+    getByTestId('section-style');
   });
-
-  //   it('renders an `.icon-star`', () => {
-  //     const wrapper = shallow(<MyComponent />);
-  //     expect(wrapper.find('.icon-star')).to.have.lengthOf(1);
-  //   });
-
-  //   it('renders children when passed in', () => {
-  //     const wrapper = shallow((
-  //       <MyComponent>
-  //         <div className="unique" />
-  //       </MyComponent>
-  //     ));
-  //     expect(wrapper.contains(<div className="unique" />)).to.equal(true);
-  //   });
-
-//   it('simulates click events', () => {
-//     const onButtonClick = sinon.spy();
-//     const wrapper = shallow(<Foo onButtonClick={ onButtonClick } />);
-//     wrapper.find('button').simulate('click');
-//     expect(onButtonClick).to.have.property('callCount', 1);
-//   });
 });
-
-const wrapper = shallow(timedTextEditor);

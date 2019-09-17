@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import CustomEditor from './CustomEditor';
 import { compositeDecorator, customKeyBindingFn } from './draftJsConfig';
 import { getWordCount, splitParagraphs } from './draftJsHelper';
 import updateEditorTimestamps from './updateEditorTimestamps';
 
+import WrapperBlock from './WrapperBlock';
+import Word from './Word';
+
 import {
+  Editor,
   EditorState,
   convertFromRaw,
   convertToRaw,
@@ -191,10 +194,6 @@ const TimedTextEditor = (props) => {
     return currentWord;
   };
 
-  const onWordClick = (e) => {
-    props.onWordClick(e);
-  };
-
   const currentWord = getCurrentWord();
   const highlightColour = '#69e3c2';
   const unplayedColor = '#767676';
@@ -204,7 +203,7 @@ const TimedTextEditor = (props) => {
   const time = Math.round(props.currentTime * 4.0) / 4.0;
 
   const editor = (
-    <section
+    <section data-testid="section-editor"
       className={ style.editor }
       onDoubleClick={ handleDoubleClick }
       // TODO: decide if on mobile want to have a way to "click" on words
@@ -212,29 +211,28 @@ const TimedTextEditor = (props) => {
       // a double tap would be the ideal solution
       // onTouchStart={ event => this.handleDoubleClick(event) }
     >
-      <style scoped>
+      <style scoped data-testid="section-style">
         {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
         {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
         {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
         {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
         {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
       </style>
-      <CustomEditor
+      <Editor data-testid="custom-editor"
         editorState={ editorState }
-        onChange={ handleChange }
+        onChange={ (e) => onChange(e) }
         stripPastedStyles
-        handleKeyCommand={ handleKeyCommand }
-        customKeyBindingFn={ customKeyBindingFn }
+        blockRendererFn={ renderBlockWithTimecodes }
+        handleKeyCommand={ (e) => handleKeyCommand(e) }
+        keyBindingFn={ customKeyBindingFn }
         spellCheck={ props.spellCheck }
-        showSpeakers={ props.showSpeakers }
-        showTimecodes={ props.showTimecodes }
-        timecodeOffset={ props.timecodeOffset }
-        setEditorNewContentState={ updateEditorState }
-        onWordClick={ onWordClick }
-        handleAnalyticsEvents={ props.handleAnalyticsEvents }
       />
     </section>
   );
+
+  const onWordClick = (e) => {
+    props.onWordClick(e);
+  };
 
   useEffect(() => {
 
