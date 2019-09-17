@@ -1,11 +1,7 @@
 // TODO: move CustomEditor in separate file
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import {
-  Editor,
-} from 'draft-js';
-
+import { Editor } from 'draft-js';
 import WrapperBlock from './WrapperBlock';
 
 class CustomEditor extends React.Component {

@@ -12,7 +12,6 @@ import {
 } from 'draft-js';
 
 import Word from './Word';
-
 // TODO: connect to local packages version
 // import sttJsonAdapter from '../../Util/adapters/index.js';
 import sttJsonAdapter from '../../stt-adapters';
