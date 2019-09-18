@@ -30,7 +30,7 @@ class ProgressBar extends React.Component {
 }
 
 ProgressBar.propTypes = {
-  value: PropTypes.number,
+  value: PropTypes.string,
   max: PropTypes.string,
   buttonClick: PropTypes.func
 };
