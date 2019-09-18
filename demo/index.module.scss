@@ -5,7 +5,7 @@ body {
 
 .container {
   height: 100vh;
-  font-family: ReithSerif, Fallback, sans-serif;
+  font-family: ReithSerif, sans-serif;
 }
 
 .demoNav {
@@ -116,7 +116,7 @@ body {
 }
 
 /* desktop */
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .demoNav {
     display: flex;
     justify-content: space-evenly;
