@@ -38,18 +38,14 @@ class Header extends React.Component {
           <FontAwesomeIcon icon={ faCog } />
         </button>
         <button
-          className={ `${ style.settingsButton } ${
-            style.keyboardShortcutsButon
-          }` }
+          className={ `${ style.settingsButton } ${ style.keyboardShortcutsButon }` }
           title="view shortcuts"
           onClick={ props.handleShortcutsToggle }
         >
           <FontAwesomeIcon icon={ faKeyboard } />
         </button>
         <button
-          className={ `${ style.settingsButton } ${
-            style.keyboardShortcutsButon
-          }` }
+          className={ `${ style.settingsButton } ${ style.keyboardShortcutsButon }` }
           title="Export"
           onClick={ props.handleExportToggle }
         >

@@ -1,4 +1,4 @@
-@value color-labs-red from '../../../config/style-guide/colours.module.css';
+@import '../../../config/style-guide/colours.scss';
 
 .switchContainer {
   display: inline-block;
@@ -47,11 +47,11 @@
 }
 
 input:checked + .slider {
-  background-color: color-labs-red;
+  background-color: $color-labs-red;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px color-labs-red;
+  box-shadow: 0 0 1px $color-labs-red;
 }
 
 input:checked + .slider:before {

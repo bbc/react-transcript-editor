@@ -51,7 +51,7 @@ VideoPlayer.propTypes = {
   mediaUrl: PropTypes.string,
   onTimeUpdate: PropTypes.func,
   onClick: PropTypes.func,
-  videoRef: PropTypes.object,
+  videoRef: PropTypes.object.isRequired,
   onLoadedDataGetDuration: PropTypes.func,
   previewIsDisplayed: PropTypes.bool,
   previewViewWidth: PropTypes.string

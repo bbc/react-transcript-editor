@@ -1,4 +1,4 @@
-@value color-subt-green, color-darkest-grey, color-labs-red from '../../config/style-guide/colours.module.css';
+@import '../../config/style-guide/colours.scss';
 
 .DraftEditor-root {
   background: #f9f9f9;

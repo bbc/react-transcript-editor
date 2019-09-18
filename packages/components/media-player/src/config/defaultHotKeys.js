@@ -115,4 +115,5 @@ function returnHotKeys(self) {
     }
   };
 }
+
 export default returnHotKeys;

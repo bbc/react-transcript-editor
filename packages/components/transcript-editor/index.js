@@ -439,33 +439,35 @@ class TranscriptEditor extends React.Component {
       />
     );
 
+    const header = (
+      <Header
+        showSettings={ this.state.showSettings }
+        showShortcuts={ this.state.showShortcuts }
+        showExportOptions={ this.state.showExportOptions }
+        settings={ settings }
+        shortcuts={ shortcuts }
+        exportOptions={ exportOptions }
+        tooltip={ HowDoesThisWork }
+        mediaUrl={ this.props.mediaUrl }
+        mediaControls={ this.videoRef.current ? mediaControls : null }
+        handleSettingsToggle={ this.handleSettingsToggle }
+        handleShortcutsToggle={ this.handleShortcutsToggle }
+        handleExportToggle={ this.handleExportToggle }
+      />
+    );
+
     return (
       <div className={ style.container }>
-        {this.props.mediaUrl === null ? null : <Header
-          showSettings={ this.state.showSettings }
-          showShortcuts={ this.state.showShortcuts }
-          showExportOptions={ this.state.showExportOptions }
-          settings={ settings }
-          shortcuts={ shortcuts }
-          exportOptions={ exportOptions }
-          tooltip={ HowDoesThisWork }
-          mediaUrl={ this.props.mediaUrl }
-          mediaControls={ mediaControls }
-          handleSettingsToggle={ this.handleSettingsToggle }
-          handleShortcutsToggle={ this.handleShortcutsToggle }
-          handleExportToggle={ this.handleExportToggle }
-        />}
+        {this.props.mediaUrl ? header : null}
 
         <div className={ style.grid }>
           <section className={ style.row }>
             <aside className={ style.aside }>
-              {this.props.mediaUrl === null ? null : videoPlayer}
+              {this.props.mediaUrl ? videoPlayer : null}
             </aside>
+
             <main className={ style.main }>
-              {this.props.mediaUrl !== null &&
-              this.props.transcriptData !== null
-                ? timedTextEditor
-                : null}
+              {this.props.mediaUrl && this.props.transcriptData ? timedTextEditor : null}
             </main>
           </section>
         </div>
