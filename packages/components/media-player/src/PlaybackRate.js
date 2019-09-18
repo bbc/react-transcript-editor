@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEqual from 'react-fast-compare';
+
 import Select from './Select';
 
 import style from './PlayerControls/index.module.scss';
@@ -7,7 +9,7 @@ import style from './PlayerControls/index.module.scss';
 class PlaybackRate extends React.Component {
 
   shouldComponentUpdate = (nextProps) => {
-    return nextProps.playbackRate !== this.props.playbackRate;
+    return !isEqual(this.props, nextProps);
   }
 
   render() {

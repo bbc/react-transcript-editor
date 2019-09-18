@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEqual from 'react-fast-compare';
 
 import {
   faSave,
@@ -22,7 +23,7 @@ import style from './index.module.scss';
 class PlayerControls extends React.Component {
 
   shouldComponentUpdate = (nextProps) => {
-    return nextProps !== this.props;
+    return !isEqual(this.props, nextProps);
   }
 
   setIntervalHelperBackward = () => {

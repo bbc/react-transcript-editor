@@ -1,11 +1,11 @@
 import React from 'react';
+import isEqual from 'react-fast-compare';
 
 import style from './index.module.scss';
 
 class TimeBox extends React.Component {
-
   shouldComponentUpdate = (nextProps) => {
-    return nextProps !== this.props;
+    return !isEqual(this.props, nextProps);
   }
 
   handleClick = (e) => {
