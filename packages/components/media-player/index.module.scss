@@ -1,5 +1,3 @@
-@value color-light-grey from '../../config/style-guide/colours.module.css';
-
 .topSection {
   background: black;
 }
@@ -15,12 +13,14 @@
   margin: auto;
   padding: 1em;
   position: relative;
+  // overflow-x: auto;
+  // overflow-y: auto;
 }
 
 .title {
   color: white;
-  height: 1.2em;
-  width: 90vw;
+  line-height: 1.2em;
+  width: 100%;
   margin-top: 0;
   margin-bottom: 0.5em;
   font-size: 1.2em;
@@ -33,12 +33,8 @@
 @media (max-width: 768px) {
 
   .title {
-    width: 100%;
-    margin-top: 0;
-    margin-bottom: 0.5em;
     text-align: center;
-    font-size: 1.2em;
-    line-height: 1.2em;
     padding-top: 1em;
+    white-space: normal;
   }
 }

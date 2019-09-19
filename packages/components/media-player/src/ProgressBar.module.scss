@@ -1,0 +1,82 @@
+@import '../../../config/style-guide/colours.scss';
+
+$slider-width-number: 1440;
+$slider-width: #{$slider-width-number}px;
+$slider-height: 10px;
+$background-slider: $color-light-grey;
+$bar-slider-filled: $color-labs-red;
+$thumb-width: 16px;
+$thumb-height: 24px;
+$shadow-size: -7px;
+$fit-thumb-in-slider: -7px;
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function makelongshadow($color, $size) {
+  $val: 1px 0 0 $size $color;
+
+  @for $i from 1 through $slider-width-number {
+    $val: #{$val}, #{$i}px 0 0 $size #{$color};
+  }
+
+  @return $val;
+}
+
+.wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  position: absolute;
+  left: 0;
+  bottom: -16px;
+}
+
+.bar {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  height: 30px;
+  margin: 0;
+
+  // Chrome
+  &::-webkit-slider-runnable-track {
+    height: $slider-height;
+    width: $slider-width;
+    content: '';
+    pointer-events: none;
+    background: $bar-slider-filled;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: $thumb-height;
+    width: $thumb-width;
+    margin-top: $fit-thumb-in-slider;
+    background: $color-labs-red;
+    box-shadow: makelongshadow($color-light-grey, $shadow-size);
+  }
+
+  // Firefox
+  &::-moz-range-track {
+    height: $slider-height;
+    width: $slider-width;
+    content: '';
+    pointer-events: none;
+    background: $bar-slider-filled;
+  }
+
+  &::-moz-range-thumb {
+    -moz-appearance: none;
+    height: $thumb-height;
+    width: $thumb-width;
+    margin-top: $fit-thumb-in-slider;
+    border: 0;
+    border-radius: 0;
+    background: $color-labs-red;
+    box-shadow: makelongshadow($color-light-grey, $shadow-size);
+  }
+}

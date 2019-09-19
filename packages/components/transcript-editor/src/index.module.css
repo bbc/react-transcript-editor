@@ -1,4 +1,4 @@
-@value color-darkest-grey from '../../../config/style-guide/colours.module.css';
+@import '../../../config/style-guide/colours.scss';
 
 .settings {
     position: absolute;
@@ -16,12 +16,12 @@
     font-weight: lighter;
     z-index: 2;
   }
-  
+
   .header {
     margin-top: 0;
     margin-bottom: 1em;
   }
-  
+
   .closeButton {
     position: absolute;
     top: 0;
@@ -29,7 +29,7 @@
     padding: 1em;
     cursor: pointer;
   }
-  
+
   .controlsContainer {
     display: flex;
     flex-direction: column;
@@ -37,19 +37,19 @@
     align-items: center;
     margin: 0 auto;
   }
-  
+
   .settingElement {
     text-align: left;
     align-self: auto;
     margin-bottom: 0.5em;
   }
-  
+
   .label {
     display: inline-block;
     min-width: 200px;
     width: 200px;
   }
-  
+
   .rollbackValue {
     height: 2em;
     width: 48px;
@@ -60,12 +60,12 @@
     margin-right: 16px;
     vertical-align: middle;
   }
-  
+
   .timecodeLabel {
     display: block;
     text-align: center;
   }
-  
+
 
 .playerButton {
   width: 48px;
@@ -73,7 +73,7 @@
   padding: 0.5em;
   border: 0;
   color: white;
-  background: color-darkest-grey;
+  background: $color-darkest-grey;
   font-size: 1em;
   cursor: pointer;
   margin-right: 0.3rem;

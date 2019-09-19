@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styles from './PlaybackRate.module.css';
+import isEqual from 'react-fast-compare';
+
 import Select from './Select';
-import style from './PlayerControls/index.module.css';
+
+import style from './PlayerControls/index.module.scss';
 
 class PlaybackRate extends React.Component {
 
-  // to avoid unnecessary re-renders
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.playbackRate !== this.props.playbackRate) {
-      return true;
-    }
-
-    return false;
+  shouldComponentUpdate = (nextProps) => {
+    return !isEqual(this.props, nextProps);
   }
+
   render() {
     return (
       <span className={ style.playBackRate }

@@ -1,20 +1,17 @@
 import React from 'react';
-import style from './index.module.css';
+import isEqual from 'react-fast-compare';
+
+import style from './index.module.scss';
 
 class TimeBox extends React.Component {
-
-  shouldComponentUpdate(nextProps) {
-    if (nextProps !== this.props) {
-      return true;
-    }
-
-    return false;
+  shouldComponentUpdate = (nextProps) => {
+    return !isEqual(this.props, nextProps);
   }
 
-  // as separate function above render for performance
   handleClick = (e) => {
     this.props.promptSetCurrentTime(e);
   }
+
   render() {
     return (
       <div className={ style.timeBox }>

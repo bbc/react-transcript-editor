@@ -1,8 +1,8 @@
-@value color-labs-red, color-light-grey, color-mid-grey, color-dark-grey from '../../config/style-guide/colours.module.css';
+@import '../../config/style-guide/colours.scss';
 
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/user-select 
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
 TODO: only working in Chrome, not working in Firefox, and Safari - OSX
-if selecting text, not showing selection 
+if selecting text, not showing selection
 Commented out because it means cannot select speakers and timecode anymore
 which is the intended default behavior but needs to come with export
 functionality to export as plain text, word etc.. otherwise user won't be able
@@ -12,7 +12,7 @@ to get text out of component with timecodes and speaker names in the interim */
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-} 
+}
 
 /* Desktop size */
 @media (min-width: 768px) {
@@ -36,7 +36,7 @@ to get text out of component with timecodes and speaker names in the interim */
   }
 
   .speaker {
-    color: color-mid-grey;
+    color: $color-mid-grey;
     font-weight: bold;
     text-transform: uppercase;
     text-overflow: ellipsis;
@@ -74,7 +74,7 @@ to get text out of component with timecodes and speaker names in the interim */
   .speaker {
     padding-right: 2em;
     vertical-align: middle;
-    color: color-mid-grey;
+    color: $color-mid-grey;
     font-weight: bold;
     text-transform: uppercase;
     text-align: right;
