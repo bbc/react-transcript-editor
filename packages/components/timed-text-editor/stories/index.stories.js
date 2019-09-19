@@ -18,7 +18,7 @@ storiesOf('TimedTextEditor', module)
       mediaUrl: text('mediaUrl', mediaUrl),
       isEditable: boolean('isEditable', true),
       spellCheck: boolean('spellCheck', false),
-      onWordClick: action('onWordClick'),
+      handleWordClick: action('handleWordClick'),
       sttJsonType: text('sttJsonType', 'bbckaldi'),
       isPlaying: action('isPlaying'),
       playMedia: action('playMedia'),

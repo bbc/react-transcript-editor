@@ -53,6 +53,55 @@ class TranscriptEditor extends React.Component {
     this.timedTextEditorRef = React.createRef();
   }
 
+  // const [ isInLocalStorage, setIsInLocalStorage ] = useState(false);
+  // const [ saveTimer, setSaveTimer ] = useState(undefined);
+  // const [ pauseTimer, setPauseTimer ] = useState(undefined);
+  // const [ localSave, setLocalSave ] = useState(undefined);
+
+  // const TYPE_PAUSE_INTERVAL_MS = 3000;
+  // const SAVE_INTERVAL_MS = 1000;
+
+  // const setPauseWhileTyping = (ms) => {
+  //   props.handlePlayMedia(false);
+  //   // Pause video for X seconds
+  //   // resets timeout
+  //   clearTimeout(pauseTimer);
+  //   setPauseTimer(
+  //     setTimeout(() => props.handlePlayMedia(true), ms));
+  // };
+
+  // const saveLocally = () => {
+  //   const currentContentRaw = convertToRaw(editorState.getCurrentContent());
+  //   localStorage.setItem(`draftJs-${ mediaName }`, JSON.stringify(currentContentRaw));
+  //   isInLocalStorage(true);
+  // };
+
+  // const resetSaveTimer = () => {
+  //   if (saveTimer) {
+  //     clearTimeout(saveTimer);
+  //   } else {
+  //     setSaveTimer(
+  //       setTimeout(() => {
+  //         setEditorState(updateEditorTimestamps(editorState, originalState));
+  //         saveLocally();
+  //         clearTimeout(saveTimer);
+  //       },
+  //       SAVE_INTERVAL_MS));
+  //   }
+  // };
+
+  // const handleEdit = () => {
+  //   if (props.isPauseWhileTyping && props.isPlaying()) {
+  //     setPauseWhileTyping(TYPE_PAUSE_INTERVAL_MS);
+  //   }
+  // resetSaveTimer();
+  // }
+
+  // if (!isInLocalStorage) {
+  //   initEditorStates();
+  //   setIsInLocalStorage(true);
+  // }
+
   static getDerivedStateFromProps(nextProps) {
     if (nextProps.transcriptData !== null) {
       return {
@@ -426,7 +475,7 @@ class TranscriptEditor extends React.Component {
         fileName={ this.props.fileName }
         transcriptData={ this.state.transcriptData }
         timecodeOffset={ this.state.timecodeOffset }
-        onWordClick={ this.handleWordClick }
+        handleWordClick={ this.handleWordClick }
         playMedia={ this.handlePlayMedia }
         handleSave={ this.handleSave }
         isPlaying={ this.handleIsPlaying }

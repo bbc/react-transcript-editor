@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { compositeDecorator, customKeyBindingFn } from './draftJsConfig';
 import { getWordCount, splitParagraphs } from './draftJsHelper';
-import updateEditorTimestamps from './updateEditorTimestamps';
+// import updateEditorTimestamps from './updateEditorTimestamps';
 
 import WrapperBlock from './WrapperBlock';
-import Word from './Word';
-
+// import Word from './Word';
+import MemoEditor from './MemoEditor';
 import {
-  Editor,
   EditorState,
   convertFromRaw,
   convertToRaw,
@@ -32,22 +31,7 @@ const TimedTextEditor = (props) => {
   const [ originalState, setOriginalState ] = useState();
 
   const [ isConfigChange, setIsConfigChange ] = useState(false);
-  const [ isTranscriptChange, setIsTranscriptChange ] = useState(false);
-  const [ isInLocalStorage, setIsInLocalStorage ] = useState(false);
-  const [ saveTimer, setSaveTimer ] = useState(undefined);
-  const [ pauseTimer, setPauseTimer ] = useState(undefined);
-
-  const TYPE_PAUSE_INTERVAL_MS = 3000;
-  const SAVE_INTERVAL_MS = 1000;
-
-  const setPauseWhileTyping = (ms) => {
-    props.handlePlayMedia(false);
-    // Pause video for X seconds
-    // resets timeout
-    clearTimeout(pauseTimer);
-    setPauseTimer(
-      setTimeout(() => props.handlePlayMedia(true), ms));
-  };
+  // const [ isTranscriptChange, setIsTranscriptChange ] = useState(false);
 
   /**
    * Handle draftJs custom key commands
@@ -82,45 +66,29 @@ const TimedTextEditor = (props) => {
     }
   };
 
-  const saveLocally = () => {
-    const currentContentRaw = convertToRaw(editorState.getCurrentContent());
-    localStorage.setItem(`draftJs-${ mediaName }`, JSON.stringify(currentContentRaw));
-    isInLocalStorage(true);
-  };
-
   const onChange = (es) => {
     // https://draftjs.org/docs/api-reference-editor-state#lastchangetype
     // https://draftjs.org/docs/api-reference-editor-change-type
     // doing editorStateChangeType === 'insert-characters'  is triggered even
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
-    if (props.isPauseWhileTyping && props.isPlaying()) {
-      setPauseWhileTyping(TYPE_PAUSE_INTERVAL_MS);
-    }
+    setEditorState(es);
+
+    // could be synonymous with handleEdit
     if (props.isEditable) {
       // saving when user has stopped typing for more then five seconds
-      setEditorState(es).then(() => {
-        if (saveTimer) {
-          clearTimeout(saveTimer);
-        } else {
-          setSaveTimer(
-            setTimeout(() => {
-              setEditorState(updateEditorTimestamps(editorState, originalState));
-              saveLocally();
-              clearTimeout(saveTimer);
-            },
-            SAVE_INTERVAL_MS));
-        }
-      });
+      // resetSaveTimer();
+
+      // props.handleEdit();
     }
   };
 
-  const handleChange = () => {
-    if (isTranscriptChange) {
-      // for when to update config and force rerender
-      onChange();
-    }
-  };
+  // const handleChange = () => {
+  //   if (isTranscriptChange) {
+  //     // for when to update config and force rerender
+  //     onChange();
+  //   }
+  // };
 
   /**
   * Update Editor content state
@@ -194,56 +162,37 @@ const TimedTextEditor = (props) => {
     return currentWord;
   };
 
-  const currentWord = getCurrentWord();
-  const highlightColour = '#69e3c2';
-  const unplayedColor = '#767676';
-  const correctionBorder = '1px dotted blue';
+  const updateContentState = (newContentState) => {
+    const newEditorState = EditorState.push(editorState, newContentState);
+    setEditorState(newEditorState);
+  };
 
-  // Time to the nearest half second
-  const time = Math.round(props.currentTime * 4.0) / 4.0;
-
-  const editor = (
-    <section data-testid="section-editor"
-      className={ style.editor }
-      onDoubleClick={ handleDoubleClick }
-      // TODO: decide if on mobile want to have a way to "click" on words
-      // to play corresponding media
-      // a double tap would be the ideal solution
-      // onTouchStart={ event => this.handleDoubleClick(event) }
-    >
-      <style scoped data-testid="section-style">
-        {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
-        {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
-        {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
-        {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
-        {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
-      </style>
-      <Editor data-testid="custom-editor"
-        editorState={ editorState }
-        onChange={ (e) => onChange(e) }
-        stripPastedStyles
-        blockRendererFn={ renderBlockWithTimecodes }
-        handleKeyCommand={ (e) => handleKeyCommand(e) }
-        keyBindingFn={ customKeyBindingFn }
-        spellCheck={ props.spellCheck }
-      />
-    </section>
-  );
-
-  const onWordClick = (e) => {
-    props.onWordClick(e);
+  const blockRendererFn = () => {
+    return {
+      component: WrapperBlock,
+      editable: true,
+      props: {
+        showSpeakers: props.showSpeakers,
+        showTimecodes: props.showTimecodes,
+        timecodeOffset: props.timecodeOffset,
+        editorState: editorState,
+        setEditorNewContentState: updateContentState,
+        handleWordClick: props.handleWordClick,
+        handleAnalyticsEvents: props.handleAnalyticsEvents
+      }
+    };
   };
 
   useEffect(() => {
 
-    if (props.mediaUrl) {
-      const localSave = localStorage.getItem(`draftJs-${ mediaName }`);
-      if (localSave) {
-        setIsInLocalStorage(true);
-      } else {
-        setIsInLocalStorage(false);
-      }
-    }
+    // if (props.mediaUrl && !localSave) {
+    //   setLocalSave(localStorage.getItem(`draftJs-${ mediaName }`));
+    //   if (localSave) {
+    //     setIsInLocalStorage(true);
+    //   } else {
+    //     setIsInLocalStorage(false);
+    //   }
+    // }
 
     const handleWordCountAnalyticEvent = () => {
       const wc = getWordCount(editorState);
@@ -255,17 +204,18 @@ const TimedTextEditor = (props) => {
       });
     };
 
-    const getEditorStateWithTranscript = () => {
+    const initEditorStates = () => {
       const blocks = sttJsonAdapter(props.transcriptData, props.sttJsonType);
-      setOriginalState(convertToRaw(convertFromRaw(blocks)));
       const contentState = convertFromRaw(blocks);
+      setOriginalState(convertToRaw(contentState));
 
-      return EditorState.createWithContent(contentState, compositeDecorator);
+      const newEditorState = EditorState.createWithContent(contentState, compositeDecorator);
+      setEditorState(newEditorState);
     };
 
     // loadData
-    if (props.transcriptData) {
-      setEditorState(getEditorStateWithTranscript());
+    if (!editorState.getCurrentContent().hasText() && props.transcriptData) {
+      initEditorStates();
 
       if (props.handleAnalyticsEvents) {
         handleWordCountAnalyticEvent();
@@ -273,6 +223,7 @@ const TimedTextEditor = (props) => {
     }
 
     const forceRenderDecorator = () => {
+      console.log('forcing rerender!!!!');
       // forcing a re-render is an expensive operation and
       // there might be a way of optimising this at a later refactor (?)
       // the issue is that WrapperBlock is not update on TimedTextEditor
@@ -293,21 +244,46 @@ const TimedTextEditor = (props) => {
       setEditorState(newEditorState);
     };
 
-    if (!isInLocalStorage) {
-      setEditorState(getEditorStateWithTranscript());
-      setIsInLocalStorage(true);
-    }
-
     if (isConfigChange) {
       forceRenderDecorator();
       setIsConfigChange(false);
     }
 
-  }, [ editorState, isConfigChange, isInLocalStorage, mediaName, props, props.sttJsonType, props.transcriptData ]);
+  }, [ editorState, isConfigChange, mediaName, props ]);
+
+  const currentWord = getCurrentWord();
+  const highlightColour = '#69e3c2';
+  const unplayedColor = '#767676';
+  const correctionBorder = '1px dotted blue';
+
+  // Time to the nearest half second
+  const time = Math.round(props.currentTime * 4.0) / 4.0;
 
   return (
-    <section>
-      { props.transcriptData !== null ? editor : null }
+    <section data-testid="section-editor"
+      className={ style.editor }
+      onDoubleClick={ (e) => handleDoubleClick(e) }
+    // TODO: decide if on mobile want to have a way to "click" on words
+    // to play corresponding media
+    // a double tap would be the ideal solution
+    // onTouchStart={ event => this.handleDoubleClick(event) }
+    >
+      <style scoped data-testid="section-style">
+        {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
+        {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
+        {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
+        {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
+        {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
+      </style>
+      <MemoEditor data-testid="custom-editor"
+        editorState={ editorState }
+        onChange={ onChange }
+        stripPastedStyles
+        blockRendererFn={ blockRendererFn }
+        handleKeyCommand={ handleKeyCommand }
+        keyBindingFn={ customKeyBindingFn }
+        spellCheck={ props.spellCheck }
+      />
     </section>
   );
 };
@@ -326,7 +302,6 @@ TimedTextEditor.propTypes = {
   isScrollIntoViewOn: PropTypes.any,
   isSpellCheck: PropTypes.bool,
   mediaUrl: PropTypes.string,
-  onWordClick: PropTypes.any,
   showSpeakers: PropTypes.bool,
   showTimecodes: PropTypes.bool,
   spellCheck: PropTypes.any,
