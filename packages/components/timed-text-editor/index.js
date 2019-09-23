@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { compositeDecorator, customKeyBindingFn } from './draftJsConfig';
 import { getWordCount, splitParagraphs } from './draftJsHelper';
-// import updateEditorTimestamps from './updateEditorTimestamps';
+import updateEditorTimestamps from './updateEditorTimestamps';
 
 import WrapperBlock from './WrapperBlock';
 // import Word from './Word';
@@ -23,15 +23,17 @@ import style from './index.module.css';
 // and know what to apply to what component
 
 const TimedTextEditor = (props) => {
+  const INTERVAL_MS = 1000;
   const [ editorState, setEditorState ] = useState(EditorState.createEmpty());
   // if using local media instead of using random blob name
   // that makes it impossible to retrieve from on page refresh
   // use file name
+
   const mediaName = props.mediaUrl.includes('blob') ? props.fileName : props.mediaUrl;
   const [ originalState, setOriginalState ] = useState();
+  const [ updateTimer, setUpdateTimer ] = useState(undefined);
 
   const [ isConfigChange, setIsConfigChange ] = useState(false);
-  // const [ isTranscriptChange, setIsTranscriptChange ] = useState(false);
 
   /**
    * Handle draftJs custom key commands
@@ -66,52 +68,10 @@ const TimedTextEditor = (props) => {
     }
   };
 
-  const onChange = (es) => {
-    // https://draftjs.org/docs/api-reference-editor-state#lastchangetype
-    // https://draftjs.org/docs/api-reference-editor-change-type
-    // doing editorStateChangeType === 'insert-characters'  is triggered even
-    // outside of draftJS eg when clicking play button so using this instead
-    // see issue https://github.com/facebook/draft-js/issues/1060
-    setEditorState(es);
-
-    // could be synonymous with handleEdit
-    if (props.isEditable) {
-      // saving when user has stopped typing for more then five seconds
-      // resetSaveTimer();
-
-      // props.handleEdit();
-    }
-  };
-
-  // const handleChange = () => {
-  //   if (isTranscriptChange) {
-  //     // for when to update config and force rerender
-  //     onChange();
-  //   }
-  // };
-
   /**
   * Update Editor content state
   */
-  const updateEditorState = (newContentState) => {
-    const newEditorState = EditorState.push(editorState, newContentState);
-    setEditorState(newEditorState);
-  };
 
-  const handleConfigChange = () => {
-    setIsConfigChange(true);
-    // handle rerender
-  };
-
-  // const getEditorContent = (exportFormat, title) => {
-  //   const format = exportFormat || 'draftjs';
-  //   updateEditorStateTimestamps();
-
-  //   return exportAdapter(convertToRaw(editorState.getCurrentContent()), format, title);
-  // };
-
-  // click on words - for navigation
-  // eslint-disable-next-line class-methods-use-this
   const handleDoubleClick = (event) => {
     // nativeEvent --> React giving you the DOM event
     let element = event.nativeEvent.target;
@@ -124,10 +84,6 @@ const TimedTextEditor = (props) => {
       const t = parseFloat(element.getAttribute('data-start'));
       props.handleWordClick(t);
     }
-  };
-
-  const onSave = () => {
-    props.handleSave();
   };
 
   const getCurrentWord = () => {
@@ -170,7 +126,7 @@ const TimedTextEditor = (props) => {
   const blockRendererFn = () => {
     return {
       component: WrapperBlock,
-      editable: true,
+      editable: props.isEditable,
       props: {
         showSpeakers: props.showSpeakers,
         showTimecodes: props.showTimecodes,
@@ -181,6 +137,44 @@ const TimedTextEditor = (props) => {
         handleAnalyticsEvents: props.handleAnalyticsEvents
       }
     };
+  };
+
+  const updateTimeStamps = () => {
+    const newEditorState = updateEditorTimestamps(editorState, originalState);
+    setEditorState(newEditorState);
+  };
+
+  const fnsAfterUpdateTimer = (fns) => {
+    setUpdateTimer(setTimeout(() => {
+      fns.forEach(fn => fn());
+    }, INTERVAL_MS));
+  };
+
+  const contentChange = () => {
+    console.log('content');
+    if (props.handleChange) {
+      props.handleChange();
+    }
+  };
+
+  const onChange = (newState) => {
+    // https://draftjs.org/docs/api-reference-editor-state#lastchangetype
+    // https://draftjs.org/docs/api-reference-editor-change-type
+    // doing editorStateChangeType === 'insert-characters'  is triggered even
+    // outside of draftJS eg when clicking play button so using this instead
+    // see issue https://github.com/facebook/draft-js/issues/1060
+
+    const fns = [ updateTimeStamps, contentChange ];
+
+    if (props.isEditable) {
+      setEditorState(newState);
+    }
+    if (editorState.getCurrentContent() !== newState.getCurrentContent()) {
+      if (updateTimer) {
+        clearTimeout(updateTimer);
+      }
+      fnsAfterUpdateTimer(fns);
+    }
   };
 
   useEffect(() => {
@@ -222,34 +216,9 @@ const TimedTextEditor = (props) => {
       }
     }
 
-    const forceRenderDecorator = () => {
-      console.log('forcing rerender!!!!');
-      // forcing a re-render is an expensive operation and
-      // there might be a way of optimising this at a later refactor (?)
-      // the issue is that WrapperBlock is not update on TimedTextEditor
-      // state change otherwise.
-      // for now compromising on this, as setting timecode offset, and
-      // display preferences for speakers and timecodes are not expected to
-      // be very frequent operations but rather one time setup in most cases.
-      const contentState = editorState.getCurrentContent();
-
-      const newState = EditorState.createWithContent(
-        contentState,
-        editorState.getDecorator()
-      );
-
-      const newEditorState = EditorState.push(newState, contentState);
-
-      // is there a difference between newEditorState + newState??? ever???
-      setEditorState(newEditorState);
+    return () => {
     };
-
-    if (isConfigChange) {
-      forceRenderDecorator();
-      setIsConfigChange(false);
-    }
-
-  }, [ editorState, isConfigChange, mediaName, props ]);
+  }, [ editorState, originalState, props, updateTimer ]);
 
   const currentWord = getCurrentWord();
   const highlightColour = '#69e3c2';
@@ -287,13 +256,23 @@ const TimedTextEditor = (props) => {
     </section>
   );
 };
+TimedTextEditor.default = {
+  timecodeOffset: 0,
+  currentTime: 0,
+  isEditable: true,
+  spellCheck: false,
+  isScrollIntoViewOn: true,
+  isPauseWhileTypingOn: true,
+  showSpeakers: true,
+  showTimecodes: true,
+};
 
 TimedTextEditor.propTypes = {
   currentTime: PropTypes.number,
   fileName: PropTypes.string,
   handleAnalyticsEvents: PropTypes.func,
   handlePlayMedia: PropTypes.func,
-  handleSave: PropTypes.func,
+  handleChange: PropTypes.func,
   handleWordClick: PropTypes.func,
   isEditable: PropTypes.bool,
   isPauseWhileTyping: PropTypes.bool,

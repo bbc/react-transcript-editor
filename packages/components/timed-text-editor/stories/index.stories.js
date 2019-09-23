@@ -29,7 +29,8 @@ storiesOf('TimedTextEditor', module)
       handleAnalyticsEvents: action('handleAnalyticsEvents'),
       showSpeakers: boolean('showSpeakers', true),
       showTimecodes: boolean('showTimecodes', true),
-      fileName: text('fileName', 'KateDarling_2018S-950k.mp4')
+      fileName: text('fileName', 'KateDarling_2018S-950k.mp4'),
+      handleChange: action('handleChange (save, pause etc.)')
     };
 
     return (
