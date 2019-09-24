@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { compositeDecorator, customKeyBindingFn } from './draftJsConfig';
+import { compositeDecorator, customKeyBindingFn as keyBindingFn } from './draftJsConfig';
 import { getWordCount, splitParagraphs } from './draftJsHelper';
 import updateEditorTimestamps from './updateEditorTimestamps';
 
@@ -25,15 +25,8 @@ import style from './index.module.css';
 const TimedTextEditor = (props) => {
   const INTERVAL_MS = 1000;
   const [ editorState, setEditorState ] = useState(EditorState.createEmpty());
-  // if using local media instead of using random blob name
-  // that makes it impossible to retrieve from on page refresh
-  // use file name
-
-  const mediaName = props.mediaUrl.includes('blob') ? props.fileName : props.mediaUrl;
   const [ originalState, setOriginalState ] = useState();
   const [ updateTimer, setUpdateTimer ] = useState(undefined);
-
-  const [ isConfigChange, setIsConfigChange ] = useState(false);
 
   /**
    * Handle draftJs custom key commands
@@ -109,7 +102,7 @@ const TimedTextEditor = (props) => {
     }
 
     if (currentWord.start !== 'NA') {
-      if (props.isScrollIntoViewOn) {
+      if (props.isScrollIntoView) {
         const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
         currentWordElement.scrollIntoView({ block: 'nearest', inline: 'center' });
       }
@@ -144,17 +137,17 @@ const TimedTextEditor = (props) => {
     setEditorState(newEditorState);
   };
 
-  const fnsAfterUpdateTimer = (fns) => {
-    setUpdateTimer(setTimeout(() => {
-      fns.forEach(fn => fn());
-    }, INTERVAL_MS));
-  };
-
-  const contentChange = () => {
-    console.log('content');
-    if (props.handleChange) {
-      props.handleChange();
+  const onUpdateTimeout = () => {
+    if (updateTimer) {
+      clearTimeout(updateTimer);
     }
+    setUpdateTimer(setTimeout(() => {
+      updateTimeStamps();
+      if (props.handleSave) {
+        props.handleSave().bind(editorState);
+      }
+
+    }, INTERVAL_MS));
   };
 
   const onChange = (newState) => {
@@ -164,29 +157,18 @@ const TimedTextEditor = (props) => {
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
 
-    const fns = [ updateTimeStamps, contentChange ];
-
     if (props.isEditable) {
       setEditorState(newState);
+      if (props.handleEdit) {
+        props.handleEdit().bind(editorState);
+      }
     }
     if (editorState.getCurrentContent() !== newState.getCurrentContent()) {
-      if (updateTimer) {
-        clearTimeout(updateTimer);
-      }
-      fnsAfterUpdateTimer(fns);
+      onUpdateTimeout();
     }
   };
 
   useEffect(() => {
-
-    // if (props.mediaUrl && !localSave) {
-    //   setLocalSave(localStorage.getItem(`draftJs-${ mediaName }`));
-    //   if (localSave) {
-    //     setIsInLocalStorage(true);
-    //   } else {
-    //     setIsInLocalStorage(false);
-    //   }
-    // }
 
     const handleWordCountAnalyticEvent = () => {
       const wc = getWordCount(editorState);
@@ -250,7 +232,7 @@ const TimedTextEditor = (props) => {
         stripPastedStyles
         blockRendererFn={ blockRendererFn }
         handleKeyCommand={ handleKeyCommand }
-        keyBindingFn={ customKeyBindingFn }
+        keyBindingFn={ keyBindingFn }
         spellCheck={ props.spellCheck }
       />
     </section>
@@ -261,8 +243,7 @@ TimedTextEditor.default = {
   currentTime: 0,
   isEditable: true,
   spellCheck: false,
-  isScrollIntoViewOn: true,
-  isPauseWhileTypingOn: true,
+  isScrollIntoView: true,
   showSpeakers: true,
   showTimecodes: true,
 };
@@ -271,19 +252,15 @@ TimedTextEditor.propTypes = {
   currentTime: PropTypes.number,
   fileName: PropTypes.string,
   handleAnalyticsEvents: PropTypes.func,
-  handlePlayMedia: PropTypes.func,
-  handleChange: PropTypes.func,
+  handleEdit: PropTypes.func,
+  handleSave: PropTypes.func,
   handleWordClick: PropTypes.func,
   isEditable: PropTypes.bool,
-  isPauseWhileTyping: PropTypes.bool,
-  isPlaying: PropTypes.func,
   isScrollIntoView: PropTypes.bool,
-  isScrollIntoViewOn: PropTypes.any,
-  isSpellCheck: PropTypes.bool,
   mediaUrl: PropTypes.string,
   showSpeakers: PropTypes.bool,
   showTimecodes: PropTypes.bool,
-  spellCheck: PropTypes.any,
+  spellCheck: PropTypes.bool,
   sttJsonType: PropTypes.string,
   timecodeOffset: PropTypes.number,
   transcriptData: PropTypes.object

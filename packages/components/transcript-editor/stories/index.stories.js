@@ -16,10 +16,11 @@ storiesOf('TranscriptEditor', module)
       mediaUrl: text('mediaUrl', 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4'),
       sttJsonType: text('sttJsonType', 'bbckaldi' ),
       isEditable: boolean('isEditable', true ),
-      spellCheck: boolean('spellCheck', false ),
+      isSpellCheck: boolean('isSpellCheck', false ),
       fileName: text('fileName', 'KateDarling_2018S-950k.mp4' ),
       transcriptData: object('transcriptData', bbcKaldiTranscript),
-      handleAnalyticsEvents: action('Analytics event')
+      handleAnalyticsEvents: action('Analytics event'),
+      handleSave: action('handleSave'),
     };
 
     return (
