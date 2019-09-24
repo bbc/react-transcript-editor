@@ -1,6 +1,6 @@
 const draftTranscriptExample = [
   {
-    "text": "There was a day about 10 years ago when I asked a friend to hold a baby dinosaur robot upside down.",
+    "text": "There was a day about 10 years ago when I asked a friend to hold a baby dinosaur robot upside down. It was this toy called the polio that I had ordered and I was really excited about it because I've always loved robots and this one has really cool technical features. It had motors and touch sensors and it had an infrared camera and one of the things that I had was a tilt sensor so it knew what direction it was facing. And when you held it upside down. It would start to cry. And I thought it was super cool. So I was showing it off to my friend and I said oh hold it up by the tail see what it does.",
     "type": "paragraph",
     "data": {
       "speaker": "F4",
@@ -172,208 +172,7 @@ const draftTranscriptExample = [
           "word": "down",
           "punct": "down.",
           "index": 20
-        }
-      ],
-      "start": "13.05"
-    },
-    "entityRanges": [
-      {
-        "start": "13.05",
-        "end": "13.23",
-        "confidence": "1.000",
-        "text": "There",
-        "offset": 0,
-        "length": 5,
-        "key": expect.any(String)//"jxbjnok"
-      },
-      {
-        "start": "13.23",
-        "end": "13.41",
-        "confidence": "0.990",
-        "text": "was",
-        "offset": 6,
-        "length": 3,
-        "key": expect.any(String)//"z7x4b2b"
-      },
-      {
-        "start": "13.41",
-        "end": "13.47",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 10,
-        "length": 1,
-        "key": expect.any(String)//"oxb3kzp"
-      },
-      {
-        "start": "13.47",
-        "end": "13.89",
-        "confidence": "1.000",
-        "text": "day",
-        "offset": 12,
-        "length": 3,
-        "key": expect.any(String)//"hl6c2co"
-      },
-      {
-        "start": "13.89",
-        "end": "14.13",
-        "confidence": "1.000",
-        "text": "about",
-        "offset": 16,
-        "length": 5,
-        "key": expect.any(String)//"cpflbgg"
-      },
-      {
-        "start": "14.13",
-        "end": "14.370000000000001",
-        "confidence": "0.690",
-        "text": "10",
-        "offset": 22,
-        "length": 2,
-        "key": expect.any(String)//"xe5ihp"
-      },
-      {
-        "start": "14.37",
-        "end": "14.639999999999999",
-        "confidence": "1.000",
-        "text": "years",
-        "offset": 25,
-        "length": 5,
-        "key": expect.any(String)//"585to3h"
-      },
-      {
-        "start": "14.64",
-        "end": "15.15",
-        "confidence": "1.000",
-        "text": "ago",
-        "offset": 31,
-        "length": 3,
-        "key": expect.any(String)//"fjyebs"
-      },
-      {
-        "start": "15.57",
-        "end": "15.75",
-        "confidence": "1.000",
-        "text": "when",
-        "offset": 35,
-        "length": 4,
-        "key": expect.any(String)//"c9pgce8"
-      },
-      {
-        "start": "15.75",
-        "end": "15.84",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 40,
-        "length": 1,
-        "key": expect.any(String)//"76v3z5c"
-      },
-      {
-        "start": "15.84",
-        "end": "16.23",
-        "confidence": "1.000",
-        "text": "asked",
-        "offset": 42,
-        "length": 5,
-        "key": expect.any(String)//"ai8zbl"
-      },
-      {
-        "start": "16.23",
-        "end": "16.29",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 48,
-        "length": 1,
-        "key": expect.any(String)//"8hc75gf"
-      },
-      {
-        "start": "16.29",
-        "end": "16.619999999999997",
-        "confidence": "1.000",
-        "text": "friend",
-        "offset": 50,
-        "length": 6,
-        "key": expect.any(String)//"dlnac2a"
-      },
-      {
-        "start": "16.62",
-        "end": "16.740000000000002",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 57,
-        "length": 2,
-        "key": expect.any(String)//"zy3vdv"
-      },
-      {
-        "start": "16.74",
-        "end": "17.189999999999998",
-        "confidence": "1.000",
-        "text": "hold",
-        "offset": 60,
-        "length": 4,
-        "key": expect.any(String)//"7u3k2mf"
-      },
-      {
-        "start": "17.25",
-        "end": "17.31",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 65,
-        "length": 1,
-        "key": expect.any(String)//"94q0qu6"
-      },
-      {
-        "start": "17.31",
-        "end": "17.639999999999997",
-        "confidence": "1.000",
-        "text": "baby",
-        "offset": 67,
-        "length": 4,
-        "key": expect.any(String)//"qyzxb8c"
-      },
-      {
-        "start": "17.64",
-        "end": "18.14",
-        "confidence": "1.000",
-        "text": "dinosaur",
-        "offset": 72,
-        "length": 8,
-        "key": expect.any(String)//"t9w4gd7"
-      },
-      {
-        "start": "18.15",
-        "end": "18.63",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 81,
-        "length": 5,
-        "key": expect.any(String)//"pt1a86"
-      },
-      {
-        "start": "18.78",
-        "end": "19.17",
-        "confidence": "1.000",
-        "text": "upside",
-        "offset": 87,
-        "length": 6,
-        "key": expect.any(String)//"1hnurzg"
-      },
-      {
-        "start": "19.17",
-        "end": "19.990000000000002",
-        "confidence": "1.000",
-        "text": "down.",
-        "offset": 94,
-        "length": 5,
-        "key": expect.any(String)//"1bzvhmh"
-      }
-    ]
-  },
-  {
-    "text": "It was this toy called the polio that I had ordered and I was really excited about it because I've always loved robots and this one has really cool technical features.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "21.92",
           "end": "21.98",
@@ -621,298 +420,7 @@ const draftTranscriptExample = [
           "word": "features",
           "punct": "features.",
           "index": 51
-        }
-      ],
-      "start": "21.92"
-    },
-    "entityRanges": [
-      {
-        "start": "21.92",
-        "end": "21.98",
-        "confidence": "0.970",
-        "text": "It",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"d5la7d"
-      },
-      {
-        "start": "21.99",
-        "end": "22.11",
-        "confidence": "0.980",
-        "text": "was",
-        "offset": 3,
-        "length": 3,
-        "key": expect.any(String)//"kvdg61j"
-      },
-      {
-        "start": "22.11",
-        "end": "22.259999999999998",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 7,
-        "length": 4,
-        "key": expect.any(String)//"773ejzi"
-      },
-      {
-        "start": "22.26",
-        "end": "22.680000000000003",
-        "confidence": "1.000",
-        "text": "toy",
-        "offset": 12,
-        "length": 3,
-        "key": expect.any(String)//"jw9mos9"
-      },
-      {
-        "start": "22.68",
-        "end": "22.89",
-        "confidence": "1.000",
-        "text": "called",
-        "offset": 16,
-        "length": 6,
-        "key": expect.any(String)//"7tpb8vo"
-      },
-      {
-        "start": "22.89",
-        "end": "22.98",
-        "confidence": "0.910",
-        "text": "the",
-        "offset": 23,
-        "length": 3,
-        "key": expect.any(String)//"ot667l9"
-      },
-      {
-        "start": "23.02",
-        "end": "23.759999999999998",
-        "confidence": "0.590",
-        "text": "polio",
-        "offset": 27,
-        "length": 5,
-        "key": expect.any(String)//"rstps2n"
-      },
-      {
-        "start": "24.21",
-        "end": "24.57",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 33,
-        "length": 4,
-        "key": expect.any(String)//"mqb6ha"
-      },
-      {
-        "start": "24.66",
-        "end": "24.75",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 38,
-        "length": 1,
-        "key": expect.any(String)//"uxuerpn"
-      },
-      {
-        "start": "24.75",
-        "end": "24.9",
-        "confidence": "1.000",
-        "text": "had",
-        "offset": 40,
-        "length": 3,
-        "key": expect.any(String)//"j2xl5n"
-      },
-      {
-        "start": "24.90",
-        "end": "25.349999999999998",
-        "confidence": "1.000",
-        "text": "ordered",
-        "offset": 44,
-        "length": 7,
-        "key": expect.any(String)//"wmbt0wa"
-      },
-      {
-        "start": "25.35",
-        "end": "25.44",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 52,
-        "length": 3,
-        "key": expect.any(String)//"177qun4"
-      },
-      {
-        "start": "25.44",
-        "end": "25.5",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 56,
-        "length": 1,
-        "key": expect.any(String)//"15dooq39"
-      },
-      {
-        "start": "25.50",
-        "end": "25.65",
-        "confidence": "1.000",
-        "text": "was",
-        "offset": 58,
-        "length": 3,
-        "key": expect.any(String)//"thq2l9b"
-      },
-      {
-        "start": "25.65",
-        "end": "25.889999999999997",
-        "confidence": "1.000",
-        "text": "really",
-        "offset": 62,
-        "length": 6,
-        "key": expect.any(String)//"nc172d"
-      },
-      {
-        "start": "25.89",
-        "end": "26.52",
-        "confidence": "1.000",
-        "text": "excited",
-        "offset": 69,
-        "length": 7,
-        "key": expect.any(String)//"0fnuzs"
-      },
-      {
-        "start": "26.52",
-        "end": "26.849999999999998",
-        "confidence": "1.000",
-        "text": "about",
-        "offset": 77,
-        "length": 5,
-        "key": expect.any(String)//"0l8fr4"
-      },
-      {
-        "start": "26.85",
-        "end": "27",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 83,
-        "length": 2,
-        "key": expect.any(String)//"w1fn4ed"
-      },
-      {
-        "start": "27.03",
-        "end": "27.75",
-        "confidence": "1.000",
-        "text": "because",
-        "offset": 86,
-        "length": 7,
-        "key": expect.any(String)//"wlrgne"
-      },
-      {
-        "start": "28.47",
-        "end": "28.59",
-        "confidence": "0.930",
-        "text": "I've",
-        "offset": 94,
-        "length": 4,
-        "key": expect.any(String)//"v3n7sg5"
-      },
-      {
-        "start": "28.59",
-        "end": "28.8",
-        "confidence": "1.000",
-        "text": "always",
-        "offset": 99,
-        "length": 6,
-        "key": expect.any(String)//"x00bwa9"
-      },
-      {
-        "start": "28.80",
-        "end": "29.04",
-        "confidence": "1.000",
-        "text": "loved",
-        "offset": 106,
-        "length": 5,
-        "key": expect.any(String)//"5l7np49"
-      },
-      {
-        "start": "29.04",
-        "end": "29.52",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 112,
-        "length": 6,
-        "key": expect.any(String)//"1xmcr1ua"
-      },
-      {
-        "start": "29.79",
-        "end": "29.88",
-        "confidence": "0.990",
-        "text": "and",
-        "offset": 119,
-        "length": 3,
-        "key": expect.any(String)//"1w0q52"
-      },
-      {
-        "start": "29.88",
-        "end": "30.029999999999998",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 123,
-        "length": 4,
-        "key": expect.any(String)//"25toj0y"
-      },
-      {
-        "start": "30.03",
-        "end": "30.21",
-        "confidence": "1.000",
-        "text": "one",
-        "offset": 128,
-        "length": 3,
-        "key": expect.any(String)//"qkpuv9t"
-      },
-      {
-        "start": "30.21",
-        "end": "30.45",
-        "confidence": "1.000",
-        "text": "has",
-        "offset": 132,
-        "length": 3,
-        "key": expect.any(String)//"8cl0brk"
-      },
-      {
-        "start": "30.45",
-        "end": "30.779999999999998",
-        "confidence": "1.000",
-        "text": "really",
-        "offset": 136,
-        "length": 6,
-        "key": expect.any(String)//"zoc3woo"
-      },
-      {
-        "start": "30.78",
-        "end": "30.96",
-        "confidence": "1.000",
-        "text": "cool",
-        "offset": 143,
-        "length": 4,
-        "key": expect.any(String)//"wxyhuah"
-      },
-      {
-        "start": "30.96",
-        "end": "31.35",
-        "confidence": "1.000",
-        "text": "technical",
-        "offset": 148,
-        "length": 9,
-        "key": expect.any(String)//"dkib4yj"
-      },
-      {
-        "start": "31.35",
-        "end": "31.830000000000002",
-        "confidence": "1.000",
-        "text": "features.",
-        "offset": 158,
-        "length": 9,
-        "key": expect.any(String)//"aivhrqk"
-      }
-    ]
-  },
-  {
-    "text": "It had motors and touch sensors and it had an infrared camera and one of the things that I had was a tilt sensor so it knew what direction it was facing.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "31.83",
           "end": "31.919999999999998",
@@ -1168,307 +676,7 @@ const draftTranscriptExample = [
           "word": "facing",
           "punct": "facing.",
           "index": 83
-        }
-      ],
-      "start": "31.83"
-    },
-    "entityRanges": [
-      {
-        "start": "31.83",
-        "end": "31.919999999999998",
-        "confidence": "1.000",
-        "text": "It",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"lahabrq"
-      },
-      {
-        "start": "31.92",
-        "end": "32.13",
-        "confidence": "1.000",
-        "text": "had",
-        "offset": 3,
-        "length": 3,
-        "key": expect.any(String)//"l9z2lw4"
-      },
-      {
-        "start": "32.13",
-        "end": "32.760000000000005",
-        "confidence": "1.000",
-        "text": "motors",
-        "offset": 7,
-        "length": 6,
-        "key": expect.any(String)//"7wymhja"
-      },
-      {
-        "start": "32.76",
-        "end": "32.879999999999995",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 14,
-        "length": 3,
-        "key": expect.any(String)//"ubaocr"
-      },
-      {
-        "start": "32.88",
-        "end": "33.18",
-        "confidence": "0.990",
-        "text": "touch",
-        "offset": 18,
-        "length": 5,
-        "key": expect.any(String)//"jz9xju9"
-      },
-      {
-        "start": "33.18",
-        "end": "33.87",
-        "confidence": "1.000",
-        "text": "sensors",
-        "offset": 24,
-        "length": 7,
-        "key": expect.any(String)//"0srbx3n"
-      },
-      {
-        "start": "34.26",
-        "end": "34.41",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 32,
-        "length": 3,
-        "key": expect.any(String)//"i3biwr"
-      },
-      {
-        "start": "34.41",
-        "end": "34.5",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 36,
-        "length": 2,
-        "key": expect.any(String)//"ocw7r3"
-      },
-      {
-        "start": "34.50",
-        "end": "34.71",
-        "confidence": "1.000",
-        "text": "had",
-        "offset": 39,
-        "length": 3,
-        "key": expect.any(String)//"lrplleo"
-      },
-      {
-        "start": "34.71",
-        "end": "34.800000000000004",
-        "confidence": "1.000",
-        "text": "an",
-        "offset": 43,
-        "length": 2,
-        "key": expect.any(String)//"1zhlz88"
-      },
-      {
-        "start": "34.80",
-        "end": "35.309999999999995",
-        "confidence": "1.000",
-        "text": "infrared",
-        "offset": 46,
-        "length": 8,
-        "key": expect.any(String)//"3uft5epo"
-      },
-      {
-        "start": "35.31",
-        "end": "35.97",
-        "confidence": "1.000",
-        "text": "camera",
-        "offset": 55,
-        "length": 6,
-        "key": expect.any(String)//"4cl9itp"
-      },
-      {
-        "start": "36.54",
-        "end": "36.66",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 62,
-        "length": 3,
-        "key": expect.any(String)//"wbb0e4"
-      },
-      {
-        "start": "36.66",
-        "end": "36.809999999999995",
-        "confidence": "1.000",
-        "text": "one",
-        "offset": 66,
-        "length": 3,
-        "key": expect.any(String)//"sqgncye"
-      },
-      {
-        "start": "36.81",
-        "end": "36.870000000000005",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 70,
-        "length": 2,
-        "key": expect.any(String)//"t5k1iv"
-      },
-      {
-        "start": "36.87",
-        "end": "36.989999999999995",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 73,
-        "length": 3,
-        "key": expect.any(String)//"lu1hpcq"
-      },
-      {
-        "start": "36.99",
-        "end": "37.230000000000004",
-        "confidence": "1.000",
-        "text": "things",
-        "offset": 77,
-        "length": 6,
-        "key": expect.any(String)//"3f3p3ed"
-      },
-      {
-        "start": "37.23",
-        "end": "37.33",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 84,
-        "length": 4,
-        "key": expect.any(String)//"ao8e53h"
-      },
-      {
-        "start": "37.33",
-        "end": "37.35",
-        "confidence": "0.660",
-        "text": "I",
-        "offset": 89,
-        "length": 1,
-        "key": expect.any(String)//"wc7t0qs"
-      },
-      {
-        "start": "37.35",
-        "end": "37.53",
-        "confidence": "1.000",
-        "text": "had",
-        "offset": 91,
-        "length": 3,
-        "key": expect.any(String)//"q97w169"
-      },
-      {
-        "start": "37.53",
-        "end": "37.71",
-        "confidence": "1.000",
-        "text": "was",
-        "offset": 95,
-        "length": 3,
-        "key": expect.any(String)//"94myv0e"
-      },
-      {
-        "start": "37.71",
-        "end": "37.800000000000004",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 99,
-        "length": 1,
-        "key": expect.any(String)//"iu36m1dm"
-      },
-      {
-        "start": "37.95",
-        "end": "38.370000000000005",
-        "confidence": "1.000",
-        "text": "tilt",
-        "offset": 101,
-        "length": 4,
-        "key": expect.any(String)//"vj1qpmj"
-      },
-      {
-        "start": "38.37",
-        "end": "38.97",
-        "confidence": "1.000",
-        "text": "sensor",
-        "offset": 106,
-        "length": 6,
-        "key": expect.any(String)//"7f5k4fc"
-      },
-      {
-        "start": "39.30",
-        "end": "39.54",
-        "confidence": "1.000",
-        "text": "so",
-        "offset": 113,
-        "length": 2,
-        "key": expect.any(String)//"ve90pp"
-      },
-      {
-        "start": "39.54",
-        "end": "39.63",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 116,
-        "length": 2,
-        "key": expect.any(String)//"l7f4b5l"
-      },
-      {
-        "start": "39.63",
-        "end": "39.84",
-        "confidence": "1.000",
-        "text": "knew",
-        "offset": 119,
-        "length": 4,
-        "key": expect.any(String)//"ey1j24q"
-      },
-      {
-        "start": "39.84",
-        "end": "39.96",
-        "confidence": "1.000",
-        "text": "what",
-        "offset": 124,
-        "length": 4,
-        "key": expect.any(String)//"mncs1p"
-      },
-      {
-        "start": "39.96",
-        "end": "40.56",
-        "confidence": "1.000",
-        "text": "direction",
-        "offset": 129,
-        "length": 9,
-        "key": expect.any(String)//"os0t506r"
-      },
-      {
-        "start": "40.56",
-        "end": "40.650000000000006",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 139,
-        "length": 2,
-        "key": expect.any(String)//"dt9gf7e"
-      },
-      {
-        "start": "40.65",
-        "end": "40.86",
-        "confidence": "1.000",
-        "text": "was",
-        "offset": 142,
-        "length": 3,
-        "key": expect.any(String)//"qbwfr2"
-      },
-      {
-        "start": "40.86",
-        "end": "41.99",
-        "confidence": "1.000",
-        "text": "facing.",
-        "offset": 146,
-        "length": 7,
-        "key": expect.any(String)//"o30911"
-      }
-    ]
-  },
-  {
-    "text": "And when you held it upside down.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "42.09",
           "end": "42.21",
@@ -1524,82 +732,7 @@ const draftTranscriptExample = [
           "word": "down",
           "punct": "down.",
           "index": 90
-        }
-      ],
-      "start": "42.09"
-    },
-    "entityRanges": [
-      {
-        "start": "42.09",
-        "end": "42.21",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"u4pwzek"
-      },
-      {
-        "start": "42.21",
-        "end": "42.33",
-        "confidence": "1.000",
-        "text": "when",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"6my3gyb"
-      },
-      {
-        "start": "42.33",
-        "end": "42.42",
-        "confidence": "1.000",
-        "text": "you",
-        "offset": 9,
-        "length": 3,
-        "key": expect.any(String)//"e8w7lia"
-      },
-      {
-        "start": "42.42",
-        "end": "42.63",
-        "confidence": "0.980",
-        "text": "held",
-        "offset": 13,
-        "length": 4,
-        "key": expect.any(String)//"762fne6"
-      },
-      {
-        "start": "42.63",
-        "end": "42.720000000000006",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 18,
-        "length": 2,
-        "key": expect.any(String)//"ufhd7u"
-      },
-      {
-        "start": "42.72",
-        "end": "43.019999999999996",
-        "confidence": "1.000",
-        "text": "upside",
-        "offset": 21,
-        "length": 6,
-        "key": expect.any(String)//"l0bo84"
-      },
-      {
-        "start": "43.02",
-        "end": "43.56",
-        "confidence": "1.000",
-        "text": "down.",
-        "offset": 28,
-        "length": 5,
-        "key": expect.any(String)//"ejj8px"
-      }
-    ]
-  },
-  {
-    "text": "It would start to cry.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "44.28",
           "end": "44.34",
@@ -1639,64 +772,7 @@ const draftTranscriptExample = [
           "word": "cry",
           "punct": "cry.",
           "index": 95
-        }
-      ],
-      "start": "44.28"
-    },
-    "entityRanges": [
-      {
-        "start": "44.28",
-        "end": "44.34",
-        "confidence": "1.000",
-        "text": "It",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"7o6xbks"
-      },
-      {
-        "start": "44.34",
-        "end": "44.46",
-        "confidence": "1.000",
-        "text": "would",
-        "offset": 3,
-        "length": 5,
-        "key": expect.any(String)//"91wq6bb"
-      },
-      {
-        "start": "44.46",
-        "end": "44.67",
-        "confidence": "1.000",
-        "text": "start",
-        "offset": 9,
-        "length": 5,
-        "key": expect.any(String)//"m5acuhf"
-      },
-      {
-        "start": "44.67",
-        "end": "44.760000000000005",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 15,
-        "length": 2,
-        "key": expect.any(String)//"ntet6as"
-      },
-      {
-        "start": "44.76",
-        "end": "45.21",
-        "confidence": "1.000",
-        "text": "cry.",
-        "offset": 18,
-        "length": 4,
-        "key": expect.any(String)//"9dq0v5r"
-      }
-    ]
-  },
-  {
-    "text": "And I thought it was super cool.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "46.52",
           "end": "46.6",
@@ -1752,82 +828,7 @@ const draftTranscriptExample = [
           "word": "cool",
           "punct": "cool.",
           "index": 102
-        }
-      ],
-      "start": "46.52"
-    },
-    "entityRanges": [
-      {
-        "start": "46.52",
-        "end": "46.6",
-        "confidence": "0.930",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"8u378w"
-      },
-      {
-        "start": "46.64",
-        "end": "46.7",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 4,
-        "length": 1,
-        "key": expect.any(String)//"q2wa65"
-      },
-      {
-        "start": "46.70",
-        "end": "46.88",
-        "confidence": "1.000",
-        "text": "thought",
-        "offset": 6,
-        "length": 7,
-        "key": expect.any(String)//"4igkv08"
-      },
-      {
-        "start": "46.94",
-        "end": "47.059999999999995",
-        "confidence": "0.340",
-        "text": "it",
-        "offset": 14,
-        "length": 2,
-        "key": expect.any(String)//"dfzvdb"
-      },
-      {
-        "start": "47.12",
-        "end": "47.269999999999996",
-        "confidence": "1.000",
-        "text": "was",
-        "offset": 17,
-        "length": 3,
-        "key": expect.any(String)//"tgzqvw"
-      },
-      {
-        "start": "47.27",
-        "end": "47.660000000000004",
-        "confidence": "1.000",
-        "text": "super",
-        "offset": 21,
-        "length": 5,
-        "key": expect.any(String)//"udr1wbv"
-      },
-      {
-        "start": "47.66",
-        "end": "47.989999999999995",
-        "confidence": "0.960",
-        "text": "cool.",
-        "offset": 27,
-        "length": 5,
-        "key": expect.any(String)//"fuxid0r"
-      }
-    ]
-  },
-  {
-    "text": "So I was showing it off to my friend and I said oh hold it up by the tail see what it does.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "48.00",
           "end": "48.15",
@@ -2013,220 +1014,1147 @@ const draftTranscriptExample = [
           "index": 125
         }
       ],
-      "start": "48.00"
+      "start": "13.05"
     },
     "entityRanges": [
+      {
+        "start": "13.05",
+        "end": "13.23",
+        "confidence": "1.000",
+        "text": "There",
+        "offset": 0,
+        "length": 5,
+        "key": expect.any(String)//"htpu3ps"
+      },
+      {
+        "start": "13.23",
+        "end": "13.41",
+        "confidence": "0.990",
+        "text": "was",
+        "offset": 6,
+        "length": 3,
+        "key": expect.any(String)//"duq63fu"
+      },
+      {
+        "start": "13.41",
+        "end": "13.47",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 10,
+        "length": 1,
+        "key": expect.any(String)//"pqdsh9l"
+      },
+      {
+        "start": "13.47",
+        "end": "13.89",
+        "confidence": "1.000",
+        "text": "day",
+        "offset": 12,
+        "length": 3,
+        "key": expect.any(String)//"ooh7htf"
+      },
+      {
+        "start": "13.89",
+        "end": "14.13",
+        "confidence": "1.000",
+        "text": "about",
+        "offset": 16,
+        "length": 5,
+        "key": expect.any(String)//"6vsot6"
+      },
+      {
+        "start": "14.13",
+        "end": "14.370000000000001",
+        "confidence": "0.690",
+        "text": "10",
+        "offset": 22,
+        "length": 2,
+        "key": expect.any(String)//"o359k1a"
+      },
+      {
+        "start": "14.37",
+        "end": "14.639999999999999",
+        "confidence": "1.000",
+        "text": "years",
+        "offset": 25,
+        "length": 5,
+        "key": expect.any(String)//"3w6cye2"
+      },
+      {
+        "start": "14.64",
+        "end": "15.15",
+        "confidence": "1.000",
+        "text": "ago",
+        "offset": 31,
+        "length": 3,
+        "key": expect.any(String)//"2usm9vn"
+      },
+      {
+        "start": "15.57",
+        "end": "15.75",
+        "confidence": "1.000",
+        "text": "when",
+        "offset": 35,
+        "length": 4,
+        "key": expect.any(String)//"ihqmos"
+      },
+      {
+        "start": "15.75",
+        "end": "15.84",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 40,
+        "length": 1,
+        "key": expect.any(String)//"7lv0r67"
+      },
+      {
+        "start": "15.84",
+        "end": "16.23",
+        "confidence": "1.000",
+        "text": "asked",
+        "offset": 42,
+        "length": 5,
+        "key": expect.any(String)//"gepffmm"
+      },
+      {
+        "start": "16.23",
+        "end": "16.29",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 48,
+        "length": 1,
+        "key": expect.any(String)//"y39bscg"
+      },
+      {
+        "start": "16.29",
+        "end": "16.619999999999997",
+        "confidence": "1.000",
+        "text": "friend",
+        "offset": 50,
+        "length": 6,
+        "key": expect.any(String)//"w2aqv1"
+      },
+      {
+        "start": "16.62",
+        "end": "16.740000000000002",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 57,
+        "length": 2,
+        "key": expect.any(String)//"ctr5sti"
+      },
+      {
+        "start": "16.74",
+        "end": "17.189999999999998",
+        "confidence": "1.000",
+        "text": "hold",
+        "offset": 60,
+        "length": 4,
+        "key": expect.any(String)//"n62rs4"
+      },
+      {
+        "start": "17.25",
+        "end": "17.31",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 65,
+        "length": 1,
+        "key": expect.any(String)//"ppuwq1"
+      },
+      {
+        "start": "17.31",
+        "end": "17.639999999999997",
+        "confidence": "1.000",
+        "text": "baby",
+        "offset": 67,
+        "length": 4,
+        "key": expect.any(String)//"bg0ohcp"
+      },
+      {
+        "start": "17.64",
+        "end": "18.14",
+        "confidence": "1.000",
+        "text": "dinosaur",
+        "offset": 72,
+        "length": 8,
+        "key": expect.any(String)//"uyzha5m"
+      },
+      {
+        "start": "18.15",
+        "end": "18.63",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 81,
+        "length": 5,
+        "key": expect.any(String)//"xssbr8"
+      },
+      {
+        "start": "18.78",
+        "end": "19.17",
+        "confidence": "1.000",
+        "text": "upside",
+        "offset": 87,
+        "length": 6,
+        "key": expect.any(String)//"zvan7qq"
+      },
+      {
+        "start": "19.17",
+        "end": "19.990000000000002",
+        "confidence": "1.000",
+        "text": "down.",
+        "offset": 94,
+        "length": 5,
+        "key": expect.any(String)//"xdlaa7"
+      },
+      {
+        "start": "21.92",
+        "end": "21.98",
+        "confidence": "0.970",
+        "text": "It",
+        "offset": 100,
+        "length": 2,
+        "key": expect.any(String)//"au3qv5d"
+      },
+      {
+        "start": "21.99",
+        "end": "22.11",
+        "confidence": "0.980",
+        "text": "was",
+        "offset": 103,
+        "length": 3,
+        "key": expect.any(String)//"cfpm94"
+      },
+      {
+        "start": "22.11",
+        "end": "22.259999999999998",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 107,
+        "length": 4,
+        "key": expect.any(String)//"c0li9a"
+      },
+      {
+        "start": "22.26",
+        "end": "22.680000000000003",
+        "confidence": "1.000",
+        "text": "toy",
+        "offset": 112,
+        "length": 3,
+        "key": expect.any(String)//"0zsrugd"
+      },
+      {
+        "start": "22.68",
+        "end": "22.89",
+        "confidence": "1.000",
+        "text": "called",
+        "offset": 116,
+        "length": 6,
+        "key": expect.any(String)//"22r8g6f"
+      },
+      {
+        "start": "22.89",
+        "end": "22.98",
+        "confidence": "0.910",
+        "text": "the",
+        "offset": 123,
+        "length": 3,
+        "key": expect.any(String)//"u0hqmis"
+      },
+      {
+        "start": "23.02",
+        "end": "23.759999999999998",
+        "confidence": "0.590",
+        "text": "polio",
+        "offset": 127,
+        "length": 5,
+        "key": expect.any(String)//"o8uvwdf"
+      },
+      {
+        "start": "24.21",
+        "end": "24.57",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 133,
+        "length": 4,
+        "key": expect.any(String)//"v8yc01w"
+      },
+      {
+        "start": "24.66",
+        "end": "24.75",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 138,
+        "length": 1,
+        "key": expect.any(String)//"q8ujs1"
+      },
+      {
+        "start": "24.75",
+        "end": "24.9",
+        "confidence": "1.000",
+        "text": "had",
+        "offset": 140,
+        "length": 3,
+        "key": expect.any(String)//"7xu1jxt"
+      },
+      {
+        "start": "24.90",
+        "end": "25.349999999999998",
+        "confidence": "1.000",
+        "text": "ordered",
+        "offset": 144,
+        "length": 7,
+        "key": expect.any(String)//"oh9l9qw"
+      },
+      {
+        "start": "25.35",
+        "end": "25.44",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 152,
+        "length": 3,
+        "key": expect.any(String)//"k5zvb0n"
+      },
+      {
+        "start": "25.44",
+        "end": "25.5",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 156,
+        "length": 1,
+        "key": expect.any(String)//"z05fgx"
+      },
+      {
+        "start": "25.50",
+        "end": "25.65",
+        "confidence": "1.000",
+        "text": "was",
+        "offset": 158,
+        "length": 3,
+        "key": expect.any(String)//"5jnyunf"
+      },
+      {
+        "start": "25.65",
+        "end": "25.889999999999997",
+        "confidence": "1.000",
+        "text": "really",
+        "offset": 162,
+        "length": 6,
+        "key": expect.any(String)//"cf9sf4"
+      },
+      {
+        "start": "25.89",
+        "end": "26.52",
+        "confidence": "1.000",
+        "text": "excited",
+        "offset": 169,
+        "length": 7,
+        "key": expect.any(String)//"y0kepqh"
+      },
+      {
+        "start": "26.52",
+        "end": "26.849999999999998",
+        "confidence": "1.000",
+        "text": "about",
+        "offset": 177,
+        "length": 5,
+        "key": expect.any(String)//"ejmm2l9"
+      },
+      {
+        "start": "26.85",
+        "end": "27",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 183,
+        "length": 2,
+        "key": expect.any(String)//"mcwxdk9"
+      },
+      {
+        "start": "27.03",
+        "end": "27.75",
+        "confidence": "1.000",
+        "text": "because",
+        "offset": 186,
+        "length": 7,
+        "key": expect.any(String)//"fudsd4"
+      },
+      {
+        "start": "28.47",
+        "end": "28.59",
+        "confidence": "0.930",
+        "text": "I've",
+        "offset": 194,
+        "length": 4,
+        "key": expect.any(String)//"16m9r7r"
+      },
+      {
+        "start": "28.59",
+        "end": "28.8",
+        "confidence": "1.000",
+        "text": "always",
+        "offset": 199,
+        "length": 6,
+        "key": expect.any(String)//"z5eqtog"
+      },
+      {
+        "start": "28.80",
+        "end": "29.04",
+        "confidence": "1.000",
+        "text": "loved",
+        "offset": 206,
+        "length": 5,
+        "key": expect.any(String)//"cguc9kc"
+      },
+      {
+        "start": "29.04",
+        "end": "29.52",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 212,
+        "length": 6,
+        "key": expect.any(String)//"dnjviu9"
+      },
+      {
+        "start": "29.79",
+        "end": "29.88",
+        "confidence": "0.990",
+        "text": "and",
+        "offset": 219,
+        "length": 3,
+        "key": expect.any(String)//"cppaw5p"
+      },
+      {
+        "start": "29.88",
+        "end": "30.029999999999998",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 223,
+        "length": 4,
+        "key": expect.any(String)//"7ppoyyc"
+      },
+      {
+        "start": "30.03",
+        "end": "30.21",
+        "confidence": "1.000",
+        "text": "one",
+        "offset": 228,
+        "length": 3,
+        "key": expect.any(String)//"5u6pok"
+      },
+      {
+        "start": "30.21",
+        "end": "30.45",
+        "confidence": "1.000",
+        "text": "has",
+        "offset": 232,
+        "length": 3,
+        "key": expect.any(String)//"58b9vwf"
+      },
+      {
+        "start": "30.45",
+        "end": "30.779999999999998",
+        "confidence": "1.000",
+        "text": "really",
+        "offset": 236,
+        "length": 6,
+        "key": expect.any(String)//"uygq7ff"
+      },
+      {
+        "start": "30.78",
+        "end": "30.96",
+        "confidence": "1.000",
+        "text": "cool",
+        "offset": 243,
+        "length": 4,
+        "key": expect.any(String)//"d6barh"
+      },
+      {
+        "start": "30.96",
+        "end": "31.35",
+        "confidence": "1.000",
+        "text": "technical",
+        "offset": 248,
+        "length": 9,
+        "key": expect.any(String)//"rnt97qo"
+      },
+      {
+        "start": "31.35",
+        "end": "31.830000000000002",
+        "confidence": "1.000",
+        "text": "features.",
+        "offset": 258,
+        "length": 9,
+        "key": expect.any(String)//"p8n5gy8"
+      },
+      {
+        "start": "31.83",
+        "end": "31.919999999999998",
+        "confidence": "1.000",
+        "text": "It",
+        "offset": 268,
+        "length": 2,
+        "key": expect.any(String)//"kih3v6u"
+      },
+      {
+        "start": "31.92",
+        "end": "32.13",
+        "confidence": "1.000",
+        "text": "had",
+        "offset": 271,
+        "length": 3,
+        "key": expect.any(String)//"hnjbffr"
+      },
+      {
+        "start": "32.13",
+        "end": "32.760000000000005",
+        "confidence": "1.000",
+        "text": "motors",
+        "offset": 275,
+        "length": 6,
+        "key": expect.any(String)//"l0digbq"
+      },
+      {
+        "start": "32.76",
+        "end": "32.879999999999995",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 282,
+        "length": 3,
+        "key": expect.any(String)//"i8mzeh"
+      },
+      {
+        "start": "32.88",
+        "end": "33.18",
+        "confidence": "0.990",
+        "text": "touch",
+        "offset": 286,
+        "length": 5,
+        "key": expect.any(String)//"6si3n1u"
+      },
+      {
+        "start": "33.18",
+        "end": "33.87",
+        "confidence": "1.000",
+        "text": "sensors",
+        "offset": 292,
+        "length": 7,
+        "key": expect.any(String)//"58m1tp"
+      },
+      {
+        "start": "34.26",
+        "end": "34.41",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 300,
+        "length": 3,
+        "key": expect.any(String)//"2cqqe9q"
+      },
+      {
+        "start": "34.41",
+        "end": "34.5",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 304,
+        "length": 2,
+        "key": expect.any(String)//"39zggpd"
+      },
+      {
+        "start": "34.50",
+        "end": "34.71",
+        "confidence": "1.000",
+        "text": "had",
+        "offset": 307,
+        "length": 3,
+        "key": expect.any(String)//"u12byc"
+      },
+      {
+        "start": "34.71",
+        "end": "34.800000000000004",
+        "confidence": "1.000",
+        "text": "an",
+        "offset": 311,
+        "length": 2,
+        "key": expect.any(String)//"fqog5y"
+      },
+      {
+        "start": "34.80",
+        "end": "35.309999999999995",
+        "confidence": "1.000",
+        "text": "infrared",
+        "offset": 314,
+        "length": 8,
+        "key": expect.any(String)//"imzs1e4"
+      },
+      {
+        "start": "35.31",
+        "end": "35.97",
+        "confidence": "1.000",
+        "text": "camera",
+        "offset": 323,
+        "length": 6,
+        "key": expect.any(String)//"4qip2ri"
+      },
+      {
+        "start": "36.54",
+        "end": "36.66",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 330,
+        "length": 3,
+        "key": expect.any(String)//"sr97h0c"
+      },
+      {
+        "start": "36.66",
+        "end": "36.809999999999995",
+        "confidence": "1.000",
+        "text": "one",
+        "offset": 334,
+        "length": 3,
+        "key": expect.any(String)//"svtg1d"
+      },
+      {
+        "start": "36.81",
+        "end": "36.870000000000005",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 338,
+        "length": 2,
+        "key": expect.any(String)//"51ctvtp"
+      },
+      {
+        "start": "36.87",
+        "end": "36.989999999999995",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 341,
+        "length": 3,
+        "key": expect.any(String)//"gdikkd7"
+      },
+      {
+        "start": "36.99",
+        "end": "37.230000000000004",
+        "confidence": "1.000",
+        "text": "things",
+        "offset": 345,
+        "length": 6,
+        "key": expect.any(String)//"q0h75tj"
+      },
+      {
+        "start": "37.23",
+        "end": "37.33",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 352,
+        "length": 4,
+        "key": expect.any(String)//"da5gtih"
+      },
+      {
+        "start": "37.33",
+        "end": "37.35",
+        "confidence": "0.660",
+        "text": "I",
+        "offset": 357,
+        "length": 1,
+        "key": expect.any(String)//"8iwyjfd"
+      },
+      {
+        "start": "37.35",
+        "end": "37.53",
+        "confidence": "1.000",
+        "text": "had",
+        "offset": 359,
+        "length": 3,
+        "key": expect.any(String)//"5lwqiyc"
+      },
+      {
+        "start": "37.53",
+        "end": "37.71",
+        "confidence": "1.000",
+        "text": "was",
+        "offset": 363,
+        "length": 3,
+        "key": expect.any(String)//"ru9busd"
+      },
+      {
+        "start": "37.71",
+        "end": "37.800000000000004",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 367,
+        "length": 1,
+        "key": expect.any(String)//"200pzqb"
+      },
+      {
+        "start": "37.95",
+        "end": "38.370000000000005",
+        "confidence": "1.000",
+        "text": "tilt",
+        "offset": 369,
+        "length": 4,
+        "key": expect.any(String)//"bwqud75"
+      },
+      {
+        "start": "38.37",
+        "end": "38.97",
+        "confidence": "1.000",
+        "text": "sensor",
+        "offset": 374,
+        "length": 6,
+        "key": expect.any(String)//"lg4kah"
+      },
+      {
+        "start": "39.30",
+        "end": "39.54",
+        "confidence": "1.000",
+        "text": "so",
+        "offset": 381,
+        "length": 2,
+        "key": expect.any(String)//"7mgs2d8"
+      },
+      {
+        "start": "39.54",
+        "end": "39.63",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 384,
+        "length": 2,
+        "key": expect.any(String)//"i7irf7"
+      },
+      {
+        "start": "39.63",
+        "end": "39.84",
+        "confidence": "1.000",
+        "text": "knew",
+        "offset": 387,
+        "length": 4,
+        "key": expect.any(String)//"ippwbud"
+      },
+      {
+        "start": "39.84",
+        "end": "39.96",
+        "confidence": "1.000",
+        "text": "what",
+        "offset": 392,
+        "length": 4,
+        "key": expect.any(String)//"3c7nepn"
+      },
+      {
+        "start": "39.96",
+        "end": "40.56",
+        "confidence": "1.000",
+        "text": "direction",
+        "offset": 397,
+        "length": 9,
+        "key": expect.any(String)//"02r1jaf"
+      },
+      {
+        "start": "40.56",
+        "end": "40.650000000000006",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 407,
+        "length": 2,
+        "key": expect.any(String)//"g9e6scn"
+      },
+      {
+        "start": "40.65",
+        "end": "40.86",
+        "confidence": "1.000",
+        "text": "was",
+        "offset": 410,
+        "length": 3,
+        "key": expect.any(String)//"9zf9ulu"
+      },
+      {
+        "start": "40.86",
+        "end": "41.99",
+        "confidence": "1.000",
+        "text": "facing.",
+        "offset": 414,
+        "length": 7,
+        "key": expect.any(String)//"lgdbe0j"
+      },
+      {
+        "start": "42.09",
+        "end": "42.21",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 422,
+        "length": 3,
+        "key": expect.any(String)//"e1rt5bm"
+      },
+      {
+        "start": "42.21",
+        "end": "42.33",
+        "confidence": "1.000",
+        "text": "when",
+        "offset": 426,
+        "length": 4,
+        "key": expect.any(String)//"yu3b7ei"
+      },
+      {
+        "start": "42.33",
+        "end": "42.42",
+        "confidence": "1.000",
+        "text": "you",
+        "offset": 431,
+        "length": 3,
+        "key": expect.any(String)//"fx5wfr"
+      },
+      {
+        "start": "42.42",
+        "end": "42.63",
+        "confidence": "0.980",
+        "text": "held",
+        "offset": 435,
+        "length": 4,
+        "key": expect.any(String)//"gqtt1u"
+      },
+      {
+        "start": "42.63",
+        "end": "42.720000000000006",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 440,
+        "length": 2,
+        "key": expect.any(String)//"cxmfv7e"
+      },
+      {
+        "start": "42.72",
+        "end": "43.019999999999996",
+        "confidence": "1.000",
+        "text": "upside",
+        "offset": 443,
+        "length": 6,
+        "key": expect.any(String)//"74iaff8"
+      },
+      {
+        "start": "43.02",
+        "end": "43.56",
+        "confidence": "1.000",
+        "text": "down.",
+        "offset": 450,
+        "length": 5,
+        "key": expect.any(String)//"j81gc1l"
+      },
+      {
+        "start": "44.28",
+        "end": "44.34",
+        "confidence": "1.000",
+        "text": "It",
+        "offset": 456,
+        "length": 2,
+        "key": expect.any(String)//"yoi3cwe"
+      },
+      {
+        "start": "44.34",
+        "end": "44.46",
+        "confidence": "1.000",
+        "text": "would",
+        "offset": 459,
+        "length": 5,
+        "key": expect.any(String)//"hrbpvwo"
+      },
+      {
+        "start": "44.46",
+        "end": "44.67",
+        "confidence": "1.000",
+        "text": "start",
+        "offset": 465,
+        "length": 5,
+        "key": expect.any(String)//"g40o6r2"
+      },
+      {
+        "start": "44.67",
+        "end": "44.760000000000005",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 471,
+        "length": 2,
+        "key": expect.any(String)//"b6ha5vg"
+      },
+      {
+        "start": "44.76",
+        "end": "45.21",
+        "confidence": "1.000",
+        "text": "cry.",
+        "offset": 474,
+        "length": 4,
+        "key": expect.any(String)//"cltzty"
+      },
+      {
+        "start": "46.52",
+        "end": "46.6",
+        "confidence": "0.930",
+        "text": "And",
+        "offset": 479,
+        "length": 3,
+        "key": expect.any(String)//"8munvbs"
+      },
+      {
+        "start": "46.64",
+        "end": "46.7",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 483,
+        "length": 1,
+        "key": expect.any(String)//"dbsvlz"
+      },
+      {
+        "start": "46.70",
+        "end": "46.88",
+        "confidence": "1.000",
+        "text": "thought",
+        "offset": 485,
+        "length": 7,
+        "key": expect.any(String)//"yvc9jr7"
+      },
+      {
+        "start": "46.94",
+        "end": "47.059999999999995",
+        "confidence": "0.340",
+        "text": "it",
+        "offset": 493,
+        "length": 2,
+        "key": expect.any(String)//"o5l116c"
+      },
+      {
+        "start": "47.12",
+        "end": "47.269999999999996",
+        "confidence": "1.000",
+        "text": "was",
+        "offset": 496,
+        "length": 3,
+        "key": expect.any(String)//"p85ha78"
+      },
+      {
+        "start": "47.27",
+        "end": "47.660000000000004",
+        "confidence": "1.000",
+        "text": "super",
+        "offset": 500,
+        "length": 5,
+        "key": expect.any(String)//"fj11dsb"
+      },
+      {
+        "start": "47.66",
+        "end": "47.989999999999995",
+        "confidence": "0.960",
+        "text": "cool.",
+        "offset": 506,
+        "length": 5,
+        "key": expect.any(String)//"3tax7w5"
+      },
       {
         "start": "48.00",
         "end": "48.15",
         "confidence": "0.840",
         "text": "So",
-        "offset": 0,
+        "offset": 512,
         "length": 2,
-        "key": expect.any(String)//"xjok1a"
+        "key": expect.any(String)//"hjlzouw"
       },
       {
         "start": "48.17",
         "end": "48.230000000000004",
         "confidence": "0.990",
         "text": "I",
-        "offset": 3,
+        "offset": 515,
         "length": 1,
-        "key": expect.any(String)//"coixcbq"
+        "key": expect.any(String)//"vi9ykb"
       },
       {
         "start": "48.23",
         "end": "48.32",
         "confidence": "0.990",
         "text": "was",
-        "offset": 5,
+        "offset": 517,
         "length": 3,
-        "key": expect.any(String)//"vgm9aq"
+        "key": expect.any(String)//"bt9j23k"
       },
       {
         "start": "48.32",
         "end": "48.62",
         "confidence": "1.000",
         "text": "showing",
-        "offset": 9,
+        "offset": 521,
         "length": 7,
-        "key": expect.any(String)//"da43iq2"
+        "key": expect.any(String)//"drry9ef"
       },
       {
         "start": "48.62",
         "end": "48.71",
         "confidence": "1.000",
         "text": "it",
-        "offset": 17,
+        "offset": 529,
         "length": 2,
-        "key": expect.any(String)//"ivzluhp"
+        "key": expect.any(String)//"9srxat"
       },
       {
         "start": "48.71",
         "end": "48.83",
         "confidence": "1.000",
         "text": "off",
-        "offset": 20,
+        "offset": 532,
         "length": 3,
-        "key": expect.any(String)//"7kj7w2k"
+        "key": expect.any(String)//"utskwl"
       },
       {
         "start": "48.83",
         "end": "48.92",
         "confidence": "1.000",
         "text": "to",
-        "offset": 24,
+        "offset": 536,
         "length": 2,
-        "key": expect.any(String)//"ctlvsv"
+        "key": expect.any(String)//"t2w1ygl"
       },
       {
         "start": "48.92",
         "end": "49.07",
         "confidence": "1.000",
         "text": "my",
-        "offset": 27,
+        "offset": 539,
         "length": 2,
-        "key": expect.any(String)//"mtdh2al"
+        "key": expect.any(String)//"bjcfnba"
       },
       {
         "start": "49.07",
         "end": "49.52",
         "confidence": "1.000",
         "text": "friend",
-        "offset": 30,
+        "offset": 542,
         "length": 6,
-        "key": expect.any(String)//"hovv6x"
+        "key": expect.any(String)//"b43z9gp"
       },
       {
         "start": "50.06",
         "end": "50.18",
         "confidence": "1.000",
         "text": "and",
-        "offset": 37,
+        "offset": 549,
         "length": 3,
-        "key": expect.any(String)//"rjzgqt"
+        "key": expect.any(String)//"e0j6nt"
       },
       {
         "start": "50.18",
         "end": "50.24",
         "confidence": "1.000",
         "text": "I",
-        "offset": 41,
+        "offset": 553,
         "length": 1,
-        "key": expect.any(String)//"flk9dh"
+        "key": expect.any(String)//"09p64l"
       },
       {
         "start": "50.24",
         "end": "50.42",
         "confidence": "1.000",
         "text": "said",
-        "offset": 43,
+        "offset": 555,
         "length": 4,
-        "key": expect.any(String)//"qwmkju"
+        "key": expect.any(String)//"lgdn3xk"
       },
       {
         "start": "50.45",
         "end": "50.57",
         "confidence": "0.370",
         "text": "oh",
-        "offset": 48,
+        "offset": 560,
         "length": 2,
-        "key": expect.any(String)//"sg7oysf"
+        "key": expect.any(String)//"vx593fo"
       },
       {
         "start": "50.60",
         "end": "50.84",
         "confidence": "1.000",
         "text": "hold",
-        "offset": 51,
+        "offset": 563,
         "length": 4,
-        "key": expect.any(String)//"t2hp57"
+        "key": expect.any(String)//"q39p7p3"
       },
       {
         "start": "50.84",
         "end": "50.900000000000006",
         "confidence": "1.000",
         "text": "it",
-        "offset": 56,
+        "offset": 568,
         "length": 2,
-        "key": expect.any(String)//"yuquisn"
+        "key": expect.any(String)//"azsnly"
       },
       {
         "start": "50.90",
         "end": "50.99",
         "confidence": "1.000",
         "text": "up",
-        "offset": 59,
+        "offset": 571,
         "length": 2,
-        "key": expect.any(String)//"duoram"
+        "key": expect.any(String)//"hcoph4h"
       },
       {
         "start": "50.99",
         "end": "51.080000000000005",
         "confidence": "1.000",
         "text": "by",
-        "offset": 62,
+        "offset": 574,
         "length": 2,
-        "key": expect.any(String)//"jqx3y6w"
+        "key": expect.any(String)//"fw2rif8"
       },
       {
         "start": "51.08",
         "end": "51.17",
         "confidence": "1.000",
         "text": "the",
-        "offset": 65,
+        "offset": 577,
         "length": 3,
-        "key": expect.any(String)//"kjm5gm8"
+        "key": expect.any(String)//"bput4a"
       },
       {
         "start": "51.17",
         "end": "51.5",
         "confidence": "1.000",
         "text": "tail",
-        "offset": 69,
+        "offset": 581,
         "length": 4,
-        "key": expect.any(String)//"be7gp2g"
+        "key": expect.any(String)//"y9yq72l"
       },
       {
         "start": "51.50",
         "end": "51.68",
         "confidence": "1.000",
         "text": "see",
-        "offset": 74,
+        "offset": 586,
         "length": 3,
-        "key": expect.any(String)//"ueka66b"
+        "key": expect.any(String)//"2s615xe"
       },
       {
         "start": "51.68",
         "end": "51.79",
         "confidence": "0.990",
         "text": "what",
-        "offset": 78,
+        "offset": 590,
         "length": 4,
-        "key": expect.any(String)//"bjt4el"
+        "key": expect.any(String)//"yimc0fh"
       },
       {
         "start": "51.79",
         "end": "51.85",
         "confidence": "0.810",
         "text": "it",
-        "offset": 83,
+        "offset": 595,
         "length": 2,
-        "key": expect.any(String)//"kaf42m8"
+        "key": expect.any(String)//"jqcfz1f"
       },
       {
         "start": "51.86",
         "end": "52.24",
         "confidence": "0.920",
         "text": "does.",
-        "offset": 86,
+        "offset": 598,
         "length": 5,
-        "key": expect.any(String)//"qo83ngo"
+        "key": expect.any(String)//"yrxxqlq"
       }
     ]
   },
   {
-    "text": "So we're watching the theatrical of this robot struggle and cry out.",
+    "text": "So we're watching the theatrical of this robot struggle and cry out. And after a few seconds. It starts to bother me a little. And I said OK. That's enough. Now let's put him back down and then I pet the robot to make it stop crying.",
     "type": "paragraph",
     "data": {
       "speaker": "F3",
@@ -2326,127 +2254,7 @@ const draftTranscriptExample = [
           "word": "out",
           "punct": "out.",
           "index": 137
-        }
-      ],
-      "start": "55.27"
-    },
-    "entityRanges": [
-      {
-        "start": "55.27",
-        "end": "55.39",
-        "confidence": "1.000",
-        "text": "So",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"9frlnmc"
-      },
-      {
-        "start": "55.39",
-        "end": "55.51",
-        "confidence": "1.000",
-        "text": "we're",
-        "offset": 3,
-        "length": 5,
-        "key": expect.any(String)//"q6sf0yd"
-      },
-      {
-        "start": "55.51",
-        "end": "55.93",
-        "confidence": "1.000",
-        "text": "watching",
-        "offset": 9,
-        "length": 8,
-        "key": expect.any(String)//"v3fkbf"
-      },
-      {
-        "start": "55.93",
-        "end": "56.02",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 18,
-        "length": 3,
-        "key": expect.any(String)//"any2mrv"
-      },
-      {
-        "start": "56.02",
-        "end": "56.910000000000004",
-        "confidence": "0.800",
-        "text": "theatrical",
-        "offset": 22,
-        "length": 10,
-        "key": expect.any(String)//"no4m996"
-      },
-      {
-        "start": "56.92",
-        "end": "57.010000000000005",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 33,
-        "length": 2,
-        "key": expect.any(String)//"widqlgr"
-      },
-      {
-        "start": "57.01",
-        "end": "57.22",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 36,
-        "length": 4,
-        "key": expect.any(String)//"pc8dnjq"
-      },
-      {
-        "start": "57.22",
-        "end": "57.94",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 41,
-        "length": 5,
-        "key": expect.any(String)//"3bwd9cd"
-      },
-      {
-        "start": "58.93",
-        "end": "59.83",
-        "confidence": "1.000",
-        "text": "struggle",
-        "offset": 47,
-        "length": 8,
-        "key": expect.any(String)//"tly9hh4"
-      },
-      {
-        "start": "59.92",
-        "end": "60.1",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 56,
-        "length": 3,
-        "key": expect.any(String)//"i1459u"
-      },
-      {
-        "start": "60.10",
-        "end": "60.67",
-        "confidence": "1.000",
-        "text": "cry",
-        "offset": 60,
-        "length": 3,
-        "key": expect.any(String)//"2sg9h4"
-      },
-      {
-        "start": "60.67",
-        "end": "62.14",
-        "confidence": "1.000",
-        "text": "out.",
-        "offset": 64,
-        "length": 4,
-        "key": expect.any(String)//"19fup2"
-      }
-    ]
-  },
-  {
-    "text": "And after a few seconds.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "62.80",
           "end": "63.04",
@@ -2486,64 +2294,7 @@ const draftTranscriptExample = [
           "word": "seconds",
           "punct": "seconds.",
           "index": 142
-        }
-      ],
-      "start": "62.80"
-    },
-    "entityRanges": [
-      {
-        "start": "62.80",
-        "end": "63.04",
-        "confidence": "0.990",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"tm4hp6e"
-      },
-      {
-        "start": "63.28",
-        "end": "63.550000000000004",
-        "confidence": "1.000",
-        "text": "after",
-        "offset": 4,
-        "length": 5,
-        "key": expect.any(String)//"5ke8jk"
-      },
-      {
-        "start": "63.55",
-        "end": "63.58",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 10,
-        "length": 1,
-        "key": expect.any(String)//"ron4b4b"
-      },
-      {
-        "start": "63.58",
-        "end": "63.76",
-        "confidence": "1.000",
-        "text": "few",
-        "offset": 12,
-        "length": 3,
-        "key": expect.any(String)//"fr8we8o"
-      },
-      {
-        "start": "63.76",
-        "end": "64.45",
-        "confidence": "1.000",
-        "text": "seconds.",
-        "offset": 16,
-        "length": 8,
-        "key": expect.any(String)//"57i7iba"
-      }
-    ]
-  },
-  {
-    "text": "It starts to bother me a little.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "64.90",
           "end": "64.96000000000001",
@@ -2599,82 +2350,7 @@ const draftTranscriptExample = [
           "word": "little",
           "punct": "little.",
           "index": 149
-        }
-      ],
-      "start": "64.90"
-    },
-    "entityRanges": [
-      {
-        "start": "64.90",
-        "end": "64.96000000000001",
-        "confidence": "1.000",
-        "text": "It",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"u8glryc"
-      },
-      {
-        "start": "64.96",
-        "end": "65.28999999999999",
-        "confidence": "1.000",
-        "text": "starts",
-        "offset": 3,
-        "length": 6,
-        "key": expect.any(String)//"mk396y"
-      },
-      {
-        "start": "65.29",
-        "end": "65.41000000000001",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 10,
-        "length": 2,
-        "key": expect.any(String)//"e2t9flg"
-      },
-      {
-        "start": "65.41",
-        "end": "65.86",
-        "confidence": "1.000",
-        "text": "bother",
-        "offset": 13,
-        "length": 6,
-        "key": expect.any(String)//"zz4jky"
-      },
-      {
-        "start": "65.86",
-        "end": "66.01",
-        "confidence": "1.000",
-        "text": "me",
-        "offset": 20,
-        "length": 2,
-        "key": expect.any(String)//"8o0tty7"
-      },
-      {
-        "start": "66.01",
-        "end": "66.04",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 23,
-        "length": 1,
-        "key": expect.any(String)//"l5eumwk"
-      },
-      {
-        "start": "66.04",
-        "end": "66.43",
-        "confidence": "1.000",
-        "text": "little.",
-        "offset": 25,
-        "length": 7,
-        "key": expect.any(String)//"9b8rd87"
-      }
-    ]
-  },
-  {
-    "text": "And I said OK.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "67.77",
           "end": "67.92",
@@ -2706,55 +2382,7 @@ const draftTranscriptExample = [
           "word": "ok",
           "punct": "OK.",
           "index": 153
-        }
-      ],
-      "start": "67.77"
-    },
-    "entityRanges": [
-      {
-        "start": "67.77",
-        "end": "67.92",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"zw8k2ma"
-      },
-      {
-        "start": "67.92",
-        "end": "67.98",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 4,
-        "length": 1,
-        "key": expect.any(String)//"0qlqha"
-      },
-      {
-        "start": "67.98",
-        "end": "68.2",
-        "confidence": "1.000",
-        "text": "said",
-        "offset": 6,
-        "length": 4,
-        "key": expect.any(String)//"sb8rybf"
-      },
-      {
-        "start": "68.22",
-        "end": "68.81",
-        "confidence": "0.580",
-        "text": "OK.",
-        "offset": 11,
-        "length": 3,
-        "key": expect.any(String)//"f2zh10o"
-      }
-    ]
-  },
-  {
-    "text": "That's enough.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "70.00",
           "end": "70.24",
@@ -2770,37 +2398,7 @@ const draftTranscriptExample = [
           "word": "enough",
           "punct": "enough.",
           "index": 155
-        }
-      ],
-      "start": "70.00"
-    },
-    "entityRanges": [
-      {
-        "start": "70.00",
-        "end": "70.24",
-        "confidence": "1.000",
-        "text": "That's",
-        "offset": 0,
-        "length": 6,
-        "key": expect.any(String)//"z7fggkk"
-      },
-      {
-        "start": "70.24",
-        "end": "70.67999999999999",
-        "confidence": "1.000",
-        "text": "enough.",
-        "offset": 7,
-        "length": 7,
-        "key": expect.any(String)//"5k2y8tv"
-      }
-    ]
-  },
-  {
-    "text": "Now let's put him back down and then I pet the robot to make it stop crying.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "70.69",
           "end": "71.09",
@@ -2938,169 +2536,439 @@ const draftTranscriptExample = [
           "index": 172
         }
       ],
-      "start": "70.69"
+      "start": "55.27"
     },
     "entityRanges": [
+      {
+        "start": "55.27",
+        "end": "55.39",
+        "confidence": "1.000",
+        "text": "So",
+        "offset": 0,
+        "length": 2,
+        "key": expect.any(String)//"g67480q"
+      },
+      {
+        "start": "55.39",
+        "end": "55.51",
+        "confidence": "1.000",
+        "text": "we're",
+        "offset": 3,
+        "length": 5,
+        "key": expect.any(String)//"ce9wlc"
+      },
+      {
+        "start": "55.51",
+        "end": "55.93",
+        "confidence": "1.000",
+        "text": "watching",
+        "offset": 9,
+        "length": 8,
+        "key": expect.any(String)//"81x4ith"
+      },
+      {
+        "start": "55.93",
+        "end": "56.02",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 18,
+        "length": 3,
+        "key": expect.any(String)//"q53bl8k"
+      },
+      {
+        "start": "56.02",
+        "end": "56.910000000000004",
+        "confidence": "0.800",
+        "text": "theatrical",
+        "offset": 22,
+        "length": 10,
+        "key": expect.any(String)//"dhppnro"
+      },
+      {
+        "start": "56.92",
+        "end": "57.010000000000005",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 33,
+        "length": 2,
+        "key": expect.any(String)//"h2p0m0a"
+      },
+      {
+        "start": "57.01",
+        "end": "57.22",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 36,
+        "length": 4,
+        "key": expect.any(String)//"5n34t9d"
+      },
+      {
+        "start": "57.22",
+        "end": "57.94",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 41,
+        "length": 5,
+        "key": expect.any(String)//"kwb4gyd"
+      },
+      {
+        "start": "58.93",
+        "end": "59.83",
+        "confidence": "1.000",
+        "text": "struggle",
+        "offset": 47,
+        "length": 8,
+        "key": expect.any(String)//"gxj0xre"
+      },
+      {
+        "start": "59.92",
+        "end": "60.1",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 56,
+        "length": 3,
+        "key": expect.any(String)//"nnesvna"
+      },
+      {
+        "start": "60.10",
+        "end": "60.67",
+        "confidence": "1.000",
+        "text": "cry",
+        "offset": 60,
+        "length": 3,
+        "key": expect.any(String)//"6kiic1d"
+      },
+      {
+        "start": "60.67",
+        "end": "62.14",
+        "confidence": "1.000",
+        "text": "out.",
+        "offset": 64,
+        "length": 4,
+        "key": expect.any(String)//"bmxjh7k"
+      },
+      {
+        "start": "62.80",
+        "end": "63.04",
+        "confidence": "0.990",
+        "text": "And",
+        "offset": 69,
+        "length": 3,
+        "key": expect.any(String)//"zl9rvax"
+      },
+      {
+        "start": "63.28",
+        "end": "63.550000000000004",
+        "confidence": "1.000",
+        "text": "after",
+        "offset": 73,
+        "length": 5,
+        "key": expect.any(String)//"obrkqa"
+      },
+      {
+        "start": "63.55",
+        "end": "63.58",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 79,
+        "length": 1,
+        "key": expect.any(String)//"58cjfpb"
+      },
+      {
+        "start": "63.58",
+        "end": "63.76",
+        "confidence": "1.000",
+        "text": "few",
+        "offset": 81,
+        "length": 3,
+        "key": expect.any(String)//"g0vs5tr"
+      },
+      {
+        "start": "63.76",
+        "end": "64.45",
+        "confidence": "1.000",
+        "text": "seconds.",
+        "offset": 85,
+        "length": 8,
+        "key": expect.any(String)//"t6yipwf"
+      },
+      {
+        "start": "64.90",
+        "end": "64.96000000000001",
+        "confidence": "1.000",
+        "text": "It",
+        "offset": 94,
+        "length": 2,
+        "key": expect.any(String)//"0nho7cg"
+      },
+      {
+        "start": "64.96",
+        "end": "65.28999999999999",
+        "confidence": "1.000",
+        "text": "starts",
+        "offset": 97,
+        "length": 6,
+        "key": expect.any(String)//"afor168"
+      },
+      {
+        "start": "65.29",
+        "end": "65.41000000000001",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 104,
+        "length": 2,
+        "key": expect.any(String)//"1qkcifj"
+      },
+      {
+        "start": "65.41",
+        "end": "65.86",
+        "confidence": "1.000",
+        "text": "bother",
+        "offset": 107,
+        "length": 6,
+        "key": expect.any(String)//"xktfo3l"
+      },
+      {
+        "start": "65.86",
+        "end": "66.01",
+        "confidence": "1.000",
+        "text": "me",
+        "offset": 114,
+        "length": 2,
+        "key": expect.any(String)//"kin511l"
+      },
+      {
+        "start": "66.01",
+        "end": "66.04",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 117,
+        "length": 1,
+        "key": expect.any(String)//"nz1417"
+      },
+      {
+        "start": "66.04",
+        "end": "66.43",
+        "confidence": "1.000",
+        "text": "little.",
+        "offset": 119,
+        "length": 7,
+        "key": expect.any(String)//"h7yyfe"
+      },
+      {
+        "start": "67.77",
+        "end": "67.92",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 127,
+        "length": 3,
+        "key": expect.any(String)//"fjoa8nh"
+      },
+      {
+        "start": "67.92",
+        "end": "67.98",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 131,
+        "length": 1,
+        "key": expect.any(String)//"sqgv9z8"
+      },
+      {
+        "start": "67.98",
+        "end": "68.2",
+        "confidence": "1.000",
+        "text": "said",
+        "offset": 133,
+        "length": 4,
+        "key": expect.any(String)//"kav1a19"
+      },
+      {
+        "start": "68.22",
+        "end": "68.81",
+        "confidence": "0.580",
+        "text": "OK.",
+        "offset": 138,
+        "length": 3,
+        "key": expect.any(String)//"4qrt8mp"
+      },
+      {
+        "start": "70.00",
+        "end": "70.24",
+        "confidence": "1.000",
+        "text": "That's",
+        "offset": 142,
+        "length": 6,
+        "key": expect.any(String)//"h1obwnw"
+      },
+      {
+        "start": "70.24",
+        "end": "70.67999999999999",
+        "confidence": "1.000",
+        "text": "enough.",
+        "offset": 149,
+        "length": 7,
+        "key": expect.any(String)//"xjz9k68"
+      },
       {
         "start": "70.69",
         "end": "71.09",
         "confidence": "0.760",
         "text": "Now",
-        "offset": 0,
+        "offset": 157,
         "length": 3,
-        "key": expect.any(String)//"ifw4mq"
+        "key": expect.any(String)//"14ekw7r"
       },
       {
         "start": "71.95",
         "end": "72.13000000000001",
         "confidence": "0.980",
         "text": "let's",
-        "offset": 4,
+        "offset": 161,
         "length": 5,
-        "key": expect.any(String)//"npqmotg"
+        "key": expect.any(String)//"t6ssr69"
       },
       {
         "start": "72.13",
         "end": "72.25",
         "confidence": "1.000",
         "text": "put",
-        "offset": 10,
+        "offset": 167,
         "length": 3,
-        "key": expect.any(String)//"6c3jutw"
+        "key": expect.any(String)//"f27iqap"
       },
       {
         "start": "72.25",
         "end": "72.34",
         "confidence": "0.550",
         "text": "him",
-        "offset": 14,
+        "offset": 171,
         "length": 3,
-        "key": expect.any(String)//"fzxad6p"
+        "key": expect.any(String)//"r5y1gcg"
       },
       {
         "start": "72.34",
         "end": "72.55",
         "confidence": "1.000",
         "text": "back",
-        "offset": 18,
+        "offset": 175,
         "length": 4,
-        "key": expect.any(String)//"6edyak"
+        "key": expect.any(String)//"8w740ol"
       },
       {
         "start": "72.55",
         "end": "73.09",
         "confidence": "1.000",
         "text": "down",
-        "offset": 23,
+        "offset": 180,
         "length": 4,
-        "key": expect.any(String)//"ikssnkk"
+        "key": expect.any(String)//"2scnvpz"
       },
       {
         "start": "74.32",
         "end": "74.44",
         "confidence": "1.000",
         "text": "and",
-        "offset": 28,
+        "offset": 185,
         "length": 3,
-        "key": expect.any(String)//"bq1ld3jr"
+        "key": expect.any(String)//"kgfe2vu"
       },
       {
         "start": "74.44",
         "end": "74.59",
         "confidence": "1.000",
         "text": "then",
-        "offset": 32,
+        "offset": 189,
         "length": 4,
-        "key": expect.any(String)//"bfu3pwra"
+        "key": expect.any(String)//"yxww99q"
       },
       {
         "start": "74.59",
         "end": "74.65",
         "confidence": "1.000",
         "text": "I",
-        "offset": 37,
+        "offset": 194,
         "length": 1,
-        "key": expect.any(String)//"fd6j53r"
+        "key": expect.any(String)//"9e2rew8"
       },
       {
         "start": "74.65",
         "end": "74.89",
         "confidence": "0.980",
         "text": "pet",
-        "offset": 39,
+        "offset": 196,
         "length": 3,
-        "key": expect.any(String)//"r9lgvko"
+        "key": expect.any(String)//"sl0wwd"
       },
       {
         "start": "74.89",
         "end": "74.98",
         "confidence": "1.000",
         "text": "the",
-        "offset": 43,
+        "offset": 200,
         "length": 3,
-        "key": expect.any(String)//"ie36yrn"
+        "key": expect.any(String)//"zjgz0k3"
       },
       {
         "start": "74.98",
         "end": "75.34",
         "confidence": "1.000",
         "text": "robot",
-        "offset": 47,
+        "offset": 204,
         "length": 5,
-        "key": expect.any(String)//"h6usr1c"
+        "key": expect.any(String)//"w8c813n"
       },
       {
         "start": "75.34",
         "end": "75.43",
         "confidence": "1.000",
         "text": "to",
-        "offset": 53,
+        "offset": 210,
         "length": 2,
-        "key": expect.any(String)//"vh8ly4i"
+        "key": expect.any(String)//"ko3dyc"
       },
       {
         "start": "75.43",
         "end": "75.58000000000001",
         "confidence": "1.000",
         "text": "make",
-        "offset": 56,
+        "offset": 213,
         "length": 4,
-        "key": expect.any(String)//"0sgrdr8"
+        "key": expect.any(String)//"dqgxx9a"
       },
       {
         "start": "75.58",
         "end": "75.67",
         "confidence": "1.000",
         "text": "it",
-        "offset": 61,
+        "offset": 218,
         "length": 2,
-        "key": expect.any(String)//"6u28rip"
+        "key": expect.any(String)//"jbm6f"
       },
       {
         "start": "75.67",
         "end": "75.91",
         "confidence": "1.000",
         "text": "stop",
-        "offset": 64,
+        "offset": 221,
         "length": 4,
-        "key": expect.any(String)//"6rubq"
+        "key": expect.any(String)//"erm7qwb"
       },
       {
         "start": "75.91",
         "end": "77.14",
         "confidence": "1.000",
         "text": "crying.",
-        "offset": 69,
+        "offset": 226,
         "length": 7,
-        "key": expect.any(String)//"sgzjd8g"
+        "key": expect.any(String)//"kjdkjh"
       }
     ]
   },
   {
-    "text": "And that was kind of a weird experience for me.",
+    "text": "And that was kind of a weird experience for me. For one thing I wasn't the most maternal person at the time. Although since then I've become a mother. Nine months ago and I've learned that babies also squirm when you hold them upside down. But my response to this robot was also interesting because I knew exactly how this machine worked and yet I still felt compelled to be kind to it. And that observation sparked a curiosity that I've spent the fat the past decade pursuing. Why did I comfort this robot. And one of the things I discovered was that my treatment of this machine was more than just an awkward moment in my living room that in a world where we're increasingly integrating robots into our lives an instinct like that might actually have consequences because the first thing that I discovered is that it's not just me.",
     "type": "paragraph",
     "data": {
-      "speaker": "UNK",
+      "speaker": "F4",
       "words": [
         {
           "start": "78.88",
@@ -3181,109 +3049,7 @@ const draftTranscriptExample = [
           "word": "me",
           "punct": "me.",
           "index": 182
-        }
-      ],
-      "start": "78.88"
-    },
-    "entityRanges": [
-      {
-        "start": "78.88",
-        "end": "78.94999999999999",
-        "confidence": "0.780",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"hpig7fu"
-      },
-      {
-        "start": "79.08",
-        "end": "79.17",
-        "confidence": "0.990",
-        "text": "that",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"nicf5aj"
-      },
-      {
-        "start": "79.17",
-        "end": "79.29",
-        "confidence": "1.000",
-        "text": "was",
-        "offset": 9,
-        "length": 3,
-        "key": expect.any(String)//"h7y4w97"
-      },
-      {
-        "start": "79.29",
-        "end": "79.44000000000001",
-        "confidence": "1.000",
-        "text": "kind",
-        "offset": 13,
-        "length": 4,
-        "key": expect.any(String)//"78vvkt"
-      },
-      {
-        "start": "79.44",
-        "end": "79.56",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 18,
-        "length": 2,
-        "key": expect.any(String)//"uyng6r"
-      },
-      {
-        "start": "79.56",
-        "end": "79.62",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 21,
-        "length": 1,
-        "key": expect.any(String)//"qdk5es4"
-      },
-      {
-        "start": "79.62",
-        "end": "79.95",
-        "confidence": "1.000",
-        "text": "weird",
-        "offset": 23,
-        "length": 5,
-        "key": expect.any(String)//"jdz8azg"
-      },
-      {
-        "start": "79.95",
-        "end": "80.61",
-        "confidence": "1.000",
-        "text": "experience",
-        "offset": 29,
-        "length": 10,
-        "key": expect.any(String)//"71ek68v"
-      },
-      {
-        "start": "80.61",
-        "end": "80.76",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 40,
-        "length": 3,
-        "key": expect.any(String)//"lxithqj"
-      },
-      {
-        "start": "80.76",
-        "end": "82.02000000000001",
-        "confidence": "1.000",
-        "text": "me.",
-        "offset": 44,
-        "length": 3,
-        "key": expect.any(String)//"203c0l"
-      }
-    ]
-  },
-  {
-    "text": "For one thing I wasn't the most maternal person at the time.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "UNK",
-      "words": [
+        },
         {
           "start": "82.09",
           "end": "82.17",
@@ -3379,127 +3145,7 @@ const draftTranscriptExample = [
           "word": "time",
           "punct": "time.",
           "index": 194
-        }
-      ],
-      "start": "82.09"
-    },
-    "entityRanges": [
-      {
-        "start": "82.09",
-        "end": "82.17",
-        "confidence": "0.810",
-        "text": "For",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"fr69xym"
-      },
-      {
-        "start": "82.17",
-        "end": "82.35000000000001",
-        "confidence": "1.000",
-        "text": "one",
-        "offset": 4,
-        "length": 3,
-        "key": expect.any(String)//"vtrwooa"
-      },
-      {
-        "start": "82.35",
-        "end": "82.67999999999999",
-        "confidence": "1.000",
-        "text": "thing",
-        "offset": 8,
-        "length": 5,
-        "key": expect.any(String)//"34y42g8"
-      },
-      {
-        "start": "82.98",
-        "end": "83.07000000000001",
-        "confidence": "0.590",
-        "text": "I",
-        "offset": 14,
-        "length": 1,
-        "key": expect.any(String)//"i8oyi0d"
-      },
-      {
-        "start": "83.07",
-        "end": "83.30999999999999",
-        "confidence": "1.000",
-        "text": "wasn't",
-        "offset": 16,
-        "length": 6,
-        "key": expect.any(String)//"jbj6gat"
-      },
-      {
-        "start": "83.31",
-        "end": "83.4",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 23,
-        "length": 3,
-        "key": expect.any(String)//"zufqrrd"
-      },
-      {
-        "start": "83.40",
-        "end": "83.64",
-        "confidence": "1.000",
-        "text": "most",
-        "offset": 27,
-        "length": 4,
-        "key": expect.any(String)//"30sak75"
-      },
-      {
-        "start": "83.82",
-        "end": "84.38999999999999",
-        "confidence": "1.000",
-        "text": "maternal",
-        "offset": 32,
-        "length": 8,
-        "key": expect.any(String)//"k0m1av"
-      },
-      {
-        "start": "84.39",
-        "end": "84.96",
-        "confidence": "1.000",
-        "text": "person",
-        "offset": 41,
-        "length": 6,
-        "key": expect.any(String)//"407qw3g"
-      },
-      {
-        "start": "84.96",
-        "end": "85.08",
-        "confidence": "1.000",
-        "text": "at",
-        "offset": 48,
-        "length": 2,
-        "key": expect.any(String)//"odk0hz"
-      },
-      {
-        "start": "85.08",
-        "end": "85.17",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 51,
-        "length": 3,
-        "key": expect.any(String)//"l6gbos8"
-      },
-      {
-        "start": "85.17",
-        "end": "85.77",
-        "confidence": "1.000",
-        "text": "time.",
-        "offset": 55,
-        "length": 5,
-        "key": expect.any(String)//"m3c4tpv"
-      }
-    ]
-  },
-  {
-    "text": "Although since then I've become a mother.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "UNK",
-      "words": [
+        },
         {
           "start": "86.73",
           "end": "86.94",
@@ -3555,82 +3201,7 @@ const draftTranscriptExample = [
           "word": "mother",
           "punct": "mother.",
           "index": 201
-        }
-      ],
-      "start": "86.73"
-    },
-    "entityRanges": [
-      {
-        "start": "86.73",
-        "end": "86.94",
-        "confidence": "1.000",
-        "text": "Although",
-        "offset": 0,
-        "length": 8,
-        "key": expect.any(String)//"sp3y3w7"
-      },
-      {
-        "start": "86.94",
-        "end": "87.17999999999999",
-        "confidence": "1.000",
-        "text": "since",
-        "offset": 9,
-        "length": 5,
-        "key": expect.any(String)//"45eqhf"
-      },
-      {
-        "start": "87.18",
-        "end": "87.30000000000001",
-        "confidence": "1.000",
-        "text": "then",
-        "offset": 15,
-        "length": 4,
-        "key": expect.any(String)//"4kxp4z"
-      },
-      {
-        "start": "87.30",
-        "end": "87.39",
-        "confidence": "0.860",
-        "text": "I've",
-        "offset": 20,
-        "length": 4,
-        "key": expect.any(String)//"g2r5e38"
-      },
-      {
-        "start": "87.39",
-        "end": "87.63",
-        "confidence": "1.000",
-        "text": "become",
-        "offset": 25,
-        "length": 6,
-        "key": expect.any(String)//"eri4lho"
-      },
-      {
-        "start": "87.63",
-        "end": "87.66",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 32,
-        "length": 1,
-        "key": expect.any(String)//"zy0h90b"
-      },
-      {
-        "start": "87.66",
-        "end": "88.03999999999999",
-        "confidence": "1.000",
-        "text": "mother.",
-        "offset": 34,
-        "length": 7,
-        "key": expect.any(String)//"rp3yuc"
-      }
-    ]
-  },
-  {
-    "text": "Nine months ago and I've learned that babies also squirm when you hold them upside down.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "UNK",
-      "words": [
+        },
         {
           "start": "88.04",
           "end": "88.29",
@@ -3758,163 +3329,7 @@ const draftTranscriptExample = [
           "word": "down",
           "punct": "down.",
           "index": 217
-        }
-      ],
-      "start": "88.04"
-    },
-    "entityRanges": [
-      {
-        "start": "88.04",
-        "end": "88.29",
-        "confidence": "0.680",
-        "text": "Nine",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"h7lyqqg"
-      },
-      {
-        "start": "88.29",
-        "end": "88.5",
-        "confidence": "1.000",
-        "text": "months",
-        "offset": 5,
-        "length": 6,
-        "key": expect.any(String)//"sefv4c7"
-      },
-      {
-        "start": "88.50",
-        "end": "88.89",
-        "confidence": "1.000",
-        "text": "ago",
-        "offset": 12,
-        "length": 3,
-        "key": expect.any(String)//"mda2c3e"
-      },
-      {
-        "start": "89.44",
-        "end": "89.55",
-        "confidence": "0.960",
-        "text": "and",
-        "offset": 16,
-        "length": 3,
-        "key": expect.any(String)//"pttbeua"
-      },
-      {
-        "start": "89.55",
-        "end": "89.67",
-        "confidence": "1.000",
-        "text": "I've",
-        "offset": 20,
-        "length": 4,
-        "key": expect.any(String)//"5hsh6em"
-      },
-      {
-        "start": "89.67",
-        "end": "89.88",
-        "confidence": "1.000",
-        "text": "learned",
-        "offset": 25,
-        "length": 7,
-        "key": expect.any(String)//"d2ruvx"
-      },
-      {
-        "start": "89.88",
-        "end": "90.14999999999999",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 33,
-        "length": 4,
-        "key": expect.any(String)//"5zbaybx"
-      },
-      {
-        "start": "90.15",
-        "end": "90.51",
-        "confidence": "0.990",
-        "text": "babies",
-        "offset": 38,
-        "length": 6,
-        "key": expect.any(String)//"5z3pj8t"
-      },
-      {
-        "start": "90.51",
-        "end": "90.75",
-        "confidence": "1.000",
-        "text": "also",
-        "offset": 45,
-        "length": 4,
-        "key": expect.any(String)//"w940v1"
-      },
-      {
-        "start": "90.75",
-        "end": "91.11",
-        "confidence": "0.900",
-        "text": "squirm",
-        "offset": 50,
-        "length": 6,
-        "key": expect.any(String)//"7c4rpc7"
-      },
-      {
-        "start": "91.11",
-        "end": "91.23",
-        "confidence": "1.000",
-        "text": "when",
-        "offset": 57,
-        "length": 4,
-        "key": expect.any(String)//"wo3ad7"
-      },
-      {
-        "start": "91.23",
-        "end": "91.32000000000001",
-        "confidence": "1.000",
-        "text": "you",
-        "offset": 62,
-        "length": 3,
-        "key": expect.any(String)//"00n203r"
-      },
-      {
-        "start": "91.32",
-        "end": "91.47",
-        "confidence": "1.000",
-        "text": "hold",
-        "offset": 66,
-        "length": 4,
-        "key": expect.any(String)//"mci162r"
-      },
-      {
-        "start": "91.47",
-        "end": "91.59",
-        "confidence": "0.990",
-        "text": "them",
-        "offset": 71,
-        "length": 4,
-        "key": expect.any(String)//"orrkhr8"
-      },
-      {
-        "start": "91.59",
-        "end": "91.83",
-        "confidence": "1.000",
-        "text": "upside",
-        "offset": 76,
-        "length": 6,
-        "key": expect.any(String)//"vo0tyf"
-      },
-      {
-        "start": "91.83",
-        "end": "94.67",
-        "confidence": "1.000",
-        "text": "down.",
-        "offset": 83,
-        "length": 5,
-        "key": expect.any(String)//"dbztbf"
-      }
-    ]
-  },
-  {
-    "text": "But my response to this robot was also interesting because I knew exactly how this machine worked and yet I still felt compelled to be kind to it.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "UNK",
-      "words": [
+        },
         {
           "start": "95.01",
           "end": "95.28",
@@ -4138,271 +3553,7 @@ const draftTranscriptExample = [
           "word": "it",
           "punct": "it.",
           "index": 245
-        }
-      ],
-      "start": "95.01"
-    },
-    "entityRanges": [
-      {
-        "start": "95.01",
-        "end": "95.28",
-        "confidence": "1.000",
-        "text": "But",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"hk2pu98"
-      },
-      {
-        "start": "95.28",
-        "end": "95.49",
-        "confidence": "1.000",
-        "text": "my",
-        "offset": 4,
-        "length": 2,
-        "key": expect.any(String)//"wrzyfin"
-      },
-      {
-        "start": "95.49",
-        "end": "95.86",
-        "confidence": "1.000",
-        "text": "response",
-        "offset": 7,
-        "length": 8,
-        "key": expect.any(String)//"3vvpby"
-      },
-      {
-        "start": "95.86",
-        "end": "95.91",
-        "confidence": "0.860",
-        "text": "to",
-        "offset": 16,
-        "length": 2,
-        "key": expect.any(String)//"qm0cb97"
-      },
-      {
-        "start": "95.91",
-        "end": "96.11999999999999",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 19,
-        "length": 4,
-        "key": expect.any(String)//"xwim7ij"
-      },
-      {
-        "start": "96.12",
-        "end": "96.45",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 24,
-        "length": 5,
-        "key": expect.any(String)//"076delf"
-      },
-      {
-        "start": "96.45",
-        "end": "96.60000000000001",
-        "confidence": "1.000",
-        "text": "was",
-        "offset": 30,
-        "length": 3,
-        "key": expect.any(String)//"uu7ogzf"
-      },
-      {
-        "start": "96.60",
-        "end": "96.86999999999999",
-        "confidence": "1.000",
-        "text": "also",
-        "offset": 34,
-        "length": 4,
-        "key": expect.any(String)//"2lf4sn"
-      },
-      {
-        "start": "96.87",
-        "end": "97.29",
-        "confidence": "1.000",
-        "text": "interesting",
-        "offset": 39,
-        "length": 11,
-        "key": expect.any(String)//"vcbq7sl"
-      },
-      {
-        "start": "97.29",
-        "end": "97.68",
-        "confidence": "1.000",
-        "text": "because",
-        "offset": 51,
-        "length": 7,
-        "key": expect.any(String)//"ybodor"
-      },
-      {
-        "start": "97.95",
-        "end": "98.04",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 59,
-        "length": 1,
-        "key": expect.any(String)//"ecljtrm"
-      },
-      {
-        "start": "98.04",
-        "end": "98.19000000000001",
-        "confidence": "1.000",
-        "text": "knew",
-        "offset": 61,
-        "length": 4,
-        "key": expect.any(String)//"1x7rk0d"
-      },
-      {
-        "start": "98.19",
-        "end": "98.91",
-        "confidence": "1.000",
-        "text": "exactly",
-        "offset": 66,
-        "length": 7,
-        "key": expect.any(String)//"5djqlb"
-      },
-      {
-        "start": "98.91",
-        "end": "99.21",
-        "confidence": "1.000",
-        "text": "how",
-        "offset": 74,
-        "length": 3,
-        "key": expect.any(String)//"l2dzl0r"
-      },
-      {
-        "start": "99.21",
-        "end": "99.39",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 78,
-        "length": 4,
-        "key": expect.any(String)//"32kqhm"
-      },
-      {
-        "start": "99.39",
-        "end": "99.93",
-        "confidence": "1.000",
-        "text": "machine",
-        "offset": 83,
-        "length": 7,
-        "key": expect.any(String)//"d5q29j"
-      },
-      {
-        "start": "99.93",
-        "end": "100.77000000000001",
-        "confidence": "0.990",
-        "text": "worked",
-        "offset": 91,
-        "length": 6,
-        "key": expect.any(String)//"com2nfb"
-      },
-      {
-        "start": "101.55",
-        "end": "101.7",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 98,
-        "length": 3,
-        "key": expect.any(String)//"3tb9de"
-      },
-      {
-        "start": "101.70",
-        "end": "101.85000000000001",
-        "confidence": "1.000",
-        "text": "yet",
-        "offset": 102,
-        "length": 3,
-        "key": expect.any(String)//"2me1upn"
-      },
-      {
-        "start": "101.88",
-        "end": "102",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 106,
-        "length": 1,
-        "key": expect.any(String)//"enoxqad"
-      },
-      {
-        "start": "102.00",
-        "end": "102.39",
-        "confidence": "1.000",
-        "text": "still",
-        "offset": 108,
-        "length": 5,
-        "key": expect.any(String)//"789thkj"
-      },
-      {
-        "start": "102.39",
-        "end": "102.63",
-        "confidence": "1.000",
-        "text": "felt",
-        "offset": 114,
-        "length": 4,
-        "key": expect.any(String)//"wlfp0g"
-      },
-      {
-        "start": "102.66",
-        "end": "103.35",
-        "confidence": "1.000",
-        "text": "compelled",
-        "offset": 119,
-        "length": 9,
-        "key": expect.any(String)//"f7kv07i"
-      },
-      {
-        "start": "103.35",
-        "end": "103.5",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 129,
-        "length": 2,
-        "key": expect.any(String)//"d1los98"
-      },
-      {
-        "start": "103.50",
-        "end": "103.68",
-        "confidence": "1.000",
-        "text": "be",
-        "offset": 132,
-        "length": 2,
-        "key": expect.any(String)//"g8zgiw6"
-      },
-      {
-        "start": "103.68",
-        "end": "104.4",
-        "confidence": "1.000",
-        "text": "kind",
-        "offset": 135,
-        "length": 4,
-        "key": expect.any(String)//"ol7k3gs"
-      },
-      {
-        "start": "104.40",
-        "end": "104.61",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 140,
-        "length": 2,
-        "key": expect.any(String)//"ew81y3m"
-      },
-      {
-        "start": "104.61",
-        "end": "104.75",
-        "confidence": "1.000",
-        "text": "it.",
-        "offset": 143,
-        "length": 3,
-        "key": expect.any(String)//"vnhi8pm"
-      }
-    ]
-  },
-  {
-    "text": "And that observation sparked a curiosity that I've spent the fat the past decade pursuing.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "UNK",
-      "words": [
+        },
         {
           "start": "106.45",
           "end": "106.60000000000001",
@@ -4522,154 +3673,7 @@ const draftTranscriptExample = [
           "word": "pursuing",
           "punct": "pursuing.",
           "index": 260
-        }
-      ],
-      "start": "106.45"
-    },
-    "entityRanges": [
-      {
-        "start": "106.45",
-        "end": "106.60000000000001",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"g7nvsr"
-      },
-      {
-        "start": "106.60",
-        "end": "106.89999999999999",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"l6zsyvx"
-      },
-      {
-        "start": "106.96",
-        "end": "107.71",
-        "confidence": "0.980",
-        "text": "observation",
-        "offset": 9,
-        "length": 11,
-        "key": expect.any(String)//"rvtxc8"
-      },
-      {
-        "start": "107.71",
-        "end": "108.14",
-        "confidence": "1.000",
-        "text": "sparked",
-        "offset": 21,
-        "length": 7,
-        "key": expect.any(String)//"6iu93a"
-      },
-      {
-        "start": "108.14",
-        "end": "108.19",
-        "confidence": "0.590",
-        "text": "a",
-        "offset": 29,
-        "length": 1,
-        "key": expect.any(String)//"bzosmi"
-      },
-      {
-        "start": "108.19",
-        "end": "109.12",
-        "confidence": "1.000",
-        "text": "curiosity",
-        "offset": 31,
-        "length": 9,
-        "key": expect.any(String)//"80fdzsk"
-      },
-      {
-        "start": "109.12",
-        "end": "109.33",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 41,
-        "length": 4,
-        "key": expect.any(String)//"59lgf7x"
-      },
-      {
-        "start": "109.33",
-        "end": "109.42",
-        "confidence": "0.530",
-        "text": "I've",
-        "offset": 46,
-        "length": 4,
-        "key": expect.any(String)//"tiwrix8"
-      },
-      {
-        "start": "109.42",
-        "end": "109.75",
-        "confidence": "1.000",
-        "text": "spent",
-        "offset": 51,
-        "length": 5,
-        "key": expect.any(String)//"388cyqh"
-      },
-      {
-        "start": "109.75",
-        "end": "109.81",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 57,
-        "length": 3,
-        "key": expect.any(String)//"4se40yz"
-      },
-      {
-        "start": "109.81",
-        "end": "110.2",
-        "confidence": "0.970",
-        "text": "fat",
-        "offset": 61,
-        "length": 3,
-        "key": expect.any(String)//"bwitdc"
-      },
-      {
-        "start": "110.23",
-        "end": "110.38000000000001",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 65,
-        "length": 3,
-        "key": expect.any(String)//"td22o4v"
-      },
-      {
-        "start": "110.38",
-        "end": "110.71",
-        "confidence": "1.000",
-        "text": "past",
-        "offset": 69,
-        "length": 4,
-        "key": expect.any(String)//"xuakarh"
-      },
-      {
-        "start": "110.71",
-        "end": "111.25",
-        "confidence": "1.000",
-        "text": "decade",
-        "offset": 74,
-        "length": 6,
-        "key": expect.any(String)//"xpctzi"
-      },
-      {
-        "start": "111.28",
-        "end": "112.93",
-        "confidence": "1.000",
-        "text": "pursuing.",
-        "offset": 81,
-        "length": 9,
-        "key": expect.any(String)//"umoqql"
-      }
-    ]
-  },
-  {
-    "text": "Why did I comfort this robot.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "UNK",
-      "words": [
+        },
         {
           "start": "112.93",
           "end": "113.2",
@@ -4717,73 +3721,7 @@ const draftTranscriptExample = [
           "word": "robot",
           "punct": "robot.",
           "index": 266
-        }
-      ],
-      "start": "112.93"
-    },
-    "entityRanges": [
-      {
-        "start": "112.93",
-        "end": "113.2",
-        "confidence": "1.000",
-        "text": "Why",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"rsjymko"
-      },
-      {
-        "start": "113.20",
-        "end": "113.38000000000001",
-        "confidence": "0.980",
-        "text": "did",
-        "offset": 4,
-        "length": 3,
-        "key": expect.any(String)//"0jyfw6j"
-      },
-      {
-        "start": "113.38",
-        "end": "113.47",
-        "confidence": "0.950",
-        "text": "I",
-        "offset": 8,
-        "length": 1,
-        "key": expect.any(String)//"fqarjtr"
-      },
-      {
-        "start": "113.47",
-        "end": "113.92",
-        "confidence": "1.000",
-        "text": "comfort",
-        "offset": 10,
-        "length": 7,
-        "key": expect.any(String)//"jx5b2pa"
-      },
-      {
-        "start": "113.92",
-        "end": "114.13",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 18,
-        "length": 4,
-        "key": expect.any(String)//"ws01y3h"
-      },
-      {
-        "start": "114.13",
-        "end": "114.58",
-        "confidence": "1.000",
-        "text": "robot.",
-        "offset": 23,
-        "length": 6,
-        "key": expect.any(String)//"fgtjr1"
-      }
-    ]
-  },
-  {
-    "text": "And one of the things I discovered was that my treatment of this machine was more than just an awkward moment in my living room that in a world where we're increasingly integrating robots into our lives an instinct like that might actually have consequences because the first thing that I discovered is that it's not just me.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "UNK",
-      "words": [
+        },
         {
           "start": "116.24",
           "end": "116.33",
@@ -5249,535 +4187,1381 @@ const draftTranscriptExample = [
           "index": 324
         }
       ],
-      "start": "116.24"
+      "start": "78.88"
     },
     "entityRanges": [
+      {
+        "start": "78.88",
+        "end": "78.94999999999999",
+        "confidence": "0.780",
+        "text": "And",
+        "offset": 0,
+        "length": 3,
+        "key": expect.any(String)//"lm7u637"
+      },
+      {
+        "start": "79.08",
+        "end": "79.17",
+        "confidence": "0.990",
+        "text": "that",
+        "offset": 4,
+        "length": 4,
+        "key": expect.any(String)//"lihfgnd"
+      },
+      {
+        "start": "79.17",
+        "end": "79.29",
+        "confidence": "1.000",
+        "text": "was",
+        "offset": 9,
+        "length": 3,
+        "key": expect.any(String)//"j44oe6"
+      },
+      {
+        "start": "79.29",
+        "end": "79.44000000000001",
+        "confidence": "1.000",
+        "text": "kind",
+        "offset": 13,
+        "length": 4,
+        "key": expect.any(String)//"rc1zrx"
+      },
+      {
+        "start": "79.44",
+        "end": "79.56",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 18,
+        "length": 2,
+        "key": expect.any(String)//"s69jwl"
+      },
+      {
+        "start": "79.56",
+        "end": "79.62",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 21,
+        "length": 1,
+        "key": expect.any(String)//"aqezvxm"
+      },
+      {
+        "start": "79.62",
+        "end": "79.95",
+        "confidence": "1.000",
+        "text": "weird",
+        "offset": 23,
+        "length": 5,
+        "key": expect.any(String)//"hxt045"
+      },
+      {
+        "start": "79.95",
+        "end": "80.61",
+        "confidence": "1.000",
+        "text": "experience",
+        "offset": 29,
+        "length": 10,
+        "key": expect.any(String)//"4yr8frm"
+      },
+      {
+        "start": "80.61",
+        "end": "80.76",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 40,
+        "length": 3,
+        "key": expect.any(String)//"tvqelrf"
+      },
+      {
+        "start": "80.76",
+        "end": "82.02000000000001",
+        "confidence": "1.000",
+        "text": "me.",
+        "offset": 44,
+        "length": 3,
+        "key": expect.any(String)//"wyxodu"
+      },
+      {
+        "start": "82.09",
+        "end": "82.17",
+        "confidence": "0.810",
+        "text": "For",
+        "offset": 48,
+        "length": 3,
+        "key": expect.any(String)//"qr4fzf"
+      },
+      {
+        "start": "82.17",
+        "end": "82.35000000000001",
+        "confidence": "1.000",
+        "text": "one",
+        "offset": 52,
+        "length": 3,
+        "key": expect.any(String)//"jyeuqon"
+      },
+      {
+        "start": "82.35",
+        "end": "82.67999999999999",
+        "confidence": "1.000",
+        "text": "thing",
+        "offset": 56,
+        "length": 5,
+        "key": expect.any(String)//"7j3rvl7"
+      },
+      {
+        "start": "82.98",
+        "end": "83.07000000000001",
+        "confidence": "0.590",
+        "text": "I",
+        "offset": 62,
+        "length": 1,
+        "key": expect.any(String)//"zlw4vi"
+      },
+      {
+        "start": "83.07",
+        "end": "83.30999999999999",
+        "confidence": "1.000",
+        "text": "wasn't",
+        "offset": 64,
+        "length": 6,
+        "key": expect.any(String)//"85l4xcw"
+      },
+      {
+        "start": "83.31",
+        "end": "83.4",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 71,
+        "length": 3,
+        "key": expect.any(String)//"xkr16t5"
+      },
+      {
+        "start": "83.40",
+        "end": "83.64",
+        "confidence": "1.000",
+        "text": "most",
+        "offset": 75,
+        "length": 4,
+        "key": expect.any(String)//"rytouj"
+      },
+      {
+        "start": "83.82",
+        "end": "84.38999999999999",
+        "confidence": "1.000",
+        "text": "maternal",
+        "offset": 80,
+        "length": 8,
+        "key": expect.any(String)//"k2fp7z"
+      },
+      {
+        "start": "84.39",
+        "end": "84.96",
+        "confidence": "1.000",
+        "text": "person",
+        "offset": 89,
+        "length": 6,
+        "key": expect.any(String)//"5ddr3h"
+      },
+      {
+        "start": "84.96",
+        "end": "85.08",
+        "confidence": "1.000",
+        "text": "at",
+        "offset": 96,
+        "length": 2,
+        "key": expect.any(String)//"z0322j"
+      },
+      {
+        "start": "85.08",
+        "end": "85.17",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 99,
+        "length": 3,
+        "key": expect.any(String)//"cdyby7s"
+      },
+      {
+        "start": "85.17",
+        "end": "85.77",
+        "confidence": "1.000",
+        "text": "time.",
+        "offset": 103,
+        "length": 5,
+        "key": expect.any(String)//"axhtbi8"
+      },
+      {
+        "start": "86.73",
+        "end": "86.94",
+        "confidence": "1.000",
+        "text": "Although",
+        "offset": 109,
+        "length": 8,
+        "key": expect.any(String)//"gegwyj"
+      },
+      {
+        "start": "86.94",
+        "end": "87.17999999999999",
+        "confidence": "1.000",
+        "text": "since",
+        "offset": 118,
+        "length": 5,
+        "key": expect.any(String)//"1dluv36"
+      },
+      {
+        "start": "87.18",
+        "end": "87.30000000000001",
+        "confidence": "1.000",
+        "text": "then",
+        "offset": 124,
+        "length": 4,
+        "key": expect.any(String)//"2twnxrj"
+      },
+      {
+        "start": "87.30",
+        "end": "87.39",
+        "confidence": "0.860",
+        "text": "I've",
+        "offset": 129,
+        "length": 4,
+        "key": expect.any(String)//"7d1h4s"
+      },
+      {
+        "start": "87.39",
+        "end": "87.63",
+        "confidence": "1.000",
+        "text": "become",
+        "offset": 134,
+        "length": 6,
+        "key": expect.any(String)//"2n8xns"
+      },
+      {
+        "start": "87.63",
+        "end": "87.66",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 141,
+        "length": 1,
+        "key": expect.any(String)//"jsf0lr"
+      },
+      {
+        "start": "87.66",
+        "end": "88.03999999999999",
+        "confidence": "1.000",
+        "text": "mother.",
+        "offset": 143,
+        "length": 7,
+        "key": expect.any(String)//"71qex6k"
+      },
+      {
+        "start": "88.04",
+        "end": "88.29",
+        "confidence": "0.680",
+        "text": "Nine",
+        "offset": 151,
+        "length": 4,
+        "key": expect.any(String)//"84xx3ji"
+      },
+      {
+        "start": "88.29",
+        "end": "88.5",
+        "confidence": "1.000",
+        "text": "months",
+        "offset": 156,
+        "length": 6,
+        "key": expect.any(String)//"mami3i"
+      },
+      {
+        "start": "88.50",
+        "end": "88.89",
+        "confidence": "1.000",
+        "text": "ago",
+        "offset": 163,
+        "length": 3,
+        "key": expect.any(String)//"l9m6n14"
+      },
+      {
+        "start": "89.44",
+        "end": "89.55",
+        "confidence": "0.960",
+        "text": "and",
+        "offset": 167,
+        "length": 3,
+        "key": expect.any(String)//"dhpa2ib"
+      },
+      {
+        "start": "89.55",
+        "end": "89.67",
+        "confidence": "1.000",
+        "text": "I've",
+        "offset": 171,
+        "length": 4,
+        "key": expect.any(String)//"hsnggb4"
+      },
+      {
+        "start": "89.67",
+        "end": "89.88",
+        "confidence": "1.000",
+        "text": "learned",
+        "offset": 176,
+        "length": 7,
+        "key": expect.any(String)//"xue5jdh"
+      },
+      {
+        "start": "89.88",
+        "end": "90.14999999999999",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 184,
+        "length": 4,
+        "key": expect.any(String)//"hw15a25"
+      },
+      {
+        "start": "90.15",
+        "end": "90.51",
+        "confidence": "0.990",
+        "text": "babies",
+        "offset": 189,
+        "length": 6,
+        "key": expect.any(String)//"i5cmwrs"
+      },
+      {
+        "start": "90.51",
+        "end": "90.75",
+        "confidence": "1.000",
+        "text": "also",
+        "offset": 196,
+        "length": 4,
+        "key": expect.any(String)//"vso56f4"
+      },
+      {
+        "start": "90.75",
+        "end": "91.11",
+        "confidence": "0.900",
+        "text": "squirm",
+        "offset": 201,
+        "length": 6,
+        "key": expect.any(String)//"fgc2cwg"
+      },
+      {
+        "start": "91.11",
+        "end": "91.23",
+        "confidence": "1.000",
+        "text": "when",
+        "offset": 208,
+        "length": 4,
+        "key": expect.any(String)//"99k4u5n"
+      },
+      {
+        "start": "91.23",
+        "end": "91.32000000000001",
+        "confidence": "1.000",
+        "text": "you",
+        "offset": 213,
+        "length": 3,
+        "key": expect.any(String)//"9o1rw9c"
+      },
+      {
+        "start": "91.32",
+        "end": "91.47",
+        "confidence": "1.000",
+        "text": "hold",
+        "offset": 217,
+        "length": 4,
+        "key": expect.any(String)//"560wmnv"
+      },
+      {
+        "start": "91.47",
+        "end": "91.59",
+        "confidence": "0.990",
+        "text": "them",
+        "offset": 222,
+        "length": 4,
+        "key": expect.any(String)//"c3dyh2p"
+      },
+      {
+        "start": "91.59",
+        "end": "91.83",
+        "confidence": "1.000",
+        "text": "upside",
+        "offset": 227,
+        "length": 6,
+        "key": expect.any(String)//"rf0s929"
+      },
+      {
+        "start": "91.83",
+        "end": "94.67",
+        "confidence": "1.000",
+        "text": "down.",
+        "offset": 234,
+        "length": 5,
+        "key": expect.any(String)//"sgpnf6l"
+      },
+      {
+        "start": "95.01",
+        "end": "95.28",
+        "confidence": "1.000",
+        "text": "But",
+        "offset": 240,
+        "length": 3,
+        "key": expect.any(String)//"rayr5bo"
+      },
+      {
+        "start": "95.28",
+        "end": "95.49",
+        "confidence": "1.000",
+        "text": "my",
+        "offset": 244,
+        "length": 2,
+        "key": expect.any(String)//"ohg8v5o"
+      },
+      {
+        "start": "95.49",
+        "end": "95.86",
+        "confidence": "1.000",
+        "text": "response",
+        "offset": 247,
+        "length": 8,
+        "key": expect.any(String)//"90v0mu"
+      },
+      {
+        "start": "95.86",
+        "end": "95.91",
+        "confidence": "0.860",
+        "text": "to",
+        "offset": 256,
+        "length": 2,
+        "key": expect.any(String)//"fkqdeg8"
+      },
+      {
+        "start": "95.91",
+        "end": "96.11999999999999",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 259,
+        "length": 4,
+        "key": expect.any(String)//"u5zqknr"
+      },
+      {
+        "start": "96.12",
+        "end": "96.45",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 264,
+        "length": 5,
+        "key": expect.any(String)//"85bo5rs"
+      },
+      {
+        "start": "96.45",
+        "end": "96.60000000000001",
+        "confidence": "1.000",
+        "text": "was",
+        "offset": 270,
+        "length": 3,
+        "key": expect.any(String)//"hcp635e"
+      },
+      {
+        "start": "96.60",
+        "end": "96.86999999999999",
+        "confidence": "1.000",
+        "text": "also",
+        "offset": 274,
+        "length": 4,
+        "key": expect.any(String)//"ucr9lk"
+      },
+      {
+        "start": "96.87",
+        "end": "97.29",
+        "confidence": "1.000",
+        "text": "interesting",
+        "offset": 279,
+        "length": 11,
+        "key": expect.any(String)//"1e5w5t"
+      },
+      {
+        "start": "97.29",
+        "end": "97.68",
+        "confidence": "1.000",
+        "text": "because",
+        "offset": 291,
+        "length": 7,
+        "key": expect.any(String)//"jdl72sg"
+      },
+      {
+        "start": "97.95",
+        "end": "98.04",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 299,
+        "length": 1,
+        "key": expect.any(String)//"e5bdz43"
+      },
+      {
+        "start": "98.04",
+        "end": "98.19000000000001",
+        "confidence": "1.000",
+        "text": "knew",
+        "offset": 301,
+        "length": 4,
+        "key": expect.any(String)//"qsfr72n"
+      },
+      {
+        "start": "98.19",
+        "end": "98.91",
+        "confidence": "1.000",
+        "text": "exactly",
+        "offset": 306,
+        "length": 7,
+        "key": expect.any(String)//"ovqy9cn"
+      },
+      {
+        "start": "98.91",
+        "end": "99.21",
+        "confidence": "1.000",
+        "text": "how",
+        "offset": 314,
+        "length": 3,
+        "key": expect.any(String)//"hkxyi8pj"
+      },
+      {
+        "start": "99.21",
+        "end": "99.39",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 318,
+        "length": 4,
+        "key": expect.any(String)//"sl7rcnh"
+      },
+      {
+        "start": "99.39",
+        "end": "99.93",
+        "confidence": "1.000",
+        "text": "machine",
+        "offset": 323,
+        "length": 7,
+        "key": expect.any(String)//"zzxpfqc"
+      },
+      {
+        "start": "99.93",
+        "end": "100.77000000000001",
+        "confidence": "0.990",
+        "text": "worked",
+        "offset": 331,
+        "length": 6,
+        "key": expect.any(String)//"j1fq9nj"
+      },
+      {
+        "start": "101.55",
+        "end": "101.7",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 338,
+        "length": 3,
+        "key": expect.any(String)//"snxojgk"
+      },
+      {
+        "start": "101.70",
+        "end": "101.85000000000001",
+        "confidence": "1.000",
+        "text": "yet",
+        "offset": 342,
+        "length": 3,
+        "key": expect.any(String)//"ny4opn"
+      },
+      {
+        "start": "101.88",
+        "end": "102",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 346,
+        "length": 1,
+        "key": expect.any(String)//"frfu9rr"
+      },
+      {
+        "start": "102.00",
+        "end": "102.39",
+        "confidence": "1.000",
+        "text": "still",
+        "offset": 348,
+        "length": 5,
+        "key": expect.any(String)//"gwsv934"
+      },
+      {
+        "start": "102.39",
+        "end": "102.63",
+        "confidence": "1.000",
+        "text": "felt",
+        "offset": 354,
+        "length": 4,
+        "key": expect.any(String)//"rg0qgvl"
+      },
+      {
+        "start": "102.66",
+        "end": "103.35",
+        "confidence": "1.000",
+        "text": "compelled",
+        "offset": 359,
+        "length": 9,
+        "key": expect.any(String)//"cim0z6b"
+      },
+      {
+        "start": "103.35",
+        "end": "103.5",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 369,
+        "length": 2,
+        "key": expect.any(String)//"iodw5wq"
+      },
+      {
+        "start": "103.50",
+        "end": "103.68",
+        "confidence": "1.000",
+        "text": "be",
+        "offset": 372,
+        "length": 2,
+        "key": expect.any(String)//"vzapk6k"
+      },
+      {
+        "start": "103.68",
+        "end": "104.4",
+        "confidence": "1.000",
+        "text": "kind",
+        "offset": 375,
+        "length": 4,
+        "key": expect.any(String)//"fvk3mvd"
+      },
+      {
+        "start": "104.40",
+        "end": "104.61",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 380,
+        "length": 2,
+        "key": expect.any(String)//"1wyt9p"
+      },
+      {
+        "start": "104.61",
+        "end": "104.75",
+        "confidence": "1.000",
+        "text": "it.",
+        "offset": 383,
+        "length": 3,
+        "key": expect.any(String)//"lgyi7cc"
+      },
+      {
+        "start": "106.45",
+        "end": "106.60000000000001",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 387,
+        "length": 3,
+        "key": expect.any(String)//"byyq7y"
+      },
+      {
+        "start": "106.60",
+        "end": "106.89999999999999",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 391,
+        "length": 4,
+        "key": expect.any(String)//"rc6w0yi"
+      },
+      {
+        "start": "106.96",
+        "end": "107.71",
+        "confidence": "0.980",
+        "text": "observation",
+        "offset": 396,
+        "length": 11,
+        "key": expect.any(String)//"fw2ktg"
+      },
+      {
+        "start": "107.71",
+        "end": "108.14",
+        "confidence": "1.000",
+        "text": "sparked",
+        "offset": 408,
+        "length": 7,
+        "key": expect.any(String)//"3owe1bo"
+      },
+      {
+        "start": "108.14",
+        "end": "108.19",
+        "confidence": "0.590",
+        "text": "a",
+        "offset": 416,
+        "length": 1,
+        "key": expect.any(String)//"rw41qti"
+      },
+      {
+        "start": "108.19",
+        "end": "109.12",
+        "confidence": "1.000",
+        "text": "curiosity",
+        "offset": 418,
+        "length": 9,
+        "key": expect.any(String)//"f4ngkld"
+      },
+      {
+        "start": "109.12",
+        "end": "109.33",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 428,
+        "length": 4,
+        "key": expect.any(String)//"gsga12"
+      },
+      {
+        "start": "109.33",
+        "end": "109.42",
+        "confidence": "0.530",
+        "text": "I've",
+        "offset": 433,
+        "length": 4,
+        "key": expect.any(String)//"qzee2ch"
+      },
+      {
+        "start": "109.42",
+        "end": "109.75",
+        "confidence": "1.000",
+        "text": "spent",
+        "offset": 438,
+        "length": 5,
+        "key": expect.any(String)//"sutrd1"
+      },
+      {
+        "start": "109.75",
+        "end": "109.81",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 444,
+        "length": 3,
+        "key": expect.any(String)//"yufg0al"
+      },
+      {
+        "start": "109.81",
+        "end": "110.2",
+        "confidence": "0.970",
+        "text": "fat",
+        "offset": 448,
+        "length": 3,
+        "key": expect.any(String)//"rnlwzp9"
+      },
+      {
+        "start": "110.23",
+        "end": "110.38000000000001",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 452,
+        "length": 3,
+        "key": expect.any(String)//"jnzbrve"
+      },
+      {
+        "start": "110.38",
+        "end": "110.71",
+        "confidence": "1.000",
+        "text": "past",
+        "offset": 456,
+        "length": 4,
+        "key": expect.any(String)//"rduej46"
+      },
+      {
+        "start": "110.71",
+        "end": "111.25",
+        "confidence": "1.000",
+        "text": "decade",
+        "offset": 461,
+        "length": 6,
+        "key": expect.any(String)//"7iidv5i"
+      },
+      {
+        "start": "111.28",
+        "end": "112.93",
+        "confidence": "1.000",
+        "text": "pursuing.",
+        "offset": 468,
+        "length": 9,
+        "key": expect.any(String)//"ahenwlm"
+      },
+      {
+        "start": "112.93",
+        "end": "113.2",
+        "confidence": "1.000",
+        "text": "Why",
+        "offset": 478,
+        "length": 3,
+        "key": expect.any(String)//"jyc93kp"
+      },
+      {
+        "start": "113.20",
+        "end": "113.38000000000001",
+        "confidence": "0.980",
+        "text": "did",
+        "offset": 482,
+        "length": 3,
+        "key": expect.any(String)//"otl15"
+      },
+      {
+        "start": "113.38",
+        "end": "113.47",
+        "confidence": "0.950",
+        "text": "I",
+        "offset": 486,
+        "length": 1,
+        "key": expect.any(String)//"yicszfg"
+      },
+      {
+        "start": "113.47",
+        "end": "113.92",
+        "confidence": "1.000",
+        "text": "comfort",
+        "offset": 488,
+        "length": 7,
+        "key": expect.any(String)//"qap9xft"
+      },
+      {
+        "start": "113.92",
+        "end": "114.13",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 496,
+        "length": 4,
+        "key": expect.any(String)//"tp5lhsi"
+      },
+      {
+        "start": "114.13",
+        "end": "114.58",
+        "confidence": "1.000",
+        "text": "robot.",
+        "offset": 501,
+        "length": 6,
+        "key": expect.any(String)//"zckyxd"
+      },
       {
         "start": "116.24",
         "end": "116.33",
         "confidence": "0.930",
         "text": "And",
-        "offset": 0,
+        "offset": 508,
         "length": 3,
-        "key": expect.any(String)//"aj6fj9n"
+        "key": expect.any(String)//"o354zgw"
       },
       {
         "start": "116.35",
         "end": "116.5",
         "confidence": "1.000",
         "text": "one",
-        "offset": 4,
+        "offset": 512,
         "length": 3,
-        "key": expect.any(String)//"0lp5tsl"
+        "key": expect.any(String)//"t8hgv2n"
       },
       {
         "start": "116.50",
         "end": "116.56",
         "confidence": "1.000",
         "text": "of",
-        "offset": 8,
+        "offset": 516,
         "length": 2,
-        "key": expect.any(String)//"mwvwx2j"
+        "key": expect.any(String)//"uoee3kp"
       },
       {
         "start": "116.56",
         "end": "116.65",
         "confidence": "1.000",
         "text": "the",
-        "offset": 11,
+        "offset": 519,
         "length": 3,
-        "key": expect.any(String)//"by0895r"
+        "key": expect.any(String)//"bbtpnor"
       },
       {
         "start": "116.65",
         "end": "116.89",
         "confidence": "1.000",
         "text": "things",
-        "offset": 15,
+        "offset": 523,
         "length": 6,
-        "key": expect.any(String)//"2gzko9e"
+        "key": expect.any(String)//"wj4j4g6"
       },
       {
         "start": "116.89",
         "end": "116.95",
         "confidence": "1.000",
         "text": "I",
-        "offset": 22,
+        "offset": 530,
         "length": 1,
-        "key": expect.any(String)//"muiyqar"
+        "key": expect.any(String)//"gddv8vn"
       },
       {
         "start": "116.95",
         "end": "117.58",
         "confidence": "1.000",
         "text": "discovered",
-        "offset": 24,
+        "offset": 532,
         "length": 10,
-        "key": expect.any(String)//"50q6ppf"
+        "key": expect.any(String)//"zas1bb"
       },
       {
         "start": "117.58",
         "end": "117.76",
         "confidence": "1.000",
         "text": "was",
-        "offset": 35,
+        "offset": 543,
         "length": 3,
-        "key": expect.any(String)//"c2jyjge"
+        "key": expect.any(String)//"aur2aka"
       },
       {
         "start": "117.76",
         "end": "118.18",
         "confidence": "1.000",
         "text": "that",
-        "offset": 39,
+        "offset": 547,
         "length": 4,
-        "key": expect.any(String)//"w4x7eb"
+        "key": expect.any(String)//"f9tdwg"
       },
       {
         "start": "118.48",
         "end": "118.63000000000001",
         "confidence": "1.000",
         "text": "my",
-        "offset": 44,
+        "offset": 552,
         "length": 2,
-        "key": expect.any(String)//"b9y3dwd"
+        "key": expect.any(String)//"vkq8qnl"
       },
       {
         "start": "118.63",
         "end": "119.19999999999999",
         "confidence": "1.000",
         "text": "treatment",
-        "offset": 47,
+        "offset": 555,
         "length": 9,
-        "key": expect.any(String)//"hmwqswl"
+        "key": expect.any(String)//"dxuiixj"
       },
       {
         "start": "119.20",
         "end": "119.26",
         "confidence": "1.000",
         "text": "of",
-        "offset": 57,
+        "offset": 565,
         "length": 2,
-        "key": expect.any(String)//"fknbas8"
+        "key": expect.any(String)//"m6uf4k"
       },
       {
         "start": "119.26",
         "end": "119.44000000000001",
         "confidence": "1.000",
         "text": "this",
-        "offset": 60,
+        "offset": 568,
         "length": 4,
-        "key": expect.any(String)//"lor0bl"
+        "key": expect.any(String)//"rne5brc"
       },
       {
         "start": "119.44",
         "end": "119.8",
         "confidence": "1.000",
         "text": "machine",
-        "offset": 65,
+        "offset": 573,
         "length": 7,
-        "key": expect.any(String)//"ilhmllw"
+        "key": expect.any(String)//"dtm6x5s"
       },
       {
         "start": "119.80",
         "end": "119.95",
         "confidence": "1.000",
         "text": "was",
-        "offset": 73,
+        "offset": 581,
         "length": 3,
-        "key": expect.any(String)//"j1lu6xc"
+        "key": expect.any(String)//"wb3alpk"
       },
       {
         "start": "119.95",
         "end": "120.22",
         "confidence": "1.000",
         "text": "more",
-        "offset": 77,
+        "offset": 585,
         "length": 4,
-        "key": expect.any(String)//"x1enwu7"
+        "key": expect.any(String)//"ox8fhp4"
       },
       {
         "start": "120.22",
         "end": "120.37",
         "confidence": "1.000",
         "text": "than",
-        "offset": 82,
+        "offset": 590,
         "length": 4,
-        "key": expect.any(String)//"6w2wdz"
+        "key": expect.any(String)//"57nmhgv"
       },
       {
         "start": "120.37",
         "end": "120.76",
         "confidence": "1.000",
         "text": "just",
-        "offset": 87,
+        "offset": 595,
         "length": 4,
-        "key": expect.any(String)//"trukm9"
+        "key": expect.any(String)//"0cn12md"
       },
       {
         "start": "121.03",
         "end": "121.18",
         "confidence": "1.000",
         "text": "an",
-        "offset": 92,
+        "offset": 600,
         "length": 2,
-        "key": expect.any(String)//"89aw6po"
+        "key": expect.any(String)//"kjfqmmp"
       },
       {
         "start": "121.21",
         "end": "121.6",
         "confidence": "1.000",
         "text": "awkward",
-        "offset": 95,
+        "offset": 603,
         "length": 7,
-        "key": expect.any(String)//"tsm7bnl"
+        "key": expect.any(String)//"x77203t"
       },
       {
         "start": "121.60",
         "end": "122.05",
         "confidence": "1.000",
         "text": "moment",
-        "offset": 103,
+        "offset": 611,
         "length": 6,
-        "key": expect.any(String)//"mo081v"
+        "key": expect.any(String)//"deejxv"
       },
       {
         "start": "122.08",
         "end": "122.17",
         "confidence": "1.000",
         "text": "in",
-        "offset": 110,
+        "offset": 618,
         "length": 2,
-        "key": expect.any(String)//"5zc4m1c"
+        "key": expect.any(String)//"qe1y8e9"
       },
       {
         "start": "122.17",
         "end": "122.32000000000001",
         "confidence": "1.000",
         "text": "my",
-        "offset": 113,
+        "offset": 621,
         "length": 2,
-        "key": expect.any(String)//"5at21kh"
+        "key": expect.any(String)//"cy0szts"
       },
       {
         "start": "122.32",
         "end": "122.61999999999999",
         "confidence": "1.000",
         "text": "living",
-        "offset": 116,
+        "offset": 624,
         "length": 6,
-        "key": expect.any(String)//"k4dmcv"
+        "key": expect.any(String)//"16jlwjs"
       },
       {
         "start": "122.62",
         "end": "122.95",
         "confidence": "1.000",
         "text": "room",
-        "offset": 123,
+        "offset": 631,
         "length": 4,
-        "key": expect.any(String)//"xbrtjfe"
+        "key": expect.any(String)//"8bued0i"
       },
       {
         "start": "123.55",
         "end": "123.73",
         "confidence": "1.000",
         "text": "that",
-        "offset": 128,
+        "offset": 636,
         "length": 4,
-        "key": expect.any(String)//"q7fmp1b"
+        "key": expect.any(String)//"k23flhh"
       },
       {
         "start": "123.73",
         "end": "123.88000000000001",
         "confidence": "1.000",
         "text": "in",
-        "offset": 133,
+        "offset": 641,
         "length": 2,
-        "key": expect.any(String)//"1onpp7"
+        "key": expect.any(String)//"yq4omd4"
       },
       {
         "start": "123.88",
         "end": "123.94",
         "confidence": "1.000",
         "text": "a",
-        "offset": 136,
+        "offset": 644,
         "length": 1,
-        "key": expect.any(String)//"z8c85qo"
+        "key": expect.any(String)//"kgo17j"
       },
       {
         "start": "123.94",
         "end": "124.39",
         "confidence": "1.000",
         "text": "world",
-        "offset": 138,
+        "offset": 646,
         "length": 5,
-        "key": expect.any(String)//"z75tc5f"
+        "key": expect.any(String)//"5xc6h1"
       },
       {
         "start": "124.42",
         "end": "124.54",
         "confidence": "1.000",
         "text": "where",
-        "offset": 144,
+        "offset": 652,
         "length": 5,
-        "key": expect.any(String)//"a91ave"
+        "key": expect.any(String)//"5v0oubq"
       },
       {
         "start": "124.54",
         "end": "124.66000000000001",
         "confidence": "1.000",
         "text": "we're",
-        "offset": 150,
+        "offset": 658,
         "length": 5,
-        "key": expect.any(String)//"id5eidl"
+        "key": expect.any(String)//"zlm9b6l"
       },
       {
         "start": "124.66",
         "end": "125.44",
         "confidence": "1.000",
         "text": "increasingly",
-        "offset": 156,
+        "offset": 664,
         "length": 12,
-        "key": expect.any(String)//"pxmuram"
+        "key": expect.any(String)//"isofpkk"
       },
       {
         "start": "125.50",
         "end": "126.19",
         "confidence": "1.000",
         "text": "integrating",
-        "offset": 169,
+        "offset": 677,
         "length": 11,
-        "key": expect.any(String)//"n8inyhx"
+        "key": expect.any(String)//"s13j7ir"
       },
       {
         "start": "126.19",
         "end": "126.97",
         "confidence": "1.000",
         "text": "robots",
-        "offset": 181,
+        "offset": 689,
         "length": 6,
-        "key": expect.any(String)//"2czp988"
+        "key": expect.any(String)//"56jphwq"
       },
       {
         "start": "127.27",
         "end": "127.53999999999999",
         "confidence": "1.000",
         "text": "into",
-        "offset": 188,
+        "offset": 696,
         "length": 4,
-        "key": expect.any(String)//"lqbmd6"
+        "key": expect.any(String)//"y7unur"
       },
       {
         "start": "127.54",
         "end": "127.66000000000001",
         "confidence": "1.000",
         "text": "our",
-        "offset": 193,
+        "offset": 701,
         "length": 3,
-        "key": expect.any(String)//"j2xf26n"
+        "key": expect.any(String)//"g2ltoi"
       },
       {
         "start": "127.66",
         "end": "128.47",
         "confidence": "1.000",
         "text": "lives",
-        "offset": 197,
+        "offset": 705,
         "length": 5,
-        "key": expect.any(String)//"mpy5wc"
+        "key": expect.any(String)//"8mjwevd"
       },
       {
         "start": "129.01",
         "end": "129.13",
         "confidence": "0.900",
         "text": "an",
-        "offset": 203,
+        "offset": 711,
         "length": 2,
-        "key": expect.any(String)//"3707jo"
+        "key": expect.any(String)//"5isx56g"
       },
       {
         "start": "129.13",
         "end": "129.57999999999998",
         "confidence": "0.960",
         "text": "instinct",
-        "offset": 206,
+        "offset": 714,
         "length": 8,
-        "key": expect.any(String)//"wgovye"
+        "key": expect.any(String)//"vpt57pp"
       },
       {
         "start": "129.58",
         "end": "129.73000000000002",
         "confidence": "1.000",
         "text": "like",
-        "offset": 215,
+        "offset": 723,
         "length": 4,
-        "key": expect.any(String)//"ett4h7"
+        "key": expect.any(String)//"tcszn2s"
       },
       {
         "start": "129.73",
         "end": "130",
         "confidence": "1.000",
         "text": "that",
-        "offset": 220,
+        "offset": 728,
         "length": 4,
-        "key": expect.any(String)//"lgkssvj"
+        "key": expect.any(String)//"28hzv3v"
       },
       {
         "start": "130.00",
         "end": "130.27",
         "confidence": "1.000",
         "text": "might",
-        "offset": 225,
+        "offset": 733,
         "length": 5,
-        "key": expect.any(String)//"qpwrkwm"
+        "key": expect.any(String)//"lxjz0fw"
       },
       {
         "start": "130.45",
         "end": "130.78",
         "confidence": "1.000",
         "text": "actually",
-        "offset": 231,
+        "offset": 739,
         "length": 8,
-        "key": expect.any(String)//"bfff8y1f"
+        "key": expect.any(String)//"kwb27un"
       },
       {
         "start": "130.78",
         "end": "130.9",
         "confidence": "1.000",
         "text": "have",
-        "offset": 240,
+        "offset": 748,
         "length": 4,
-        "key": expect.any(String)//"8f966gl"
+        "key": expect.any(String)//"r1rlc6m"
       },
       {
         "start": "130.90",
         "end": "132.07",
         "confidence": "1.000",
         "text": "consequences",
-        "offset": 245,
+        "offset": 753,
         "length": 12,
-        "key": expect.any(String)//"ynd9ny"
+        "key": expect.any(String)//"i08ycfw"
       },
       {
         "start": "133.43",
         "end": "133.70000000000002",
         "confidence": "1.000",
         "text": "because",
-        "offset": 258,
+        "offset": 766,
         "length": 7,
-        "key": expect.any(String)//"oy83tcv"
+        "key": expect.any(String)//"s8ufe6"
       },
       {
         "start": "133.70",
         "end": "133.76",
         "confidence": "1.000",
         "text": "the",
-        "offset": 266,
+        "offset": 774,
         "length": 3,
-        "key": expect.any(String)//"zuq9g37"
+        "key": expect.any(String)//"sf2ubah"
       },
       {
         "start": "133.76",
         "end": "134.03",
         "confidence": "1.000",
         "text": "first",
-        "offset": 270,
+        "offset": 778,
         "length": 5,
-        "key": expect.any(String)//"1eb8nys"
+        "key": expect.any(String)//"6jq3qpp"
       },
       {
         "start": "134.03",
         "end": "134.15",
         "confidence": "1.000",
         "text": "thing",
-        "offset": 276,
+        "offset": 784,
         "length": 5,
-        "key": expect.any(String)//"xiret5n"
+        "key": expect.any(String)//"ok9ppx3"
       },
       {
         "start": "134.15",
         "end": "134.27",
         "confidence": "1.000",
         "text": "that",
-        "offset": 282,
+        "offset": 790,
         "length": 4,
-        "key": expect.any(String)//"gmw6mg8"
+        "key": expect.any(String)//"vb43cy8"
       },
       {
         "start": "134.27",
         "end": "134.33",
         "confidence": "1.000",
         "text": "I",
-        "offset": 287,
+        "offset": 795,
         "length": 1,
-        "key": expect.any(String)//"c4u3wf"
+        "key": expect.any(String)//"2zj4tv7"
       },
       {
         "start": "134.33",
         "end": "135.11",
         "confidence": "1.000",
         "text": "discovered",
-        "offset": 289,
+        "offset": 797,
         "length": 10,
-        "key": expect.any(String)//"9p753oq"
+        "key": expect.any(String)//"zsaj7drx"
       },
       {
         "start": "135.23",
         "end": "135.38",
         "confidence": "1.000",
         "text": "is",
-        "offset": 300,
+        "offset": 808,
         "length": 2,
-        "key": expect.any(String)//"yolg66c"
+        "key": expect.any(String)//"8wfp5bp"
       },
       {
         "start": "135.38",
         "end": "135.53",
         "confidence": "1.000",
         "text": "that",
-        "offset": 303,
+        "offset": 811,
         "length": 4,
-        "key": expect.any(String)//"22r84h"
+        "key": expect.any(String)//"1kpts4s"
       },
       {
         "start": "135.56",
         "end": "135.77",
         "confidence": "1.000",
         "text": "it's",
-        "offset": 308,
+        "offset": 816,
         "length": 4,
-        "key": expect.any(String)//"pahqu4v"
+        "key": expect.any(String)//"n5nzwnk"
       },
       {
         "start": "135.77",
         "end": "136.04000000000002",
         "confidence": "1.000",
         "text": "not",
-        "offset": 313,
+        "offset": 821,
         "length": 3,
-        "key": expect.any(String)//"yw6dh5j"
+        "key": expect.any(String)//"wtg63p3"
       },
       {
         "start": "136.04",
         "end": "136.37",
         "confidence": "1.000",
         "text": "just",
-        "offset": 317,
+        "offset": 825,
         "length": 4,
-        "key": expect.any(String)//"u67usuq"
+        "key": expect.any(String)//"kefjzip"
       },
       {
         "start": "136.37",
         "end": "137.25",
         "confidence": "1.000",
         "text": "me.",
-        "offset": 322,
+        "offset": 830,
         "length": 3,
-        "key": expect.any(String)//"dc5mxc"
+        "key": expect.any(String)//"oye6ptd"
       }
     ]
   },
   {
-    "text": "In 2007 the Washington Post reported that the United States military was testing this robot that diffused landmines and the way it worked was it was shaped like a stick insect and it would walk around a minefield on its legs and every time it stepped on a mine.",
+    "text": "In 2007 the Washington Post reported that the United States military was testing this robot that diffused landmines and the way it worked was it was shaped like a stick insect and it would walk around a minefield on its legs and every time it stepped on a mine. One of the legs would blow up and it would continue on the other legs to blow up more mines and the colonel who is in charge of this testing exercise ends up calling it off because he says it's too inhumane to watch this damaged robot drag itself along. The minefield. Now what would cause a hardened military officer and someone like myself to have this response to robots. Well of course we're primed by science fiction and pop culture to really want to personify these things but it goes a little bit deeper than that. It turns out that we're biologically hard wired to project intent and life on to any movement in our physical space it seems autonomous to us.",
     "type": "paragraph",
     "data": {
       "speaker": "F4",
@@ -6173,460 +5957,7 @@ const draftTranscriptExample = [
           "word": "mine",
           "punct": "mine.",
           "index": 373
-        }
-      ],
-      "start": "139.30"
-    },
-    "entityRanges": [
-      {
-        "start": "139.30",
-        "end": "139.42000000000002",
-        "confidence": "1.000",
-        "text": "In",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"l61zyl"
-      },
-      {
-        "start": "139.42",
-        "end": "140.61999999999998",
-        "confidence": "1.000",
-        "text": "2007",
-        "offset": 3,
-        "length": 4,
-        "key": expect.any(String)//"i8o5djc"
-      },
-      {
-        "start": "140.77",
-        "end": "140.89000000000001",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 8,
-        "length": 3,
-        "key": expect.any(String)//"4ut9paj"
-      },
-      {
-        "start": "140.89",
-        "end": "141.39999999999998",
-        "confidence": "1.000",
-        "text": "Washington",
-        "offset": 12,
-        "length": 10,
-        "key": expect.any(String)//"j1m3gx"
-      },
-      {
-        "start": "141.40",
-        "end": "141.73000000000002",
-        "confidence": "1.000",
-        "text": "Post",
-        "offset": 23,
-        "length": 4,
-        "key": expect.any(String)//"pw1ufw"
-      },
-      {
-        "start": "141.73",
-        "end": "142.23999999999998",
-        "confidence": "1.000",
-        "text": "reported",
-        "offset": 28,
-        "length": 8,
-        "key": expect.any(String)//"hkhn1ox"
-      },
-      {
-        "start": "142.24",
-        "end": "142.42000000000002",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 37,
-        "length": 4,
-        "key": expect.any(String)//"t7baba"
-      },
-      {
-        "start": "142.42",
-        "end": "142.54",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 42,
-        "length": 3,
-        "key": expect.any(String)//"onftyy"
-      },
-      {
-        "start": "142.54",
-        "end": "142.9",
-        "confidence": "1.000",
-        "text": "United",
-        "offset": 46,
-        "length": 6,
-        "key": expect.any(String)//"lxg9nr"
-      },
-      {
-        "start": "142.90",
-        "end": "143.20000000000002",
-        "confidence": "1.000",
-        "text": "States",
-        "offset": 53,
-        "length": 6,
-        "key": expect.any(String)//"w4xuh5"
-      },
-      {
-        "start": "143.20",
-        "end": "144.04",
-        "confidence": "1.000",
-        "text": "military",
-        "offset": 60,
-        "length": 8,
-        "key": expect.any(String)//"7honch9"
-      },
-      {
-        "start": "144.07",
-        "end": "144.25",
-        "confidence": "1.000",
-        "text": "was",
-        "offset": 69,
-        "length": 3,
-        "key": expect.any(String)//"e84aufp"
-      },
-      {
-        "start": "144.25",
-        "end": "144.82",
-        "confidence": "1.000",
-        "text": "testing",
-        "offset": 73,
-        "length": 7,
-        "key": expect.any(String)//"bc65ua"
-      },
-      {
-        "start": "144.82",
-        "end": "145.09",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 81,
-        "length": 4,
-        "key": expect.any(String)//"mkm50m"
-      },
-      {
-        "start": "145.36",
-        "end": "145.84",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 86,
-        "length": 5,
-        "key": expect.any(String)//"o1387io"
-      },
-      {
-        "start": "145.87",
-        "end": "145.99",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 92,
-        "length": 4,
-        "key": expect.any(String)//"w118bhe"
-      },
-      {
-        "start": "145.99",
-        "end": "146.56",
-        "confidence": "0.570",
-        "text": "diffused",
-        "offset": 97,
-        "length": 8,
-        "key": expect.any(String)//"pu0anqh"
-      },
-      {
-        "start": "146.56",
-        "end": "147.31",
-        "confidence": "1.000",
-        "text": "landmines",
-        "offset": 106,
-        "length": 9,
-        "key": expect.any(String)//"uqh8xv8"
-      },
-      {
-        "start": "147.34",
-        "end": "147.46",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 116,
-        "length": 3,
-        "key": expect.any(String)//"cfy5yvi"
-      },
-      {
-        "start": "147.46",
-        "end": "147.52",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 120,
-        "length": 3,
-        "key": expect.any(String)//"e9fpzqj"
-      },
-      {
-        "start": "147.52",
-        "end": "147.64000000000001",
-        "confidence": "1.000",
-        "text": "way",
-        "offset": 124,
-        "length": 3,
-        "key": expect.any(String)//"feh6g2"
-      },
-      {
-        "start": "147.64",
-        "end": "147.7",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 128,
-        "length": 2,
-        "key": expect.any(String)//"4xx5joo"
-      },
-      {
-        "start": "147.70",
-        "end": "147.91",
-        "confidence": "1.000",
-        "text": "worked",
-        "offset": 131,
-        "length": 6,
-        "key": expect.any(String)//"52zouhv"
-      },
-      {
-        "start": "147.91",
-        "end": "148.09",
-        "confidence": "1.000",
-        "text": "was",
-        "offset": 138,
-        "length": 3,
-        "key": expect.any(String)//"qnfbuxn"
-      },
-      {
-        "start": "148.39",
-        "end": "148.48",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 142,
-        "length": 2,
-        "key": expect.any(String)//"z2y08wa"
-      },
-      {
-        "start": "148.48",
-        "end": "148.6",
-        "confidence": "1.000",
-        "text": "was",
-        "offset": 145,
-        "length": 3,
-        "key": expect.any(String)//"n94j42"
-      },
-      {
-        "start": "148.60",
-        "end": "148.93",
-        "confidence": "1.000",
-        "text": "shaped",
-        "offset": 149,
-        "length": 6,
-        "key": expect.any(String)//"6sgiakn"
-      },
-      {
-        "start": "148.93",
-        "end": "149.11",
-        "confidence": "1.000",
-        "text": "like",
-        "offset": 156,
-        "length": 4,
-        "key": expect.any(String)//"b8m4ngf"
-      },
-      {
-        "start": "149.11",
-        "end": "149.17000000000002",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 161,
-        "length": 1,
-        "key": expect.any(String)//"5u28t1r"
-      },
-      {
-        "start": "149.17",
-        "end": "149.55999999999997",
-        "confidence": "1.000",
-        "text": "stick",
-        "offset": 163,
-        "length": 5,
-        "key": expect.any(String)//"uyiaeoi"
-      },
-      {
-        "start": "149.59",
-        "end": "150.07",
-        "confidence": "1.000",
-        "text": "insect",
-        "offset": 169,
-        "length": 6,
-        "key": expect.any(String)//"kavbe1"
-      },
-      {
-        "start": "150.10",
-        "end": "150.19",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 176,
-        "length": 3,
-        "key": expect.any(String)//"el3zxs6"
-      },
-      {
-        "start": "150.48",
-        "end": "150.57",
-        "confidence": "0.950",
-        "text": "it",
-        "offset": 180,
-        "length": 2,
-        "key": expect.any(String)//"lza68d"
-      },
-      {
-        "start": "150.58",
-        "end": "150.70000000000002",
-        "confidence": "1.000",
-        "text": "would",
-        "offset": 183,
-        "length": 5,
-        "key": expect.any(String)//"kiqls25"
-      },
-      {
-        "start": "150.70",
-        "end": "150.97",
-        "confidence": "1.000",
-        "text": "walk",
-        "offset": 189,
-        "length": 4,
-        "key": expect.any(String)//"y8z9zgt"
-      },
-      {
-        "start": "150.97",
-        "end": "151.18",
-        "confidence": "1.000",
-        "text": "around",
-        "offset": 194,
-        "length": 6,
-        "key": expect.any(String)//"z0h08g"
-      },
-      {
-        "start": "151.18",
-        "end": "151.21",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 201,
-        "length": 1,
-        "key": expect.any(String)//"895lkj"
-      },
-      {
-        "start": "151.21",
-        "end": "151.8",
-        "confidence": "0.970",
-        "text": "minefield",
-        "offset": 203,
-        "length": 9,
-        "key": expect.any(String)//"dibxrvg"
-      },
-      {
-        "start": "151.81",
-        "end": "151.9",
-        "confidence": "0.970",
-        "text": "on",
-        "offset": 213,
-        "length": 2,
-        "key": expect.any(String)//"i6xq52k"
-      },
-      {
-        "start": "151.90",
-        "end": "152.05",
-        "confidence": "1.000",
-        "text": "its",
-        "offset": 216,
-        "length": 3,
-        "key": expect.any(String)//"tctk8ec"
-      },
-      {
-        "start": "152.05",
-        "end": "152.53",
-        "confidence": "1.000",
-        "text": "legs",
-        "offset": 220,
-        "length": 4,
-        "key": expect.any(String)//"9dlllhg"
-      },
-      {
-        "start": "152.95",
-        "end": "153.1",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 225,
-        "length": 3,
-        "key": expect.any(String)//"y8njneq"
-      },
-      {
-        "start": "153.10",
-        "end": "153.31",
-        "confidence": "1.000",
-        "text": "every",
-        "offset": 229,
-        "length": 5,
-        "key": expect.any(String)//"d8p43a9"
-      },
-      {
-        "start": "153.31",
-        "end": "153.49",
-        "confidence": "1.000",
-        "text": "time",
-        "offset": 235,
-        "length": 4,
-        "key": expect.any(String)//"fpjt89a"
-      },
-      {
-        "start": "153.49",
-        "end": "153.58",
-        "confidence": "0.930",
-        "text": "it",
-        "offset": 240,
-        "length": 2,
-        "key": expect.any(String)//"s3gvxi"
-      },
-      {
-        "start": "153.58",
-        "end": "153.91000000000003",
-        "confidence": "1.000",
-        "text": "stepped",
-        "offset": 243,
-        "length": 7,
-        "key": expect.any(String)//"im8tt7c"
-      },
-      {
-        "start": "153.91",
-        "end": "154",
-        "confidence": "1.000",
-        "text": "on",
-        "offset": 251,
-        "length": 2,
-        "key": expect.any(String)//"u0im8"
-      },
-      {
-        "start": "154.00",
-        "end": "154.06",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 254,
-        "length": 1,
-        "key": expect.any(String)//"zdrpo5"
-      },
-      {
-        "start": "154.06",
-        "end": "154.44",
-        "confidence": "1.000",
-        "text": "mine.",
-        "offset": 256,
-        "length": 5,
-        "key": expect.any(String)//"ewyapem"
-      }
-    ]
-  },
-  {
-    "text": "One of the legs would blow up and it would continue on the other legs to blow up more mines and the colonel who is in charge of this testing exercise ends up calling it off because he says it's too inhumane to watch this damaged robot drag itself along.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "154.48",
           "end": "154.66",
@@ -7026,469 +6357,7 @@ const draftTranscriptExample = [
           "word": "along",
           "punct": "along.",
           "index": 423
-        }
-      ],
-      "start": "154.48"
-    },
-    "entityRanges": [
-      {
-        "start": "154.48",
-        "end": "154.66",
-        "confidence": "1.000",
-        "text": "One",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"1d4cxk"
-      },
-      {
-        "start": "154.66",
-        "end": "154.75",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 4,
-        "length": 2,
-        "key": expect.any(String)//"tod7r82"
-      },
-      {
-        "start": "154.75",
-        "end": "154.84",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 7,
-        "length": 3,
-        "key": expect.any(String)//"m1p16dq"
-      },
-      {
-        "start": "154.84",
-        "end": "155.11",
-        "confidence": "1.000",
-        "text": "legs",
-        "offset": 11,
-        "length": 4,
-        "key": expect.any(String)//"9alf6zi"
-      },
-      {
-        "start": "155.11",
-        "end": "155.23000000000002",
-        "confidence": "1.000",
-        "text": "would",
-        "offset": 16,
-        "length": 5,
-        "key": expect.any(String)//"7naf8dr"
-      },
-      {
-        "start": "155.23",
-        "end": "155.5",
-        "confidence": "1.000",
-        "text": "blow",
-        "offset": 22,
-        "length": 4,
-        "key": expect.any(String)//"g5pl0ok"
-      },
-      {
-        "start": "155.50",
-        "end": "155.74",
-        "confidence": "1.000",
-        "text": "up",
-        "offset": 27,
-        "length": 2,
-        "key": expect.any(String)//"p3557om"
-      },
-      {
-        "start": "155.80",
-        "end": "155.89000000000001",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 30,
-        "length": 3,
-        "key": expect.any(String)//"ezyp6ta"
-      },
-      {
-        "start": "155.89",
-        "end": "155.95",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 34,
-        "length": 2,
-        "key": expect.any(String)//"5pk16v"
-      },
-      {
-        "start": "155.95",
-        "end": "156.04",
-        "confidence": "1.000",
-        "text": "would",
-        "offset": 37,
-        "length": 5,
-        "key": expect.any(String)//"i9u2yl"
-      },
-      {
-        "start": "156.04",
-        "end": "156.54999999999998",
-        "confidence": "1.000",
-        "text": "continue",
-        "offset": 43,
-        "length": 8,
-        "key": expect.any(String)//"s6nblrg"
-      },
-      {
-        "start": "156.55",
-        "end": "156.64000000000001",
-        "confidence": "1.000",
-        "text": "on",
-        "offset": 52,
-        "length": 2,
-        "key": expect.any(String)//"r6ge66g"
-      },
-      {
-        "start": "156.64",
-        "end": "156.73",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 55,
-        "length": 3,
-        "key": expect.any(String)//"1pktajf"
-      },
-      {
-        "start": "156.73",
-        "end": "156.91",
-        "confidence": "1.000",
-        "text": "other",
-        "offset": 59,
-        "length": 5,
-        "key": expect.any(String)//"4p99t3k"
-      },
-      {
-        "start": "156.91",
-        "end": "157.27",
-        "confidence": "1.000",
-        "text": "legs",
-        "offset": 65,
-        "length": 4,
-        "key": expect.any(String)//"mk6xgwu"
-      },
-      {
-        "start": "157.27",
-        "end": "157.39000000000001",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 70,
-        "length": 2,
-        "key": expect.any(String)//"vaiy5v"
-      },
-      {
-        "start": "157.39",
-        "end": "157.6",
-        "confidence": "1.000",
-        "text": "blow",
-        "offset": 73,
-        "length": 4,
-        "key": expect.any(String)//"1mjgfrw"
-      },
-      {
-        "start": "157.60",
-        "end": "157.69",
-        "confidence": "1.000",
-        "text": "up",
-        "offset": 78,
-        "length": 2,
-        "key": expect.any(String)//"fyc288d"
-      },
-      {
-        "start": "157.69",
-        "end": "157.84",
-        "confidence": "1.000",
-        "text": "more",
-        "offset": 81,
-        "length": 4,
-        "key": expect.any(String)//"4c6uc1u"
-      },
-      {
-        "start": "157.84",
-        "end": "158.35",
-        "confidence": "0.980",
-        "text": "mines",
-        "offset": 86,
-        "length": 5,
-        "key": expect.any(String)//"vavxkxh"
-      },
-      {
-        "start": "159.28",
-        "end": "159.49",
-        "confidence": "0.990",
-        "text": "and",
-        "offset": 92,
-        "length": 3,
-        "key": expect.any(String)//"5rmf4w"
-      },
-      {
-        "start": "159.55",
-        "end": "159.67000000000002",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 96,
-        "length": 3,
-        "key": expect.any(String)//"2egiyql"
-      },
-      {
-        "start": "159.67",
-        "end": "160.14999999999998",
-        "confidence": "1.000",
-        "text": "colonel",
-        "offset": 100,
-        "length": 7,
-        "key": expect.any(String)//"at11db"
-      },
-      {
-        "start": "160.15",
-        "end": "160.26000000000002",
-        "confidence": "0.950",
-        "text": "who",
-        "offset": 108,
-        "length": 3,
-        "key": expect.any(String)//"89yeivp"
-      },
-      {
-        "start": "160.26",
-        "end": "160.35999999999999",
-        "confidence": "0.920",
-        "text": "is",
-        "offset": 112,
-        "length": 2,
-        "key": expect.any(String)//"ivg3tn"
-      },
-      {
-        "start": "160.36",
-        "end": "160.48000000000002",
-        "confidence": "1.000",
-        "text": "in",
-        "offset": 115,
-        "length": 2,
-        "key": expect.any(String)//"r7g4glo"
-      },
-      {
-        "start": "160.48",
-        "end": "160.95999999999998",
-        "confidence": "1.000",
-        "text": "charge",
-        "offset": 118,
-        "length": 6,
-        "key": expect.any(String)//"ikom0ga"
-      },
-      {
-        "start": "160.96",
-        "end": "161.05",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 125,
-        "length": 2,
-        "key": expect.any(String)//"mwvfm6l"
-      },
-      {
-        "start": "161.05",
-        "end": "161.20000000000002",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 128,
-        "length": 4,
-        "key": expect.any(String)//"4ev7gia"
-      },
-      {
-        "start": "161.20",
-        "end": "161.70999999999998",
-        "confidence": "1.000",
-        "text": "testing",
-        "offset": 133,
-        "length": 7,
-        "key": expect.any(String)//"52dforg"
-      },
-      {
-        "start": "161.71",
-        "end": "162.67000000000002",
-        "confidence": "1.000",
-        "text": "exercise",
-        "offset": 141,
-        "length": 8,
-        "key": expect.any(String)//"paa2ly8"
-      },
-      {
-        "start": "163.12",
-        "end": "163.3",
-        "confidence": "1.000",
-        "text": "ends",
-        "offset": 150,
-        "length": 4,
-        "key": expect.any(String)//"i0y5ow8f"
-      },
-      {
-        "start": "163.30",
-        "end": "163.36",
-        "confidence": "1.000",
-        "text": "up",
-        "offset": 155,
-        "length": 2,
-        "key": expect.any(String)//"wyut5ku"
-      },
-      {
-        "start": "163.36",
-        "end": "163.84",
-        "confidence": "1.000",
-        "text": "calling",
-        "offset": 158,
-        "length": 7,
-        "key": expect.any(String)//"tydz60q"
-      },
-      {
-        "start": "163.84",
-        "end": "163.93",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 166,
-        "length": 2,
-        "key": expect.any(String)//"eeeypy"
-      },
-      {
-        "start": "163.93",
-        "end": "164.35",
-        "confidence": "1.000",
-        "text": "off",
-        "offset": 169,
-        "length": 3,
-        "key": expect.any(String)//"ws1ybm5"
-      },
-      {
-        "start": "165.19",
-        "end": "165.60999999999999",
-        "confidence": "1.000",
-        "text": "because",
-        "offset": 173,
-        "length": 7,
-        "key": expect.any(String)//"iv54h6"
-      },
-      {
-        "start": "165.61",
-        "end": "165.76000000000002",
-        "confidence": "1.000",
-        "text": "he",
-        "offset": 181,
-        "length": 2,
-        "key": expect.any(String)//"g1ijyze"
-      },
-      {
-        "start": "165.76",
-        "end": "166.14999999999998",
-        "confidence": "1.000",
-        "text": "says",
-        "offset": 184,
-        "length": 4,
-        "key": expect.any(String)//"s04qcf6"
-      },
-      {
-        "start": "166.24",
-        "end": "166.45000000000002",
-        "confidence": "0.990",
-        "text": "it's",
-        "offset": 189,
-        "length": 4,
-        "key": expect.any(String)//"6x1va9"
-      },
-      {
-        "start": "166.45",
-        "end": "166.81",
-        "confidence": "1.000",
-        "text": "too",
-        "offset": 194,
-        "length": 3,
-        "key": expect.any(String)//"z291frw"
-      },
-      {
-        "start": "166.81",
-        "end": "167.59",
-        "confidence": "1.000",
-        "text": "inhumane",
-        "offset": 198,
-        "length": 8,
-        "key": expect.any(String)//"xf9qd2l"
-      },
-      {
-        "start": "167.62",
-        "end": "167.83",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 207,
-        "length": 2,
-        "key": expect.any(String)//"vuzs4kr"
-      },
-      {
-        "start": "167.83",
-        "end": "168.34",
-        "confidence": "1.000",
-        "text": "watch",
-        "offset": 210,
-        "length": 5,
-        "key": expect.any(String)//"82ul12l"
-      },
-      {
-        "start": "168.34",
-        "end": "168.58",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 216,
-        "length": 4,
-        "key": expect.any(String)//"usm7bbb"
-      },
-      {
-        "start": "168.58",
-        "end": "169.12",
-        "confidence": "0.990",
-        "text": "damaged",
-        "offset": 221,
-        "length": 7,
-        "key": expect.any(String)//"xgy8uvh"
-      },
-      {
-        "start": "169.12",
-        "end": "169.57",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 229,
-        "length": 5,
-        "key": expect.any(String)//"fipsujk"
-      },
-      {
-        "start": "169.60",
-        "end": "170.04999999999998",
-        "confidence": "1.000",
-        "text": "drag",
-        "offset": 235,
-        "length": 4,
-        "key": expect.any(String)//"ynhba6"
-      },
-      {
-        "start": "170.05",
-        "end": "170.47",
-        "confidence": "1.000",
-        "text": "itself",
-        "offset": 240,
-        "length": 6,
-        "key": expect.any(String)//"5gvx2c"
-      },
-      {
-        "start": "170.47",
-        "end": "170.92",
-        "confidence": "1.000",
-        "text": "along.",
-        "offset": 247,
-        "length": 6,
-        "key": expect.any(String)//"osezgx"
-      }
-    ]
-  },
-  {
-    "text": "The minefield.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "171.34",
           "end": "171.43",
@@ -7504,37 +6373,7 @@ const draftTranscriptExample = [
           "word": "minefield",
           "punct": "minefield.",
           "index": 425
-        }
-      ],
-      "start": "171.34"
-    },
-    "entityRanges": [
-      {
-        "start": "171.34",
-        "end": "171.43",
-        "confidence": "1.000",
-        "text": "The",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"jzlfkzc"
-      },
-      {
-        "start": "171.46",
-        "end": "172.12",
-        "confidence": "0.900",
-        "text": "minefield.",
-        "offset": 4,
-        "length": 10,
-        "key": expect.any(String)//"p1g7xen"
-      }
-    ]
-  },
-  {
-    "text": "Now what would cause a hardened military officer and someone like myself to have this response to robots.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "175.01",
           "end": "175.19",
@@ -7678,181 +6517,7 @@ const draftTranscriptExample = [
           "word": "robots",
           "punct": "robots.",
           "index": 443
-        }
-      ],
-      "start": "175.01"
-    },
-    "entityRanges": [
-      {
-        "start": "175.01",
-        "end": "175.19",
-        "confidence": "0.600",
-        "text": "Now",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"1n9t6g"
-      },
-      {
-        "start": "175.20",
-        "end": "175.41",
-        "confidence": "1.000",
-        "text": "what",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"dj30f1b"
-      },
-      {
-        "start": "175.41",
-        "end": "175.53",
-        "confidence": "1.000",
-        "text": "would",
-        "offset": 9,
-        "length": 5,
-        "key": expect.any(String)//"2rrdbgq"
-      },
-      {
-        "start": "175.53",
-        "end": "176.19",
-        "confidence": "1.000",
-        "text": "cause",
-        "offset": 15,
-        "length": 5,
-        "key": expect.any(String)//"wkxqtxe"
-      },
-      {
-        "start": "176.31",
-        "end": "176.4",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 21,
-        "length": 1,
-        "key": expect.any(String)//"mu3vnw"
-      },
-      {
-        "start": "176.40",
-        "end": "176.94",
-        "confidence": "1.000",
-        "text": "hardened",
-        "offset": 23,
-        "length": 8,
-        "key": expect.any(String)//"521lmo"
-      },
-      {
-        "start": "176.94",
-        "end": "177.69",
-        "confidence": "1.000",
-        "text": "military",
-        "offset": 32,
-        "length": 8,
-        "key": expect.any(String)//"kz7rb6a"
-      },
-      {
-        "start": "177.69",
-        "end": "178.5",
-        "confidence": "1.000",
-        "text": "officer",
-        "offset": 41,
-        "length": 7,
-        "key": expect.any(String)//"9w6ev2b"
-      },
-      {
-        "start": "178.89",
-        "end": "179.07",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 49,
-        "length": 3,
-        "key": expect.any(String)//"bpnq3d"
-      },
-      {
-        "start": "179.07",
-        "end": "179.45999999999998",
-        "confidence": "1.000",
-        "text": "someone",
-        "offset": 53,
-        "length": 7,
-        "key": expect.any(String)//"4min15b"
-      },
-      {
-        "start": "179.46",
-        "end": "179.61",
-        "confidence": "1.000",
-        "text": "like",
-        "offset": 61,
-        "length": 4,
-        "key": expect.any(String)//"hppuesc"
-      },
-      {
-        "start": "179.61",
-        "end": "180.3",
-        "confidence": "1.000",
-        "text": "myself",
-        "offset": 66,
-        "length": 6,
-        "key": expect.any(String)//"76a78t"
-      },
-      {
-        "start": "180.96",
-        "end": "181.08",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 73,
-        "length": 2,
-        "key": expect.any(String)//"5o8ctir"
-      },
-      {
-        "start": "181.08",
-        "end": "181.29000000000002",
-        "confidence": "1.000",
-        "text": "have",
-        "offset": 76,
-        "length": 4,
-        "key": expect.any(String)//"vovp2dp"
-      },
-      {
-        "start": "181.29",
-        "end": "181.44",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 81,
-        "length": 4,
-        "key": expect.any(String)//"6mol9md"
-      },
-      {
-        "start": "181.44",
-        "end": "181.92",
-        "confidence": "1.000",
-        "text": "response",
-        "offset": 86,
-        "length": 8,
-        "key": expect.any(String)//"q9q7flm"
-      },
-      {
-        "start": "181.92",
-        "end": "182.04",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 95,
-        "length": 2,
-        "key": expect.any(String)//"raxvvns"
-      },
-      {
-        "start": "182.04",
-        "end": "183.53",
-        "confidence": "1.000",
-        "text": "robots.",
-        "offset": 98,
-        "length": 7,
-        "key": expect.any(String)//"2rvgkrp"
-      }
-    ]
-  },
-  {
-    "text": "Well of course we're primed by science fiction and pop culture to really want to personify these things but it goes a little bit deeper than that.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "183.54",
           "end": "183.9",
@@ -8068,262 +6733,7 @@ const draftTranscriptExample = [
           "word": "that",
           "punct": "that.",
           "index": 470
-        }
-      ],
-      "start": "183.54"
-    },
-    "entityRanges": [
-      {
-        "start": "183.54",
-        "end": "183.9",
-        "confidence": "1.000",
-        "text": "Well",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"5twtb89"
-      },
-      {
-        "start": "184.11",
-        "end": "184.23000000000002",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 5,
-        "length": 2,
-        "key": expect.any(String)//"4t2ypv"
-      },
-      {
-        "start": "184.23",
-        "end": "184.53",
-        "confidence": "1.000",
-        "text": "course",
-        "offset": 8,
-        "length": 6,
-        "key": expect.any(String)//"txjc8p"
-      },
-      {
-        "start": "184.53",
-        "end": "184.65",
-        "confidence": "0.940",
-        "text": "we're",
-        "offset": 15,
-        "length": 5,
-        "key": expect.any(String)//"8p411lm"
-      },
-      {
-        "start": "184.65",
-        "end": "185.19",
-        "confidence": "1.000",
-        "text": "primed",
-        "offset": 21,
-        "length": 6,
-        "key": expect.any(String)//"rqndfs"
-      },
-      {
-        "start": "185.22",
-        "end": "185.34",
-        "confidence": "1.000",
-        "text": "by",
-        "offset": 28,
-        "length": 2,
-        "key": expect.any(String)//"7blbuvp"
-      },
-      {
-        "start": "185.34",
-        "end": "185.79",
-        "confidence": "1.000",
-        "text": "science",
-        "offset": 31,
-        "length": 7,
-        "key": expect.any(String)//"tm4lc5"
-      },
-      {
-        "start": "185.79",
-        "end": "186.03",
-        "confidence": "1.000",
-        "text": "fiction",
-        "offset": 39,
-        "length": 7,
-        "key": expect.any(String)//"ybk1g45"
-      },
-      {
-        "start": "186.03",
-        "end": "186.12",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 47,
-        "length": 3,
-        "key": expect.any(String)//"7nnmf3"
-      },
-      {
-        "start": "186.12",
-        "end": "186.42000000000002",
-        "confidence": "1.000",
-        "text": "pop",
-        "offset": 51,
-        "length": 3,
-        "key": expect.any(String)//"r5qme4"
-      },
-      {
-        "start": "186.42",
-        "end": "186.86999999999998",
-        "confidence": "1.000",
-        "text": "culture",
-        "offset": 55,
-        "length": 7,
-        "key": expect.any(String)//"f0ljnd2"
-      },
-      {
-        "start": "186.87",
-        "end": "186.96",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 63,
-        "length": 2,
-        "key": expect.any(String)//"8ng418h"
-      },
-      {
-        "start": "186.96",
-        "end": "187.20000000000002",
-        "confidence": "1.000",
-        "text": "really",
-        "offset": 66,
-        "length": 6,
-        "key": expect.any(String)//"knf512f"
-      },
-      {
-        "start": "187.20",
-        "end": "187.35",
-        "confidence": "1.000",
-        "text": "want",
-        "offset": 73,
-        "length": 4,
-        "key": expect.any(String)//"x4gdn9j"
-      },
-      {
-        "start": "187.35",
-        "end": "187.41",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 78,
-        "length": 2,
-        "key": expect.any(String)//"merjvq6"
-      },
-      {
-        "start": "187.41",
-        "end": "188.07",
-        "confidence": "1.000",
-        "text": "personify",
-        "offset": 81,
-        "length": 9,
-        "key": expect.any(String)//"27a4r2bj"
-      },
-      {
-        "start": "188.10",
-        "end": "188.31",
-        "confidence": "1.000",
-        "text": "these",
-        "offset": 91,
-        "length": 5,
-        "key": expect.any(String)//"uxpglb9"
-      },
-      {
-        "start": "188.31",
-        "end": "188.91",
-        "confidence": "1.000",
-        "text": "things",
-        "offset": 97,
-        "length": 6,
-        "key": expect.any(String)//"ch9av"
-      },
-      {
-        "start": "189.45",
-        "end": "189.72",
-        "confidence": "1.000",
-        "text": "but",
-        "offset": 104,
-        "length": 3,
-        "key": expect.any(String)//"vk0pufq"
-      },
-      {
-        "start": "189.81",
-        "end": "189.9",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 108,
-        "length": 2,
-        "key": expect.any(String)//"0zys888"
-      },
-      {
-        "start": "189.90",
-        "end": "190.08",
-        "confidence": "1.000",
-        "text": "goes",
-        "offset": 111,
-        "length": 4,
-        "key": expect.any(String)//"qrkurv9"
-      },
-      {
-        "start": "190.08",
-        "end": "190.14000000000001",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 116,
-        "length": 1,
-        "key": expect.any(String)//"ecn3qct"
-      },
-      {
-        "start": "190.14",
-        "end": "190.35",
-        "confidence": "1.000",
-        "text": "little",
-        "offset": 118,
-        "length": 6,
-        "key": expect.any(String)//"wg4i3uf"
-      },
-      {
-        "start": "190.35",
-        "end": "190.5",
-        "confidence": "1.000",
-        "text": "bit",
-        "offset": 125,
-        "length": 3,
-        "key": expect.any(String)//"ubv2uep"
-      },
-      {
-        "start": "190.50",
-        "end": "190.8",
-        "confidence": "1.000",
-        "text": "deeper",
-        "offset": 129,
-        "length": 6,
-        "key": expect.any(String)//"b6lx65x"
-      },
-      {
-        "start": "190.80",
-        "end": "190.95000000000002",
-        "confidence": "1.000",
-        "text": "than",
-        "offset": 136,
-        "length": 4,
-        "key": expect.any(String)//"goj5wj"
-      },
-      {
-        "start": "190.95",
-        "end": "191.61999999999998",
-        "confidence": "1.000",
-        "text": "that.",
-        "offset": 141,
-        "length": 5,
-        "key": expect.any(String)//"5rduz3c"
-      }
-    ]
-  },
-  {
-    "text": "It turns out that we're biologically hard wired to project intent and life on to any movement in our physical space it seems autonomous to us.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "192.29",
           "end": "192.38",
@@ -8533,247 +6943,1561 @@ const draftTranscriptExample = [
           "index": 496
         }
       ],
-      "start": "192.29"
+      "start": "139.30"
     },
     "entityRanges": [
+      {
+        "start": "139.30",
+        "end": "139.42000000000002",
+        "confidence": "1.000",
+        "text": "In",
+        "offset": 0,
+        "length": 2,
+        "key": expect.any(String)//"6uohcz9"
+      },
+      {
+        "start": "139.42",
+        "end": "140.61999999999998",
+        "confidence": "1.000",
+        "text": "2007",
+        "offset": 3,
+        "length": 4,
+        "key": expect.any(String)//"w9olr7h"
+      },
+      {
+        "start": "140.77",
+        "end": "140.89000000000001",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 8,
+        "length": 3,
+        "key": expect.any(String)//"v3j97ya"
+      },
+      {
+        "start": "140.89",
+        "end": "141.39999999999998",
+        "confidence": "1.000",
+        "text": "Washington",
+        "offset": 12,
+        "length": 10,
+        "key": expect.any(String)//"d12p69q"
+      },
+      {
+        "start": "141.40",
+        "end": "141.73000000000002",
+        "confidence": "1.000",
+        "text": "Post",
+        "offset": 23,
+        "length": 4,
+        "key": expect.any(String)//"wz1t03l"
+      },
+      {
+        "start": "141.73",
+        "end": "142.23999999999998",
+        "confidence": "1.000",
+        "text": "reported",
+        "offset": 28,
+        "length": 8,
+        "key": expect.any(String)//"tovfcwc"
+      },
+      {
+        "start": "142.24",
+        "end": "142.42000000000002",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 37,
+        "length": 4,
+        "key": expect.any(String)//"0q2b1ko"
+      },
+      {
+        "start": "142.42",
+        "end": "142.54",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 42,
+        "length": 3,
+        "key": expect.any(String)//"7h17ln"
+      },
+      {
+        "start": "142.54",
+        "end": "142.9",
+        "confidence": "1.000",
+        "text": "United",
+        "offset": 46,
+        "length": 6,
+        "key": expect.any(String)//"4gvuxof"
+      },
+      {
+        "start": "142.90",
+        "end": "143.20000000000002",
+        "confidence": "1.000",
+        "text": "States",
+        "offset": 53,
+        "length": 6,
+        "key": expect.any(String)//"06t9cff"
+      },
+      {
+        "start": "143.20",
+        "end": "144.04",
+        "confidence": "1.000",
+        "text": "military",
+        "offset": 60,
+        "length": 8,
+        "key": expect.any(String)//"50hica"
+      },
+      {
+        "start": "144.07",
+        "end": "144.25",
+        "confidence": "1.000",
+        "text": "was",
+        "offset": 69,
+        "length": 3,
+        "key": expect.any(String)//"6li9wgw"
+      },
+      {
+        "start": "144.25",
+        "end": "144.82",
+        "confidence": "1.000",
+        "text": "testing",
+        "offset": 73,
+        "length": 7,
+        "key": expect.any(String)//"8ltaegr"
+      },
+      {
+        "start": "144.82",
+        "end": "145.09",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 81,
+        "length": 4,
+        "key": expect.any(String)//"2amztuy"
+      },
+      {
+        "start": "145.36",
+        "end": "145.84",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 86,
+        "length": 5,
+        "key": expect.any(String)//"urtlwci"
+      },
+      {
+        "start": "145.87",
+        "end": "145.99",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 92,
+        "length": 4,
+        "key": expect.any(String)//"hartlhbr"
+      },
+      {
+        "start": "145.99",
+        "end": "146.56",
+        "confidence": "0.570",
+        "text": "diffused",
+        "offset": 97,
+        "length": 8,
+        "key": expect.any(String)//"1pkdrad"
+      },
+      {
+        "start": "146.56",
+        "end": "147.31",
+        "confidence": "1.000",
+        "text": "landmines",
+        "offset": 106,
+        "length": 9,
+        "key": expect.any(String)//"pjpmhus"
+      },
+      {
+        "start": "147.34",
+        "end": "147.46",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 116,
+        "length": 3,
+        "key": expect.any(String)//"ycm3qio"
+      },
+      {
+        "start": "147.46",
+        "end": "147.52",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 120,
+        "length": 3,
+        "key": expect.any(String)//"q2xs37u"
+      },
+      {
+        "start": "147.52",
+        "end": "147.64000000000001",
+        "confidence": "1.000",
+        "text": "way",
+        "offset": 124,
+        "length": 3,
+        "key": expect.any(String)//"lp8uhaq"
+      },
+      {
+        "start": "147.64",
+        "end": "147.7",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 128,
+        "length": 2,
+        "key": expect.any(String)//"knt30au"
+      },
+      {
+        "start": "147.70",
+        "end": "147.91",
+        "confidence": "1.000",
+        "text": "worked",
+        "offset": 131,
+        "length": 6,
+        "key": expect.any(String)//"grprxmm"
+      },
+      {
+        "start": "147.91",
+        "end": "148.09",
+        "confidence": "1.000",
+        "text": "was",
+        "offset": 138,
+        "length": 3,
+        "key": expect.any(String)//"4fod8ms"
+      },
+      {
+        "start": "148.39",
+        "end": "148.48",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 142,
+        "length": 2,
+        "key": expect.any(String)//"mxscl6t"
+      },
+      {
+        "start": "148.48",
+        "end": "148.6",
+        "confidence": "1.000",
+        "text": "was",
+        "offset": 145,
+        "length": 3,
+        "key": expect.any(String)//"gw0439q"
+      },
+      {
+        "start": "148.60",
+        "end": "148.93",
+        "confidence": "1.000",
+        "text": "shaped",
+        "offset": 149,
+        "length": 6,
+        "key": expect.any(String)//"iok03au"
+      },
+      {
+        "start": "148.93",
+        "end": "149.11",
+        "confidence": "1.000",
+        "text": "like",
+        "offset": 156,
+        "length": 4,
+        "key": expect.any(String)//"8q2j19f"
+      },
+      {
+        "start": "149.11",
+        "end": "149.17000000000002",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 161,
+        "length": 1,
+        "key": expect.any(String)//"o3k0qfc"
+      },
+      {
+        "start": "149.17",
+        "end": "149.55999999999997",
+        "confidence": "1.000",
+        "text": "stick",
+        "offset": 163,
+        "length": 5,
+        "key": expect.any(String)//"4yz5ygn"
+      },
+      {
+        "start": "149.59",
+        "end": "150.07",
+        "confidence": "1.000",
+        "text": "insect",
+        "offset": 169,
+        "length": 6,
+        "key": expect.any(String)//"lvyg8e"
+      },
+      {
+        "start": "150.10",
+        "end": "150.19",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 176,
+        "length": 3,
+        "key": expect.any(String)//"tvph73b"
+      },
+      {
+        "start": "150.48",
+        "end": "150.57",
+        "confidence": "0.950",
+        "text": "it",
+        "offset": 180,
+        "length": 2,
+        "key": expect.any(String)//"gtpbjuz"
+      },
+      {
+        "start": "150.58",
+        "end": "150.70000000000002",
+        "confidence": "1.000",
+        "text": "would",
+        "offset": 183,
+        "length": 5,
+        "key": expect.any(String)//"p5zrv8"
+      },
+      {
+        "start": "150.70",
+        "end": "150.97",
+        "confidence": "1.000",
+        "text": "walk",
+        "offset": 189,
+        "length": 4,
+        "key": expect.any(String)//"0o76ku"
+      },
+      {
+        "start": "150.97",
+        "end": "151.18",
+        "confidence": "1.000",
+        "text": "around",
+        "offset": 194,
+        "length": 6,
+        "key": expect.any(String)//"fdz1zid"
+      },
+      {
+        "start": "151.18",
+        "end": "151.21",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 201,
+        "length": 1,
+        "key": expect.any(String)//"lw0xmh"
+      },
+      {
+        "start": "151.21",
+        "end": "151.8",
+        "confidence": "0.970",
+        "text": "minefield",
+        "offset": 203,
+        "length": 9,
+        "key": expect.any(String)//"81i09ui"
+      },
+      {
+        "start": "151.81",
+        "end": "151.9",
+        "confidence": "0.970",
+        "text": "on",
+        "offset": 213,
+        "length": 2,
+        "key": expect.any(String)//"3ewjeln"
+      },
+      {
+        "start": "151.90",
+        "end": "152.05",
+        "confidence": "1.000",
+        "text": "its",
+        "offset": 216,
+        "length": 3,
+        "key": expect.any(String)//"mqf8dt"
+      },
+      {
+        "start": "152.05",
+        "end": "152.53",
+        "confidence": "1.000",
+        "text": "legs",
+        "offset": 220,
+        "length": 4,
+        "key": expect.any(String)//"fjm11qs"
+      },
+      {
+        "start": "152.95",
+        "end": "153.1",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 225,
+        "length": 3,
+        "key": expect.any(String)//"4s14zvy"
+      },
+      {
+        "start": "153.10",
+        "end": "153.31",
+        "confidence": "1.000",
+        "text": "every",
+        "offset": 229,
+        "length": 5,
+        "key": expect.any(String)//"omzkd1"
+      },
+      {
+        "start": "153.31",
+        "end": "153.49",
+        "confidence": "1.000",
+        "text": "time",
+        "offset": 235,
+        "length": 4,
+        "key": expect.any(String)//"gvsh1g"
+      },
+      {
+        "start": "153.49",
+        "end": "153.58",
+        "confidence": "0.930",
+        "text": "it",
+        "offset": 240,
+        "length": 2,
+        "key": expect.any(String)//"4zrwzvi"
+      },
+      {
+        "start": "153.58",
+        "end": "153.91000000000003",
+        "confidence": "1.000",
+        "text": "stepped",
+        "offset": 243,
+        "length": 7,
+        "key": expect.any(String)//"jvv5c6"
+      },
+      {
+        "start": "153.91",
+        "end": "154",
+        "confidence": "1.000",
+        "text": "on",
+        "offset": 251,
+        "length": 2,
+        "key": expect.any(String)//"x6cwics"
+      },
+      {
+        "start": "154.00",
+        "end": "154.06",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 254,
+        "length": 1,
+        "key": expect.any(String)//"n41ayx"
+      },
+      {
+        "start": "154.06",
+        "end": "154.44",
+        "confidence": "1.000",
+        "text": "mine.",
+        "offset": 256,
+        "length": 5,
+        "key": expect.any(String)//"3993g0o"
+      },
+      {
+        "start": "154.48",
+        "end": "154.66",
+        "confidence": "1.000",
+        "text": "One",
+        "offset": 262,
+        "length": 3,
+        "key": expect.any(String)//"zyt2yjr"
+      },
+      {
+        "start": "154.66",
+        "end": "154.75",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 266,
+        "length": 2,
+        "key": expect.any(String)//"2jcox7l"
+      },
+      {
+        "start": "154.75",
+        "end": "154.84",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 269,
+        "length": 3,
+        "key": expect.any(String)//"u4za4s"
+      },
+      {
+        "start": "154.84",
+        "end": "155.11",
+        "confidence": "1.000",
+        "text": "legs",
+        "offset": 273,
+        "length": 4,
+        "key": expect.any(String)//"m0m26xh"
+      },
+      {
+        "start": "155.11",
+        "end": "155.23000000000002",
+        "confidence": "1.000",
+        "text": "would",
+        "offset": 278,
+        "length": 5,
+        "key": expect.any(String)//"y5sludd"
+      },
+      {
+        "start": "155.23",
+        "end": "155.5",
+        "confidence": "1.000",
+        "text": "blow",
+        "offset": 284,
+        "length": 4,
+        "key": expect.any(String)//"xfu35ec"
+      },
+      {
+        "start": "155.50",
+        "end": "155.74",
+        "confidence": "1.000",
+        "text": "up",
+        "offset": 289,
+        "length": 2,
+        "key": expect.any(String)//"j10swk9"
+      },
+      {
+        "start": "155.80",
+        "end": "155.89000000000001",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 292,
+        "length": 3,
+        "key": expect.any(String)//"lsf0guv"
+      },
+      {
+        "start": "155.89",
+        "end": "155.95",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 296,
+        "length": 2,
+        "key": expect.any(String)//"eh1lnl"
+      },
+      {
+        "start": "155.95",
+        "end": "156.04",
+        "confidence": "1.000",
+        "text": "would",
+        "offset": 299,
+        "length": 5,
+        "key": expect.any(String)//"r5b4qig"
+      },
+      {
+        "start": "156.04",
+        "end": "156.54999999999998",
+        "confidence": "1.000",
+        "text": "continue",
+        "offset": 305,
+        "length": 8,
+        "key": expect.any(String)//"hix1zj8"
+      },
+      {
+        "start": "156.55",
+        "end": "156.64000000000001",
+        "confidence": "1.000",
+        "text": "on",
+        "offset": 314,
+        "length": 2,
+        "key": expect.any(String)//"hsij8sd"
+      },
+      {
+        "start": "156.64",
+        "end": "156.73",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 317,
+        "length": 3,
+        "key": expect.any(String)//"r5m7jqq"
+      },
+      {
+        "start": "156.73",
+        "end": "156.91",
+        "confidence": "1.000",
+        "text": "other",
+        "offset": 321,
+        "length": 5,
+        "key": expect.any(String)//"r7dqrm"
+      },
+      {
+        "start": "156.91",
+        "end": "157.27",
+        "confidence": "1.000",
+        "text": "legs",
+        "offset": 327,
+        "length": 4,
+        "key": expect.any(String)//"sdvk4ro"
+      },
+      {
+        "start": "157.27",
+        "end": "157.39000000000001",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 332,
+        "length": 2,
+        "key": expect.any(String)//"p64s47w"
+      },
+      {
+        "start": "157.39",
+        "end": "157.6",
+        "confidence": "1.000",
+        "text": "blow",
+        "offset": 335,
+        "length": 4,
+        "key": expect.any(String)//"fxff22i"
+      },
+      {
+        "start": "157.60",
+        "end": "157.69",
+        "confidence": "1.000",
+        "text": "up",
+        "offset": 340,
+        "length": 2,
+        "key": expect.any(String)//"kiym1ll"
+      },
+      {
+        "start": "157.69",
+        "end": "157.84",
+        "confidence": "1.000",
+        "text": "more",
+        "offset": 343,
+        "length": 4,
+        "key": expect.any(String)//"a0ai2sh"
+      },
+      {
+        "start": "157.84",
+        "end": "158.35",
+        "confidence": "0.980",
+        "text": "mines",
+        "offset": 348,
+        "length": 5,
+        "key": expect.any(String)//"9o46zjg"
+      },
+      {
+        "start": "159.28",
+        "end": "159.49",
+        "confidence": "0.990",
+        "text": "and",
+        "offset": 354,
+        "length": 3,
+        "key": expect.any(String)//"hhg67l"
+      },
+      {
+        "start": "159.55",
+        "end": "159.67000000000002",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 358,
+        "length": 3,
+        "key": expect.any(String)//"432evpe"
+      },
+      {
+        "start": "159.67",
+        "end": "160.14999999999998",
+        "confidence": "1.000",
+        "text": "colonel",
+        "offset": 362,
+        "length": 7,
+        "key": expect.any(String)//"cas55dd"
+      },
+      {
+        "start": "160.15",
+        "end": "160.26000000000002",
+        "confidence": "0.950",
+        "text": "who",
+        "offset": 370,
+        "length": 3,
+        "key": expect.any(String)//"l11brl"
+      },
+      {
+        "start": "160.26",
+        "end": "160.35999999999999",
+        "confidence": "0.920",
+        "text": "is",
+        "offset": 374,
+        "length": 2,
+        "key": expect.any(String)//"gwqfqq"
+      },
+      {
+        "start": "160.36",
+        "end": "160.48000000000002",
+        "confidence": "1.000",
+        "text": "in",
+        "offset": 377,
+        "length": 2,
+        "key": expect.any(String)//"426abv"
+      },
+      {
+        "start": "160.48",
+        "end": "160.95999999999998",
+        "confidence": "1.000",
+        "text": "charge",
+        "offset": 380,
+        "length": 6,
+        "key": expect.any(String)//"at0ych"
+      },
+      {
+        "start": "160.96",
+        "end": "161.05",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 387,
+        "length": 2,
+        "key": expect.any(String)//"sk9b0p"
+      },
+      {
+        "start": "161.05",
+        "end": "161.20000000000002",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 390,
+        "length": 4,
+        "key": expect.any(String)//"1jv5ay5"
+      },
+      {
+        "start": "161.20",
+        "end": "161.70999999999998",
+        "confidence": "1.000",
+        "text": "testing",
+        "offset": 395,
+        "length": 7,
+        "key": expect.any(String)//"vmyqgnd"
+      },
+      {
+        "start": "161.71",
+        "end": "162.67000000000002",
+        "confidence": "1.000",
+        "text": "exercise",
+        "offset": 403,
+        "length": 8,
+        "key": expect.any(String)//"4g4iz6"
+      },
+      {
+        "start": "163.12",
+        "end": "163.3",
+        "confidence": "1.000",
+        "text": "ends",
+        "offset": 412,
+        "length": 4,
+        "key": expect.any(String)//"dnvader"
+      },
+      {
+        "start": "163.30",
+        "end": "163.36",
+        "confidence": "1.000",
+        "text": "up",
+        "offset": 417,
+        "length": 2,
+        "key": expect.any(String)//"om0mq3"
+      },
+      {
+        "start": "163.36",
+        "end": "163.84",
+        "confidence": "1.000",
+        "text": "calling",
+        "offset": 420,
+        "length": 7,
+        "key": expect.any(String)//"4psw5li"
+      },
+      {
+        "start": "163.84",
+        "end": "163.93",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 428,
+        "length": 2,
+        "key": expect.any(String)//"kwy6oo"
+      },
+      {
+        "start": "163.93",
+        "end": "164.35",
+        "confidence": "1.000",
+        "text": "off",
+        "offset": 431,
+        "length": 3,
+        "key": expect.any(String)//"jlapl6p"
+      },
+      {
+        "start": "165.19",
+        "end": "165.60999999999999",
+        "confidence": "1.000",
+        "text": "because",
+        "offset": 435,
+        "length": 7,
+        "key": expect.any(String)//"pc281q"
+      },
+      {
+        "start": "165.61",
+        "end": "165.76000000000002",
+        "confidence": "1.000",
+        "text": "he",
+        "offset": 443,
+        "length": 2,
+        "key": expect.any(String)//"x1bt2hx"
+      },
+      {
+        "start": "165.76",
+        "end": "166.14999999999998",
+        "confidence": "1.000",
+        "text": "says",
+        "offset": 446,
+        "length": 4,
+        "key": expect.any(String)//"w89bzur"
+      },
+      {
+        "start": "166.24",
+        "end": "166.45000000000002",
+        "confidence": "0.990",
+        "text": "it's",
+        "offset": 451,
+        "length": 4,
+        "key": expect.any(String)//"dtfu15p"
+      },
+      {
+        "start": "166.45",
+        "end": "166.81",
+        "confidence": "1.000",
+        "text": "too",
+        "offset": 456,
+        "length": 3,
+        "key": expect.any(String)//"wcf20t"
+      },
+      {
+        "start": "166.81",
+        "end": "167.59",
+        "confidence": "1.000",
+        "text": "inhumane",
+        "offset": 460,
+        "length": 8,
+        "key": expect.any(String)//"rt152cr"
+      },
+      {
+        "start": "167.62",
+        "end": "167.83",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 469,
+        "length": 2,
+        "key": expect.any(String)//"o9nufh"
+      },
+      {
+        "start": "167.83",
+        "end": "168.34",
+        "confidence": "1.000",
+        "text": "watch",
+        "offset": 472,
+        "length": 5,
+        "key": expect.any(String)//"jskc9q9"
+      },
+      {
+        "start": "168.34",
+        "end": "168.58",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 478,
+        "length": 4,
+        "key": expect.any(String)//"o0w3uhj"
+      },
+      {
+        "start": "168.58",
+        "end": "169.12",
+        "confidence": "0.990",
+        "text": "damaged",
+        "offset": 483,
+        "length": 7,
+        "key": expect.any(String)//"vylfgib"
+      },
+      {
+        "start": "169.12",
+        "end": "169.57",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 491,
+        "length": 5,
+        "key": expect.any(String)//"54kbvp"
+      },
+      {
+        "start": "169.60",
+        "end": "170.04999999999998",
+        "confidence": "1.000",
+        "text": "drag",
+        "offset": 497,
+        "length": 4,
+        "key": expect.any(String)//"nutsota"
+      },
+      {
+        "start": "170.05",
+        "end": "170.47",
+        "confidence": "1.000",
+        "text": "itself",
+        "offset": 502,
+        "length": 6,
+        "key": expect.any(String)//"ormdbp8"
+      },
+      {
+        "start": "170.47",
+        "end": "170.92",
+        "confidence": "1.000",
+        "text": "along.",
+        "offset": 509,
+        "length": 6,
+        "key": expect.any(String)//"uuwkha"
+      },
+      {
+        "start": "171.34",
+        "end": "171.43",
+        "confidence": "1.000",
+        "text": "The",
+        "offset": 516,
+        "length": 3,
+        "key": expect.any(String)//"py6oqxi"
+      },
+      {
+        "start": "171.46",
+        "end": "172.12",
+        "confidence": "0.900",
+        "text": "minefield.",
+        "offset": 520,
+        "length": 10,
+        "key": expect.any(String)//"qydq7t"
+      },
+      {
+        "start": "175.01",
+        "end": "175.19",
+        "confidence": "0.600",
+        "text": "Now",
+        "offset": 531,
+        "length": 3,
+        "key": expect.any(String)//"jz2ajar"
+      },
+      {
+        "start": "175.20",
+        "end": "175.41",
+        "confidence": "1.000",
+        "text": "what",
+        "offset": 535,
+        "length": 4,
+        "key": expect.any(String)//"h3cv1jg"
+      },
+      {
+        "start": "175.41",
+        "end": "175.53",
+        "confidence": "1.000",
+        "text": "would",
+        "offset": 540,
+        "length": 5,
+        "key": expect.any(String)//"xdg4da"
+      },
+      {
+        "start": "175.53",
+        "end": "176.19",
+        "confidence": "1.000",
+        "text": "cause",
+        "offset": 546,
+        "length": 5,
+        "key": expect.any(String)//"5zu9mfa"
+      },
+      {
+        "start": "176.31",
+        "end": "176.4",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 552,
+        "length": 1,
+        "key": expect.any(String)//"b877e8c"
+      },
+      {
+        "start": "176.40",
+        "end": "176.94",
+        "confidence": "1.000",
+        "text": "hardened",
+        "offset": 554,
+        "length": 8,
+        "key": expect.any(String)//"8ba1h3o"
+      },
+      {
+        "start": "176.94",
+        "end": "177.69",
+        "confidence": "1.000",
+        "text": "military",
+        "offset": 563,
+        "length": 8,
+        "key": expect.any(String)//"61de2k"
+      },
+      {
+        "start": "177.69",
+        "end": "178.5",
+        "confidence": "1.000",
+        "text": "officer",
+        "offset": 572,
+        "length": 7,
+        "key": expect.any(String)//"jrw3po7"
+      },
+      {
+        "start": "178.89",
+        "end": "179.07",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 580,
+        "length": 3,
+        "key": expect.any(String)//"twwblqp"
+      },
+      {
+        "start": "179.07",
+        "end": "179.45999999999998",
+        "confidence": "1.000",
+        "text": "someone",
+        "offset": 584,
+        "length": 7,
+        "key": expect.any(String)//"mpu93f7"
+      },
+      {
+        "start": "179.46",
+        "end": "179.61",
+        "confidence": "1.000",
+        "text": "like",
+        "offset": 592,
+        "length": 4,
+        "key": expect.any(String)//"2jqzsu"
+      },
+      {
+        "start": "179.61",
+        "end": "180.3",
+        "confidence": "1.000",
+        "text": "myself",
+        "offset": 597,
+        "length": 6,
+        "key": expect.any(String)//"cblw7r"
+      },
+      {
+        "start": "180.96",
+        "end": "181.08",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 604,
+        "length": 2,
+        "key": expect.any(String)//"k86fuzg"
+      },
+      {
+        "start": "181.08",
+        "end": "181.29000000000002",
+        "confidence": "1.000",
+        "text": "have",
+        "offset": 607,
+        "length": 4,
+        "key": expect.any(String)//"i013jan"
+      },
+      {
+        "start": "181.29",
+        "end": "181.44",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 612,
+        "length": 4,
+        "key": expect.any(String)//"7imyoni"
+      },
+      {
+        "start": "181.44",
+        "end": "181.92",
+        "confidence": "1.000",
+        "text": "response",
+        "offset": 617,
+        "length": 8,
+        "key": expect.any(String)//"w5k0k2"
+      },
+      {
+        "start": "181.92",
+        "end": "182.04",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 626,
+        "length": 2,
+        "key": expect.any(String)//"i5vg62n"
+      },
+      {
+        "start": "182.04",
+        "end": "183.53",
+        "confidence": "1.000",
+        "text": "robots.",
+        "offset": 629,
+        "length": 7,
+        "key": expect.any(String)//"a2n8kss"
+      },
+      {
+        "start": "183.54",
+        "end": "183.9",
+        "confidence": "1.000",
+        "text": "Well",
+        "offset": 637,
+        "length": 4,
+        "key": expect.any(String)//"xjs4u7c"
+      },
+      {
+        "start": "184.11",
+        "end": "184.23000000000002",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 642,
+        "length": 2,
+        "key": expect.any(String)//"hg0ck7o"
+      },
+      {
+        "start": "184.23",
+        "end": "184.53",
+        "confidence": "1.000",
+        "text": "course",
+        "offset": 645,
+        "length": 6,
+        "key": expect.any(String)//"cv8nzws"
+      },
+      {
+        "start": "184.53",
+        "end": "184.65",
+        "confidence": "0.940",
+        "text": "we're",
+        "offset": 652,
+        "length": 5,
+        "key": expect.any(String)//"edm0h8"
+      },
+      {
+        "start": "184.65",
+        "end": "185.19",
+        "confidence": "1.000",
+        "text": "primed",
+        "offset": 658,
+        "length": 6,
+        "key": expect.any(String)//"4jkj5dd"
+      },
+      {
+        "start": "185.22",
+        "end": "185.34",
+        "confidence": "1.000",
+        "text": "by",
+        "offset": 665,
+        "length": 2,
+        "key": expect.any(String)//"d2q3yig"
+      },
+      {
+        "start": "185.34",
+        "end": "185.79",
+        "confidence": "1.000",
+        "text": "science",
+        "offset": 668,
+        "length": 7,
+        "key": expect.any(String)//"gljfg2l"
+      },
+      {
+        "start": "185.79",
+        "end": "186.03",
+        "confidence": "1.000",
+        "text": "fiction",
+        "offset": 676,
+        "length": 7,
+        "key": expect.any(String)//"3zej1ur"
+      },
+      {
+        "start": "186.03",
+        "end": "186.12",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 684,
+        "length": 3,
+        "key": expect.any(String)//"r9m05a"
+      },
+      {
+        "start": "186.12",
+        "end": "186.42000000000002",
+        "confidence": "1.000",
+        "text": "pop",
+        "offset": 688,
+        "length": 3,
+        "key": expect.any(String)//"euin76h"
+      },
+      {
+        "start": "186.42",
+        "end": "186.86999999999998",
+        "confidence": "1.000",
+        "text": "culture",
+        "offset": 692,
+        "length": 7,
+        "key": expect.any(String)//"vgp6lw"
+      },
+      {
+        "start": "186.87",
+        "end": "186.96",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 700,
+        "length": 2,
+        "key": expect.any(String)//"t31d1mni"
+      },
+      {
+        "start": "186.96",
+        "end": "187.20000000000002",
+        "confidence": "1.000",
+        "text": "really",
+        "offset": 703,
+        "length": 6,
+        "key": expect.any(String)//"uisbpgt"
+      },
+      {
+        "start": "187.20",
+        "end": "187.35",
+        "confidence": "1.000",
+        "text": "want",
+        "offset": 710,
+        "length": 4,
+        "key": expect.any(String)//"yo9aypc"
+      },
+      {
+        "start": "187.35",
+        "end": "187.41",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 715,
+        "length": 2,
+        "key": expect.any(String)//"qoyuwjw"
+      },
+      {
+        "start": "187.41",
+        "end": "188.07",
+        "confidence": "1.000",
+        "text": "personify",
+        "offset": 718,
+        "length": 9,
+        "key": expect.any(String)//"e61lyxd"
+      },
+      {
+        "start": "188.10",
+        "end": "188.31",
+        "confidence": "1.000",
+        "text": "these",
+        "offset": 728,
+        "length": 5,
+        "key": expect.any(String)//"y50z9wf"
+      },
+      {
+        "start": "188.31",
+        "end": "188.91",
+        "confidence": "1.000",
+        "text": "things",
+        "offset": 734,
+        "length": 6,
+        "key": expect.any(String)//"uyn4yf"
+      },
+      {
+        "start": "189.45",
+        "end": "189.72",
+        "confidence": "1.000",
+        "text": "but",
+        "offset": 741,
+        "length": 3,
+        "key": expect.any(String)//"gh120r"
+      },
+      {
+        "start": "189.81",
+        "end": "189.9",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 745,
+        "length": 2,
+        "key": expect.any(String)//"363iui6"
+      },
+      {
+        "start": "189.90",
+        "end": "190.08",
+        "confidence": "1.000",
+        "text": "goes",
+        "offset": 748,
+        "length": 4,
+        "key": expect.any(String)//"sybif4"
+      },
+      {
+        "start": "190.08",
+        "end": "190.14000000000001",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 753,
+        "length": 1,
+        "key": expect.any(String)//"rqlkwcp"
+      },
+      {
+        "start": "190.14",
+        "end": "190.35",
+        "confidence": "1.000",
+        "text": "little",
+        "offset": 755,
+        "length": 6,
+        "key": expect.any(String)//"hw7xrfr"
+      },
+      {
+        "start": "190.35",
+        "end": "190.5",
+        "confidence": "1.000",
+        "text": "bit",
+        "offset": 762,
+        "length": 3,
+        "key": expect.any(String)//"11dy0f9"
+      },
+      {
+        "start": "190.50",
+        "end": "190.8",
+        "confidence": "1.000",
+        "text": "deeper",
+        "offset": 766,
+        "length": 6,
+        "key": expect.any(String)//"ffaovxt"
+      },
+      {
+        "start": "190.80",
+        "end": "190.95000000000002",
+        "confidence": "1.000",
+        "text": "than",
+        "offset": 773,
+        "length": 4,
+        "key": expect.any(String)//"931k66i"
+      },
+      {
+        "start": "190.95",
+        "end": "191.61999999999998",
+        "confidence": "1.000",
+        "text": "that.",
+        "offset": 778,
+        "length": 5,
+        "key": expect.any(String)//"yfsns9l"
+      },
       {
         "start": "192.29",
         "end": "192.38",
         "confidence": "1.000",
         "text": "It",
-        "offset": 0,
+        "offset": 784,
         "length": 2,
-        "key": expect.any(String)//"rpny0pc"
+        "key": expect.any(String)//"ng7qgp9"
       },
       {
         "start": "192.38",
         "end": "192.71",
         "confidence": "1.000",
         "text": "turns",
-        "offset": 3,
+        "offset": 787,
         "length": 5,
-        "key": expect.any(String)//"9jhpnyd"
+        "key": expect.any(String)//"nbxfwz"
       },
       {
         "start": "192.71",
         "end": "192.83",
         "confidence": "1.000",
         "text": "out",
-        "offset": 9,
+        "offset": 793,
         "length": 3,
-        "key": expect.any(String)//"gjcfaci"
+        "key": expect.any(String)//"yncdmtn"
       },
       {
         "start": "192.83",
         "end": "192.95000000000002",
         "confidence": "1.000",
         "text": "that",
-        "offset": 13,
+        "offset": 797,
         "length": 4,
-        "key": expect.any(String)//"r4dybbu"
+        "key": expect.any(String)//"rqdgbmh"
       },
       {
         "start": "192.95",
         "end": "193.07",
         "confidence": "0.990",
         "text": "we're",
-        "offset": 18,
+        "offset": 802,
         "length": 5,
-        "key": expect.any(String)//"dadply"
+        "key": expect.any(String)//"l7biwn"
       },
       {
         "start": "193.07",
         "end": "194",
         "confidence": "1.000",
         "text": "biologically",
-        "offset": 24,
+        "offset": 808,
         "length": 12,
-        "key": expect.any(String)//"z3mxob8"
+        "key": expect.any(String)//"t0iz5k9"
       },
       {
         "start": "194.00",
         "end": "194.4",
         "confidence": "0.880",
         "text": "hard",
-        "offset": 37,
+        "offset": 821,
         "length": 4,
-        "key": expect.any(String)//"rfetioc"
+        "key": expect.any(String)//"7s0btfh"
       },
       {
         "start": "194.40",
         "end": "194.9",
         "confidence": "0.880",
         "text": "wired",
-        "offset": 42,
+        "offset": 826,
         "length": 5,
-        "key": expect.any(String)//"m5t9l79"
+        "key": expect.any(String)//"zh0k4cq"
       },
       {
         "start": "194.90",
         "end": "195.11",
         "confidence": "1.000",
         "text": "to",
-        "offset": 48,
+        "offset": 832,
         "length": 2,
-        "key": expect.any(String)//"v40zdfo"
+        "key": expect.any(String)//"jfjmyf1"
       },
       {
         "start": "195.11",
         "end": "195.77",
         "confidence": "1.000",
         "text": "project",
-        "offset": 51,
+        "offset": 835,
         "length": 7,
-        "key": expect.any(String)//"kfo0xl5"
+        "key": expect.any(String)//"b7365re"
       },
       {
         "start": "196.13",
         "end": "196.85",
         "confidence": "1.000",
         "text": "intent",
-        "offset": 59,
+        "offset": 843,
         "length": 6,
-        "key": expect.any(String)//"sgqpdhp"
+        "key": expect.any(String)//"cfmtvs"
       },
       {
         "start": "196.94",
         "end": "197.09",
         "confidence": "1.000",
         "text": "and",
-        "offset": 66,
+        "offset": 850,
         "length": 3,
-        "key": expect.any(String)//"fhr5uxl"
+        "key": expect.any(String)//"4pdzvj8"
       },
       {
         "start": "197.09",
         "end": "197.6",
         "confidence": "1.000",
         "text": "life",
-        "offset": 70,
+        "offset": 854,
         "length": 4,
-        "key": expect.any(String)//"pb5lsib"
+        "key": expect.any(String)//"7g7po4"
       },
       {
         "start": "197.65",
         "end": "197.78",
         "confidence": "0.770",
         "text": "on",
-        "offset": 75,
+        "offset": 859,
         "length": 2,
-        "key": expect.any(String)//"xtjo0w5"
+        "key": expect.any(String)//"wf6df55"
       },
       {
         "start": "197.78",
         "end": "198.23",
         "confidence": "0.770",
         "text": "to",
-        "offset": 78,
+        "offset": 862,
         "length": 2,
-        "key": expect.any(String)//"szcyyxu"
+        "key": expect.any(String)//"9ks9vxj"
       },
       {
         "start": "198.62",
         "end": "198.83",
         "confidence": "1.000",
         "text": "any",
-        "offset": 81,
+        "offset": 865,
         "length": 3,
-        "key": expect.any(String)//"vi4zyui"
+        "key": expect.any(String)//"jeqwkd8"
       },
       {
         "start": "198.83",
         "end": "199.37",
         "confidence": "1.000",
         "text": "movement",
-        "offset": 85,
+        "offset": 869,
         "length": 8,
-        "key": expect.any(String)//"utgdiv"
+        "key": expect.any(String)//"dh3zpsi"
       },
       {
         "start": "199.37",
         "end": "199.49",
         "confidence": "0.980",
         "text": "in",
-        "offset": 94,
+        "offset": 878,
         "length": 2,
-        "key": expect.any(String)//"qptp54r"
+        "key": expect.any(String)//"t1kn32k"
       },
       {
         "start": "199.49",
         "end": "199.58",
         "confidence": "1.000",
         "text": "our",
-        "offset": 97,
+        "offset": 881,
         "length": 3,
-        "key": expect.any(String)//"q5m41sk"
+        "key": expect.any(String)//"kyq9neg"
       },
       {
         "start": "199.58",
         "end": "200.12",
         "confidence": "1.000",
         "text": "physical",
-        "offset": 101,
+        "offset": 885,
         "length": 8,
-        "key": expect.any(String)//"m6it38"
+        "key": expect.any(String)//"m0zm2zu"
       },
       {
         "start": "200.12",
         "end": "200.53",
         "confidence": "1.000",
         "text": "space",
-        "offset": 110,
+        "offset": 894,
         "length": 5,
-        "key": expect.any(String)//"j51u84"
+        "key": expect.any(String)//"5h05fas"
       },
       {
         "start": "200.53",
         "end": "200.66",
         "confidence": "0.870",
         "text": "it",
-        "offset": 116,
+        "offset": 900,
         "length": 2,
-        "key": expect.any(String)//"8dqlfc"
+        "key": expect.any(String)//"qsc5khr"
       },
       {
         "start": "200.66",
         "end": "201.17",
         "confidence": "1.000",
         "text": "seems",
-        "offset": 119,
+        "offset": 903,
         "length": 5,
-        "key": expect.any(String)//"20lxrkg"
+        "key": expect.any(String)//"rm3n6er"
       },
       {
         "start": "201.17",
         "end": "201.76999999999998",
         "confidence": "1.000",
         "text": "autonomous",
-        "offset": 125,
+        "offset": 909,
         "length": 10,
-        "key": expect.any(String)//"wawrot"
+        "key": expect.any(String)//"6x46ood"
       },
       {
         "start": "201.77",
         "end": "201.98000000000002",
         "confidence": "1.000",
         "text": "to",
-        "offset": 136,
+        "offset": 920,
         "length": 2,
-        "key": expect.any(String)//"z83vrgd"
+        "key": expect.any(String)//"2osilgp"
       },
       {
         "start": "201.98",
         "end": "202.91",
         "confidence": "1.000",
         "text": "us.",
-        "offset": 139,
+        "offset": 923,
         "length": 3,
-        "key": expect.any(String)//"eosktjm"
+        "key": expect.any(String)//"jce33ys"
       }
     ]
   },
   {
-    "text": "So people will treat all sorts of robots like they're alive.",
+    "text": "So people will treat all sorts of robots like they're alive. These bomb disposal units get names they get medals of honor. They've had funerals for them with gun salutes. And. Research shows that we do this even with very simple household robots like the Roomba vacuum cleaner just a disk that roams around your floor to clean it which is the fact that it's moving around on its own will cause people to name the Roomba and feel bad for the Roomba when it gets stuck under the couch. And we can design robots specifically to evoke this response using eyes and faces or movements that people automatically subconsciously associate with states of mind. And there's an entire body of research called human robot interaction that really shows how well this works. So for example researchers at Stanford University found out that it makes people really uncomfortable when you ask them to touch on robots private parts.",
     "type": "paragraph",
     "data": {
       "speaker": "F4",
@@ -8865,118 +8589,7 @@ const draftTranscriptExample = [
           "word": "alive",
           "punct": "alive.",
           "index": 507
-        }
-      ],
-      "start": "203.24"
-    },
-    "entityRanges": [
-      {
-        "start": "203.24",
-        "end": "203.42000000000002",
-        "confidence": "1.000",
-        "text": "So",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"ojqez7e"
-      },
-      {
-        "start": "203.42",
-        "end": "203.66",
-        "confidence": "1.000",
-        "text": "people",
-        "offset": 3,
-        "length": 6,
-        "key": expect.any(String)//"ycvbrhg"
-      },
-      {
-        "start": "203.66",
-        "end": "203.78",
-        "confidence": "1.000",
-        "text": "will",
-        "offset": 10,
-        "length": 4,
-        "key": expect.any(String)//"cx4kxvi"
-      },
-      {
-        "start": "203.78",
-        "end": "203.99",
-        "confidence": "1.000",
-        "text": "treat",
-        "offset": 15,
-        "length": 5,
-        "key": expect.any(String)//"n3qebug"
-      },
-      {
-        "start": "204.05",
-        "end": "204.20000000000002",
-        "confidence": "1.000",
-        "text": "all",
-        "offset": 21,
-        "length": 3,
-        "key": expect.any(String)//"kpi215i7"
-      },
-      {
-        "start": "204.20",
-        "end": "204.47",
-        "confidence": "1.000",
-        "text": "sorts",
-        "offset": 25,
-        "length": 5,
-        "key": expect.any(String)//"gvhgg0n"
-      },
-      {
-        "start": "204.47",
-        "end": "204.59",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 31,
-        "length": 2,
-        "key": expect.any(String)//"dabwdqd"
-      },
-      {
-        "start": "204.59",
-        "end": "204.95000000000002",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 34,
-        "length": 6,
-        "key": expect.any(String)//"c15n7a4"
-      },
-      {
-        "start": "204.95",
-        "end": "205.13",
-        "confidence": "1.000",
-        "text": "like",
-        "offset": 41,
-        "length": 4,
-        "key": expect.any(String)//"8wvipqj"
-      },
-      {
-        "start": "205.13",
-        "end": "205.28",
-        "confidence": "1.000",
-        "text": "they're",
-        "offset": 46,
-        "length": 7,
-        "key": expect.any(String)//"97bmn8"
-      },
-      {
-        "start": "205.28",
-        "end": "205.82",
-        "confidence": "1.000",
-        "text": "alive.",
-        "offset": 54,
-        "length": 6,
-        "key": expect.any(String)//"0s9zldq"
-      }
-    ]
-  },
-  {
-    "text": "These bomb disposal units get names they get medals of honor.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "206.69",
           "end": "206.93",
@@ -9064,118 +8677,7 @@ const draftTranscriptExample = [
           "word": "honor",
           "punct": "honor.",
           "index": 518
-        }
-      ],
-      "start": "206.69"
-    },
-    "entityRanges": [
-      {
-        "start": "206.69",
-        "end": "206.93",
-        "confidence": "1.000",
-        "text": "These",
-        "offset": 0,
-        "length": 5,
-        "key": expect.any(String)//"xfn9f3le"
-      },
-      {
-        "start": "206.93",
-        "end": "207.26000000000002",
-        "confidence": "1.000",
-        "text": "bomb",
-        "offset": 6,
-        "length": 4,
-        "key": expect.any(String)//"8tt243w"
-      },
-      {
-        "start": "207.26",
-        "end": "207.98",
-        "confidence": "1.000",
-        "text": "disposal",
-        "offset": 11,
-        "length": 8,
-        "key": expect.any(String)//"farqid6"
-      },
-      {
-        "start": "208.04",
-        "end": "208.54999999999998",
-        "confidence": "1.000",
-        "text": "units",
-        "offset": 20,
-        "length": 5,
-        "key": expect.any(String)//"yke4jwi"
-      },
-      {
-        "start": "208.58",
-        "end": "208.76000000000002",
-        "confidence": "1.000",
-        "text": "get",
-        "offset": 26,
-        "length": 3,
-        "key": expect.any(String)//"nlv81en"
-      },
-      {
-        "start": "208.76",
-        "end": "209.39",
-        "confidence": "1.000",
-        "text": "names",
-        "offset": 30,
-        "length": 5,
-        "key": expect.any(String)//"azvz3ofl"
-      },
-      {
-        "start": "209.42",
-        "end": "209.57",
-        "confidence": "1.000",
-        "text": "they",
-        "offset": 36,
-        "length": 4,
-        "key": expect.any(String)//"5zc8vm"
-      },
-      {
-        "start": "209.57",
-        "end": "209.72",
-        "confidence": "1.000",
-        "text": "get",
-        "offset": 41,
-        "length": 3,
-        "key": expect.any(String)//"awvr4k"
-      },
-      {
-        "start": "209.72",
-        "end": "210.2",
-        "confidence": "1.000",
-        "text": "medals",
-        "offset": 45,
-        "length": 6,
-        "key": expect.any(String)//"a5lstk"
-      },
-      {
-        "start": "210.20",
-        "end": "210.32",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 52,
-        "length": 2,
-        "key": expect.any(String)//"jbql5u"
-      },
-      {
-        "start": "210.32",
-        "end": "211",
-        "confidence": "1.000",
-        "text": "honor.",
-        "offset": 55,
-        "length": 6,
-        "key": expect.any(String)//"7oxwsmv"
-      }
-    ]
-  },
-  {
-    "text": "They've had funerals for them with gun salutes.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "211.10",
           "end": "211.28",
@@ -9239,91 +8741,7 @@ const draftTranscriptExample = [
           "word": "salutes",
           "punct": "salutes.",
           "index": 526
-        }
-      ],
-      "start": "211.10"
-    },
-    "entityRanges": [
-      {
-        "start": "211.10",
-        "end": "211.28",
-        "confidence": "1.000",
-        "text": "They've",
-        "offset": 0,
-        "length": 7,
-        "key": expect.any(String)//"r4uifx"
-      },
-      {
-        "start": "211.28",
-        "end": "211.43",
-        "confidence": "1.000",
-        "text": "had",
-        "offset": 8,
-        "length": 3,
-        "key": expect.any(String)//"ny7w4d"
-      },
-      {
-        "start": "211.43",
-        "end": "212.03",
-        "confidence": "1.000",
-        "text": "funerals",
-        "offset": 12,
-        "length": 8,
-        "key": expect.any(String)//"0gmqmso"
-      },
-      {
-        "start": "212.03",
-        "end": "212.18",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 21,
-        "length": 3,
-        "key": expect.any(String)//"pzz9zb4"
-      },
-      {
-        "start": "212.18",
-        "end": "212.36",
-        "confidence": "1.000",
-        "text": "them",
-        "offset": 25,
-        "length": 4,
-        "key": expect.any(String)//"vfmw078"
-      },
-      {
-        "start": "212.36",
-        "end": "212.51000000000002",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 30,
-        "length": 4,
-        "key": expect.any(String)//"6b90rrt"
-      },
-      {
-        "start": "212.51",
-        "end": "212.81",
-        "confidence": "0.960",
-        "text": "gun",
-        "offset": 35,
-        "length": 3,
-        "key": expect.any(String)//"wdjfzuh"
-      },
-      {
-        "start": "212.81",
-        "end": "213.41",
-        "confidence": "1.000",
-        "text": "salutes.",
-        "offset": 39,
-        "length": 8,
-        "key": expect.any(String)//"n9vm89s"
-      }
-    ]
-  },
-  {
-    "text": "And.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "214.40",
           "end": "214.61",
@@ -9331,28 +8749,7 @@ const draftTranscriptExample = [
           "word": "and",
           "punct": "And.",
           "index": 527
-        }
-      ],
-      "start": "214.40"
-    },
-    "entityRanges": [
-      {
-        "start": "214.40",
-        "end": "214.61",
-        "confidence": "1.000",
-        "text": "And.",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"7jfxuac"
-      }
-    ]
-  },
-  {
-    "text": "Research shows that we do this even with very simple household robots like the Roomba vacuum cleaner just a disk that roams around your floor to clean it which is the fact that it's moving around on its own will cause people to name the Roomba and feel bad for the Roomba when it gets stuck under the couch.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "215.00",
           "end": "215.36",
@@ -9824,550 +9221,7 @@ const draftTranscriptExample = [
           "word": "couch",
           "punct": "couch.",
           "index": 586
-        }
-      ],
-      "start": "215.00"
-    },
-    "entityRanges": [
-      {
-        "start": "215.00",
-        "end": "215.36",
-        "confidence": "1.000",
-        "text": "Research",
-        "offset": 0,
-        "length": 8,
-        "key": expect.any(String)//"micmu1l"
-      },
-      {
-        "start": "215.36",
-        "end": "215.60000000000002",
-        "confidence": "1.000",
-        "text": "shows",
-        "offset": 9,
-        "length": 5,
-        "key": expect.any(String)//"8atk46u"
-      },
-      {
-        "start": "215.60",
-        "end": "215.69",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 15,
-        "length": 4,
-        "key": expect.any(String)//"d6f4utf"
-      },
-      {
-        "start": "215.69",
-        "end": "215.78",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 20,
-        "length": 2,
-        "key": expect.any(String)//"qlnqp3e"
-      },
-      {
-        "start": "215.78",
-        "end": "215.9",
-        "confidence": "1.000",
-        "text": "do",
-        "offset": 23,
-        "length": 2,
-        "key": expect.any(String)//"k03hnel"
-      },
-      {
-        "start": "215.90",
-        "end": "216.08",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 26,
-        "length": 4,
-        "key": expect.any(String)//"2dt77eh"
-      },
-      {
-        "start": "216.08",
-        "end": "216.35000000000002",
-        "confidence": "1.000",
-        "text": "even",
-        "offset": 31,
-        "length": 4,
-        "key": expect.any(String)//"7yd8i3"
-      },
-      {
-        "start": "216.35",
-        "end": "216.47",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 36,
-        "length": 4,
-        "key": expect.any(String)//"8eyapue"
-      },
-      {
-        "start": "216.47",
-        "end": "216.8",
-        "confidence": "1.000",
-        "text": "very",
-        "offset": 41,
-        "length": 4,
-        "key": expect.any(String)//"0o3msxa"
-      },
-      {
-        "start": "216.80",
-        "end": "217.19",
-        "confidence": "1.000",
-        "text": "simple",
-        "offset": 46,
-        "length": 6,
-        "key": expect.any(String)//"pgxmstj"
-      },
-      {
-        "start": "217.19",
-        "end": "217.76",
-        "confidence": "1.000",
-        "text": "household",
-        "offset": 53,
-        "length": 9,
-        "key": expect.any(String)//"8vnozzo"
-      },
-      {
-        "start": "217.76",
-        "end": "218.23999999999998",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 63,
-        "length": 6,
-        "key": expect.any(String)//"ttw3gvt"
-      },
-      {
-        "start": "218.24",
-        "end": "218.54000000000002",
-        "confidence": "1.000",
-        "text": "like",
-        "offset": 70,
-        "length": 4,
-        "key": expect.any(String)//"42bvt4"
-      },
-      {
-        "start": "218.84",
-        "end": "218.96",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 75,
-        "length": 3,
-        "key": expect.any(String)//"gvqws3"
-      },
-      {
-        "start": "218.96",
-        "end": "219.41",
-        "confidence": "1.000",
-        "text": "Roomba",
-        "offset": 79,
-        "length": 6,
-        "key": expect.any(String)//"o6e6575"
-      },
-      {
-        "start": "219.41",
-        "end": "219.85999999999999",
-        "confidence": "1.000",
-        "text": "vacuum",
-        "offset": 86,
-        "length": 6,
-        "key": expect.any(String)//"gygkubh"
-      },
-      {
-        "start": "219.86",
-        "end": "220.28",
-        "confidence": "1.000",
-        "text": "cleaner",
-        "offset": 93,
-        "length": 7,
-        "key": expect.any(String)//"tcy6jja"
-      },
-      {
-        "start": "221.72",
-        "end": "221.96",
-        "confidence": "1.000",
-        "text": "just",
-        "offset": 101,
-        "length": 4,
-        "key": expect.any(String)//"445x91"
-      },
-      {
-        "start": "221.96",
-        "end": "222.02",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 106,
-        "length": 1,
-        "key": expect.any(String)//"neb4wp8"
-      },
-      {
-        "start": "222.02",
-        "end": "222.47",
-        "confidence": "0.510",
-        "text": "disk",
-        "offset": 108,
-        "length": 4,
-        "key": expect.any(String)//"hd7wtb5"
-      },
-      {
-        "start": "222.50",
-        "end": "222.68",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 113,
-        "length": 4,
-        "key": expect.any(String)//"6xo20mo"
-      },
-      {
-        "start": "222.68",
-        "end": "223.01000000000002",
-        "confidence": "1.000",
-        "text": "roams",
-        "offset": 118,
-        "length": 5,
-        "key": expect.any(String)//"eny0wfe"
-      },
-      {
-        "start": "223.01",
-        "end": "223.25",
-        "confidence": "1.000",
-        "text": "around",
-        "offset": 124,
-        "length": 6,
-        "key": expect.any(String)//"9nfk4pzg"
-      },
-      {
-        "start": "223.25",
-        "end": "223.37",
-        "confidence": "1.000",
-        "text": "your",
-        "offset": 131,
-        "length": 4,
-        "key": expect.any(String)//"j3chlgs"
-      },
-      {
-        "start": "223.37",
-        "end": "223.79",
-        "confidence": "1.000",
-        "text": "floor",
-        "offset": 136,
-        "length": 5,
-        "key": expect.any(String)//"goacy8"
-      },
-      {
-        "start": "223.79",
-        "end": "223.88",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 142,
-        "length": 2,
-        "key": expect.any(String)//"sfkas9r"
-      },
-      {
-        "start": "223.88",
-        "end": "224.24",
-        "confidence": "1.000",
-        "text": "clean",
-        "offset": 145,
-        "length": 5,
-        "key": expect.any(String)//"jnq6tuw"
-      },
-      {
-        "start": "224.24",
-        "end": "224.42000000000002",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 151,
-        "length": 2,
-        "key": expect.any(String)//"ilcszaw"
-      },
-      {
-        "start": "224.81",
-        "end": "224.93",
-        "confidence": "1.000",
-        "text": "which",
-        "offset": 154,
-        "length": 5,
-        "key": expect.any(String)//"zjjn2rj"
-      },
-      {
-        "start": "224.93",
-        "end": "225.02",
-        "confidence": "1.000",
-        "text": "is",
-        "offset": 160,
-        "length": 2,
-        "key": expect.any(String)//"yhvjkvh"
-      },
-      {
-        "start": "225.02",
-        "end": "225.11",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 163,
-        "length": 3,
-        "key": expect.any(String)//"22l7tj"
-      },
-      {
-        "start": "225.11",
-        "end": "225.44000000000003",
-        "confidence": "1.000",
-        "text": "fact",
-        "offset": 167,
-        "length": 4,
-        "key": expect.any(String)//"bzaj4qa"
-      },
-      {
-        "start": "225.44",
-        "end": "225.59",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 172,
-        "length": 4,
-        "key": expect.any(String)//"w6thu5m"
-      },
-      {
-        "start": "225.59",
-        "end": "225.74",
-        "confidence": "0.990",
-        "text": "it's",
-        "offset": 177,
-        "length": 4,
-        "key": expect.any(String)//"baq8a4k"
-      },
-      {
-        "start": "225.74",
-        "end": "226.25",
-        "confidence": "1.000",
-        "text": "moving",
-        "offset": 182,
-        "length": 6,
-        "key": expect.any(String)//"ig3elmg"
-      },
-      {
-        "start": "226.25",
-        "end": "226.55",
-        "confidence": "1.000",
-        "text": "around",
-        "offset": 189,
-        "length": 6,
-        "key": expect.any(String)//"c4j7k87"
-      },
-      {
-        "start": "226.55",
-        "end": "226.67000000000002",
-        "confidence": "1.000",
-        "text": "on",
-        "offset": 196,
-        "length": 2,
-        "key": expect.any(String)//"8l4ix18"
-      },
-      {
-        "start": "226.67",
-        "end": "226.82",
-        "confidence": "0.860",
-        "text": "its",
-        "offset": 199,
-        "length": 3,
-        "key": expect.any(String)//"2dz8s1"
-      },
-      {
-        "start": "226.85",
-        "end": "227.12",
-        "confidence": "1.000",
-        "text": "own",
-        "offset": 203,
-        "length": 3,
-        "key": expect.any(String)//"v2rtxhz"
-      },
-      {
-        "start": "227.12",
-        "end": "227.24",
-        "confidence": "1.000",
-        "text": "will",
-        "offset": 207,
-        "length": 4,
-        "key": expect.any(String)//"93zh80q"
-      },
-      {
-        "start": "227.24",
-        "end": "227.54000000000002",
-        "confidence": "1.000",
-        "text": "cause",
-        "offset": 212,
-        "length": 5,
-        "key": expect.any(String)//"px3dde"
-      },
-      {
-        "start": "227.54",
-        "end": "227.81",
-        "confidence": "1.000",
-        "text": "people",
-        "offset": 218,
-        "length": 6,
-        "key": expect.any(String)//"xyv9bn"
-      },
-      {
-        "start": "227.81",
-        "end": "227.96",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 225,
-        "length": 2,
-        "key": expect.any(String)//"5j0ew39"
-      },
-      {
-        "start": "227.96",
-        "end": "228.38",
-        "confidence": "1.000",
-        "text": "name",
-        "offset": 228,
-        "length": 4,
-        "key": expect.any(String)//"8fh3qn"
-      },
-      {
-        "start": "228.38",
-        "end": "228.5",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 233,
-        "length": 3,
-        "key": expect.any(String)//"tyjkbah"
-      },
-      {
-        "start": "228.50",
-        "end": "228.98",
-        "confidence": "1.000",
-        "text": "Roomba",
-        "offset": 237,
-        "length": 6,
-        "key": expect.any(String)//"if1cnce"
-      },
-      {
-        "start": "229.37",
-        "end": "229.49",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 244,
-        "length": 3,
-        "key": expect.any(String)//"n48mh8l"
-      },
-      {
-        "start": "229.49",
-        "end": "229.73000000000002",
-        "confidence": "1.000",
-        "text": "feel",
-        "offset": 248,
-        "length": 4,
-        "key": expect.any(String)//"jcdynng"
-      },
-      {
-        "start": "229.73",
-        "end": "230.11999999999998",
-        "confidence": "1.000",
-        "text": "bad",
-        "offset": 253,
-        "length": 3,
-        "key": expect.any(String)//"ujpdhk"
-      },
-      {
-        "start": "230.12",
-        "end": "230.3",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 257,
-        "length": 3,
-        "key": expect.any(String)//"09rsji9u"
-      },
-      {
-        "start": "230.30",
-        "end": "230.39000000000001",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 261,
-        "length": 3,
-        "key": expect.any(String)//"qd6gg1f"
-      },
-      {
-        "start": "230.39",
-        "end": "230.75",
-        "confidence": "0.990",
-        "text": "Roomba",
-        "offset": 265,
-        "length": 6,
-        "key": expect.any(String)//"jm08qka"
-      },
-      {
-        "start": "230.78",
-        "end": "230.9",
-        "confidence": "1.000",
-        "text": "when",
-        "offset": 272,
-        "length": 4,
-        "key": expect.any(String)//"wq7qlif"
-      },
-      {
-        "start": "230.90",
-        "end": "230.96",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 277,
-        "length": 2,
-        "key": expect.any(String)//"f5dflf"
-      },
-      {
-        "start": "230.96",
-        "end": "231.11",
-        "confidence": "1.000",
-        "text": "gets",
-        "offset": 280,
-        "length": 4,
-        "key": expect.any(String)//"h8rwvl"
-      },
-      {
-        "start": "231.11",
-        "end": "231.44000000000003",
-        "confidence": "1.000",
-        "text": "stuck",
-        "offset": 285,
-        "length": 5,
-        "key": expect.any(String)//"ceii8ub"
-      },
-      {
-        "start": "231.44",
-        "end": "231.62",
-        "confidence": "1.000",
-        "text": "under",
-        "offset": 291,
-        "length": 5,
-        "key": expect.any(String)//"3e2nz3l"
-      },
-      {
-        "start": "231.62",
-        "end": "231.74",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 297,
-        "length": 3,
-        "key": expect.any(String)//"oarbub"
-      },
-      {
-        "start": "231.74",
-        "end": "232.43",
-        "confidence": "1.000",
-        "text": "couch.",
-        "offset": 301,
-        "length": 6,
-        "key": expect.any(String)//"ulqfi9"
-      }
-    ]
-  },
-  {
-    "text": "And we can design robots specifically to evoke this response using eyes and faces or movements that people automatically subconsciously associate with states of mind.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "234.47",
           "end": "234.59",
@@ -10567,244 +9421,7 @@ const draftTranscriptExample = [
           "word": "mind",
           "punct": "mind.",
           "index": 611
-        }
-      ],
-      "start": "234.47"
-    },
-    "entityRanges": [
-      {
-        "start": "234.47",
-        "end": "234.59",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"578zcvp"
-      },
-      {
-        "start": "234.59",
-        "end": "234.74",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 4,
-        "length": 2,
-        "key": expect.any(String)//"nvufjat"
-      },
-      {
-        "start": "234.74",
-        "end": "234.86",
-        "confidence": "1.000",
-        "text": "can",
-        "offset": 7,
-        "length": 3,
-        "key": expect.any(String)//"ft25zvn"
-      },
-      {
-        "start": "234.86",
-        "end": "235.31",
-        "confidence": "1.000",
-        "text": "design",
-        "offset": 11,
-        "length": 6,
-        "key": expect.any(String)//"itxwmql"
-      },
-      {
-        "start": "235.31",
-        "end": "235.67000000000002",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 18,
-        "length": 6,
-        "key": expect.any(String)//"f72l83"
-      },
-      {
-        "start": "235.67",
-        "end": "236.51",
-        "confidence": "1.000",
-        "text": "specifically",
-        "offset": 25,
-        "length": 12,
-        "key": expect.any(String)//"zxkb5gx"
-      },
-      {
-        "start": "236.51",
-        "end": "236.66",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 38,
-        "length": 2,
-        "key": expect.any(String)//"7zyf22q"
-      },
-      {
-        "start": "236.66",
-        "end": "236.99",
-        "confidence": "1.000",
-        "text": "evoke",
-        "offset": 41,
-        "length": 5,
-        "key": expect.any(String)//"gj9atxq"
-      },
-      {
-        "start": "237.02",
-        "end": "237.20000000000002",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 47,
-        "length": 4,
-        "key": expect.any(String)//"ogiv5r9"
-      },
-      {
-        "start": "237.20",
-        "end": "237.76999999999998",
-        "confidence": "1.000",
-        "text": "response",
-        "offset": 52,
-        "length": 8,
-        "key": expect.any(String)//"7rw5sv"
-      },
-      {
-        "start": "237.77",
-        "end": "238.10000000000002",
-        "confidence": "1.000",
-        "text": "using",
-        "offset": 61,
-        "length": 5,
-        "key": expect.any(String)//"p32yww"
-      },
-      {
-        "start": "238.25",
-        "end": "238.88",
-        "confidence": "1.000",
-        "text": "eyes",
-        "offset": 67,
-        "length": 4,
-        "key": expect.any(String)//"6tlmh"
-      },
-      {
-        "start": "239.21",
-        "end": "239.36",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 72,
-        "length": 3,
-        "key": expect.any(String)//"v6loyx2"
-      },
-      {
-        "start": "239.36",
-        "end": "240.20000000000002",
-        "confidence": "1.000",
-        "text": "faces",
-        "offset": 76,
-        "length": 5,
-        "key": expect.any(String)//"rtz5la"
-      },
-      {
-        "start": "240.50",
-        "end": "240.62",
-        "confidence": "1.000",
-        "text": "or",
-        "offset": 82,
-        "length": 2,
-        "key": expect.any(String)//"n1mp1hl"
-      },
-      {
-        "start": "240.62",
-        "end": "241.25",
-        "confidence": "1.000",
-        "text": "movements",
-        "offset": 85,
-        "length": 9,
-        "key": expect.any(String)//"7k9513"
-      },
-      {
-        "start": "241.28",
-        "end": "241.4",
-        "confidence": "0.990",
-        "text": "that",
-        "offset": 95,
-        "length": 4,
-        "key": expect.any(String)//"4dlodjs"
-      },
-      {
-        "start": "241.40",
-        "end": "241.73000000000002",
-        "confidence": "1.000",
-        "text": "people",
-        "offset": 100,
-        "length": 6,
-        "key": expect.any(String)//"ktzcs7t"
-      },
-      {
-        "start": "241.76",
-        "end": "242.54",
-        "confidence": "1.000",
-        "text": "automatically",
-        "offset": 107,
-        "length": 13,
-        "key": expect.any(String)//"5y58jj8"
-      },
-      {
-        "start": "242.54",
-        "end": "243.47",
-        "confidence": "1.000",
-        "text": "subconsciously",
-        "offset": 121,
-        "length": 14,
-        "key": expect.any(String)//"nxcx6fe"
-      },
-      {
-        "start": "243.47",
-        "end": "244.34",
-        "confidence": "1.000",
-        "text": "associate",
-        "offset": 136,
-        "length": 9,
-        "key": expect.any(String)//"r0xwb4i"
-      },
-      {
-        "start": "244.61",
-        "end": "244.73000000000002",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 146,
-        "length": 4,
-        "key": expect.any(String)//"axktz4g"
-      },
-      {
-        "start": "244.73",
-        "end": "245.09",
-        "confidence": "1.000",
-        "text": "states",
-        "offset": 151,
-        "length": 6,
-        "key": expect.any(String)//"hmxokzr"
-      },
-      {
-        "start": "245.09",
-        "end": "245.18",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 158,
-        "length": 2,
-        "key": expect.any(String)//"ah95kgf"
-      },
-      {
-        "start": "245.18",
-        "end": "245.8",
-        "confidence": "1.000",
-        "text": "mind.",
-        "offset": 161,
-        "length": 5,
-        "key": expect.any(String)//"84oel8d"
-      }
-    ]
-  },
-  {
-    "text": "And there's an entire body of research called human robot interaction that really shows how well this works.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "246.62",
           "end": "246.71",
@@ -10948,181 +9565,7 @@ const draftTranscriptExample = [
           "word": "works",
           "punct": "works.",
           "index": 629
-        }
-      ],
-      "start": "246.62"
-    },
-    "entityRanges": [
-      {
-        "start": "246.62",
-        "end": "246.71",
-        "confidence": "0.970",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"z3fs0ra"
-      },
-      {
-        "start": "246.71",
-        "end": "246.88",
-        "confidence": "0.920",
-        "text": "there's",
-        "offset": 4,
-        "length": 7,
-        "key": expect.any(String)//"d3bni1"
-      },
-      {
-        "start": "246.89",
-        "end": "246.98",
-        "confidence": "1.000",
-        "text": "an",
-        "offset": 12,
-        "length": 2,
-        "key": expect.any(String)//"zpmmsvo"
-      },
-      {
-        "start": "246.98",
-        "end": "247.36999999999998",
-        "confidence": "1.000",
-        "text": "entire",
-        "offset": 15,
-        "length": 6,
-        "key": expect.any(String)//"3jd7jvp"
-      },
-      {
-        "start": "247.37",
-        "end": "247.61",
-        "confidence": "1.000",
-        "text": "body",
-        "offset": 22,
-        "length": 4,
-        "key": expect.any(String)//"bdrkvn"
-      },
-      {
-        "start": "247.61",
-        "end": "247.70000000000002",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 27,
-        "length": 2,
-        "key": expect.any(String)//"4pr898"
-      },
-      {
-        "start": "247.70",
-        "end": "248.11999999999998",
-        "confidence": "1.000",
-        "text": "research",
-        "offset": 30,
-        "length": 8,
-        "key": expect.any(String)//"plt890e"
-      },
-      {
-        "start": "248.12",
-        "end": "248.33",
-        "confidence": "1.000",
-        "text": "called",
-        "offset": 39,
-        "length": 6,
-        "key": expect.any(String)//"2s1h6bs"
-      },
-      {
-        "start": "248.33",
-        "end": "248.60000000000002",
-        "confidence": "1.000",
-        "text": "human",
-        "offset": 46,
-        "length": 5,
-        "key": expect.any(String)//"mn28sd7"
-      },
-      {
-        "start": "248.60",
-        "end": "248.87",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 52,
-        "length": 5,
-        "key": expect.any(String)//"t6y478"
-      },
-      {
-        "start": "248.87",
-        "end": "249.38",
-        "confidence": "1.000",
-        "text": "interaction",
-        "offset": 58,
-        "length": 11,
-        "key": expect.any(String)//"pwg291c"
-      },
-      {
-        "start": "249.38",
-        "end": "249.53",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 70,
-        "length": 4,
-        "key": expect.any(String)//"41xodcv"
-      },
-      {
-        "start": "249.68",
-        "end": "249.95000000000002",
-        "confidence": "1.000",
-        "text": "really",
-        "offset": 75,
-        "length": 6,
-        "key": expect.any(String)//"ed58cc"
-      },
-      {
-        "start": "249.95",
-        "end": "250.39999999999998",
-        "confidence": "1.000",
-        "text": "shows",
-        "offset": 82,
-        "length": 5,
-        "key": expect.any(String)//"rhuzf2t"
-      },
-      {
-        "start": "250.40",
-        "end": "250.55",
-        "confidence": "1.000",
-        "text": "how",
-        "offset": 88,
-        "length": 3,
-        "key": expect.any(String)//"1euu29k"
-      },
-      {
-        "start": "250.55",
-        "end": "250.70000000000002",
-        "confidence": "1.000",
-        "text": "well",
-        "offset": 92,
-        "length": 4,
-        "key": expect.any(String)//"ln5np3p"
-      },
-      {
-        "start": "250.70",
-        "end": "250.88",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 97,
-        "length": 4,
-        "key": expect.any(String)//"0jpxvne"
-      },
-      {
-        "start": "250.88",
-        "end": "251.68",
-        "confidence": "1.000",
-        "text": "works.",
-        "offset": 102,
-        "length": 6,
-        "key": expect.any(String)//"179e7dl"
-      }
-    ]
-  },
-  {
-    "text": "So for example researchers at Stanford University found out that it makes people really uncomfortable when you ask them to touch on robots private parts.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "251.69",
           "end": "251.9",
@@ -11324,238 +9767,1435 @@ const draftTranscriptExample = [
           "index": 654
         }
       ],
-      "start": "251.69"
+      "start": "203.24"
     },
     "entityRanges": [
+      {
+        "start": "203.24",
+        "end": "203.42000000000002",
+        "confidence": "1.000",
+        "text": "So",
+        "offset": 0,
+        "length": 2,
+        "key": expect.any(String)//"86cn7u8"
+      },
+      {
+        "start": "203.42",
+        "end": "203.66",
+        "confidence": "1.000",
+        "text": "people",
+        "offset": 3,
+        "length": 6,
+        "key": expect.any(String)//"dwnhvdb"
+      },
+      {
+        "start": "203.66",
+        "end": "203.78",
+        "confidence": "1.000",
+        "text": "will",
+        "offset": 10,
+        "length": 4,
+        "key": expect.any(String)//"6byp9oc"
+      },
+      {
+        "start": "203.78",
+        "end": "203.99",
+        "confidence": "1.000",
+        "text": "treat",
+        "offset": 15,
+        "length": 5,
+        "key": expect.any(String)//"5d1hpwp"
+      },
+      {
+        "start": "204.05",
+        "end": "204.20000000000002",
+        "confidence": "1.000",
+        "text": "all",
+        "offset": 21,
+        "length": 3,
+        "key": expect.any(String)//"sw895ar"
+      },
+      {
+        "start": "204.20",
+        "end": "204.47",
+        "confidence": "1.000",
+        "text": "sorts",
+        "offset": 25,
+        "length": 5,
+        "key": expect.any(String)//"rswt48d"
+      },
+      {
+        "start": "204.47",
+        "end": "204.59",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 31,
+        "length": 2,
+        "key": expect.any(String)//"6xxvrz"
+      },
+      {
+        "start": "204.59",
+        "end": "204.95000000000002",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 34,
+        "length": 6,
+        "key": expect.any(String)//"e6g18nj"
+      },
+      {
+        "start": "204.95",
+        "end": "205.13",
+        "confidence": "1.000",
+        "text": "like",
+        "offset": 41,
+        "length": 4,
+        "key": expect.any(String)//"cfsztdd"
+      },
+      {
+        "start": "205.13",
+        "end": "205.28",
+        "confidence": "1.000",
+        "text": "they're",
+        "offset": 46,
+        "length": 7,
+        "key": expect.any(String)//"4hqqhj"
+      },
+      {
+        "start": "205.28",
+        "end": "205.82",
+        "confidence": "1.000",
+        "text": "alive.",
+        "offset": 54,
+        "length": 6,
+        "key": expect.any(String)//"9j17ime"
+      },
+      {
+        "start": "206.69",
+        "end": "206.93",
+        "confidence": "1.000",
+        "text": "These",
+        "offset": 61,
+        "length": 5,
+        "key": expect.any(String)//"ls3cksg"
+      },
+      {
+        "start": "206.93",
+        "end": "207.26000000000002",
+        "confidence": "1.000",
+        "text": "bomb",
+        "offset": 67,
+        "length": 4,
+        "key": expect.any(String)//"08p5tvd"
+      },
+      {
+        "start": "207.26",
+        "end": "207.98",
+        "confidence": "1.000",
+        "text": "disposal",
+        "offset": 72,
+        "length": 8,
+        "key": expect.any(String)//"ka7xy3m"
+      },
+      {
+        "start": "208.04",
+        "end": "208.54999999999998",
+        "confidence": "1.000",
+        "text": "units",
+        "offset": 81,
+        "length": 5,
+        "key": expect.any(String)//"gy6jyw7"
+      },
+      {
+        "start": "208.58",
+        "end": "208.76000000000002",
+        "confidence": "1.000",
+        "text": "get",
+        "offset": 87,
+        "length": 3,
+        "key": expect.any(String)//"nmhtkr"
+      },
+      {
+        "start": "208.76",
+        "end": "209.39",
+        "confidence": "1.000",
+        "text": "names",
+        "offset": 91,
+        "length": 5,
+        "key": expect.any(String)//"e1gnyzb"
+      },
+      {
+        "start": "209.42",
+        "end": "209.57",
+        "confidence": "1.000",
+        "text": "they",
+        "offset": 97,
+        "length": 4,
+        "key": expect.any(String)//"p1mm499"
+      },
+      {
+        "start": "209.57",
+        "end": "209.72",
+        "confidence": "1.000",
+        "text": "get",
+        "offset": 102,
+        "length": 3,
+        "key": expect.any(String)//"ge9qvfg"
+      },
+      {
+        "start": "209.72",
+        "end": "210.2",
+        "confidence": "1.000",
+        "text": "medals",
+        "offset": 106,
+        "length": 6,
+        "key": expect.any(String)//"pl10s6m"
+      },
+      {
+        "start": "210.20",
+        "end": "210.32",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 113,
+        "length": 2,
+        "key": expect.any(String)//"0yoe6li"
+      },
+      {
+        "start": "210.32",
+        "end": "211",
+        "confidence": "1.000",
+        "text": "honor.",
+        "offset": 116,
+        "length": 6,
+        "key": expect.any(String)//"3dzhjf"
+      },
+      {
+        "start": "211.10",
+        "end": "211.28",
+        "confidence": "1.000",
+        "text": "They've",
+        "offset": 123,
+        "length": 7,
+        "key": expect.any(String)//"fb59fgb"
+      },
+      {
+        "start": "211.28",
+        "end": "211.43",
+        "confidence": "1.000",
+        "text": "had",
+        "offset": 131,
+        "length": 3,
+        "key": expect.any(String)//"mi0hz5e"
+      },
+      {
+        "start": "211.43",
+        "end": "212.03",
+        "confidence": "1.000",
+        "text": "funerals",
+        "offset": 135,
+        "length": 8,
+        "key": expect.any(String)//"a25k5h"
+      },
+      {
+        "start": "212.03",
+        "end": "212.18",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 144,
+        "length": 3,
+        "key": expect.any(String)//"9jonm0mn"
+      },
+      {
+        "start": "212.18",
+        "end": "212.36",
+        "confidence": "1.000",
+        "text": "them",
+        "offset": 148,
+        "length": 4,
+        "key": expect.any(String)//"xg4qen"
+      },
+      {
+        "start": "212.36",
+        "end": "212.51000000000002",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 153,
+        "length": 4,
+        "key": expect.any(String)//"hd8ubo"
+      },
+      {
+        "start": "212.51",
+        "end": "212.81",
+        "confidence": "0.960",
+        "text": "gun",
+        "offset": 158,
+        "length": 3,
+        "key": expect.any(String)//"w5mpds"
+      },
+      {
+        "start": "212.81",
+        "end": "213.41",
+        "confidence": "1.000",
+        "text": "salutes.",
+        "offset": 162,
+        "length": 8,
+        "key": expect.any(String)//"jhhyt4b"
+      },
+      {
+        "start": "214.40",
+        "end": "214.61",
+        "confidence": "1.000",
+        "text": "And.",
+        "offset": 171,
+        "length": 4,
+        "key": expect.any(String)//"qpacde8"
+      },
+      {
+        "start": "215.00",
+        "end": "215.36",
+        "confidence": "1.000",
+        "text": "Research",
+        "offset": 176,
+        "length": 8,
+        "key": expect.any(String)//"xki6ml7"
+      },
+      {
+        "start": "215.36",
+        "end": "215.60000000000002",
+        "confidence": "1.000",
+        "text": "shows",
+        "offset": 185,
+        "length": 5,
+        "key": expect.any(String)//"pd7w8bi"
+      },
+      {
+        "start": "215.60",
+        "end": "215.69",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 191,
+        "length": 4,
+        "key": expect.any(String)//"krwlcbi"
+      },
+      {
+        "start": "215.69",
+        "end": "215.78",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 196,
+        "length": 2,
+        "key": expect.any(String)//"n630g3"
+      },
+      {
+        "start": "215.78",
+        "end": "215.9",
+        "confidence": "1.000",
+        "text": "do",
+        "offset": 199,
+        "length": 2,
+        "key": expect.any(String)//"jdkfigb"
+      },
+      {
+        "start": "215.90",
+        "end": "216.08",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 202,
+        "length": 4,
+        "key": expect.any(String)//"b70r36r"
+      },
+      {
+        "start": "216.08",
+        "end": "216.35000000000002",
+        "confidence": "1.000",
+        "text": "even",
+        "offset": 207,
+        "length": 4,
+        "key": expect.any(String)//"09mnf4"
+      },
+      {
+        "start": "216.35",
+        "end": "216.47",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 212,
+        "length": 4,
+        "key": expect.any(String)//"tf4epyf"
+      },
+      {
+        "start": "216.47",
+        "end": "216.8",
+        "confidence": "1.000",
+        "text": "very",
+        "offset": 217,
+        "length": 4,
+        "key": expect.any(String)//"g3cqasj"
+      },
+      {
+        "start": "216.80",
+        "end": "217.19",
+        "confidence": "1.000",
+        "text": "simple",
+        "offset": 222,
+        "length": 6,
+        "key": expect.any(String)//"fhq06we"
+      },
+      {
+        "start": "217.19",
+        "end": "217.76",
+        "confidence": "1.000",
+        "text": "household",
+        "offset": 229,
+        "length": 9,
+        "key": expect.any(String)//"sji6cqp"
+      },
+      {
+        "start": "217.76",
+        "end": "218.23999999999998",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 239,
+        "length": 6,
+        "key": expect.any(String)//"3ioipve"
+      },
+      {
+        "start": "218.24",
+        "end": "218.54000000000002",
+        "confidence": "1.000",
+        "text": "like",
+        "offset": 246,
+        "length": 4,
+        "key": expect.any(String)//"97poeso"
+      },
+      {
+        "start": "218.84",
+        "end": "218.96",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 251,
+        "length": 3,
+        "key": expect.any(String)//"54a4n3g"
+      },
+      {
+        "start": "218.96",
+        "end": "219.41",
+        "confidence": "1.000",
+        "text": "Roomba",
+        "offset": 255,
+        "length": 6,
+        "key": expect.any(String)//"x0g77a"
+      },
+      {
+        "start": "219.41",
+        "end": "219.85999999999999",
+        "confidence": "1.000",
+        "text": "vacuum",
+        "offset": 262,
+        "length": 6,
+        "key": expect.any(String)//"94tdwnn"
+      },
+      {
+        "start": "219.86",
+        "end": "220.28",
+        "confidence": "1.000",
+        "text": "cleaner",
+        "offset": 269,
+        "length": 7,
+        "key": expect.any(String)//"d31ya4o"
+      },
+      {
+        "start": "221.72",
+        "end": "221.96",
+        "confidence": "1.000",
+        "text": "just",
+        "offset": 277,
+        "length": 4,
+        "key": expect.any(String)//"qykui0c"
+      },
+      {
+        "start": "221.96",
+        "end": "222.02",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 282,
+        "length": 1,
+        "key": expect.any(String)//"dx2d3i"
+      },
+      {
+        "start": "222.02",
+        "end": "222.47",
+        "confidence": "0.510",
+        "text": "disk",
+        "offset": 284,
+        "length": 4,
+        "key": expect.any(String)//"u4zqi6q"
+      },
+      {
+        "start": "222.50",
+        "end": "222.68",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 289,
+        "length": 4,
+        "key": expect.any(String)//"9h78yka"
+      },
+      {
+        "start": "222.68",
+        "end": "223.01000000000002",
+        "confidence": "1.000",
+        "text": "roams",
+        "offset": 294,
+        "length": 5,
+        "key": expect.any(String)//"3madt12"
+      },
+      {
+        "start": "223.01",
+        "end": "223.25",
+        "confidence": "1.000",
+        "text": "around",
+        "offset": 300,
+        "length": 6,
+        "key": expect.any(String)//"eqomoq2"
+      },
+      {
+        "start": "223.25",
+        "end": "223.37",
+        "confidence": "1.000",
+        "text": "your",
+        "offset": 307,
+        "length": 4,
+        "key": expect.any(String)//"ccprv4v"
+      },
+      {
+        "start": "223.37",
+        "end": "223.79",
+        "confidence": "1.000",
+        "text": "floor",
+        "offset": 312,
+        "length": 5,
+        "key": expect.any(String)//"o68bmek"
+      },
+      {
+        "start": "223.79",
+        "end": "223.88",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 318,
+        "length": 2,
+        "key": expect.any(String)//"3rcmqm"
+      },
+      {
+        "start": "223.88",
+        "end": "224.24",
+        "confidence": "1.000",
+        "text": "clean",
+        "offset": 321,
+        "length": 5,
+        "key": expect.any(String)//"rxvzqr"
+      },
+      {
+        "start": "224.24",
+        "end": "224.42000000000002",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 327,
+        "length": 2,
+        "key": expect.any(String)//"o5z3m48"
+      },
+      {
+        "start": "224.81",
+        "end": "224.93",
+        "confidence": "1.000",
+        "text": "which",
+        "offset": 330,
+        "length": 5,
+        "key": expect.any(String)//"fcoqr6df"
+      },
+      {
+        "start": "224.93",
+        "end": "225.02",
+        "confidence": "1.000",
+        "text": "is",
+        "offset": 336,
+        "length": 2,
+        "key": expect.any(String)//"2klhsxn"
+      },
+      {
+        "start": "225.02",
+        "end": "225.11",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 339,
+        "length": 3,
+        "key": expect.any(String)//"1m191h8"
+      },
+      {
+        "start": "225.11",
+        "end": "225.44000000000003",
+        "confidence": "1.000",
+        "text": "fact",
+        "offset": 343,
+        "length": 4,
+        "key": expect.any(String)//"5ai5r65"
+      },
+      {
+        "start": "225.44",
+        "end": "225.59",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 348,
+        "length": 4,
+        "key": expect.any(String)//"di4835n"
+      },
+      {
+        "start": "225.59",
+        "end": "225.74",
+        "confidence": "0.990",
+        "text": "it's",
+        "offset": 353,
+        "length": 4,
+        "key": expect.any(String)//"qk3me7r"
+      },
+      {
+        "start": "225.74",
+        "end": "226.25",
+        "confidence": "1.000",
+        "text": "moving",
+        "offset": 358,
+        "length": 6,
+        "key": expect.any(String)//"b5ipwm"
+      },
+      {
+        "start": "226.25",
+        "end": "226.55",
+        "confidence": "1.000",
+        "text": "around",
+        "offset": 365,
+        "length": 6,
+        "key": expect.any(String)//"kcftiwl"
+      },
+      {
+        "start": "226.55",
+        "end": "226.67000000000002",
+        "confidence": "1.000",
+        "text": "on",
+        "offset": 372,
+        "length": 2,
+        "key": expect.any(String)//"tpw76xm"
+      },
+      {
+        "start": "226.67",
+        "end": "226.82",
+        "confidence": "0.860",
+        "text": "its",
+        "offset": 375,
+        "length": 3,
+        "key": expect.any(String)//"1jzr08x"
+      },
+      {
+        "start": "226.85",
+        "end": "227.12",
+        "confidence": "1.000",
+        "text": "own",
+        "offset": 379,
+        "length": 3,
+        "key": expect.any(String)//"7etchc"
+      },
+      {
+        "start": "227.12",
+        "end": "227.24",
+        "confidence": "1.000",
+        "text": "will",
+        "offset": 383,
+        "length": 4,
+        "key": expect.any(String)//"5fezq7k"
+      },
+      {
+        "start": "227.24",
+        "end": "227.54000000000002",
+        "confidence": "1.000",
+        "text": "cause",
+        "offset": 388,
+        "length": 5,
+        "key": expect.any(String)//"aanpmwp"
+      },
+      {
+        "start": "227.54",
+        "end": "227.81",
+        "confidence": "1.000",
+        "text": "people",
+        "offset": 394,
+        "length": 6,
+        "key": expect.any(String)//"3r7zpc5"
+      },
+      {
+        "start": "227.81",
+        "end": "227.96",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 401,
+        "length": 2,
+        "key": expect.any(String)//"xzgzqjf"
+      },
+      {
+        "start": "227.96",
+        "end": "228.38",
+        "confidence": "1.000",
+        "text": "name",
+        "offset": 404,
+        "length": 4,
+        "key": expect.any(String)//"1afia3"
+      },
+      {
+        "start": "228.38",
+        "end": "228.5",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 409,
+        "length": 3,
+        "key": expect.any(String)//"hgb770y"
+      },
+      {
+        "start": "228.50",
+        "end": "228.98",
+        "confidence": "1.000",
+        "text": "Roomba",
+        "offset": 413,
+        "length": 6,
+        "key": expect.any(String)//"r0ead94"
+      },
+      {
+        "start": "229.37",
+        "end": "229.49",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 420,
+        "length": 3,
+        "key": expect.any(String)//"j8hb7b"
+      },
+      {
+        "start": "229.49",
+        "end": "229.73000000000002",
+        "confidence": "1.000",
+        "text": "feel",
+        "offset": 424,
+        "length": 4,
+        "key": expect.any(String)//"30fwb8p"
+      },
+      {
+        "start": "229.73",
+        "end": "230.11999999999998",
+        "confidence": "1.000",
+        "text": "bad",
+        "offset": 429,
+        "length": 3,
+        "key": expect.any(String)//"v93mp0e"
+      },
+      {
+        "start": "230.12",
+        "end": "230.3",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 433,
+        "length": 3,
+        "key": expect.any(String)//"a0fhgva"
+      },
+      {
+        "start": "230.30",
+        "end": "230.39000000000001",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 437,
+        "length": 3,
+        "key": expect.any(String)//"1ua4tip"
+      },
+      {
+        "start": "230.39",
+        "end": "230.75",
+        "confidence": "0.990",
+        "text": "Roomba",
+        "offset": 441,
+        "length": 6,
+        "key": expect.any(String)//"wt2glrq"
+      },
+      {
+        "start": "230.78",
+        "end": "230.9",
+        "confidence": "1.000",
+        "text": "when",
+        "offset": 448,
+        "length": 4,
+        "key": expect.any(String)//"4u246w"
+      },
+      {
+        "start": "230.90",
+        "end": "230.96",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 453,
+        "length": 2,
+        "key": expect.any(String)//"7f8vfof"
+      },
+      {
+        "start": "230.96",
+        "end": "231.11",
+        "confidence": "1.000",
+        "text": "gets",
+        "offset": 456,
+        "length": 4,
+        "key": expect.any(String)//"p2w6dbs"
+      },
+      {
+        "start": "231.11",
+        "end": "231.44000000000003",
+        "confidence": "1.000",
+        "text": "stuck",
+        "offset": 461,
+        "length": 5,
+        "key": expect.any(String)//"w57e7j9"
+      },
+      {
+        "start": "231.44",
+        "end": "231.62",
+        "confidence": "1.000",
+        "text": "under",
+        "offset": 467,
+        "length": 5,
+        "key": expect.any(String)//"n3dcok9"
+      },
+      {
+        "start": "231.62",
+        "end": "231.74",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 473,
+        "length": 3,
+        "key": expect.any(String)//"44akssj"
+      },
+      {
+        "start": "231.74",
+        "end": "232.43",
+        "confidence": "1.000",
+        "text": "couch.",
+        "offset": 477,
+        "length": 6,
+        "key": expect.any(String)//"zdcbic0j"
+      },
+      {
+        "start": "234.47",
+        "end": "234.59",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 484,
+        "length": 3,
+        "key": expect.any(String)//"9x86b5i"
+      },
+      {
+        "start": "234.59",
+        "end": "234.74",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 488,
+        "length": 2,
+        "key": expect.any(String)//"hol55vs"
+      },
+      {
+        "start": "234.74",
+        "end": "234.86",
+        "confidence": "1.000",
+        "text": "can",
+        "offset": 491,
+        "length": 3,
+        "key": expect.any(String)//"f47uv4o"
+      },
+      {
+        "start": "234.86",
+        "end": "235.31",
+        "confidence": "1.000",
+        "text": "design",
+        "offset": 495,
+        "length": 6,
+        "key": expect.any(String)//"d9zckm"
+      },
+      {
+        "start": "235.31",
+        "end": "235.67000000000002",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 502,
+        "length": 6,
+        "key": expect.any(String)//"69f0ruj"
+      },
+      {
+        "start": "235.67",
+        "end": "236.51",
+        "confidence": "1.000",
+        "text": "specifically",
+        "offset": 509,
+        "length": 12,
+        "key": expect.any(String)//"f0kaqbn"
+      },
+      {
+        "start": "236.51",
+        "end": "236.66",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 522,
+        "length": 2,
+        "key": expect.any(String)//"ivhknb"
+      },
+      {
+        "start": "236.66",
+        "end": "236.99",
+        "confidence": "1.000",
+        "text": "evoke",
+        "offset": 525,
+        "length": 5,
+        "key": expect.any(String)//"mof36q4"
+      },
+      {
+        "start": "237.02",
+        "end": "237.20000000000002",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 531,
+        "length": 4,
+        "key": expect.any(String)//"hg0ke4"
+      },
+      {
+        "start": "237.20",
+        "end": "237.76999999999998",
+        "confidence": "1.000",
+        "text": "response",
+        "offset": 536,
+        "length": 8,
+        "key": expect.any(String)//"uyshv4h"
+      },
+      {
+        "start": "237.77",
+        "end": "238.10000000000002",
+        "confidence": "1.000",
+        "text": "using",
+        "offset": 545,
+        "length": 5,
+        "key": expect.any(String)//"al6cu6k"
+      },
+      {
+        "start": "238.25",
+        "end": "238.88",
+        "confidence": "1.000",
+        "text": "eyes",
+        "offset": 551,
+        "length": 4,
+        "key": expect.any(String)//"ogiksmb"
+      },
+      {
+        "start": "239.21",
+        "end": "239.36",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 556,
+        "length": 3,
+        "key": expect.any(String)//"z5kaomp"
+      },
+      {
+        "start": "239.36",
+        "end": "240.20000000000002",
+        "confidence": "1.000",
+        "text": "faces",
+        "offset": 560,
+        "length": 5,
+        "key": expect.any(String)//"9931t2n"
+      },
+      {
+        "start": "240.50",
+        "end": "240.62",
+        "confidence": "1.000",
+        "text": "or",
+        "offset": 566,
+        "length": 2,
+        "key": expect.any(String)//"8k7kcx"
+      },
+      {
+        "start": "240.62",
+        "end": "241.25",
+        "confidence": "1.000",
+        "text": "movements",
+        "offset": 569,
+        "length": 9,
+        "key": expect.any(String)//"ydvbrxj"
+      },
+      {
+        "start": "241.28",
+        "end": "241.4",
+        "confidence": "0.990",
+        "text": "that",
+        "offset": 579,
+        "length": 4,
+        "key": expect.any(String)//"7vu2mbh"
+      },
+      {
+        "start": "241.40",
+        "end": "241.73000000000002",
+        "confidence": "1.000",
+        "text": "people",
+        "offset": 584,
+        "length": 6,
+        "key": expect.any(String)//"x7dgxlx"
+      },
+      {
+        "start": "241.76",
+        "end": "242.54",
+        "confidence": "1.000",
+        "text": "automatically",
+        "offset": 591,
+        "length": 13,
+        "key": expect.any(String)//"4fl1t9"
+      },
+      {
+        "start": "242.54",
+        "end": "243.47",
+        "confidence": "1.000",
+        "text": "subconsciously",
+        "offset": 605,
+        "length": 14,
+        "key": expect.any(String)//"2pm4m98"
+      },
+      {
+        "start": "243.47",
+        "end": "244.34",
+        "confidence": "1.000",
+        "text": "associate",
+        "offset": 620,
+        "length": 9,
+        "key": expect.any(String)//"p60rg04"
+      },
+      {
+        "start": "244.61",
+        "end": "244.73000000000002",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 630,
+        "length": 4,
+        "key": expect.any(String)//"egfkqjm"
+      },
+      {
+        "start": "244.73",
+        "end": "245.09",
+        "confidence": "1.000",
+        "text": "states",
+        "offset": 635,
+        "length": 6,
+        "key": expect.any(String)//"an6gwj"
+      },
+      {
+        "start": "245.09",
+        "end": "245.18",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 642,
+        "length": 2,
+        "key": expect.any(String)//"qeret"
+      },
+      {
+        "start": "245.18",
+        "end": "245.8",
+        "confidence": "1.000",
+        "text": "mind.",
+        "offset": 645,
+        "length": 5,
+        "key": expect.any(String)//"qum8ixv"
+      },
+      {
+        "start": "246.62",
+        "end": "246.71",
+        "confidence": "0.970",
+        "text": "And",
+        "offset": 651,
+        "length": 3,
+        "key": expect.any(String)//"c90e60n"
+      },
+      {
+        "start": "246.71",
+        "end": "246.88",
+        "confidence": "0.920",
+        "text": "there's",
+        "offset": 655,
+        "length": 7,
+        "key": expect.any(String)//"8l8e0l"
+      },
+      {
+        "start": "246.89",
+        "end": "246.98",
+        "confidence": "1.000",
+        "text": "an",
+        "offset": 663,
+        "length": 2,
+        "key": expect.any(String)//"dtpkb0r"
+      },
+      {
+        "start": "246.98",
+        "end": "247.36999999999998",
+        "confidence": "1.000",
+        "text": "entire",
+        "offset": 666,
+        "length": 6,
+        "key": expect.any(String)//"ci5qb6"
+      },
+      {
+        "start": "247.37",
+        "end": "247.61",
+        "confidence": "1.000",
+        "text": "body",
+        "offset": 673,
+        "length": 4,
+        "key": expect.any(String)//"pq4hmu"
+      },
+      {
+        "start": "247.61",
+        "end": "247.70000000000002",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 678,
+        "length": 2,
+        "key": expect.any(String)//"hrb10tl"
+      },
+      {
+        "start": "247.70",
+        "end": "248.11999999999998",
+        "confidence": "1.000",
+        "text": "research",
+        "offset": 681,
+        "length": 8,
+        "key": expect.any(String)//"vy7yu2s"
+      },
+      {
+        "start": "248.12",
+        "end": "248.33",
+        "confidence": "1.000",
+        "text": "called",
+        "offset": 690,
+        "length": 6,
+        "key": expect.any(String)//"8zfnx"
+      },
+      {
+        "start": "248.33",
+        "end": "248.60000000000002",
+        "confidence": "1.000",
+        "text": "human",
+        "offset": 697,
+        "length": 5,
+        "key": expect.any(String)//"gb8xwkm"
+      },
+      {
+        "start": "248.60",
+        "end": "248.87",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 703,
+        "length": 5,
+        "key": expect.any(String)//"oq21c3r"
+      },
+      {
+        "start": "248.87",
+        "end": "249.38",
+        "confidence": "1.000",
+        "text": "interaction",
+        "offset": 709,
+        "length": 11,
+        "key": expect.any(String)//"y2986h"
+      },
+      {
+        "start": "249.38",
+        "end": "249.53",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 721,
+        "length": 4,
+        "key": expect.any(String)//"ka9ztcc"
+      },
+      {
+        "start": "249.68",
+        "end": "249.95000000000002",
+        "confidence": "1.000",
+        "text": "really",
+        "offset": 726,
+        "length": 6,
+        "key": expect.any(String)//"qw24fn8"
+      },
+      {
+        "start": "249.95",
+        "end": "250.39999999999998",
+        "confidence": "1.000",
+        "text": "shows",
+        "offset": 733,
+        "length": 5,
+        "key": expect.any(String)//"tx18qx5"
+      },
+      {
+        "start": "250.40",
+        "end": "250.55",
+        "confidence": "1.000",
+        "text": "how",
+        "offset": 739,
+        "length": 3,
+        "key": expect.any(String)//"mxzf0h"
+      },
+      {
+        "start": "250.55",
+        "end": "250.70000000000002",
+        "confidence": "1.000",
+        "text": "well",
+        "offset": 743,
+        "length": 4,
+        "key": expect.any(String)//"d2ub0o"
+      },
+      {
+        "start": "250.70",
+        "end": "250.88",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 748,
+        "length": 4,
+        "key": expect.any(String)//"93gnbpk"
+      },
+      {
+        "start": "250.88",
+        "end": "251.68",
+        "confidence": "1.000",
+        "text": "works.",
+        "offset": 753,
+        "length": 6,
+        "key": expect.any(String)//"eyl10lg"
+      },
       {
         "start": "251.69",
         "end": "251.9",
         "confidence": "1.000",
         "text": "So",
-        "offset": 0,
+        "offset": 760,
         "length": 2,
-        "key": expect.any(String)//"qfu0sp"
+        "key": expect.any(String)//"xl2i38u"
       },
       {
         "start": "251.90",
         "end": "252.05",
         "confidence": "1.000",
         "text": "for",
-        "offset": 3,
+        "offset": 763,
         "length": 3,
-        "key": expect.any(String)//"maxlfnr"
+        "key": expect.any(String)//"sl5gjl4"
       },
       {
         "start": "252.05",
         "end": "252.53",
         "confidence": "1.000",
         "text": "example",
-        "offset": 7,
+        "offset": 767,
         "length": 7,
-        "key": expect.any(String)//"8m5obh"
+        "key": expect.any(String)//"xwdwg3h"
       },
       {
         "start": "252.53",
         "end": "253.16",
         "confidence": "1.000",
         "text": "researchers",
-        "offset": 15,
+        "offset": 775,
         "length": 11,
-        "key": expect.any(String)//"cp6th5i"
+        "key": expect.any(String)//"g88axds"
       },
       {
         "start": "253.16",
         "end": "253.31",
         "confidence": "1.000",
         "text": "at",
-        "offset": 27,
+        "offset": 787,
         "length": 2,
-        "key": expect.any(String)//"aoeioo"
+        "key": expect.any(String)//"nfplrh"
       },
       {
         "start": "253.46",
         "end": "253.97",
         "confidence": "1.000",
         "text": "Stanford",
-        "offset": 30,
+        "offset": 790,
         "length": 8,
-        "key": expect.any(String)//"qaxq8ed"
+        "key": expect.any(String)//"2vpeir7"
       },
       {
         "start": "253.97",
         "end": "254.51",
         "confidence": "1.000",
         "text": "University",
-        "offset": 39,
+        "offset": 799,
         "length": 10,
-        "key": expect.any(String)//"p065iau"
+        "key": expect.any(String)//"jmjty1"
       },
       {
         "start": "254.51",
         "end": "254.78",
         "confidence": "1.000",
         "text": "found",
-        "offset": 50,
+        "offset": 810,
         "length": 5,
-        "key": expect.any(String)//"l6d9pcg"
+        "key": expect.any(String)//"kx6l4qo"
       },
       {
         "start": "254.78",
         "end": "254.93",
         "confidence": "1.000",
         "text": "out",
-        "offset": 56,
+        "offset": 816,
         "length": 3,
-        "key": expect.any(String)//"gl3okgk"
+        "key": expect.any(String)//"wc2jl4k"
       },
       {
         "start": "254.93",
         "end": "255.05",
         "confidence": "1.000",
         "text": "that",
-        "offset": 60,
+        "offset": 820,
         "length": 4,
-        "key": expect.any(String)//"5ezwj1p"
+        "key": expect.any(String)//"9798wv"
       },
       {
         "start": "255.05",
         "end": "255.11",
         "confidence": "1.000",
         "text": "it",
-        "offset": 65,
+        "offset": 825,
         "length": 2,
-        "key": expect.any(String)//"b5pudw"
+        "key": expect.any(String)//"p7ntypx"
       },
       {
         "start": "255.11",
         "end": "255.32000000000002",
         "confidence": "1.000",
         "text": "makes",
-        "offset": 68,
+        "offset": 828,
         "length": 5,
-        "key": expect.any(String)//"xq41z89"
+        "key": expect.any(String)//"3zk1ens"
       },
       {
         "start": "255.32",
         "end": "255.62",
         "confidence": "1.000",
         "text": "people",
-        "offset": 74,
+        "offset": 834,
         "length": 6,
-        "key": expect.any(String)//"m4np4kr"
+        "key": expect.any(String)//"42n2vf2"
       },
       {
         "start": "255.62",
         "end": "255.92000000000002",
         "confidence": "1.000",
         "text": "really",
-        "offset": 81,
+        "offset": 841,
         "length": 6,
-        "key": expect.any(String)//"lg5nhe"
+        "key": expect.any(String)//"1mnsfh"
       },
       {
         "start": "255.92",
         "end": "256.58",
         "confidence": "1.000",
         "text": "uncomfortable",
-        "offset": 88,
+        "offset": 848,
         "length": 13,
-        "key": expect.any(String)//"vepgmzn"
+        "key": expect.any(String)//"4a9n12a"
       },
       {
         "start": "256.58",
         "end": "256.7",
         "confidence": "1.000",
         "text": "when",
-        "offset": 102,
+        "offset": 862,
         "length": 4,
-        "key": expect.any(String)//"yd0wtfb"
+        "key": expect.any(String)//"81xy4h8"
       },
       {
         "start": "256.70",
         "end": "256.78999999999996",
         "confidence": "1.000",
         "text": "you",
-        "offset": 107,
+        "offset": 867,
         "length": 3,
-        "key": expect.any(String)//"xghp8p7"
+        "key": expect.any(String)//"u7hqa7h"
       },
       {
         "start": "256.79",
         "end": "257.06",
         "confidence": "0.990",
         "text": "ask",
-        "offset": 111,
+        "offset": 871,
         "length": 3,
-        "key": expect.any(String)//"2jtspu"
+        "key": expect.any(String)//"2bkxa3"
       },
       {
         "start": "257.06",
         "end": "257.18",
         "confidence": "1.000",
         "text": "them",
-        "offset": 115,
+        "offset": 875,
         "length": 4,
-        "key": expect.any(String)//"8gvdgt"
+        "key": expect.any(String)//"tk6rvd"
       },
       {
         "start": "257.18",
         "end": "257.3",
         "confidence": "1.000",
         "text": "to",
-        "offset": 120,
+        "offset": 880,
         "length": 2,
-        "key": expect.any(String)//"ayqhiej"
+        "key": expect.any(String)//"ekdp1uh"
       },
       {
         "start": "257.30",
         "end": "257.54",
         "confidence": "0.980",
         "text": "touch",
-        "offset": 123,
+        "offset": 883,
         "length": 5,
-        "key": expect.any(String)//"gznyki"
+        "key": expect.any(String)//"ar8vjnn"
       },
       {
         "start": "257.54",
         "end": "257.63",
         "confidence": "0.710",
         "text": "on",
-        "offset": 129,
+        "offset": 889,
         "length": 2,
-        "key": expect.any(String)//"5adcxv"
+        "key": expect.any(String)//"hov6kpt"
       },
       {
         "start": "257.62",
         "end": "257.96",
         "confidence": "0.830",
         "text": "robots",
-        "offset": 132,
+        "offset": 892,
         "length": 6,
-        "key": expect.any(String)//"xsx3jyf"
+        "key": expect.any(String)//"8lkj32"
       },
       {
         "start": "257.96",
         "end": "258.38",
         "confidence": "1.000",
         "text": "private",
-        "offset": 139,
+        "offset": 899,
         "length": 7,
-        "key": expect.any(String)//"ziqq638"
+        "key": expect.any(String)//"e6ssw7q"
       },
       {
         "start": "258.38",
         "end": "261.61",
         "confidence": "1.000",
         "text": "parts.",
-        "offset": 147,
+        "offset": 907,
         "length": 6,
-        "key": expect.any(String)//"6ojerhg"
+        "key": expect.any(String)//"yad95qt"
       }
     ]
   },
   {
-    "text": "So from this but from many other studies we know we know that people respond to the cues given to them by these lifelike machines even if they know that they're not real.",
+    "text": "So from this but from many other studies we know we know that people respond to the cues given to them by these lifelike machines even if they know that they're not real. Now. We're headed towards a world where robots are everywhere. Robotic technology is moving out from behind factory walls. It's entering workplaces households. And as these machines that can sense and make autonomous decisions and learn enter into these shared spaces I think that maybe the best analogy we have for this is our relationship with animals. Thousands of years ago we started to domesticate animals and we trained them for work and weaponry and companionship and throughout history we've treated some animals like tools or like products and other animals we've treated with kindness and we've given a place in society as our companions. I think it's plausible we might start to integrate robots in similar ways.",
     "type": "paragraph",
     "data": {
       "speaker": "F4",
@@ -11823,316 +11463,7 @@ const draftTranscriptExample = [
           "word": "real",
           "punct": "real.",
           "index": 687
-        }
-      ],
-      "start": "261.62"
-    },
-    "entityRanges": [
-      {
-        "start": "261.62",
-        "end": "261.77",
-        "confidence": "1.000",
-        "text": "So",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"4memrbd"
-      },
-      {
-        "start": "261.77",
-        "end": "261.95",
-        "confidence": "1.000",
-        "text": "from",
-        "offset": 3,
-        "length": 4,
-        "key": expect.any(String)//"elxboil"
-      },
-      {
-        "start": "261.95",
-        "end": "262.09999999999997",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 8,
-        "length": 4,
-        "key": expect.any(String)//"my592l7"
-      },
-      {
-        "start": "262.10",
-        "end": "262.25",
-        "confidence": "1.000",
-        "text": "but",
-        "offset": 13,
-        "length": 3,
-        "key": expect.any(String)//"qdo6vd8"
-      },
-      {
-        "start": "262.25",
-        "end": "262.46",
-        "confidence": "1.000",
-        "text": "from",
-        "offset": 17,
-        "length": 4,
-        "key": expect.any(String)//"mqcat96"
-      },
-      {
-        "start": "262.46",
-        "end": "262.78999999999996",
-        "confidence": "1.000",
-        "text": "many",
-        "offset": 22,
-        "length": 4,
-        "key": expect.any(String)//"qav3v9n"
-      },
-      {
-        "start": "262.79",
-        "end": "263",
-        "confidence": "1.000",
-        "text": "other",
-        "offset": 27,
-        "length": 5,
-        "key": expect.any(String)//"0zowwfb"
-      },
-      {
-        "start": "263.00",
-        "end": "263.39",
-        "confidence": "1.000",
-        "text": "studies",
-        "offset": 33,
-        "length": 7,
-        "key": expect.any(String)//"10htgsw"
-      },
-      {
-        "start": "263.39",
-        "end": "263.57",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 41,
-        "length": 2,
-        "key": expect.any(String)//"8kqgq13"
-      },
-      {
-        "start": "263.57",
-        "end": "264.08",
-        "confidence": "1.000",
-        "text": "know",
-        "offset": 44,
-        "length": 4,
-        "key": expect.any(String)//"cpdmhd"
-      },
-      {
-        "start": "264.50",
-        "end": "264.68",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 49,
-        "length": 2,
-        "key": expect.any(String)//"57ffpmp"
-      },
-      {
-        "start": "264.68",
-        "end": "265.1",
-        "confidence": "1.000",
-        "text": "know",
-        "offset": 52,
-        "length": 4,
-        "key": expect.any(String)//"gcim63"
-      },
-      {
-        "start": "265.10",
-        "end": "265.25",
-        "confidence": "0.990",
-        "text": "that",
-        "offset": 57,
-        "length": 4,
-        "key": expect.any(String)//"qo8zzd"
-      },
-      {
-        "start": "265.25",
-        "end": "265.79",
-        "confidence": "1.000",
-        "text": "people",
-        "offset": 62,
-        "length": 6,
-        "key": expect.any(String)//"gruyn6gp"
-      },
-      {
-        "start": "265.79",
-        "end": "266.39000000000004",
-        "confidence": "1.000",
-        "text": "respond",
-        "offset": 69,
-        "length": 7,
-        "key": expect.any(String)//"5v5wzo"
-      },
-      {
-        "start": "266.39",
-        "end": "266.51",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 77,
-        "length": 2,
-        "key": expect.any(String)//"arr0l0w"
-      },
-      {
-        "start": "266.51",
-        "end": "266.63",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 80,
-        "length": 3,
-        "key": expect.any(String)//"86wazvh"
-      },
-      {
-        "start": "266.63",
-        "end": "267.23",
-        "confidence": "1.000",
-        "text": "cues",
-        "offset": 84,
-        "length": 4,
-        "key": expect.any(String)//"gwz8ir"
-      },
-      {
-        "start": "267.26",
-        "end": "267.59",
-        "confidence": "1.000",
-        "text": "given",
-        "offset": 89,
-        "length": 5,
-        "key": expect.any(String)//"r3d4pr"
-      },
-      {
-        "start": "267.59",
-        "end": "267.67999999999995",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 95,
-        "length": 2,
-        "key": expect.any(String)//"9wqxusn"
-      },
-      {
-        "start": "267.68",
-        "end": "267.86",
-        "confidence": "1.000",
-        "text": "them",
-        "offset": 98,
-        "length": 4,
-        "key": expect.any(String)//"o50zkac"
-      },
-      {
-        "start": "267.86",
-        "end": "268.01",
-        "confidence": "1.000",
-        "text": "by",
-        "offset": 103,
-        "length": 2,
-        "key": expect.any(String)//"lh47hfb"
-      },
-      {
-        "start": "268.01",
-        "end": "268.21999999999997",
-        "confidence": "1.000",
-        "text": "these",
-        "offset": 106,
-        "length": 5,
-        "key": expect.any(String)//"8w1lymq"
-      },
-      {
-        "start": "268.22",
-        "end": "268.67",
-        "confidence": "1.000",
-        "text": "lifelike",
-        "offset": 112,
-        "length": 8,
-        "key": expect.any(String)//"w5sfml9"
-      },
-      {
-        "start": "268.67",
-        "end": "269.42",
-        "confidence": "1.000",
-        "text": "machines",
-        "offset": 121,
-        "length": 8,
-        "key": expect.any(String)//"v5tolii"
-      },
-      {
-        "start": "269.93",
-        "end": "270.23",
-        "confidence": "1.000",
-        "text": "even",
-        "offset": 130,
-        "length": 4,
-        "key": expect.any(String)//"5mga8no"
-      },
-      {
-        "start": "270.23",
-        "end": "270.32",
-        "confidence": "0.990",
-        "text": "if",
-        "offset": 135,
-        "length": 2,
-        "key": expect.any(String)//"mh8locc"
-      },
-      {
-        "start": "270.32",
-        "end": "270.44",
-        "confidence": "1.000",
-        "text": "they",
-        "offset": 138,
-        "length": 4,
-        "key": expect.any(String)//"lahbdnr"
-      },
-      {
-        "start": "270.44",
-        "end": "270.68",
-        "confidence": "1.000",
-        "text": "know",
-        "offset": 143,
-        "length": 4,
-        "key": expect.any(String)//"ylmt6dx"
-      },
-      {
-        "start": "270.68",
-        "end": "270.83",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 148,
-        "length": 4,
-        "key": expect.any(String)//"br3xum"
-      },
-      {
-        "start": "270.83",
-        "end": "271.01",
-        "confidence": "1.000",
-        "text": "they're",
-        "offset": 153,
-        "length": 7,
-        "key": expect.any(String)//"pc6t2gm"
-      },
-      {
-        "start": "271.01",
-        "end": "271.21999999999997",
-        "confidence": "1.000",
-        "text": "not",
-        "offset": 161,
-        "length": 3,
-        "key": expect.any(String)//"hy6xi0b"
-      },
-      {
-        "start": "271.22",
-        "end": "272.07000000000005",
-        "confidence": "1.000",
-        "text": "real.",
-        "offset": 165,
-        "length": 5,
-        "key": expect.any(String)//"f4yj2i5"
-      }
-    ]
-  },
-  {
-    "text": "Now.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "273.69",
           "end": "274.11",
@@ -12140,28 +11471,7 @@ const draftTranscriptExample = [
           "word": "now",
           "punct": "Now.",
           "index": 688
-        }
-      ],
-      "start": "273.69"
-    },
-    "entityRanges": [
-      {
-        "start": "273.69",
-        "end": "274.11",
-        "confidence": "1.000",
-        "text": "Now.",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"fuj0ofe"
-      }
-    ]
-  },
-  {
-    "text": "We're headed towards a world where robots are everywhere.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "274.53",
           "end": "274.71",
@@ -12233,100 +11543,7 @@ const draftTranscriptExample = [
           "word": "everywhere",
           "punct": "everywhere.",
           "index": 697
-        }
-      ],
-      "start": "274.53"
-    },
-    "entityRanges": [
-      {
-        "start": "274.53",
-        "end": "274.71",
-        "confidence": "1.000",
-        "text": "We're",
-        "offset": 0,
-        "length": 5,
-        "key": expect.any(String)//"ez701n"
-      },
-      {
-        "start": "274.71",
-        "end": "274.97999999999996",
-        "confidence": "1.000",
-        "text": "headed",
-        "offset": 6,
-        "length": 6,
-        "key": expect.any(String)//"11w84y"
-      },
-      {
-        "start": "274.98",
-        "end": "275.25",
-        "confidence": "1.000",
-        "text": "towards",
-        "offset": 13,
-        "length": 7,
-        "key": expect.any(String)//"8rtimu"
-      },
-      {
-        "start": "275.25",
-        "end": "275.28",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 21,
-        "length": 1,
-        "key": expect.any(String)//"k3mu5ra"
-      },
-      {
-        "start": "275.28",
-        "end": "275.7",
-        "confidence": "1.000",
-        "text": "world",
-        "offset": 23,
-        "length": 5,
-        "key": expect.any(String)//"tkhlkrc"
-      },
-      {
-        "start": "275.70",
-        "end": "275.84999999999997",
-        "confidence": "1.000",
-        "text": "where",
-        "offset": 29,
-        "length": 5,
-        "key": expect.any(String)//"ivpad94j"
-      },
-      {
-        "start": "275.85",
-        "end": "276.36",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 35,
-        "length": 6,
-        "key": expect.any(String)//"pwwunxj"
-      },
-      {
-        "start": "276.36",
-        "end": "276.51",
-        "confidence": "1.000",
-        "text": "are",
-        "offset": 42,
-        "length": 3,
-        "key": expect.any(String)//"7w1dvk"
-      },
-      {
-        "start": "276.60",
-        "end": "277.43",
-        "confidence": "1.000",
-        "text": "everywhere.",
-        "offset": 46,
-        "length": 11,
-        "key": expect.any(String)//"nqvhe35"
-      }
-    ]
-  },
-  {
-    "text": "Robotic technology is moving out from behind factory walls.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "277.71",
           "end": "278.07",
@@ -12398,100 +11615,7 @@ const draftTranscriptExample = [
           "word": "walls",
           "punct": "walls.",
           "index": 706
-        }
-      ],
-      "start": "277.71"
-    },
-    "entityRanges": [
-      {
-        "start": "277.71",
-        "end": "278.07",
-        "confidence": "1.000",
-        "text": "Robotic",
-        "offset": 0,
-        "length": 7,
-        "key": expect.any(String)//"hxalm2r"
-      },
-      {
-        "start": "278.07",
-        "end": "278.61",
-        "confidence": "1.000",
-        "text": "technology",
-        "offset": 8,
-        "length": 10,
-        "key": expect.any(String)//"swj1ug"
-      },
-      {
-        "start": "278.61",
-        "end": "278.82",
-        "confidence": "1.000",
-        "text": "is",
-        "offset": 19,
-        "length": 2,
-        "key": expect.any(String)//"95xcief"
-      },
-      {
-        "start": "278.82",
-        "end": "279.24",
-        "confidence": "1.000",
-        "text": "moving",
-        "offset": 22,
-        "length": 6,
-        "key": expect.any(String)//"cbyaz2k"
-      },
-      {
-        "start": "279.24",
-        "end": "279.39",
-        "confidence": "1.000",
-        "text": "out",
-        "offset": 29,
-        "length": 3,
-        "key": expect.any(String)//"pwys89"
-      },
-      {
-        "start": "279.39",
-        "end": "279.57",
-        "confidence": "1.000",
-        "text": "from",
-        "offset": 33,
-        "length": 4,
-        "key": expect.any(String)//"it9lwve"
-      },
-      {
-        "start": "279.57",
-        "end": "279.84",
-        "confidence": "1.000",
-        "text": "behind",
-        "offset": 38,
-        "length": 6,
-        "key": expect.any(String)//"vkzjty"
-      },
-      {
-        "start": "279.84",
-        "end": "280.26",
-        "confidence": "1.000",
-        "text": "factory",
-        "offset": 45,
-        "length": 7,
-        "key": expect.any(String)//"3mer5ts"
-      },
-      {
-        "start": "280.26",
-        "end": "280.83",
-        "confidence": "1.000",
-        "text": "walls.",
-        "offset": 53,
-        "length": 6,
-        "key": expect.any(String)//"9it4jro"
-      }
-    ]
-  },
-  {
-    "text": "It's entering workplaces households.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "280.83",
           "end": "281.01",
@@ -12523,55 +11647,7 @@ const draftTranscriptExample = [
           "word": "households",
           "punct": "households.",
           "index": 710
-        }
-      ],
-      "start": "280.83"
-    },
-    "entityRanges": [
-      {
-        "start": "280.83",
-        "end": "281.01",
-        "confidence": "0.990",
-        "text": "It's",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"g35iatm"
-      },
-      {
-        "start": "281.01",
-        "end": "281.37",
-        "confidence": "1.000",
-        "text": "entering",
-        "offset": 5,
-        "length": 8,
-        "key": expect.any(String)//"zig6dc8"
-      },
-      {
-        "start": "281.37",
-        "end": "282.36",
-        "confidence": "1.000",
-        "text": "workplaces",
-        "offset": 14,
-        "length": 10,
-        "key": expect.any(String)//"c0grfm8"
-      },
-      {
-        "start": "282.36",
-        "end": "283.76",
-        "confidence": "1.000",
-        "text": "households.",
-        "offset": 25,
-        "length": 11,
-        "key": expect.any(String)//"rn5j53m"
-      }
-    ]
-  },
-  {
-    "text": "And as these machines that can sense and make autonomous decisions and learn enter into these shared spaces I think that maybe the best analogy we have for this is our relationship with animals.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "283.89",
           "end": "284.09999999999997",
@@ -12843,325 +11919,7 @@ const draftTranscriptExample = [
           "word": "animals",
           "punct": "animals.",
           "index": 744
-        }
-      ],
-      "start": "283.89"
-    },
-    "entityRanges": [
-      {
-        "start": "283.89",
-        "end": "284.09999999999997",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"jhrvplj"
-      },
-      {
-        "start": "284.16",
-        "end": "284.37",
-        "confidence": "1.000",
-        "text": "as",
-        "offset": 4,
-        "length": 2,
-        "key": expect.any(String)//"mhylet6"
-      },
-      {
-        "start": "284.37",
-        "end": "284.55",
-        "confidence": "1.000",
-        "text": "these",
-        "offset": 7,
-        "length": 5,
-        "key": expect.any(String)//"56u8dg5"
-      },
-      {
-        "start": "284.55",
-        "end": "285.21000000000004",
-        "confidence": "1.000",
-        "text": "machines",
-        "offset": 13,
-        "length": 8,
-        "key": expect.any(String)//"6vw6qk"
-      },
-      {
-        "start": "285.21",
-        "end": "285.35999999999996",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 22,
-        "length": 4,
-        "key": expect.any(String)//"2h80wj5"
-      },
-      {
-        "start": "285.36",
-        "end": "285.84000000000003",
-        "confidence": "1.000",
-        "text": "can",
-        "offset": 27,
-        "length": 3,
-        "key": expect.any(String)//"m3u1hwb"
-      },
-      {
-        "start": "285.93",
-        "end": "286.62",
-        "confidence": "0.990",
-        "text": "sense",
-        "offset": 31,
-        "length": 5,
-        "key": expect.any(String)//"blx5l6o"
-      },
-      {
-        "start": "286.68",
-        "end": "286.95",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 37,
-        "length": 3,
-        "key": expect.any(String)//"xgsqrsq"
-      },
-      {
-        "start": "287.22",
-        "end": "287.46000000000004",
-        "confidence": "1.000",
-        "text": "make",
-        "offset": 41,
-        "length": 4,
-        "key": expect.any(String)//"v01aoxo"
-      },
-      {
-        "start": "287.46",
-        "end": "288.06",
-        "confidence": "1.000",
-        "text": "autonomous",
-        "offset": 46,
-        "length": 10,
-        "key": expect.any(String)//"6w2njtb"
-      },
-      {
-        "start": "288.06",
-        "end": "288.72",
-        "confidence": "1.000",
-        "text": "decisions",
-        "offset": 57,
-        "length": 9,
-        "key": expect.any(String)//"9ug3dbo"
-      },
-      {
-        "start": "288.72",
-        "end": "288.84000000000003",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 67,
-        "length": 3,
-        "key": expect.any(String)//"zugo09e"
-      },
-      {
-        "start": "288.84",
-        "end": "289.53",
-        "confidence": "1.000",
-        "text": "learn",
-        "offset": 71,
-        "length": 5,
-        "key": expect.any(String)//"wfz0g2q"
-      },
-      {
-        "start": "290.10",
-        "end": "290.40000000000003",
-        "confidence": "1.000",
-        "text": "enter",
-        "offset": 77,
-        "length": 5,
-        "key": expect.any(String)//"ghpkko"
-      },
-      {
-        "start": "290.40",
-        "end": "290.58",
-        "confidence": "1.000",
-        "text": "into",
-        "offset": 83,
-        "length": 4,
-        "key": expect.any(String)//"j2ado1m"
-      },
-      {
-        "start": "290.58",
-        "end": "290.76",
-        "confidence": "1.000",
-        "text": "these",
-        "offset": 88,
-        "length": 5,
-        "key": expect.any(String)//"biyoath"
-      },
-      {
-        "start": "290.76",
-        "end": "291.09",
-        "confidence": "1.000",
-        "text": "shared",
-        "offset": 94,
-        "length": 6,
-        "key": expect.any(String)//"7bmaloq"
-      },
-      {
-        "start": "291.09",
-        "end": "292.10999999999996",
-        "confidence": "1.000",
-        "text": "spaces",
-        "offset": 101,
-        "length": 6,
-        "key": expect.any(String)//"r8nxb26"
-      },
-      {
-        "start": "292.71",
-        "end": "292.79999999999995",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 108,
-        "length": 1,
-        "key": expect.any(String)//"xfh2tok"
-      },
-      {
-        "start": "292.80",
-        "end": "293.01",
-        "confidence": "1.000",
-        "text": "think",
-        "offset": 110,
-        "length": 5,
-        "key": expect.any(String)//"4o8hrm3"
-      },
-      {
-        "start": "293.01",
-        "end": "293.15999999999997",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 116,
-        "length": 4,
-        "key": expect.any(String)//"obufbdj"
-      },
-      {
-        "start": "293.19",
-        "end": "293.43",
-        "confidence": "0.950",
-        "text": "maybe",
-        "offset": 121,
-        "length": 5,
-        "key": expect.any(String)//"brlxttc"
-      },
-      {
-        "start": "293.43",
-        "end": "293.52",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 127,
-        "length": 3,
-        "key": expect.any(String)//"8dpkrq"
-      },
-      {
-        "start": "293.52",
-        "end": "293.76",
-        "confidence": "1.000",
-        "text": "best",
-        "offset": 131,
-        "length": 4,
-        "key": expect.any(String)//"ddrhuep"
-      },
-      {
-        "start": "293.76",
-        "end": "294.33",
-        "confidence": "1.000",
-        "text": "analogy",
-        "offset": 136,
-        "length": 7,
-        "key": expect.any(String)//"ypupg4"
-      },
-      {
-        "start": "294.33",
-        "end": "294.45",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 144,
-        "length": 2,
-        "key": expect.any(String)//"ip8gup"
-      },
-      {
-        "start": "294.45",
-        "end": "294.71999999999997",
-        "confidence": "1.000",
-        "text": "have",
-        "offset": 147,
-        "length": 4,
-        "key": expect.any(String)//"t7rj46"
-      },
-      {
-        "start": "294.72",
-        "end": "294.84000000000003",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 152,
-        "length": 3,
-        "key": expect.any(String)//"b1cz8cu"
-      },
-      {
-        "start": "294.84",
-        "end": "295.08",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 156,
-        "length": 4,
-        "key": expect.any(String)//"l98ehh"
-      },
-      {
-        "start": "295.08",
-        "end": "295.22999999999996",
-        "confidence": "1.000",
-        "text": "is",
-        "offset": 161,
-        "length": 2,
-        "key": expect.any(String)//"ysikq1"
-      },
-      {
-        "start": "295.23",
-        "end": "295.32",
-        "confidence": "1.000",
-        "text": "our",
-        "offset": 164,
-        "length": 3,
-        "key": expect.any(String)//"3m0vvy"
-      },
-      {
-        "start": "295.32",
-        "end": "296.04",
-        "confidence": "1.000",
-        "text": "relationship",
-        "offset": 168,
-        "length": 12,
-        "key": expect.any(String)//"xerxvwf"
-      },
-      {
-        "start": "296.04",
-        "end": "296.19",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 181,
-        "length": 4,
-        "key": expect.any(String)//"tjqu6qq"
-      },
-      {
-        "start": "296.28",
-        "end": "297.27",
-        "confidence": "1.000",
-        "text": "animals.",
-        "offset": 186,
-        "length": 8,
-        "key": expect.any(String)//"usq97i"
-      }
-    ]
-  },
-  {
-    "text": "Thousands of years ago we started to domesticate animals and we trained them for work and weaponry and companionship and throughout history we've treated some animals like tools or like products and other animals we've treated with kindness and we've given a place in society as our companions.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "297.48",
           "end": "297.99",
@@ -13545,451 +12303,7 @@ const draftTranscriptExample = [
           "word": "companions",
           "punct": "companions.",
           "index": 792
-        }
-      ],
-      "start": "297.48"
-    },
-    "entityRanges": [
-      {
-        "start": "297.48",
-        "end": "297.99",
-        "confidence": "1.000",
-        "text": "Thousands",
-        "offset": 0,
-        "length": 9,
-        "key": expect.any(String)//"vi1a7ya"
-      },
-      {
-        "start": "297.99",
-        "end": "298.11",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 10,
-        "length": 2,
-        "key": expect.any(String)//"2r2dyk"
-      },
-      {
-        "start": "298.11",
-        "end": "298.35",
-        "confidence": "1.000",
-        "text": "years",
-        "offset": 13,
-        "length": 5,
-        "key": expect.any(String)//"9789skq"
-      },
-      {
-        "start": "298.35",
-        "end": "298.83000000000004",
-        "confidence": "1.000",
-        "text": "ago",
-        "offset": 19,
-        "length": 3,
-        "key": expect.any(String)//"h8noal"
-      },
-      {
-        "start": "299.34",
-        "end": "299.46",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 23,
-        "length": 2,
-        "key": expect.any(String)//"jau0n"
-      },
-      {
-        "start": "299.46",
-        "end": "299.76",
-        "confidence": "1.000",
-        "text": "started",
-        "offset": 26,
-        "length": 7,
-        "key": expect.any(String)//"gj23ls"
-      },
-      {
-        "start": "299.76",
-        "end": "299.88",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 34,
-        "length": 2,
-        "key": expect.any(String)//"lgzaq"
-      },
-      {
-        "start": "299.88",
-        "end": "300.51",
-        "confidence": "1.000",
-        "text": "domesticate",
-        "offset": 37,
-        "length": 11,
-        "key": expect.any(String)//"uu5ksu7"
-      },
-      {
-        "start": "300.51",
-        "end": "301.14",
-        "confidence": "1.000",
-        "text": "animals",
-        "offset": 49,
-        "length": 7,
-        "key": expect.any(String)//"z9prtrc"
-      },
-      {
-        "start": "301.47",
-        "end": "301.56",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 57,
-        "length": 3,
-        "key": expect.any(String)//"jpfv49t"
-      },
-      {
-        "start": "301.56",
-        "end": "301.65",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 61,
-        "length": 2,
-        "key": expect.any(String)//"bz7ukm6"
-      },
-      {
-        "start": "301.65",
-        "end": "301.97999999999996",
-        "confidence": "0.640",
-        "text": "trained",
-        "offset": 64,
-        "length": 7,
-        "key": expect.any(String)//"bn78i7q"
-      },
-      {
-        "start": "301.98",
-        "end": "302.16",
-        "confidence": "1.000",
-        "text": "them",
-        "offset": 72,
-        "length": 4,
-        "key": expect.any(String)//"it1dg1e"
-      },
-      {
-        "start": "302.16",
-        "end": "302.34000000000003",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 77,
-        "length": 3,
-        "key": expect.any(String)//"m8jjc6"
-      },
-      {
-        "start": "302.34",
-        "end": "302.88",
-        "confidence": "1.000",
-        "text": "work",
-        "offset": 81,
-        "length": 4,
-        "key": expect.any(String)//"kl0gjnh"
-      },
-      {
-        "start": "302.94",
-        "end": "303.09",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 86,
-        "length": 3,
-        "key": expect.any(String)//"eqckuns"
-      },
-      {
-        "start": "303.09",
-        "end": "303.81",
-        "confidence": "1.000",
-        "text": "weaponry",
-        "offset": 90,
-        "length": 8,
-        "key": expect.any(String)//"e247us"
-      },
-      {
-        "start": "303.84",
-        "end": "303.96",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 99,
-        "length": 3,
-        "key": expect.any(String)//"g4sutn"
-      },
-      {
-        "start": "303.96",
-        "end": "304.89",
-        "confidence": "1.000",
-        "text": "companionship",
-        "offset": 103,
-        "length": 13,
-        "key": expect.any(String)//"fidlhi"
-      },
-      {
-        "start": "305.55",
-        "end": "305.67",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 117,
-        "length": 3,
-        "key": expect.any(String)//"9xx56yp"
-      },
-      {
-        "start": "305.67",
-        "end": "305.94",
-        "confidence": "1.000",
-        "text": "throughout",
-        "offset": 121,
-        "length": 10,
-        "key": expect.any(String)//"4d80hvj"
-      },
-      {
-        "start": "305.94",
-        "end": "306.42",
-        "confidence": "1.000",
-        "text": "history",
-        "offset": 132,
-        "length": 7,
-        "key": expect.any(String)//"w6r89p"
-      },
-      {
-        "start": "306.42",
-        "end": "306.6",
-        "confidence": "0.980",
-        "text": "we've",
-        "offset": 140,
-        "length": 5,
-        "key": expect.any(String)//"i6dxmb"
-      },
-      {
-        "start": "306.60",
-        "end": "306.93",
-        "confidence": "1.000",
-        "text": "treated",
-        "offset": 146,
-        "length": 7,
-        "key": expect.any(String)//"874r9la"
-      },
-      {
-        "start": "306.93",
-        "end": "307.23",
-        "confidence": "1.000",
-        "text": "some",
-        "offset": 154,
-        "length": 4,
-        "key": expect.any(String)//"ewzkfy3"
-      },
-      {
-        "start": "307.23",
-        "end": "307.74",
-        "confidence": "1.000",
-        "text": "animals",
-        "offset": 159,
-        "length": 7,
-        "key": expect.any(String)//"pahk99"
-      },
-      {
-        "start": "307.74",
-        "end": "307.92",
-        "confidence": "1.000",
-        "text": "like",
-        "offset": 167,
-        "length": 4,
-        "key": expect.any(String)//"gyp6qga"
-      },
-      {
-        "start": "307.92",
-        "end": "308.58000000000004",
-        "confidence": "1.000",
-        "text": "tools",
-        "offset": 172,
-        "length": 5,
-        "key": expect.any(String)//"ixexb0g"
-      },
-      {
-        "start": "308.94",
-        "end": "309.06",
-        "confidence": "0.990",
-        "text": "or",
-        "offset": 178,
-        "length": 2,
-        "key": expect.any(String)//"bf8fdkq"
-      },
-      {
-        "start": "309.06",
-        "end": "309.24",
-        "confidence": "1.000",
-        "text": "like",
-        "offset": 181,
-        "length": 4,
-        "key": expect.any(String)//"6khufs"
-      },
-      {
-        "start": "309.24",
-        "end": "310.05",
-        "confidence": "1.000",
-        "text": "products",
-        "offset": 186,
-        "length": 8,
-        "key": expect.any(String)//"0oo2fd"
-      },
-      {
-        "start": "310.53",
-        "end": "310.73999999999995",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 195,
-        "length": 3,
-        "key": expect.any(String)//"oze28m8"
-      },
-      {
-        "start": "310.77",
-        "end": "311.01",
-        "confidence": "1.000",
-        "text": "other",
-        "offset": 199,
-        "length": 5,
-        "key": expect.any(String)//"uf3dfk"
-      },
-      {
-        "start": "311.01",
-        "end": "311.33",
-        "confidence": "1.000",
-        "text": "animals",
-        "offset": 205,
-        "length": 7,
-        "key": expect.any(String)//"2u6dp2r"
-      },
-      {
-        "start": "311.34",
-        "end": "311.46",
-        "confidence": "0.950",
-        "text": "we've",
-        "offset": 213,
-        "length": 5,
-        "key": expect.any(String)//"ayypvp"
-      },
-      {
-        "start": "311.46",
-        "end": "311.72999999999996",
-        "confidence": "1.000",
-        "text": "treated",
-        "offset": 219,
-        "length": 7,
-        "key": expect.any(String)//"t5liogb"
-      },
-      {
-        "start": "311.73",
-        "end": "311.88",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 227,
-        "length": 4,
-        "key": expect.any(String)//"udau07"
-      },
-      {
-        "start": "311.88",
-        "end": "312.54",
-        "confidence": "1.000",
-        "text": "kindness",
-        "offset": 232,
-        "length": 8,
-        "key": expect.any(String)//"pyuwzsh"
-      },
-      {
-        "start": "312.63",
-        "end": "312.71999999999997",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 241,
-        "length": 3,
-        "key": expect.any(String)//"5q2quvi"
-      },
-      {
-        "start": "312.72",
-        "end": "312.87",
-        "confidence": "1.000",
-        "text": "we've",
-        "offset": 245,
-        "length": 5,
-        "key": expect.any(String)//"1oriy9"
-      },
-      {
-        "start": "312.87",
-        "end": "313.14",
-        "confidence": "1.000",
-        "text": "given",
-        "offset": 251,
-        "length": 5,
-        "key": expect.any(String)//"38spz3v"
-      },
-      {
-        "start": "313.14",
-        "end": "313.16999999999996",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 257,
-        "length": 1,
-        "key": expect.any(String)//"l9f0do"
-      },
-      {
-        "start": "313.17",
-        "end": "313.56",
-        "confidence": "1.000",
-        "text": "place",
-        "offset": 259,
-        "length": 5,
-        "key": expect.any(String)//"v14b3o"
-      },
-      {
-        "start": "313.56",
-        "end": "313.65",
-        "confidence": "1.000",
-        "text": "in",
-        "offset": 265,
-        "length": 2,
-        "key": expect.any(String)//"ycrseec"
-      },
-      {
-        "start": "313.65",
-        "end": "314.13",
-        "confidence": "1.000",
-        "text": "society",
-        "offset": 268,
-        "length": 7,
-        "key": expect.any(String)//"8kfd8ko"
-      },
-      {
-        "start": "314.13",
-        "end": "314.25",
-        "confidence": "0.780",
-        "text": "as",
-        "offset": 276,
-        "length": 2,
-        "key": expect.any(String)//"eg517po"
-      },
-      {
-        "start": "314.25",
-        "end": "314.34",
-        "confidence": "1.000",
-        "text": "our",
-        "offset": 279,
-        "length": 3,
-        "key": expect.any(String)//"yz8g7uy"
-      },
-      {
-        "start": "314.34",
-        "end": "315.86999999999995",
-        "confidence": "1.000",
-        "text": "companions.",
-        "offset": 283,
-        "length": 11,
-        "key": expect.any(String)//"uwu929f"
-      }
-    ]
-  },
-  {
-    "text": "I think it's plausible we might start to integrate robots in similar ways.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "315.87",
           "end": "315.96",
@@ -14095,130 +12409,1372 @@ const draftTranscriptExample = [
           "index": 805
         }
       ],
-      "start": "315.87"
+      "start": "261.62"
     },
     "entityRanges": [
+      {
+        "start": "261.62",
+        "end": "261.77",
+        "confidence": "1.000",
+        "text": "So",
+        "offset": 0,
+        "length": 2,
+        "key": expect.any(String)//"h7y0r2"
+      },
+      {
+        "start": "261.77",
+        "end": "261.95",
+        "confidence": "1.000",
+        "text": "from",
+        "offset": 3,
+        "length": 4,
+        "key": expect.any(String)//"58a5a58"
+      },
+      {
+        "start": "261.95",
+        "end": "262.09999999999997",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 8,
+        "length": 4,
+        "key": expect.any(String)//"sxsrvf"
+      },
+      {
+        "start": "262.10",
+        "end": "262.25",
+        "confidence": "1.000",
+        "text": "but",
+        "offset": 13,
+        "length": 3,
+        "key": expect.any(String)//"p336nd"
+      },
+      {
+        "start": "262.25",
+        "end": "262.46",
+        "confidence": "1.000",
+        "text": "from",
+        "offset": 17,
+        "length": 4,
+        "key": expect.any(String)//"ndbotbc"
+      },
+      {
+        "start": "262.46",
+        "end": "262.78999999999996",
+        "confidence": "1.000",
+        "text": "many",
+        "offset": 22,
+        "length": 4,
+        "key": expect.any(String)//"wqzjpvm"
+      },
+      {
+        "start": "262.79",
+        "end": "263",
+        "confidence": "1.000",
+        "text": "other",
+        "offset": 27,
+        "length": 5,
+        "key": expect.any(String)//"yhg8uoh"
+      },
+      {
+        "start": "263.00",
+        "end": "263.39",
+        "confidence": "1.000",
+        "text": "studies",
+        "offset": 33,
+        "length": 7,
+        "key": expect.any(String)//"t5tdm7"
+      },
+      {
+        "start": "263.39",
+        "end": "263.57",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 41,
+        "length": 2,
+        "key": expect.any(String)//"pvu9pmo8"
+      },
+      {
+        "start": "263.57",
+        "end": "264.08",
+        "confidence": "1.000",
+        "text": "know",
+        "offset": 44,
+        "length": 4,
+        "key": expect.any(String)//"dhn6lm6"
+      },
+      {
+        "start": "264.50",
+        "end": "264.68",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 49,
+        "length": 2,
+        "key": expect.any(String)//"f4nfr3e"
+      },
+      {
+        "start": "264.68",
+        "end": "265.1",
+        "confidence": "1.000",
+        "text": "know",
+        "offset": 52,
+        "length": 4,
+        "key": expect.any(String)//"dy3cjd"
+      },
+      {
+        "start": "265.10",
+        "end": "265.25",
+        "confidence": "0.990",
+        "text": "that",
+        "offset": 57,
+        "length": 4,
+        "key": expect.any(String)//"exlkx8k"
+      },
+      {
+        "start": "265.25",
+        "end": "265.79",
+        "confidence": "1.000",
+        "text": "people",
+        "offset": 62,
+        "length": 6,
+        "key": expect.any(String)//"zqeagg"
+      },
+      {
+        "start": "265.79",
+        "end": "266.39000000000004",
+        "confidence": "1.000",
+        "text": "respond",
+        "offset": 69,
+        "length": 7,
+        "key": expect.any(String)//"cvigqcb"
+      },
+      {
+        "start": "266.39",
+        "end": "266.51",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 77,
+        "length": 2,
+        "key": expect.any(String)//"t0amz1y"
+      },
+      {
+        "start": "266.51",
+        "end": "266.63",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 80,
+        "length": 3,
+        "key": expect.any(String)//"8hbexjh"
+      },
+      {
+        "start": "266.63",
+        "end": "267.23",
+        "confidence": "1.000",
+        "text": "cues",
+        "offset": 84,
+        "length": 4,
+        "key": expect.any(String)//"r427xal"
+      },
+      {
+        "start": "267.26",
+        "end": "267.59",
+        "confidence": "1.000",
+        "text": "given",
+        "offset": 89,
+        "length": 5,
+        "key": expect.any(String)//"y5uv388"
+      },
+      {
+        "start": "267.59",
+        "end": "267.67999999999995",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 95,
+        "length": 2,
+        "key": expect.any(String)//"ol79myq"
+      },
+      {
+        "start": "267.68",
+        "end": "267.86",
+        "confidence": "1.000",
+        "text": "them",
+        "offset": 98,
+        "length": 4,
+        "key": expect.any(String)//"neg3f38"
+      },
+      {
+        "start": "267.86",
+        "end": "268.01",
+        "confidence": "1.000",
+        "text": "by",
+        "offset": 103,
+        "length": 2,
+        "key": expect.any(String)//"m02yhy6"
+      },
+      {
+        "start": "268.01",
+        "end": "268.21999999999997",
+        "confidence": "1.000",
+        "text": "these",
+        "offset": 106,
+        "length": 5,
+        "key": expect.any(String)//"d881asb"
+      },
+      {
+        "start": "268.22",
+        "end": "268.67",
+        "confidence": "1.000",
+        "text": "lifelike",
+        "offset": 112,
+        "length": 8,
+        "key": expect.any(String)//"n3d5a7q"
+      },
+      {
+        "start": "268.67",
+        "end": "269.42",
+        "confidence": "1.000",
+        "text": "machines",
+        "offset": 121,
+        "length": 8,
+        "key": expect.any(String)//"el2mmj"
+      },
+      {
+        "start": "269.93",
+        "end": "270.23",
+        "confidence": "1.000",
+        "text": "even",
+        "offset": 130,
+        "length": 4,
+        "key": expect.any(String)//"nmj2aou"
+      },
+      {
+        "start": "270.23",
+        "end": "270.32",
+        "confidence": "0.990",
+        "text": "if",
+        "offset": 135,
+        "length": 2,
+        "key": expect.any(String)//"l17nibw"
+      },
+      {
+        "start": "270.32",
+        "end": "270.44",
+        "confidence": "1.000",
+        "text": "they",
+        "offset": 138,
+        "length": 4,
+        "key": expect.any(String)//"w0ly0i"
+      },
+      {
+        "start": "270.44",
+        "end": "270.68",
+        "confidence": "1.000",
+        "text": "know",
+        "offset": 143,
+        "length": 4,
+        "key": expect.any(String)//"gdhybbg"
+      },
+      {
+        "start": "270.68",
+        "end": "270.83",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 148,
+        "length": 4,
+        "key": expect.any(String)//"c2l7dj"
+      },
+      {
+        "start": "270.83",
+        "end": "271.01",
+        "confidence": "1.000",
+        "text": "they're",
+        "offset": 153,
+        "length": 7,
+        "key": expect.any(String)//"pa0wxs5"
+      },
+      {
+        "start": "271.01",
+        "end": "271.21999999999997",
+        "confidence": "1.000",
+        "text": "not",
+        "offset": 161,
+        "length": 3,
+        "key": expect.any(String)//"5ur5xsx"
+      },
+      {
+        "start": "271.22",
+        "end": "272.07000000000005",
+        "confidence": "1.000",
+        "text": "real.",
+        "offset": 165,
+        "length": 5,
+        "key": expect.any(String)//"wozxvno"
+      },
+      {
+        "start": "273.69",
+        "end": "274.11",
+        "confidence": "1.000",
+        "text": "Now.",
+        "offset": 171,
+        "length": 4,
+        "key": expect.any(String)//"w8l91qn"
+      },
+      {
+        "start": "274.53",
+        "end": "274.71",
+        "confidence": "1.000",
+        "text": "We're",
+        "offset": 176,
+        "length": 5,
+        "key": expect.any(String)//"abhbmf"
+      },
+      {
+        "start": "274.71",
+        "end": "274.97999999999996",
+        "confidence": "1.000",
+        "text": "headed",
+        "offset": 182,
+        "length": 6,
+        "key": expect.any(String)//"m1soa7"
+      },
+      {
+        "start": "274.98",
+        "end": "275.25",
+        "confidence": "1.000",
+        "text": "towards",
+        "offset": 189,
+        "length": 7,
+        "key": expect.any(String)//"8o2igof"
+      },
+      {
+        "start": "275.25",
+        "end": "275.28",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 197,
+        "length": 1,
+        "key": expect.any(String)//"nt9jfep"
+      },
+      {
+        "start": "275.28",
+        "end": "275.7",
+        "confidence": "1.000",
+        "text": "world",
+        "offset": 199,
+        "length": 5,
+        "key": expect.any(String)//"k8aymr"
+      },
+      {
+        "start": "275.70",
+        "end": "275.84999999999997",
+        "confidence": "1.000",
+        "text": "where",
+        "offset": 205,
+        "length": 5,
+        "key": expect.any(String)//"u07zk5g"
+      },
+      {
+        "start": "275.85",
+        "end": "276.36",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 211,
+        "length": 6,
+        "key": expect.any(String)//"jwfc6lq"
+      },
+      {
+        "start": "276.36",
+        "end": "276.51",
+        "confidence": "1.000",
+        "text": "are",
+        "offset": 218,
+        "length": 3,
+        "key": expect.any(String)//"ne7vj8s"
+      },
+      {
+        "start": "276.60",
+        "end": "277.43",
+        "confidence": "1.000",
+        "text": "everywhere.",
+        "offset": 222,
+        "length": 11,
+        "key": expect.any(String)//"4hctny"
+      },
+      {
+        "start": "277.71",
+        "end": "278.07",
+        "confidence": "1.000",
+        "text": "Robotic",
+        "offset": 234,
+        "length": 7,
+        "key": expect.any(String)//"rewo65r"
+      },
+      {
+        "start": "278.07",
+        "end": "278.61",
+        "confidence": "1.000",
+        "text": "technology",
+        "offset": 242,
+        "length": 10,
+        "key": expect.any(String)//"ecvpr9r"
+      },
+      {
+        "start": "278.61",
+        "end": "278.82",
+        "confidence": "1.000",
+        "text": "is",
+        "offset": 253,
+        "length": 2,
+        "key": expect.any(String)//"kagwevo"
+      },
+      {
+        "start": "278.82",
+        "end": "279.24",
+        "confidence": "1.000",
+        "text": "moving",
+        "offset": 256,
+        "length": 6,
+        "key": expect.any(String)//"7utpzp"
+      },
+      {
+        "start": "279.24",
+        "end": "279.39",
+        "confidence": "1.000",
+        "text": "out",
+        "offset": 263,
+        "length": 3,
+        "key": expect.any(String)//"ypeqxjq"
+      },
+      {
+        "start": "279.39",
+        "end": "279.57",
+        "confidence": "1.000",
+        "text": "from",
+        "offset": 267,
+        "length": 4,
+        "key": expect.any(String)//"31bzxd"
+      },
+      {
+        "start": "279.57",
+        "end": "279.84",
+        "confidence": "1.000",
+        "text": "behind",
+        "offset": 272,
+        "length": 6,
+        "key": expect.any(String)//"du40jie"
+      },
+      {
+        "start": "279.84",
+        "end": "280.26",
+        "confidence": "1.000",
+        "text": "factory",
+        "offset": 279,
+        "length": 7,
+        "key": expect.any(String)//"h2xbu3g"
+      },
+      {
+        "start": "280.26",
+        "end": "280.83",
+        "confidence": "1.000",
+        "text": "walls.",
+        "offset": 287,
+        "length": 6,
+        "key": expect.any(String)//"xjbunvm"
+      },
+      {
+        "start": "280.83",
+        "end": "281.01",
+        "confidence": "0.990",
+        "text": "It's",
+        "offset": 294,
+        "length": 4,
+        "key": expect.any(String)//"zxg4qcr"
+      },
+      {
+        "start": "281.01",
+        "end": "281.37",
+        "confidence": "1.000",
+        "text": "entering",
+        "offset": 299,
+        "length": 8,
+        "key": expect.any(String)//"phh6ue"
+      },
+      {
+        "start": "281.37",
+        "end": "282.36",
+        "confidence": "1.000",
+        "text": "workplaces",
+        "offset": 308,
+        "length": 10,
+        "key": expect.any(String)//"pnm2k6n"
+      },
+      {
+        "start": "282.36",
+        "end": "283.76",
+        "confidence": "1.000",
+        "text": "households.",
+        "offset": 319,
+        "length": 11,
+        "key": expect.any(String)//"qgjv6ko"
+      },
+      {
+        "start": "283.89",
+        "end": "284.09999999999997",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 331,
+        "length": 3,
+        "key": expect.any(String)//"73d1fna"
+      },
+      {
+        "start": "284.16",
+        "end": "284.37",
+        "confidence": "1.000",
+        "text": "as",
+        "offset": 335,
+        "length": 2,
+        "key": expect.any(String)//"oiyqukq"
+      },
+      {
+        "start": "284.37",
+        "end": "284.55",
+        "confidence": "1.000",
+        "text": "these",
+        "offset": 338,
+        "length": 5,
+        "key": expect.any(String)//"3i694q1l"
+      },
+      {
+        "start": "284.55",
+        "end": "285.21000000000004",
+        "confidence": "1.000",
+        "text": "machines",
+        "offset": 344,
+        "length": 8,
+        "key": expect.any(String)//"twob95r"
+      },
+      {
+        "start": "285.21",
+        "end": "285.35999999999996",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 353,
+        "length": 4,
+        "key": expect.any(String)//"dcmx7ri"
+      },
+      {
+        "start": "285.36",
+        "end": "285.84000000000003",
+        "confidence": "1.000",
+        "text": "can",
+        "offset": 358,
+        "length": 3,
+        "key": expect.any(String)//"y8wzyg"
+      },
+      {
+        "start": "285.93",
+        "end": "286.62",
+        "confidence": "0.990",
+        "text": "sense",
+        "offset": 362,
+        "length": 5,
+        "key": expect.any(String)//"jn0vz44"
+      },
+      {
+        "start": "286.68",
+        "end": "286.95",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 368,
+        "length": 3,
+        "key": expect.any(String)//"bl4egs"
+      },
+      {
+        "start": "287.22",
+        "end": "287.46000000000004",
+        "confidence": "1.000",
+        "text": "make",
+        "offset": 372,
+        "length": 4,
+        "key": expect.any(String)//"olfxe7r"
+      },
+      {
+        "start": "287.46",
+        "end": "288.06",
+        "confidence": "1.000",
+        "text": "autonomous",
+        "offset": 377,
+        "length": 10,
+        "key": expect.any(String)//"oc0di1"
+      },
+      {
+        "start": "288.06",
+        "end": "288.72",
+        "confidence": "1.000",
+        "text": "decisions",
+        "offset": 388,
+        "length": 9,
+        "key": expect.any(String)//"ekpzfuj"
+      },
+      {
+        "start": "288.72",
+        "end": "288.84000000000003",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 398,
+        "length": 3,
+        "key": expect.any(String)//"xqesygc"
+      },
+      {
+        "start": "288.84",
+        "end": "289.53",
+        "confidence": "1.000",
+        "text": "learn",
+        "offset": 402,
+        "length": 5,
+        "key": expect.any(String)//"swrlqo"
+      },
+      {
+        "start": "290.10",
+        "end": "290.40000000000003",
+        "confidence": "1.000",
+        "text": "enter",
+        "offset": 408,
+        "length": 5,
+        "key": expect.any(String)//"pp0biz"
+      },
+      {
+        "start": "290.40",
+        "end": "290.58",
+        "confidence": "1.000",
+        "text": "into",
+        "offset": 414,
+        "length": 4,
+        "key": expect.any(String)//"usaevno"
+      },
+      {
+        "start": "290.58",
+        "end": "290.76",
+        "confidence": "1.000",
+        "text": "these",
+        "offset": 419,
+        "length": 5,
+        "key": expect.any(String)//"220eioh"
+      },
+      {
+        "start": "290.76",
+        "end": "291.09",
+        "confidence": "1.000",
+        "text": "shared",
+        "offset": 425,
+        "length": 6,
+        "key": expect.any(String)//"e01vuv"
+      },
+      {
+        "start": "291.09",
+        "end": "292.10999999999996",
+        "confidence": "1.000",
+        "text": "spaces",
+        "offset": 432,
+        "length": 6,
+        "key": expect.any(String)//"wgjn4fh"
+      },
+      {
+        "start": "292.71",
+        "end": "292.79999999999995",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 439,
+        "length": 1,
+        "key": expect.any(String)//"e3rjxt"
+      },
+      {
+        "start": "292.80",
+        "end": "293.01",
+        "confidence": "1.000",
+        "text": "think",
+        "offset": 441,
+        "length": 5,
+        "key": expect.any(String)//"gph31y"
+      },
+      {
+        "start": "293.01",
+        "end": "293.15999999999997",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 447,
+        "length": 4,
+        "key": expect.any(String)//"zphn01"
+      },
+      {
+        "start": "293.19",
+        "end": "293.43",
+        "confidence": "0.950",
+        "text": "maybe",
+        "offset": 452,
+        "length": 5,
+        "key": expect.any(String)//"5mjvqd"
+      },
+      {
+        "start": "293.43",
+        "end": "293.52",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 458,
+        "length": 3,
+        "key": expect.any(String)//"auiml3e"
+      },
+      {
+        "start": "293.52",
+        "end": "293.76",
+        "confidence": "1.000",
+        "text": "best",
+        "offset": 462,
+        "length": 4,
+        "key": expect.any(String)//"m15ldo5"
+      },
+      {
+        "start": "293.76",
+        "end": "294.33",
+        "confidence": "1.000",
+        "text": "analogy",
+        "offset": 467,
+        "length": 7,
+        "key": expect.any(String)//"83r034k"
+      },
+      {
+        "start": "294.33",
+        "end": "294.45",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 475,
+        "length": 2,
+        "key": expect.any(String)//"1vl8z2v"
+      },
+      {
+        "start": "294.45",
+        "end": "294.71999999999997",
+        "confidence": "1.000",
+        "text": "have",
+        "offset": 478,
+        "length": 4,
+        "key": expect.any(String)//"s44k2q9n"
+      },
+      {
+        "start": "294.72",
+        "end": "294.84000000000003",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 483,
+        "length": 3,
+        "key": expect.any(String)//"1sc8x25"
+      },
+      {
+        "start": "294.84",
+        "end": "295.08",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 487,
+        "length": 4,
+        "key": expect.any(String)//"fk1buwl"
+      },
+      {
+        "start": "295.08",
+        "end": "295.22999999999996",
+        "confidence": "1.000",
+        "text": "is",
+        "offset": 492,
+        "length": 2,
+        "key": expect.any(String)//"qcq9npg"
+      },
+      {
+        "start": "295.23",
+        "end": "295.32",
+        "confidence": "1.000",
+        "text": "our",
+        "offset": 495,
+        "length": 3,
+        "key": expect.any(String)//"oo6arum"
+      },
+      {
+        "start": "295.32",
+        "end": "296.04",
+        "confidence": "1.000",
+        "text": "relationship",
+        "offset": 499,
+        "length": 12,
+        "key": expect.any(String)//"7vkfbe"
+      },
+      {
+        "start": "296.04",
+        "end": "296.19",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 512,
+        "length": 4,
+        "key": expect.any(String)//"kr5yfveu"
+      },
+      {
+        "start": "296.28",
+        "end": "297.27",
+        "confidence": "1.000",
+        "text": "animals.",
+        "offset": 517,
+        "length": 8,
+        "key": expect.any(String)//"5iknh8o"
+      },
+      {
+        "start": "297.48",
+        "end": "297.99",
+        "confidence": "1.000",
+        "text": "Thousands",
+        "offset": 526,
+        "length": 9,
+        "key": expect.any(String)//"swbpmvs"
+      },
+      {
+        "start": "297.99",
+        "end": "298.11",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 536,
+        "length": 2,
+        "key": expect.any(String)//"8fjfpbs"
+      },
+      {
+        "start": "298.11",
+        "end": "298.35",
+        "confidence": "1.000",
+        "text": "years",
+        "offset": 539,
+        "length": 5,
+        "key": expect.any(String)//"ysovl4fc"
+      },
+      {
+        "start": "298.35",
+        "end": "298.83000000000004",
+        "confidence": "1.000",
+        "text": "ago",
+        "offset": 545,
+        "length": 3,
+        "key": expect.any(String)//"w1b4rf"
+      },
+      {
+        "start": "299.34",
+        "end": "299.46",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 549,
+        "length": 2,
+        "key": expect.any(String)//"qdljfkn"
+      },
+      {
+        "start": "299.46",
+        "end": "299.76",
+        "confidence": "1.000",
+        "text": "started",
+        "offset": 552,
+        "length": 7,
+        "key": expect.any(String)//"a8574s"
+      },
+      {
+        "start": "299.76",
+        "end": "299.88",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 560,
+        "length": 2,
+        "key": expect.any(String)//"e7m10z"
+      },
+      {
+        "start": "299.88",
+        "end": "300.51",
+        "confidence": "1.000",
+        "text": "domesticate",
+        "offset": 563,
+        "length": 11,
+        "key": expect.any(String)//"z5hx2di"
+      },
+      {
+        "start": "300.51",
+        "end": "301.14",
+        "confidence": "1.000",
+        "text": "animals",
+        "offset": 575,
+        "length": 7,
+        "key": expect.any(String)//"eu6enxa"
+      },
+      {
+        "start": "301.47",
+        "end": "301.56",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 583,
+        "length": 3,
+        "key": expect.any(String)//"0g5guk6m"
+      },
+      {
+        "start": "301.56",
+        "end": "301.65",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 587,
+        "length": 2,
+        "key": expect.any(String)//"8gwwa1"
+      },
+      {
+        "start": "301.65",
+        "end": "301.97999999999996",
+        "confidence": "0.640",
+        "text": "trained",
+        "offset": 590,
+        "length": 7,
+        "key": expect.any(String)//"f24idqu8"
+      },
+      {
+        "start": "301.98",
+        "end": "302.16",
+        "confidence": "1.000",
+        "text": "them",
+        "offset": 598,
+        "length": 4,
+        "key": expect.any(String)//"232k96h"
+      },
+      {
+        "start": "302.16",
+        "end": "302.34000000000003",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 603,
+        "length": 3,
+        "key": expect.any(String)//"1kjsld"
+      },
+      {
+        "start": "302.34",
+        "end": "302.88",
+        "confidence": "1.000",
+        "text": "work",
+        "offset": 607,
+        "length": 4,
+        "key": expect.any(String)//"gz4lsqi"
+      },
+      {
+        "start": "302.94",
+        "end": "303.09",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 612,
+        "length": 3,
+        "key": expect.any(String)//"2e4qc4"
+      },
+      {
+        "start": "303.09",
+        "end": "303.81",
+        "confidence": "1.000",
+        "text": "weaponry",
+        "offset": 616,
+        "length": 8,
+        "key": expect.any(String)//"2vuni8t"
+      },
+      {
+        "start": "303.84",
+        "end": "303.96",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 625,
+        "length": 3,
+        "key": expect.any(String)//"48h0hg"
+      },
+      {
+        "start": "303.96",
+        "end": "304.89",
+        "confidence": "1.000",
+        "text": "companionship",
+        "offset": 629,
+        "length": 13,
+        "key": expect.any(String)//"14b71sg"
+      },
+      {
+        "start": "305.55",
+        "end": "305.67",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 643,
+        "length": 3,
+        "key": expect.any(String)//"x42uxxm"
+      },
+      {
+        "start": "305.67",
+        "end": "305.94",
+        "confidence": "1.000",
+        "text": "throughout",
+        "offset": 647,
+        "length": 10,
+        "key": expect.any(String)//"vu7z6c"
+      },
+      {
+        "start": "305.94",
+        "end": "306.42",
+        "confidence": "1.000",
+        "text": "history",
+        "offset": 658,
+        "length": 7,
+        "key": expect.any(String)//"nu40xh5"
+      },
+      {
+        "start": "306.42",
+        "end": "306.6",
+        "confidence": "0.980",
+        "text": "we've",
+        "offset": 666,
+        "length": 5,
+        "key": expect.any(String)//"49ofytw"
+      },
+      {
+        "start": "306.60",
+        "end": "306.93",
+        "confidence": "1.000",
+        "text": "treated",
+        "offset": 672,
+        "length": 7,
+        "key": expect.any(String)//"b9yiefn"
+      },
+      {
+        "start": "306.93",
+        "end": "307.23",
+        "confidence": "1.000",
+        "text": "some",
+        "offset": 680,
+        "length": 4,
+        "key": expect.any(String)//"jk66t4d"
+      },
+      {
+        "start": "307.23",
+        "end": "307.74",
+        "confidence": "1.000",
+        "text": "animals",
+        "offset": 685,
+        "length": 7,
+        "key": expect.any(String)//"9wtv67o"
+      },
+      {
+        "start": "307.74",
+        "end": "307.92",
+        "confidence": "1.000",
+        "text": "like",
+        "offset": 693,
+        "length": 4,
+        "key": expect.any(String)//"delfe"
+      },
+      {
+        "start": "307.92",
+        "end": "308.58000000000004",
+        "confidence": "1.000",
+        "text": "tools",
+        "offset": 698,
+        "length": 5,
+        "key": expect.any(String)//"t2e2bga"
+      },
+      {
+        "start": "308.94",
+        "end": "309.06",
+        "confidence": "0.990",
+        "text": "or",
+        "offset": 704,
+        "length": 2,
+        "key": expect.any(String)//"x7alw69"
+      },
+      {
+        "start": "309.06",
+        "end": "309.24",
+        "confidence": "1.000",
+        "text": "like",
+        "offset": 707,
+        "length": 4,
+        "key": expect.any(String)//"97006q9"
+      },
+      {
+        "start": "309.24",
+        "end": "310.05",
+        "confidence": "1.000",
+        "text": "products",
+        "offset": 712,
+        "length": 8,
+        "key": expect.any(String)//"nmm26na"
+      },
+      {
+        "start": "310.53",
+        "end": "310.73999999999995",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 721,
+        "length": 3,
+        "key": expect.any(String)//"m3695kt"
+      },
+      {
+        "start": "310.77",
+        "end": "311.01",
+        "confidence": "1.000",
+        "text": "other",
+        "offset": 725,
+        "length": 5,
+        "key": expect.any(String)//"mycyzf"
+      },
+      {
+        "start": "311.01",
+        "end": "311.33",
+        "confidence": "1.000",
+        "text": "animals",
+        "offset": 731,
+        "length": 7,
+        "key": expect.any(String)//"xjx7ylb"
+      },
+      {
+        "start": "311.34",
+        "end": "311.46",
+        "confidence": "0.950",
+        "text": "we've",
+        "offset": 739,
+        "length": 5,
+        "key": expect.any(String)//"9hz06y"
+      },
+      {
+        "start": "311.46",
+        "end": "311.72999999999996",
+        "confidence": "1.000",
+        "text": "treated",
+        "offset": 745,
+        "length": 7,
+        "key": expect.any(String)//"jq2xen"
+      },
+      {
+        "start": "311.73",
+        "end": "311.88",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 753,
+        "length": 4,
+        "key": expect.any(String)//"iwdew"
+      },
+      {
+        "start": "311.88",
+        "end": "312.54",
+        "confidence": "1.000",
+        "text": "kindness",
+        "offset": 758,
+        "length": 8,
+        "key": expect.any(String)//"u8xbwkp"
+      },
+      {
+        "start": "312.63",
+        "end": "312.71999999999997",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 767,
+        "length": 3,
+        "key": expect.any(String)//"0w5l9for"
+      },
+      {
+        "start": "312.72",
+        "end": "312.87",
+        "confidence": "1.000",
+        "text": "we've",
+        "offset": 771,
+        "length": 5,
+        "key": expect.any(String)//"ck37rll"
+      },
+      {
+        "start": "312.87",
+        "end": "313.14",
+        "confidence": "1.000",
+        "text": "given",
+        "offset": 777,
+        "length": 5,
+        "key": expect.any(String)//"69sjqmd"
+      },
+      {
+        "start": "313.14",
+        "end": "313.16999999999996",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 783,
+        "length": 1,
+        "key": expect.any(String)//"or1cq8"
+      },
+      {
+        "start": "313.17",
+        "end": "313.56",
+        "confidence": "1.000",
+        "text": "place",
+        "offset": 785,
+        "length": 5,
+        "key": expect.any(String)//"i21cyes"
+      },
+      {
+        "start": "313.56",
+        "end": "313.65",
+        "confidence": "1.000",
+        "text": "in",
+        "offset": 791,
+        "length": 2,
+        "key": expect.any(String)//"8kzvfbs"
+      },
+      {
+        "start": "313.65",
+        "end": "314.13",
+        "confidence": "1.000",
+        "text": "society",
+        "offset": 794,
+        "length": 7,
+        "key": expect.any(String)//"gy2hz28"
+      },
+      {
+        "start": "314.13",
+        "end": "314.25",
+        "confidence": "0.780",
+        "text": "as",
+        "offset": 802,
+        "length": 2,
+        "key": expect.any(String)//"24g6wtxc"
+      },
+      {
+        "start": "314.25",
+        "end": "314.34",
+        "confidence": "1.000",
+        "text": "our",
+        "offset": 805,
+        "length": 3,
+        "key": expect.any(String)//"hhc7kk6"
+      },
+      {
+        "start": "314.34",
+        "end": "315.86999999999995",
+        "confidence": "1.000",
+        "text": "companions.",
+        "offset": 809,
+        "length": 11,
+        "key": expect.any(String)//"876mxlv"
+      },
       {
         "start": "315.87",
         "end": "315.96",
         "confidence": "1.000",
         "text": "I",
-        "offset": 0,
+        "offset": 821,
         "length": 1,
-        "key": expect.any(String)//"u05a4vk"
+        "key": expect.any(String)//"j87u8hg"
       },
       {
         "start": "315.96",
         "end": "316.10999999999996",
         "confidence": "1.000",
         "text": "think",
-        "offset": 2,
+        "offset": 823,
         "length": 5,
-        "key": expect.any(String)//"utdxesc"
+        "key": expect.any(String)//"ew50s9"
       },
       {
         "start": "316.11",
         "end": "316.23",
         "confidence": "1.000",
         "text": "it's",
-        "offset": 8,
+        "offset": 829,
         "length": 4,
-        "key": expect.any(String)//"5dn43k4"
+        "key": expect.any(String)//"yhs353s"
       },
       {
         "start": "316.23",
         "end": "316.71000000000004",
         "confidence": "1.000",
         "text": "plausible",
-        "offset": 13,
+        "offset": 834,
         "length": 9,
-        "key": expect.any(String)//"l779s1r"
+        "key": expect.any(String)//"9uc3x9q"
       },
       {
         "start": "316.71",
         "end": "316.83",
         "confidence": "1.000",
         "text": "we",
-        "offset": 23,
+        "offset": 844,
         "length": 2,
-        "key": expect.any(String)//"ql9rrm8"
+        "key": expect.any(String)//"tp8gyd5"
       },
       {
         "start": "316.83",
         "end": "317.01",
         "confidence": "1.000",
         "text": "might",
-        "offset": 26,
+        "offset": 847,
         "length": 5,
-        "key": expect.any(String)//"f9ymgbo"
+        "key": expect.any(String)//"wgwnze2"
       },
       {
         "start": "317.01",
         "end": "317.25",
         "confidence": "1.000",
         "text": "start",
-        "offset": 32,
+        "offset": 853,
         "length": 5,
-        "key": expect.any(String)//"dsxo5jr"
+        "key": expect.any(String)//"7mv11vj"
       },
       {
         "start": "317.25",
         "end": "317.37",
         "confidence": "1.000",
         "text": "to",
-        "offset": 38,
+        "offset": 859,
         "length": 2,
-        "key": expect.any(String)//"xgarzvp"
+        "key": expect.any(String)//"ywgv749"
       },
       {
         "start": "317.37",
         "end": "317.76",
         "confidence": "1.000",
         "text": "integrate",
-        "offset": 41,
+        "offset": 862,
         "length": 9,
-        "key": expect.any(String)//"lzysntn"
+        "key": expect.any(String)//"voif3g"
       },
       {
         "start": "317.76",
         "end": "318.39",
         "confidence": "1.000",
         "text": "robots",
-        "offset": 51,
+        "offset": 872,
         "length": 6,
-        "key": expect.any(String)//"otax0l"
+        "key": expect.any(String)//"kzlg4wf"
       },
       {
         "start": "318.42",
         "end": "318.51",
         "confidence": "0.980",
         "text": "in",
-        "offset": 58,
+        "offset": 879,
         "length": 2,
-        "key": expect.any(String)//"jwx58lh"
+        "key": expect.any(String)//"g1zimd8"
       },
       {
         "start": "318.51",
         "end": "318.93",
         "confidence": "1.000",
         "text": "similar",
-        "offset": 61,
+        "offset": 882,
         "length": 7,
-        "key": expect.any(String)//"9lopfet"
+        "key": expect.any(String)//"6e4l6vd"
       },
       {
         "start": "318.93",
         "end": "319.56",
         "confidence": "1.000",
         "text": "ways.",
-        "offset": 69,
+        "offset": 890,
         "length": 5,
-        "key": expect.any(String)//"htkj37"
+        "key": expect.any(String)//"avyt9yfe"
       }
     ]
   },
   {
-    "text": "And.",
+    "text": "And. Sure.",
     "type": "paragraph",
     "data": {
       "speaker": "F4",
@@ -14230,6 +13786,14 @@ const draftTranscriptExample = [
           "word": "and",
           "punct": "And.",
           "index": 806
+        },
+        {
+          "start": "321.60",
+          "end": "322.05",
+          "confidence": "0.770",
+          "word": "sure",
+          "punct": "Sure.",
+          "index": 807
         }
       ],
       "start": "321.39"
@@ -14242,44 +13806,24 @@ const draftTranscriptExample = [
         "text": "And.",
         "offset": 0,
         "length": 4,
-        "key": expect.any(String)//"1h76m1"
-      }
-    ]
-  },
-  {
-    "text": "Sure.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
-        {
-          "start": "321.60",
-          "end": "322.05",
-          "confidence": "0.770",
-          "word": "sure",
-          "punct": "Sure.",
-          "index": 807
-        }
-      ],
-      "start": "321.60"
-    },
-    "entityRanges": [
+        "key": expect.any(String)//"f4jj12"
+      },
       {
         "start": "321.60",
         "end": "322.05",
         "confidence": "0.770",
         "text": "Sure.",
-        "offset": 0,
+        "offset": 5,
         "length": 5,
-        "key": expect.any(String)//"upmd9qq"
+        "key": expect.any(String)//"3lzetvg"
       }
     ]
   },
   {
-    "text": "Animals are alive.",
+    "text": "Animals are alive. Robots are not. And I can tell you from working with roboticists that we're pretty far away from developing robots that can feel anything. But we feel for them.",
     "type": "paragraph",
     "data": {
-      "speaker": "F4",
+      "speaker": "F3",
       "words": [
         {
           "start": "323.08",
@@ -14304,46 +13848,7 @@ const draftTranscriptExample = [
           "word": "alive",
           "punct": "alive.",
           "index": 810
-        }
-      ],
-      "start": "323.08"
-    },
-    "entityRanges": [
-      {
-        "start": "323.08",
-        "end": "323.56",
-        "confidence": "1.000",
-        "text": "Animals",
-        "offset": 0,
-        "length": 7,
-        "key": expect.any(String)//"m09kbdu"
-      },
-      {
-        "start": "323.56",
-        "end": "323.71",
-        "confidence": "1.000",
-        "text": "are",
-        "offset": 8,
-        "length": 3,
-        "key": expect.any(String)//"42ntkw"
-      },
-      {
-        "start": "323.71",
-        "end": "324.51",
-        "confidence": "0.990",
-        "text": "alive.",
-        "offset": 12,
-        "length": 6,
-        "key": expect.any(String)//"69vlaev"
-      }
-    ]
-  },
-  {
-    "text": "Robots are not.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "324.64",
           "end": "325.06",
@@ -14367,46 +13872,7 @@ const draftTranscriptExample = [
           "word": "not",
           "punct": "not.",
           "index": 813
-        }
-      ],
-      "start": "324.64"
-    },
-    "entityRanges": [
-      {
-        "start": "324.64",
-        "end": "325.06",
-        "confidence": "1.000",
-        "text": "Robots",
-        "offset": 0,
-        "length": 6,
-        "key": expect.any(String)//"vd2wl4"
-      },
-      {
-        "start": "325.06",
-        "end": "325.12",
-        "confidence": "1.000",
-        "text": "are",
-        "offset": 7,
-        "length": 3,
-        "key": expect.any(String)//"fojeqf5"
-      },
-      {
-        "start": "325.12",
-        "end": "325.39",
-        "confidence": "1.000",
-        "text": "not.",
-        "offset": 11,
-        "length": 4,
-        "key": expect.any(String)//"9v7wgy9"
-      }
-    ]
-  },
-  {
-    "text": "And I can tell you from working with roboticists that we're pretty far away from developing robots that can feel anything.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "327.66",
           "end": "327.81",
@@ -14574,208 +14040,7 @@ const draftTranscriptExample = [
           "word": "anything",
           "punct": "anything.",
           "index": 834
-        }
-      ],
-      "start": "327.66"
-    },
-    "entityRanges": [
-      {
-        "start": "327.66",
-        "end": "327.81",
-        "confidence": "0.960",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"8qwm4k"
-      },
-      {
-        "start": "327.84",
-        "end": "327.9",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 4,
-        "length": 1,
-        "key": expect.any(String)//"95z4iav"
-      },
-      {
-        "start": "327.90",
-        "end": "328.04999999999995",
-        "confidence": "1.000",
-        "text": "can",
-        "offset": 6,
-        "length": 3,
-        "key": expect.any(String)//"b35i8lh"
-      },
-      {
-        "start": "328.05",
-        "end": "328.26",
-        "confidence": "1.000",
-        "text": "tell",
-        "offset": 10,
-        "length": 4,
-        "key": expect.any(String)//"wzdkty"
-      },
-      {
-        "start": "328.26",
-        "end": "328.34999999999997",
-        "confidence": "1.000",
-        "text": "you",
-        "offset": 15,
-        "length": 3,
-        "key": expect.any(String)//"3g8fzu9"
-      },
-      {
-        "start": "328.35",
-        "end": "328.59000000000003",
-        "confidence": "1.000",
-        "text": "from",
-        "offset": 19,
-        "length": 4,
-        "key": expect.any(String)//"9tmbz2"
-      },
-      {
-        "start": "328.59",
-        "end": "328.95",
-        "confidence": "1.000",
-        "text": "working",
-        "offset": 24,
-        "length": 7,
-        "key": expect.any(String)//"hxbrg0l"
-      },
-      {
-        "start": "328.95",
-        "end": "329.07",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 32,
-        "length": 4,
-        "key": expect.any(String)//"6lr5oq"
-      },
-      {
-        "start": "329.07",
-        "end": "329.67",
-        "confidence": "0.910",
-        "text": "roboticists",
-        "offset": 37,
-        "length": 11,
-        "key": expect.any(String)//"t4ohjba"
-      },
-      {
-        "start": "329.67",
-        "end": "329.82",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 49,
-        "length": 4,
-        "key": expect.any(String)//"des21yc"
-      },
-      {
-        "start": "329.82",
-        "end": "330",
-        "confidence": "0.950",
-        "text": "we're",
-        "offset": 54,
-        "length": 5,
-        "key": expect.any(String)//"vjux23q"
-      },
-      {
-        "start": "330.24",
-        "end": "330.54",
-        "confidence": "1.000",
-        "text": "pretty",
-        "offset": 60,
-        "length": 6,
-        "key": expect.any(String)//"0fjdpz"
-      },
-      {
-        "start": "330.54",
-        "end": "330.75",
-        "confidence": "1.000",
-        "text": "far",
-        "offset": 67,
-        "length": 3,
-        "key": expect.any(String)//"65f4la"
-      },
-      {
-        "start": "330.75",
-        "end": "331.05",
-        "confidence": "1.000",
-        "text": "away",
-        "offset": 71,
-        "length": 4,
-        "key": expect.any(String)//"c1h3ex"
-      },
-      {
-        "start": "331.05",
-        "end": "331.23",
-        "confidence": "1.000",
-        "text": "from",
-        "offset": 76,
-        "length": 4,
-        "key": expect.any(String)//"tn0v9or"
-      },
-      {
-        "start": "331.23",
-        "end": "331.74",
-        "confidence": "1.000",
-        "text": "developing",
-        "offset": 81,
-        "length": 10,
-        "key": expect.any(String)//"ug549z"
-      },
-      {
-        "start": "331.74",
-        "end": "332.06",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 92,
-        "length": 6,
-        "key": expect.any(String)//"n3neqbq"
-      },
-      {
-        "start": "332.06",
-        "end": "332.13",
-        "confidence": "0.640",
-        "text": "that",
-        "offset": 99,
-        "length": 4,
-        "key": expect.any(String)//"14ubi2"
-      },
-      {
-        "start": "332.16",
-        "end": "332.31",
-        "confidence": "1.000",
-        "text": "can",
-        "offset": 104,
-        "length": 3,
-        "key": expect.any(String)//"6w2o9cr"
-      },
-      {
-        "start": "332.31",
-        "end": "332.7",
-        "confidence": "1.000",
-        "text": "feel",
-        "offset": 108,
-        "length": 4,
-        "key": expect.any(String)//"my9a1he"
-      },
-      {
-        "start": "332.70",
-        "end": "333.4",
-        "confidence": "1.000",
-        "text": "anything.",
-        "offset": 113,
-        "length": 9,
-        "key": expect.any(String)//"t1h6zoj"
-      }
-    ]
-  },
-  {
-    "text": "But we feel for them.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "335.06",
           "end": "335.21",
@@ -14817,58 +14082,301 @@ const draftTranscriptExample = [
           "index": 839
         }
       ],
-      "start": "335.06"
+      "start": "323.08"
     },
     "entityRanges": [
+      {
+        "start": "323.08",
+        "end": "323.56",
+        "confidence": "1.000",
+        "text": "Animals",
+        "offset": 0,
+        "length": 7,
+        "key": expect.any(String)//"bd6wlv4"
+      },
+      {
+        "start": "323.56",
+        "end": "323.71",
+        "confidence": "1.000",
+        "text": "are",
+        "offset": 8,
+        "length": 3,
+        "key": expect.any(String)//"62pmid"
+      },
+      {
+        "start": "323.71",
+        "end": "324.51",
+        "confidence": "0.990",
+        "text": "alive.",
+        "offset": 12,
+        "length": 6,
+        "key": expect.any(String)//"n8y9d4"
+      },
+      {
+        "start": "324.64",
+        "end": "325.06",
+        "confidence": "1.000",
+        "text": "Robots",
+        "offset": 19,
+        "length": 6,
+        "key": expect.any(String)//"k1ae5bj"
+      },
+      {
+        "start": "325.06",
+        "end": "325.12",
+        "confidence": "1.000",
+        "text": "are",
+        "offset": 26,
+        "length": 3,
+        "key": expect.any(String)//"0dzgy9p"
+      },
+      {
+        "start": "325.12",
+        "end": "325.39",
+        "confidence": "1.000",
+        "text": "not.",
+        "offset": 30,
+        "length": 4,
+        "key": expect.any(String)//"lvhvfu"
+      },
+      {
+        "start": "327.66",
+        "end": "327.81",
+        "confidence": "0.960",
+        "text": "And",
+        "offset": 35,
+        "length": 3,
+        "key": expect.any(String)//"3ollzr6"
+      },
+      {
+        "start": "327.84",
+        "end": "327.9",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 39,
+        "length": 1,
+        "key": expect.any(String)//"wdqm2b"
+      },
+      {
+        "start": "327.90",
+        "end": "328.04999999999995",
+        "confidence": "1.000",
+        "text": "can",
+        "offset": 41,
+        "length": 3,
+        "key": expect.any(String)//"lcgfs55"
+      },
+      {
+        "start": "328.05",
+        "end": "328.26",
+        "confidence": "1.000",
+        "text": "tell",
+        "offset": 45,
+        "length": 4,
+        "key": expect.any(String)//"fbj3g5x"
+      },
+      {
+        "start": "328.26",
+        "end": "328.34999999999997",
+        "confidence": "1.000",
+        "text": "you",
+        "offset": 50,
+        "length": 3,
+        "key": expect.any(String)//"63kgtpq"
+      },
+      {
+        "start": "328.35",
+        "end": "328.59000000000003",
+        "confidence": "1.000",
+        "text": "from",
+        "offset": 54,
+        "length": 4,
+        "key": expect.any(String)//"hn66j1"
+      },
+      {
+        "start": "328.59",
+        "end": "328.95",
+        "confidence": "1.000",
+        "text": "working",
+        "offset": 59,
+        "length": 7,
+        "key": expect.any(String)//"qba9sdu"
+      },
+      {
+        "start": "328.95",
+        "end": "329.07",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 67,
+        "length": 4,
+        "key": expect.any(String)//"w35wr6k"
+      },
+      {
+        "start": "329.07",
+        "end": "329.67",
+        "confidence": "0.910",
+        "text": "roboticists",
+        "offset": 72,
+        "length": 11,
+        "key": expect.any(String)//"49hgfdv"
+      },
+      {
+        "start": "329.67",
+        "end": "329.82",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 84,
+        "length": 4,
+        "key": expect.any(String)//"7j8vsz"
+      },
+      {
+        "start": "329.82",
+        "end": "330",
+        "confidence": "0.950",
+        "text": "we're",
+        "offset": 89,
+        "length": 5,
+        "key": expect.any(String)//"wbr06qn"
+      },
+      {
+        "start": "330.24",
+        "end": "330.54",
+        "confidence": "1.000",
+        "text": "pretty",
+        "offset": 95,
+        "length": 6,
+        "key": expect.any(String)//"voj48he"
+      },
+      {
+        "start": "330.54",
+        "end": "330.75",
+        "confidence": "1.000",
+        "text": "far",
+        "offset": 102,
+        "length": 3,
+        "key": expect.any(String)//"fdvnaj9"
+      },
+      {
+        "start": "330.75",
+        "end": "331.05",
+        "confidence": "1.000",
+        "text": "away",
+        "offset": 106,
+        "length": 4,
+        "key": expect.any(String)//"nhkputt"
+      },
+      {
+        "start": "331.05",
+        "end": "331.23",
+        "confidence": "1.000",
+        "text": "from",
+        "offset": 111,
+        "length": 4,
+        "key": expect.any(String)//"wonm2z9"
+      },
+      {
+        "start": "331.23",
+        "end": "331.74",
+        "confidence": "1.000",
+        "text": "developing",
+        "offset": 116,
+        "length": 10,
+        "key": expect.any(String)//"o5cbs5j"
+      },
+      {
+        "start": "331.74",
+        "end": "332.06",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 127,
+        "length": 6,
+        "key": expect.any(String)//"38xq2q"
+      },
+      {
+        "start": "332.06",
+        "end": "332.13",
+        "confidence": "0.640",
+        "text": "that",
+        "offset": 134,
+        "length": 4,
+        "key": expect.any(String)//"dt9xq79"
+      },
+      {
+        "start": "332.16",
+        "end": "332.31",
+        "confidence": "1.000",
+        "text": "can",
+        "offset": 139,
+        "length": 3,
+        "key": expect.any(String)//"e1ls4mf"
+      },
+      {
+        "start": "332.31",
+        "end": "332.7",
+        "confidence": "1.000",
+        "text": "feel",
+        "offset": 143,
+        "length": 4,
+        "key": expect.any(String)//"yl2vfkzn"
+      },
+      {
+        "start": "332.70",
+        "end": "333.4",
+        "confidence": "1.000",
+        "text": "anything.",
+        "offset": 148,
+        "length": 9,
+        "key": expect.any(String)//"v0s8wjf"
+      },
       {
         "start": "335.06",
         "end": "335.21",
         "confidence": "1.000",
         "text": "But",
-        "offset": 0,
+        "offset": 158,
         "length": 3,
-        "key": expect.any(String)//"twejdui"
+        "key": expect.any(String)//"kqgdhpr"
       },
       {
         "start": "335.21",
         "end": "335.53999999999996",
         "confidence": "1.000",
         "text": "we",
-        "offset": 4,
+        "offset": 162,
         "length": 2,
-        "key": expect.any(String)//"r2es51f"
+        "key": expect.any(String)//"qytq8i"
       },
       {
         "start": "335.54",
         "end": "335.78000000000003",
         "confidence": "1.000",
         "text": "feel",
-        "offset": 7,
+        "offset": 165,
         "length": 4,
-        "key": expect.any(String)//"s0e7p74"
+        "key": expect.any(String)//"2ga5pb7"
       },
       {
         "start": "335.78",
         "end": "335.96",
         "confidence": "1.000",
         "text": "for",
-        "offset": 12,
+        "offset": 170,
         "length": 3,
-        "key": expect.any(String)//"cnreeb"
+        "key": expect.any(String)//"emlc7q8"
       },
       {
         "start": "335.96",
         "end": "336.38",
         "confidence": "1.000",
         "text": "them.",
-        "offset": 16,
+        "offset": 174,
         "length": 5,
-        "key": expect.any(String)//"s2x0yas"
+        "key": expect.any(String)//"neo76sm"
       }
     ]
   },
   {
-    "text": "And that matters because if we're trying to integrate robots into these shared spaces we need to understand that people will treat them differently than other devices.",
+    "text": "And that matters because if we're trying to integrate robots into these shared spaces we need to understand that people will treat them differently than other devices. And that in some cases for example the case of a soldier who becomes emotionally attached to the robot that they work with that can be anything from inefficient to dangerous. But in other cases it can actually be useful to foster this emotional connection to robots. We're already seeing some great use cases for example robots working with autistic children to engage them in ways that we haven't seen previously or robots working with teachers to engage kids in learning with new results. And it's not just for kids. Early studies show that robots can help doctors and patients in health care settings. This is the pro baby seal robot. It's used in nursing homes and with dementia patients. It's been around for a while and I remember years ago being at a party and telling someone about this robot and her response was.",
     "type": "paragraph",
     "data": {
       "speaker": "F4",
@@ -15088,262 +14596,7 @@ const draftTranscriptExample = [
           "word": "devices",
           "punct": "devices.",
           "index": 866
-        }
-      ],
-      "start": "337.88"
-    },
-    "entityRanges": [
-      {
-        "start": "337.88",
-        "end": "338",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"62jqj9"
-      },
-      {
-        "start": "338.00",
-        "end": "338.21",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"q9yf46n"
-      },
-      {
-        "start": "338.21",
-        "end": "338.96",
-        "confidence": "1.000",
-        "text": "matters",
-        "offset": 9,
-        "length": 7,
-        "key": expect.any(String)//"utz9ez8"
-      },
-      {
-        "start": "338.99",
-        "end": "339.53000000000003",
-        "confidence": "1.000",
-        "text": "because",
-        "offset": 17,
-        "length": 7,
-        "key": expect.any(String)//"8umprhv"
-      },
-      {
-        "start": "339.62",
-        "end": "339.77",
-        "confidence": "1.000",
-        "text": "if",
-        "offset": 25,
-        "length": 2,
-        "key": expect.any(String)//"c9ze6sh"
-      },
-      {
-        "start": "339.77",
-        "end": "339.89",
-        "confidence": "1.000",
-        "text": "we're",
-        "offset": 28,
-        "length": 5,
-        "key": expect.any(String)//"cjeli8q"
-      },
-      {
-        "start": "339.89",
-        "end": "340.19",
-        "confidence": "1.000",
-        "text": "trying",
-        "offset": 34,
-        "length": 6,
-        "key": expect.any(String)//"gazxyl2"
-      },
-      {
-        "start": "340.19",
-        "end": "340.31",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 41,
-        "length": 2,
-        "key": expect.any(String)//"frjwzsa"
-      },
-      {
-        "start": "340.34",
-        "end": "340.90999999999997",
-        "confidence": "1.000",
-        "text": "integrate",
-        "offset": 44,
-        "length": 9,
-        "key": expect.any(String)//"yfs58np"
-      },
-      {
-        "start": "340.91",
-        "end": "341.42",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 54,
-        "length": 6,
-        "key": expect.any(String)//"mvggh0a"
-      },
-      {
-        "start": "341.42",
-        "end": "341.57",
-        "confidence": "1.000",
-        "text": "into",
-        "offset": 61,
-        "length": 4,
-        "key": expect.any(String)//"5c426gl"
-      },
-      {
-        "start": "341.57",
-        "end": "341.71999999999997",
-        "confidence": "1.000",
-        "text": "these",
-        "offset": 66,
-        "length": 5,
-        "key": expect.any(String)//"7dp5h5q"
-      },
-      {
-        "start": "341.72",
-        "end": "342.05",
-        "confidence": "1.000",
-        "text": "shared",
-        "offset": 72,
-        "length": 6,
-        "key": expect.any(String)//"tgqchtm"
-      },
-      {
-        "start": "342.05",
-        "end": "342.68",
-        "confidence": "1.000",
-        "text": "spaces",
-        "offset": 79,
-        "length": 6,
-        "key": expect.any(String)//"xdgek8m"
-      },
-      {
-        "start": "342.71",
-        "end": "342.79999999999995",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 86,
-        "length": 2,
-        "key": expect.any(String)//"z2h8ppk"
-      },
-      {
-        "start": "342.80",
-        "end": "342.98",
-        "confidence": "1.000",
-        "text": "need",
-        "offset": 89,
-        "length": 4,
-        "key": expect.any(String)//"ya8uj39"
-      },
-      {
-        "start": "342.98",
-        "end": "343.07",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 94,
-        "length": 2,
-        "key": expect.any(String)//"7jtanfd"
-      },
-      {
-        "start": "343.07",
-        "end": "343.79",
-        "confidence": "1.000",
-        "text": "understand",
-        "offset": 97,
-        "length": 10,
-        "key": expect.any(String)//"44wou3o"
-      },
-      {
-        "start": "343.79",
-        "end": "343.94",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 108,
-        "length": 4,
-        "key": expect.any(String)//"gs4vm8n"
-      },
-      {
-        "start": "343.94",
-        "end": "344.27",
-        "confidence": "1.000",
-        "text": "people",
-        "offset": 113,
-        "length": 6,
-        "key": expect.any(String)//"es4t92j"
-      },
-      {
-        "start": "344.27",
-        "end": "344.39",
-        "confidence": "1.000",
-        "text": "will",
-        "offset": 120,
-        "length": 4,
-        "key": expect.any(String)//"b61dwc5"
-      },
-      {
-        "start": "344.39",
-        "end": "344.63",
-        "confidence": "1.000",
-        "text": "treat",
-        "offset": 125,
-        "length": 5,
-        "key": expect.any(String)//"i1e9wu"
-      },
-      {
-        "start": "344.63",
-        "end": "344.78",
-        "confidence": "1.000",
-        "text": "them",
-        "offset": 131,
-        "length": 4,
-        "key": expect.any(String)//"g9ff4if"
-      },
-      {
-        "start": "344.78",
-        "end": "345.38",
-        "confidence": "1.000",
-        "text": "differently",
-        "offset": 136,
-        "length": 11,
-        "key": expect.any(String)//"xnr2aqs"
-      },
-      {
-        "start": "345.38",
-        "end": "345.56",
-        "confidence": "1.000",
-        "text": "than",
-        "offset": 148,
-        "length": 4,
-        "key": expect.any(String)//"muujw8f"
-      },
-      {
-        "start": "345.56",
-        "end": "345.74",
-        "confidence": "1.000",
-        "text": "other",
-        "offset": 153,
-        "length": 5,
-        "key": expect.any(String)//"3wcovo"
-      },
-      {
-        "start": "345.74",
-        "end": "347",
-        "confidence": "1.000",
-        "text": "devices.",
-        "offset": 159,
-        "length": 8,
-        "key": expect.any(String)//"o0goa5e"
-      }
-    ]
-  },
-  {
-    "text": "And that in some cases for example the case of a soldier who becomes emotionally attached to the robot that they work with that can be anything from inefficient to dangerous.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "347.39",
           "end": "347.51",
@@ -15591,298 +14844,7 @@ const draftTranscriptExample = [
           "word": "dangerous",
           "punct": "dangerous.",
           "index": 897
-        }
-      ],
-      "start": "347.39"
-    },
-    "entityRanges": [
-      {
-        "start": "347.39",
-        "end": "347.51",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"tfnj856"
-      },
-      {
-        "start": "347.51",
-        "end": "347.65999999999997",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"cz1t4yb"
-      },
-      {
-        "start": "347.66",
-        "end": "347.78000000000003",
-        "confidence": "1.000",
-        "text": "in",
-        "offset": 9,
-        "length": 2,
-        "key": expect.any(String)//"y0kndhq"
-      },
-      {
-        "start": "347.78",
-        "end": "348.08",
-        "confidence": "1.000",
-        "text": "some",
-        "offset": 12,
-        "length": 4,
-        "key": expect.any(String)//"0p640gq"
-      },
-      {
-        "start": "348.08",
-        "end": "348.89",
-        "confidence": "1.000",
-        "text": "cases",
-        "offset": 17,
-        "length": 5,
-        "key": expect.any(String)//"rdbaiqx"
-      },
-      {
-        "start": "349.22",
-        "end": "349.40000000000003",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 23,
-        "length": 3,
-        "key": expect.any(String)//"4n3dmsp"
-      },
-      {
-        "start": "349.40",
-        "end": "349.96999999999997",
-        "confidence": "1.000",
-        "text": "example",
-        "offset": 27,
-        "length": 7,
-        "key": expect.any(String)//"9pstese"
-      },
-      {
-        "start": "350.00",
-        "end": "350.09",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 35,
-        "length": 3,
-        "key": expect.any(String)//"kdnkobo"
-      },
-      {
-        "start": "350.09",
-        "end": "350.39",
-        "confidence": "1.000",
-        "text": "case",
-        "offset": 39,
-        "length": 4,
-        "key": expect.any(String)//"w0oycsq"
-      },
-      {
-        "start": "350.39",
-        "end": "350.51",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 44,
-        "length": 2,
-        "key": expect.any(String)//"o4eguw"
-      },
-      {
-        "start": "350.51",
-        "end": "350.53999999999996",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 47,
-        "length": 1,
-        "key": expect.any(String)//"dr2y5vk"
-      },
-      {
-        "start": "350.54",
-        "end": "350.99",
-        "confidence": "1.000",
-        "text": "soldier",
-        "offset": 49,
-        "length": 7,
-        "key": expect.any(String)//"9hw011a"
-      },
-      {
-        "start": "351.02",
-        "end": "351.10999999999996",
-        "confidence": "1.000",
-        "text": "who",
-        "offset": 57,
-        "length": 3,
-        "key": expect.any(String)//"cjxw7zn"
-      },
-      {
-        "start": "351.11",
-        "end": "351.44",
-        "confidence": "1.000",
-        "text": "becomes",
-        "offset": 61,
-        "length": 7,
-        "key": expect.any(String)//"ci18zxw"
-      },
-      {
-        "start": "351.44",
-        "end": "352.01",
-        "confidence": "1.000",
-        "text": "emotionally",
-        "offset": 69,
-        "length": 11,
-        "key": expect.any(String)//"yj9zcyq"
-      },
-      {
-        "start": "352.01",
-        "end": "352.49",
-        "confidence": "1.000",
-        "text": "attached",
-        "offset": 81,
-        "length": 8,
-        "key": expect.any(String)//"ldgvbef"
-      },
-      {
-        "start": "352.49",
-        "end": "352.61",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 90,
-        "length": 2,
-        "key": expect.any(String)//"vvob5zl"
-      },
-      {
-        "start": "352.61",
-        "end": "352.73",
-        "confidence": "0.990",
-        "text": "the",
-        "offset": 93,
-        "length": 3,
-        "key": expect.any(String)//"7pbacwt"
-      },
-      {
-        "start": "352.73",
-        "end": "353.12",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 97,
-        "length": 5,
-        "key": expect.any(String)//"8x4b3ua"
-      },
-      {
-        "start": "353.12",
-        "end": "353.24",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 103,
-        "length": 4,
-        "key": expect.any(String)//"94f572"
-      },
-      {
-        "start": "353.24",
-        "end": "353.36",
-        "confidence": "1.000",
-        "text": "they",
-        "offset": 108,
-        "length": 4,
-        "key": expect.any(String)//"z0mg25"
-      },
-      {
-        "start": "353.36",
-        "end": "353.6",
-        "confidence": "1.000",
-        "text": "work",
-        "offset": 113,
-        "length": 4,
-        "key": expect.any(String)//"lnfr70g"
-      },
-      {
-        "start": "353.60",
-        "end": "353.99",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 118,
-        "length": 4,
-        "key": expect.any(String)//"aa6vod"
-      },
-      {
-        "start": "354.50",
-        "end": "354.68",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 123,
-        "length": 4,
-        "key": expect.any(String)//"agbyi2r"
-      },
-      {
-        "start": "354.68",
-        "end": "354.83",
-        "confidence": "1.000",
-        "text": "can",
-        "offset": 128,
-        "length": 3,
-        "key": expect.any(String)//"64917oh9"
-      },
-      {
-        "start": "354.83",
-        "end": "354.95",
-        "confidence": "1.000",
-        "text": "be",
-        "offset": 132,
-        "length": 2,
-        "key": expect.any(String)//"rqqg7t"
-      },
-      {
-        "start": "354.95",
-        "end": "355.31",
-        "confidence": "1.000",
-        "text": "anything",
-        "offset": 135,
-        "length": 8,
-        "key": expect.any(String)//"eciiq56"
-      },
-      {
-        "start": "355.31",
-        "end": "355.49",
-        "confidence": "1.000",
-        "text": "from",
-        "offset": 144,
-        "length": 4,
-        "key": expect.any(String)//"730kipo"
-      },
-      {
-        "start": "355.52",
-        "end": "356.03",
-        "confidence": "1.000",
-        "text": "inefficient",
-        "offset": 149,
-        "length": 11,
-        "key": expect.any(String)//"p5w772r"
-      },
-      {
-        "start": "356.03",
-        "end": "356.15",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 161,
-        "length": 2,
-        "key": expect.any(String)//"mvwnrd"
-      },
-      {
-        "start": "356.15",
-        "end": "356.92999999999995",
-        "confidence": "1.000",
-        "text": "dangerous.",
-        "offset": 164,
-        "length": 10,
-        "key": expect.any(String)//"m0mhqt"
-      }
-    ]
-  },
-  {
-    "text": "But in other cases it can actually be useful to foster this emotional connection to robots.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "358.52",
           "end": "358.7",
@@ -16010,163 +14972,7 @@ const draftTranscriptExample = [
           "word": "robots",
           "punct": "robots.",
           "index": 913
-        }
-      ],
-      "start": "358.52"
-    },
-    "entityRanges": [
-      {
-        "start": "358.52",
-        "end": "358.7",
-        "confidence": "1.000",
-        "text": "But",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"jraw587"
-      },
-      {
-        "start": "358.70",
-        "end": "358.82",
-        "confidence": "1.000",
-        "text": "in",
-        "offset": 4,
-        "length": 2,
-        "key": expect.any(String)//"0tp998m"
-      },
-      {
-        "start": "358.82",
-        "end": "359.03",
-        "confidence": "1.000",
-        "text": "other",
-        "offset": 7,
-        "length": 5,
-        "key": expect.any(String)//"s7a5sbi"
-      },
-      {
-        "start": "359.03",
-        "end": "359.45",
-        "confidence": "1.000",
-        "text": "cases",
-        "offset": 13,
-        "length": 5,
-        "key": expect.any(String)//"dl4s9q9"
-      },
-      {
-        "start": "359.45",
-        "end": "359.51",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 19,
-        "length": 2,
-        "key": expect.any(String)//"fayauy3"
-      },
-      {
-        "start": "359.51",
-        "end": "359.63",
-        "confidence": "1.000",
-        "text": "can",
-        "offset": 22,
-        "length": 3,
-        "key": expect.any(String)//"pxmcyzw"
-      },
-      {
-        "start": "359.63",
-        "end": "359.96",
-        "confidence": "1.000",
-        "text": "actually",
-        "offset": 26,
-        "length": 8,
-        "key": expect.any(String)//"6fnqv45"
-      },
-      {
-        "start": "359.96",
-        "end": "360.10999999999996",
-        "confidence": "1.000",
-        "text": "be",
-        "offset": 35,
-        "length": 2,
-        "key": expect.any(String)//"1cy5lqt"
-      },
-      {
-        "start": "360.11",
-        "end": "360.68",
-        "confidence": "1.000",
-        "text": "useful",
-        "offset": 38,
-        "length": 6,
-        "key": expect.any(String)//"g41gwc6"
-      },
-      {
-        "start": "360.68",
-        "end": "360.8",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 45,
-        "length": 2,
-        "key": expect.any(String)//"hs8dork"
-      },
-      {
-        "start": "360.80",
-        "end": "361.34000000000003",
-        "confidence": "1.000",
-        "text": "foster",
-        "offset": 48,
-        "length": 6,
-        "key": expect.any(String)//"7e0y19"
-      },
-      {
-        "start": "361.34",
-        "end": "361.52",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 55,
-        "length": 4,
-        "key": expect.any(String)//"otv4mq"
-      },
-      {
-        "start": "361.52",
-        "end": "361.94",
-        "confidence": "1.000",
-        "text": "emotional",
-        "offset": 60,
-        "length": 9,
-        "key": expect.any(String)//"97i9z1r"
-      },
-      {
-        "start": "361.94",
-        "end": "362.45",
-        "confidence": "1.000",
-        "text": "connection",
-        "offset": 70,
-        "length": 10,
-        "key": expect.any(String)//"x2qvnos"
-      },
-      {
-        "start": "362.45",
-        "end": "362.57",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 81,
-        "length": 2,
-        "key": expect.any(String)//"tl2iij"
-      },
-      {
-        "start": "362.57",
-        "end": "364.18",
-        "confidence": "1.000",
-        "text": "robots.",
-        "offset": 84,
-        "length": 7,
-        "key": expect.any(String)//"3s6tw8e"
-      }
-    ]
-  },
-  {
-    "text": "We're already seeing some great use cases for example robots working with autistic children to engage them in ways that we haven't seen previously or robots working with teachers to engage kids in learning with new results.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "364.19",
           "end": "364.34",
@@ -16462,352 +15268,7 @@ const draftTranscriptExample = [
           "word": "results",
           "punct": "results.",
           "index": 950
-        }
-      ],
-      "start": "364.19"
-    },
-    "entityRanges": [
-      {
-        "start": "364.19",
-        "end": "364.34",
-        "confidence": "0.990",
-        "text": "We're",
-        "offset": 0,
-        "length": 5,
-        "key": expect.any(String)//"pdxd7p37"
-      },
-      {
-        "start": "364.34",
-        "end": "364.64",
-        "confidence": "1.000",
-        "text": "already",
-        "offset": 6,
-        "length": 7,
-        "key": expect.any(String)//"hdy2ah9"
-      },
-      {
-        "start": "364.64",
-        "end": "364.96999999999997",
-        "confidence": "1.000",
-        "text": "seeing",
-        "offset": 14,
-        "length": 6,
-        "key": expect.any(String)//"whdg1ia"
-      },
-      {
-        "start": "364.97",
-        "end": "365.15000000000003",
-        "confidence": "1.000",
-        "text": "some",
-        "offset": 21,
-        "length": 4,
-        "key": expect.any(String)//"vfosrsv"
-      },
-      {
-        "start": "365.15",
-        "end": "365.47999999999996",
-        "confidence": "1.000",
-        "text": "great",
-        "offset": 26,
-        "length": 5,
-        "key": expect.any(String)//"1awwt4"
-      },
-      {
-        "start": "365.48",
-        "end": "365.75",
-        "confidence": "1.000",
-        "text": "use",
-        "offset": 32,
-        "length": 3,
-        "key": expect.any(String)//"miayg4"
-      },
-      {
-        "start": "365.75",
-        "end": "366.26",
-        "confidence": "1.000",
-        "text": "cases",
-        "offset": 36,
-        "length": 5,
-        "key": expect.any(String)//"r5hury"
-      },
-      {
-        "start": "366.26",
-        "end": "366.40999999999997",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 42,
-        "length": 3,
-        "key": expect.any(String)//"fps39j"
-      },
-      {
-        "start": "366.41",
-        "end": "366.83000000000004",
-        "confidence": "1.000",
-        "text": "example",
-        "offset": 46,
-        "length": 7,
-        "key": expect.any(String)//"7zcv8h"
-      },
-      {
-        "start": "366.83",
-        "end": "367.28",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 54,
-        "length": 6,
-        "key": expect.any(String)//"uu2d9l"
-      },
-      {
-        "start": "367.28",
-        "end": "367.60999999999996",
-        "confidence": "1.000",
-        "text": "working",
-        "offset": 61,
-        "length": 7,
-        "key": expect.any(String)//"iv9619"
-      },
-      {
-        "start": "367.61",
-        "end": "367.79",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 69,
-        "length": 4,
-        "key": expect.any(String)//"x05939q"
-      },
-      {
-        "start": "367.82",
-        "end": "368.42",
-        "confidence": "1.000",
-        "text": "autistic",
-        "offset": 74,
-        "length": 8,
-        "key": expect.any(String)//"3vw8yxf"
-      },
-      {
-        "start": "368.42",
-        "end": "368.93",
-        "confidence": "1.000",
-        "text": "children",
-        "offset": 83,
-        "length": 8,
-        "key": expect.any(String)//"vaejevc"
-      },
-      {
-        "start": "368.93",
-        "end": "369.11",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 92,
-        "length": 2,
-        "key": expect.any(String)//"zbtzbh"
-      },
-      {
-        "start": "369.11",
-        "end": "369.65000000000003",
-        "confidence": "1.000",
-        "text": "engage",
-        "offset": 95,
-        "length": 6,
-        "key": expect.any(String)//"191mjn"
-      },
-      {
-        "start": "369.65",
-        "end": "369.95",
-        "confidence": "1.000",
-        "text": "them",
-        "offset": 102,
-        "length": 4,
-        "key": expect.any(String)//"juslfxr"
-      },
-      {
-        "start": "369.95",
-        "end": "370.07",
-        "confidence": "1.000",
-        "text": "in",
-        "offset": 107,
-        "length": 2,
-        "key": expect.any(String)//"qo61v8i"
-      },
-      {
-        "start": "370.07",
-        "end": "370.37",
-        "confidence": "1.000",
-        "text": "ways",
-        "offset": 110,
-        "length": 4,
-        "key": expect.any(String)//"8a560dm"
-      },
-      {
-        "start": "370.40",
-        "end": "370.48999999999995",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 115,
-        "length": 4,
-        "key": expect.any(String)//"f3xr03l"
-      },
-      {
-        "start": "370.49",
-        "end": "370.58",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 120,
-        "length": 2,
-        "key": expect.any(String)//"a0z4ap"
-      },
-      {
-        "start": "370.58",
-        "end": "370.94",
-        "confidence": "1.000",
-        "text": "haven't",
-        "offset": 123,
-        "length": 7,
-        "key": expect.any(String)//"x39mj5"
-      },
-      {
-        "start": "370.94",
-        "end": "371.18",
-        "confidence": "1.000",
-        "text": "seen",
-        "offset": 131,
-        "length": 4,
-        "key": expect.any(String)//"6upr3z"
-      },
-      {
-        "start": "371.18",
-        "end": "371.99",
-        "confidence": "1.000",
-        "text": "previously",
-        "offset": 136,
-        "length": 10,
-        "key": expect.any(String)//"ulssco"
-      },
-      {
-        "start": "372.65",
-        "end": "372.77",
-        "confidence": "1.000",
-        "text": "or",
-        "offset": 147,
-        "length": 2,
-        "key": expect.any(String)//"ei2f33a"
-      },
-      {
-        "start": "372.77",
-        "end": "373.15999999999997",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 150,
-        "length": 6,
-        "key": expect.any(String)//"eamvtoa"
-      },
-      {
-        "start": "373.16",
-        "end": "373.52000000000004",
-        "confidence": "1.000",
-        "text": "working",
-        "offset": 157,
-        "length": 7,
-        "key": expect.any(String)//"18x6fpm"
-      },
-      {
-        "start": "373.52",
-        "end": "373.64",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 165,
-        "length": 4,
-        "key": expect.any(String)//"0lhese9"
-      },
-      {
-        "start": "373.64",
-        "end": "374.21",
-        "confidence": "1.000",
-        "text": "teachers",
-        "offset": 170,
-        "length": 8,
-        "key": expect.any(String)//"0tuce5m"
-      },
-      {
-        "start": "374.21",
-        "end": "374.35999999999996",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 179,
-        "length": 2,
-        "key": expect.any(String)//"9v1f7mt"
-      },
-      {
-        "start": "374.36",
-        "end": "374.72",
-        "confidence": "1.000",
-        "text": "engage",
-        "offset": 182,
-        "length": 6,
-        "key": expect.any(String)//"vgcc4e"
-      },
-      {
-        "start": "374.72",
-        "end": "375.05",
-        "confidence": "1.000",
-        "text": "kids",
-        "offset": 189,
-        "length": 4,
-        "key": expect.any(String)//"rsw7vh"
-      },
-      {
-        "start": "375.05",
-        "end": "375.17",
-        "confidence": "0.980",
-        "text": "in",
-        "offset": 194,
-        "length": 2,
-        "key": expect.any(String)//"zwprfla"
-      },
-      {
-        "start": "375.17",
-        "end": "375.59000000000003",
-        "confidence": "1.000",
-        "text": "learning",
-        "offset": 197,
-        "length": 8,
-        "key": expect.any(String)//"dc7s9sg"
-      },
-      {
-        "start": "375.59",
-        "end": "375.73999999999995",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 206,
-        "length": 4,
-        "key": expect.any(String)//"uki3sb"
-      },
-      {
-        "start": "375.74",
-        "end": "375.92",
-        "confidence": "1.000",
-        "text": "new",
-        "offset": 211,
-        "length": 3,
-        "key": expect.any(String)//"gc43f0a"
-      },
-      {
-        "start": "375.92",
-        "end": "377.45",
-        "confidence": "1.000",
-        "text": "results.",
-        "offset": 215,
-        "length": 8,
-        "key": expect.any(String)//"iwx9dp"
-      }
-    ]
-  },
-  {
-    "text": "And it's not just for kids.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "377.45",
           "end": "377.57",
@@ -16855,73 +15316,7 @@ const draftTranscriptExample = [
           "word": "kids",
           "punct": "kids.",
           "index": 956
-        }
-      ],
-      "start": "377.45"
-    },
-    "entityRanges": [
-      {
-        "start": "377.45",
-        "end": "377.57",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"axv3nca"
-      },
-      {
-        "start": "377.57",
-        "end": "377.69",
-        "confidence": "1.000",
-        "text": "it's",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"m7kf8i8"
-      },
-      {
-        "start": "377.69",
-        "end": "377.9",
-        "confidence": "1.000",
-        "text": "not",
-        "offset": 9,
-        "length": 3,
-        "key": expect.any(String)//"4p03se"
-      },
-      {
-        "start": "377.90",
-        "end": "378.04999999999995",
-        "confidence": "1.000",
-        "text": "just",
-        "offset": 13,
-        "length": 4,
-        "key": expect.any(String)//"gha03j7"
-      },
-      {
-        "start": "378.05",
-        "end": "378.2",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 18,
-        "length": 3,
-        "key": expect.any(String)//"066nzt"
-      },
-      {
-        "start": "378.20",
-        "end": "379.31",
-        "confidence": "1.000",
-        "text": "kids.",
-        "offset": 22,
-        "length": 5,
-        "key": expect.any(String)//"kxp700n"
-      }
-    ]
-  },
-  {
-    "text": "Early studies show that robots can help doctors and patients in health care settings.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "379.76",
           "end": "380.03",
@@ -17033,145 +15428,7 @@ const draftTranscriptExample = [
           "word": "settings",
           "punct": "settings.",
           "index": 970
-        }
-      ],
-      "start": "379.76"
-    },
-    "entityRanges": [
-      {
-        "start": "379.76",
-        "end": "380.03",
-        "confidence": "1.000",
-        "text": "Early",
-        "offset": 0,
-        "length": 5,
-        "key": expect.any(String)//"5si8n4i"
-      },
-      {
-        "start": "380.03",
-        "end": "380.39",
-        "confidence": "1.000",
-        "text": "studies",
-        "offset": 6,
-        "length": 7,
-        "key": expect.any(String)//"knaetvi"
-      },
-      {
-        "start": "380.39",
-        "end": "380.75",
-        "confidence": "1.000",
-        "text": "show",
-        "offset": 14,
-        "length": 4,
-        "key": expect.any(String)//"55lq57h"
-      },
-      {
-        "start": "380.75",
-        "end": "381.02",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 19,
-        "length": 4,
-        "key": expect.any(String)//"j6b7ete"
-      },
-      {
-        "start": "381.08",
-        "end": "381.40999999999997",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 24,
-        "length": 6,
-        "key": expect.any(String)//"scm6k3"
-      },
-      {
-        "start": "381.41",
-        "end": "381.56",
-        "confidence": "1.000",
-        "text": "can",
-        "offset": 31,
-        "length": 3,
-        "key": expect.any(String)//"gfpy2rl"
-      },
-      {
-        "start": "381.56",
-        "end": "381.74",
-        "confidence": "1.000",
-        "text": "help",
-        "offset": 35,
-        "length": 4,
-        "key": expect.any(String)//"4qbm6d9"
-      },
-      {
-        "start": "381.74",
-        "end": "382.28000000000003",
-        "confidence": "1.000",
-        "text": "doctors",
-        "offset": 40,
-        "length": 7,
-        "key": expect.any(String)//"aq1c62a"
-      },
-      {
-        "start": "382.28",
-        "end": "382.36999999999995",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 48,
-        "length": 3,
-        "key": expect.any(String)//"f7cw385"
-      },
-      {
-        "start": "382.37",
-        "end": "383.03000000000003",
-        "confidence": "1.000",
-        "text": "patients",
-        "offset": 52,
-        "length": 8,
-        "key": expect.any(String)//"fivmqd2"
-      },
-      {
-        "start": "383.03",
-        "end": "383.11999999999995",
-        "confidence": "0.850",
-        "text": "in",
-        "offset": 61,
-        "length": 2,
-        "key": expect.any(String)//"xs3jotu"
-      },
-      {
-        "start": "383.12",
-        "end": "383.39",
-        "confidence": "0.820",
-        "text": "health",
-        "offset": 64,
-        "length": 6,
-        "key": expect.any(String)//"xakzgw"
-      },
-      {
-        "start": "383.39",
-        "end": "383.65999999999997",
-        "confidence": "0.820",
-        "text": "care",
-        "offset": 71,
-        "length": 4,
-        "key": expect.any(String)//"pjtdt4b"
-      },
-      {
-        "start": "383.66",
-        "end": "385.54",
-        "confidence": "1.000",
-        "text": "settings.",
-        "offset": 76,
-        "length": 9,
-        "key": expect.any(String)//"a4bnekl"
-      }
-    ]
-  },
-  {
-    "text": "This is the pro baby seal robot.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "385.55",
           "end": "385.76",
@@ -17227,82 +15484,7 @@ const draftTranscriptExample = [
           "word": "robot",
           "punct": "robot.",
           "index": 977
-        }
-      ],
-      "start": "385.55"
-    },
-    "entityRanges": [
-      {
-        "start": "385.55",
-        "end": "385.76",
-        "confidence": "1.000",
-        "text": "This",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"kp6y93"
-      },
-      {
-        "start": "385.76",
-        "end": "385.88",
-        "confidence": "1.000",
-        "text": "is",
-        "offset": 5,
-        "length": 2,
-        "key": expect.any(String)//"zjpvgro"
-      },
-      {
-        "start": "385.88",
-        "end": "386",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 8,
-        "length": 3,
-        "key": expect.any(String)//"5bxur4b"
-      },
-      {
-        "start": "386.00",
-        "end": "386.41",
-        "confidence": "0.340",
-        "text": "pro",
-        "offset": 12,
-        "length": 3,
-        "key": expect.any(String)//"x338vqb"
-      },
-      {
-        "start": "386.41",
-        "end": "386.66",
-        "confidence": "1.000",
-        "text": "baby",
-        "offset": 16,
-        "length": 4,
-        "key": expect.any(String)//"0bst326"
-      },
-      {
-        "start": "386.66",
-        "end": "386.93",
-        "confidence": "0.990",
-        "text": "seal",
-        "offset": 21,
-        "length": 4,
-        "key": expect.any(String)//"6nnfgvk"
-      },
-      {
-        "start": "386.93",
-        "end": "387.35",
-        "confidence": "1.000",
-        "text": "robot.",
-        "offset": 26,
-        "length": 6,
-        "key": expect.any(String)//"v80l0ro"
-      }
-    ]
-  },
-  {
-    "text": "It's used in nursing homes and with dementia patients.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "387.38",
           "end": "387.56",
@@ -17374,100 +15556,7 @@ const draftTranscriptExample = [
           "word": "patients",
           "punct": "patients.",
           "index": 986
-        }
-      ],
-      "start": "387.38"
-    },
-    "entityRanges": [
-      {
-        "start": "387.38",
-        "end": "387.56",
-        "confidence": "0.990",
-        "text": "It's",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"oyn4j2k"
-      },
-      {
-        "start": "387.56",
-        "end": "387.92",
-        "confidence": "1.000",
-        "text": "used",
-        "offset": 5,
-        "length": 4,
-        "key": expect.any(String)//"a1ebrht"
-      },
-      {
-        "start": "387.92",
-        "end": "388.07",
-        "confidence": "1.000",
-        "text": "in",
-        "offset": 10,
-        "length": 2,
-        "key": expect.any(String)//"yxe1ahl"
-      },
-      {
-        "start": "388.07",
-        "end": "388.49",
-        "confidence": "1.000",
-        "text": "nursing",
-        "offset": 13,
-        "length": 7,
-        "key": expect.any(String)//"p87gxck"
-      },
-      {
-        "start": "388.49",
-        "end": "388.94",
-        "confidence": "1.000",
-        "text": "homes",
-        "offset": 21,
-        "length": 5,
-        "key": expect.any(String)//"m3czyn8"
-      },
-      {
-        "start": "388.94",
-        "end": "389.03",
-        "confidence": "0.990",
-        "text": "and",
-        "offset": 27,
-        "length": 3,
-        "key": expect.any(String)//"l57dl5p"
-      },
-      {
-        "start": "389.03",
-        "end": "389.15",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 31,
-        "length": 4,
-        "key": expect.any(String)//"6x983zc"
-      },
-      {
-        "start": "389.15",
-        "end": "389.63",
-        "confidence": "1.000",
-        "text": "dementia",
-        "offset": 36,
-        "length": 8,
-        "key": expect.any(String)//"7zeo4pr"
-      },
-      {
-        "start": "389.63",
-        "end": "390.52",
-        "confidence": "1.000",
-        "text": "patients.",
-        "offset": 45,
-        "length": 9,
-        "key": expect.any(String)//"48rvq6o"
-      }
-    ]
-  },
-  {
-    "text": "It's been around for a while and I remember years ago being at a party and telling someone about this robot and her response was.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "390.53",
           "end": "390.65",
@@ -17669,233 +15758,1556 @@ const draftTranscriptExample = [
           "index": 1011
         }
       ],
-      "start": "390.53"
+      "start": "337.88"
     },
     "entityRanges": [
+      {
+        "start": "337.88",
+        "end": "338",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 0,
+        "length": 3,
+        "key": expect.any(String)//"2uw4j9"
+      },
+      {
+        "start": "338.00",
+        "end": "338.21",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 4,
+        "length": 4,
+        "key": expect.any(String)//"1pvi9oa"
+      },
+      {
+        "start": "338.21",
+        "end": "338.96",
+        "confidence": "1.000",
+        "text": "matters",
+        "offset": 9,
+        "length": 7,
+        "key": expect.any(String)//"17zsn5e"
+      },
+      {
+        "start": "338.99",
+        "end": "339.53000000000003",
+        "confidence": "1.000",
+        "text": "because",
+        "offset": 17,
+        "length": 7,
+        "key": expect.any(String)//"hi5025d"
+      },
+      {
+        "start": "339.62",
+        "end": "339.77",
+        "confidence": "1.000",
+        "text": "if",
+        "offset": 25,
+        "length": 2,
+        "key": expect.any(String)//"f5tdns"
+      },
+      {
+        "start": "339.77",
+        "end": "339.89",
+        "confidence": "1.000",
+        "text": "we're",
+        "offset": 28,
+        "length": 5,
+        "key": expect.any(String)//"jdj5i5m"
+      },
+      {
+        "start": "339.89",
+        "end": "340.19",
+        "confidence": "1.000",
+        "text": "trying",
+        "offset": 34,
+        "length": 6,
+        "key": expect.any(String)//"tdgjyho"
+      },
+      {
+        "start": "340.19",
+        "end": "340.31",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 41,
+        "length": 2,
+        "key": expect.any(String)//"n3od59k"
+      },
+      {
+        "start": "340.34",
+        "end": "340.90999999999997",
+        "confidence": "1.000",
+        "text": "integrate",
+        "offset": 44,
+        "length": 9,
+        "key": expect.any(String)//"g6t2vfd"
+      },
+      {
+        "start": "340.91",
+        "end": "341.42",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 54,
+        "length": 6,
+        "key": expect.any(String)//"8qjpcdu"
+      },
+      {
+        "start": "341.42",
+        "end": "341.57",
+        "confidence": "1.000",
+        "text": "into",
+        "offset": 61,
+        "length": 4,
+        "key": expect.any(String)//"3gxcnc7"
+      },
+      {
+        "start": "341.57",
+        "end": "341.71999999999997",
+        "confidence": "1.000",
+        "text": "these",
+        "offset": 66,
+        "length": 5,
+        "key": expect.any(String)//"h8xx4rg"
+      },
+      {
+        "start": "341.72",
+        "end": "342.05",
+        "confidence": "1.000",
+        "text": "shared",
+        "offset": 72,
+        "length": 6,
+        "key": expect.any(String)//"xy3e9sk"
+      },
+      {
+        "start": "342.05",
+        "end": "342.68",
+        "confidence": "1.000",
+        "text": "spaces",
+        "offset": 79,
+        "length": 6,
+        "key": expect.any(String)//"dkf25gd"
+      },
+      {
+        "start": "342.71",
+        "end": "342.79999999999995",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 86,
+        "length": 2,
+        "key": expect.any(String)//"u6jbr7i"
+      },
+      {
+        "start": "342.80",
+        "end": "342.98",
+        "confidence": "1.000",
+        "text": "need",
+        "offset": 89,
+        "length": 4,
+        "key": expect.any(String)//"374fqnr"
+      },
+      {
+        "start": "342.98",
+        "end": "343.07",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 94,
+        "length": 2,
+        "key": expect.any(String)//"30a0q6"
+      },
+      {
+        "start": "343.07",
+        "end": "343.79",
+        "confidence": "1.000",
+        "text": "understand",
+        "offset": 97,
+        "length": 10,
+        "key": expect.any(String)//"g27dfof"
+      },
+      {
+        "start": "343.79",
+        "end": "343.94",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 108,
+        "length": 4,
+        "key": expect.any(String)//"viohecg"
+      },
+      {
+        "start": "343.94",
+        "end": "344.27",
+        "confidence": "1.000",
+        "text": "people",
+        "offset": 113,
+        "length": 6,
+        "key": expect.any(String)//"mb223pf"
+      },
+      {
+        "start": "344.27",
+        "end": "344.39",
+        "confidence": "1.000",
+        "text": "will",
+        "offset": 120,
+        "length": 4,
+        "key": expect.any(String)//"l0kwvc"
+      },
+      {
+        "start": "344.39",
+        "end": "344.63",
+        "confidence": "1.000",
+        "text": "treat",
+        "offset": 125,
+        "length": 5,
+        "key": expect.any(String)//"usr59qe"
+      },
+      {
+        "start": "344.63",
+        "end": "344.78",
+        "confidence": "1.000",
+        "text": "them",
+        "offset": 131,
+        "length": 4,
+        "key": expect.any(String)//"4pginm"
+      },
+      {
+        "start": "344.78",
+        "end": "345.38",
+        "confidence": "1.000",
+        "text": "differently",
+        "offset": 136,
+        "length": 11,
+        "key": expect.any(String)//"w2hu17"
+      },
+      {
+        "start": "345.38",
+        "end": "345.56",
+        "confidence": "1.000",
+        "text": "than",
+        "offset": 148,
+        "length": 4,
+        "key": expect.any(String)//"558bunq"
+      },
+      {
+        "start": "345.56",
+        "end": "345.74",
+        "confidence": "1.000",
+        "text": "other",
+        "offset": 153,
+        "length": 5,
+        "key": expect.any(String)//"amkyxag"
+      },
+      {
+        "start": "345.74",
+        "end": "347",
+        "confidence": "1.000",
+        "text": "devices.",
+        "offset": 159,
+        "length": 8,
+        "key": expect.any(String)//"h4kisnm"
+      },
+      {
+        "start": "347.39",
+        "end": "347.51",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 168,
+        "length": 3,
+        "key": expect.any(String)//"197g9fk"
+      },
+      {
+        "start": "347.51",
+        "end": "347.65999999999997",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 172,
+        "length": 4,
+        "key": expect.any(String)//"askkzpd"
+      },
+      {
+        "start": "347.66",
+        "end": "347.78000000000003",
+        "confidence": "1.000",
+        "text": "in",
+        "offset": 177,
+        "length": 2,
+        "key": expect.any(String)//"j67harw"
+      },
+      {
+        "start": "347.78",
+        "end": "348.08",
+        "confidence": "1.000",
+        "text": "some",
+        "offset": 180,
+        "length": 4,
+        "key": expect.any(String)//"llup9v"
+      },
+      {
+        "start": "348.08",
+        "end": "348.89",
+        "confidence": "1.000",
+        "text": "cases",
+        "offset": 185,
+        "length": 5,
+        "key": expect.any(String)//"v0d6yqa"
+      },
+      {
+        "start": "349.22",
+        "end": "349.40000000000003",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 191,
+        "length": 3,
+        "key": expect.any(String)//"7i9p8c6"
+      },
+      {
+        "start": "349.40",
+        "end": "349.96999999999997",
+        "confidence": "1.000",
+        "text": "example",
+        "offset": 195,
+        "length": 7,
+        "key": expect.any(String)//"2k507tra"
+      },
+      {
+        "start": "350.00",
+        "end": "350.09",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 203,
+        "length": 3,
+        "key": expect.any(String)//"g5dsoi"
+      },
+      {
+        "start": "350.09",
+        "end": "350.39",
+        "confidence": "1.000",
+        "text": "case",
+        "offset": 207,
+        "length": 4,
+        "key": expect.any(String)//"6aq4feu"
+      },
+      {
+        "start": "350.39",
+        "end": "350.51",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 212,
+        "length": 2,
+        "key": expect.any(String)//"0inc85u"
+      },
+      {
+        "start": "350.51",
+        "end": "350.53999999999996",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 215,
+        "length": 1,
+        "key": expect.any(String)//"ao3gv7"
+      },
+      {
+        "start": "350.54",
+        "end": "350.99",
+        "confidence": "1.000",
+        "text": "soldier",
+        "offset": 217,
+        "length": 7,
+        "key": expect.any(String)//"ia40i6l"
+      },
+      {
+        "start": "351.02",
+        "end": "351.10999999999996",
+        "confidence": "1.000",
+        "text": "who",
+        "offset": 225,
+        "length": 3,
+        "key": expect.any(String)//"2mcrdjq"
+      },
+      {
+        "start": "351.11",
+        "end": "351.44",
+        "confidence": "1.000",
+        "text": "becomes",
+        "offset": 229,
+        "length": 7,
+        "key": expect.any(String)//"owxxrnb"
+      },
+      {
+        "start": "351.44",
+        "end": "352.01",
+        "confidence": "1.000",
+        "text": "emotionally",
+        "offset": 237,
+        "length": 11,
+        "key": expect.any(String)//"b0n5p5"
+      },
+      {
+        "start": "352.01",
+        "end": "352.49",
+        "confidence": "1.000",
+        "text": "attached",
+        "offset": 249,
+        "length": 8,
+        "key": expect.any(String)//"x3nvyu"
+      },
+      {
+        "start": "352.49",
+        "end": "352.61",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 258,
+        "length": 2,
+        "key": expect.any(String)//"43rwu1d"
+      },
+      {
+        "start": "352.61",
+        "end": "352.73",
+        "confidence": "0.990",
+        "text": "the",
+        "offset": 261,
+        "length": 3,
+        "key": expect.any(String)//"ropk0gfb"
+      },
+      {
+        "start": "352.73",
+        "end": "353.12",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 265,
+        "length": 5,
+        "key": expect.any(String)//"s9tsu6"
+      },
+      {
+        "start": "353.12",
+        "end": "353.24",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 271,
+        "length": 4,
+        "key": expect.any(String)//"o5obvfk"
+      },
+      {
+        "start": "353.24",
+        "end": "353.36",
+        "confidence": "1.000",
+        "text": "they",
+        "offset": 276,
+        "length": 4,
+        "key": expect.any(String)//"9o4hn1"
+      },
+      {
+        "start": "353.36",
+        "end": "353.6",
+        "confidence": "1.000",
+        "text": "work",
+        "offset": 281,
+        "length": 4,
+        "key": expect.any(String)//"m180xwm"
+      },
+      {
+        "start": "353.60",
+        "end": "353.99",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 286,
+        "length": 4,
+        "key": expect.any(String)//"h1ewxa8"
+      },
+      {
+        "start": "354.50",
+        "end": "354.68",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 291,
+        "length": 4,
+        "key": expect.any(String)//"vx5cqkc"
+      },
+      {
+        "start": "354.68",
+        "end": "354.83",
+        "confidence": "1.000",
+        "text": "can",
+        "offset": 296,
+        "length": 3,
+        "key": expect.any(String)//"wxhnyai"
+      },
+      {
+        "start": "354.83",
+        "end": "354.95",
+        "confidence": "1.000",
+        "text": "be",
+        "offset": 300,
+        "length": 2,
+        "key": expect.any(String)//"0ru7old"
+      },
+      {
+        "start": "354.95",
+        "end": "355.31",
+        "confidence": "1.000",
+        "text": "anything",
+        "offset": 303,
+        "length": 8,
+        "key": expect.any(String)//"xti792l"
+      },
+      {
+        "start": "355.31",
+        "end": "355.49",
+        "confidence": "1.000",
+        "text": "from",
+        "offset": 312,
+        "length": 4,
+        "key": expect.any(String)//"4hug11v"
+      },
+      {
+        "start": "355.52",
+        "end": "356.03",
+        "confidence": "1.000",
+        "text": "inefficient",
+        "offset": 317,
+        "length": 11,
+        "key": expect.any(String)//"8z92x15"
+      },
+      {
+        "start": "356.03",
+        "end": "356.15",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 329,
+        "length": 2,
+        "key": expect.any(String)//"ytz29h4"
+      },
+      {
+        "start": "356.15",
+        "end": "356.92999999999995",
+        "confidence": "1.000",
+        "text": "dangerous.",
+        "offset": 332,
+        "length": 10,
+        "key": expect.any(String)//"4hei45a"
+      },
+      {
+        "start": "358.52",
+        "end": "358.7",
+        "confidence": "1.000",
+        "text": "But",
+        "offset": 343,
+        "length": 3,
+        "key": expect.any(String)//"t23cqy"
+      },
+      {
+        "start": "358.70",
+        "end": "358.82",
+        "confidence": "1.000",
+        "text": "in",
+        "offset": 347,
+        "length": 2,
+        "key": expect.any(String)//"5lx457"
+      },
+      {
+        "start": "358.82",
+        "end": "359.03",
+        "confidence": "1.000",
+        "text": "other",
+        "offset": 350,
+        "length": 5,
+        "key": expect.any(String)//"h8dnwws"
+      },
+      {
+        "start": "359.03",
+        "end": "359.45",
+        "confidence": "1.000",
+        "text": "cases",
+        "offset": 356,
+        "length": 5,
+        "key": expect.any(String)//"209bidd"
+      },
+      {
+        "start": "359.45",
+        "end": "359.51",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 362,
+        "length": 2,
+        "key": expect.any(String)//"y39s21i"
+      },
+      {
+        "start": "359.51",
+        "end": "359.63",
+        "confidence": "1.000",
+        "text": "can",
+        "offset": 365,
+        "length": 3,
+        "key": expect.any(String)//"2tq6wgn"
+      },
+      {
+        "start": "359.63",
+        "end": "359.96",
+        "confidence": "1.000",
+        "text": "actually",
+        "offset": 369,
+        "length": 8,
+        "key": expect.any(String)//"r0l3oup"
+      },
+      {
+        "start": "359.96",
+        "end": "360.10999999999996",
+        "confidence": "1.000",
+        "text": "be",
+        "offset": 378,
+        "length": 2,
+        "key": expect.any(String)//"ouuy8t"
+      },
+      {
+        "start": "360.11",
+        "end": "360.68",
+        "confidence": "1.000",
+        "text": "useful",
+        "offset": 381,
+        "length": 6,
+        "key": expect.any(String)//"f47bwn7"
+      },
+      {
+        "start": "360.68",
+        "end": "360.8",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 388,
+        "length": 2,
+        "key": expect.any(String)//"5v5goi"
+      },
+      {
+        "start": "360.80",
+        "end": "361.34000000000003",
+        "confidence": "1.000",
+        "text": "foster",
+        "offset": 391,
+        "length": 6,
+        "key": expect.any(String)//"h7uwde8"
+      },
+      {
+        "start": "361.34",
+        "end": "361.52",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 398,
+        "length": 4,
+        "key": expect.any(String)//"y0y2dm7"
+      },
+      {
+        "start": "361.52",
+        "end": "361.94",
+        "confidence": "1.000",
+        "text": "emotional",
+        "offset": 403,
+        "length": 9,
+        "key": expect.any(String)//"9aq7tx"
+      },
+      {
+        "start": "361.94",
+        "end": "362.45",
+        "confidence": "1.000",
+        "text": "connection",
+        "offset": 413,
+        "length": 10,
+        "key": expect.any(String)//"e6noudo"
+      },
+      {
+        "start": "362.45",
+        "end": "362.57",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 424,
+        "length": 2,
+        "key": expect.any(String)//"6ab37t"
+      },
+      {
+        "start": "362.57",
+        "end": "364.18",
+        "confidence": "1.000",
+        "text": "robots.",
+        "offset": 427,
+        "length": 7,
+        "key": expect.any(String)//"k1t5a9c"
+      },
+      {
+        "start": "364.19",
+        "end": "364.34",
+        "confidence": "0.990",
+        "text": "We're",
+        "offset": 435,
+        "length": 5,
+        "key": expect.any(String)//"8qjlzi3"
+      },
+      {
+        "start": "364.34",
+        "end": "364.64",
+        "confidence": "1.000",
+        "text": "already",
+        "offset": 441,
+        "length": 7,
+        "key": expect.any(String)//"5jq8nmo"
+      },
+      {
+        "start": "364.64",
+        "end": "364.96999999999997",
+        "confidence": "1.000",
+        "text": "seeing",
+        "offset": 449,
+        "length": 6,
+        "key": expect.any(String)//"4pp9lqv"
+      },
+      {
+        "start": "364.97",
+        "end": "365.15000000000003",
+        "confidence": "1.000",
+        "text": "some",
+        "offset": 456,
+        "length": 4,
+        "key": expect.any(String)//"6ztqx5"
+      },
+      {
+        "start": "365.15",
+        "end": "365.47999999999996",
+        "confidence": "1.000",
+        "text": "great",
+        "offset": 461,
+        "length": 5,
+        "key": expect.any(String)//"sxieots"
+      },
+      {
+        "start": "365.48",
+        "end": "365.75",
+        "confidence": "1.000",
+        "text": "use",
+        "offset": 467,
+        "length": 3,
+        "key": expect.any(String)//"aqayo9h"
+      },
+      {
+        "start": "365.75",
+        "end": "366.26",
+        "confidence": "1.000",
+        "text": "cases",
+        "offset": 471,
+        "length": 5,
+        "key": expect.any(String)//"leasg8q"
+      },
+      {
+        "start": "366.26",
+        "end": "366.40999999999997",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 477,
+        "length": 3,
+        "key": expect.any(String)//"4wfl3ai"
+      },
+      {
+        "start": "366.41",
+        "end": "366.83000000000004",
+        "confidence": "1.000",
+        "text": "example",
+        "offset": 481,
+        "length": 7,
+        "key": expect.any(String)//"0bqi4o"
+      },
+      {
+        "start": "366.83",
+        "end": "367.28",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 489,
+        "length": 6,
+        "key": expect.any(String)//"q562pb4"
+      },
+      {
+        "start": "367.28",
+        "end": "367.60999999999996",
+        "confidence": "1.000",
+        "text": "working",
+        "offset": 496,
+        "length": 7,
+        "key": expect.any(String)//"qn7g5b"
+      },
+      {
+        "start": "367.61",
+        "end": "367.79",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 504,
+        "length": 4,
+        "key": expect.any(String)//"g0s4cy"
+      },
+      {
+        "start": "367.82",
+        "end": "368.42",
+        "confidence": "1.000",
+        "text": "autistic",
+        "offset": 509,
+        "length": 8,
+        "key": expect.any(String)//"l4pdx6n"
+      },
+      {
+        "start": "368.42",
+        "end": "368.93",
+        "confidence": "1.000",
+        "text": "children",
+        "offset": 518,
+        "length": 8,
+        "key": expect.any(String)//"pg8es1a"
+      },
+      {
+        "start": "368.93",
+        "end": "369.11",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 527,
+        "length": 2,
+        "key": expect.any(String)//"t0lfe8s"
+      },
+      {
+        "start": "369.11",
+        "end": "369.65000000000003",
+        "confidence": "1.000",
+        "text": "engage",
+        "offset": 530,
+        "length": 6,
+        "key": expect.any(String)//"gcgmnw3"
+      },
+      {
+        "start": "369.65",
+        "end": "369.95",
+        "confidence": "1.000",
+        "text": "them",
+        "offset": 537,
+        "length": 4,
+        "key": expect.any(String)//"q4rm27e"
+      },
+      {
+        "start": "369.95",
+        "end": "370.07",
+        "confidence": "1.000",
+        "text": "in",
+        "offset": 542,
+        "length": 2,
+        "key": expect.any(String)//"7j9m1m"
+      },
+      {
+        "start": "370.07",
+        "end": "370.37",
+        "confidence": "1.000",
+        "text": "ways",
+        "offset": 545,
+        "length": 4,
+        "key": expect.any(String)//"yr48wkk"
+      },
+      {
+        "start": "370.40",
+        "end": "370.48999999999995",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 550,
+        "length": 4,
+        "key": expect.any(String)//"oxaykd"
+      },
+      {
+        "start": "370.49",
+        "end": "370.58",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 555,
+        "length": 2,
+        "key": expect.any(String)//"ryj4b19"
+      },
+      {
+        "start": "370.58",
+        "end": "370.94",
+        "confidence": "1.000",
+        "text": "haven't",
+        "offset": 558,
+        "length": 7,
+        "key": expect.any(String)//"8ickevb"
+      },
+      {
+        "start": "370.94",
+        "end": "371.18",
+        "confidence": "1.000",
+        "text": "seen",
+        "offset": 566,
+        "length": 4,
+        "key": expect.any(String)//"0ehd3f"
+      },
+      {
+        "start": "371.18",
+        "end": "371.99",
+        "confidence": "1.000",
+        "text": "previously",
+        "offset": 571,
+        "length": 10,
+        "key": expect.any(String)//"nxwcrzi"
+      },
+      {
+        "start": "372.65",
+        "end": "372.77",
+        "confidence": "1.000",
+        "text": "or",
+        "offset": 582,
+        "length": 2,
+        "key": expect.any(String)//"xnd4k0r"
+      },
+      {
+        "start": "372.77",
+        "end": "373.15999999999997",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 585,
+        "length": 6,
+        "key": expect.any(String)//"eypbwn7d"
+      },
+      {
+        "start": "373.16",
+        "end": "373.52000000000004",
+        "confidence": "1.000",
+        "text": "working",
+        "offset": 592,
+        "length": 7,
+        "key": expect.any(String)//"cqhzqwm"
+      },
+      {
+        "start": "373.52",
+        "end": "373.64",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 600,
+        "length": 4,
+        "key": expect.any(String)//"mbkz8bv"
+      },
+      {
+        "start": "373.64",
+        "end": "374.21",
+        "confidence": "1.000",
+        "text": "teachers",
+        "offset": 605,
+        "length": 8,
+        "key": expect.any(String)//"dyj636y"
+      },
+      {
+        "start": "374.21",
+        "end": "374.35999999999996",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 614,
+        "length": 2,
+        "key": expect.any(String)//"8pp9ig0q"
+      },
+      {
+        "start": "374.36",
+        "end": "374.72",
+        "confidence": "1.000",
+        "text": "engage",
+        "offset": 617,
+        "length": 6,
+        "key": expect.any(String)//"iumobch"
+      },
+      {
+        "start": "374.72",
+        "end": "375.05",
+        "confidence": "1.000",
+        "text": "kids",
+        "offset": 624,
+        "length": 4,
+        "key": expect.any(String)//"vqyfp9"
+      },
+      {
+        "start": "375.05",
+        "end": "375.17",
+        "confidence": "0.980",
+        "text": "in",
+        "offset": 629,
+        "length": 2,
+        "key": expect.any(String)//"eacrel"
+      },
+      {
+        "start": "375.17",
+        "end": "375.59000000000003",
+        "confidence": "1.000",
+        "text": "learning",
+        "offset": 632,
+        "length": 8,
+        "key": expect.any(String)//"ioz85qr"
+      },
+      {
+        "start": "375.59",
+        "end": "375.73999999999995",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 641,
+        "length": 4,
+        "key": expect.any(String)//"im0pzn3"
+      },
+      {
+        "start": "375.74",
+        "end": "375.92",
+        "confidence": "1.000",
+        "text": "new",
+        "offset": 646,
+        "length": 3,
+        "key": expect.any(String)//"anng0l9"
+      },
+      {
+        "start": "375.92",
+        "end": "377.45",
+        "confidence": "1.000",
+        "text": "results.",
+        "offset": 650,
+        "length": 8,
+        "key": expect.any(String)//"x1miwlwi"
+      },
+      {
+        "start": "377.45",
+        "end": "377.57",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 659,
+        "length": 3,
+        "key": expect.any(String)//"1be489n"
+      },
+      {
+        "start": "377.57",
+        "end": "377.69",
+        "confidence": "1.000",
+        "text": "it's",
+        "offset": 663,
+        "length": 4,
+        "key": expect.any(String)//"hsiuds5"
+      },
+      {
+        "start": "377.69",
+        "end": "377.9",
+        "confidence": "1.000",
+        "text": "not",
+        "offset": 668,
+        "length": 3,
+        "key": expect.any(String)//"fqig8r8"
+      },
+      {
+        "start": "377.90",
+        "end": "378.04999999999995",
+        "confidence": "1.000",
+        "text": "just",
+        "offset": 672,
+        "length": 4,
+        "key": expect.any(String)//"bbzdh5n"
+      },
+      {
+        "start": "378.05",
+        "end": "378.2",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 677,
+        "length": 3,
+        "key": expect.any(String)//"6rgqszf"
+      },
+      {
+        "start": "378.20",
+        "end": "379.31",
+        "confidence": "1.000",
+        "text": "kids.",
+        "offset": 681,
+        "length": 5,
+        "key": expect.any(String)//"w1l5qm"
+      },
+      {
+        "start": "379.76",
+        "end": "380.03",
+        "confidence": "1.000",
+        "text": "Early",
+        "offset": 687,
+        "length": 5,
+        "key": expect.any(String)//"c1dz944"
+      },
+      {
+        "start": "380.03",
+        "end": "380.39",
+        "confidence": "1.000",
+        "text": "studies",
+        "offset": 693,
+        "length": 7,
+        "key": expect.any(String)//"84egps8"
+      },
+      {
+        "start": "380.39",
+        "end": "380.75",
+        "confidence": "1.000",
+        "text": "show",
+        "offset": 701,
+        "length": 4,
+        "key": expect.any(String)//"c49m0k"
+      },
+      {
+        "start": "380.75",
+        "end": "381.02",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 706,
+        "length": 4,
+        "key": expect.any(String)//"qyup2p8"
+      },
+      {
+        "start": "381.08",
+        "end": "381.40999999999997",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 711,
+        "length": 6,
+        "key": expect.any(String)//"xtt55md"
+      },
+      {
+        "start": "381.41",
+        "end": "381.56",
+        "confidence": "1.000",
+        "text": "can",
+        "offset": 718,
+        "length": 3,
+        "key": expect.any(String)//"d2hh15v"
+      },
+      {
+        "start": "381.56",
+        "end": "381.74",
+        "confidence": "1.000",
+        "text": "help",
+        "offset": 722,
+        "length": 4,
+        "key": expect.any(String)//"66xy5y"
+      },
+      {
+        "start": "381.74",
+        "end": "382.28000000000003",
+        "confidence": "1.000",
+        "text": "doctors",
+        "offset": 727,
+        "length": 7,
+        "key": expect.any(String)//"xue6o9d"
+      },
+      {
+        "start": "382.28",
+        "end": "382.36999999999995",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 735,
+        "length": 3,
+        "key": expect.any(String)//"8l9l2sl"
+      },
+      {
+        "start": "382.37",
+        "end": "383.03000000000003",
+        "confidence": "1.000",
+        "text": "patients",
+        "offset": 739,
+        "length": 8,
+        "key": expect.any(String)//"f94s9tr"
+      },
+      {
+        "start": "383.03",
+        "end": "383.11999999999995",
+        "confidence": "0.850",
+        "text": "in",
+        "offset": 748,
+        "length": 2,
+        "key": expect.any(String)//"klki8w"
+      },
+      {
+        "start": "383.12",
+        "end": "383.39",
+        "confidence": "0.820",
+        "text": "health",
+        "offset": 751,
+        "length": 6,
+        "key": expect.any(String)//"4riiavi"
+      },
+      {
+        "start": "383.39",
+        "end": "383.65999999999997",
+        "confidence": "0.820",
+        "text": "care",
+        "offset": 758,
+        "length": 4,
+        "key": expect.any(String)//"ivma8kf"
+      },
+      {
+        "start": "383.66",
+        "end": "385.54",
+        "confidence": "1.000",
+        "text": "settings.",
+        "offset": 763,
+        "length": 9,
+        "key": expect.any(String)//"suxql2i"
+      },
+      {
+        "start": "385.55",
+        "end": "385.76",
+        "confidence": "1.000",
+        "text": "This",
+        "offset": 773,
+        "length": 4,
+        "key": expect.any(String)//"ptpwl9m"
+      },
+      {
+        "start": "385.76",
+        "end": "385.88",
+        "confidence": "1.000",
+        "text": "is",
+        "offset": 778,
+        "length": 2,
+        "key": expect.any(String)//"sjpb3or"
+      },
+      {
+        "start": "385.88",
+        "end": "386",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 781,
+        "length": 3,
+        "key": expect.any(String)//"k7p9iw8p"
+      },
+      {
+        "start": "386.00",
+        "end": "386.41",
+        "confidence": "0.340",
+        "text": "pro",
+        "offset": 785,
+        "length": 3,
+        "key": expect.any(String)//"zoqtt7s"
+      },
+      {
+        "start": "386.41",
+        "end": "386.66",
+        "confidence": "1.000",
+        "text": "baby",
+        "offset": 789,
+        "length": 4,
+        "key": expect.any(String)//"kk6i5mu"
+      },
+      {
+        "start": "386.66",
+        "end": "386.93",
+        "confidence": "0.990",
+        "text": "seal",
+        "offset": 794,
+        "length": 4,
+        "key": expect.any(String)//"wz2vzo"
+      },
+      {
+        "start": "386.93",
+        "end": "387.35",
+        "confidence": "1.000",
+        "text": "robot.",
+        "offset": 799,
+        "length": 6,
+        "key": expect.any(String)//"5fthcoe"
+      },
+      {
+        "start": "387.38",
+        "end": "387.56",
+        "confidence": "0.990",
+        "text": "It's",
+        "offset": 806,
+        "length": 4,
+        "key": expect.any(String)//"07s7gs"
+      },
+      {
+        "start": "387.56",
+        "end": "387.92",
+        "confidence": "1.000",
+        "text": "used",
+        "offset": 811,
+        "length": 4,
+        "key": expect.any(String)//"2yl79p"
+      },
+      {
+        "start": "387.92",
+        "end": "388.07",
+        "confidence": "1.000",
+        "text": "in",
+        "offset": 816,
+        "length": 2,
+        "key": expect.any(String)//"2g16qki"
+      },
+      {
+        "start": "388.07",
+        "end": "388.49",
+        "confidence": "1.000",
+        "text": "nursing",
+        "offset": 819,
+        "length": 7,
+        "key": expect.any(String)//"c3r1nv"
+      },
+      {
+        "start": "388.49",
+        "end": "388.94",
+        "confidence": "1.000",
+        "text": "homes",
+        "offset": 827,
+        "length": 5,
+        "key": expect.any(String)//"0z715t"
+      },
+      {
+        "start": "388.94",
+        "end": "389.03",
+        "confidence": "0.990",
+        "text": "and",
+        "offset": 833,
+        "length": 3,
+        "key": expect.any(String)//"ivfn4i"
+      },
+      {
+        "start": "389.03",
+        "end": "389.15",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 837,
+        "length": 4,
+        "key": expect.any(String)//"q1r3tam"
+      },
+      {
+        "start": "389.15",
+        "end": "389.63",
+        "confidence": "1.000",
+        "text": "dementia",
+        "offset": 842,
+        "length": 8,
+        "key": expect.any(String)//"aile2l"
+      },
+      {
+        "start": "389.63",
+        "end": "390.52",
+        "confidence": "1.000",
+        "text": "patients.",
+        "offset": 851,
+        "length": 9,
+        "key": expect.any(String)//"zz9f1k8"
+      },
       {
         "start": "390.53",
         "end": "390.65",
         "confidence": "0.990",
         "text": "It's",
-        "offset": 0,
+        "offset": 861,
         "length": 4,
-        "key": expect.any(String)//"05pzhbs"
+        "key": expect.any(String)//"qls8zbr"
       },
       {
         "start": "390.65",
         "end": "390.79999999999995",
         "confidence": "1.000",
         "text": "been",
-        "offset": 5,
+        "offset": 866,
         "length": 4,
-        "key": expect.any(String)//"uaf27q"
+        "key": expect.any(String)//"rmzinge"
       },
       {
         "start": "390.80",
         "end": "391.07",
         "confidence": "1.000",
         "text": "around",
-        "offset": 10,
+        "offset": 871,
         "length": 6,
-        "key": expect.any(String)//"0hmvgur"
+        "key": expect.any(String)//"9npw3na"
       },
       {
         "start": "391.07",
         "end": "391.25",
         "confidence": "1.000",
         "text": "for",
-        "offset": 17,
+        "offset": 878,
         "length": 3,
-        "key": expect.any(String)//"dr5xgb7"
+        "key": expect.any(String)//"nhluml"
       },
       {
         "start": "391.25",
         "end": "391.28",
         "confidence": "0.990",
         "text": "a",
-        "offset": 21,
+        "offset": 882,
         "length": 1,
-        "key": expect.any(String)//"ra3hwb"
+        "key": expect.any(String)//"gvj9ecj"
       },
       {
         "start": "391.28",
         "end": "391.78999999999996",
         "confidence": "0.990",
         "text": "while",
-        "offset": 23,
+        "offset": 884,
         "length": 5,
-        "key": expect.any(String)//"jgmjbt8"
+        "key": expect.any(String)//"hpbenfo"
       },
       {
         "start": "392.27",
         "end": "392.39",
         "confidence": "1.000",
         "text": "and",
-        "offset": 29,
+        "offset": 890,
         "length": 3,
-        "key": expect.any(String)//"ljngalr"
+        "key": expect.any(String)//"7iua7js"
       },
       {
         "start": "392.39",
         "end": "392.47999999999996",
         "confidence": "1.000",
         "text": "I",
-        "offset": 33,
+        "offset": 894,
         "length": 1,
-        "key": expect.any(String)//"o3vc5d"
+        "key": expect.any(String)//"54yjyw"
       },
       {
         "start": "392.48",
         "end": "393.05",
         "confidence": "1.000",
         "text": "remember",
-        "offset": 35,
+        "offset": 896,
         "length": 8,
-        "key": expect.any(String)//"0y51ot8"
+        "key": expect.any(String)//"rqulqs"
       },
       {
         "start": "393.41",
         "end": "393.83000000000004",
         "confidence": "1.000",
         "text": "years",
-        "offset": 44,
+        "offset": 905,
         "length": 5,
-        "key": expect.any(String)//"tvqlhxt"
+        "key": expect.any(String)//"8gbwnak"
       },
       {
         "start": "393.83",
         "end": "394.07",
         "confidence": "1.000",
         "text": "ago",
-        "offset": 50,
+        "offset": 911,
         "length": 3,
-        "key": expect.any(String)//"v731frq"
+        "key": expect.any(String)//"5b6thwg"
       },
       {
         "start": "394.07",
         "end": "394.25",
         "confidence": "1.000",
         "text": "being",
-        "offset": 54,
+        "offset": 915,
         "length": 5,
-        "key": expect.any(String)//"clo5ty"
+        "key": expect.any(String)//"lwu6sfj"
       },
       {
         "start": "394.25",
         "end": "394.34",
         "confidence": "1.000",
         "text": "at",
-        "offset": 60,
+        "offset": 921,
         "length": 2,
-        "key": expect.any(String)//"o8gak5q"
+        "key": expect.any(String)//"o3jy9vs"
       },
       {
         "start": "394.34",
         "end": "394.4",
         "confidence": "1.000",
         "text": "a",
-        "offset": 63,
+        "offset": 924,
         "length": 1,
-        "key": expect.any(String)//"lmtbst"
+        "key": expect.any(String)//"43p7o4p"
       },
       {
         "start": "394.40",
         "end": "395.09",
         "confidence": "1.000",
         "text": "party",
-        "offset": 65,
+        "offset": 926,
         "length": 5,
-        "key": expect.any(String)//"ie0ikf"
+        "key": expect.any(String)//"v9hid7h"
       },
       {
         "start": "395.66",
         "end": "395.75",
         "confidence": "1.000",
         "text": "and",
-        "offset": 71,
+        "offset": 932,
         "length": 3,
-        "key": expect.any(String)//"ng88x99"
+        "key": expect.any(String)//"mmtumw6"
       },
       {
         "start": "395.75",
         "end": "396.2",
         "confidence": "1.000",
         "text": "telling",
-        "offset": 75,
+        "offset": 936,
         "length": 7,
-        "key": expect.any(String)//"q6ccwq"
+        "key": expect.any(String)//"gpmcn3r"
       },
       {
         "start": "396.20",
         "end": "396.46999999999997",
         "confidence": "1.000",
         "text": "someone",
-        "offset": 83,
+        "offset": 944,
         "length": 7,
-        "key": expect.any(String)//"gl6401u"
+        "key": expect.any(String)//"oqf2pt2"
       },
       {
         "start": "396.47",
         "end": "396.71000000000004",
         "confidence": "1.000",
         "text": "about",
-        "offset": 91,
+        "offset": 952,
         "length": 5,
-        "key": expect.any(String)//"t2bxxwo"
+        "key": expect.any(String)//"xo2xhpl"
       },
       {
         "start": "396.71",
         "end": "396.85999999999996",
         "confidence": "1.000",
         "text": "this",
-        "offset": 97,
+        "offset": 958,
         "length": 4,
-        "key": expect.any(String)//"uphhvg6"
+        "key": expect.any(String)//"7xrgqgn"
       },
       {
         "start": "396.86",
         "end": "397.40000000000003",
         "confidence": "1.000",
         "text": "robot",
-        "offset": 102,
+        "offset": 963,
         "length": 5,
-        "key": expect.any(String)//"lbk425"
+        "key": expect.any(String)//"a9pt8we"
       },
       {
         "start": "398.24",
         "end": "398.36",
         "confidence": "1.000",
         "text": "and",
-        "offset": 108,
+        "offset": 969,
         "length": 3,
-        "key": expect.any(String)//"qeycd8m"
+        "key": expect.any(String)//"0ktw8v"
       },
       {
         "start": "398.36",
         "end": "398.54",
         "confidence": "1.000",
         "text": "her",
-        "offset": 112,
+        "offset": 973,
         "length": 3,
-        "key": expect.any(String)//"pj4tso"
+        "key": expect.any(String)//"so32x6"
       },
       {
         "start": "398.54",
         "end": "399.05",
         "confidence": "1.000",
         "text": "response",
-        "offset": 116,
+        "offset": 977,
         "length": 8,
-        "key": expect.any(String)//"x1vrmr"
+        "key": expect.any(String)//"8twfyhu"
       },
       {
         "start": "399.05",
         "end": "399.56",
         "confidence": "1.000",
         "text": "was.",
-        "offset": 125,
+        "offset": 986,
         "length": 4,
-        "key": expect.any(String)//"grt4b6"
+        "key": expect.any(String)//"6kxdozo"
       }
     ]
   },
@@ -17940,7 +17352,7 @@ const draftTranscriptExample = [
         "text": "Oh",
         "offset": 0,
         "length": 2,
-        "key": expect.any(String)//"btjs8n9"
+        "key": expect.any(String)//"a2ohxb8"
       },
       {
         "start": "400.49",
@@ -17949,7 +17361,7 @@ const draftTranscriptExample = [
         "text": "my",
         "offset": 3,
         "length": 2,
-        "key": expect.any(String)//"8ac1b18"
+        "key": expect.any(String)//"friyvog"
       },
       {
         "start": "400.64",
@@ -17958,15 +17370,15 @@ const draftTranscriptExample = [
         "text": "gosh.",
         "offset": 6,
         "length": 5,
-        "key": expect.any(String)//"ea8w3j4"
+        "key": expect.any(String)//"pqdghu8"
       }
     ]
   },
   {
-    "text": "That's horrible.",
+    "text": "That's horrible. I can't believe we're giving people robots instead of human care. And this is a really common response. And I think it's absolutely correct because that would be terrible but in this case it's not what this robot replaces with this robot replaces is animal therapy in contexts where we can't use real animals but we can use robots because people will consistently treat them like more like more like an animal than a device acknowledging this emotional connection to robots can also help us anticipate challenges as these devices move into more intimate areas of people's lives.",
     "type": "paragraph",
     "data": {
-      "speaker": "F4",
+      "speaker": "F3",
       "words": [
         {
           "start": "402.55",
@@ -17983,37 +17395,7 @@ const draftTranscriptExample = [
           "word": "horrible",
           "punct": "horrible.",
           "index": 1016
-        }
-      ],
-      "start": "402.55"
-    },
-    "entityRanges": [
-      {
-        "start": "402.55",
-        "end": "402.79",
-        "confidence": "1.000",
-        "text": "That's",
-        "offset": 0,
-        "length": 6,
-        "key": expect.any(String)//"762c0b"
-      },
-      {
-        "start": "402.79",
-        "end": "403.89000000000004",
-        "confidence": "1.000",
-        "text": "horrible.",
-        "offset": 7,
-        "length": 9,
-        "key": expect.any(String)//"nzzf80b"
-      }
-    ]
-  },
-  {
-    "text": "I can't believe we're giving people robots instead of human care.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "405.09",
           "end": "405.15",
@@ -18101,118 +17483,7 @@ const draftTranscriptExample = [
           "word": "care",
           "punct": "care.",
           "index": 1027
-        }
-      ],
-      "start": "405.09"
-    },
-    "entityRanges": [
-      {
-        "start": "405.09",
-        "end": "405.15",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 0,
-        "length": 1,
-        "key": expect.any(String)//"dyhb1"
-      },
-      {
-        "start": "405.15",
-        "end": "405.45",
-        "confidence": "1.000",
-        "text": "can't",
-        "offset": 2,
-        "length": 5,
-        "key": expect.any(String)//"a2ju2ml"
-      },
-      {
-        "start": "405.45",
-        "end": "405.78",
-        "confidence": "1.000",
-        "text": "believe",
-        "offset": 8,
-        "length": 7,
-        "key": expect.any(String)//"5hrd36s"
-      },
-      {
-        "start": "405.78",
-        "end": "405.9",
-        "confidence": "1.000",
-        "text": "we're",
-        "offset": 16,
-        "length": 5,
-        "key": expect.any(String)//"r8glm1"
-      },
-      {
-        "start": "405.90",
-        "end": "406.16999999999996",
-        "confidence": "1.000",
-        "text": "giving",
-        "offset": 22,
-        "length": 6,
-        "key": expect.any(String)//"j7q2wl"
-      },
-      {
-        "start": "406.17",
-        "end": "406.53000000000003",
-        "confidence": "1.000",
-        "text": "people",
-        "offset": 29,
-        "length": 6,
-        "key": expect.any(String)//"bmtdnwc"
-      },
-      {
-        "start": "406.53",
-        "end": "407.09999999999997",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 36,
-        "length": 6,
-        "key": expect.any(String)//"40c6mzo"
-      },
-      {
-        "start": "407.13",
-        "end": "407.46",
-        "confidence": "1.000",
-        "text": "instead",
-        "offset": 43,
-        "length": 7,
-        "key": expect.any(String)//"wdm4eu8"
-      },
-      {
-        "start": "407.46",
-        "end": "407.54999999999995",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 51,
-        "length": 2,
-        "key": expect.any(String)//"3k6f2s"
-      },
-      {
-        "start": "407.55",
-        "end": "407.91",
-        "confidence": "1.000",
-        "text": "human",
-        "offset": 54,
-        "length": 5,
-        "key": expect.any(String)//"seyxgkl"
-      },
-      {
-        "start": "407.91",
-        "end": "408.42",
-        "confidence": "1.000",
-        "text": "care.",
-        "offset": 60,
-        "length": 5,
-        "key": expect.any(String)//"jbxuvzr"
-      }
-    ]
-  },
-  {
-    "text": "And this is a really common response.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "410.57",
           "end": "410.69",
@@ -18268,82 +17539,7 @@ const draftTranscriptExample = [
           "word": "response",
           "punct": "response.",
           "index": 1034
-        }
-      ],
-      "start": "410.57"
-    },
-    "entityRanges": [
-      {
-        "start": "410.57",
-        "end": "410.69",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"meem5yf"
-      },
-      {
-        "start": "410.69",
-        "end": "410.84",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"yjd6agw"
-      },
-      {
-        "start": "410.84",
-        "end": "410.96",
-        "confidence": "1.000",
-        "text": "is",
-        "offset": 9,
-        "length": 2,
-        "key": expect.any(String)//"i4xe4jf"
-      },
-      {
-        "start": "410.96",
-        "end": "411.02",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 12,
-        "length": 1,
-        "key": expect.any(String)//"rs6apzb"
-      },
-      {
-        "start": "411.02",
-        "end": "411.38",
-        "confidence": "1.000",
-        "text": "really",
-        "offset": 14,
-        "length": 6,
-        "key": expect.any(String)//"ig3b1al"
-      },
-      {
-        "start": "411.38",
-        "end": "411.68",
-        "confidence": "1.000",
-        "text": "common",
-        "offset": 21,
-        "length": 6,
-        "key": expect.any(String)//"q7w48l8"
-      },
-      {
-        "start": "411.68",
-        "end": "412.42",
-        "confidence": "1.000",
-        "text": "response.",
-        "offset": 28,
-        "length": 9,
-        "key": expect.any(String)//"c0g8ad"
-      }
-    ]
-  },
-  {
-    "text": "And I think it's absolutely correct because that would be terrible but in this case it's not what this robot replaces with this robot replaces is animal therapy in contexts where we can't use real animals but we can use robots because people will consistently treat them like more like more like an animal than a device acknowledging this emotional connection to robots can also help us anticipate challenges as these devices move into more intimate areas of people's lives.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "412.46",
           "end": "412.66999999999996",
@@ -18985,733 +18181,913 @@ const draftTranscriptExample = [
           "index": 1114
         }
       ],
-      "start": "412.46"
+      "start": "402.55"
     },
     "entityRanges": [
+      {
+        "start": "402.55",
+        "end": "402.79",
+        "confidence": "1.000",
+        "text": "That's",
+        "offset": 0,
+        "length": 6,
+        "key": expect.any(String)//"eql7i5s"
+      },
+      {
+        "start": "402.79",
+        "end": "403.89000000000004",
+        "confidence": "1.000",
+        "text": "horrible.",
+        "offset": 7,
+        "length": 9,
+        "key": expect.any(String)//"i2clesh"
+      },
+      {
+        "start": "405.09",
+        "end": "405.15",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 17,
+        "length": 1,
+        "key": expect.any(String)//"9mxu5kg"
+      },
+      {
+        "start": "405.15",
+        "end": "405.45",
+        "confidence": "1.000",
+        "text": "can't",
+        "offset": 19,
+        "length": 5,
+        "key": expect.any(String)//"2ceife"
+      },
+      {
+        "start": "405.45",
+        "end": "405.78",
+        "confidence": "1.000",
+        "text": "believe",
+        "offset": 25,
+        "length": 7,
+        "key": expect.any(String)//"ab3y6qb"
+      },
+      {
+        "start": "405.78",
+        "end": "405.9",
+        "confidence": "1.000",
+        "text": "we're",
+        "offset": 33,
+        "length": 5,
+        "key": expect.any(String)//"k1rfa1i"
+      },
+      {
+        "start": "405.90",
+        "end": "406.16999999999996",
+        "confidence": "1.000",
+        "text": "giving",
+        "offset": 39,
+        "length": 6,
+        "key": expect.any(String)//"zayibbs"
+      },
+      {
+        "start": "406.17",
+        "end": "406.53000000000003",
+        "confidence": "1.000",
+        "text": "people",
+        "offset": 46,
+        "length": 6,
+        "key": expect.any(String)//"e0fet4m"
+      },
+      {
+        "start": "406.53",
+        "end": "407.09999999999997",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 53,
+        "length": 6,
+        "key": expect.any(String)//"5ec3n4b"
+      },
+      {
+        "start": "407.13",
+        "end": "407.46",
+        "confidence": "1.000",
+        "text": "instead",
+        "offset": 60,
+        "length": 7,
+        "key": expect.any(String)//"04dragh"
+      },
+      {
+        "start": "407.46",
+        "end": "407.54999999999995",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 68,
+        "length": 2,
+        "key": expect.any(String)//"d9v6p9"
+      },
+      {
+        "start": "407.55",
+        "end": "407.91",
+        "confidence": "1.000",
+        "text": "human",
+        "offset": 71,
+        "length": 5,
+        "key": expect.any(String)//"bp61c2c"
+      },
+      {
+        "start": "407.91",
+        "end": "408.42",
+        "confidence": "1.000",
+        "text": "care.",
+        "offset": 77,
+        "length": 5,
+        "key": expect.any(String)//"0ihrmw"
+      },
+      {
+        "start": "410.57",
+        "end": "410.69",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 83,
+        "length": 3,
+        "key": expect.any(String)//"u85003r"
+      },
+      {
+        "start": "410.69",
+        "end": "410.84",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 87,
+        "length": 4,
+        "key": expect.any(String)//"v1n4lnk"
+      },
+      {
+        "start": "410.84",
+        "end": "410.96",
+        "confidence": "1.000",
+        "text": "is",
+        "offset": 92,
+        "length": 2,
+        "key": expect.any(String)//"2nkyvrj"
+      },
+      {
+        "start": "410.96",
+        "end": "411.02",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 95,
+        "length": 1,
+        "key": expect.any(String)//"wtxpbh4"
+      },
+      {
+        "start": "411.02",
+        "end": "411.38",
+        "confidence": "1.000",
+        "text": "really",
+        "offset": 97,
+        "length": 6,
+        "key": expect.any(String)//"maz3sqm"
+      },
+      {
+        "start": "411.38",
+        "end": "411.68",
+        "confidence": "1.000",
+        "text": "common",
+        "offset": 104,
+        "length": 6,
+        "key": expect.any(String)//"75z9al"
+      },
+      {
+        "start": "411.68",
+        "end": "412.42",
+        "confidence": "1.000",
+        "text": "response.",
+        "offset": 111,
+        "length": 9,
+        "key": expect.any(String)//"8s0qvkh"
+      },
       {
         "start": "412.46",
         "end": "412.66999999999996",
         "confidence": "1.000",
         "text": "And",
-        "offset": 0,
+        "offset": 121,
         "length": 3,
-        "key": expect.any(String)//"7y7o5ho"
+        "key": expect.any(String)//"as6k3i"
       },
       {
         "start": "412.73",
         "end": "412.82",
         "confidence": "1.000",
         "text": "I",
-        "offset": 4,
+        "offset": 125,
         "length": 1,
-        "key": expect.any(String)//"sy80pxq"
+        "key": expect.any(String)//"v94zunr"
       },
       {
         "start": "412.82",
         "end": "413.03",
         "confidence": "1.000",
         "text": "think",
-        "offset": 6,
+        "offset": 127,
         "length": 5,
-        "key": expect.any(String)//"qjqxuw"
+        "key": expect.any(String)//"w8auqs"
       },
       {
         "start": "413.03",
         "end": "413.15",
         "confidence": "0.990",
         "text": "it's",
-        "offset": 12,
+        "offset": 133,
         "length": 4,
-        "key": expect.any(String)//"uc28s1v"
+        "key": expect.any(String)//"643yy2x"
       },
       {
         "start": "413.30",
         "end": "414.05",
         "confidence": "1.000",
         "text": "absolutely",
-        "offset": 17,
+        "offset": 138,
         "length": 10,
-        "key": expect.any(String)//"lphfxci"
+        "key": expect.any(String)//"floel2"
       },
       {
         "start": "414.05",
         "end": "414.68",
         "confidence": "1.000",
         "text": "correct",
-        "offset": 28,
+        "offset": 149,
         "length": 7,
-        "key": expect.any(String)//"v7x2idn"
+        "key": expect.any(String)//"7bduevb"
       },
       {
         "start": "414.92",
         "end": "415.28000000000003",
         "confidence": "1.000",
         "text": "because",
-        "offset": 36,
+        "offset": 157,
         "length": 7,
-        "key": expect.any(String)//"gx0pn8"
+        "key": expect.any(String)//"2sx7908"
       },
       {
         "start": "415.28",
         "end": "415.54999999999995",
         "confidence": "1.000",
         "text": "that",
-        "offset": 44,
+        "offset": 165,
         "length": 4,
-        "key": expect.any(String)//"4189ey"
+        "key": expect.any(String)//"6zs1qfs"
       },
       {
         "start": "415.55",
         "end": "415.85",
         "confidence": "1.000",
         "text": "would",
-        "offset": 49,
+        "offset": 170,
         "length": 5,
-        "key": expect.any(String)//"4jt4xah"
+        "key": expect.any(String)//"m77to7d"
       },
       {
         "start": "415.85",
         "end": "416.15000000000003",
         "confidence": "1.000",
         "text": "be",
-        "offset": 55,
+        "offset": 176,
         "length": 2,
-        "key": expect.any(String)//"3vrsm3g"
+        "key": expect.any(String)//"sg083ia"
       },
       {
         "start": "416.15",
         "end": "416.92999999999995",
         "confidence": "1.000",
         "text": "terrible",
-        "offset": 58,
+        "offset": 179,
         "length": 8,
-        "key": expect.any(String)//"5zjbies"
+        "key": expect.any(String)//"83bmb"
       },
       {
         "start": "417.77",
         "end": "417.95",
         "confidence": "1.000",
         "text": "but",
-        "offset": 67,
+        "offset": 188,
         "length": 3,
-        "key": expect.any(String)//"eyja0gs"
+        "key": expect.any(String)//"44homtn"
       },
       {
         "start": "417.95",
         "end": "418.07",
         "confidence": "1.000",
         "text": "in",
-        "offset": 71,
+        "offset": 192,
         "length": 2,
-        "key": expect.any(String)//"1jpbw"
+        "key": expect.any(String)//"08row5"
       },
       {
         "start": "418.07",
         "end": "418.25",
         "confidence": "1.000",
         "text": "this",
-        "offset": 74,
+        "offset": 195,
         "length": 4,
-        "key": expect.any(String)//"5pi8hvv"
+        "key": expect.any(String)//"0cmtwdu"
       },
       {
         "start": "418.25",
         "end": "418.46",
         "confidence": "1.000",
         "text": "case",
-        "offset": 79,
+        "offset": 200,
         "length": 4,
-        "key": expect.any(String)//"yefwhhv"
+        "key": expect.any(String)//"dzrwcfc"
       },
       {
         "start": "418.46",
         "end": "418.60999999999996",
         "confidence": "0.990",
         "text": "it's",
-        "offset": 84,
+        "offset": 205,
         "length": 4,
-        "key": expect.any(String)//"hqvp2pb"
+        "key": expect.any(String)//"jqulvoa"
       },
       {
         "start": "418.61",
         "end": "418.82",
         "confidence": "1.000",
         "text": "not",
-        "offset": 89,
+        "offset": 210,
         "length": 3,
-        "key": expect.any(String)//"ox17wpb"
+        "key": expect.any(String)//"pfsq1n"
       },
       {
         "start": "418.82",
         "end": "418.94",
         "confidence": "0.970",
         "text": "what",
-        "offset": 93,
+        "offset": 214,
         "length": 4,
-        "key": expect.any(String)//"m3ycbzl"
+        "key": expect.any(String)//"dcpqekg"
       },
       {
         "start": "418.94",
         "end": "419.06",
         "confidence": "1.000",
         "text": "this",
-        "offset": 98,
+        "offset": 219,
         "length": 4,
-        "key": expect.any(String)//"39zgcv"
+        "key": expect.any(String)//"cmsuyky"
       },
       {
         "start": "419.06",
         "end": "419.42",
         "confidence": "1.000",
         "text": "robot",
-        "offset": 103,
+        "offset": 224,
         "length": 5,
-        "key": expect.any(String)//"6kivcrq"
+        "key": expect.any(String)//"sqyhd1"
       },
       {
         "start": "419.42",
         "end": "420.2",
         "confidence": "1.000",
         "text": "replaces",
-        "offset": 109,
+        "offset": 230,
         "length": 8,
-        "key": expect.any(String)//"26417q"
+        "key": expect.any(String)//"0sf1seb"
       },
       {
         "start": "420.74",
         "end": "420.98",
         "confidence": "0.660",
         "text": "with",
-        "offset": 118,
+        "offset": 239,
         "length": 4,
-        "key": expect.any(String)//"i7jt7b"
+        "key": expect.any(String)//"fjzv41h"
       },
       {
         "start": "421.01",
         "end": "421.15999999999997",
         "confidence": "1.000",
         "text": "this",
-        "offset": 123,
+        "offset": 244,
         "length": 4,
-        "key": expect.any(String)//"yxtto6q"
+        "key": expect.any(String)//"xpzgmgr"
       },
       {
         "start": "421.16",
         "end": "421.55",
         "confidence": "1.000",
         "text": "robot",
-        "offset": 128,
+        "offset": 249,
         "length": 5,
-        "key": expect.any(String)//"5qffcnh"
+        "key": expect.any(String)//"ibb62q6"
       },
       {
         "start": "421.55",
         "end": "422.24",
         "confidence": "1.000",
         "text": "replaces",
-        "offset": 134,
+        "offset": 255,
         "length": 8,
-        "key": expect.any(String)//"0ue11p"
+        "key": expect.any(String)//"iw9fwxb"
       },
       {
         "start": "422.30",
         "end": "422.48",
         "confidence": "1.000",
         "text": "is",
-        "offset": 143,
+        "offset": 264,
         "length": 2,
-        "key": expect.any(String)//"kwovtuv"
+        "key": expect.any(String)//"fbq6gm"
       },
       {
         "start": "422.51",
         "end": "422.93",
         "confidence": "1.000",
         "text": "animal",
-        "offset": 146,
+        "offset": 267,
         "length": 6,
-        "key": expect.any(String)//"jvmz5dw"
+        "key": expect.any(String)//"9f9np5c"
       },
       {
         "start": "422.93",
         "end": "423.56",
         "confidence": "1.000",
         "text": "therapy",
-        "offset": 153,
+        "offset": 274,
         "length": 7,
-        "key": expect.any(String)//"z3yx4d7"
+        "key": expect.any(String)//"sdyg3tt"
       },
       {
         "start": "424.04",
         "end": "424.16",
         "confidence": "1.000",
         "text": "in",
-        "offset": 161,
+        "offset": 282,
         "length": 2,
-        "key": expect.any(String)//"8kh1vlr"
+        "key": expect.any(String)//"j24r96e"
       },
       {
         "start": "424.16",
         "end": "424.73",
         "confidence": "1.000",
         "text": "contexts",
-        "offset": 164,
+        "offset": 285,
         "length": 8,
-        "key": expect.any(String)//"3cmiviq"
+        "key": expect.any(String)//"84eky4e"
       },
       {
         "start": "424.76",
         "end": "424.88",
         "confidence": "1.000",
         "text": "where",
-        "offset": 173,
+        "offset": 294,
         "length": 5,
-        "key": expect.any(String)//"jo5f8sl"
+        "key": expect.any(String)//"j4zqpqi"
       },
       {
         "start": "424.88",
         "end": "425.03",
         "confidence": "1.000",
         "text": "we",
-        "offset": 179,
+        "offset": 300,
         "length": 2,
-        "key": expect.any(String)//"9msbaz"
+        "key": expect.any(String)//"q5hwtag"
       },
       {
         "start": "425.03",
         "end": "425.47999999999996",
         "confidence": "1.000",
         "text": "can't",
-        "offset": 182,
+        "offset": 303,
         "length": 5,
-        "key": expect.any(String)//"ilpji9"
+        "key": expect.any(String)//"jxy8de"
       },
       {
         "start": "425.48",
         "end": "425.81",
         "confidence": "1.000",
         "text": "use",
-        "offset": 188,
+        "offset": 309,
         "length": 3,
-        "key": expect.any(String)//"27v1uzi"
+        "key": expect.any(String)//"epqdbbm"
       },
       {
         "start": "425.81",
         "end": "426.08",
         "confidence": "1.000",
         "text": "real",
-        "offset": 192,
+        "offset": 313,
         "length": 4,
-        "key": expect.any(String)//"r5t6zcn"
+        "key": expect.any(String)//"jw3j7sc"
       },
       {
         "start": "426.08",
         "end": "426.83",
         "confidence": "1.000",
         "text": "animals",
-        "offset": 197,
+        "offset": 318,
         "length": 7,
-        "key": expect.any(String)//"pnhxy0d"
+        "key": expect.any(String)//"ic3nef"
       },
       {
         "start": "427.16",
         "end": "427.31",
         "confidence": "1.000",
         "text": "but",
-        "offset": 205,
+        "offset": 326,
         "length": 3,
-        "key": expect.any(String)//"g200rh"
+        "key": expect.any(String)//"pfahpfh"
       },
       {
         "start": "427.31",
         "end": "427.46",
         "confidence": "1.000",
         "text": "we",
-        "offset": 209,
+        "offset": 330,
         "length": 2,
-        "key": expect.any(String)//"q8t9jlf"
+        "key": expect.any(String)//"m293p9r"
       },
       {
         "start": "427.46",
         "end": "427.78999999999996",
         "confidence": "1.000",
         "text": "can",
-        "offset": 212,
+        "offset": 333,
         "length": 3,
-        "key": expect.any(String)//"v853mrm"
+        "key": expect.any(String)//"3bg1tu"
       },
       {
         "start": "427.79",
         "end": "427.94",
         "confidence": "1.000",
         "text": "use",
-        "offset": 216,
+        "offset": 337,
         "length": 3,
-        "key": expect.any(String)//"g24i4ig"
+        "key": expect.any(String)//"kg04tne"
       },
       {
         "start": "427.94",
         "end": "428.36",
         "confidence": "1.000",
         "text": "robots",
-        "offset": 220,
+        "offset": 341,
         "length": 6,
-        "key": expect.any(String)//"enz01bd"
+        "key": expect.any(String)//"ipw9noh"
       },
       {
         "start": "428.39",
         "end": "428.65999999999997",
         "confidence": "1.000",
         "text": "because",
-        "offset": 227,
+        "offset": 348,
         "length": 7,
-        "key": expect.any(String)//"sj7ni6q"
+        "key": expect.any(String)//"kq42k46a"
       },
       {
         "start": "428.66",
         "end": "428.93",
         "confidence": "1.000",
         "text": "people",
-        "offset": 235,
+        "offset": 356,
         "length": 6,
-        "key": expect.any(String)//"bps2a7"
+        "key": expect.any(String)//"oms2a"
       },
       {
         "start": "428.93",
         "end": "429.05",
         "confidence": "1.000",
         "text": "will",
-        "offset": 242,
+        "offset": 363,
         "length": 4,
-        "key": expect.any(String)//"7n4s0m3"
+        "key": expect.any(String)//"lcfj6zj"
       },
       {
         "start": "429.05",
         "end": "429.95",
         "confidence": "1.000",
         "text": "consistently",
-        "offset": 247,
+        "offset": 368,
         "length": 12,
-        "key": expect.any(String)//"jgg8ad"
+        "key": expect.any(String)//"f3su9y"
       },
       {
         "start": "429.95",
         "end": "430.31",
         "confidence": "1.000",
         "text": "treat",
-        "offset": 260,
+        "offset": 381,
         "length": 5,
-        "key": expect.any(String)//"t9hak6n"
+        "key": expect.any(String)//"2h45wwd"
       },
       {
         "start": "430.31",
         "end": "430.61",
         "confidence": "1.000",
         "text": "them",
-        "offset": 266,
+        "offset": 387,
         "length": 4,
-        "key": expect.any(String)//"n4b1vlw"
+        "key": expect.any(String)//"5n4kwr"
       },
       {
         "start": "430.64",
         "end": "430.84999999999997",
         "confidence": "1.000",
         "text": "like",
-        "offset": 271,
+        "offset": 392,
         "length": 4,
-        "key": expect.any(String)//"sngfodj"
+        "key": expect.any(String)//"e2ze6hk"
       },
       {
         "start": "430.85",
         "end": "431.33000000000004",
         "confidence": "1.000",
         "text": "more",
-        "offset": 276,
+        "offset": 397,
         "length": 4,
-        "key": expect.any(String)//"87oma4t"
+        "key": expect.any(String)//"7vczqlp"
       },
       {
         "start": "431.59",
         "end": "431.65999999999997",
         "confidence": "0.550",
         "text": "like",
-        "offset": 281,
+        "offset": 402,
         "length": 4,
-        "key": expect.any(String)//"v3we8k"
+        "key": expect.any(String)//"xzsf8kj"
       },
       {
         "start": "431.84",
         "end": "432.04999999999995",
         "confidence": "1.000",
         "text": "more",
-        "offset": 286,
+        "offset": 407,
         "length": 4,
-        "key": expect.any(String)//"0x3imtx"
+        "key": expect.any(String)//"mcmoaci"
       },
       {
         "start": "432.05",
         "end": "432.23",
         "confidence": "1.000",
         "text": "like",
-        "offset": 291,
+        "offset": 412,
         "length": 4,
-        "key": expect.any(String)//"qj5vzy9"
+        "key": expect.any(String)//"w10tjtt"
       },
       {
         "start": "432.23",
         "end": "432.32",
         "confidence": "1.000",
         "text": "an",
-        "offset": 296,
+        "offset": 417,
         "length": 2,
-        "key": expect.any(String)//"qkrhtw"
+        "key": expect.any(String)//"k1u2vqj"
       },
       {
         "start": "432.32",
         "end": "432.86",
         "confidence": "1.000",
         "text": "animal",
-        "offset": 299,
+        "offset": 420,
         "length": 6,
-        "key": expect.any(String)//"zmunip6"
+        "key": expect.any(String)//"fcv0ao"
       },
       {
         "start": "432.89",
         "end": "433.07",
         "confidence": "1.000",
         "text": "than",
-        "offset": 306,
+        "offset": 427,
         "length": 4,
-        "key": expect.any(String)//"agjgvhi"
+        "key": expect.any(String)//"llqld4"
       },
       {
         "start": "433.07",
         "end": "433.09999999999997",
         "confidence": "1.000",
         "text": "a",
-        "offset": 311,
+        "offset": 432,
         "length": 1,
-        "key": expect.any(String)//"944xusu"
+        "key": expect.any(String)//"nl5qwup"
       },
       {
         "start": "433.10",
         "end": "433.61",
         "confidence": "1.000",
         "text": "device",
-        "offset": 313,
+        "offset": 434,
         "length": 6,
-        "key": expect.any(String)//"c6wcows"
+        "key": expect.any(String)//"ucdvk6s"
       },
       {
         "start": "435.55",
         "end": "436.21000000000004",
         "confidence": "1.000",
         "text": "acknowledging",
-        "offset": 320,
+        "offset": 441,
         "length": 13,
-        "key": expect.any(String)//"76jiqv"
+        "key": expect.any(String)//"925sql"
       },
       {
         "start": "436.21",
         "end": "436.39",
         "confidence": "1.000",
         "text": "this",
-        "offset": 334,
+        "offset": 455,
         "length": 4,
-        "key": expect.any(String)//"r5276w7"
+        "key": expect.any(String)//"giyqysg"
       },
       {
         "start": "436.39",
         "end": "436.78",
         "confidence": "1.000",
         "text": "emotional",
-        "offset": 339,
+        "offset": 460,
         "length": 9,
-        "key": expect.any(String)//"uln534f"
+        "key": expect.any(String)//"x2g0y8"
       },
       {
         "start": "436.78",
         "end": "437.2",
         "confidence": "1.000",
         "text": "connection",
-        "offset": 349,
+        "offset": 470,
         "length": 10,
-        "key": expect.any(String)//"r866zmi"
+        "key": expect.any(String)//"4zywbns"
       },
       {
         "start": "437.20",
         "end": "437.28999999999996",
         "confidence": "1.000",
         "text": "to",
-        "offset": 360,
+        "offset": 481,
         "length": 2,
-        "key": expect.any(String)//"46proll"
+        "key": expect.any(String)//"xc23mge"
       },
       {
         "start": "437.29",
         "end": "437.59000000000003",
         "confidence": "1.000",
         "text": "robots",
-        "offset": 363,
+        "offset": 484,
         "length": 6,
-        "key": expect.any(String)//"18k9wa"
+        "key": expect.any(String)//"c45tnz"
       },
       {
         "start": "437.59",
         "end": "437.77",
         "confidence": "1.000",
         "text": "can",
-        "offset": 370,
+        "offset": 491,
         "length": 3,
-        "key": expect.any(String)//"x9m8qmj"
+        "key": expect.any(String)//"9uodnnh"
       },
       {
         "start": "437.77",
         "end": "438.03999999999996",
         "confidence": "1.000",
         "text": "also",
-        "offset": 374,
+        "offset": 495,
         "length": 4,
-        "key": expect.any(String)//"ar6p5l"
+        "key": expect.any(String)//"ojsd41l"
       },
       {
         "start": "438.04",
         "end": "438.25",
         "confidence": "1.000",
         "text": "help",
-        "offset": 379,
+        "offset": 500,
         "length": 4,
-        "key": expect.any(String)//"11aqi44"
+        "key": expect.any(String)//"8xd1f1"
       },
       {
         "start": "438.25",
         "end": "438.4",
         "confidence": "1.000",
         "text": "us",
-        "offset": 384,
+        "offset": 505,
         "length": 2,
-        "key": expect.any(String)//"8j1kw"
+        "key": expect.any(String)//"fqxi29cn"
       },
       {
         "start": "438.40",
         "end": "438.90999999999997",
         "confidence": "1.000",
         "text": "anticipate",
-        "offset": 387,
+        "offset": 508,
         "length": 10,
-        "key": expect.any(String)//"3xyvkza"
+        "key": expect.any(String)//"5z07f9"
       },
       {
         "start": "438.91",
         "end": "439.81",
         "confidence": "1.000",
         "text": "challenges",
-        "offset": 398,
+        "offset": 519,
         "length": 10,
-        "key": expect.any(String)//"snon4h"
+        "key": expect.any(String)//"fgdtbgd"
       },
       {
         "start": "439.93",
         "end": "440.14",
         "confidence": "1.000",
         "text": "as",
-        "offset": 409,
+        "offset": 530,
         "length": 2,
-        "key": expect.any(String)//"u14bxko"
+        "key": expect.any(String)//"5sft79l"
       },
       {
         "start": "440.14",
         "end": "440.28999999999996",
         "confidence": "1.000",
         "text": "these",
-        "offset": 412,
+        "offset": 533,
         "length": 5,
-        "key": expect.any(String)//"kl14z5"
+        "key": expect.any(String)//"gtrt5mx"
       },
       {
         "start": "440.29",
         "end": "440.86",
         "confidence": "1.000",
         "text": "devices",
-        "offset": 418,
+        "offset": 539,
         "length": 7,
-        "key": expect.any(String)//"1x8w94q"
+        "key": expect.any(String)//"0cn2q59"
       },
       {
         "start": "440.86",
         "end": "441.22",
         "confidence": "1.000",
         "text": "move",
-        "offset": 426,
+        "offset": 547,
         "length": 4,
-        "key": expect.any(String)//"0m8kqrw"
+        "key": expect.any(String)//"1pcbb8r"
       },
       {
         "start": "441.22",
         "end": "441.43",
         "confidence": "1.000",
         "text": "into",
-        "offset": 431,
+        "offset": 552,
         "length": 4,
-        "key": expect.any(String)//"yf3t8sq"
+        "key": expect.any(String)//"swcxttb"
       },
       {
         "start": "441.43",
         "end": "441.58",
         "confidence": "1.000",
         "text": "more",
-        "offset": 436,
+        "offset": 557,
         "length": 4,
-        "key": expect.any(String)//"c82htsk"
+        "key": expect.any(String)//"4wgxwpi"
       },
       {
         "start": "441.61",
         "end": "442",
         "confidence": "1.000",
         "text": "intimate",
-        "offset": 441,
+        "offset": 562,
         "length": 8,
-        "key": expect.any(String)//"nfkrvv3"
+        "key": expect.any(String)//"4larvja"
       },
       {
         "start": "442.00",
         "end": "442.36",
         "confidence": "1.000",
         "text": "areas",
-        "offset": 450,
+        "offset": 571,
         "length": 5,
-        "key": expect.any(String)//"0bj5m1r"
+        "key": expect.any(String)//"des73j8"
       },
       {
         "start": "442.36",
         "end": "442.45",
         "confidence": "1.000",
         "text": "of",
-        "offset": 456,
+        "offset": 577,
         "length": 2,
-        "key": expect.any(String)//"nsc5jyk"
+        "key": expect.any(String)//"yt0djve"
       },
       {
         "start": "442.45",
         "end": "442.78",
         "confidence": "1.000",
         "text": "people's",
-        "offset": 459,
+        "offset": 580,
         "length": 8,
-        "key": expect.any(String)//"f27eo5"
+        "key": expect.any(String)//"mz5bvmk"
       },
       {
         "start": "442.78",
         "end": "443.85999999999996",
         "confidence": "1.000",
         "text": "lives.",
-        "offset": 468,
+        "offset": 589,
         "length": 6,
-        "key": expect.any(String)//"xvnpsp7"
+        "key": expect.any(String)//"gt1qt0qb"
       }
     ]
   },
   {
-    "text": "For example Is it okay if your child's teddy bear robot records private conversations.",
+    "text": "For example Is it okay if your child's teddy bear robot records private conversations. Is it okay if your sex robot has compelling in app purchases because robots plus Capitalism equals questions around consumer protection and privacy. And those aren't the only reasons that our behavior around these machines could matter. A few years after that first initial experience I had with this baby dinosaur robot. I did a workshop with my friend Honus Gossett and we took five of these baby dinosaur robots and we gave them to five teams of people. And we had them name them and play with them and interact with them for about an hour. And then we unveiled a hammer and a hatchet. And we told them to torture and kill the robots. And this turned out to be a little more dramatic than we expected it to be because none of the participants would even so much a strike these baby dinosaur robots.",
     "type": "paragraph",
     "data": {
       "speaker": "F4",
@@ -19827,145 +19203,7 @@ const draftTranscriptExample = [
           "word": "conversations",
           "punct": "conversations.",
           "index": 1128
-        }
-      ],
-      "start": "444.13"
-    },
-    "entityRanges": [
-      {
-        "start": "444.13",
-        "end": "444.25",
-        "confidence": "1.000",
-        "text": "For",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"iqli4rl"
-      },
-      {
-        "start": "444.25",
-        "end": "444.79",
-        "confidence": "1.000",
-        "text": "example",
-        "offset": 4,
-        "length": 7,
-        "key": expect.any(String)//"9czmv3k"
-      },
-      {
-        "start": "444.85",
-        "end": "445",
-        "confidence": "1.000",
-        "text": "Is",
-        "offset": 12,
-        "length": 2,
-        "key": expect.any(String)//"4jz28qm"
-      },
-      {
-        "start": "445.00",
-        "end": "445.09",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 15,
-        "length": 2,
-        "key": expect.any(String)//"k00d219"
-      },
-      {
-        "start": "445.09",
-        "end": "445.5",
-        "confidence": "0.610",
-        "text": "okay",
-        "offset": 18,
-        "length": 4,
-        "key": expect.any(String)//"2oalpwc"
-      },
-      {
-        "start": "445.51",
-        "end": "445.63",
-        "confidence": "0.980",
-        "text": "if",
-        "offset": 23,
-        "length": 2,
-        "key": expect.any(String)//"z4abxpm"
-      },
-      {
-        "start": "445.63",
-        "end": "445.75",
-        "confidence": "1.000",
-        "text": "your",
-        "offset": 26,
-        "length": 4,
-        "key": expect.any(String)//"nq05dp5"
-      },
-      {
-        "start": "445.75",
-        "end": "446.35",
-        "confidence": "1.000",
-        "text": "child's",
-        "offset": 31,
-        "length": 7,
-        "key": expect.any(String)//"ipnp8p"
-      },
-      {
-        "start": "446.68",
-        "end": "447.01",
-        "confidence": "1.000",
-        "text": "teddy",
-        "offset": 39,
-        "length": 5,
-        "key": expect.any(String)//"gp6hb9"
-      },
-      {
-        "start": "447.01",
-        "end": "447.19",
-        "confidence": "1.000",
-        "text": "bear",
-        "offset": 45,
-        "length": 4,
-        "key": expect.any(String)//"4n3j4a"
-      },
-      {
-        "start": "447.19",
-        "end": "447.55",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 50,
-        "length": 5,
-        "key": expect.any(String)//"ke9rv9o"
-      },
-      {
-        "start": "447.55",
-        "end": "447.88",
-        "confidence": "1.000",
-        "text": "records",
-        "offset": 56,
-        "length": 7,
-        "key": expect.any(String)//"cifez6"
-      },
-      {
-        "start": "447.88",
-        "end": "448.21",
-        "confidence": "1.000",
-        "text": "private",
-        "offset": 64,
-        "length": 7,
-        "key": expect.any(String)//"2l8h2tn"
-      },
-      {
-        "start": "448.21",
-        "end": "449.7",
-        "confidence": "1.000",
-        "text": "conversations.",
-        "offset": 72,
-        "length": 14,
-        "key": expect.any(String)//"h1itcx9"
-      }
-    ]
-  },
-  {
-    "text": "Is it okay if your sex robot has compelling in app purchases because robots plus Capitalism equals questions around consumer protection and privacy.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "449.80",
           "end": "449.92",
@@ -20149,226 +19387,7 @@ const draftTranscriptExample = [
           "word": "privacy",
           "punct": "privacy.",
           "index": 1151
-        }
-      ],
-      "start": "449.80"
-    },
-    "entityRanges": [
-      {
-        "start": "449.80",
-        "end": "449.92",
-        "confidence": "1.000",
-        "text": "Is",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"e7qft3k"
-      },
-      {
-        "start": "449.92",
-        "end": "450.01",
-        "confidence": "1.000",
-        "text": "it",
-        "offset": 3,
-        "length": 2,
-        "key": expect.any(String)//"nw5vpw5"
-      },
-      {
-        "start": "450.01",
-        "end": "450.28",
-        "confidence": "0.840",
-        "text": "okay",
-        "offset": 6,
-        "length": 4,
-        "key": expect.any(String)//"onmy64"
-      },
-      {
-        "start": "450.31",
-        "end": "450.4",
-        "confidence": "1.000",
-        "text": "if",
-        "offset": 11,
-        "length": 2,
-        "key": expect.any(String)//"xmzby9"
-      },
-      {
-        "start": "450.40",
-        "end": "450.53999999999996",
-        "confidence": "0.720",
-        "text": "your",
-        "offset": 14,
-        "length": 4,
-        "key": expect.any(String)//"7wxrppq"
-      },
-      {
-        "start": "450.55",
-        "end": "451.03000000000003",
-        "confidence": "1.000",
-        "text": "sex",
-        "offset": 19,
-        "length": 3,
-        "key": expect.any(String)//"uipkaql"
-      },
-      {
-        "start": "451.03",
-        "end": "451.41999999999996",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 23,
-        "length": 5,
-        "key": expect.any(String)//"5y6prp5"
-      },
-      {
-        "start": "451.45",
-        "end": "451.65999999999997",
-        "confidence": "1.000",
-        "text": "has",
-        "offset": 29,
-        "length": 3,
-        "key": expect.any(String)//"t0xsjoa"
-      },
-      {
-        "start": "451.66",
-        "end": "452.32000000000005",
-        "confidence": "1.000",
-        "text": "compelling",
-        "offset": 33,
-        "length": 10,
-        "key": expect.any(String)//"zq9odx7"
-      },
-      {
-        "start": "452.32",
-        "end": "452.56",
-        "confidence": "1.000",
-        "text": "in",
-        "offset": 44,
-        "length": 2,
-        "key": expect.any(String)//"8w55si"
-      },
-      {
-        "start": "452.56",
-        "end": "452.8",
-        "confidence": "1.000",
-        "text": "app",
-        "offset": 47,
-        "length": 3,
-        "key": expect.any(String)//"nvx6wf"
-      },
-      {
-        "start": "452.80",
-        "end": "453.73",
-        "confidence": "1.000",
-        "text": "purchases",
-        "offset": 51,
-        "length": 9,
-        "key": expect.any(String)//"k22hjab"
-      },
-      {
-        "start": "455.29",
-        "end": "455.68",
-        "confidence": "1.000",
-        "text": "because",
-        "offset": 61,
-        "length": 7,
-        "key": expect.any(String)//"8yniapo"
-      },
-      {
-        "start": "455.68",
-        "end": "456.31",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 69,
-        "length": 6,
-        "key": expect.any(String)//"pew8047"
-      },
-      {
-        "start": "456.31",
-        "end": "456.64",
-        "confidence": "0.850",
-        "text": "plus",
-        "offset": 76,
-        "length": 4,
-        "key": expect.any(String)//"554l89"
-      },
-      {
-        "start": "456.64",
-        "end": "457.75",
-        "confidence": "1.000",
-        "text": "Capitalism",
-        "offset": 81,
-        "length": 10,
-        "key": expect.any(String)//"0675rnv"
-      },
-      {
-        "start": "457.84",
-        "end": "458.16999999999996",
-        "confidence": "1.000",
-        "text": "equals",
-        "offset": 92,
-        "length": 6,
-        "key": expect.any(String)//"tkuint"
-      },
-      {
-        "start": "458.17",
-        "end": "458.89000000000004",
-        "confidence": "1.000",
-        "text": "questions",
-        "offset": 99,
-        "length": 9,
-        "key": expect.any(String)//"lziesru"
-      },
-      {
-        "start": "458.95",
-        "end": "459.46",
-        "confidence": "1.000",
-        "text": "around",
-        "offset": 109,
-        "length": 6,
-        "key": expect.any(String)//"ihfy43m"
-      },
-      {
-        "start": "459.73",
-        "end": "460.18",
-        "confidence": "1.000",
-        "text": "consumer",
-        "offset": 116,
-        "length": 8,
-        "key": expect.any(String)//"mds263e"
-      },
-      {
-        "start": "460.18",
-        "end": "460.81",
-        "confidence": "1.000",
-        "text": "protection",
-        "offset": 125,
-        "length": 10,
-        "key": expect.any(String)//"zo46a09"
-      },
-      {
-        "start": "460.81",
-        "end": "460.9",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 136,
-        "length": 3,
-        "key": expect.any(String)//"08rmbt"
-      },
-      {
-        "start": "460.90",
-        "end": "462.13",
-        "confidence": "1.000",
-        "text": "privacy.",
-        "offset": 140,
-        "length": 8,
-        "key": expect.any(String)//"xdis1gc"
-      }
-    ]
-  },
-  {
-    "text": "And those aren't the only reasons that our behavior around these machines could matter.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "462.61",
           "end": "462.7",
@@ -20480,145 +19499,7 @@ const draftTranscriptExample = [
           "word": "matter",
           "punct": "matter.",
           "index": 1165
-        }
-      ],
-      "start": "462.61"
-    },
-    "entityRanges": [
-      {
-        "start": "462.61",
-        "end": "462.7",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"qs0dcwm"
-      },
-      {
-        "start": "462.70",
-        "end": "462.90999999999997",
-        "confidence": "1.000",
-        "text": "those",
-        "offset": 4,
-        "length": 5,
-        "key": expect.any(String)//"2aib8om"
-      },
-      {
-        "start": "462.91",
-        "end": "463.12",
-        "confidence": "1.000",
-        "text": "aren't",
-        "offset": 10,
-        "length": 6,
-        "key": expect.any(String)//"139od5e"
-      },
-      {
-        "start": "463.12",
-        "end": "463.27",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 17,
-        "length": 3,
-        "key": expect.any(String)//"2kzp1m"
-      },
-      {
-        "start": "463.27",
-        "end": "463.53999999999996",
-        "confidence": "1.000",
-        "text": "only",
-        "offset": 21,
-        "length": 4,
-        "key": expect.any(String)//"kwf564m"
-      },
-      {
-        "start": "463.54",
-        "end": "463.96000000000004",
-        "confidence": "1.000",
-        "text": "reasons",
-        "offset": 26,
-        "length": 7,
-        "key": expect.any(String)//"94x84ih"
-      },
-      {
-        "start": "463.96",
-        "end": "464.08",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 34,
-        "length": 4,
-        "key": expect.any(String)//"1tzuun"
-      },
-      {
-        "start": "464.08",
-        "end": "464.16999999999996",
-        "confidence": "0.940",
-        "text": "our",
-        "offset": 39,
-        "length": 3,
-        "key": expect.any(String)//"wk67anf"
-      },
-      {
-        "start": "464.17",
-        "end": "464.8",
-        "confidence": "0.870",
-        "text": "behavior",
-        "offset": 43,
-        "length": 8,
-        "key": expect.any(String)//"kwjs4y"
-      },
-      {
-        "start": "464.80",
-        "end": "465.04",
-        "confidence": "1.000",
-        "text": "around",
-        "offset": 52,
-        "length": 6,
-        "key": expect.any(String)//"mb5zoj8"
-      },
-      {
-        "start": "465.04",
-        "end": "465.19",
-        "confidence": "1.000",
-        "text": "these",
-        "offset": 59,
-        "length": 5,
-        "key": expect.any(String)//"uv6c0r9"
-      },
-      {
-        "start": "465.19",
-        "end": "465.64",
-        "confidence": "1.000",
-        "text": "machines",
-        "offset": 65,
-        "length": 8,
-        "key": expect.any(String)//"4elmxq2"
-      },
-      {
-        "start": "465.64",
-        "end": "465.82",
-        "confidence": "1.000",
-        "text": "could",
-        "offset": 74,
-        "length": 5,
-        "key": expect.any(String)//"72e1oa"
-      },
-      {
-        "start": "465.82",
-        "end": "466.24",
-        "confidence": "1.000",
-        "text": "matter.",
-        "offset": 80,
-        "length": 7,
-        "key": expect.any(String)//"zgmnob"
-      }
-    ]
-  },
-  {
-    "text": "A few years after that first initial experience I had with this baby dinosaur robot.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "468.79",
           "end": "468.85",
@@ -20738,154 +19619,7 @@ const draftTranscriptExample = [
           "word": "robot",
           "punct": "robot.",
           "index": 1180
-        }
-      ],
-      "start": "468.79"
-    },
-    "entityRanges": [
-      {
-        "start": "468.79",
-        "end": "468.85",
-        "confidence": "0.990",
-        "text": "A",
-        "offset": 0,
-        "length": 1,
-        "key": expect.any(String)//"w71nlik"
-      },
-      {
-        "start": "468.85",
-        "end": "469.09000000000003",
-        "confidence": "1.000",
-        "text": "few",
-        "offset": 2,
-        "length": 3,
-        "key": expect.any(String)//"j040dbu"
-      },
-      {
-        "start": "469.09",
-        "end": "469.35999999999996",
-        "confidence": "1.000",
-        "text": "years",
-        "offset": 6,
-        "length": 5,
-        "key": expect.any(String)//"apo9gd8"
-      },
-      {
-        "start": "469.36",
-        "end": "470.05",
-        "confidence": "1.000",
-        "text": "after",
-        "offset": 12,
-        "length": 5,
-        "key": expect.any(String)//"1qul2zn"
-      },
-      {
-        "start": "470.17",
-        "end": "470.35",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 18,
-        "length": 4,
-        "key": expect.any(String)//"hc11o1s"
-      },
-      {
-        "start": "470.35",
-        "end": "470.71000000000004",
-        "confidence": "1.000",
-        "text": "first",
-        "offset": 23,
-        "length": 5,
-        "key": expect.any(String)//"m518vw"
-      },
-      {
-        "start": "470.71",
-        "end": "471.09999999999997",
-        "confidence": "1.000",
-        "text": "initial",
-        "offset": 29,
-        "length": 7,
-        "key": expect.any(String)//"rxvc05n"
-      },
-      {
-        "start": "471.10",
-        "end": "471.73",
-        "confidence": "1.000",
-        "text": "experience",
-        "offset": 37,
-        "length": 10,
-        "key": expect.any(String)//"hjvlkm"
-      },
-      {
-        "start": "471.73",
-        "end": "471.79",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 48,
-        "length": 1,
-        "key": expect.any(String)//"xr9fs8b"
-      },
-      {
-        "start": "471.79",
-        "end": "472.06",
-        "confidence": "1.000",
-        "text": "had",
-        "offset": 50,
-        "length": 3,
-        "key": expect.any(String)//"gbhri9"
-      },
-      {
-        "start": "472.06",
-        "end": "472.21",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 54,
-        "length": 4,
-        "key": expect.any(String)//"1ck1clc"
-      },
-      {
-        "start": "472.21",
-        "end": "472.41999999999996",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 59,
-        "length": 4,
-        "key": expect.any(String)//"ii4x6l"
-      },
-      {
-        "start": "472.42",
-        "end": "472.69",
-        "confidence": "1.000",
-        "text": "baby",
-        "offset": 64,
-        "length": 4,
-        "key": expect.any(String)//"bsbd9e"
-      },
-      {
-        "start": "472.69",
-        "end": "473.11",
-        "confidence": "1.000",
-        "text": "dinosaur",
-        "offset": 69,
-        "length": 8,
-        "key": expect.any(String)//"w3ob8mq"
-      },
-      {
-        "start": "473.11",
-        "end": "474.43",
-        "confidence": "1.000",
-        "text": "robot.",
-        "offset": 78,
-        "length": 6,
-        "key": expect.any(String)//"5czkys"
-      }
-    ]
-  },
-  {
-    "text": "I did a workshop with my friend Honus Gossett and we took five of these baby dinosaur robots and we gave them to five teams of people.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "474.43",
           "end": "474.52",
@@ -21101,262 +19835,7 @@ const draftTranscriptExample = [
           "word": "people",
           "punct": "people.",
           "index": 1207
-        }
-      ],
-      "start": "474.43"
-    },
-    "entityRanges": [
-      {
-        "start": "474.43",
-        "end": "474.52",
-        "confidence": "1.000",
-        "text": "I",
-        "offset": 0,
-        "length": 1,
-        "key": expect.any(String)//"k22bkef"
-      },
-      {
-        "start": "474.52",
-        "end": "474.66999999999996",
-        "confidence": "1.000",
-        "text": "did",
-        "offset": 2,
-        "length": 3,
-        "key": expect.any(String)//"g5wck3l"
-      },
-      {
-        "start": "474.67",
-        "end": "474.7",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 6,
-        "length": 1,
-        "key": expect.any(String)//"hv211q5"
-      },
-      {
-        "start": "474.70",
-        "end": "475.18",
-        "confidence": "1.000",
-        "text": "workshop",
-        "offset": 8,
-        "length": 8,
-        "key": expect.any(String)//"jluodt"
-      },
-      {
-        "start": "475.18",
-        "end": "475.3",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 17,
-        "length": 4,
-        "key": expect.any(String)//"hzmv708"
-      },
-      {
-        "start": "475.30",
-        "end": "475.42",
-        "confidence": "1.000",
-        "text": "my",
-        "offset": 22,
-        "length": 2,
-        "key": expect.any(String)//"t1yzqsm"
-      },
-      {
-        "start": "475.42",
-        "end": "475.69",
-        "confidence": "1.000",
-        "text": "friend",
-        "offset": 25,
-        "length": 6,
-        "key": expect.any(String)//"rvo6uof"
-      },
-      {
-        "start": "475.69",
-        "end": "476.05",
-        "confidence": "0.590",
-        "text": "Honus",
-        "offset": 32,
-        "length": 5,
-        "key": expect.any(String)//"7myxkr6"
-      },
-      {
-        "start": "476.05",
-        "end": "476.62",
-        "confidence": "0.930",
-        "text": "Gossett",
-        "offset": 38,
-        "length": 7,
-        "key": expect.any(String)//"sd8qmko"
-      },
-      {
-        "start": "476.95",
-        "end": "477.28",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 46,
-        "length": 3,
-        "key": expect.any(String)//"9px0ut4"
-      },
-      {
-        "start": "477.58",
-        "end": "477.7",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 50,
-        "length": 2,
-        "key": expect.any(String)//"vagu2bk"
-      },
-      {
-        "start": "477.70",
-        "end": "477.88",
-        "confidence": "1.000",
-        "text": "took",
-        "offset": 53,
-        "length": 4,
-        "key": expect.any(String)//"cjni249"
-      },
-      {
-        "start": "477.88",
-        "end": "478.27",
-        "confidence": "1.000",
-        "text": "five",
-        "offset": 58,
-        "length": 4,
-        "key": expect.any(String)//"d4mumy6"
-      },
-      {
-        "start": "478.27",
-        "end": "478.35999999999996",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 63,
-        "length": 2,
-        "key": expect.any(String)//"bwxkd9c"
-      },
-      {
-        "start": "478.36",
-        "end": "478.66",
-        "confidence": "1.000",
-        "text": "these",
-        "offset": 66,
-        "length": 5,
-        "key": expect.any(String)//"i2cybnm"
-      },
-      {
-        "start": "478.66",
-        "end": "478.93",
-        "confidence": "0.990",
-        "text": "baby",
-        "offset": 72,
-        "length": 4,
-        "key": expect.any(String)//"dzjcrs7"
-      },
-      {
-        "start": "478.93",
-        "end": "479.35",
-        "confidence": "1.000",
-        "text": "dinosaur",
-        "offset": 77,
-        "length": 8,
-        "key": expect.any(String)//"84kh4uv"
-      },
-      {
-        "start": "479.35",
-        "end": "479.77000000000004",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 86,
-        "length": 6,
-        "key": expect.any(String)//"dvdth0i"
-      },
-      {
-        "start": "479.80",
-        "end": "479.92",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 93,
-        "length": 3,
-        "key": expect.any(String)//"3dyemx"
-      },
-      {
-        "start": "479.92",
-        "end": "480.01",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 97,
-        "length": 2,
-        "key": expect.any(String)//"ibahjxo"
-      },
-      {
-        "start": "480.01",
-        "end": "480.21999999999997",
-        "confidence": "1.000",
-        "text": "gave",
-        "offset": 100,
-        "length": 4,
-        "key": expect.any(String)//"4vxz22"
-      },
-      {
-        "start": "480.22",
-        "end": "480.34000000000003",
-        "confidence": "1.000",
-        "text": "them",
-        "offset": 105,
-        "length": 4,
-        "key": expect.any(String)//"x1wfogl"
-      },
-      {
-        "start": "480.34",
-        "end": "480.42999999999995",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 110,
-        "length": 2,
-        "key": expect.any(String)//"gtgah8e"
-      },
-      {
-        "start": "480.43",
-        "end": "480.76",
-        "confidence": "0.990",
-        "text": "five",
-        "offset": 113,
-        "length": 4,
-        "key": expect.any(String)//"mkge1mp"
-      },
-      {
-        "start": "480.76",
-        "end": "481.09",
-        "confidence": "1.000",
-        "text": "teams",
-        "offset": 118,
-        "length": 5,
-        "key": expect.any(String)//"yyvcdif"
-      },
-      {
-        "start": "481.09",
-        "end": "481.17999999999995",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 124,
-        "length": 2,
-        "key": expect.any(String)//"yyqgq"
-      },
-      {
-        "start": "481.18",
-        "end": "481.69",
-        "confidence": "1.000",
-        "text": "people.",
-        "offset": 127,
-        "length": 7,
-        "key": expect.any(String)//"b9n9hv"
-      }
-    ]
-  },
-  {
-    "text": "And we had them name them and play with them and interact with them for about an hour.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "482.32",
           "end": "482.40999999999997",
@@ -21500,181 +19979,7 @@ const draftTranscriptExample = [
           "word": "hour",
           "punct": "hour.",
           "index": 1225
-        }
-      ],
-      "start": "482.32"
-    },
-    "entityRanges": [
-      {
-        "start": "482.32",
-        "end": "482.40999999999997",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"ly4esao"
-      },
-      {
-        "start": "482.41",
-        "end": "482.5",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 4,
-        "length": 2,
-        "key": expect.any(String)//"3a1f3wx"
-      },
-      {
-        "start": "482.50",
-        "end": "482.68",
-        "confidence": "1.000",
-        "text": "had",
-        "offset": 7,
-        "length": 3,
-        "key": expect.any(String)//"td659sn"
-      },
-      {
-        "start": "482.68",
-        "end": "482.86",
-        "confidence": "1.000",
-        "text": "them",
-        "offset": 11,
-        "length": 4,
-        "key": expect.any(String)//"553negs"
-      },
-      {
-        "start": "482.86",
-        "end": "483.19",
-        "confidence": "1.000",
-        "text": "name",
-        "offset": 16,
-        "length": 4,
-        "key": expect.any(String)//"vuv9n4f"
-      },
-      {
-        "start": "483.19",
-        "end": "483.64",
-        "confidence": "1.000",
-        "text": "them",
-        "offset": 21,
-        "length": 4,
-        "key": expect.any(String)//"kml3jbi"
-      },
-      {
-        "start": "484.03",
-        "end": "484.15",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 26,
-        "length": 3,
-        "key": expect.any(String)//"ntj6gm"
-      },
-      {
-        "start": "484.15",
-        "end": "484.45",
-        "confidence": "1.000",
-        "text": "play",
-        "offset": 30,
-        "length": 4,
-        "key": expect.any(String)//"mrxsibi"
-      },
-      {
-        "start": "484.45",
-        "end": "484.63",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 35,
-        "length": 4,
-        "key": expect.any(String)//"rw9s6t8"
-      },
-      {
-        "start": "484.63",
-        "end": "485.08",
-        "confidence": "1.000",
-        "text": "them",
-        "offset": 40,
-        "length": 4,
-        "key": expect.any(String)//"dtinkx8"
-      },
-      {
-        "start": "485.14",
-        "end": "485.28999999999996",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 45,
-        "length": 3,
-        "key": expect.any(String)//"ga2xk0l"
-      },
-      {
-        "start": "485.29",
-        "end": "485.77000000000004",
-        "confidence": "1.000",
-        "text": "interact",
-        "offset": 49,
-        "length": 8,
-        "key": expect.any(String)//"ss5q80b"
-      },
-      {
-        "start": "485.77",
-        "end": "485.91999999999996",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 58,
-        "length": 4,
-        "key": expect.any(String)//"2j7hhii"
-      },
-      {
-        "start": "485.92",
-        "end": "486.28000000000003",
-        "confidence": "1.000",
-        "text": "them",
-        "offset": 63,
-        "length": 4,
-        "key": expect.any(String)//"vkl97c2"
-      },
-      {
-        "start": "486.31",
-        "end": "486.7",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 68,
-        "length": 3,
-        "key": expect.any(String)//"uonr1l8"
-      },
-      {
-        "start": "486.88",
-        "end": "487.18",
-        "confidence": "1.000",
-        "text": "about",
-        "offset": 72,
-        "length": 5,
-        "key": expect.any(String)//"mxsvaz9"
-      },
-      {
-        "start": "487.18",
-        "end": "487.3",
-        "confidence": "1.000",
-        "text": "an",
-        "offset": 78,
-        "length": 2,
-        "key": expect.any(String)//"wsumgg"
-      },
-      {
-        "start": "487.30",
-        "end": "487.69",
-        "confidence": "1.000",
-        "text": "hour.",
-        "offset": 81,
-        "length": 5,
-        "key": expect.any(String)//"83nekjn"
-      }
-    ]
-  },
-  {
-    "text": "And then we unveiled a hammer and a hatchet.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "488.75",
           "end": "488.87",
@@ -21746,100 +20051,7 @@ const draftTranscriptExample = [
           "word": "hatchet",
           "punct": "hatchet.",
           "index": 1234
-        }
-      ],
-      "start": "488.75"
-    },
-    "entityRanges": [
-      {
-        "start": "488.75",
-        "end": "488.87",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"0s1b3yu"
-      },
-      {
-        "start": "488.87",
-        "end": "489.08",
-        "confidence": "1.000",
-        "text": "then",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"7l3pzss"
-      },
-      {
-        "start": "489.08",
-        "end": "489.2",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 9,
-        "length": 2,
-        "key": expect.any(String)//"otno3a"
-      },
-      {
-        "start": "489.20",
-        "end": "489.68",
-        "confidence": "1.000",
-        "text": "unveiled",
-        "offset": 12,
-        "length": 8,
-        "key": expect.any(String)//"libejzh"
-      },
-      {
-        "start": "489.77",
-        "end": "489.83",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 21,
-        "length": 1,
-        "key": expect.any(String)//"ckqtxs8"
-      },
-      {
-        "start": "489.83",
-        "end": "490.21999999999997",
-        "confidence": "1.000",
-        "text": "hammer",
-        "offset": 23,
-        "length": 6,
-        "key": expect.any(String)//"f9854x"
-      },
-      {
-        "start": "490.22",
-        "end": "490.31",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 30,
-        "length": 3,
-        "key": expect.any(String)//"3tgu7wj"
-      },
-      {
-        "start": "490.31",
-        "end": "490.37",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 34,
-        "length": 1,
-        "key": expect.any(String)//"7d4l05"
-      },
-      {
-        "start": "490.37",
-        "end": "490.92",
-        "confidence": "1.000",
-        "text": "hatchet.",
-        "offset": 36,
-        "length": 8,
-        "key": expect.any(String)//"gkykdxd"
-      }
-    ]
-  },
-  {
-    "text": "And we told them to torture and kill the robots.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "490.94",
           "end": "491.06",
@@ -21919,109 +20131,7 @@ const draftTranscriptExample = [
           "word": "robots",
           "punct": "robots.",
           "index": 1244
-        }
-      ],
-      "start": "490.94"
-    },
-    "entityRanges": [
-      {
-        "start": "490.94",
-        "end": "491.06",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"udk4qpw"
-      },
-      {
-        "start": "491.06",
-        "end": "491.15",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 4,
-        "length": 2,
-        "key": expect.any(String)//"rd6q9uf"
-      },
-      {
-        "start": "491.15",
-        "end": "491.39",
-        "confidence": "1.000",
-        "text": "told",
-        "offset": 7,
-        "length": 4,
-        "key": expect.any(String)//"a2ove1o"
-      },
-      {
-        "start": "491.39",
-        "end": "491.51",
-        "confidence": "0.990",
-        "text": "them",
-        "offset": 12,
-        "length": 4,
-        "key": expect.any(String)//"lg6pje1n"
-      },
-      {
-        "start": "491.51",
-        "end": "491.63",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 17,
-        "length": 2,
-        "key": expect.any(String)//"cjq769"
-      },
-      {
-        "start": "491.63",
-        "end": "492.02",
-        "confidence": "1.000",
-        "text": "torture",
-        "offset": 20,
-        "length": 7,
-        "key": expect.any(String)//"bvy1kd"
-      },
-      {
-        "start": "492.02",
-        "end": "492.10999999999996",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 28,
-        "length": 3,
-        "key": expect.any(String)//"xsjbn8e"
-      },
-      {
-        "start": "492.11",
-        "end": "492.41",
-        "confidence": "1.000",
-        "text": "kill",
-        "offset": 32,
-        "length": 4,
-        "key": expect.any(String)//"vxxe51f"
-      },
-      {
-        "start": "492.41",
-        "end": "492.53000000000003",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 37,
-        "length": 3,
-        "key": expect.any(String)//"qs5amm"
-      },
-      {
-        "start": "492.53",
-        "end": "493.96999999999997",
-        "confidence": "0.980",
-        "text": "robots.",
-        "offset": 41,
-        "length": 7,
-        "key": expect.any(String)//"34hg0r"
-      }
-    ]
-  },
-  {
-    "text": "And this turned out to be a little more dramatic than we expected it to be because none of the participants would even so much a strike these baby dinosaur robots.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "496.90",
           "end": "497.14",
@@ -22271,292 +20381,1462 @@ const draftTranscriptExample = [
           "index": 1275
         }
       ],
-      "start": "496.90"
+      "start": "444.13"
     },
     "entityRanges": [
+      {
+        "start": "444.13",
+        "end": "444.25",
+        "confidence": "1.000",
+        "text": "For",
+        "offset": 0,
+        "length": 3,
+        "key": expect.any(String)//"48xndds"
+      },
+      {
+        "start": "444.25",
+        "end": "444.79",
+        "confidence": "1.000",
+        "text": "example",
+        "offset": 4,
+        "length": 7,
+        "key": expect.any(String)//"2w6jdk7"
+      },
+      {
+        "start": "444.85",
+        "end": "445",
+        "confidence": "1.000",
+        "text": "Is",
+        "offset": 12,
+        "length": 2,
+        "key": expect.any(String)//"q5wj4zk"
+      },
+      {
+        "start": "445.00",
+        "end": "445.09",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 15,
+        "length": 2,
+        "key": expect.any(String)//"2kwpeju"
+      },
+      {
+        "start": "445.09",
+        "end": "445.5",
+        "confidence": "0.610",
+        "text": "okay",
+        "offset": 18,
+        "length": 4,
+        "key": expect.any(String)//"yn9cwe7"
+      },
+      {
+        "start": "445.51",
+        "end": "445.63",
+        "confidence": "0.980",
+        "text": "if",
+        "offset": 23,
+        "length": 2,
+        "key": expect.any(String)//"3053t5j"
+      },
+      {
+        "start": "445.63",
+        "end": "445.75",
+        "confidence": "1.000",
+        "text": "your",
+        "offset": 26,
+        "length": 4,
+        "key": expect.any(String)//"wm82hd"
+      },
+      {
+        "start": "445.75",
+        "end": "446.35",
+        "confidence": "1.000",
+        "text": "child's",
+        "offset": 31,
+        "length": 7,
+        "key": expect.any(String)//"3e6n0v9"
+      },
+      {
+        "start": "446.68",
+        "end": "447.01",
+        "confidence": "1.000",
+        "text": "teddy",
+        "offset": 39,
+        "length": 5,
+        "key": expect.any(String)//"pq04y1b"
+      },
+      {
+        "start": "447.01",
+        "end": "447.19",
+        "confidence": "1.000",
+        "text": "bear",
+        "offset": 45,
+        "length": 4,
+        "key": expect.any(String)//"8yh5y2"
+      },
+      {
+        "start": "447.19",
+        "end": "447.55",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 50,
+        "length": 5,
+        "key": expect.any(String)//"oyw5178"
+      },
+      {
+        "start": "447.55",
+        "end": "447.88",
+        "confidence": "1.000",
+        "text": "records",
+        "offset": 56,
+        "length": 7,
+        "key": expect.any(String)//"w9hno2"
+      },
+      {
+        "start": "447.88",
+        "end": "448.21",
+        "confidence": "1.000",
+        "text": "private",
+        "offset": 64,
+        "length": 7,
+        "key": expect.any(String)//"w5zuqjo"
+      },
+      {
+        "start": "448.21",
+        "end": "449.7",
+        "confidence": "1.000",
+        "text": "conversations.",
+        "offset": 72,
+        "length": 14,
+        "key": expect.any(String)//"uz3l5om"
+      },
+      {
+        "start": "449.80",
+        "end": "449.92",
+        "confidence": "1.000",
+        "text": "Is",
+        "offset": 87,
+        "length": 2,
+        "key": expect.any(String)//"9c9xlut"
+      },
+      {
+        "start": "449.92",
+        "end": "450.01",
+        "confidence": "1.000",
+        "text": "it",
+        "offset": 90,
+        "length": 2,
+        "key": expect.any(String)//"e2gl3n"
+      },
+      {
+        "start": "450.01",
+        "end": "450.28",
+        "confidence": "0.840",
+        "text": "okay",
+        "offset": 93,
+        "length": 4,
+        "key": expect.any(String)//"i1d4pcb"
+      },
+      {
+        "start": "450.31",
+        "end": "450.4",
+        "confidence": "1.000",
+        "text": "if",
+        "offset": 98,
+        "length": 2,
+        "key": expect.any(String)//"ckqti5"
+      },
+      {
+        "start": "450.40",
+        "end": "450.53999999999996",
+        "confidence": "0.720",
+        "text": "your",
+        "offset": 101,
+        "length": 4,
+        "key": expect.any(String)//"jjmpf7g"
+      },
+      {
+        "start": "450.55",
+        "end": "451.03000000000003",
+        "confidence": "1.000",
+        "text": "sex",
+        "offset": 106,
+        "length": 3,
+        "key": expect.any(String)//"4g0ybc"
+      },
+      {
+        "start": "451.03",
+        "end": "451.41999999999996",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 110,
+        "length": 5,
+        "key": expect.any(String)//"oupy102"
+      },
+      {
+        "start": "451.45",
+        "end": "451.65999999999997",
+        "confidence": "1.000",
+        "text": "has",
+        "offset": 116,
+        "length": 3,
+        "key": expect.any(String)//"c54wvte"
+      },
+      {
+        "start": "451.66",
+        "end": "452.32000000000005",
+        "confidence": "1.000",
+        "text": "compelling",
+        "offset": 120,
+        "length": 10,
+        "key": expect.any(String)//"ukzd5w8"
+      },
+      {
+        "start": "452.32",
+        "end": "452.56",
+        "confidence": "1.000",
+        "text": "in",
+        "offset": 131,
+        "length": 2,
+        "key": expect.any(String)//"06zv7tf"
+      },
+      {
+        "start": "452.56",
+        "end": "452.8",
+        "confidence": "1.000",
+        "text": "app",
+        "offset": 134,
+        "length": 3,
+        "key": expect.any(String)//"3ud1srj"
+      },
+      {
+        "start": "452.80",
+        "end": "453.73",
+        "confidence": "1.000",
+        "text": "purchases",
+        "offset": 138,
+        "length": 9,
+        "key": expect.any(String)//"6syxwk9"
+      },
+      {
+        "start": "455.29",
+        "end": "455.68",
+        "confidence": "1.000",
+        "text": "because",
+        "offset": 148,
+        "length": 7,
+        "key": expect.any(String)//"jgp5q5m"
+      },
+      {
+        "start": "455.68",
+        "end": "456.31",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 156,
+        "length": 6,
+        "key": expect.any(String)//"h8dnupl"
+      },
+      {
+        "start": "456.31",
+        "end": "456.64",
+        "confidence": "0.850",
+        "text": "plus",
+        "offset": 163,
+        "length": 4,
+        "key": expect.any(String)//"1c2rvl"
+      },
+      {
+        "start": "456.64",
+        "end": "457.75",
+        "confidence": "1.000",
+        "text": "Capitalism",
+        "offset": 168,
+        "length": 10,
+        "key": expect.any(String)//"xlbplcm"
+      },
+      {
+        "start": "457.84",
+        "end": "458.16999999999996",
+        "confidence": "1.000",
+        "text": "equals",
+        "offset": 179,
+        "length": 6,
+        "key": expect.any(String)//"fmlepyi"
+      },
+      {
+        "start": "458.17",
+        "end": "458.89000000000004",
+        "confidence": "1.000",
+        "text": "questions",
+        "offset": 186,
+        "length": 9,
+        "key": expect.any(String)//"jvljy78"
+      },
+      {
+        "start": "458.95",
+        "end": "459.46",
+        "confidence": "1.000",
+        "text": "around",
+        "offset": 196,
+        "length": 6,
+        "key": expect.any(String)//"7wzyaq9"
+      },
+      {
+        "start": "459.73",
+        "end": "460.18",
+        "confidence": "1.000",
+        "text": "consumer",
+        "offset": 203,
+        "length": 8,
+        "key": expect.any(String)//"tbckani"
+      },
+      {
+        "start": "460.18",
+        "end": "460.81",
+        "confidence": "1.000",
+        "text": "protection",
+        "offset": 212,
+        "length": 10,
+        "key": expect.any(String)//"kbpwnas"
+      },
+      {
+        "start": "460.81",
+        "end": "460.9",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 223,
+        "length": 3,
+        "key": expect.any(String)//"83o0u1s"
+      },
+      {
+        "start": "460.90",
+        "end": "462.13",
+        "confidence": "1.000",
+        "text": "privacy.",
+        "offset": 227,
+        "length": 8,
+        "key": expect.any(String)//"beffstp"
+      },
+      {
+        "start": "462.61",
+        "end": "462.7",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 236,
+        "length": 3,
+        "key": expect.any(String)//"bp4txpm"
+      },
+      {
+        "start": "462.70",
+        "end": "462.90999999999997",
+        "confidence": "1.000",
+        "text": "those",
+        "offset": 240,
+        "length": 5,
+        "key": expect.any(String)//"e0lwkh"
+      },
+      {
+        "start": "462.91",
+        "end": "463.12",
+        "confidence": "1.000",
+        "text": "aren't",
+        "offset": 246,
+        "length": 6,
+        "key": expect.any(String)//"7i2pn48"
+      },
+      {
+        "start": "463.12",
+        "end": "463.27",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 253,
+        "length": 3,
+        "key": expect.any(String)//"m49gtv"
+      },
+      {
+        "start": "463.27",
+        "end": "463.53999999999996",
+        "confidence": "1.000",
+        "text": "only",
+        "offset": 257,
+        "length": 4,
+        "key": expect.any(String)//"fn4whcf"
+      },
+      {
+        "start": "463.54",
+        "end": "463.96000000000004",
+        "confidence": "1.000",
+        "text": "reasons",
+        "offset": 262,
+        "length": 7,
+        "key": expect.any(String)//"b496hq7"
+      },
+      {
+        "start": "463.96",
+        "end": "464.08",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 270,
+        "length": 4,
+        "key": expect.any(String)//"xgs3uk8"
+      },
+      {
+        "start": "464.08",
+        "end": "464.16999999999996",
+        "confidence": "0.940",
+        "text": "our",
+        "offset": 275,
+        "length": 3,
+        "key": expect.any(String)//"30qzrt5"
+      },
+      {
+        "start": "464.17",
+        "end": "464.8",
+        "confidence": "0.870",
+        "text": "behavior",
+        "offset": 279,
+        "length": 8,
+        "key": expect.any(String)//"kz9ih8r"
+      },
+      {
+        "start": "464.80",
+        "end": "465.04",
+        "confidence": "1.000",
+        "text": "around",
+        "offset": 288,
+        "length": 6,
+        "key": expect.any(String)//"52gul7"
+      },
+      {
+        "start": "465.04",
+        "end": "465.19",
+        "confidence": "1.000",
+        "text": "these",
+        "offset": 295,
+        "length": 5,
+        "key": expect.any(String)//"j8eh64v"
+      },
+      {
+        "start": "465.19",
+        "end": "465.64",
+        "confidence": "1.000",
+        "text": "machines",
+        "offset": 301,
+        "length": 8,
+        "key": expect.any(String)//"fo5x0s4"
+      },
+      {
+        "start": "465.64",
+        "end": "465.82",
+        "confidence": "1.000",
+        "text": "could",
+        "offset": 310,
+        "length": 5,
+        "key": expect.any(String)//"jcjq9ku"
+      },
+      {
+        "start": "465.82",
+        "end": "466.24",
+        "confidence": "1.000",
+        "text": "matter.",
+        "offset": 316,
+        "length": 7,
+        "key": expect.any(String)//"u12j259"
+      },
+      {
+        "start": "468.79",
+        "end": "468.85",
+        "confidence": "0.990",
+        "text": "A",
+        "offset": 324,
+        "length": 1,
+        "key": expect.any(String)//"r197n4"
+      },
+      {
+        "start": "468.85",
+        "end": "469.09000000000003",
+        "confidence": "1.000",
+        "text": "few",
+        "offset": 326,
+        "length": 3,
+        "key": expect.any(String)//"oe47inf"
+      },
+      {
+        "start": "469.09",
+        "end": "469.35999999999996",
+        "confidence": "1.000",
+        "text": "years",
+        "offset": 330,
+        "length": 5,
+        "key": expect.any(String)//"p170sti"
+      },
+      {
+        "start": "469.36",
+        "end": "470.05",
+        "confidence": "1.000",
+        "text": "after",
+        "offset": 336,
+        "length": 5,
+        "key": expect.any(String)//"tu93c8"
+      },
+      {
+        "start": "470.17",
+        "end": "470.35",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 342,
+        "length": 4,
+        "key": expect.any(String)//"qkbzpdr"
+      },
+      {
+        "start": "470.35",
+        "end": "470.71000000000004",
+        "confidence": "1.000",
+        "text": "first",
+        "offset": 347,
+        "length": 5,
+        "key": expect.any(String)//"ivr0i2s"
+      },
+      {
+        "start": "470.71",
+        "end": "471.09999999999997",
+        "confidence": "1.000",
+        "text": "initial",
+        "offset": 353,
+        "length": 7,
+        "key": expect.any(String)//"as629dt"
+      },
+      {
+        "start": "471.10",
+        "end": "471.73",
+        "confidence": "1.000",
+        "text": "experience",
+        "offset": 361,
+        "length": 10,
+        "key": expect.any(String)//"xvxada6"
+      },
+      {
+        "start": "471.73",
+        "end": "471.79",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 372,
+        "length": 1,
+        "key": expect.any(String)//"8mky9ms"
+      },
+      {
+        "start": "471.79",
+        "end": "472.06",
+        "confidence": "1.000",
+        "text": "had",
+        "offset": 374,
+        "length": 3,
+        "key": expect.any(String)//"l41knqc"
+      },
+      {
+        "start": "472.06",
+        "end": "472.21",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 378,
+        "length": 4,
+        "key": expect.any(String)//"bwbpi29"
+      },
+      {
+        "start": "472.21",
+        "end": "472.41999999999996",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 383,
+        "length": 4,
+        "key": expect.any(String)//"q52kw8p"
+      },
+      {
+        "start": "472.42",
+        "end": "472.69",
+        "confidence": "1.000",
+        "text": "baby",
+        "offset": 388,
+        "length": 4,
+        "key": expect.any(String)//"ezhclns"
+      },
+      {
+        "start": "472.69",
+        "end": "473.11",
+        "confidence": "1.000",
+        "text": "dinosaur",
+        "offset": 393,
+        "length": 8,
+        "key": expect.any(String)//"ubbh5lo"
+      },
+      {
+        "start": "473.11",
+        "end": "474.43",
+        "confidence": "1.000",
+        "text": "robot.",
+        "offset": 402,
+        "length": 6,
+        "key": expect.any(String)//"x0j3gmg"
+      },
+      {
+        "start": "474.43",
+        "end": "474.52",
+        "confidence": "1.000",
+        "text": "I",
+        "offset": 409,
+        "length": 1,
+        "key": expect.any(String)//"1gncxtd"
+      },
+      {
+        "start": "474.52",
+        "end": "474.66999999999996",
+        "confidence": "1.000",
+        "text": "did",
+        "offset": 411,
+        "length": 3,
+        "key": expect.any(String)//"hmnf7vd"
+      },
+      {
+        "start": "474.67",
+        "end": "474.7",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 415,
+        "length": 1,
+        "key": expect.any(String)//"m7r0lyp"
+      },
+      {
+        "start": "474.70",
+        "end": "475.18",
+        "confidence": "1.000",
+        "text": "workshop",
+        "offset": 417,
+        "length": 8,
+        "key": expect.any(String)//"n3m7hdmg"
+      },
+      {
+        "start": "475.18",
+        "end": "475.3",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 426,
+        "length": 4,
+        "key": expect.any(String)//"qi6kstw"
+      },
+      {
+        "start": "475.30",
+        "end": "475.42",
+        "confidence": "1.000",
+        "text": "my",
+        "offset": 431,
+        "length": 2,
+        "key": expect.any(String)//"rzry24t"
+      },
+      {
+        "start": "475.42",
+        "end": "475.69",
+        "confidence": "1.000",
+        "text": "friend",
+        "offset": 434,
+        "length": 6,
+        "key": expect.any(String)//"cg6m3y"
+      },
+      {
+        "start": "475.69",
+        "end": "476.05",
+        "confidence": "0.590",
+        "text": "Honus",
+        "offset": 441,
+        "length": 5,
+        "key": expect.any(String)//"wdwoogi"
+      },
+      {
+        "start": "476.05",
+        "end": "476.62",
+        "confidence": "0.930",
+        "text": "Gossett",
+        "offset": 447,
+        "length": 7,
+        "key": expect.any(String)//"bf5ul7q"
+      },
+      {
+        "start": "476.95",
+        "end": "477.28",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 455,
+        "length": 3,
+        "key": expect.any(String)//"znby4sj"
+      },
+      {
+        "start": "477.58",
+        "end": "477.7",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 459,
+        "length": 2,
+        "key": expect.any(String)//"t3qh7cn"
+      },
+      {
+        "start": "477.70",
+        "end": "477.88",
+        "confidence": "1.000",
+        "text": "took",
+        "offset": 462,
+        "length": 4,
+        "key": expect.any(String)//"0sc47f"
+      },
+      {
+        "start": "477.88",
+        "end": "478.27",
+        "confidence": "1.000",
+        "text": "five",
+        "offset": 467,
+        "length": 4,
+        "key": expect.any(String)//"717ukv"
+      },
+      {
+        "start": "478.27",
+        "end": "478.35999999999996",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 472,
+        "length": 2,
+        "key": expect.any(String)//"i95kndn"
+      },
+      {
+        "start": "478.36",
+        "end": "478.66",
+        "confidence": "1.000",
+        "text": "these",
+        "offset": 475,
+        "length": 5,
+        "key": expect.any(String)//"h2k7uss"
+      },
+      {
+        "start": "478.66",
+        "end": "478.93",
+        "confidence": "0.990",
+        "text": "baby",
+        "offset": 481,
+        "length": 4,
+        "key": expect.any(String)//"pb47kbq"
+      },
+      {
+        "start": "478.93",
+        "end": "479.35",
+        "confidence": "1.000",
+        "text": "dinosaur",
+        "offset": 486,
+        "length": 8,
+        "key": expect.any(String)//"bqau79"
+      },
+      {
+        "start": "479.35",
+        "end": "479.77000000000004",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 495,
+        "length": 6,
+        "key": expect.any(String)//"4je43fc"
+      },
+      {
+        "start": "479.80",
+        "end": "479.92",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 502,
+        "length": 3,
+        "key": expect.any(String)//"gnac64"
+      },
+      {
+        "start": "479.92",
+        "end": "480.01",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 506,
+        "length": 2,
+        "key": expect.any(String)//"zonyb9o"
+      },
+      {
+        "start": "480.01",
+        "end": "480.21999999999997",
+        "confidence": "1.000",
+        "text": "gave",
+        "offset": 509,
+        "length": 4,
+        "key": expect.any(String)//"n974xpo"
+      },
+      {
+        "start": "480.22",
+        "end": "480.34000000000003",
+        "confidence": "1.000",
+        "text": "them",
+        "offset": 514,
+        "length": 4,
+        "key": expect.any(String)//"goqjq4j"
+      },
+      {
+        "start": "480.34",
+        "end": "480.42999999999995",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 519,
+        "length": 2,
+        "key": expect.any(String)//"eb1f3wt"
+      },
+      {
+        "start": "480.43",
+        "end": "480.76",
+        "confidence": "0.990",
+        "text": "five",
+        "offset": 522,
+        "length": 4,
+        "key": expect.any(String)//"341111"
+      },
+      {
+        "start": "480.76",
+        "end": "481.09",
+        "confidence": "1.000",
+        "text": "teams",
+        "offset": 527,
+        "length": 5,
+        "key": expect.any(String)//"75p06ir"
+      },
+      {
+        "start": "481.09",
+        "end": "481.17999999999995",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 533,
+        "length": 2,
+        "key": expect.any(String)//"xug23e"
+      },
+      {
+        "start": "481.18",
+        "end": "481.69",
+        "confidence": "1.000",
+        "text": "people.",
+        "offset": 536,
+        "length": 7,
+        "key": expect.any(String)//"17xpt7p"
+      },
+      {
+        "start": "482.32",
+        "end": "482.40999999999997",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 544,
+        "length": 3,
+        "key": expect.any(String)//"ld514j"
+      },
+      {
+        "start": "482.41",
+        "end": "482.5",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 548,
+        "length": 2,
+        "key": expect.any(String)//"phtpgo4"
+      },
+      {
+        "start": "482.50",
+        "end": "482.68",
+        "confidence": "1.000",
+        "text": "had",
+        "offset": 551,
+        "length": 3,
+        "key": expect.any(String)//"gi1p6v8"
+      },
+      {
+        "start": "482.68",
+        "end": "482.86",
+        "confidence": "1.000",
+        "text": "them",
+        "offset": 555,
+        "length": 4,
+        "key": expect.any(String)//"ap79bda"
+      },
+      {
+        "start": "482.86",
+        "end": "483.19",
+        "confidence": "1.000",
+        "text": "name",
+        "offset": 560,
+        "length": 4,
+        "key": expect.any(String)//"alao0bo"
+      },
+      {
+        "start": "483.19",
+        "end": "483.64",
+        "confidence": "1.000",
+        "text": "them",
+        "offset": 565,
+        "length": 4,
+        "key": expect.any(String)//"ywj3e9"
+      },
+      {
+        "start": "484.03",
+        "end": "484.15",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 570,
+        "length": 3,
+        "key": expect.any(String)//"dru22zo"
+      },
+      {
+        "start": "484.15",
+        "end": "484.45",
+        "confidence": "1.000",
+        "text": "play",
+        "offset": 574,
+        "length": 4,
+        "key": expect.any(String)//"j5cbqj5"
+      },
+      {
+        "start": "484.45",
+        "end": "484.63",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 579,
+        "length": 4,
+        "key": expect.any(String)//"4k938g4"
+      },
+      {
+        "start": "484.63",
+        "end": "485.08",
+        "confidence": "1.000",
+        "text": "them",
+        "offset": 584,
+        "length": 4,
+        "key": expect.any(String)//"t8qyrj"
+      },
+      {
+        "start": "485.14",
+        "end": "485.28999999999996",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 589,
+        "length": 3,
+        "key": expect.any(String)//"1pmzdnd"
+      },
+      {
+        "start": "485.29",
+        "end": "485.77000000000004",
+        "confidence": "1.000",
+        "text": "interact",
+        "offset": 593,
+        "length": 8,
+        "key": expect.any(String)//"asl60rm"
+      },
+      {
+        "start": "485.77",
+        "end": "485.91999999999996",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 602,
+        "length": 4,
+        "key": expect.any(String)//"pize1fh"
+      },
+      {
+        "start": "485.92",
+        "end": "486.28000000000003",
+        "confidence": "1.000",
+        "text": "them",
+        "offset": 607,
+        "length": 4,
+        "key": expect.any(String)//"t8kvcu"
+      },
+      {
+        "start": "486.31",
+        "end": "486.7",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 612,
+        "length": 3,
+        "key": expect.any(String)//"piduskm"
+      },
+      {
+        "start": "486.88",
+        "end": "487.18",
+        "confidence": "1.000",
+        "text": "about",
+        "offset": 616,
+        "length": 5,
+        "key": expect.any(String)//"pzj7hl"
+      },
+      {
+        "start": "487.18",
+        "end": "487.3",
+        "confidence": "1.000",
+        "text": "an",
+        "offset": 622,
+        "length": 2,
+        "key": expect.any(String)//"26marph"
+      },
+      {
+        "start": "487.30",
+        "end": "487.69",
+        "confidence": "1.000",
+        "text": "hour.",
+        "offset": 625,
+        "length": 5,
+        "key": expect.any(String)//"lbiijgd"
+      },
+      {
+        "start": "488.75",
+        "end": "488.87",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 631,
+        "length": 3,
+        "key": expect.any(String)//"07p49j"
+      },
+      {
+        "start": "488.87",
+        "end": "489.08",
+        "confidence": "1.000",
+        "text": "then",
+        "offset": 635,
+        "length": 4,
+        "key": expect.any(String)//"2xyx83s"
+      },
+      {
+        "start": "489.08",
+        "end": "489.2",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 640,
+        "length": 2,
+        "key": expect.any(String)//"78lqeb"
+      },
+      {
+        "start": "489.20",
+        "end": "489.68",
+        "confidence": "1.000",
+        "text": "unveiled",
+        "offset": 643,
+        "length": 8,
+        "key": expect.any(String)//"pptaw2n"
+      },
+      {
+        "start": "489.77",
+        "end": "489.83",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 652,
+        "length": 1,
+        "key": expect.any(String)//"5cjghm"
+      },
+      {
+        "start": "489.83",
+        "end": "490.21999999999997",
+        "confidence": "1.000",
+        "text": "hammer",
+        "offset": 654,
+        "length": 6,
+        "key": expect.any(String)//"yv3fx2l"
+      },
+      {
+        "start": "490.22",
+        "end": "490.31",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 661,
+        "length": 3,
+        "key": expect.any(String)//"rbcxggc"
+      },
+      {
+        "start": "490.31",
+        "end": "490.37",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 665,
+        "length": 1,
+        "key": expect.any(String)//"8k9102s"
+      },
+      {
+        "start": "490.37",
+        "end": "490.92",
+        "confidence": "1.000",
+        "text": "hatchet.",
+        "offset": 667,
+        "length": 8,
+        "key": expect.any(String)//"10jple7"
+      },
+      {
+        "start": "490.94",
+        "end": "491.06",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 676,
+        "length": 3,
+        "key": expect.any(String)//"yo9apgs"
+      },
+      {
+        "start": "491.06",
+        "end": "491.15",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 680,
+        "length": 2,
+        "key": expect.any(String)//"3d13bm1"
+      },
+      {
+        "start": "491.15",
+        "end": "491.39",
+        "confidence": "1.000",
+        "text": "told",
+        "offset": 683,
+        "length": 4,
+        "key": expect.any(String)//"hiotzyc"
+      },
+      {
+        "start": "491.39",
+        "end": "491.51",
+        "confidence": "0.990",
+        "text": "them",
+        "offset": 688,
+        "length": 4,
+        "key": expect.any(String)//"4cj3jui"
+      },
+      {
+        "start": "491.51",
+        "end": "491.63",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 693,
+        "length": 2,
+        "key": expect.any(String)//"4kddsl"
+      },
+      {
+        "start": "491.63",
+        "end": "492.02",
+        "confidence": "1.000",
+        "text": "torture",
+        "offset": 696,
+        "length": 7,
+        "key": expect.any(String)//"ira190o"
+      },
+      {
+        "start": "492.02",
+        "end": "492.10999999999996",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 704,
+        "length": 3,
+        "key": expect.any(String)//"20bh8qg"
+      },
+      {
+        "start": "492.11",
+        "end": "492.41",
+        "confidence": "1.000",
+        "text": "kill",
+        "offset": 708,
+        "length": 4,
+        "key": expect.any(String)//"xouxjjq"
+      },
+      {
+        "start": "492.41",
+        "end": "492.53000000000003",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 713,
+        "length": 3,
+        "key": expect.any(String)//"a2j704p"
+      },
+      {
+        "start": "492.53",
+        "end": "493.96999999999997",
+        "confidence": "0.980",
+        "text": "robots.",
+        "offset": 717,
+        "length": 7,
+        "key": expect.any(String)//"1bi8zne"
+      },
       {
         "start": "496.90",
         "end": "497.14",
         "confidence": "0.990",
         "text": "And",
-        "offset": 0,
+        "offset": 725,
         "length": 3,
-        "key": expect.any(String)//"kcx4s4o"
+        "key": expect.any(String)//"aisdvzf"
       },
       {
         "start": "497.23",
         "end": "497.44",
         "confidence": "1.000",
         "text": "this",
-        "offset": 4,
+        "offset": 729,
         "length": 4,
-        "key": expect.any(String)//"8ggvvdq"
+        "key": expect.any(String)//"4ah31u4"
       },
       {
         "start": "497.44",
         "end": "497.68",
         "confidence": "1.000",
         "text": "turned",
-        "offset": 9,
+        "offset": 734,
         "length": 6,
-        "key": expect.any(String)//"8bwroqm"
+        "key": expect.any(String)//"6qbkach"
       },
       {
         "start": "497.68",
         "end": "497.77",
         "confidence": "1.000",
         "text": "out",
-        "offset": 16,
+        "offset": 741,
         "length": 3,
-        "key": expect.any(String)//"nhd8p1n"
+        "key": expect.any(String)//"4zl8qv"
       },
       {
         "start": "497.77",
         "end": "497.91999999999996",
         "confidence": "1.000",
         "text": "to",
-        "offset": 20,
+        "offset": 745,
         "length": 2,
-        "key": expect.any(String)//"4z308n"
+        "key": expect.any(String)//"872e6ju"
       },
       {
         "start": "497.92",
         "end": "498.04",
         "confidence": "1.000",
         "text": "be",
-        "offset": 23,
+        "offset": 748,
         "length": 2,
-        "key": expect.any(String)//"siezj4"
+        "key": expect.any(String)//"nuskbfd"
       },
       {
         "start": "498.04",
         "end": "498.1",
         "confidence": "1.000",
         "text": "a",
-        "offset": 26,
+        "offset": 751,
         "length": 1,
-        "key": expect.any(String)//"3nvn6y8"
+        "key": expect.any(String)//"rhmrud"
       },
       {
         "start": "498.10",
         "end": "498.31",
         "confidence": "1.000",
         "text": "little",
-        "offset": 28,
+        "offset": 753,
         "length": 6,
-        "key": expect.any(String)//"1elodp9"
+        "key": expect.any(String)//"53kohta"
       },
       {
         "start": "498.31",
         "end": "498.46",
         "confidence": "1.000",
         "text": "more",
-        "offset": 35,
+        "offset": 760,
         "length": 4,
-        "key": expect.any(String)//"j3d4s8"
+        "key": expect.any(String)//"zjjrd1b"
       },
       {
         "start": "498.46",
         "end": "498.96999999999997",
         "confidence": "1.000",
         "text": "dramatic",
-        "offset": 40,
+        "offset": 765,
         "length": 8,
-        "key": expect.any(String)//"gn7xwhw"
+        "key": expect.any(String)//"gvig5gh"
       },
       {
         "start": "499.00",
         "end": "499.15",
         "confidence": "1.000",
         "text": "than",
-        "offset": 49,
+        "offset": 774,
         "length": 4,
-        "key": expect.any(String)//"kkq5i0t"
+        "key": expect.any(String)//"7w7oyjt"
       },
       {
         "start": "499.15",
         "end": "499.27",
         "confidence": "1.000",
         "text": "we",
-        "offset": 54,
+        "offset": 779,
         "length": 2,
-        "key": expect.any(String)//"vncmti"
+        "key": expect.any(String)//"5qu7fcc"
       },
       {
         "start": "499.27",
         "end": "499.93",
         "confidence": "1.000",
         "text": "expected",
-        "offset": 57,
+        "offset": 782,
         "length": 8,
-        "key": expect.any(String)//"ogo0o9r"
+        "key": expect.any(String)//"qwmoay"
       },
       {
         "start": "499.93",
         "end": "499.99",
         "confidence": "1.000",
         "text": "it",
-        "offset": 66,
+        "offset": 791,
         "length": 2,
-        "key": expect.any(String)//"7nx2ejk"
+        "key": expect.any(String)//"x7f483n"
       },
       {
         "start": "499.99",
         "end": "500.11",
         "confidence": "1.000",
         "text": "to",
-        "offset": 69,
+        "offset": 794,
         "length": 2,
-        "key": expect.any(String)//"izi0qs"
+        "key": expect.any(String)//"4ligkr9"
       },
       {
         "start": "500.11",
         "end": "500.32",
         "confidence": "1.000",
         "text": "be",
-        "offset": 72,
+        "offset": 797,
         "length": 2,
-        "key": expect.any(String)//"0gdt7dt"
+        "key": expect.any(String)//"o75dcq8q"
       },
       {
         "start": "500.32",
         "end": "500.62",
         "confidence": "1.000",
         "text": "because",
-        "offset": 75,
+        "offset": 800,
         "length": 7,
-        "key": expect.any(String)//"mxzhh5s"
+        "key": expect.any(String)//"wjiuau"
       },
       {
         "start": "500.62",
         "end": "500.92",
         "confidence": "1.000",
         "text": "none",
-        "offset": 83,
+        "offset": 808,
         "length": 4,
-        "key": expect.any(String)//"358a3mf"
+        "key": expect.any(String)//"kv0thmu"
       },
       {
         "start": "500.92",
         "end": "501.01",
         "confidence": "1.000",
         "text": "of",
-        "offset": 88,
+        "offset": 813,
         "length": 2,
-        "key": expect.any(String)//"gfdv7uk"
+        "key": expect.any(String)//"sy8tudg"
       },
       {
         "start": "501.01",
         "end": "501.09999999999997",
         "confidence": "1.000",
         "text": "the",
-        "offset": 91,
+        "offset": 816,
         "length": 3,
-        "key": expect.any(String)//"ophrlhk"
+        "key": expect.any(String)//"evquur"
       },
       {
         "start": "501.10",
         "end": "501.85",
         "confidence": "1.000",
         "text": "participants",
-        "offset": 95,
+        "offset": 820,
         "length": 12,
-        "key": expect.any(String)//"01io4c"
+        "key": expect.any(String)//"2knru2"
       },
       {
         "start": "501.85",
         "end": "502.18",
         "confidence": "1.000",
         "text": "would",
-        "offset": 108,
+        "offset": 833,
         "length": 5,
-        "key": expect.any(String)//"czd7t1n"
+        "key": expect.any(String)//"i6qdalp"
       },
       {
         "start": "502.48",
         "end": "502.72",
         "confidence": "1.000",
         "text": "even",
-        "offset": 114,
+        "offset": 839,
         "length": 4,
-        "key": expect.any(String)//"pqjv2t9"
+        "key": expect.any(String)//"gf4aqyn"
       },
       {
         "start": "502.72",
         "end": "502.84000000000003",
         "confidence": "1.000",
         "text": "so",
-        "offset": 119,
+        "offset": 844,
         "length": 2,
-        "key": expect.any(String)//"kb7pzmk"
+        "key": expect.any(String)//"z3irupg"
       },
       {
         "start": "502.84",
         "end": "503.02",
         "confidence": "1.000",
         "text": "much",
-        "offset": 122,
+        "offset": 847,
         "length": 4,
-        "key": expect.any(String)//"9648ub"
+        "key": expect.any(String)//"sy7b3fs"
       },
       {
         "start": "503.02",
         "end": "503.09",
         "confidence": "0.490",
         "text": "a",
-        "offset": 127,
+        "offset": 852,
         "length": 1,
-        "key": expect.any(String)//"rol1507"
+        "key": expect.any(String)//"izl37i"
       },
       {
         "start": "503.09",
         "end": "503.54999999999995",
         "confidence": "1.000",
         "text": "strike",
-        "offset": 129,
+        "offset": 854,
         "length": 6,
-        "key": expect.any(String)//"oz6s8s8"
+        "key": expect.any(String)//"rzby40a"
       },
       {
         "start": "503.56",
         "end": "503.8",
         "confidence": "1.000",
         "text": "these",
-        "offset": 136,
+        "offset": 861,
         "length": 5,
-        "key": expect.any(String)//"nszcu4s"
+        "key": expect.any(String)//"p2borf6"
       },
       {
         "start": "503.80",
         "end": "503.98",
         "confidence": "1.000",
         "text": "baby",
-        "offset": 142,
+        "offset": 867,
         "length": 4,
-        "key": expect.any(String)//"x04geeh"
+        "key": expect.any(String)//"rpclxh"
       },
       {
         "start": "503.98",
         "end": "504.37",
         "confidence": "1.000",
         "text": "dinosaur",
-        "offset": 147,
+        "offset": 872,
         "length": 8,
-        "key": expect.any(String)//"bublmei"
+        "key": expect.any(String)//"z94uhwf"
       },
       {
         "start": "504.37",
         "end": "504.76",
         "confidence": "0.970",
         "text": "robots.",
-        "offset": 156,
+        "offset": 881,
         "length": 7,
-        "key": expect.any(String)//"d1j0v4k"
+        "key": expect.any(String)//"rj76dqk"
       }
     ]
   },
   {
-    "text": "So we had to improvise a little and at some point we said OK.",
+    "text": "So we had to improvise a little and at some point we said OK. You can save your team's robot if you destroy another team's robot. And even that didn't work they couldn't do it. So finally we said we're going to destroy all of the robots unless someone takes a hatchet to one of them. And this guy stood up and he took the hatchet and the whole room winced as he brought the hatchet down on the robot's neck. And there was this half joking. Half serious moment of silence in the room for this fallen robot. So that was a really interesting experience. Now it wasn't a controlled study obviously but it did lead to some later research that I did at my tea with plush Nanda and Cynthia Brazil where we had people come into the lab and smash these hex bugs that move around in a really lifelike way like insects.",
     "type": "paragraph",
     "data": {
       "speaker": "F4",
@@ -22672,145 +21952,7 @@ const draftTranscriptExample = [
           "word": "ok",
           "punct": "OK.",
           "index": 1289
-        }
-      ],
-      "start": "504.76"
-    },
-    "entityRanges": [
-      {
-        "start": "504.76",
-        "end": "505.09",
-        "confidence": "1.000",
-        "text": "So",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"km2fink"
-      },
-      {
-        "start": "505.45",
-        "end": "505.57",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 3,
-        "length": 2,
-        "key": expect.any(String)//"fvn73j9"
-      },
-      {
-        "start": "505.57",
-        "end": "505.65999999999997",
-        "confidence": "1.000",
-        "text": "had",
-        "offset": 6,
-        "length": 3,
-        "key": expect.any(String)//"cf1ra"
-      },
-      {
-        "start": "505.66",
-        "end": "505.75",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 10,
-        "length": 2,
-        "key": expect.any(String)//"pxhkpku"
-      },
-      {
-        "start": "505.75",
-        "end": "506.23",
-        "confidence": "1.000",
-        "text": "improvise",
-        "offset": 13,
-        "length": 9,
-        "key": expect.any(String)//"qv4q9ge"
-      },
-      {
-        "start": "506.23",
-        "end": "506.29",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 23,
-        "length": 1,
-        "key": expect.any(String)//"lc7t814"
-      },
-      {
-        "start": "506.29",
-        "end": "506.68",
-        "confidence": "1.000",
-        "text": "little",
-        "offset": 25,
-        "length": 6,
-        "key": expect.any(String)//"js3d9sd"
-      },
-      {
-        "start": "507.40",
-        "end": "507.76",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 32,
-        "length": 3,
-        "key": expect.any(String)//"pmbmx6r"
-      },
-      {
-        "start": "507.85",
-        "end": "507.97",
-        "confidence": "1.000",
-        "text": "at",
-        "offset": 36,
-        "length": 2,
-        "key": expect.any(String)//"nsqm25"
-      },
-      {
-        "start": "507.97",
-        "end": "508.15000000000003",
-        "confidence": "1.000",
-        "text": "some",
-        "offset": 39,
-        "length": 4,
-        "key": expect.any(String)//"w62ncbk"
-      },
-      {
-        "start": "508.15",
-        "end": "508.33",
-        "confidence": "1.000",
-        "text": "point",
-        "offset": 44,
-        "length": 5,
-        "key": expect.any(String)//"dhzoqf"
-      },
-      {
-        "start": "508.33",
-        "end": "508.41999999999996",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 50,
-        "length": 2,
-        "key": expect.any(String)//"ogiuhi4"
-      },
-      {
-        "start": "508.42",
-        "end": "508.72",
-        "confidence": "1.000",
-        "text": "said",
-        "offset": 53,
-        "length": 4,
-        "key": expect.any(String)//"yslgrb"
-      },
-      {
-        "start": "508.75",
-        "end": "509.32",
-        "confidence": "0.990",
-        "text": "OK.",
-        "offset": 58,
-        "length": 3,
-        "key": expect.any(String)//"uzdmyo6"
-      }
-    ]
-  },
-  {
-    "text": "You can save your team's robot if you destroy another team's robot.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "510.10",
           "end": "510.37",
@@ -22906,127 +22048,7 @@ const draftTranscriptExample = [
           "word": "robot",
           "punct": "robot.",
           "index": 1301
-        }
-      ],
-      "start": "510.10"
-    },
-    "entityRanges": [
-      {
-        "start": "510.10",
-        "end": "510.37",
-        "confidence": "1.000",
-        "text": "You",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"sckzxwl"
-      },
-      {
-        "start": "510.37",
-        "end": "510.52",
-        "confidence": "1.000",
-        "text": "can",
-        "offset": 4,
-        "length": 3,
-        "key": expect.any(String)//"o1g2v"
-      },
-      {
-        "start": "510.52",
-        "end": "510.88",
-        "confidence": "1.000",
-        "text": "save",
-        "offset": 8,
-        "length": 4,
-        "key": expect.any(String)//"7rq1x7"
-      },
-      {
-        "start": "510.88",
-        "end": "511.15",
-        "confidence": "1.000",
-        "text": "your",
-        "offset": 13,
-        "length": 4,
-        "key": expect.any(String)//"gnx270m"
-      },
-      {
-        "start": "511.15",
-        "end": "511.59999999999997",
-        "confidence": "0.990",
-        "text": "team's",
-        "offset": 18,
-        "length": 6,
-        "key": expect.any(String)//"il8y316"
-      },
-      {
-        "start": "511.60",
-        "end": "512.08",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 25,
-        "length": 5,
-        "key": expect.any(String)//"f5k47cu"
-      },
-      {
-        "start": "512.14",
-        "end": "512.3199999999999",
-        "confidence": "1.000",
-        "text": "if",
-        "offset": 31,
-        "length": 2,
-        "key": expect.any(String)//"n8dymt"
-      },
-      {
-        "start": "512.32",
-        "end": "512.47",
-        "confidence": "1.000",
-        "text": "you",
-        "offset": 34,
-        "length": 3,
-        "key": expect.any(String)//"t7o6c9k"
-      },
-      {
-        "start": "512.47",
-        "end": "513.01",
-        "confidence": "1.000",
-        "text": "destroy",
-        "offset": 38,
-        "length": 7,
-        "key": expect.any(String)//"wuzj81n"
-      },
-      {
-        "start": "513.07",
-        "end": "513.6400000000001",
-        "confidence": "1.000",
-        "text": "another",
-        "offset": 46,
-        "length": 7,
-        "key": expect.any(String)//"ctvgaa3"
-      },
-      {
-        "start": "513.64",
-        "end": "514.03",
-        "confidence": "1.000",
-        "text": "team's",
-        "offset": 54,
-        "length": 6,
-        "key": expect.any(String)//"dgcqu87"
-      },
-      {
-        "start": "514.03",
-        "end": "514.5699999999999",
-        "confidence": "1.000",
-        "text": "robot.",
-        "offset": 61,
-        "length": 6,
-        "key": expect.any(String)//"55v0ztt"
-      }
-    ]
-  },
-  {
-    "text": "And even that didn't work they couldn't do it.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "516.87",
           "end": "516.99",
@@ -23098,100 +22120,7 @@ const draftTranscriptExample = [
           "word": "it",
           "punct": "it.",
           "index": 1310
-        }
-      ],
-      "start": "516.87"
-    },
-    "entityRanges": [
-      {
-        "start": "516.87",
-        "end": "516.99",
-        "confidence": "0.990",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"simi8f"
-      },
-      {
-        "start": "517.00",
-        "end": "517.21",
-        "confidence": "1.000",
-        "text": "even",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"m1m5lxs"
-      },
-      {
-        "start": "517.21",
-        "end": "517.36",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 9,
-        "length": 4,
-        "key": expect.any(String)//"tjm0ygd"
-      },
-      {
-        "start": "517.36",
-        "end": "517.57",
-        "confidence": "1.000",
-        "text": "didn't",
-        "offset": 14,
-        "length": 6,
-        "key": expect.any(String)//"5pewtz"
-      },
-      {
-        "start": "517.57",
-        "end": "517.8100000000001",
-        "confidence": "1.000",
-        "text": "work",
-        "offset": 21,
-        "length": 4,
-        "key": expect.any(String)//"dn0f7y"
-      },
-      {
-        "start": "517.84",
-        "end": "517.96",
-        "confidence": "1.000",
-        "text": "they",
-        "offset": 26,
-        "length": 4,
-        "key": expect.any(String)//"quog60d"
-      },
-      {
-        "start": "517.96",
-        "end": "518.23",
-        "confidence": "1.000",
-        "text": "couldn't",
-        "offset": 31,
-        "length": 8,
-        "key": expect.any(String)//"eprg01f"
-      },
-      {
-        "start": "518.23",
-        "end": "518.38",
-        "confidence": "1.000",
-        "text": "do",
-        "offset": 40,
-        "length": 2,
-        "key": expect.any(String)//"9qe0rbu"
-      },
-      {
-        "start": "518.38",
-        "end": "518.68",
-        "confidence": "1.000",
-        "text": "it.",
-        "offset": 43,
-        "length": 3,
-        "key": expect.any(String)//"08aw4tn"
-      }
-    ]
-  },
-  {
-    "text": "So finally we said we're going to destroy all of the robots unless someone takes a hatchet to one of them.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "518.68",
           "end": "518.8599999999999",
@@ -23359,208 +22288,7 @@ const draftTranscriptExample = [
           "word": "them",
           "punct": "them.",
           "index": 1331
-        }
-      ],
-      "start": "518.68"
-    },
-    "entityRanges": [
-      {
-        "start": "518.68",
-        "end": "518.8599999999999",
-        "confidence": "1.000",
-        "text": "So",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"s409xr"
-      },
-      {
-        "start": "518.86",
-        "end": "519.25",
-        "confidence": "1.000",
-        "text": "finally",
-        "offset": 3,
-        "length": 7,
-        "key": expect.any(String)//"t8ji3ka"
-      },
-      {
-        "start": "519.25",
-        "end": "519.34",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 11,
-        "length": 2,
-        "key": expect.any(String)//"cu9m87"
-      },
-      {
-        "start": "519.34",
-        "end": "519.73",
-        "confidence": "1.000",
-        "text": "said",
-        "offset": 14,
-        "length": 4,
-        "key": expect.any(String)//"3o211p"
-      },
-      {
-        "start": "520.09",
-        "end": "520.24",
-        "confidence": "1.000",
-        "text": "we're",
-        "offset": 19,
-        "length": 5,
-        "key": expect.any(String)//"srmircs"
-      },
-      {
-        "start": "520.24",
-        "end": "520.36",
-        "confidence": "0.970",
-        "text": "going",
-        "offset": 25,
-        "length": 5,
-        "key": expect.any(String)//"dd0ftz"
-      },
-      {
-        "start": "520.36",
-        "end": "520.42",
-        "confidence": "0.970",
-        "text": "to",
-        "offset": 31,
-        "length": 2,
-        "key": expect.any(String)//"g6qbnym"
-      },
-      {
-        "start": "520.42",
-        "end": "520.87",
-        "confidence": "1.000",
-        "text": "destroy",
-        "offset": 34,
-        "length": 7,
-        "key": expect.any(String)//"si7ijoj"
-      },
-      {
-        "start": "520.90",
-        "end": "521.1999999999999",
-        "confidence": "1.000",
-        "text": "all",
-        "offset": 42,
-        "length": 3,
-        "key": expect.any(String)//"d07sz7j"
-      },
-      {
-        "start": "521.20",
-        "end": "521.2900000000001",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 46,
-        "length": 2,
-        "key": expect.any(String)//"qth22x"
-      },
-      {
-        "start": "521.29",
-        "end": "521.38",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 49,
-        "length": 3,
-        "key": expect.any(String)//"q8idsa"
-      },
-      {
-        "start": "521.38",
-        "end": "521.92",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 53,
-        "length": 6,
-        "key": expect.any(String)//"41jvil9"
-      },
-      {
-        "start": "521.95",
-        "end": "522.22",
-        "confidence": "1.000",
-        "text": "unless",
-        "offset": 60,
-        "length": 6,
-        "key": expect.any(String)//"j7g9sxv"
-      },
-      {
-        "start": "522.22",
-        "end": "522.52",
-        "confidence": "1.000",
-        "text": "someone",
-        "offset": 67,
-        "length": 7,
-        "key": expect.any(String)//"fnak6fi"
-      },
-      {
-        "start": "522.52",
-        "end": "522.73",
-        "confidence": "1.000",
-        "text": "takes",
-        "offset": 75,
-        "length": 5,
-        "key": expect.any(String)//"xu6ao8h"
-      },
-      {
-        "start": "522.73",
-        "end": "522.79",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 81,
-        "length": 1,
-        "key": expect.any(String)//"wrtq6fc"
-      },
-      {
-        "start": "522.79",
-        "end": "523.2099999999999",
-        "confidence": "1.000",
-        "text": "hatchet",
-        "offset": 83,
-        "length": 7,
-        "key": expect.any(String)//"5ipv5wn"
-      },
-      {
-        "start": "523.21",
-        "end": "523.36",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 91,
-        "length": 2,
-        "key": expect.any(String)//"e12i2rq"
-      },
-      {
-        "start": "523.36",
-        "end": "523.57",
-        "confidence": "1.000",
-        "text": "one",
-        "offset": 94,
-        "length": 3,
-        "key": expect.any(String)//"6zljc5d"
-      },
-      {
-        "start": "523.57",
-        "end": "523.72",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 98,
-        "length": 2,
-        "key": expect.any(String)//"8352ezp"
-      },
-      {
-        "start": "523.72",
-        "end": "523.96",
-        "confidence": "1.000",
-        "text": "them.",
-        "offset": 101,
-        "length": 5,
-        "key": expect.any(String)//"amgf2s"
-      }
-    ]
-  },
-  {
-    "text": "And this guy stood up and he took the hatchet and the whole room winced as he brought the hatchet down on the robot's neck.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "525.60",
           "end": "525.78",
@@ -23760,244 +22488,7 @@ const draftTranscriptExample = [
           "word": "neck",
           "punct": "neck.",
           "index": 1356
-        }
-      ],
-      "start": "525.60"
-    },
-    "entityRanges": [
-      {
-        "start": "525.60",
-        "end": "525.78",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"30pals6"
-      },
-      {
-        "start": "525.78",
-        "end": "525.99",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"csr5kpj"
-      },
-      {
-        "start": "525.99",
-        "end": "526.23",
-        "confidence": "0.990",
-        "text": "guy",
-        "offset": 9,
-        "length": 3,
-        "key": expect.any(String)//"rqb60g"
-      },
-      {
-        "start": "526.23",
-        "end": "526.5",
-        "confidence": "1.000",
-        "text": "stood",
-        "offset": 13,
-        "length": 5,
-        "key": expect.any(String)//"2eey9et"
-      },
-      {
-        "start": "526.50",
-        "end": "526.77",
-        "confidence": "1.000",
-        "text": "up",
-        "offset": 19,
-        "length": 2,
-        "key": expect.any(String)//"u8sd7m"
-      },
-      {
-        "start": "526.83",
-        "end": "527.07",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 22,
-        "length": 3,
-        "key": expect.any(String)//"y3mtdca"
-      },
-      {
-        "start": "527.07",
-        "end": "527.3100000000001",
-        "confidence": "1.000",
-        "text": "he",
-        "offset": 26,
-        "length": 2,
-        "key": expect.any(String)//"x7425d"
-      },
-      {
-        "start": "527.31",
-        "end": "527.64",
-        "confidence": "1.000",
-        "text": "took",
-        "offset": 29,
-        "length": 4,
-        "key": expect.any(String)//"psblgm7o"
-      },
-      {
-        "start": "527.64",
-        "end": "527.73",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 34,
-        "length": 3,
-        "key": expect.any(String)//"nkava"
-      },
-      {
-        "start": "527.73",
-        "end": "528.33",
-        "confidence": "1.000",
-        "text": "hatchet",
-        "offset": 38,
-        "length": 7,
-        "key": expect.any(String)//"nz9fezg"
-      },
-      {
-        "start": "529.23",
-        "end": "529.38",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 46,
-        "length": 3,
-        "key": expect.any(String)//"ulyxm7p"
-      },
-      {
-        "start": "529.38",
-        "end": "529.47",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 50,
-        "length": 3,
-        "key": expect.any(String)//"4g7o0m"
-      },
-      {
-        "start": "529.47",
-        "end": "529.71",
-        "confidence": "1.000",
-        "text": "whole",
-        "offset": 54,
-        "length": 5,
-        "key": expect.any(String)//"67nhvx"
-      },
-      {
-        "start": "529.71",
-        "end": "530.01",
-        "confidence": "1.000",
-        "text": "room",
-        "offset": 60,
-        "length": 4,
-        "key": expect.any(String)//"hhxkerv"
-      },
-      {
-        "start": "530.01",
-        "end": "530.55",
-        "confidence": "1.000",
-        "text": "winced",
-        "offset": 65,
-        "length": 6,
-        "key": expect.any(String)//"6w4cvj9"
-      },
-      {
-        "start": "530.58",
-        "end": "530.7",
-        "confidence": "1.000",
-        "text": "as",
-        "offset": 72,
-        "length": 2,
-        "key": expect.any(String)//"b75z46t"
-      },
-      {
-        "start": "530.70",
-        "end": "530.7900000000001",
-        "confidence": "1.000",
-        "text": "he",
-        "offset": 75,
-        "length": 2,
-        "key": expect.any(String)//"i68ecvh"
-      },
-      {
-        "start": "530.79",
-        "end": "531.03",
-        "confidence": "1.000",
-        "text": "brought",
-        "offset": 78,
-        "length": 7,
-        "key": expect.any(String)//"lauwfy"
-      },
-      {
-        "start": "531.03",
-        "end": "531.12",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 86,
-        "length": 3,
-        "key": expect.any(String)//"0z5x6ce"
-      },
-      {
-        "start": "531.12",
-        "end": "531.48",
-        "confidence": "1.000",
-        "text": "hatchet",
-        "offset": 90,
-        "length": 7,
-        "key": expect.any(String)//"gh5tcoh"
-      },
-      {
-        "start": "531.48",
-        "end": "531.75",
-        "confidence": "1.000",
-        "text": "down",
-        "offset": 98,
-        "length": 4,
-        "key": expect.any(String)//"mmfmjeb"
-      },
-      {
-        "start": "531.75",
-        "end": "531.84",
-        "confidence": "1.000",
-        "text": "on",
-        "offset": 103,
-        "length": 2,
-        "key": expect.any(String)//"igpokkb"
-      },
-      {
-        "start": "531.84",
-        "end": "531.9300000000001",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 106,
-        "length": 3,
-        "key": expect.any(String)//"0gryrs"
-      },
-      {
-        "start": "531.93",
-        "end": "532.4399999999999",
-        "confidence": "0.980",
-        "text": "robot's",
-        "offset": 110,
-        "length": 7,
-        "key": expect.any(String)//"27piif4"
-      },
-      {
-        "start": "532.44",
-        "end": "533.4100000000001",
-        "confidence": "1.000",
-        "text": "neck.",
-        "offset": 118,
-        "length": 5,
-        "key": expect.any(String)//"ecqxxo"
-      }
-    ]
-  },
-  {
-    "text": "And there was this half joking.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "533.73",
           "end": "534.03",
@@ -24045,73 +22536,7 @@ const draftTranscriptExample = [
           "word": "joking",
           "punct": "joking.",
           "index": 1362
-        }
-      ],
-      "start": "533.73"
-    },
-    "entityRanges": [
-      {
-        "start": "533.73",
-        "end": "534.03",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"zois5h"
-      },
-      {
-        "start": "534.09",
-        "end": "534.36",
-        "confidence": "1.000",
-        "text": "there",
-        "offset": 4,
-        "length": 5,
-        "key": expect.any(String)//"vuf6td"
-      },
-      {
-        "start": "534.36",
-        "end": "534.51",
-        "confidence": "1.000",
-        "text": "was",
-        "offset": 10,
-        "length": 3,
-        "key": expect.any(String)//"gn7g0id"
-      },
-      {
-        "start": "534.51",
-        "end": "534.6899999999999",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 14,
-        "length": 4,
-        "key": expect.any(String)//"tw6jooh"
-      },
-      {
-        "start": "534.69",
-        "end": "535.1400000000001",
-        "confidence": "1.000",
-        "text": "half",
-        "offset": 19,
-        "length": 4,
-        "key": expect.any(String)//"5cu8jd8"
-      },
-      {
-        "start": "535.14",
-        "end": "535.83",
-        "confidence": "1.000",
-        "text": "joking.",
-        "offset": 24,
-        "length": 7,
-        "key": expect.any(String)//"ydpfgt9"
-      }
-    ]
-  },
-  {
-    "text": "Half serious moment of silence in the room for this fallen robot.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "536.07",
           "end": "536.61",
@@ -24207,127 +22632,7 @@ const draftTranscriptExample = [
           "word": "robot",
           "punct": "robot.",
           "index": 1374
-        }
-      ],
-      "start": "536.07"
-    },
-    "entityRanges": [
-      {
-        "start": "536.07",
-        "end": "536.61",
-        "confidence": "1.000",
-        "text": "Half",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"tsomu9t"
-      },
-      {
-        "start": "536.70",
-        "end": "537.4200000000001",
-        "confidence": "1.000",
-        "text": "serious",
-        "offset": 5,
-        "length": 7,
-        "key": expect.any(String)//"05fda4j"
-      },
-      {
-        "start": "537.42",
-        "end": "537.81",
-        "confidence": "1.000",
-        "text": "moment",
-        "offset": 13,
-        "length": 6,
-        "key": expect.any(String)//"sfzro0b"
-      },
-      {
-        "start": "537.81",
-        "end": "537.9",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 20,
-        "length": 2,
-        "key": expect.any(String)//"7go6w08"
-      },
-      {
-        "start": "537.90",
-        "end": "538.59",
-        "confidence": "1.000",
-        "text": "silence",
-        "offset": 23,
-        "length": 7,
-        "key": expect.any(String)//"4oimxy"
-      },
-      {
-        "start": "538.59",
-        "end": "538.8000000000001",
-        "confidence": "1.000",
-        "text": "in",
-        "offset": 31,
-        "length": 2,
-        "key": expect.any(String)//"z3yn7sb"
-      },
-      {
-        "start": "538.80",
-        "end": "538.89",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 34,
-        "length": 3,
-        "key": expect.any(String)//"ommmfvc"
-      },
-      {
-        "start": "538.89",
-        "end": "539.49",
-        "confidence": "1.000",
-        "text": "room",
-        "offset": 38,
-        "length": 4,
-        "key": expect.any(String)//"jv96n0ab"
-      },
-      {
-        "start": "540.09",
-        "end": "540.27",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 43,
-        "length": 3,
-        "key": expect.any(String)//"4almaws"
-      },
-      {
-        "start": "540.27",
-        "end": "540.48",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 47,
-        "length": 4,
-        "key": expect.any(String)//"juy4u4p"
-      },
-      {
-        "start": "540.48",
-        "end": "540.99",
-        "confidence": "0.980",
-        "text": "fallen",
-        "offset": 52,
-        "length": 6,
-        "key": expect.any(String)//"9lwsb4j"
-      },
-      {
-        "start": "540.99",
-        "end": "542.96",
-        "confidence": "1.000",
-        "text": "robot.",
-        "offset": 59,
-        "length": 6,
-        "key": expect.any(String)//"z4px2e"
-      }
-    ]
-  },
-  {
-    "text": "So that was a really interesting experience.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "543.24",
           "end": "543.54",
@@ -24383,82 +22688,7 @@ const draftTranscriptExample = [
           "word": "experience",
           "punct": "experience.",
           "index": 1381
-        }
-      ],
-      "start": "543.24"
-    },
-    "entityRanges": [
-      {
-        "start": "543.24",
-        "end": "543.54",
-        "confidence": "1.000",
-        "text": "So",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"v9816ro"
-      },
-      {
-        "start": "543.66",
-        "end": "543.8399999999999",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 3,
-        "length": 4,
-        "key": expect.any(String)//"gjl7vus"
-      },
-      {
-        "start": "543.84",
-        "end": "544.0500000000001",
-        "confidence": "1.000",
-        "text": "was",
-        "offset": 8,
-        "length": 3,
-        "key": expect.any(String)//"v2s9tp"
-      },
-      {
-        "start": "544.05",
-        "end": "544.14",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 12,
-        "length": 1,
-        "key": expect.any(String)//"z511col"
-      },
-      {
-        "start": "544.14",
-        "end": "544.53",
-        "confidence": "1.000",
-        "text": "really",
-        "offset": 14,
-        "length": 6,
-        "key": expect.any(String)//"7strlrp"
-      },
-      {
-        "start": "544.59",
-        "end": "545.4",
-        "confidence": "1.000",
-        "text": "interesting",
-        "offset": 21,
-        "length": 11,
-        "key": expect.any(String)//"ywepdtk"
-      },
-      {
-        "start": "545.43",
-        "end": "546.91",
-        "confidence": "1.000",
-        "text": "experience.",
-        "offset": 33,
-        "length": 11,
-        "key": expect.any(String)//"nhw0thj"
-      }
-    ]
-  },
-  {
-    "text": "Now it wasn't a controlled study obviously but it did lead to some later research that I did at my tea with plush Nanda and Cynthia Brazil where we had people come into the lab and smash these hex bugs that move around in a really lifelike way like insects.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F4",
-      "words": [
+        },
         {
           "start": "546.93",
           "end": "547.14",
@@ -24860,466 +23090,1420 @@ const draftTranscriptExample = [
           "index": 1431
         }
       ],
-      "start": "546.93"
+      "start": "504.76"
     },
     "entityRanges": [
+      {
+        "start": "504.76",
+        "end": "505.09",
+        "confidence": "1.000",
+        "text": "So",
+        "offset": 0,
+        "length": 2,
+        "key": expect.any(String)//"7zholal"
+      },
+      {
+        "start": "505.45",
+        "end": "505.57",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 3,
+        "length": 2,
+        "key": expect.any(String)//"4ocsf1m"
+      },
+      {
+        "start": "505.57",
+        "end": "505.65999999999997",
+        "confidence": "1.000",
+        "text": "had",
+        "offset": 6,
+        "length": 3,
+        "key": expect.any(String)//"d9vdtqi"
+      },
+      {
+        "start": "505.66",
+        "end": "505.75",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 10,
+        "length": 2,
+        "key": expect.any(String)//"3nah5i"
+      },
+      {
+        "start": "505.75",
+        "end": "506.23",
+        "confidence": "1.000",
+        "text": "improvise",
+        "offset": 13,
+        "length": 9,
+        "key": expect.any(String)//"596dj7a"
+      },
+      {
+        "start": "506.23",
+        "end": "506.29",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 23,
+        "length": 1,
+        "key": expect.any(String)//"8kz5nx"
+      },
+      {
+        "start": "506.29",
+        "end": "506.68",
+        "confidence": "1.000",
+        "text": "little",
+        "offset": 25,
+        "length": 6,
+        "key": expect.any(String)//"a16jsan"
+      },
+      {
+        "start": "507.40",
+        "end": "507.76",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 32,
+        "length": 3,
+        "key": expect.any(String)//"ef5y6kb"
+      },
+      {
+        "start": "507.85",
+        "end": "507.97",
+        "confidence": "1.000",
+        "text": "at",
+        "offset": 36,
+        "length": 2,
+        "key": expect.any(String)//"onzbs49"
+      },
+      {
+        "start": "507.97",
+        "end": "508.15000000000003",
+        "confidence": "1.000",
+        "text": "some",
+        "offset": 39,
+        "length": 4,
+        "key": expect.any(String)//"cmhx94"
+      },
+      {
+        "start": "508.15",
+        "end": "508.33",
+        "confidence": "1.000",
+        "text": "point",
+        "offset": 44,
+        "length": 5,
+        "key": expect.any(String)//"7c88oy"
+      },
+      {
+        "start": "508.33",
+        "end": "508.41999999999996",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 50,
+        "length": 2,
+        "key": expect.any(String)//"vm1b9gp"
+      },
+      {
+        "start": "508.42",
+        "end": "508.72",
+        "confidence": "1.000",
+        "text": "said",
+        "offset": 53,
+        "length": 4,
+        "key": expect.any(String)//"851c4ir"
+      },
+      {
+        "start": "508.75",
+        "end": "509.32",
+        "confidence": "0.990",
+        "text": "OK.",
+        "offset": 58,
+        "length": 3,
+        "key": expect.any(String)//"rej2ceh"
+      },
+      {
+        "start": "510.10",
+        "end": "510.37",
+        "confidence": "1.000",
+        "text": "You",
+        "offset": 62,
+        "length": 3,
+        "key": expect.any(String)//"ljwyoj9"
+      },
+      {
+        "start": "510.37",
+        "end": "510.52",
+        "confidence": "1.000",
+        "text": "can",
+        "offset": 66,
+        "length": 3,
+        "key": expect.any(String)//"21lrfyu"
+      },
+      {
+        "start": "510.52",
+        "end": "510.88",
+        "confidence": "1.000",
+        "text": "save",
+        "offset": 70,
+        "length": 4,
+        "key": expect.any(String)//"opwl3b"
+      },
+      {
+        "start": "510.88",
+        "end": "511.15",
+        "confidence": "1.000",
+        "text": "your",
+        "offset": 75,
+        "length": 4,
+        "key": expect.any(String)//"nwjppp"
+      },
+      {
+        "start": "511.15",
+        "end": "511.59999999999997",
+        "confidence": "0.990",
+        "text": "team's",
+        "offset": 80,
+        "length": 6,
+        "key": expect.any(String)//"apv6vmj"
+      },
+      {
+        "start": "511.60",
+        "end": "512.08",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 87,
+        "length": 5,
+        "key": expect.any(String)//"7c8l7g"
+      },
+      {
+        "start": "512.14",
+        "end": "512.3199999999999",
+        "confidence": "1.000",
+        "text": "if",
+        "offset": 93,
+        "length": 2,
+        "key": expect.any(String)//"53u781b"
+      },
+      {
+        "start": "512.32",
+        "end": "512.47",
+        "confidence": "1.000",
+        "text": "you",
+        "offset": 96,
+        "length": 3,
+        "key": expect.any(String)//"qyblhyp"
+      },
+      {
+        "start": "512.47",
+        "end": "513.01",
+        "confidence": "1.000",
+        "text": "destroy",
+        "offset": 100,
+        "length": 7,
+        "key": expect.any(String)//"v9dfq9d"
+      },
+      {
+        "start": "513.07",
+        "end": "513.6400000000001",
+        "confidence": "1.000",
+        "text": "another",
+        "offset": 108,
+        "length": 7,
+        "key": expect.any(String)//"8jt2lqe"
+      },
+      {
+        "start": "513.64",
+        "end": "514.03",
+        "confidence": "1.000",
+        "text": "team's",
+        "offset": 116,
+        "length": 6,
+        "key": expect.any(String)//"vbnxgdq"
+      },
+      {
+        "start": "514.03",
+        "end": "514.5699999999999",
+        "confidence": "1.000",
+        "text": "robot.",
+        "offset": 123,
+        "length": 6,
+        "key": expect.any(String)//"l7uqqnq"
+      },
+      {
+        "start": "516.87",
+        "end": "516.99",
+        "confidence": "0.990",
+        "text": "And",
+        "offset": 130,
+        "length": 3,
+        "key": expect.any(String)//"dosg4og"
+      },
+      {
+        "start": "517.00",
+        "end": "517.21",
+        "confidence": "1.000",
+        "text": "even",
+        "offset": 134,
+        "length": 4,
+        "key": expect.any(String)//"vcw8bxc"
+      },
+      {
+        "start": "517.21",
+        "end": "517.36",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 139,
+        "length": 4,
+        "key": expect.any(String)//"8f7ppbxq"
+      },
+      {
+        "start": "517.36",
+        "end": "517.57",
+        "confidence": "1.000",
+        "text": "didn't",
+        "offset": 144,
+        "length": 6,
+        "key": expect.any(String)//"qxmgq9s"
+      },
+      {
+        "start": "517.57",
+        "end": "517.8100000000001",
+        "confidence": "1.000",
+        "text": "work",
+        "offset": 151,
+        "length": 4,
+        "key": expect.any(String)//"j5bvm6"
+      },
+      {
+        "start": "517.84",
+        "end": "517.96",
+        "confidence": "1.000",
+        "text": "they",
+        "offset": 156,
+        "length": 4,
+        "key": expect.any(String)//"unyb6tg"
+      },
+      {
+        "start": "517.96",
+        "end": "518.23",
+        "confidence": "1.000",
+        "text": "couldn't",
+        "offset": 161,
+        "length": 8,
+        "key": expect.any(String)//"lbi6kv"
+      },
+      {
+        "start": "518.23",
+        "end": "518.38",
+        "confidence": "1.000",
+        "text": "do",
+        "offset": 170,
+        "length": 2,
+        "key": expect.any(String)//"qjf289m"
+      },
+      {
+        "start": "518.38",
+        "end": "518.68",
+        "confidence": "1.000",
+        "text": "it.",
+        "offset": 173,
+        "length": 3,
+        "key": expect.any(String)//"1ab5cxk"
+      },
+      {
+        "start": "518.68",
+        "end": "518.8599999999999",
+        "confidence": "1.000",
+        "text": "So",
+        "offset": 177,
+        "length": 2,
+        "key": expect.any(String)//"msj8caj"
+      },
+      {
+        "start": "518.86",
+        "end": "519.25",
+        "confidence": "1.000",
+        "text": "finally",
+        "offset": 180,
+        "length": 7,
+        "key": expect.any(String)//"ncbkuhe"
+      },
+      {
+        "start": "519.25",
+        "end": "519.34",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 188,
+        "length": 2,
+        "key": expect.any(String)//"yrwdull"
+      },
+      {
+        "start": "519.34",
+        "end": "519.73",
+        "confidence": "1.000",
+        "text": "said",
+        "offset": 191,
+        "length": 4,
+        "key": expect.any(String)//"stvr1x"
+      },
+      {
+        "start": "520.09",
+        "end": "520.24",
+        "confidence": "1.000",
+        "text": "we're",
+        "offset": 196,
+        "length": 5,
+        "key": expect.any(String)//"bf62pky"
+      },
+      {
+        "start": "520.24",
+        "end": "520.36",
+        "confidence": "0.970",
+        "text": "going",
+        "offset": 202,
+        "length": 5,
+        "key": expect.any(String)//"81tdfx"
+      },
+      {
+        "start": "520.36",
+        "end": "520.42",
+        "confidence": "0.970",
+        "text": "to",
+        "offset": 208,
+        "length": 2,
+        "key": expect.any(String)//"0zx0vb8"
+      },
+      {
+        "start": "520.42",
+        "end": "520.87",
+        "confidence": "1.000",
+        "text": "destroy",
+        "offset": 211,
+        "length": 7,
+        "key": expect.any(String)//"x7qu5st"
+      },
+      {
+        "start": "520.90",
+        "end": "521.1999999999999",
+        "confidence": "1.000",
+        "text": "all",
+        "offset": 219,
+        "length": 3,
+        "key": expect.any(String)//"zo62m6"
+      },
+      {
+        "start": "521.20",
+        "end": "521.2900000000001",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 223,
+        "length": 2,
+        "key": expect.any(String)//"rlqjpke"
+      },
+      {
+        "start": "521.29",
+        "end": "521.38",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 226,
+        "length": 3,
+        "key": expect.any(String)//"dih1d9"
+      },
+      {
+        "start": "521.38",
+        "end": "521.92",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 230,
+        "length": 6,
+        "key": expect.any(String)//"0qilup9"
+      },
+      {
+        "start": "521.95",
+        "end": "522.22",
+        "confidence": "1.000",
+        "text": "unless",
+        "offset": 237,
+        "length": 6,
+        "key": expect.any(String)//"wbgziim"
+      },
+      {
+        "start": "522.22",
+        "end": "522.52",
+        "confidence": "1.000",
+        "text": "someone",
+        "offset": 244,
+        "length": 7,
+        "key": expect.any(String)//"a9okz5h"
+      },
+      {
+        "start": "522.52",
+        "end": "522.73",
+        "confidence": "1.000",
+        "text": "takes",
+        "offset": 252,
+        "length": 5,
+        "key": expect.any(String)//"vy8zixd"
+      },
+      {
+        "start": "522.73",
+        "end": "522.79",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 258,
+        "length": 1,
+        "key": expect.any(String)//"snpxa85"
+      },
+      {
+        "start": "522.79",
+        "end": "523.2099999999999",
+        "confidence": "1.000",
+        "text": "hatchet",
+        "offset": 260,
+        "length": 7,
+        "key": expect.any(String)//"o24ft"
+      },
+      {
+        "start": "523.21",
+        "end": "523.36",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 268,
+        "length": 2,
+        "key": expect.any(String)//"903uri"
+      },
+      {
+        "start": "523.36",
+        "end": "523.57",
+        "confidence": "1.000",
+        "text": "one",
+        "offset": 271,
+        "length": 3,
+        "key": expect.any(String)//"p6a314d"
+      },
+      {
+        "start": "523.57",
+        "end": "523.72",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 275,
+        "length": 2,
+        "key": expect.any(String)//"voyics"
+      },
+      {
+        "start": "523.72",
+        "end": "523.96",
+        "confidence": "1.000",
+        "text": "them.",
+        "offset": 278,
+        "length": 5,
+        "key": expect.any(String)//"2pojnms"
+      },
+      {
+        "start": "525.60",
+        "end": "525.78",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 284,
+        "length": 3,
+        "key": expect.any(String)//"qpdgcq"
+      },
+      {
+        "start": "525.78",
+        "end": "525.99",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 288,
+        "length": 4,
+        "key": expect.any(String)//"1xgc8ct"
+      },
+      {
+        "start": "525.99",
+        "end": "526.23",
+        "confidence": "0.990",
+        "text": "guy",
+        "offset": 293,
+        "length": 3,
+        "key": expect.any(String)//"det1m4"
+      },
+      {
+        "start": "526.23",
+        "end": "526.5",
+        "confidence": "1.000",
+        "text": "stood",
+        "offset": 297,
+        "length": 5,
+        "key": expect.any(String)//"x7ri40p"
+      },
+      {
+        "start": "526.50",
+        "end": "526.77",
+        "confidence": "1.000",
+        "text": "up",
+        "offset": 303,
+        "length": 2,
+        "key": expect.any(String)//"3laekg"
+      },
+      {
+        "start": "526.83",
+        "end": "527.07",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 306,
+        "length": 3,
+        "key": expect.any(String)//"9po23en"
+      },
+      {
+        "start": "527.07",
+        "end": "527.3100000000001",
+        "confidence": "1.000",
+        "text": "he",
+        "offset": 310,
+        "length": 2,
+        "key": expect.any(String)//"7447yd"
+      },
+      {
+        "start": "527.31",
+        "end": "527.64",
+        "confidence": "1.000",
+        "text": "took",
+        "offset": 313,
+        "length": 4,
+        "key": expect.any(String)//"qkkdqdm"
+      },
+      {
+        "start": "527.64",
+        "end": "527.73",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 318,
+        "length": 3,
+        "key": expect.any(String)//"6qkh9ao"
+      },
+      {
+        "start": "527.73",
+        "end": "528.33",
+        "confidence": "1.000",
+        "text": "hatchet",
+        "offset": 322,
+        "length": 7,
+        "key": expect.any(String)//"qv5xz5q"
+      },
+      {
+        "start": "529.23",
+        "end": "529.38",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 330,
+        "length": 3,
+        "key": expect.any(String)//"qjdt81s"
+      },
+      {
+        "start": "529.38",
+        "end": "529.47",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 334,
+        "length": 3,
+        "key": expect.any(String)//"vnmz8hn"
+      },
+      {
+        "start": "529.47",
+        "end": "529.71",
+        "confidence": "1.000",
+        "text": "whole",
+        "offset": 338,
+        "length": 5,
+        "key": expect.any(String)//"rcgboh9"
+      },
+      {
+        "start": "529.71",
+        "end": "530.01",
+        "confidence": "1.000",
+        "text": "room",
+        "offset": 344,
+        "length": 4,
+        "key": expect.any(String)//"vf940g"
+      },
+      {
+        "start": "530.01",
+        "end": "530.55",
+        "confidence": "1.000",
+        "text": "winced",
+        "offset": 349,
+        "length": 6,
+        "key": expect.any(String)//"okdc56s"
+      },
+      {
+        "start": "530.58",
+        "end": "530.7",
+        "confidence": "1.000",
+        "text": "as",
+        "offset": 356,
+        "length": 2,
+        "key": expect.any(String)//"cc1lpan"
+      },
+      {
+        "start": "530.70",
+        "end": "530.7900000000001",
+        "confidence": "1.000",
+        "text": "he",
+        "offset": 359,
+        "length": 2,
+        "key": expect.any(String)//"hssjpuk"
+      },
+      {
+        "start": "530.79",
+        "end": "531.03",
+        "confidence": "1.000",
+        "text": "brought",
+        "offset": 362,
+        "length": 7,
+        "key": expect.any(String)//"xxqr8js"
+      },
+      {
+        "start": "531.03",
+        "end": "531.12",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 370,
+        "length": 3,
+        "key": expect.any(String)//"1sq3048"
+      },
+      {
+        "start": "531.12",
+        "end": "531.48",
+        "confidence": "1.000",
+        "text": "hatchet",
+        "offset": 374,
+        "length": 7,
+        "key": expect.any(String)//"u1op5br"
+      },
+      {
+        "start": "531.48",
+        "end": "531.75",
+        "confidence": "1.000",
+        "text": "down",
+        "offset": 382,
+        "length": 4,
+        "key": expect.any(String)//"m49ja4hq"
+      },
+      {
+        "start": "531.75",
+        "end": "531.84",
+        "confidence": "1.000",
+        "text": "on",
+        "offset": 387,
+        "length": 2,
+        "key": expect.any(String)//"1ugbiwp"
+      },
+      {
+        "start": "531.84",
+        "end": "531.9300000000001",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 390,
+        "length": 3,
+        "key": expect.any(String)//"3t8c677"
+      },
+      {
+        "start": "531.93",
+        "end": "532.4399999999999",
+        "confidence": "0.980",
+        "text": "robot's",
+        "offset": 394,
+        "length": 7,
+        "key": expect.any(String)//"qx66hrl"
+      },
+      {
+        "start": "532.44",
+        "end": "533.4100000000001",
+        "confidence": "1.000",
+        "text": "neck.",
+        "offset": 402,
+        "length": 5,
+        "key": expect.any(String)//"gbx4t3f"
+      },
+      {
+        "start": "533.73",
+        "end": "534.03",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 408,
+        "length": 3,
+        "key": expect.any(String)//"w8s7eh8"
+      },
+      {
+        "start": "534.09",
+        "end": "534.36",
+        "confidence": "1.000",
+        "text": "there",
+        "offset": 412,
+        "length": 5,
+        "key": expect.any(String)//"k3a9a5"
+      },
+      {
+        "start": "534.36",
+        "end": "534.51",
+        "confidence": "1.000",
+        "text": "was",
+        "offset": 418,
+        "length": 3,
+        "key": expect.any(String)//"oiizif"
+      },
+      {
+        "start": "534.51",
+        "end": "534.6899999999999",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 422,
+        "length": 4,
+        "key": expect.any(String)//"ropk2om"
+      },
+      {
+        "start": "534.69",
+        "end": "535.1400000000001",
+        "confidence": "1.000",
+        "text": "half",
+        "offset": 427,
+        "length": 4,
+        "key": expect.any(String)//"fkzlt3j"
+      },
+      {
+        "start": "535.14",
+        "end": "535.83",
+        "confidence": "1.000",
+        "text": "joking.",
+        "offset": 432,
+        "length": 7,
+        "key": expect.any(String)//"b282q6"
+      },
+      {
+        "start": "536.07",
+        "end": "536.61",
+        "confidence": "1.000",
+        "text": "Half",
+        "offset": 440,
+        "length": 4,
+        "key": expect.any(String)//"d9bag8v"
+      },
+      {
+        "start": "536.70",
+        "end": "537.4200000000001",
+        "confidence": "1.000",
+        "text": "serious",
+        "offset": 445,
+        "length": 7,
+        "key": expect.any(String)//"se01uv"
+      },
+      {
+        "start": "537.42",
+        "end": "537.81",
+        "confidence": "1.000",
+        "text": "moment",
+        "offset": 453,
+        "length": 6,
+        "key": expect.any(String)//"6fjpbhn"
+      },
+      {
+        "start": "537.81",
+        "end": "537.9",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 460,
+        "length": 2,
+        "key": expect.any(String)//"crvz9l8"
+      },
+      {
+        "start": "537.90",
+        "end": "538.59",
+        "confidence": "1.000",
+        "text": "silence",
+        "offset": 463,
+        "length": 7,
+        "key": expect.any(String)//"qh7ok2f"
+      },
+      {
+        "start": "538.59",
+        "end": "538.8000000000001",
+        "confidence": "1.000",
+        "text": "in",
+        "offset": 471,
+        "length": 2,
+        "key": expect.any(String)//"ob4s7ah"
+      },
+      {
+        "start": "538.80",
+        "end": "538.89",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 474,
+        "length": 3,
+        "key": expect.any(String)//"8bx3kxy"
+      },
+      {
+        "start": "538.89",
+        "end": "539.49",
+        "confidence": "1.000",
+        "text": "room",
+        "offset": 478,
+        "length": 4,
+        "key": expect.any(String)//"w7fpoja"
+      },
+      {
+        "start": "540.09",
+        "end": "540.27",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 483,
+        "length": 3,
+        "key": expect.any(String)//"niwo36"
+      },
+      {
+        "start": "540.27",
+        "end": "540.48",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 487,
+        "length": 4,
+        "key": expect.any(String)//"m14yuwog"
+      },
+      {
+        "start": "540.48",
+        "end": "540.99",
+        "confidence": "0.980",
+        "text": "fallen",
+        "offset": 492,
+        "length": 6,
+        "key": expect.any(String)//"i5cuz2q"
+      },
+      {
+        "start": "540.99",
+        "end": "542.96",
+        "confidence": "1.000",
+        "text": "robot.",
+        "offset": 499,
+        "length": 6,
+        "key": expect.any(String)//"67jxnp"
+      },
+      {
+        "start": "543.24",
+        "end": "543.54",
+        "confidence": "1.000",
+        "text": "So",
+        "offset": 506,
+        "length": 2,
+        "key": expect.any(String)//"pyvm6e8"
+      },
+      {
+        "start": "543.66",
+        "end": "543.8399999999999",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 509,
+        "length": 4,
+        "key": expect.any(String)//"3r7zmt"
+      },
+      {
+        "start": "543.84",
+        "end": "544.0500000000001",
+        "confidence": "1.000",
+        "text": "was",
+        "offset": 514,
+        "length": 3,
+        "key": expect.any(String)//"q20k29k"
+      },
+      {
+        "start": "544.05",
+        "end": "544.14",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 518,
+        "length": 1,
+        "key": expect.any(String)//"5fqk6mz"
+      },
+      {
+        "start": "544.14",
+        "end": "544.53",
+        "confidence": "1.000",
+        "text": "really",
+        "offset": 520,
+        "length": 6,
+        "key": expect.any(String)//"3wjje9o"
+      },
+      {
+        "start": "544.59",
+        "end": "545.4",
+        "confidence": "1.000",
+        "text": "interesting",
+        "offset": 527,
+        "length": 11,
+        "key": expect.any(String)//"t1oncdd"
+      },
+      {
+        "start": "545.43",
+        "end": "546.91",
+        "confidence": "1.000",
+        "text": "experience.",
+        "offset": 539,
+        "length": 11,
+        "key": expect.any(String)//"m18fv1f"
+      },
       {
         "start": "546.93",
         "end": "547.14",
         "confidence": "0.990",
         "text": "Now",
-        "offset": 0,
+        "offset": 551,
         "length": 3,
-        "key": expect.any(String)//"u46on85"
+        "key": expect.any(String)//"ujayi"
       },
       {
         "start": "547.14",
         "end": "547.26",
         "confidence": "1.000",
         "text": "it",
-        "offset": 4,
+        "offset": 555,
         "length": 2,
-        "key": expect.any(String)//"f297zbh"
+        "key": expect.any(String)//"r1huzxg"
       },
       {
         "start": "547.26",
         "end": "547.56",
         "confidence": "1.000",
         "text": "wasn't",
-        "offset": 7,
+        "offset": 558,
         "length": 6,
-        "key": expect.any(String)//"3avpclg"
+        "key": expect.any(String)//"5ithk1"
       },
       {
         "start": "547.56",
         "end": "547.6199999999999",
         "confidence": "1.000",
         "text": "a",
-        "offset": 14,
+        "offset": 565,
         "length": 1,
-        "key": expect.any(String)//"2hvh7r5"
+        "key": expect.any(String)//"k39eirp"
       },
       {
         "start": "547.62",
         "end": "548.25",
         "confidence": "1.000",
         "text": "controlled",
-        "offset": 16,
+        "offset": 567,
         "length": 10,
-        "key": expect.any(String)//"xy13f1"
+        "key": expect.any(String)//"3if0f4q"
       },
       {
         "start": "548.25",
         "end": "548.73",
         "confidence": "1.000",
         "text": "study",
-        "offset": 27,
+        "offset": 578,
         "length": 5,
-        "key": expect.any(String)//"tvhkfv7"
+        "key": expect.any(String)//"opch0uh"
       },
       {
         "start": "548.73",
         "end": "549.36",
         "confidence": "1.000",
         "text": "obviously",
-        "offset": 33,
+        "offset": 584,
         "length": 9,
-        "key": expect.any(String)//"vpy7r9q"
+        "key": expect.any(String)//"akq965r"
       },
       {
         "start": "549.39",
         "end": "549.6",
         "confidence": "1.000",
         "text": "but",
-        "offset": 43,
+        "offset": 594,
         "length": 3,
-        "key": expect.any(String)//"kj438g"
+        "key": expect.any(String)//"6ase2u"
       },
       {
         "start": "549.60",
         "end": "549.69",
         "confidence": "1.000",
         "text": "it",
-        "offset": 47,
+        "offset": 598,
         "length": 2,
-        "key": expect.any(String)//"2hvs82"
+        "key": expect.any(String)//"1k9425y"
       },
       {
         "start": "549.69",
         "end": "549.9300000000001",
         "confidence": "1.000",
         "text": "did",
-        "offset": 50,
+        "offset": 601,
         "length": 3,
-        "key": expect.any(String)//"6okk3ot"
+        "key": expect.any(String)//"redgjhb"
       },
       {
         "start": "549.93",
         "end": "550.14",
         "confidence": "1.000",
         "text": "lead",
-        "offset": 54,
+        "offset": 605,
         "length": 4,
-        "key": expect.any(String)//"yt6b1yxl"
+        "key": expect.any(String)//"npo1icu"
       },
       {
         "start": "550.14",
         "end": "550.23",
         "confidence": "1.000",
         "text": "to",
-        "offset": 59,
+        "offset": 610,
         "length": 2,
-        "key": expect.any(String)//"1rftzir"
+        "key": expect.any(String)//"we1xnn7"
       },
       {
         "start": "550.23",
         "end": "550.41",
         "confidence": "1.000",
         "text": "some",
-        "offset": 62,
+        "offset": 613,
         "length": 4,
-        "key": expect.any(String)//"gk75zz"
+        "key": expect.any(String)//"33x7mty7"
       },
       {
         "start": "550.41",
         "end": "550.7099999999999",
         "confidence": "1.000",
         "text": "later",
-        "offset": 67,
+        "offset": 618,
         "length": 5,
-        "key": expect.any(String)//"p3q18m"
+        "key": expect.any(String)//"9ilgfkn"
       },
       {
         "start": "550.71",
         "end": "551.19",
         "confidence": "1.000",
         "text": "research",
-        "offset": 73,
+        "offset": 624,
         "length": 8,
-        "key": expect.any(String)//"ygweko"
+        "key": expect.any(String)//"lin2zv"
       },
       {
         "start": "551.19",
         "end": "551.37",
         "confidence": "1.000",
         "text": "that",
-        "offset": 82,
+        "offset": 633,
         "length": 4,
-        "key": expect.any(String)//"tihdrnh"
+        "key": expect.any(String)//"piw2v7n"
       },
       {
         "start": "551.37",
         "end": "551.46",
         "confidence": "1.000",
         "text": "I",
-        "offset": 87,
+        "offset": 638,
         "length": 1,
-        "key": expect.any(String)//"eor41jo"
+        "key": expect.any(String)//"731r997"
       },
       {
         "start": "551.46",
         "end": "551.7",
         "confidence": "1.000",
         "text": "did",
-        "offset": 89,
+        "offset": 640,
         "length": 3,
-        "key": expect.any(String)//"4c7yb3e"
+        "key": expect.any(String)//"1ak5wd4"
       },
       {
         "start": "551.71",
         "end": "551.8000000000001",
         "confidence": "0.640",
         "text": "at",
-        "offset": 93,
+        "offset": 644,
         "length": 2,
-        "key": expect.any(String)//"l6uh9np"
+        "key": expect.any(String)//"0u8ov6t"
       },
       {
         "start": "551.88",
         "end": "552.03",
         "confidence": "0.920",
         "text": "my",
-        "offset": 96,
+        "offset": 647,
         "length": 2,
-        "key": expect.any(String)//"epwbn0m"
+        "key": expect.any(String)//"wsvsome"
       },
       {
         "start": "552.03",
         "end": "552.27",
         "confidence": "0.810",
         "text": "tea",
-        "offset": 99,
+        "offset": 650,
         "length": 3,
-        "key": expect.any(String)//"zjzlh6"
+        "key": expect.any(String)//"ahk0cd"
       },
       {
         "start": "552.27",
         "end": "552.48",
         "confidence": "1.000",
         "text": "with",
-        "offset": 103,
+        "offset": 654,
         "length": 4,
-        "key": expect.any(String)//"uxcr89i"
+        "key": expect.any(String)//"e3k5ogh"
       },
       {
         "start": "552.48",
         "end": "552.85",
         "confidence": "0.930",
         "text": "plush",
-        "offset": 108,
+        "offset": 659,
         "length": 5,
-        "key": expect.any(String)//"oadco2n"
+        "key": expect.any(String)//"cax70oho"
       },
       {
         "start": "552.85",
         "end": "553.14",
         "confidence": "0.590",
         "text": "Nanda",
-        "offset": 114,
+        "offset": 665,
         "length": 5,
-        "key": expect.any(String)//"jfbjh5o"
+        "key": expect.any(String)//"4dvxak"
       },
       {
         "start": "553.14",
         "end": "553.29",
         "confidence": "0.800",
         "text": "and",
-        "offset": 120,
+        "offset": 671,
         "length": 3,
-        "key": expect.any(String)//"kgyh5p9"
+        "key": expect.any(String)//"5iexq7d"
       },
       {
         "start": "553.29",
         "end": "553.62",
         "confidence": "1.000",
         "text": "Cynthia",
-        "offset": 124,
+        "offset": 675,
         "length": 7,
-        "key": expect.any(String)//"oas4iye"
+        "key": expect.any(String)//"q90z69k"
       },
       {
         "start": "553.62",
         "end": "554.19",
         "confidence": "1.000",
         "text": "Brazil",
-        "offset": 132,
+        "offset": 683,
         "length": 6,
-        "key": expect.any(String)//"94zks8b"
+        "key": expect.any(String)//"go785q9"
       },
       {
         "start": "554.55",
         "end": "554.8499999999999",
         "confidence": "1.000",
         "text": "where",
-        "offset": 139,
+        "offset": 690,
         "length": 5,
-        "key": expect.any(String)//"d785qz"
+        "key": expect.any(String)//"esau8ef"
       },
       {
         "start": "554.85",
         "end": "555",
         "confidence": "1.000",
         "text": "we",
-        "offset": 145,
+        "offset": 696,
         "length": 2,
-        "key": expect.any(String)//"g8v01dp"
+        "key": expect.any(String)//"04bzcst"
       },
       {
         "start": "555.00",
         "end": "555.12",
         "confidence": "1.000",
         "text": "had",
-        "offset": 148,
+        "offset": 699,
         "length": 3,
-        "key": expect.any(String)//"2dd9hg"
+        "key": expect.any(String)//"oweouce"
       },
       {
         "start": "555.12",
         "end": "555.36",
         "confidence": "1.000",
         "text": "people",
-        "offset": 152,
+        "offset": 703,
         "length": 6,
-        "key": expect.any(String)//"kp3mxsk"
+        "key": expect.any(String)//"yfw0u5b8"
       },
       {
         "start": "555.36",
         "end": "555.54",
         "confidence": "1.000",
         "text": "come",
-        "offset": 159,
+        "offset": 710,
         "length": 4,
-        "key": expect.any(String)//"zfqerg"
+        "key": expect.any(String)//"k06h44"
       },
       {
         "start": "555.54",
         "end": "555.7199999999999",
         "confidence": "0.990",
         "text": "into",
-        "offset": 164,
+        "offset": 715,
         "length": 4,
-        "key": expect.any(String)//"synttps"
+        "key": expect.any(String)//"0unwjre"
       },
       {
         "start": "555.72",
         "end": "555.8100000000001",
         "confidence": "1.000",
         "text": "the",
-        "offset": 169,
+        "offset": 720,
         "length": 3,
-        "key": expect.any(String)//"b5e5lig"
+        "key": expect.any(String)//"4tkn6xg"
       },
       {
         "start": "555.81",
         "end": "556.29",
         "confidence": "1.000",
         "text": "lab",
-        "offset": 173,
+        "offset": 724,
         "length": 3,
-        "key": expect.any(String)//"9cosmf7"
+        "key": expect.any(String)//"cktl9uo"
       },
       {
         "start": "556.71",
         "end": "556.89",
         "confidence": "1.000",
         "text": "and",
-        "offset": 177,
+        "offset": 728,
         "length": 3,
-        "key": expect.any(String)//"sffs01k"
+        "key": expect.any(String)//"sgivmuf"
       },
       {
         "start": "556.89",
         "end": "557.25",
         "confidence": "0.980",
         "text": "smash",
-        "offset": 181,
+        "offset": 732,
         "length": 5,
-        "key": expect.any(String)//"dh4xza7"
+        "key": expect.any(String)//"rhx6sbn"
       },
       {
         "start": "557.25",
         "end": "557.46",
         "confidence": "1.000",
         "text": "these",
-        "offset": 187,
+        "offset": 738,
         "length": 5,
-        "key": expect.any(String)//"q764ekl"
+        "key": expect.any(String)//"vc9yvie"
       },
       {
         "start": "557.46",
         "end": "557.85",
         "confidence": "0.990",
         "text": "hex",
-        "offset": 193,
+        "offset": 744,
         "length": 3,
-        "key": expect.any(String)//"jil3osq"
+        "key": expect.any(String)//"rq1lsn"
       },
       {
         "start": "557.85",
         "end": "558.21",
         "confidence": "1.000",
         "text": "bugs",
-        "offset": 197,
+        "offset": 748,
         "length": 4,
-        "key": expect.any(String)//"cz9kxd7"
+        "key": expect.any(String)//"sey0eae"
       },
       {
         "start": "558.21",
         "end": "558.33",
         "confidence": "0.910",
         "text": "that",
-        "offset": 202,
+        "offset": 753,
         "length": 4,
-        "key": expect.any(String)//"c5v2t7r"
+        "key": expect.any(String)//"ibvy30a"
       },
       {
         "start": "558.33",
         "end": "558.63",
         "confidence": "1.000",
         "text": "move",
-        "offset": 207,
+        "offset": 758,
         "length": 4,
-        "key": expect.any(String)//"vprr07q"
+        "key": expect.any(String)//"n9xfmhk"
       },
       {
         "start": "558.63",
         "end": "559.14",
         "confidence": "1.000",
         "text": "around",
-        "offset": 212,
+        "offset": 763,
         "length": 6,
-        "key": expect.any(String)//"ipe3o96"
+        "key": expect.any(String)//"hfxofpv"
       },
       {
         "start": "559.14",
         "end": "559.26",
         "confidence": "0.970",
         "text": "in",
-        "offset": 219,
+        "offset": 770,
         "length": 2,
-        "key": expect.any(String)//"i9meak"
+        "key": expect.any(String)//"3c5ynpe"
       },
       {
         "start": "559.26",
         "end": "559.29",
         "confidence": "0.980",
         "text": "a",
-        "offset": 222,
+        "offset": 773,
         "length": 1,
-        "key": expect.any(String)//"4r2vh7"
+        "key": expect.any(String)//"5kivfk"
       },
       {
         "start": "559.29",
         "end": "559.53",
         "confidence": "1.000",
         "text": "really",
-        "offset": 224,
+        "offset": 775,
         "length": 6,
-        "key": expect.any(String)//"4oc34f6"
+        "key": expect.any(String)//"oyt4ifc"
       },
       {
         "start": "559.53",
         "end": "559.92",
         "confidence": "1.000",
         "text": "lifelike",
-        "offset": 231,
+        "offset": 782,
         "length": 8,
-        "key": expect.any(String)//"eherby"
+        "key": expect.any(String)//"ccmu94n"
       },
       {
         "start": "559.92",
         "end": "560.0999999999999",
         "confidence": "1.000",
         "text": "way",
-        "offset": 240,
+        "offset": 791,
         "length": 3,
-        "key": expect.any(String)//"0ydhkta"
+        "key": expect.any(String)//"p7zsr7i"
       },
       {
         "start": "560.10",
         "end": "560.3100000000001",
         "confidence": "1.000",
         "text": "like",
-        "offset": 244,
+        "offset": 795,
         "length": 4,
-        "key": expect.any(String)//"3u968a2"
+        "key": expect.any(String)//"6zjenx"
       },
       {
         "start": "560.31",
         "end": "561.3299999999999",
         "confidence": "1.000",
         "text": "insects.",
-        "offset": 249,
+        "offset": 800,
         "length": 8,
-        "key": expect.any(String)//"wcuy8bc"
+        "key": expect.any(String)//"sergxg"
       }
     ]
   },
   {
-    "text": "So instead of choosing something cute that people are drawn to we chose something more basic.",
+    "text": "So instead of choosing something cute that people are drawn to we chose something more basic. And what we found was that high empathy people would hesitate more to hit the hex bugs now this is just a little study but it's part of a larger body of research that is starting to indicate that there may be a connection between people's tendencies for empathy and their behavior around robots.",
     "type": "paragraph",
     "data": {
-      "speaker": "F3",
+      "speaker": "F4",
       "words": [
         {
           "start": "561.33",
@@ -25448,163 +24632,7 @@ const draftTranscriptExample = [
           "word": "basic",
           "punct": "basic.",
           "index": 1447
-        }
-      ],
-      "start": "561.33"
-    },
-    "entityRanges": [
-      {
-        "start": "561.33",
-        "end": "561.51",
-        "confidence": "1.000",
-        "text": "So",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"jfw1j3s"
-      },
-      {
-        "start": "561.51",
-        "end": "561.72",
-        "confidence": "1.000",
-        "text": "instead",
-        "offset": 3,
-        "length": 7,
-        "key": expect.any(String)//"xie01t"
-      },
-      {
-        "start": "561.72",
-        "end": "561.8100000000001",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 11,
-        "length": 2,
-        "key": expect.any(String)//"th4rbj"
-      },
-      {
-        "start": "561.81",
-        "end": "562.1099999999999",
-        "confidence": "1.000",
-        "text": "choosing",
-        "offset": 14,
-        "length": 8,
-        "key": expect.any(String)//"16ucg8g"
-      },
-      {
-        "start": "562.11",
-        "end": "562.35",
-        "confidence": "1.000",
-        "text": "something",
-        "offset": 23,
-        "length": 9,
-        "key": expect.any(String)//"uv6kyu"
-      },
-      {
-        "start": "562.35",
-        "end": "562.74",
-        "confidence": "1.000",
-        "text": "cute",
-        "offset": 33,
-        "length": 4,
-        "key": expect.any(String)//"y07ps7a"
-      },
-      {
-        "start": "562.74",
-        "end": "562.86",
-        "confidence": "0.930",
-        "text": "that",
-        "offset": 38,
-        "length": 4,
-        "key": expect.any(String)//"vexoqpc"
-      },
-      {
-        "start": "562.86",
-        "end": "563.3100000000001",
-        "confidence": "1.000",
-        "text": "people",
-        "offset": 43,
-        "length": 6,
-        "key": expect.any(String)//"n1b4wp"
-      },
-      {
-        "start": "563.76",
-        "end": "563.88",
-        "confidence": "1.000",
-        "text": "are",
-        "offset": 50,
-        "length": 3,
-        "key": expect.any(String)//"lymen39"
-      },
-      {
-        "start": "563.88",
-        "end": "564.24",
-        "confidence": "1.000",
-        "text": "drawn",
-        "offset": 54,
-        "length": 5,
-        "key": expect.any(String)//"izwf1y"
-      },
-      {
-        "start": "564.24",
-        "end": "564.48",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 60,
-        "length": 2,
-        "key": expect.any(String)//"3e03bnj"
-      },
-      {
-        "start": "564.48",
-        "end": "564.6",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 63,
-        "length": 2,
-        "key": expect.any(String)//"wizf5vp"
-      },
-      {
-        "start": "564.60",
-        "end": "564.78",
-        "confidence": "1.000",
-        "text": "chose",
-        "offset": 66,
-        "length": 5,
-        "key": expect.any(String)//"ftj1tz"
-      },
-      {
-        "start": "564.78",
-        "end": "565.0799999999999",
-        "confidence": "1.000",
-        "text": "something",
-        "offset": 72,
-        "length": 9,
-        "key": expect.any(String)//"jfc3ydr"
-      },
-      {
-        "start": "565.08",
-        "end": "565.23",
-        "confidence": "1.000",
-        "text": "more",
-        "offset": 82,
-        "length": 4,
-        "key": expect.any(String)//"ouvan15"
-      },
-      {
-        "start": "565.23",
-        "end": "566.34",
-        "confidence": "1.000",
-        "text": "basic.",
-        "offset": 87,
-        "length": 6,
-        "key": expect.any(String)//"0u691vt"
-      }
-    ]
-  },
-  {
-    "text": "And what we found was that high empathy people would hesitate more to hit the hex bugs now this is just a little study but it's part of a larger body of research that is starting to indicate that there may be a connection between people's tendencies for empathy and their behavior around robots.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "566.61",
           "end": "567",
@@ -26038,499 +25066,643 @@ const draftTranscriptExample = [
           "index": 1501
         }
       ],
-      "start": "566.61"
+      "start": "561.33"
     },
     "entityRanges": [
+      {
+        "start": "561.33",
+        "end": "561.51",
+        "confidence": "1.000",
+        "text": "So",
+        "offset": 0,
+        "length": 2,
+        "key": expect.any(String)//"sujslj"
+      },
+      {
+        "start": "561.51",
+        "end": "561.72",
+        "confidence": "1.000",
+        "text": "instead",
+        "offset": 3,
+        "length": 7,
+        "key": expect.any(String)//"ljqgjdc"
+      },
+      {
+        "start": "561.72",
+        "end": "561.8100000000001",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 11,
+        "length": 2,
+        "key": expect.any(String)//"pweudw"
+      },
+      {
+        "start": "561.81",
+        "end": "562.1099999999999",
+        "confidence": "1.000",
+        "text": "choosing",
+        "offset": 14,
+        "length": 8,
+        "key": expect.any(String)//"r4pi0ao"
+      },
+      {
+        "start": "562.11",
+        "end": "562.35",
+        "confidence": "1.000",
+        "text": "something",
+        "offset": 23,
+        "length": 9,
+        "key": expect.any(String)//"iiu892b"
+      },
+      {
+        "start": "562.35",
+        "end": "562.74",
+        "confidence": "1.000",
+        "text": "cute",
+        "offset": 33,
+        "length": 4,
+        "key": expect.any(String)//"fhenm4h"
+      },
+      {
+        "start": "562.74",
+        "end": "562.86",
+        "confidence": "0.930",
+        "text": "that",
+        "offset": 38,
+        "length": 4,
+        "key": expect.any(String)//"zlnydt8"
+      },
+      {
+        "start": "562.86",
+        "end": "563.3100000000001",
+        "confidence": "1.000",
+        "text": "people",
+        "offset": 43,
+        "length": 6,
+        "key": expect.any(String)//"h8cuid"
+      },
+      {
+        "start": "563.76",
+        "end": "563.88",
+        "confidence": "1.000",
+        "text": "are",
+        "offset": 50,
+        "length": 3,
+        "key": expect.any(String)//"qcuivcu"
+      },
+      {
+        "start": "563.88",
+        "end": "564.24",
+        "confidence": "1.000",
+        "text": "drawn",
+        "offset": 54,
+        "length": 5,
+        "key": expect.any(String)//"8c6maz5"
+      },
+      {
+        "start": "564.24",
+        "end": "564.48",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 60,
+        "length": 2,
+        "key": expect.any(String)//"54e4qh"
+      },
+      {
+        "start": "564.48",
+        "end": "564.6",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 63,
+        "length": 2,
+        "key": expect.any(String)//"fge0zmj"
+      },
+      {
+        "start": "564.60",
+        "end": "564.78",
+        "confidence": "1.000",
+        "text": "chose",
+        "offset": 66,
+        "length": 5,
+        "key": expect.any(String)//"nikzy49"
+      },
+      {
+        "start": "564.78",
+        "end": "565.0799999999999",
+        "confidence": "1.000",
+        "text": "something",
+        "offset": 72,
+        "length": 9,
+        "key": expect.any(String)//"ogns8qr"
+      },
+      {
+        "start": "565.08",
+        "end": "565.23",
+        "confidence": "1.000",
+        "text": "more",
+        "offset": 82,
+        "length": 4,
+        "key": expect.any(String)//"e77hjq8"
+      },
+      {
+        "start": "565.23",
+        "end": "566.34",
+        "confidence": "1.000",
+        "text": "basic.",
+        "offset": 87,
+        "length": 6,
+        "key": expect.any(String)//"w4tt2h"
+      },
       {
         "start": "566.61",
         "end": "567",
         "confidence": "1.000",
         "text": "And",
-        "offset": 0,
+        "offset": 94,
         "length": 3,
-        "key": expect.any(String)//"0uzq1r6"
+        "key": expect.any(String)//"760groa"
       },
       {
         "start": "567.27",
         "end": "567.42",
         "confidence": "1.000",
         "text": "what",
-        "offset": 4,
+        "offset": 98,
         "length": 4,
-        "key": expect.any(String)//"5xs5ysn"
+        "key": expect.any(String)//"xvfa4qj"
       },
       {
         "start": "567.42",
         "end": "567.54",
         "confidence": "1.000",
         "text": "we",
-        "offset": 9,
+        "offset": 103,
         "length": 2,
-        "key": expect.any(String)//"x8vspz4"
+        "key": expect.any(String)//"ui2dlps"
       },
       {
         "start": "567.54",
         "end": "568.11",
         "confidence": "1.000",
         "text": "found",
-        "offset": 12,
+        "offset": 106,
         "length": 5,
-        "key": expect.any(String)//"gqoea9c"
+        "key": expect.any(String)//"sgvtbdf"
       },
       {
         "start": "568.17",
         "end": "568.53",
         "confidence": "1.000",
         "text": "was",
-        "offset": 18,
+        "offset": 112,
         "length": 3,
-        "key": expect.any(String)//"kms18e8"
+        "key": expect.any(String)//"zlsz1k4"
       },
       {
         "start": "568.53",
         "end": "568.8299999999999",
         "confidence": "1.000",
         "text": "that",
-        "offset": 22,
+        "offset": 116,
         "length": 4,
-        "key": expect.any(String)//"lvtn6g"
+        "key": expect.any(String)//"rtmsdhi"
       },
       {
         "start": "568.83",
         "end": "569.22",
         "confidence": "1.000",
         "text": "high",
-        "offset": 27,
+        "offset": 121,
         "length": 4,
-        "key": expect.any(String)//"2jpk2zj"
+        "key": expect.any(String)//"lfr2r1t"
       },
       {
         "start": "569.22",
         "end": "569.6700000000001",
         "confidence": "1.000",
         "text": "empathy",
-        "offset": 32,
+        "offset": 126,
         "length": 7,
-        "key": expect.any(String)//"i1hqwvj"
+        "key": expect.any(String)//"8dnb4bs"
       },
       {
         "start": "569.67",
         "end": "570.0899999999999",
         "confidence": "1.000",
         "text": "people",
-        "offset": 40,
+        "offset": 134,
         "length": 6,
-        "key": expect.any(String)//"miofxt6"
+        "key": expect.any(String)//"jq6icsj"
       },
       {
         "start": "570.09",
         "end": "570.27",
         "confidence": "1.000",
         "text": "would",
-        "offset": 47,
+        "offset": 141,
         "length": 5,
-        "key": expect.any(String)//"0cpaaho"
+        "key": expect.any(String)//"a5uk519"
       },
       {
         "start": "570.27",
         "end": "570.81",
         "confidence": "1.000",
         "text": "hesitate",
-        "offset": 53,
+        "offset": 147,
         "length": 8,
-        "key": expect.any(String)//"p1fk8fl"
+        "key": expect.any(String)//"xgugell"
       },
       {
         "start": "570.81",
         "end": "570.9899999999999",
         "confidence": "1.000",
         "text": "more",
-        "offset": 62,
+        "offset": 156,
         "length": 4,
-        "key": expect.any(String)//"rwe3ith"
+        "key": expect.any(String)//"hu8abhi"
       },
       {
         "start": "570.99",
         "end": "571.11",
         "confidence": "1.000",
         "text": "to",
-        "offset": 67,
+        "offset": 161,
         "length": 2,
-        "key": expect.any(String)//"zovq"
+        "key": expect.any(String)//"1piifn"
       },
       {
         "start": "571.11",
         "end": "571.29",
         "confidence": "1.000",
         "text": "hit",
-        "offset": 70,
+        "offset": 164,
         "length": 3,
-        "key": expect.any(String)//"pjmc43j"
+        "key": expect.any(String)//"mwbr7"
       },
       {
         "start": "571.29",
         "end": "571.38",
         "confidence": "1.000",
         "text": "the",
-        "offset": 74,
+        "offset": 168,
         "length": 3,
-        "key": expect.any(String)//"41mevi"
+        "key": expect.any(String)//"wtzaozm"
       },
       {
         "start": "571.38",
         "end": "571.68",
         "confidence": "0.900",
         "text": "hex",
-        "offset": 78,
+        "offset": 172,
         "length": 3,
-        "key": expect.any(String)//"zqvtx"
+        "key": expect.any(String)//"4siuio"
       },
       {
         "start": "571.68",
         "end": "572.15",
         "confidence": "0.990",
         "text": "bugs",
-        "offset": 82,
+        "offset": 176,
         "length": 4,
-        "key": expect.any(String)//"t76vuec"
+        "key": expect.any(String)//"mtvne5r"
       },
       {
         "start": "573.60",
         "end": "573.69",
         "confidence": "0.990",
         "text": "now",
-        "offset": 87,
+        "offset": 181,
         "length": 3,
-        "key": expect.any(String)//"pgkwtyr"
+        "key": expect.any(String)//"r338puo"
       },
       {
         "start": "573.69",
         "end": "573.84",
         "confidence": "1.000",
         "text": "this",
-        "offset": 91,
+        "offset": 185,
         "length": 4,
-        "key": expect.any(String)//"a02wpr"
+        "key": expect.any(String)//"sql1zjd"
       },
       {
         "start": "573.84",
         "end": "573.9300000000001",
         "confidence": "1.000",
         "text": "is",
-        "offset": 96,
+        "offset": 190,
         "length": 2,
-        "key": expect.any(String)//"afbcem"
+        "key": expect.any(String)//"vkm7ill"
       },
       {
         "start": "573.93",
         "end": "574.14",
         "confidence": "1.000",
         "text": "just",
-        "offset": 99,
+        "offset": 193,
         "length": 4,
-        "key": expect.any(String)//"94l7a1"
+        "key": expect.any(String)//"oa7r5fp"
       },
       {
         "start": "574.14",
         "end": "574.17",
         "confidence": "1.000",
         "text": "a",
-        "offset": 104,
+        "offset": 198,
         "length": 1,
-        "key": expect.any(String)//"7my5tl"
+        "key": expect.any(String)//"42nj7o9"
       },
       {
         "start": "574.17",
         "end": "574.41",
         "confidence": "1.000",
         "text": "little",
-        "offset": 106,
+        "offset": 200,
         "length": 6,
-        "key": expect.any(String)//"x4ojawg"
+        "key": expect.any(String)//"euytlmv"
       },
       {
         "start": "574.41",
         "end": "574.89",
         "confidence": "1.000",
         "text": "study",
-        "offset": 113,
+        "offset": 207,
         "length": 5,
-        "key": expect.any(String)//"bjqdir"
+        "key": expect.any(String)//"79iftrl"
       },
       {
         "start": "574.92",
         "end": "575.25",
         "confidence": "1.000",
         "text": "but",
-        "offset": 119,
+        "offset": 213,
         "length": 3,
-        "key": expect.any(String)//"8x86xjs"
+        "key": expect.any(String)//"h2ya8f"
       },
       {
         "start": "575.55",
         "end": "575.7299999999999",
         "confidence": "0.990",
         "text": "it's",
-        "offset": 123,
+        "offset": 217,
         "length": 4,
-        "key": expect.any(String)//"nao5n5d"
+        "key": expect.any(String)//"f3m1tlo"
       },
       {
         "start": "575.73",
         "end": "576",
         "confidence": "1.000",
         "text": "part",
-        "offset": 128,
+        "offset": 222,
         "length": 4,
-        "key": expect.any(String)//"sf9kmkn"
+        "key": expect.any(String)//"k16hpe5"
       },
       {
         "start": "576.00",
         "end": "576.09",
         "confidence": "1.000",
         "text": "of",
-        "offset": 133,
+        "offset": 227,
         "length": 2,
-        "key": expect.any(String)//"bj0ypqi"
+        "key": expect.any(String)//"6eqhpec"
       },
       {
         "start": "576.09",
         "end": "576.15",
         "confidence": "1.000",
         "text": "a",
-        "offset": 136,
+        "offset": 230,
         "length": 1,
-        "key": expect.any(String)//"a3mqyza"
+        "key": expect.any(String)//"5wyyfpi"
       },
       {
         "start": "576.15",
         "end": "576.51",
         "confidence": "1.000",
         "text": "larger",
-        "offset": 138,
+        "offset": 232,
         "length": 6,
-        "key": expect.any(String)//"eiooaad"
+        "key": expect.any(String)//"2c8c926"
       },
       {
         "start": "576.51",
         "end": "576.78",
         "confidence": "1.000",
         "text": "body",
-        "offset": 145,
+        "offset": 239,
         "length": 4,
-        "key": expect.any(String)//"cpn0lvp"
+        "key": expect.any(String)//"5ktnhb"
       },
       {
         "start": "576.78",
         "end": "576.9",
         "confidence": "1.000",
         "text": "of",
-        "offset": 150,
+        "offset": 244,
         "length": 2,
-        "key": expect.any(String)//"9w9zvvq"
+        "key": expect.any(String)//"jq06yhi"
       },
       {
         "start": "576.90",
         "end": "577.5",
         "confidence": "1.000",
         "text": "research",
-        "offset": 153,
+        "offset": 247,
         "length": 8,
-        "key": expect.any(String)//"zn7p575"
+        "key": expect.any(String)//"nnxiil2"
       },
       {
         "start": "577.50",
         "end": "577.92",
         "confidence": "1.000",
         "text": "that",
-        "offset": 162,
+        "offset": 256,
         "length": 4,
-        "key": expect.any(String)//"meeb3oq"
+        "key": expect.any(String)//"es1bmhq"
       },
       {
         "start": "578.07",
         "end": "578.22",
         "confidence": "1.000",
         "text": "is",
-        "offset": 167,
+        "offset": 261,
         "length": 2,
-        "key": expect.any(String)//"ge47b4fe"
+        "key": expect.any(String)//"tfnhmdf"
       },
       {
         "start": "578.22",
         "end": "578.61",
         "confidence": "1.000",
         "text": "starting",
-        "offset": 170,
+        "offset": 264,
         "length": 8,
-        "key": expect.any(String)//"laalj9"
+        "key": expect.any(String)//"gdq83u"
       },
       {
         "start": "578.61",
         "end": "578.76",
         "confidence": "1.000",
         "text": "to",
-        "offset": 179,
+        "offset": 273,
         "length": 2,
-        "key": expect.any(String)//"y07upg5"
+        "key": expect.any(String)//"v5y3kj7"
       },
       {
         "start": "578.76",
         "end": "579.21",
         "confidence": "1.000",
         "text": "indicate",
-        "offset": 182,
+        "offset": 276,
         "length": 8,
-        "key": expect.any(String)//"jz2f6g"
+        "key": expect.any(String)//"tf5w7rp"
       },
       {
         "start": "579.21",
         "end": "579.33",
         "confidence": "1.000",
         "text": "that",
-        "offset": 191,
+        "offset": 285,
         "length": 4,
-        "key": expect.any(String)//"km9f31t"
+        "key": expect.any(String)//"4x47j3g"
       },
       {
         "start": "579.33",
         "end": "579.4200000000001",
         "confidence": "1.000",
         "text": "there",
-        "offset": 196,
+        "offset": 290,
         "length": 5,
-        "key": expect.any(String)//"l809gzi"
+        "key": expect.any(String)//"yd5n49"
       },
       {
         "start": "579.42",
         "end": "579.63",
         "confidence": "1.000",
         "text": "may",
-        "offset": 202,
+        "offset": 296,
         "length": 3,
-        "key": expect.any(String)//"a6q1s3h"
+        "key": expect.any(String)//"24ixjbv"
       },
       {
         "start": "579.63",
         "end": "579.87",
         "confidence": "1.000",
         "text": "be",
-        "offset": 206,
+        "offset": 300,
         "length": 2,
-        "key": expect.any(String)//"aaf4iw"
+        "key": expect.any(String)//"zzu8ep"
       },
       {
         "start": "579.87",
         "end": "579.96",
         "confidence": "1.000",
         "text": "a",
-        "offset": 209,
+        "offset": 303,
         "length": 1,
-        "key": expect.any(String)//"iqshbep"
+        "key": expect.any(String)//"w1crve"
       },
       {
         "start": "579.96",
         "end": "580.5300000000001",
         "confidence": "1.000",
         "text": "connection",
-        "offset": 211,
+        "offset": 305,
         "length": 10,
-        "key": expect.any(String)//"hbu17lj"
+        "key": expect.any(String)//"remdx6"
       },
       {
         "start": "580.53",
         "end": "580.86",
         "confidence": "1.000",
         "text": "between",
-        "offset": 222,
+        "offset": 316,
         "length": 7,
-        "key": expect.any(String)//"h576kx"
+        "key": expect.any(String)//"5eo2u2"
       },
       {
         "start": "580.86",
         "end": "581.3100000000001",
         "confidence": "0.710",
         "text": "people's",
-        "offset": 230,
+        "offset": 324,
         "length": 8,
-        "key": expect.any(String)//"lv6sao"
+        "key": expect.any(String)//"p03bor"
       },
       {
         "start": "581.31",
         "end": "581.8199999999999",
         "confidence": "1.000",
         "text": "tendencies",
-        "offset": 239,
+        "offset": 333,
         "length": 10,
-        "key": expect.any(String)//"emc1st"
+        "key": expect.any(String)//"axu7l9j"
       },
       {
         "start": "581.82",
         "end": "581.94",
         "confidence": "1.000",
         "text": "for",
-        "offset": 250,
+        "offset": 344,
         "length": 3,
-        "key": expect.any(String)//"1jvo9nh"
+        "key": expect.any(String)//"80rdxq"
       },
       {
         "start": "581.94",
         "end": "582.57",
         "confidence": "1.000",
         "text": "empathy",
-        "offset": 254,
+        "offset": 348,
         "length": 7,
-        "key": expect.any(String)//"1pfje0b"
+        "key": expect.any(String)//"y3g45zt"
       },
       {
         "start": "582.93",
         "end": "583.05",
         "confidence": "1.000",
         "text": "and",
-        "offset": 262,
+        "offset": 356,
         "length": 3,
-        "key": expect.any(String)//"agvs375"
+        "key": expect.any(String)//"20e5y3w"
       },
       {
         "start": "583.05",
         "end": "583.17",
         "confidence": "1.000",
         "text": "their",
-        "offset": 266,
+        "offset": 360,
         "length": 5,
-        "key": expect.any(String)//"rbid0jr"
+        "key": expect.any(String)//"xo3p0md"
       },
       {
         "start": "583.17",
         "end": "583.86",
         "confidence": "0.810",
         "text": "behavior",
-        "offset": 272,
+        "offset": 366,
         "length": 8,
-        "key": expect.any(String)//"0352hqa"
+        "key": expect.any(String)//"defhjcf"
       },
       {
         "start": "583.86",
         "end": "584.16",
         "confidence": "1.000",
         "text": "around",
-        "offset": 281,
+        "offset": 375,
         "length": 6,
-        "key": expect.any(String)//"t3pqbln"
+        "key": expect.any(String)//"loast6r"
       },
       {
         "start": "584.16",
         "end": "585.6899999999999",
         "confidence": "1.000",
         "text": "robots.",
-        "offset": 288,
+        "offset": 382,
         "length": 7,
-        "key": expect.any(String)//"in9kdwvq"
+        "key": expect.any(String)//"oyilygq"
       }
     ]
   },
   {
-    "text": "But my question for the coming era of human robot interaction is not Do we empathize with robots.",
+    "text": "But my question for the coming era of human robot interaction is not Do we empathize with robots. It's can robots change people's empathy. Is there reason to for example prevent your child from kicking a robotic dog. Not just out of respect for property but because the child might be more likely to kick a real dog. And again it's not just kids. This is the violent video games question but it's on a completely new level because of this visceral physicality that we respond more intensely to than to images on a screen. When we behave violently towards robots specifically robots that are designed to mimic life. Is that. A healthy outlet for violent behavior. Or is that training or cruelty muscles. We don't know.",
     "type": "paragraph",
     "data": {
       "speaker": "F3",
@@ -26678,181 +25850,7 @@ const draftTranscriptExample = [
           "word": "robots",
           "punct": "robots.",
           "index": 1519
-        }
-      ],
-      "start": "585.69"
-    },
-    "entityRanges": [
-      {
-        "start": "585.69",
-        "end": "585.87",
-        "confidence": "1.000",
-        "text": "But",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"tzns5vu"
-      },
-      {
-        "start": "585.87",
-        "end": "586.11",
-        "confidence": "1.000",
-        "text": "my",
-        "offset": 4,
-        "length": 2,
-        "key": expect.any(String)//"vkv6ni"
-      },
-      {
-        "start": "586.11",
-        "end": "586.83",
-        "confidence": "1.000",
-        "text": "question",
-        "offset": 7,
-        "length": 8,
-        "key": expect.any(String)//"t637ka5"
-      },
-      {
-        "start": "586.83",
-        "end": "587.01",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 16,
-        "length": 3,
-        "key": expect.any(String)//"bzpz2ho"
-      },
-      {
-        "start": "587.01",
-        "end": "587.1",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 20,
-        "length": 3,
-        "key": expect.any(String)//"y12t6ik"
-      },
-      {
-        "start": "587.10",
-        "end": "587.5500000000001",
-        "confidence": "1.000",
-        "text": "coming",
-        "offset": 24,
-        "length": 6,
-        "key": expect.any(String)//"rbfdxef"
-      },
-      {
-        "start": "587.55",
-        "end": "587.9399999999999",
-        "confidence": "1.000",
-        "text": "era",
-        "offset": 31,
-        "length": 3,
-        "key": expect.any(String)//"07jyrld"
-      },
-      {
-        "start": "587.97",
-        "end": "588.12",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 35,
-        "length": 2,
-        "key": expect.any(String)//"korsikc"
-      },
-      {
-        "start": "588.12",
-        "end": "588.42",
-        "confidence": "1.000",
-        "text": "human",
-        "offset": 38,
-        "length": 5,
-        "key": expect.any(String)//"yp7ltic"
-      },
-      {
-        "start": "588.42",
-        "end": "588.6899999999999",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 44,
-        "length": 5,
-        "key": expect.any(String)//"i5ioa93"
-      },
-      {
-        "start": "588.69",
-        "end": "589.3800000000001",
-        "confidence": "1.000",
-        "text": "interaction",
-        "offset": 50,
-        "length": 11,
-        "key": expect.any(String)//"lrfxd3g"
-      },
-      {
-        "start": "589.41",
-        "end": "589.56",
-        "confidence": "1.000",
-        "text": "is",
-        "offset": 62,
-        "length": 2,
-        "key": expect.any(String)//"44b3wr4"
-      },
-      {
-        "start": "589.56",
-        "end": "590.01",
-        "confidence": "1.000",
-        "text": "not",
-        "offset": 65,
-        "length": 3,
-        "key": expect.any(String)//"wxmw6ke"
-      },
-      {
-        "start": "590.46",
-        "end": "590.61",
-        "confidence": "0.990",
-        "text": "Do",
-        "offset": 69,
-        "length": 2,
-        "key": expect.any(String)//"p2m1ku"
-      },
-      {
-        "start": "590.61",
-        "end": "590.76",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 72,
-        "length": 2,
-        "key": expect.any(String)//"ae03us8"
-      },
-      {
-        "start": "590.76",
-        "end": "591.42",
-        "confidence": "1.000",
-        "text": "empathize",
-        "offset": 75,
-        "length": 9,
-        "key": expect.any(String)//"ov7yvll"
-      },
-      {
-        "start": "591.42",
-        "end": "591.5999999999999",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 85,
-        "length": 4,
-        "key": expect.any(String)//"ss6efvj"
-      },
-      {
-        "start": "591.60",
-        "end": "593.02",
-        "confidence": "1.000",
-        "text": "robots.",
-        "offset": 90,
-        "length": 7,
-        "key": expect.any(String)//"fxa4ibs"
-      }
-    ]
-  },
-  {
-    "text": "It's can robots change people's empathy.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "593.21",
           "end": "593.4200000000001",
@@ -26900,73 +25898,7 @@ const draftTranscriptExample = [
           "word": "empathy",
           "punct": "empathy.",
           "index": 1525
-        }
-      ],
-      "start": "593.21"
-    },
-    "entityRanges": [
-      {
-        "start": "593.21",
-        "end": "593.4200000000001",
-        "confidence": "0.960",
-        "text": "It's",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"kypi4i9"
-      },
-      {
-        "start": "593.43",
-        "end": "593.8199999999999",
-        "confidence": "1.000",
-        "text": "can",
-        "offset": 5,
-        "length": 3,
-        "key": expect.any(String)//"fuji03n"
-      },
-      {
-        "start": "593.82",
-        "end": "594.3000000000001",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 9,
-        "length": 6,
-        "key": expect.any(String)//"6a7aj07"
-      },
-      {
-        "start": "594.33",
-        "end": "594.99",
-        "confidence": "1.000",
-        "text": "change",
-        "offset": 16,
-        "length": 6,
-        "key": expect.any(String)//"zafotf"
-      },
-      {
-        "start": "594.99",
-        "end": "595.41",
-        "confidence": "1.000",
-        "text": "people's",
-        "offset": 23,
-        "length": 8,
-        "key": expect.any(String)//"o6919yj"
-      },
-      {
-        "start": "595.41",
-        "end": "597.2099999999999",
-        "confidence": "1.000",
-        "text": "empathy.",
-        "offset": 32,
-        "length": 8,
-        "key": expect.any(String)//"8ndi6ofq"
-      }
-    ]
-  },
-  {
-    "text": "Is there reason to for example prevent your child from kicking a robotic dog.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "597.54",
           "end": "597.6899999999999",
@@ -27078,145 +26010,7 @@ const draftTranscriptExample = [
           "word": "dog",
           "punct": "dog.",
           "index": 1539
-        }
-      ],
-      "start": "597.54"
-    },
-    "entityRanges": [
-      {
-        "start": "597.54",
-        "end": "597.6899999999999",
-        "confidence": "1.000",
-        "text": "Is",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"sgy1arj"
-      },
-      {
-        "start": "597.69",
-        "end": "597.84",
-        "confidence": "0.890",
-        "text": "there",
-        "offset": 3,
-        "length": 5,
-        "key": expect.any(String)//"mui56h6"
-      },
-      {
-        "start": "597.84",
-        "end": "598.26",
-        "confidence": "1.000",
-        "text": "reason",
-        "offset": 9,
-        "length": 6,
-        "key": expect.any(String)//"zycgmg"
-      },
-      {
-        "start": "598.26",
-        "end": "598.5",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 16,
-        "length": 2,
-        "key": expect.any(String)//"yc5ghf9"
-      },
-      {
-        "start": "598.50",
-        "end": "598.71",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 19,
-        "length": 3,
-        "key": expect.any(String)//"9fhhx2b"
-      },
-      {
-        "start": "598.71",
-        "end": "599.46",
-        "confidence": "1.000",
-        "text": "example",
-        "offset": 23,
-        "length": 7,
-        "key": expect.any(String)//"crhqpxk"
-      },
-      {
-        "start": "599.79",
-        "end": "600.15",
-        "confidence": "1.000",
-        "text": "prevent",
-        "offset": 31,
-        "length": 7,
-        "key": expect.any(String)//"hyudswa"
-      },
-      {
-        "start": "600.15",
-        "end": "600.24",
-        "confidence": "1.000",
-        "text": "your",
-        "offset": 39,
-        "length": 4,
-        "key": expect.any(String)//"41vfbu"
-      },
-      {
-        "start": "600.24",
-        "end": "600.72",
-        "confidence": "1.000",
-        "text": "child",
-        "offset": 44,
-        "length": 5,
-        "key": expect.any(String)//"fu3956w"
-      },
-      {
-        "start": "600.72",
-        "end": "600.87",
-        "confidence": "1.000",
-        "text": "from",
-        "offset": 50,
-        "length": 4,
-        "key": expect.any(String)//"9b8kxet"
-      },
-      {
-        "start": "600.87",
-        "end": "601.26",
-        "confidence": "1.000",
-        "text": "kicking",
-        "offset": 55,
-        "length": 7,
-        "key": expect.any(String)//"f9oklr9"
-      },
-      {
-        "start": "601.26",
-        "end": "601.3199999999999",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 63,
-        "length": 1,
-        "key": expect.any(String)//"1zydax8"
-      },
-      {
-        "start": "601.32",
-        "end": "601.71",
-        "confidence": "1.000",
-        "text": "robotic",
-        "offset": 65,
-        "length": 7,
-        "key": expect.any(String)//"uv8cpai"
-      },
-      {
-        "start": "601.71",
-        "end": "602.0400000000001",
-        "confidence": "1.000",
-        "text": "dog.",
-        "offset": 73,
-        "length": 4,
-        "key": expect.any(String)//"nbhtsak"
-      }
-    ]
-  },
-  {
-    "text": "Not just out of respect for property but because the child might be more likely to kick a real dog.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "603.24",
           "end": "603.54",
@@ -27376,199 +26170,7 @@ const draftTranscriptExample = [
           "word": "dog",
           "punct": "dog.",
           "index": 1559
-        }
-      ],
-      "start": "603.24"
-    },
-    "entityRanges": [
-      {
-        "start": "603.24",
-        "end": "603.54",
-        "confidence": "1.000",
-        "text": "Not",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"q1cilo"
-      },
-      {
-        "start": "603.54",
-        "end": "603.9599999999999",
-        "confidence": "1.000",
-        "text": "just",
-        "offset": 4,
-        "length": 4,
-        "key": expect.any(String)//"qb25mg"
-      },
-      {
-        "start": "603.96",
-        "end": "604.08",
-        "confidence": "1.000",
-        "text": "out",
-        "offset": 9,
-        "length": 3,
-        "key": expect.any(String)//"stexyzh"
-      },
-      {
-        "start": "604.08",
-        "end": "604.1700000000001",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 13,
-        "length": 2,
-        "key": expect.any(String)//"i3emvb"
-      },
-      {
-        "start": "604.17",
-        "end": "604.65",
-        "confidence": "1.000",
-        "text": "respect",
-        "offset": 16,
-        "length": 7,
-        "key": expect.any(String)//"0etn2s4"
-      },
-      {
-        "start": "604.65",
-        "end": "604.8",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 24,
-        "length": 3,
-        "key": expect.any(String)//"fga4b7l"
-      },
-      {
-        "start": "604.80",
-        "end": "605.49",
-        "confidence": "1.000",
-        "text": "property",
-        "offset": 28,
-        "length": 8,
-        "key": expect.any(String)//"enb1ovf"
-      },
-      {
-        "start": "606.18",
-        "end": "606.3",
-        "confidence": "1.000",
-        "text": "but",
-        "offset": 37,
-        "length": 3,
-        "key": expect.any(String)//"obuw64g"
-      },
-      {
-        "start": "606.30",
-        "end": "606.81",
-        "confidence": "1.000",
-        "text": "because",
-        "offset": 41,
-        "length": 7,
-        "key": expect.any(String)//"6ca0c7d"
-      },
-      {
-        "start": "606.81",
-        "end": "606.93",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 49,
-        "length": 3,
-        "key": expect.any(String)//"ps04sbg"
-      },
-      {
-        "start": "606.93",
-        "end": "607.2299999999999",
-        "confidence": "1.000",
-        "text": "child",
-        "offset": 53,
-        "length": 5,
-        "key": expect.any(String)//"7g77wvw"
-      },
-      {
-        "start": "607.23",
-        "end": "607.38",
-        "confidence": "0.950",
-        "text": "might",
-        "offset": 59,
-        "length": 5,
-        "key": expect.any(String)//"tjk35m8"
-      },
-      {
-        "start": "607.38",
-        "end": "607.5",
-        "confidence": "1.000",
-        "text": "be",
-        "offset": 65,
-        "length": 2,
-        "key": expect.any(String)//"o8m7ja"
-      },
-      {
-        "start": "607.50",
-        "end": "607.65",
-        "confidence": "1.000",
-        "text": "more",
-        "offset": 68,
-        "length": 4,
-        "key": expect.any(String)//"9i6ipjn"
-      },
-      {
-        "start": "607.65",
-        "end": "607.98",
-        "confidence": "1.000",
-        "text": "likely",
-        "offset": 73,
-        "length": 6,
-        "key": expect.any(String)//"wqtmea2"
-      },
-      {
-        "start": "607.98",
-        "end": "608.07",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 80,
-        "length": 2,
-        "key": expect.any(String)//"ok919ts"
-      },
-      {
-        "start": "608.07",
-        "end": "608.2800000000001",
-        "confidence": "0.610",
-        "text": "kick",
-        "offset": 83,
-        "length": 4,
-        "key": expect.any(String)//"talv2jd"
-      },
-      {
-        "start": "608.28",
-        "end": "608.3399999999999",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 88,
-        "length": 1,
-        "key": expect.any(String)//"iscrus"
-      },
-      {
-        "start": "608.34",
-        "end": "608.5500000000001",
-        "confidence": "1.000",
-        "text": "real",
-        "offset": 90,
-        "length": 4,
-        "key": expect.any(String)//"ndberx"
-      },
-      {
-        "start": "608.55",
-        "end": "608.9699999999999",
-        "confidence": "1.000",
-        "text": "dog.",
-        "offset": 95,
-        "length": 4,
-        "key": expect.any(String)//"rmlf0qd"
-      }
-    ]
-  },
-  {
-    "text": "And again it's not just kids.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "610.54",
           "end": "610.6899999999999",
@@ -27616,73 +26218,7 @@ const draftTranscriptExample = [
           "word": "kids",
           "punct": "kids.",
           "index": 1565
-        }
-      ],
-      "start": "610.54"
-    },
-    "entityRanges": [
-      {
-        "start": "610.54",
-        "end": "610.6899999999999",
-        "confidence": "1.000",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"dwet6aj"
-      },
-      {
-        "start": "610.69",
-        "end": "610.99",
-        "confidence": "1.000",
-        "text": "again",
-        "offset": 4,
-        "length": 5,
-        "key": expect.any(String)//"timu87e"
-      },
-      {
-        "start": "610.99",
-        "end": "611.17",
-        "confidence": "1.000",
-        "text": "it's",
-        "offset": 10,
-        "length": 4,
-        "key": expect.any(String)//"y04sd38"
-      },
-      {
-        "start": "611.17",
-        "end": "611.4699999999999",
-        "confidence": "1.000",
-        "text": "not",
-        "offset": 15,
-        "length": 3,
-        "key": expect.any(String)//"sl6x5tu"
-      },
-      {
-        "start": "611.47",
-        "end": "611.71",
-        "confidence": "1.000",
-        "text": "just",
-        "offset": 19,
-        "length": 4,
-        "key": expect.any(String)//"0bxjrvj"
-      },
-      {
-        "start": "611.71",
-        "end": "613.33",
-        "confidence": "1.000",
-        "text": "kids.",
-        "offset": 24,
-        "length": 5,
-        "key": expect.any(String)//"y8qkoi"
-      }
-    ]
-  },
-  {
-    "text": "This is the violent video games question but it's on a completely new level because of this visceral physicality that we respond more intensely to than to images on a screen.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "613.54",
           "end": "613.78",
@@ -27930,298 +26466,7 @@ const draftTranscriptExample = [
           "word": "screen",
           "punct": "screen.",
           "index": 1596
-        }
-      ],
-      "start": "613.54"
-    },
-    "entityRanges": [
-      {
-        "start": "613.54",
-        "end": "613.78",
-        "confidence": "1.000",
-        "text": "This",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"w5omwe"
-      },
-      {
-        "start": "613.78",
-        "end": "613.93",
-        "confidence": "1.000",
-        "text": "is",
-        "offset": 5,
-        "length": 2,
-        "key": expect.any(String)//"18a160b"
-      },
-      {
-        "start": "613.93",
-        "end": "614.3199999999999",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 8,
-        "length": 3,
-        "key": expect.any(String)//"na9jsad"
-      },
-      {
-        "start": "614.44",
-        "end": "615.0100000000001",
-        "confidence": "1.000",
-        "text": "violent",
-        "offset": 12,
-        "length": 7,
-        "key": expect.any(String)//"mb00f6"
-      },
-      {
-        "start": "615.10",
-        "end": "615.4",
-        "confidence": "1.000",
-        "text": "video",
-        "offset": 20,
-        "length": 5,
-        "key": expect.any(String)//"4oy85kp"
-      },
-      {
-        "start": "615.40",
-        "end": "615.6999999999999",
-        "confidence": "1.000",
-        "text": "games",
-        "offset": 26,
-        "length": 5,
-        "key": expect.any(String)//"galhhhe"
-      },
-      {
-        "start": "615.70",
-        "end": "616.12",
-        "confidence": "1.000",
-        "text": "question",
-        "offset": 32,
-        "length": 8,
-        "key": expect.any(String)//"9aqixus"
-      },
-      {
-        "start": "616.15",
-        "end": "616.3",
-        "confidence": "1.000",
-        "text": "but",
-        "offset": 41,
-        "length": 3,
-        "key": expect.any(String)//"8imtamr"
-      },
-      {
-        "start": "616.30",
-        "end": "616.42",
-        "confidence": "0.990",
-        "text": "it's",
-        "offset": 45,
-        "length": 4,
-        "key": expect.any(String)//"yot25f"
-      },
-      {
-        "start": "616.42",
-        "end": "616.51",
-        "confidence": "0.950",
-        "text": "on",
-        "offset": 50,
-        "length": 2,
-        "key": expect.any(String)//"syim299"
-      },
-      {
-        "start": "616.51",
-        "end": "616.54",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 53,
-        "length": 1,
-        "key": expect.any(String)//"oolhcr"
-      },
-      {
-        "start": "616.54",
-        "end": "617.17",
-        "confidence": "1.000",
-        "text": "completely",
-        "offset": 55,
-        "length": 10,
-        "key": expect.any(String)//"sp2aqmf"
-      },
-      {
-        "start": "617.17",
-        "end": "617.29",
-        "confidence": "1.000",
-        "text": "new",
-        "offset": 66,
-        "length": 3,
-        "key": expect.any(String)//"v46691j"
-      },
-      {
-        "start": "617.29",
-        "end": "617.5899999999999",
-        "confidence": "1.000",
-        "text": "level",
-        "offset": 70,
-        "length": 5,
-        "key": expect.any(String)//"rtvnedo"
-      },
-      {
-        "start": "617.62",
-        "end": "617.86",
-        "confidence": "1.000",
-        "text": "because",
-        "offset": 76,
-        "length": 7,
-        "key": expect.any(String)//"a8o01ga"
-      },
-      {
-        "start": "617.86",
-        "end": "617.95",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 84,
-        "length": 2,
-        "key": expect.any(String)//"rxprp1"
-      },
-      {
-        "start": "617.95",
-        "end": "618.1600000000001",
-        "confidence": "1.000",
-        "text": "this",
-        "offset": 87,
-        "length": 4,
-        "key": expect.any(String)//"t3giab"
-      },
-      {
-        "start": "618.16",
-        "end": "618.8199999999999",
-        "confidence": "1.000",
-        "text": "visceral",
-        "offset": 92,
-        "length": 8,
-        "key": expect.any(String)//"h8zokqg"
-      },
-      {
-        "start": "618.82",
-        "end": "619.75",
-        "confidence": "1.000",
-        "text": "physicality",
-        "offset": 101,
-        "length": 11,
-        "key": expect.any(String)//"wafozxr"
-      },
-      {
-        "start": "619.75",
-        "end": "619.93",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 113,
-        "length": 4,
-        "key": expect.any(String)//"uvoysw"
-      },
-      {
-        "start": "619.93",
-        "end": "620.05",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 118,
-        "length": 2,
-        "key": expect.any(String)//"u6qgknq"
-      },
-      {
-        "start": "620.05",
-        "end": "620.7099999999999",
-        "confidence": "1.000",
-        "text": "respond",
-        "offset": 121,
-        "length": 7,
-        "key": expect.any(String)//"s5rtso8"
-      },
-      {
-        "start": "620.71",
-        "end": "621.1",
-        "confidence": "1.000",
-        "text": "more",
-        "offset": 129,
-        "length": 4,
-        "key": expect.any(String)//"ximrwg5"
-      },
-      {
-        "start": "621.10",
-        "end": "621.76",
-        "confidence": "1.000",
-        "text": "intensely",
-        "offset": 134,
-        "length": 9,
-        "key": expect.any(String)//"o3zfe4"
-      },
-      {
-        "start": "621.76",
-        "end": "622.18",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 144,
-        "length": 2,
-        "key": expect.any(String)//"j7uniyc"
-      },
-      {
-        "start": "622.45",
-        "end": "622.6",
-        "confidence": "0.990",
-        "text": "than",
-        "offset": 147,
-        "length": 4,
-        "key": expect.any(String)//"0xtdccl"
-      },
-      {
-        "start": "622.60",
-        "end": "622.72",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 152,
-        "length": 2,
-        "key": expect.any(String)//"kgxc7e"
-      },
-      {
-        "start": "622.72",
-        "end": "623.14",
-        "confidence": "1.000",
-        "text": "images",
-        "offset": 155,
-        "length": 6,
-        "key": expect.any(String)//"pos54idg"
-      },
-      {
-        "start": "623.14",
-        "end": "623.26",
-        "confidence": "1.000",
-        "text": "on",
-        "offset": 162,
-        "length": 2,
-        "key": expect.any(String)//"quis58"
-      },
-      {
-        "start": "623.26",
-        "end": "623.3199999999999",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 165,
-        "length": 1,
-        "key": expect.any(String)//"j3sgl4q"
-      },
-      {
-        "start": "623.32",
-        "end": "623.8900000000001",
-        "confidence": "1.000",
-        "text": "screen.",
-        "offset": 167,
-        "length": 7,
-        "key": expect.any(String)//"h85tntj"
-      }
-    ]
-  },
-  {
-    "text": "When we behave violently towards robots specifically robots that are designed to mimic life.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "625.70",
           "end": "625.85",
@@ -28333,145 +26578,7 @@ const draftTranscriptExample = [
           "word": "life",
           "punct": "life.",
           "index": 1610
-        }
-      ],
-      "start": "625.70"
-    },
-    "entityRanges": [
-      {
-        "start": "625.70",
-        "end": "625.85",
-        "confidence": "1.000",
-        "text": "When",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"g25oj1m"
-      },
-      {
-        "start": "625.85",
-        "end": "625.97",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 5,
-        "length": 2,
-        "key": expect.any(String)//"650uyu"
-      },
-      {
-        "start": "625.97",
-        "end": "626.24",
-        "confidence": "1.000",
-        "text": "behave",
-        "offset": 8,
-        "length": 6,
-        "key": expect.any(String)//"xg6c1lj"
-      },
-      {
-        "start": "626.24",
-        "end": "626.9",
-        "confidence": "1.000",
-        "text": "violently",
-        "offset": 15,
-        "length": 9,
-        "key": expect.any(String)//"5d563th"
-      },
-      {
-        "start": "626.90",
-        "end": "627.41",
-        "confidence": "1.000",
-        "text": "towards",
-        "offset": 25,
-        "length": 7,
-        "key": expect.any(String)//"0ljfz6l"
-      },
-      {
-        "start": "627.41",
-        "end": "628.0699999999999",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 33,
-        "length": 6,
-        "key": expect.any(String)//"xvskwj4"
-      },
-      {
-        "start": "628.13",
-        "end": "628.85",
-        "confidence": "1.000",
-        "text": "specifically",
-        "offset": 40,
-        "length": 12,
-        "key": expect.any(String)//"0gpkftq"
-      },
-      {
-        "start": "628.85",
-        "end": "629.21",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 53,
-        "length": 6,
-        "key": expect.any(String)//"tl5lga"
-      },
-      {
-        "start": "629.21",
-        "end": "629.39",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 60,
-        "length": 4,
-        "key": expect.any(String)//"t7pcia"
-      },
-      {
-        "start": "629.39",
-        "end": "629.48",
-        "confidence": "1.000",
-        "text": "are",
-        "offset": 65,
-        "length": 3,
-        "key": expect.any(String)//"3a7kpft"
-      },
-      {
-        "start": "629.48",
-        "end": "629.9300000000001",
-        "confidence": "1.000",
-        "text": "designed",
-        "offset": 69,
-        "length": 8,
-        "key": expect.any(String)//"ahbdujw"
-      },
-      {
-        "start": "629.93",
-        "end": "630.0799999999999",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 78,
-        "length": 2,
-        "key": expect.any(String)//"r69i1ch"
-      },
-      {
-        "start": "630.08",
-        "end": "630.4100000000001",
-        "confidence": "1.000",
-        "text": "mimic",
-        "offset": 81,
-        "length": 5,
-        "key": expect.any(String)//"12edg6f"
-      },
-      {
-        "start": "630.41",
-        "end": "631.42",
-        "confidence": "1.000",
-        "text": "life.",
-        "offset": 87,
-        "length": 5,
-        "key": expect.any(String)//"x8052uq"
-      }
-    ]
-  },
-  {
-    "text": "Is that.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "631.43",
           "end": "631.5799999999999",
@@ -28487,37 +26594,7 @@ const draftTranscriptExample = [
           "word": "that",
           "punct": "that.",
           "index": 1612
-        }
-      ],
-      "start": "631.43"
-    },
-    "entityRanges": [
-      {
-        "start": "631.43",
-        "end": "631.5799999999999",
-        "confidence": "1.000",
-        "text": "Is",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"cn0u33r"
-      },
-      {
-        "start": "631.58",
-        "end": "631.88",
-        "confidence": "1.000",
-        "text": "that.",
-        "offset": 3,
-        "length": 5,
-        "key": expect.any(String)//"qqbhvvm"
-      }
-    ]
-  },
-  {
-    "text": "A healthy outlet for violent behavior.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "632.60",
           "end": "632.66",
@@ -28565,73 +26642,7 @@ const draftTranscriptExample = [
           "word": "behavior",
           "punct": "behavior.",
           "index": 1618
-        }
-      ],
-      "start": "632.60"
-    },
-    "entityRanges": [
-      {
-        "start": "632.60",
-        "end": "632.66",
-        "confidence": "1.000",
-        "text": "A",
-        "offset": 0,
-        "length": 1,
-        "key": expect.any(String)//"jwe39y"
-      },
-      {
-        "start": "632.66",
-        "end": "633.05",
-        "confidence": "1.000",
-        "text": "healthy",
-        "offset": 2,
-        "length": 7,
-        "key": expect.any(String)//"5oj49cpg"
-      },
-      {
-        "start": "633.05",
-        "end": "633.4699999999999",
-        "confidence": "1.000",
-        "text": "outlet",
-        "offset": 10,
-        "length": 6,
-        "key": expect.any(String)//"cap0md"
-      },
-      {
-        "start": "633.47",
-        "end": "633.65",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 17,
-        "length": 3,
-        "key": expect.any(String)//"w8agbvh"
-      },
-      {
-        "start": "633.65",
-        "end": "633.9499999999999",
-        "confidence": "1.000",
-        "text": "violent",
-        "offset": 21,
-        "length": 7,
-        "key": expect.any(String)//"2x5byik"
-      },
-      {
-        "start": "633.95",
-        "end": "634.5500000000001",
-        "confidence": "0.910",
-        "text": "behavior.",
-        "offset": 29,
-        "length": 9,
-        "key": expect.any(String)//"rd7qjvc"
-      }
-    ]
-  },
-  {
-    "text": "Or is that training or cruelty muscles.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "635.36",
           "end": "635.48",
@@ -28687,82 +26698,7 @@ const draftTranscriptExample = [
           "word": "muscles",
           "punct": "muscles.",
           "index": 1625
-        }
-      ],
-      "start": "635.36"
-    },
-    "entityRanges": [
-      {
-        "start": "635.36",
-        "end": "635.48",
-        "confidence": "1.000",
-        "text": "Or",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"0mckhlq"
-      },
-      {
-        "start": "635.48",
-        "end": "635.6",
-        "confidence": "1.000",
-        "text": "is",
-        "offset": 3,
-        "length": 2,
-        "key": expect.any(String)//"hd1av6"
-      },
-      {
-        "start": "635.60",
-        "end": "635.87",
-        "confidence": "1.000",
-        "text": "that",
-        "offset": 6,
-        "length": 4,
-        "key": expect.any(String)//"s58dlw"
-      },
-      {
-        "start": "635.93",
-        "end": "636.4399999999999",
-        "confidence": "1.000",
-        "text": "training",
-        "offset": 11,
-        "length": 8,
-        "key": expect.any(String)//"6glug9"
-      },
-      {
-        "start": "636.44",
-        "end": "636.5300000000001",
-        "confidence": "1.000",
-        "text": "or",
-        "offset": 20,
-        "length": 2,
-        "key": expect.any(String)//"d1dbfde"
-      },
-      {
-        "start": "636.53",
-        "end": "637.04",
-        "confidence": "1.000",
-        "text": "cruelty",
-        "offset": 23,
-        "length": 7,
-        "key": expect.any(String)//"kji6lx"
-      },
-      {
-        "start": "637.04",
-        "end": "637.9399999999999",
-        "confidence": "0.950",
-        "text": "muscles.",
-        "offset": 31,
-        "length": 8,
-        "key": expect.any(String)//"gx48ip4"
-      }
-    ]
-  },
-  {
-    "text": "We don't know.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "639.53",
           "end": "639.68",
@@ -28788,43 +26724,1159 @@ const draftTranscriptExample = [
           "index": 1628
         }
       ],
-      "start": "639.53"
+      "start": "585.69"
     },
     "entityRanges": [
+      {
+        "start": "585.69",
+        "end": "585.87",
+        "confidence": "1.000",
+        "text": "But",
+        "offset": 0,
+        "length": 3,
+        "key": expect.any(String)//"4dp6a8a"
+      },
+      {
+        "start": "585.87",
+        "end": "586.11",
+        "confidence": "1.000",
+        "text": "my",
+        "offset": 4,
+        "length": 2,
+        "key": expect.any(String)//"8819q4m"
+      },
+      {
+        "start": "586.11",
+        "end": "586.83",
+        "confidence": "1.000",
+        "text": "question",
+        "offset": 7,
+        "length": 8,
+        "key": expect.any(String)//"yat9zkf"
+      },
+      {
+        "start": "586.83",
+        "end": "587.01",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 16,
+        "length": 3,
+        "key": expect.any(String)//"9r0tg5"
+      },
+      {
+        "start": "587.01",
+        "end": "587.1",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 20,
+        "length": 3,
+        "key": expect.any(String)//"sucp5db"
+      },
+      {
+        "start": "587.10",
+        "end": "587.5500000000001",
+        "confidence": "1.000",
+        "text": "coming",
+        "offset": 24,
+        "length": 6,
+        "key": expect.any(String)//"86c31qa"
+      },
+      {
+        "start": "587.55",
+        "end": "587.9399999999999",
+        "confidence": "1.000",
+        "text": "era",
+        "offset": 31,
+        "length": 3,
+        "key": expect.any(String)//"48nefej"
+      },
+      {
+        "start": "587.97",
+        "end": "588.12",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 35,
+        "length": 2,
+        "key": expect.any(String)//"o80jq8i"
+      },
+      {
+        "start": "588.12",
+        "end": "588.42",
+        "confidence": "1.000",
+        "text": "human",
+        "offset": 38,
+        "length": 5,
+        "key": expect.any(String)//"v1tyok"
+      },
+      {
+        "start": "588.42",
+        "end": "588.6899999999999",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 44,
+        "length": 5,
+        "key": expect.any(String)//"rpo8agr"
+      },
+      {
+        "start": "588.69",
+        "end": "589.3800000000001",
+        "confidence": "1.000",
+        "text": "interaction",
+        "offset": 50,
+        "length": 11,
+        "key": expect.any(String)//"iigoloq"
+      },
+      {
+        "start": "589.41",
+        "end": "589.56",
+        "confidence": "1.000",
+        "text": "is",
+        "offset": 62,
+        "length": 2,
+        "key": expect.any(String)//"m82jlg8"
+      },
+      {
+        "start": "589.56",
+        "end": "590.01",
+        "confidence": "1.000",
+        "text": "not",
+        "offset": 65,
+        "length": 3,
+        "key": expect.any(String)//"f3jaf6l"
+      },
+      {
+        "start": "590.46",
+        "end": "590.61",
+        "confidence": "0.990",
+        "text": "Do",
+        "offset": 69,
+        "length": 2,
+        "key": expect.any(String)//"pzkrwiv"
+      },
+      {
+        "start": "590.61",
+        "end": "590.76",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 72,
+        "length": 2,
+        "key": expect.any(String)//"y44trm"
+      },
+      {
+        "start": "590.76",
+        "end": "591.42",
+        "confidence": "1.000",
+        "text": "empathize",
+        "offset": 75,
+        "length": 9,
+        "key": expect.any(String)//"jaezc2r"
+      },
+      {
+        "start": "591.42",
+        "end": "591.5999999999999",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 85,
+        "length": 4,
+        "key": expect.any(String)//"2rwzjyb"
+      },
+      {
+        "start": "591.60",
+        "end": "593.02",
+        "confidence": "1.000",
+        "text": "robots.",
+        "offset": 90,
+        "length": 7,
+        "key": expect.any(String)//"13vjwtc"
+      },
+      {
+        "start": "593.21",
+        "end": "593.4200000000001",
+        "confidence": "0.960",
+        "text": "It's",
+        "offset": 98,
+        "length": 4,
+        "key": expect.any(String)//"99ik0vk"
+      },
+      {
+        "start": "593.43",
+        "end": "593.8199999999999",
+        "confidence": "1.000",
+        "text": "can",
+        "offset": 103,
+        "length": 3,
+        "key": expect.any(String)//"mqftt0m"
+      },
+      {
+        "start": "593.82",
+        "end": "594.3000000000001",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 107,
+        "length": 6,
+        "key": expect.any(String)//"ud6wwtk"
+      },
+      {
+        "start": "594.33",
+        "end": "594.99",
+        "confidence": "1.000",
+        "text": "change",
+        "offset": 114,
+        "length": 6,
+        "key": expect.any(String)//"bczrnc"
+      },
+      {
+        "start": "594.99",
+        "end": "595.41",
+        "confidence": "1.000",
+        "text": "people's",
+        "offset": 121,
+        "length": 8,
+        "key": expect.any(String)//"83twhsk"
+      },
+      {
+        "start": "595.41",
+        "end": "597.2099999999999",
+        "confidence": "1.000",
+        "text": "empathy.",
+        "offset": 130,
+        "length": 8,
+        "key": expect.any(String)//"jdb7kx"
+      },
+      {
+        "start": "597.54",
+        "end": "597.6899999999999",
+        "confidence": "1.000",
+        "text": "Is",
+        "offset": 139,
+        "length": 2,
+        "key": expect.any(String)//"m40kxar"
+      },
+      {
+        "start": "597.69",
+        "end": "597.84",
+        "confidence": "0.890",
+        "text": "there",
+        "offset": 142,
+        "length": 5,
+        "key": expect.any(String)//"xv6ix7l"
+      },
+      {
+        "start": "597.84",
+        "end": "598.26",
+        "confidence": "1.000",
+        "text": "reason",
+        "offset": 148,
+        "length": 6,
+        "key": expect.any(String)//"f7vj0ya"
+      },
+      {
+        "start": "598.26",
+        "end": "598.5",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 155,
+        "length": 2,
+        "key": expect.any(String)//"ud7ssco"
+      },
+      {
+        "start": "598.50",
+        "end": "598.71",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 158,
+        "length": 3,
+        "key": expect.any(String)//"tmr1f9i"
+      },
+      {
+        "start": "598.71",
+        "end": "599.46",
+        "confidence": "1.000",
+        "text": "example",
+        "offset": 162,
+        "length": 7,
+        "key": expect.any(String)//"jjdj59p"
+      },
+      {
+        "start": "599.79",
+        "end": "600.15",
+        "confidence": "1.000",
+        "text": "prevent",
+        "offset": 170,
+        "length": 7,
+        "key": expect.any(String)//"mfxd47f"
+      },
+      {
+        "start": "600.15",
+        "end": "600.24",
+        "confidence": "1.000",
+        "text": "your",
+        "offset": 178,
+        "length": 4,
+        "key": expect.any(String)//"ygq686p"
+      },
+      {
+        "start": "600.24",
+        "end": "600.72",
+        "confidence": "1.000",
+        "text": "child",
+        "offset": 183,
+        "length": 5,
+        "key": expect.any(String)//"6kbm4y"
+      },
+      {
+        "start": "600.72",
+        "end": "600.87",
+        "confidence": "1.000",
+        "text": "from",
+        "offset": 189,
+        "length": 4,
+        "key": expect.any(String)//"u0b8gdk"
+      },
+      {
+        "start": "600.87",
+        "end": "601.26",
+        "confidence": "1.000",
+        "text": "kicking",
+        "offset": 194,
+        "length": 7,
+        "key": expect.any(String)//"0q5jhn"
+      },
+      {
+        "start": "601.26",
+        "end": "601.3199999999999",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 202,
+        "length": 1,
+        "key": expect.any(String)//"4j3p74e"
+      },
+      {
+        "start": "601.32",
+        "end": "601.71",
+        "confidence": "1.000",
+        "text": "robotic",
+        "offset": 204,
+        "length": 7,
+        "key": expect.any(String)//"dxp7pfm"
+      },
+      {
+        "start": "601.71",
+        "end": "602.0400000000001",
+        "confidence": "1.000",
+        "text": "dog.",
+        "offset": 212,
+        "length": 4,
+        "key": expect.any(String)//"wusm5tk"
+      },
+      {
+        "start": "603.24",
+        "end": "603.54",
+        "confidence": "1.000",
+        "text": "Not",
+        "offset": 217,
+        "length": 3,
+        "key": expect.any(String)//"rtcq9p"
+      },
+      {
+        "start": "603.54",
+        "end": "603.9599999999999",
+        "confidence": "1.000",
+        "text": "just",
+        "offset": 221,
+        "length": 4,
+        "key": expect.any(String)//"hfqsiht"
+      },
+      {
+        "start": "603.96",
+        "end": "604.08",
+        "confidence": "1.000",
+        "text": "out",
+        "offset": 226,
+        "length": 3,
+        "key": expect.any(String)//"4zf1gzh"
+      },
+      {
+        "start": "604.08",
+        "end": "604.1700000000001",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 230,
+        "length": 2,
+        "key": expect.any(String)//"lz2xgbl"
+      },
+      {
+        "start": "604.17",
+        "end": "604.65",
+        "confidence": "1.000",
+        "text": "respect",
+        "offset": 233,
+        "length": 7,
+        "key": expect.any(String)//"qp0yxf"
+      },
+      {
+        "start": "604.65",
+        "end": "604.8",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 241,
+        "length": 3,
+        "key": expect.any(String)//"g8h1kmf"
+      },
+      {
+        "start": "604.80",
+        "end": "605.49",
+        "confidence": "1.000",
+        "text": "property",
+        "offset": 245,
+        "length": 8,
+        "key": expect.any(String)//"jgcjvhn"
+      },
+      {
+        "start": "606.18",
+        "end": "606.3",
+        "confidence": "1.000",
+        "text": "but",
+        "offset": 254,
+        "length": 3,
+        "key": expect.any(String)//"nmknx2"
+      },
+      {
+        "start": "606.30",
+        "end": "606.81",
+        "confidence": "1.000",
+        "text": "because",
+        "offset": 258,
+        "length": 7,
+        "key": expect.any(String)//"gz28p8"
+      },
+      {
+        "start": "606.81",
+        "end": "606.93",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 266,
+        "length": 3,
+        "key": expect.any(String)//"vemov2"
+      },
+      {
+        "start": "606.93",
+        "end": "607.2299999999999",
+        "confidence": "1.000",
+        "text": "child",
+        "offset": 270,
+        "length": 5,
+        "key": expect.any(String)//"na0o3d"
+      },
+      {
+        "start": "607.23",
+        "end": "607.38",
+        "confidence": "0.950",
+        "text": "might",
+        "offset": 276,
+        "length": 5,
+        "key": expect.any(String)//"83ywtp"
+      },
+      {
+        "start": "607.38",
+        "end": "607.5",
+        "confidence": "1.000",
+        "text": "be",
+        "offset": 282,
+        "length": 2,
+        "key": expect.any(String)//"prgrgj9"
+      },
+      {
+        "start": "607.50",
+        "end": "607.65",
+        "confidence": "1.000",
+        "text": "more",
+        "offset": 285,
+        "length": 4,
+        "key": expect.any(String)//"45rc8qk"
+      },
+      {
+        "start": "607.65",
+        "end": "607.98",
+        "confidence": "1.000",
+        "text": "likely",
+        "offset": 290,
+        "length": 6,
+        "key": expect.any(String)//"ux75wuj"
+      },
+      {
+        "start": "607.98",
+        "end": "608.07",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 297,
+        "length": 2,
+        "key": expect.any(String)//"rcwzcn"
+      },
+      {
+        "start": "608.07",
+        "end": "608.2800000000001",
+        "confidence": "0.610",
+        "text": "kick",
+        "offset": 300,
+        "length": 4,
+        "key": expect.any(String)//"n7bn0yh"
+      },
+      {
+        "start": "608.28",
+        "end": "608.3399999999999",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 305,
+        "length": 1,
+        "key": expect.any(String)//"zq9o9kb"
+      },
+      {
+        "start": "608.34",
+        "end": "608.5500000000001",
+        "confidence": "1.000",
+        "text": "real",
+        "offset": 307,
+        "length": 4,
+        "key": expect.any(String)//"dvbl68q"
+      },
+      {
+        "start": "608.55",
+        "end": "608.9699999999999",
+        "confidence": "1.000",
+        "text": "dog.",
+        "offset": 312,
+        "length": 4,
+        "key": expect.any(String)//"m2142vq"
+      },
+      {
+        "start": "610.54",
+        "end": "610.6899999999999",
+        "confidence": "1.000",
+        "text": "And",
+        "offset": 317,
+        "length": 3,
+        "key": expect.any(String)//"yxv3qvi"
+      },
+      {
+        "start": "610.69",
+        "end": "610.99",
+        "confidence": "1.000",
+        "text": "again",
+        "offset": 321,
+        "length": 5,
+        "key": expect.any(String)//"obu5km"
+      },
+      {
+        "start": "610.99",
+        "end": "611.17",
+        "confidence": "1.000",
+        "text": "it's",
+        "offset": 327,
+        "length": 4,
+        "key": expect.any(String)//"ieywep5"
+      },
+      {
+        "start": "611.17",
+        "end": "611.4699999999999",
+        "confidence": "1.000",
+        "text": "not",
+        "offset": 332,
+        "length": 3,
+        "key": expect.any(String)//"chsj87r"
+      },
+      {
+        "start": "611.47",
+        "end": "611.71",
+        "confidence": "1.000",
+        "text": "just",
+        "offset": 336,
+        "length": 4,
+        "key": expect.any(String)//"mq5m74"
+      },
+      {
+        "start": "611.71",
+        "end": "613.33",
+        "confidence": "1.000",
+        "text": "kids.",
+        "offset": 341,
+        "length": 5,
+        "key": expect.any(String)//"alubl58a"
+      },
+      {
+        "start": "613.54",
+        "end": "613.78",
+        "confidence": "1.000",
+        "text": "This",
+        "offset": 347,
+        "length": 4,
+        "key": expect.any(String)//"xiv17xo"
+      },
+      {
+        "start": "613.78",
+        "end": "613.93",
+        "confidence": "1.000",
+        "text": "is",
+        "offset": 352,
+        "length": 2,
+        "key": expect.any(String)//"u2vy7s"
+      },
+      {
+        "start": "613.93",
+        "end": "614.3199999999999",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 355,
+        "length": 3,
+        "key": expect.any(String)//"2b1k187"
+      },
+      {
+        "start": "614.44",
+        "end": "615.0100000000001",
+        "confidence": "1.000",
+        "text": "violent",
+        "offset": 359,
+        "length": 7,
+        "key": expect.any(String)//"pr6996m"
+      },
+      {
+        "start": "615.10",
+        "end": "615.4",
+        "confidence": "1.000",
+        "text": "video",
+        "offset": 367,
+        "length": 5,
+        "key": expect.any(String)//"185n21o"
+      },
+      {
+        "start": "615.40",
+        "end": "615.6999999999999",
+        "confidence": "1.000",
+        "text": "games",
+        "offset": 373,
+        "length": 5,
+        "key": expect.any(String)//"6o7d2g4"
+      },
+      {
+        "start": "615.70",
+        "end": "616.12",
+        "confidence": "1.000",
+        "text": "question",
+        "offset": 379,
+        "length": 8,
+        "key": expect.any(String)//"3voqg6m"
+      },
+      {
+        "start": "616.15",
+        "end": "616.3",
+        "confidence": "1.000",
+        "text": "but",
+        "offset": 388,
+        "length": 3,
+        "key": expect.any(String)//"xvm53qc"
+      },
+      {
+        "start": "616.30",
+        "end": "616.42",
+        "confidence": "0.990",
+        "text": "it's",
+        "offset": 392,
+        "length": 4,
+        "key": expect.any(String)//"hbdzwzj"
+      },
+      {
+        "start": "616.42",
+        "end": "616.51",
+        "confidence": "0.950",
+        "text": "on",
+        "offset": 397,
+        "length": 2,
+        "key": expect.any(String)//"f10ykfq"
+      },
+      {
+        "start": "616.51",
+        "end": "616.54",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 400,
+        "length": 1,
+        "key": expect.any(String)//"3d3u5l"
+      },
+      {
+        "start": "616.54",
+        "end": "617.17",
+        "confidence": "1.000",
+        "text": "completely",
+        "offset": 402,
+        "length": 10,
+        "key": expect.any(String)//"8jhbg4"
+      },
+      {
+        "start": "617.17",
+        "end": "617.29",
+        "confidence": "1.000",
+        "text": "new",
+        "offset": 413,
+        "length": 3,
+        "key": expect.any(String)//"ejkodb"
+      },
+      {
+        "start": "617.29",
+        "end": "617.5899999999999",
+        "confidence": "1.000",
+        "text": "level",
+        "offset": 417,
+        "length": 5,
+        "key": expect.any(String)//"q702j0g"
+      },
+      {
+        "start": "617.62",
+        "end": "617.86",
+        "confidence": "1.000",
+        "text": "because",
+        "offset": 423,
+        "length": 7,
+        "key": expect.any(String)//"kerc1j"
+      },
+      {
+        "start": "617.86",
+        "end": "617.95",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 431,
+        "length": 2,
+        "key": expect.any(String)//"duvzs9a"
+      },
+      {
+        "start": "617.95",
+        "end": "618.1600000000001",
+        "confidence": "1.000",
+        "text": "this",
+        "offset": 434,
+        "length": 4,
+        "key": expect.any(String)//"prayqb9"
+      },
+      {
+        "start": "618.16",
+        "end": "618.8199999999999",
+        "confidence": "1.000",
+        "text": "visceral",
+        "offset": 439,
+        "length": 8,
+        "key": expect.any(String)//"rf339ke"
+      },
+      {
+        "start": "618.82",
+        "end": "619.75",
+        "confidence": "1.000",
+        "text": "physicality",
+        "offset": 448,
+        "length": 11,
+        "key": expect.any(String)//"0wbd2sb"
+      },
+      {
+        "start": "619.75",
+        "end": "619.93",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 460,
+        "length": 4,
+        "key": expect.any(String)//"o6ihq0c"
+      },
+      {
+        "start": "619.93",
+        "end": "620.05",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 465,
+        "length": 2,
+        "key": expect.any(String)//"x8m4e3"
+      },
+      {
+        "start": "620.05",
+        "end": "620.7099999999999",
+        "confidence": "1.000",
+        "text": "respond",
+        "offset": 468,
+        "length": 7,
+        "key": expect.any(String)//"4ndg9kg"
+      },
+      {
+        "start": "620.71",
+        "end": "621.1",
+        "confidence": "1.000",
+        "text": "more",
+        "offset": 476,
+        "length": 4,
+        "key": expect.any(String)//"ve05a9m"
+      },
+      {
+        "start": "621.10",
+        "end": "621.76",
+        "confidence": "1.000",
+        "text": "intensely",
+        "offset": 481,
+        "length": 9,
+        "key": expect.any(String)//"nxitnjd"
+      },
+      {
+        "start": "621.76",
+        "end": "622.18",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 491,
+        "length": 2,
+        "key": expect.any(String)//"nb3x1tf"
+      },
+      {
+        "start": "622.45",
+        "end": "622.6",
+        "confidence": "0.990",
+        "text": "than",
+        "offset": 494,
+        "length": 4,
+        "key": expect.any(String)//"q161onk"
+      },
+      {
+        "start": "622.60",
+        "end": "622.72",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 499,
+        "length": 2,
+        "key": expect.any(String)//"75ve9rk"
+      },
+      {
+        "start": "622.72",
+        "end": "623.14",
+        "confidence": "1.000",
+        "text": "images",
+        "offset": 502,
+        "length": 6,
+        "key": expect.any(String)//"639bahg"
+      },
+      {
+        "start": "623.14",
+        "end": "623.26",
+        "confidence": "1.000",
+        "text": "on",
+        "offset": 509,
+        "length": 2,
+        "key": expect.any(String)//"r5p879j"
+      },
+      {
+        "start": "623.26",
+        "end": "623.3199999999999",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 512,
+        "length": 1,
+        "key": expect.any(String)//"06snjb3p"
+      },
+      {
+        "start": "623.32",
+        "end": "623.8900000000001",
+        "confidence": "1.000",
+        "text": "screen.",
+        "offset": 514,
+        "length": 7,
+        "key": expect.any(String)//"ohesw0j"
+      },
+      {
+        "start": "625.70",
+        "end": "625.85",
+        "confidence": "1.000",
+        "text": "When",
+        "offset": 522,
+        "length": 4,
+        "key": expect.any(String)//"sw6czt7"
+      },
+      {
+        "start": "625.85",
+        "end": "625.97",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 527,
+        "length": 2,
+        "key": expect.any(String)//"qnxapjv"
+      },
+      {
+        "start": "625.97",
+        "end": "626.24",
+        "confidence": "1.000",
+        "text": "behave",
+        "offset": 530,
+        "length": 6,
+        "key": expect.any(String)//"ov6j9ku"
+      },
+      {
+        "start": "626.24",
+        "end": "626.9",
+        "confidence": "1.000",
+        "text": "violently",
+        "offset": 537,
+        "length": 9,
+        "key": expect.any(String)//"v1ybpbd"
+      },
+      {
+        "start": "626.90",
+        "end": "627.41",
+        "confidence": "1.000",
+        "text": "towards",
+        "offset": 547,
+        "length": 7,
+        "key": expect.any(String)//"rf242ld"
+      },
+      {
+        "start": "627.41",
+        "end": "628.0699999999999",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 555,
+        "length": 6,
+        "key": expect.any(String)//"n0q0j04"
+      },
+      {
+        "start": "628.13",
+        "end": "628.85",
+        "confidence": "1.000",
+        "text": "specifically",
+        "offset": 562,
+        "length": 12,
+        "key": expect.any(String)//"41uk9di"
+      },
+      {
+        "start": "628.85",
+        "end": "629.21",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 575,
+        "length": 6,
+        "key": expect.any(String)//"w15quse"
+      },
+      {
+        "start": "629.21",
+        "end": "629.39",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 582,
+        "length": 4,
+        "key": expect.any(String)//"717x3xi"
+      },
+      {
+        "start": "629.39",
+        "end": "629.48",
+        "confidence": "1.000",
+        "text": "are",
+        "offset": 587,
+        "length": 3,
+        "key": expect.any(String)//"owfoa2b"
+      },
+      {
+        "start": "629.48",
+        "end": "629.9300000000001",
+        "confidence": "1.000",
+        "text": "designed",
+        "offset": 591,
+        "length": 8,
+        "key": expect.any(String)//"smx036t"
+      },
+      {
+        "start": "629.93",
+        "end": "630.0799999999999",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 600,
+        "length": 2,
+        "key": expect.any(String)//"o7kr8ol"
+      },
+      {
+        "start": "630.08",
+        "end": "630.4100000000001",
+        "confidence": "1.000",
+        "text": "mimic",
+        "offset": 603,
+        "length": 5,
+        "key": expect.any(String)//"7o95jl9"
+      },
+      {
+        "start": "630.41",
+        "end": "631.42",
+        "confidence": "1.000",
+        "text": "life.",
+        "offset": 609,
+        "length": 5,
+        "key": expect.any(String)//"vespjpw"
+      },
+      {
+        "start": "631.43",
+        "end": "631.5799999999999",
+        "confidence": "1.000",
+        "text": "Is",
+        "offset": 615,
+        "length": 2,
+        "key": expect.any(String)//"soebv3n7"
+      },
+      {
+        "start": "631.58",
+        "end": "631.88",
+        "confidence": "1.000",
+        "text": "that.",
+        "offset": 618,
+        "length": 5,
+        "key": expect.any(String)//"nzic4pn"
+      },
+      {
+        "start": "632.60",
+        "end": "632.66",
+        "confidence": "1.000",
+        "text": "A",
+        "offset": 624,
+        "length": 1,
+        "key": expect.any(String)//"hbf7rw"
+      },
+      {
+        "start": "632.66",
+        "end": "633.05",
+        "confidence": "1.000",
+        "text": "healthy",
+        "offset": 626,
+        "length": 7,
+        "key": expect.any(String)//"q0mmm9h"
+      },
+      {
+        "start": "633.05",
+        "end": "633.4699999999999",
+        "confidence": "1.000",
+        "text": "outlet",
+        "offset": 634,
+        "length": 6,
+        "key": expect.any(String)//"zruwmq"
+      },
+      {
+        "start": "633.47",
+        "end": "633.65",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 641,
+        "length": 3,
+        "key": expect.any(String)//"30uvny2"
+      },
+      {
+        "start": "633.65",
+        "end": "633.9499999999999",
+        "confidence": "1.000",
+        "text": "violent",
+        "offset": 645,
+        "length": 7,
+        "key": expect.any(String)//"7gttb5e"
+      },
+      {
+        "start": "633.95",
+        "end": "634.5500000000001",
+        "confidence": "0.910",
+        "text": "behavior.",
+        "offset": 653,
+        "length": 9,
+        "key": expect.any(String)//"n97v9qg"
+      },
+      {
+        "start": "635.36",
+        "end": "635.48",
+        "confidence": "1.000",
+        "text": "Or",
+        "offset": 663,
+        "length": 2,
+        "key": expect.any(String)//"o2wdo915"
+      },
+      {
+        "start": "635.48",
+        "end": "635.6",
+        "confidence": "1.000",
+        "text": "is",
+        "offset": 666,
+        "length": 2,
+        "key": expect.any(String)//"obm0tq9"
+      },
+      {
+        "start": "635.60",
+        "end": "635.87",
+        "confidence": "1.000",
+        "text": "that",
+        "offset": 669,
+        "length": 4,
+        "key": expect.any(String)//"jf38oa"
+      },
+      {
+        "start": "635.93",
+        "end": "636.4399999999999",
+        "confidence": "1.000",
+        "text": "training",
+        "offset": 674,
+        "length": 8,
+        "key": expect.any(String)//"qf4c4gu"
+      },
+      {
+        "start": "636.44",
+        "end": "636.5300000000001",
+        "confidence": "1.000",
+        "text": "or",
+        "offset": 683,
+        "length": 2,
+        "key": expect.any(String)//"jeg9vhsb"
+      },
+      {
+        "start": "636.53",
+        "end": "637.04",
+        "confidence": "1.000",
+        "text": "cruelty",
+        "offset": 686,
+        "length": 7,
+        "key": expect.any(String)//"p03v1f"
+      },
+      {
+        "start": "637.04",
+        "end": "637.9399999999999",
+        "confidence": "0.950",
+        "text": "muscles.",
+        "offset": 694,
+        "length": 8,
+        "key": expect.any(String)//"3bjfdqw"
+      },
       {
         "start": "639.53",
         "end": "639.68",
         "confidence": "1.000",
         "text": "We",
-        "offset": 0,
+        "offset": 703,
         "length": 2,
-        "key": expect.any(String)//"g056277"
+        "key": expect.any(String)//"tv0mh0r"
       },
       {
         "start": "639.68",
         "end": "639.8599999999999",
         "confidence": "1.000",
         "text": "don't",
-        "offset": 3,
+        "offset": 706,
         "length": 5,
-        "key": expect.any(String)//"na4o3mk"
+        "key": expect.any(String)//"xe6wcu"
       },
       {
         "start": "639.86",
         "end": "640.13",
         "confidence": "1.000",
         "text": "know.",
-        "offset": 9,
+        "offset": 712,
         "length": 5,
-        "key": expect.any(String)//"18hb45n"
+        "key": expect.any(String)//"4arhvec"
       }
     ]
   },
   {
-    "text": "But the answer to this question has the potential to impact human behavior.",
+    "text": "But the answer to this question has the potential to impact human behavior. It has the potential to impact social norms. It has the potential to inspire rules around what we can and can't do with certain robots similar to our animal cruelty laws. Because even if robots can't feel. Our behavior towards them might matter for us. And regardless of whether we end up changing our rules. Robots might be able to help us come to a new understanding of ourselves.",
     "type": "paragraph",
     "data": {
-      "speaker": "F3",
+      "speaker": "F4",
       "words": [
         {
           "start": "642.62",
@@ -28929,136 +27981,7 @@ const draftTranscriptExample = [
           "word": "behavior",
           "punct": "behavior.",
           "index": 1641
-        }
-      ],
-      "start": "642.62"
-    },
-    "entityRanges": [
-      {
-        "start": "642.62",
-        "end": "642.74",
-        "confidence": "1.000",
-        "text": "But",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"w5o8isi"
-      },
-      {
-        "start": "642.74",
-        "end": "642.89",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 4,
-        "length": 3,
-        "key": expect.any(String)//"lf7grc"
-      },
-      {
-        "start": "642.89",
-        "end": "643.28",
-        "confidence": "1.000",
-        "text": "answer",
-        "offset": 8,
-        "length": 6,
-        "key": expect.any(String)//"42em08m"
-      },
-      {
-        "start": "643.28",
-        "end": "643.37",
-        "confidence": "0.970",
-        "text": "to",
-        "offset": 15,
-        "length": 2,
-        "key": expect.any(String)//"czw4y7"
-      },
-      {
-        "start": "643.37",
-        "end": "643.49",
-        "confidence": "0.990",
-        "text": "this",
-        "offset": 18,
-        "length": 4,
-        "key": expect.any(String)//"zdisap"
-      },
-      {
-        "start": "643.49",
-        "end": "644.12",
-        "confidence": "1.000",
-        "text": "question",
-        "offset": 23,
-        "length": 8,
-        "key": expect.any(String)//"vf8vjhb"
-      },
-      {
-        "start": "644.12",
-        "end": "644.36",
-        "confidence": "1.000",
-        "text": "has",
-        "offset": 32,
-        "length": 3,
-        "key": expect.any(String)//"k0d08aa"
-      },
-      {
-        "start": "644.36",
-        "end": "644.42",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 36,
-        "length": 3,
-        "key": expect.any(String)//"bb5aklm"
-      },
-      {
-        "start": "644.42",
-        "end": "644.9",
-        "confidence": "1.000",
-        "text": "potential",
-        "offset": 40,
-        "length": 9,
-        "key": expect.any(String)//"8u6i3ja"
-      },
-      {
-        "start": "644.90",
-        "end": "645.02",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 50,
-        "length": 2,
-        "key": expect.any(String)//"ifwzlcna"
-      },
-      {
-        "start": "645.02",
-        "end": "645.47",
-        "confidence": "1.000",
-        "text": "impact",
-        "offset": 53,
-        "length": 6,
-        "key": expect.any(String)//"gtfm0jr"
-      },
-      {
-        "start": "645.47",
-        "end": "645.74",
-        "confidence": "1.000",
-        "text": "human",
-        "offset": 60,
-        "length": 5,
-        "key": expect.any(String)//"0xz6f2f"
-      },
-      {
-        "start": "645.74",
-        "end": "646.62",
-        "confidence": "0.950",
-        "text": "behavior.",
-        "offset": 66,
-        "length": 9,
-        "key": expect.any(String)//"h5jg6j"
-      }
-    ]
-  },
-  {
-    "text": "It has the potential to impact social norms.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "646.64",
           "end": "646.73",
@@ -29122,91 +28045,7 @@ const draftTranscriptExample = [
           "word": "norms",
           "punct": "norms.",
           "index": 1649
-        }
-      ],
-      "start": "646.64"
-    },
-    "entityRanges": [
-      {
-        "start": "646.64",
-        "end": "646.73",
-        "confidence": "0.990",
-        "text": "It",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"n9lsow"
-      },
-      {
-        "start": "646.73",
-        "end": "646.91",
-        "confidence": "1.000",
-        "text": "has",
-        "offset": 3,
-        "length": 3,
-        "key": expect.any(String)//"5kwoa0v"
-      },
-      {
-        "start": "646.91",
-        "end": "647",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 7,
-        "length": 3,
-        "key": expect.any(String)//"8ii0xys"
-      },
-      {
-        "start": "647.00",
-        "end": "647.45",
-        "confidence": "1.000",
-        "text": "potential",
-        "offset": 11,
-        "length": 9,
-        "key": expect.any(String)//"5zxivkv"
-      },
-      {
-        "start": "647.45",
-        "end": "647.5400000000001",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 21,
-        "length": 2,
-        "key": expect.any(String)//"nfecc4q"
-      },
-      {
-        "start": "647.54",
-        "end": "647.93",
-        "confidence": "1.000",
-        "text": "impact",
-        "offset": 24,
-        "length": 6,
-        "key": expect.any(String)//"vomtjmk"
-      },
-      {
-        "start": "647.93",
-        "end": "648.3199999999999",
-        "confidence": "1.000",
-        "text": "social",
-        "offset": 31,
-        "length": 6,
-        "key": expect.any(String)//"afqlxo7"
-      },
-      {
-        "start": "648.32",
-        "end": "649.3000000000001",
-        "confidence": "1.000",
-        "text": "norms.",
-        "offset": 38,
-        "length": 6,
-        "key": expect.any(String)//"0nyrus"
-      }
-    ]
-  },
-  {
-    "text": "It has the potential to inspire rules around what we can and can't do with certain robots similar to our animal cruelty laws.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "649.37",
           "end": "649.49",
@@ -29390,226 +28229,7 @@ const draftTranscriptExample = [
           "word": "laws",
           "punct": "laws.",
           "index": 1672
-        }
-      ],
-      "start": "649.37"
-    },
-    "entityRanges": [
-      {
-        "start": "649.37",
-        "end": "649.49",
-        "confidence": "1.000",
-        "text": "It",
-        "offset": 0,
-        "length": 2,
-        "key": expect.any(String)//"by1b6q"
-      },
-      {
-        "start": "649.49",
-        "end": "649.67",
-        "confidence": "1.000",
-        "text": "has",
-        "offset": 3,
-        "length": 3,
-        "key": expect.any(String)//"9hi673o"
-      },
-      {
-        "start": "649.67",
-        "end": "649.76",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 7,
-        "length": 3,
-        "key": expect.any(String)//"h6gcgzs"
-      },
-      {
-        "start": "649.76",
-        "end": "650.24",
-        "confidence": "1.000",
-        "text": "potential",
-        "offset": 11,
-        "length": 9,
-        "key": expect.any(String)//"k9zyuz"
-      },
-      {
-        "start": "650.24",
-        "end": "650.39",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 21,
-        "length": 2,
-        "key": expect.any(String)//"1mq85jp"
-      },
-      {
-        "start": "650.39",
-        "end": "650.84",
-        "confidence": "1.000",
-        "text": "inspire",
-        "offset": 24,
-        "length": 7,
-        "key": expect.any(String)//"86ceq3c"
-      },
-      {
-        "start": "650.84",
-        "end": "651.44",
-        "confidence": "1.000",
-        "text": "rules",
-        "offset": 32,
-        "length": 5,
-        "key": expect.any(String)//"1bggw8i"
-      },
-      {
-        "start": "651.47",
-        "end": "651.77",
-        "confidence": "1.000",
-        "text": "around",
-        "offset": 38,
-        "length": 6,
-        "key": expect.any(String)//"n5azmc7"
-      },
-      {
-        "start": "651.77",
-        "end": "651.92",
-        "confidence": "1.000",
-        "text": "what",
-        "offset": 45,
-        "length": 4,
-        "key": expect.any(String)//"y0wrdf4"
-      },
-      {
-        "start": "651.92",
-        "end": "652.2199999999999",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 50,
-        "length": 2,
-        "key": expect.any(String)//"k5n9hjo"
-      },
-      {
-        "start": "652.31",
-        "end": "652.67",
-        "confidence": "1.000",
-        "text": "can",
-        "offset": 53,
-        "length": 3,
-        "key": expect.any(String)//"pjd8s3"
-      },
-      {
-        "start": "652.67",
-        "end": "652.76",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 57,
-        "length": 3,
-        "key": expect.any(String)//"wiy3kvh"
-      },
-      {
-        "start": "652.76",
-        "end": "653.03",
-        "confidence": "1.000",
-        "text": "can't",
-        "offset": 61,
-        "length": 5,
-        "key": expect.any(String)//"x5xpfzy"
-      },
-      {
-        "start": "653.03",
-        "end": "653.24",
-        "confidence": "1.000",
-        "text": "do",
-        "offset": 67,
-        "length": 2,
-        "key": expect.any(String)//"6efavb"
-      },
-      {
-        "start": "653.24",
-        "end": "653.36",
-        "confidence": "1.000",
-        "text": "with",
-        "offset": 70,
-        "length": 4,
-        "key": expect.any(String)//"p1irwcw"
-      },
-      {
-        "start": "653.36",
-        "end": "653.6",
-        "confidence": "1.000",
-        "text": "certain",
-        "offset": 75,
-        "length": 7,
-        "key": expect.any(String)//"2x1ow0h"
-      },
-      {
-        "start": "653.60",
-        "end": "654.23",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 83,
-        "length": 6,
-        "key": expect.any(String)//"bogqx1n"
-      },
-      {
-        "start": "654.26",
-        "end": "654.68",
-        "confidence": "1.000",
-        "text": "similar",
-        "offset": 90,
-        "length": 7,
-        "key": expect.any(String)//"abg9tbp"
-      },
-      {
-        "start": "654.68",
-        "end": "654.8",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 98,
-        "length": 2,
-        "key": expect.any(String)//"deejf1"
-      },
-      {
-        "start": "654.80",
-        "end": "654.92",
-        "confidence": "1.000",
-        "text": "our",
-        "offset": 101,
-        "length": 3,
-        "key": expect.any(String)//"o7wz8mb"
-      },
-      {
-        "start": "655.01",
-        "end": "655.34",
-        "confidence": "1.000",
-        "text": "animal",
-        "offset": 105,
-        "length": 6,
-        "key": expect.any(String)//"jz2hy8h"
-      },
-      {
-        "start": "655.34",
-        "end": "655.73",
-        "confidence": "1.000",
-        "text": "cruelty",
-        "offset": 112,
-        "length": 7,
-        "key": expect.any(String)//"7s9b0x"
-      },
-      {
-        "start": "655.73",
-        "end": "656.74",
-        "confidence": "1.000",
-        "text": "laws.",
-        "offset": 120,
-        "length": 5,
-        "key": expect.any(String)//"7506nx5"
-      }
-    ]
-  },
-  {
-    "text": "Because even if robots can't feel.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "657.23",
           "end": "657.59",
@@ -29657,73 +28277,7 @@ const draftTranscriptExample = [
           "word": "feel",
           "punct": "feel.",
           "index": 1678
-        }
-      ],
-      "start": "657.23"
-    },
-    "entityRanges": [
-      {
-        "start": "657.23",
-        "end": "657.59",
-        "confidence": "1.000",
-        "text": "Because",
-        "offset": 0,
-        "length": 7,
-        "key": expect.any(String)//"t7a189w"
-      },
-      {
-        "start": "657.59",
-        "end": "657.89",
-        "confidence": "1.000",
-        "text": "even",
-        "offset": 8,
-        "length": 4,
-        "key": expect.any(String)//"div705t"
-      },
-      {
-        "start": "657.89",
-        "end": "658.01",
-        "confidence": "1.000",
-        "text": "if",
-        "offset": 13,
-        "length": 2,
-        "key": expect.any(String)//"nhew0k"
-      },
-      {
-        "start": "658.01",
-        "end": "658.43",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 16,
-        "length": 6,
-        "key": expect.any(String)//"xshwuxb"
-      },
-      {
-        "start": "658.43",
-        "end": "658.7299999999999",
-        "confidence": "1.000",
-        "text": "can't",
-        "offset": 23,
-        "length": 5,
-        "key": expect.any(String)//"wiqzs3j"
-      },
-      {
-        "start": "658.73",
-        "end": "659.33",
-        "confidence": "1.000",
-        "text": "feel.",
-        "offset": 29,
-        "length": 5,
-        "key": expect.any(String)//"0ndka3"
-      }
-    ]
-  },
-  {
-    "text": "Our behavior towards them might matter for us.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "660.14",
           "end": "660.26",
@@ -29787,91 +28341,7 @@ const draftTranscriptExample = [
           "word": "us",
           "punct": "us.",
           "index": 1686
-        }
-      ],
-      "start": "660.14"
-    },
-    "entityRanges": [
-      {
-        "start": "660.14",
-        "end": "660.26",
-        "confidence": "1.000",
-        "text": "Our",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"5r3gcq"
-      },
-      {
-        "start": "660.26",
-        "end": "660.89",
-        "confidence": "0.810",
-        "text": "behavior",
-        "offset": 4,
-        "length": 8,
-        "key": expect.any(String)//"yuus68"
-      },
-      {
-        "start": "660.89",
-        "end": "661.22",
-        "confidence": "1.000",
-        "text": "towards",
-        "offset": 13,
-        "length": 7,
-        "key": expect.any(String)//"4q6xi9s"
-      },
-      {
-        "start": "661.22",
-        "end": "661.4",
-        "confidence": "1.000",
-        "text": "them",
-        "offset": 21,
-        "length": 4,
-        "key": expect.any(String)//"au4mmma"
-      },
-      {
-        "start": "661.40",
-        "end": "661.64",
-        "confidence": "1.000",
-        "text": "might",
-        "offset": 26,
-        "length": 5,
-        "key": expect.any(String)//"r4b4a4f"
-      },
-      {
-        "start": "661.64",
-        "end": "662.21",
-        "confidence": "1.000",
-        "text": "matter",
-        "offset": 32,
-        "length": 6,
-        "key": expect.any(String)//"baun307"
-      },
-      {
-        "start": "662.45",
-        "end": "662.6600000000001",
-        "confidence": "1.000",
-        "text": "for",
-        "offset": 39,
-        "length": 3,
-        "key": expect.any(String)//"ree5mdb"
-      },
-      {
-        "start": "662.66",
-        "end": "663.0799999999999",
-        "confidence": "1.000",
-        "text": "us.",
-        "offset": 43,
-        "length": 3,
-        "key": expect.any(String)//"e95bkd"
-      }
-    ]
-  },
-  {
-    "text": "And regardless of whether we end up changing our rules.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "664.94",
           "end": "665.0600000000001",
@@ -29951,109 +28421,7 @@ const draftTranscriptExample = [
           "word": "rules",
           "punct": "rules.",
           "index": 1696
-        }
-      ],
-      "start": "664.94"
-    },
-    "entityRanges": [
-      {
-        "start": "664.94",
-        "end": "665.0600000000001",
-        "confidence": "0.990",
-        "text": "And",
-        "offset": 0,
-        "length": 3,
-        "key": expect.any(String)//"domhkfy"
-      },
-      {
-        "start": "665.06",
-        "end": "665.5999999999999",
-        "confidence": "1.000",
-        "text": "regardless",
-        "offset": 4,
-        "length": 10,
-        "key": expect.any(String)//"1tiefjn"
-      },
-      {
-        "start": "665.60",
-        "end": "665.69",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 15,
-        "length": 2,
-        "key": expect.any(String)//"c473j8"
-      },
-      {
-        "start": "665.69",
-        "end": "665.9300000000001",
-        "confidence": "1.000",
-        "text": "whether",
-        "offset": 18,
-        "length": 7,
-        "key": expect.any(String)//"mo4kwyd"
-      },
-      {
-        "start": "665.93",
-        "end": "666.0799999999999",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 26,
-        "length": 2,
-        "key": expect.any(String)//"zlpql"
-      },
-      {
-        "start": "666.08",
-        "end": "666.23",
-        "confidence": "1.000",
-        "text": "end",
-        "offset": 29,
-        "length": 3,
-        "key": expect.any(String)//"5tcmsx"
-      },
-      {
-        "start": "666.23",
-        "end": "666.32",
-        "confidence": "1.000",
-        "text": "up",
-        "offset": 33,
-        "length": 2,
-        "key": expect.any(String)//"mv7pg8f"
-      },
-      {
-        "start": "666.32",
-        "end": "666.8900000000001",
-        "confidence": "1.000",
-        "text": "changing",
-        "offset": 36,
-        "length": 8,
-        "key": expect.any(String)//"tgxtxpi"
-      },
-      {
-        "start": "666.89",
-        "end": "666.98",
-        "confidence": "1.000",
-        "text": "our",
-        "offset": 45,
-        "length": 3,
-        "key": expect.any(String)//"ubkpo5c"
-      },
-      {
-        "start": "666.98",
-        "end": "667.58",
-        "confidence": "0.990",
-        "text": "rules.",
-        "offset": 49,
-        "length": 6,
-        "key": expect.any(String)//"agoivh"
-      }
-    ]
-  },
-  {
-    "text": "Robots might be able to help us come to a new understanding of ourselves.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "668.91",
           "end": "669.3299999999999",
@@ -30167,139 +28535,751 @@ const draftTranscriptExample = [
           "index": 1710
         }
       ],
-      "start": "668.91"
+      "start": "642.62"
     },
     "entityRanges": [
+      {
+        "start": "642.62",
+        "end": "642.74",
+        "confidence": "1.000",
+        "text": "But",
+        "offset": 0,
+        "length": 3,
+        "key": expect.any(String)//"ildrelo"
+      },
+      {
+        "start": "642.74",
+        "end": "642.89",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 4,
+        "length": 3,
+        "key": expect.any(String)//"cnweow"
+      },
+      {
+        "start": "642.89",
+        "end": "643.28",
+        "confidence": "1.000",
+        "text": "answer",
+        "offset": 8,
+        "length": 6,
+        "key": expect.any(String)//"il29emh"
+      },
+      {
+        "start": "643.28",
+        "end": "643.37",
+        "confidence": "0.970",
+        "text": "to",
+        "offset": 15,
+        "length": 2,
+        "key": expect.any(String)//"ptxconm"
+      },
+      {
+        "start": "643.37",
+        "end": "643.49",
+        "confidence": "0.990",
+        "text": "this",
+        "offset": 18,
+        "length": 4,
+        "key": expect.any(String)//"92q1aj"
+      },
+      {
+        "start": "643.49",
+        "end": "644.12",
+        "confidence": "1.000",
+        "text": "question",
+        "offset": 23,
+        "length": 8,
+        "key": expect.any(String)//"c5i072"
+      },
+      {
+        "start": "644.12",
+        "end": "644.36",
+        "confidence": "1.000",
+        "text": "has",
+        "offset": 32,
+        "length": 3,
+        "key": expect.any(String)//"y6cmgrc"
+      },
+      {
+        "start": "644.36",
+        "end": "644.42",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 36,
+        "length": 3,
+        "key": expect.any(String)//"9v7m0av"
+      },
+      {
+        "start": "644.42",
+        "end": "644.9",
+        "confidence": "1.000",
+        "text": "potential",
+        "offset": 40,
+        "length": 9,
+        "key": expect.any(String)//"hkiaqsi"
+      },
+      {
+        "start": "644.90",
+        "end": "645.02",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 50,
+        "length": 2,
+        "key": expect.any(String)//"kc1xtqq"
+      },
+      {
+        "start": "645.02",
+        "end": "645.47",
+        "confidence": "1.000",
+        "text": "impact",
+        "offset": 53,
+        "length": 6,
+        "key": expect.any(String)//"2pqreas"
+      },
+      {
+        "start": "645.47",
+        "end": "645.74",
+        "confidence": "1.000",
+        "text": "human",
+        "offset": 60,
+        "length": 5,
+        "key": expect.any(String)//"wcg0ra6"
+      },
+      {
+        "start": "645.74",
+        "end": "646.62",
+        "confidence": "0.950",
+        "text": "behavior.",
+        "offset": 66,
+        "length": 9,
+        "key": expect.any(String)//"3r6v5e4"
+      },
+      {
+        "start": "646.64",
+        "end": "646.73",
+        "confidence": "0.990",
+        "text": "It",
+        "offset": 76,
+        "length": 2,
+        "key": expect.any(String)//"1qbpy8"
+      },
+      {
+        "start": "646.73",
+        "end": "646.91",
+        "confidence": "1.000",
+        "text": "has",
+        "offset": 79,
+        "length": 3,
+        "key": expect.any(String)//"i5c4d5e"
+      },
+      {
+        "start": "646.91",
+        "end": "647",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 83,
+        "length": 3,
+        "key": expect.any(String)//"4fn5b7q"
+      },
+      {
+        "start": "647.00",
+        "end": "647.45",
+        "confidence": "1.000",
+        "text": "potential",
+        "offset": 87,
+        "length": 9,
+        "key": expect.any(String)//"2vuv0fg"
+      },
+      {
+        "start": "647.45",
+        "end": "647.5400000000001",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 97,
+        "length": 2,
+        "key": expect.any(String)//"qhl0b7"
+      },
+      {
+        "start": "647.54",
+        "end": "647.93",
+        "confidence": "1.000",
+        "text": "impact",
+        "offset": 100,
+        "length": 6,
+        "key": expect.any(String)//"tvd63ty"
+      },
+      {
+        "start": "647.93",
+        "end": "648.3199999999999",
+        "confidence": "1.000",
+        "text": "social",
+        "offset": 107,
+        "length": 6,
+        "key": expect.any(String)//"ayyqxsh"
+      },
+      {
+        "start": "648.32",
+        "end": "649.3000000000001",
+        "confidence": "1.000",
+        "text": "norms.",
+        "offset": 114,
+        "length": 6,
+        "key": expect.any(String)//"9krvcq5"
+      },
+      {
+        "start": "649.37",
+        "end": "649.49",
+        "confidence": "1.000",
+        "text": "It",
+        "offset": 121,
+        "length": 2,
+        "key": expect.any(String)//"o78i9udc"
+      },
+      {
+        "start": "649.49",
+        "end": "649.67",
+        "confidence": "1.000",
+        "text": "has",
+        "offset": 124,
+        "length": 3,
+        "key": expect.any(String)//"f2bmkwf"
+      },
+      {
+        "start": "649.67",
+        "end": "649.76",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 128,
+        "length": 3,
+        "key": expect.any(String)//"fbg71j"
+      },
+      {
+        "start": "649.76",
+        "end": "650.24",
+        "confidence": "1.000",
+        "text": "potential",
+        "offset": 132,
+        "length": 9,
+        "key": expect.any(String)//"b07wds"
+      },
+      {
+        "start": "650.24",
+        "end": "650.39",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 142,
+        "length": 2,
+        "key": expect.any(String)//"ry1ldxk"
+      },
+      {
+        "start": "650.39",
+        "end": "650.84",
+        "confidence": "1.000",
+        "text": "inspire",
+        "offset": 145,
+        "length": 7,
+        "key": expect.any(String)//"ayvvacs"
+      },
+      {
+        "start": "650.84",
+        "end": "651.44",
+        "confidence": "1.000",
+        "text": "rules",
+        "offset": 153,
+        "length": 5,
+        "key": expect.any(String)//"n822jgg"
+      },
+      {
+        "start": "651.47",
+        "end": "651.77",
+        "confidence": "1.000",
+        "text": "around",
+        "offset": 159,
+        "length": 6,
+        "key": expect.any(String)//"n7klbmd"
+      },
+      {
+        "start": "651.77",
+        "end": "651.92",
+        "confidence": "1.000",
+        "text": "what",
+        "offset": 166,
+        "length": 4,
+        "key": expect.any(String)//"a4tluo"
+      },
+      {
+        "start": "651.92",
+        "end": "652.2199999999999",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 171,
+        "length": 2,
+        "key": expect.any(String)//"9nfzkme"
+      },
+      {
+        "start": "652.31",
+        "end": "652.67",
+        "confidence": "1.000",
+        "text": "can",
+        "offset": 174,
+        "length": 3,
+        "key": expect.any(String)//"w833wqe"
+      },
+      {
+        "start": "652.67",
+        "end": "652.76",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 178,
+        "length": 3,
+        "key": expect.any(String)//"x8byrk"
+      },
+      {
+        "start": "652.76",
+        "end": "653.03",
+        "confidence": "1.000",
+        "text": "can't",
+        "offset": 182,
+        "length": 5,
+        "key": expect.any(String)//"njbws6o"
+      },
+      {
+        "start": "653.03",
+        "end": "653.24",
+        "confidence": "1.000",
+        "text": "do",
+        "offset": 188,
+        "length": 2,
+        "key": expect.any(String)//"0mrm2mb"
+      },
+      {
+        "start": "653.24",
+        "end": "653.36",
+        "confidence": "1.000",
+        "text": "with",
+        "offset": 191,
+        "length": 4,
+        "key": expect.any(String)//"vviz3wdc"
+      },
+      {
+        "start": "653.36",
+        "end": "653.6",
+        "confidence": "1.000",
+        "text": "certain",
+        "offset": 196,
+        "length": 7,
+        "key": expect.any(String)//"098tmp"
+      },
+      {
+        "start": "653.60",
+        "end": "654.23",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 204,
+        "length": 6,
+        "key": expect.any(String)//"7e5weup"
+      },
+      {
+        "start": "654.26",
+        "end": "654.68",
+        "confidence": "1.000",
+        "text": "similar",
+        "offset": 211,
+        "length": 7,
+        "key": expect.any(String)//"cvpaf0h"
+      },
+      {
+        "start": "654.68",
+        "end": "654.8",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 219,
+        "length": 2,
+        "key": expect.any(String)//"2h9gl28"
+      },
+      {
+        "start": "654.80",
+        "end": "654.92",
+        "confidence": "1.000",
+        "text": "our",
+        "offset": 222,
+        "length": 3,
+        "key": expect.any(String)//"304drsx"
+      },
+      {
+        "start": "655.01",
+        "end": "655.34",
+        "confidence": "1.000",
+        "text": "animal",
+        "offset": 226,
+        "length": 6,
+        "key": expect.any(String)//"qobup9"
+      },
+      {
+        "start": "655.34",
+        "end": "655.73",
+        "confidence": "1.000",
+        "text": "cruelty",
+        "offset": 233,
+        "length": 7,
+        "key": expect.any(String)//"s6inyj"
+      },
+      {
+        "start": "655.73",
+        "end": "656.74",
+        "confidence": "1.000",
+        "text": "laws.",
+        "offset": 241,
+        "length": 5,
+        "key": expect.any(String)//"t0j3cf"
+      },
+      {
+        "start": "657.23",
+        "end": "657.59",
+        "confidence": "1.000",
+        "text": "Because",
+        "offset": 247,
+        "length": 7,
+        "key": expect.any(String)//"0uo56h"
+      },
+      {
+        "start": "657.59",
+        "end": "657.89",
+        "confidence": "1.000",
+        "text": "even",
+        "offset": 255,
+        "length": 4,
+        "key": expect.any(String)//"8o7mtjt"
+      },
+      {
+        "start": "657.89",
+        "end": "658.01",
+        "confidence": "1.000",
+        "text": "if",
+        "offset": 260,
+        "length": 2,
+        "key": expect.any(String)//"7y1wlex"
+      },
+      {
+        "start": "658.01",
+        "end": "658.43",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 263,
+        "length": 6,
+        "key": expect.any(String)//"no3a9zf"
+      },
+      {
+        "start": "658.43",
+        "end": "658.7299999999999",
+        "confidence": "1.000",
+        "text": "can't",
+        "offset": 270,
+        "length": 5,
+        "key": expect.any(String)//"zd0fypt"
+      },
+      {
+        "start": "658.73",
+        "end": "659.33",
+        "confidence": "1.000",
+        "text": "feel.",
+        "offset": 276,
+        "length": 5,
+        "key": expect.any(String)//"wwt3l6c"
+      },
+      {
+        "start": "660.14",
+        "end": "660.26",
+        "confidence": "1.000",
+        "text": "Our",
+        "offset": 282,
+        "length": 3,
+        "key": expect.any(String)//"nlnt2t"
+      },
+      {
+        "start": "660.26",
+        "end": "660.89",
+        "confidence": "0.810",
+        "text": "behavior",
+        "offset": 286,
+        "length": 8,
+        "key": expect.any(String)//"rbpukfh"
+      },
+      {
+        "start": "660.89",
+        "end": "661.22",
+        "confidence": "1.000",
+        "text": "towards",
+        "offset": 295,
+        "length": 7,
+        "key": expect.any(String)//"wqgwfpe"
+      },
+      {
+        "start": "661.22",
+        "end": "661.4",
+        "confidence": "1.000",
+        "text": "them",
+        "offset": 303,
+        "length": 4,
+        "key": expect.any(String)//"g72lxpx"
+      },
+      {
+        "start": "661.40",
+        "end": "661.64",
+        "confidence": "1.000",
+        "text": "might",
+        "offset": 308,
+        "length": 5,
+        "key": expect.any(String)//"ifchry"
+      },
+      {
+        "start": "661.64",
+        "end": "662.21",
+        "confidence": "1.000",
+        "text": "matter",
+        "offset": 314,
+        "length": 6,
+        "key": expect.any(String)//"uajk70h"
+      },
+      {
+        "start": "662.45",
+        "end": "662.6600000000001",
+        "confidence": "1.000",
+        "text": "for",
+        "offset": 321,
+        "length": 3,
+        "key": expect.any(String)//"22pr8ph"
+      },
+      {
+        "start": "662.66",
+        "end": "663.0799999999999",
+        "confidence": "1.000",
+        "text": "us.",
+        "offset": 325,
+        "length": 3,
+        "key": expect.any(String)//"p87tgqc"
+      },
+      {
+        "start": "664.94",
+        "end": "665.0600000000001",
+        "confidence": "0.990",
+        "text": "And",
+        "offset": 329,
+        "length": 3,
+        "key": expect.any(String)//"m1e53el"
+      },
+      {
+        "start": "665.06",
+        "end": "665.5999999999999",
+        "confidence": "1.000",
+        "text": "regardless",
+        "offset": 333,
+        "length": 10,
+        "key": expect.any(String)//"62sfgn9"
+      },
+      {
+        "start": "665.60",
+        "end": "665.69",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 344,
+        "length": 2,
+        "key": expect.any(String)//"mlix17"
+      },
+      {
+        "start": "665.69",
+        "end": "665.9300000000001",
+        "confidence": "1.000",
+        "text": "whether",
+        "offset": 347,
+        "length": 7,
+        "key": expect.any(String)//"hikwlk"
+      },
+      {
+        "start": "665.93",
+        "end": "666.0799999999999",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 355,
+        "length": 2,
+        "key": expect.any(String)//"arpf0q"
+      },
+      {
+        "start": "666.08",
+        "end": "666.23",
+        "confidence": "1.000",
+        "text": "end",
+        "offset": 358,
+        "length": 3,
+        "key": expect.any(String)//"nl1alpa"
+      },
+      {
+        "start": "666.23",
+        "end": "666.32",
+        "confidence": "1.000",
+        "text": "up",
+        "offset": 362,
+        "length": 2,
+        "key": expect.any(String)//"u0mjrbl"
+      },
+      {
+        "start": "666.32",
+        "end": "666.8900000000001",
+        "confidence": "1.000",
+        "text": "changing",
+        "offset": 365,
+        "length": 8,
+        "key": expect.any(String)//"rl2zns4"
+      },
+      {
+        "start": "666.89",
+        "end": "666.98",
+        "confidence": "1.000",
+        "text": "our",
+        "offset": 374,
+        "length": 3,
+        "key": expect.any(String)//"j19jm5"
+      },
+      {
+        "start": "666.98",
+        "end": "667.58",
+        "confidence": "0.990",
+        "text": "rules.",
+        "offset": 378,
+        "length": 6,
+        "key": expect.any(String)//"n9gwpec"
+      },
       {
         "start": "668.91",
         "end": "669.3299999999999",
         "confidence": "1.000",
         "text": "Robots",
-        "offset": 0,
+        "offset": 385,
         "length": 6,
-        "key": expect.any(String)//"kg7rbk9"
+        "key": expect.any(String)//"mm9nue"
       },
       {
         "start": "669.33",
         "end": "669.6",
         "confidence": "1.000",
         "text": "might",
-        "offset": 7,
+        "offset": 392,
         "length": 5,
-        "key": expect.any(String)//"7z21yaf"
+        "key": expect.any(String)//"7jahosa"
       },
       {
         "start": "669.60",
         "end": "669.75",
         "confidence": "1.000",
         "text": "be",
-        "offset": 13,
+        "offset": 398,
         "length": 2,
-        "key": expect.any(String)//"i000aba"
+        "key": expect.any(String)//"x014keg"
       },
       {
         "start": "669.75",
         "end": "669.96",
         "confidence": "1.000",
         "text": "able",
-        "offset": 16,
+        "offset": 401,
         "length": 4,
-        "key": expect.any(String)//"k05yx3"
+        "key": expect.any(String)//"72xnzi"
       },
       {
         "start": "669.96",
         "end": "670.0500000000001",
         "confidence": "1.000",
         "text": "to",
-        "offset": 21,
+        "offset": 406,
         "length": 2,
-        "key": expect.any(String)//"vodki"
+        "key": expect.any(String)//"iyyptk"
       },
       {
         "start": "670.05",
         "end": "670.26",
         "confidence": "1.000",
         "text": "help",
-        "offset": 24,
+        "offset": 409,
         "length": 4,
-        "key": expect.any(String)//"ja5ielg"
+        "key": expect.any(String)//"ih7kyov"
       },
       {
         "start": "670.26",
         "end": "670.38",
         "confidence": "1.000",
         "text": "us",
-        "offset": 29,
+        "offset": 414,
         "length": 2,
-        "key": expect.any(String)//"fdxq66a"
+        "key": expect.any(String)//"56hrep"
       },
       {
         "start": "670.38",
         "end": "670.59",
         "confidence": "1.000",
         "text": "come",
-        "offset": 32,
+        "offset": 417,
         "length": 4,
-        "key": expect.any(String)//"24et35"
+        "key": expect.any(String)//"hccnl3"
       },
       {
         "start": "670.59",
         "end": "670.74",
         "confidence": "1.000",
         "text": "to",
-        "offset": 37,
+        "offset": 422,
         "length": 2,
-        "key": expect.any(String)//"y1idcl"
+        "key": expect.any(String)//"rasb0di"
       },
       {
         "start": "670.74",
         "end": "670.8",
         "confidence": "0.990",
         "text": "a",
-        "offset": 40,
+        "offset": 425,
         "length": 1,
-        "key": expect.any(String)//"jvkpgk"
+        "key": expect.any(String)//"wp8kxk"
       },
       {
         "start": "670.80",
         "end": "671.04",
         "confidence": "1.000",
         "text": "new",
-        "offset": 42,
+        "offset": 427,
         "length": 3,
-        "key": expect.any(String)//"s367h6h"
+        "key": expect.any(String)//"3mpd715"
       },
       {
         "start": "671.04",
         "end": "671.61",
         "confidence": "1.000",
         "text": "understanding",
-        "offset": 46,
+        "offset": 431,
         "length": 13,
-        "key": expect.any(String)//"7jtujoj"
+        "key": expect.any(String)//"hhz59wm"
       },
       {
         "start": "671.61",
         "end": "671.7",
         "confidence": "1.000",
         "text": "of",
-        "offset": 60,
+        "offset": 445,
         "length": 2,
-        "key": expect.any(String)//"egqh3n"
+        "key": expect.any(String)//"9p3dz8s"
       },
       {
         "start": "671.70",
         "end": "672.45",
         "confidence": "0.990",
         "text": "ourselves.",
-        "offset": 63,
+        "offset": 448,
         "length": 10,
-        "key": expect.any(String)//"k8c5jg"
+        "key": expect.any(String)//"v3yx0k"
       }
     ]
   },
   {
-    "text": "Most of what I've learned over the past 10 years has not been about technology at all it's been about human psychology and empathy and how we relate to others.",
+    "text": "Most of what I've learned over the past 10 years has not been about technology at all it's been about human psychology and empathy and how we relate to others. Because when a child is kind to a Roomba when a soldier tries to save a robot on the battlefield or when a group of people refuses to harm a robotic baby dinosaur those robots aren't just motors and gears and algorithms. They're reflections of our own humanity.",
     "type": "paragraph",
     "data": {
       "speaker": "F3",
@@ -30543,289 +29523,7 @@ const draftTranscriptExample = [
           "word": "others",
           "punct": "others.",
           "index": 1740
-        }
-      ],
-      "start": "674.26"
-    },
-    "entityRanges": [
-      {
-        "start": "674.26",
-        "end": "674.5",
-        "confidence": "1.000",
-        "text": "Most",
-        "offset": 0,
-        "length": 4,
-        "key": expect.any(String)//"dvncp4ah"
-      },
-      {
-        "start": "674.50",
-        "end": "674.56",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 5,
-        "length": 2,
-        "key": expect.any(String)//"lnfrtis"
-      },
-      {
-        "start": "674.56",
-        "end": "674.68",
-        "confidence": "1.000",
-        "text": "what",
-        "offset": 8,
-        "length": 4,
-        "key": expect.any(String)//"drx4ftg"
-      },
-      {
-        "start": "674.68",
-        "end": "674.8",
-        "confidence": "0.890",
-        "text": "I've",
-        "offset": 13,
-        "length": 4,
-        "key": expect.any(String)//"8z2h7d8"
-      },
-      {
-        "start": "674.80",
-        "end": "675.0699999999999",
-        "confidence": "1.000",
-        "text": "learned",
-        "offset": 18,
-        "length": 7,
-        "key": expect.any(String)//"gcrbvh"
-      },
-      {
-        "start": "675.07",
-        "end": "675.19",
-        "confidence": "1.000",
-        "text": "over",
-        "offset": 26,
-        "length": 4,
-        "key": expect.any(String)//"brjpgu"
-      },
-      {
-        "start": "675.19",
-        "end": "675.25",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 31,
-        "length": 3,
-        "key": expect.any(String)//"65wozg08"
-      },
-      {
-        "start": "675.25",
-        "end": "675.52",
-        "confidence": "1.000",
-        "text": "past",
-        "offset": 35,
-        "length": 4,
-        "key": expect.any(String)//"6x22mxp"
-      },
-      {
-        "start": "675.52",
-        "end": "675.73",
-        "confidence": "0.540",
-        "text": "10",
-        "offset": 40,
-        "length": 2,
-        "key": expect.any(String)//"vgy1oc"
-      },
-      {
-        "start": "675.73",
-        "end": "676.27",
-        "confidence": "1.000",
-        "text": "years",
-        "offset": 43,
-        "length": 5,
-        "key": expect.any(String)//"yorl91t"
-      },
-      {
-        "start": "676.48",
-        "end": "676.63",
-        "confidence": "0.720",
-        "text": "has",
-        "offset": 49,
-        "length": 3,
-        "key": expect.any(String)//"ot09d96"
-      },
-      {
-        "start": "676.63",
-        "end": "676.87",
-        "confidence": "1.000",
-        "text": "not",
-        "offset": 53,
-        "length": 3,
-        "key": expect.any(String)//"avluq2"
-      },
-      {
-        "start": "676.87",
-        "end": "677.02",
-        "confidence": "1.000",
-        "text": "been",
-        "offset": 57,
-        "length": 4,
-        "key": expect.any(String)//"q3txctv"
-      },
-      {
-        "start": "677.02",
-        "end": "677.1999999999999",
-        "confidence": "1.000",
-        "text": "about",
-        "offset": 62,
-        "length": 5,
-        "key": expect.any(String)//"4e58vm"
-      },
-      {
-        "start": "677.20",
-        "end": "677.74",
-        "confidence": "1.000",
-        "text": "technology",
-        "offset": 68,
-        "length": 10,
-        "key": expect.any(String)//"wstsoxb"
-      },
-      {
-        "start": "677.74",
-        "end": "677.83",
-        "confidence": "1.000",
-        "text": "at",
-        "offset": 79,
-        "length": 2,
-        "key": expect.any(String)//"vnhcrtk"
-      },
-      {
-        "start": "677.83",
-        "end": "678.1",
-        "confidence": "1.000",
-        "text": "all",
-        "offset": 82,
-        "length": 3,
-        "key": expect.any(String)//"4n5yotg"
-      },
-      {
-        "start": "678.91",
-        "end": "679.0899999999999",
-        "confidence": "1.000",
-        "text": "it's",
-        "offset": 86,
-        "length": 4,
-        "key": expect.any(String)//"m5bz47e"
-      },
-      {
-        "start": "679.09",
-        "end": "679.24",
-        "confidence": "1.000",
-        "text": "been",
-        "offset": 91,
-        "length": 4,
-        "key": expect.any(String)//"yjvvqq"
-      },
-      {
-        "start": "679.24",
-        "end": "679.48",
-        "confidence": "1.000",
-        "text": "about",
-        "offset": 96,
-        "length": 5,
-        "key": expect.any(String)//"xcd1bx"
-      },
-      {
-        "start": "679.48",
-        "end": "679.78",
-        "confidence": "1.000",
-        "text": "human",
-        "offset": 102,
-        "length": 5,
-        "key": expect.any(String)//"wb2tklh"
-      },
-      {
-        "start": "679.78",
-        "end": "680.65",
-        "confidence": "1.000",
-        "text": "psychology",
-        "offset": 108,
-        "length": 10,
-        "key": expect.any(String)//"54coqyhi"
-      },
-      {
-        "start": "681.43",
-        "end": "681.5799999999999",
-        "confidence": "0.990",
-        "text": "and",
-        "offset": 119,
-        "length": 3,
-        "key": expect.any(String)//"mu33rl"
-      },
-      {
-        "start": "681.58",
-        "end": "682.2700000000001",
-        "confidence": "1.000",
-        "text": "empathy",
-        "offset": 123,
-        "length": 7,
-        "key": expect.any(String)//"w0ip55h"
-      },
-      {
-        "start": "682.33",
-        "end": "682.45",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 131,
-        "length": 3,
-        "key": expect.any(String)//"y7al8ge"
-      },
-      {
-        "start": "682.45",
-        "end": "682.6600000000001",
-        "confidence": "1.000",
-        "text": "how",
-        "offset": 135,
-        "length": 3,
-        "key": expect.any(String)//"1g0mkhm"
-      },
-      {
-        "start": "682.66",
-        "end": "682.81",
-        "confidence": "1.000",
-        "text": "we",
-        "offset": 139,
-        "length": 2,
-        "key": expect.any(String)//"s5aswl"
-      },
-      {
-        "start": "682.81",
-        "end": "683.1099999999999",
-        "confidence": "1.000",
-        "text": "relate",
-        "offset": 142,
-        "length": 6,
-        "key": expect.any(String)//"gjzewe"
-      },
-      {
-        "start": "683.11",
-        "end": "683.26",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 149,
-        "length": 2,
-        "key": expect.any(String)//"rv1dcro"
-      },
-      {
-        "start": "683.26",
-        "end": "683.98",
-        "confidence": "1.000",
-        "text": "others.",
-        "offset": 152,
-        "length": 7,
-        "key": expect.any(String)//"udq3wb"
-      }
-    ]
-  },
-  {
-    "text": "Because when a child is kind to a Roomba when a soldier tries to save a robot on the battlefield or when a group of people refuses to harm a robotic baby dinosaur those robots aren't just motors and gears and algorithms.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "685.51",
           "end": "685.84",
@@ -31161,397 +29859,7 @@ const draftTranscriptExample = [
           "word": "algorithms",
           "punct": "algorithms.",
           "index": 1782
-        }
-      ],
-      "start": "685.51"
-    },
-    "entityRanges": [
-      {
-        "start": "685.51",
-        "end": "685.84",
-        "confidence": "1.000",
-        "text": "Because",
-        "offset": 0,
-        "length": 7,
-        "key": expect.any(String)//"lbfbqin"
-      },
-      {
-        "start": "685.84",
-        "end": "685.99",
-        "confidence": "1.000",
-        "text": "when",
-        "offset": 8,
-        "length": 4,
-        "key": expect.any(String)//"kacebba"
-      },
-      {
-        "start": "685.99",
-        "end": "686.05",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 13,
-        "length": 1,
-        "key": expect.any(String)//"7s0f5t"
-      },
-      {
-        "start": "686.05",
-        "end": "686.5",
-        "confidence": "1.000",
-        "text": "child",
-        "offset": 15,
-        "length": 5,
-        "key": expect.any(String)//"r633abl"
-      },
-      {
-        "start": "686.50",
-        "end": "686.62",
-        "confidence": "1.000",
-        "text": "is",
-        "offset": 21,
-        "length": 2,
-        "key": expect.any(String)//"yfgpki"
-      },
-      {
-        "start": "686.62",
-        "end": "686.98",
-        "confidence": "1.000",
-        "text": "kind",
-        "offset": 24,
-        "length": 4,
-        "key": expect.any(String)//"s7g38fg"
-      },
-      {
-        "start": "686.98",
-        "end": "687.13",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 29,
-        "length": 2,
-        "key": expect.any(String)//"cysupm"
-      },
-      {
-        "start": "687.13",
-        "end": "687.1899999999999",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 32,
-        "length": 1,
-        "key": expect.any(String)//"jlq6cbt"
-      },
-      {
-        "start": "687.19",
-        "end": "687.82",
-        "confidence": "1.000",
-        "text": "Roomba",
-        "offset": 34,
-        "length": 6,
-        "key": expect.any(String)//"k39kdzb"
-      },
-      {
-        "start": "689.27",
-        "end": "689.42",
-        "confidence": "1.000",
-        "text": "when",
-        "offset": 41,
-        "length": 4,
-        "key": expect.any(String)//"vf4c1z"
-      },
-      {
-        "start": "689.42",
-        "end": "689.51",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 46,
-        "length": 1,
-        "key": expect.any(String)//"zdrmorf"
-      },
-      {
-        "start": "689.51",
-        "end": "689.96",
-        "confidence": "1.000",
-        "text": "soldier",
-        "offset": 48,
-        "length": 7,
-        "key": expect.any(String)//"to9ptrk"
-      },
-      {
-        "start": "689.99",
-        "end": "690.35",
-        "confidence": "1.000",
-        "text": "tries",
-        "offset": 56,
-        "length": 5,
-        "key": expect.any(String)//"w9nau5t"
-      },
-      {
-        "start": "690.35",
-        "end": "690.44",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 62,
-        "length": 2,
-        "key": expect.any(String)//"7fn3z3"
-      },
-      {
-        "start": "690.44",
-        "end": "690.8000000000001",
-        "confidence": "1.000",
-        "text": "save",
-        "offset": 65,
-        "length": 4,
-        "key": expect.any(String)//"4d1vlk"
-      },
-      {
-        "start": "690.80",
-        "end": "690.8599999999999",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 70,
-        "length": 1,
-        "key": expect.any(String)//"rbnn8nl"
-      },
-      {
-        "start": "690.86",
-        "end": "691.25",
-        "confidence": "1.000",
-        "text": "robot",
-        "offset": 72,
-        "length": 5,
-        "key": expect.any(String)//"o37j55s"
-      },
-      {
-        "start": "691.25",
-        "end": "691.37",
-        "confidence": "1.000",
-        "text": "on",
-        "offset": 78,
-        "length": 2,
-        "key": expect.any(String)//"qy430cm"
-      },
-      {
-        "start": "691.37",
-        "end": "691.43",
-        "confidence": "1.000",
-        "text": "the",
-        "offset": 81,
-        "length": 3,
-        "key": expect.any(String)//"6u2960e"
-      },
-      {
-        "start": "691.43",
-        "end": "692.2399999999999",
-        "confidence": "1.000",
-        "text": "battlefield",
-        "offset": 85,
-        "length": 11,
-        "key": expect.any(String)//"r6wcf0e"
-      },
-      {
-        "start": "693.35",
-        "end": "693.44",
-        "confidence": "1.000",
-        "text": "or",
-        "offset": 97,
-        "length": 2,
-        "key": expect.any(String)//"z7zyve"
-      },
-      {
-        "start": "693.44",
-        "end": "693.59",
-        "confidence": "1.000",
-        "text": "when",
-        "offset": 100,
-        "length": 4,
-        "key": expect.any(String)//"tlhv9a"
-      },
-      {
-        "start": "693.59",
-        "end": "693.65",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 105,
-        "length": 1,
-        "key": expect.any(String)//"ji7za2n"
-      },
-      {
-        "start": "693.65",
-        "end": "693.86",
-        "confidence": "1.000",
-        "text": "group",
-        "offset": 107,
-        "length": 5,
-        "key": expect.any(String)//"hwuqks"
-      },
-      {
-        "start": "693.86",
-        "end": "693.95",
-        "confidence": "1.000",
-        "text": "of",
-        "offset": 113,
-        "length": 2,
-        "key": expect.any(String)//"jfcv0dr"
-      },
-      {
-        "start": "693.95",
-        "end": "694.34",
-        "confidence": "1.000",
-        "text": "people",
-        "offset": 116,
-        "length": 6,
-        "key": expect.any(String)//"vz64anr"
-      },
-      {
-        "start": "694.34",
-        "end": "694.9100000000001",
-        "confidence": "1.000",
-        "text": "refuses",
-        "offset": 123,
-        "length": 7,
-        "key": expect.any(String)//"7050qlr"
-      },
-      {
-        "start": "694.91",
-        "end": "695",
-        "confidence": "1.000",
-        "text": "to",
-        "offset": 131,
-        "length": 2,
-        "key": expect.any(String)//"fl6datb"
-      },
-      {
-        "start": "695.00",
-        "end": "695.45",
-        "confidence": "1.000",
-        "text": "harm",
-        "offset": 134,
-        "length": 4,
-        "key": expect.any(String)//"bahj98m"
-      },
-      {
-        "start": "695.45",
-        "end": "695.5400000000001",
-        "confidence": "1.000",
-        "text": "a",
-        "offset": 139,
-        "length": 1,
-        "key": expect.any(String)//"cy6cgia"
-      },
-      {
-        "start": "695.54",
-        "end": "695.93",
-        "confidence": "1.000",
-        "text": "robotic",
-        "offset": 141,
-        "length": 7,
-        "key": expect.any(String)//"ynw6sl8"
-      },
-      {
-        "start": "695.93",
-        "end": "696.17",
-        "confidence": "1.000",
-        "text": "baby",
-        "offset": 149,
-        "length": 4,
-        "key": expect.any(String)//"nh6pzrk"
-      },
-      {
-        "start": "696.17",
-        "end": "696.86",
-        "confidence": "1.000",
-        "text": "dinosaur",
-        "offset": 154,
-        "length": 8,
-        "key": expect.any(String)//"wwr1up"
-      },
-      {
-        "start": "698.24",
-        "end": "698.45",
-        "confidence": "1.000",
-        "text": "those",
-        "offset": 163,
-        "length": 5,
-        "key": expect.any(String)//"bugdsg"
-      },
-      {
-        "start": "698.45",
-        "end": "698.87",
-        "confidence": "1.000",
-        "text": "robots",
-        "offset": 169,
-        "length": 6,
-        "key": expect.any(String)//"p93xje"
-      },
-      {
-        "start": "698.90",
-        "end": "699.11",
-        "confidence": "1.000",
-        "text": "aren't",
-        "offset": 176,
-        "length": 6,
-        "key": expect.any(String)//"hrhm1jw"
-      },
-      {
-        "start": "699.11",
-        "end": "699.47",
-        "confidence": "1.000",
-        "text": "just",
-        "offset": 183,
-        "length": 4,
-        "key": expect.any(String)//"eajbnx8"
-      },
-      {
-        "start": "699.47",
-        "end": "699.95",
-        "confidence": "1.000",
-        "text": "motors",
-        "offset": 188,
-        "length": 6,
-        "key": expect.any(String)//"1cbysbn"
-      },
-      {
-        "start": "699.95",
-        "end": "700.0400000000001",
-        "confidence": "0.990",
-        "text": "and",
-        "offset": 195,
-        "length": 3,
-        "key": expect.any(String)//"1khevis"
-      },
-      {
-        "start": "700.04",
-        "end": "700.37",
-        "confidence": "1.000",
-        "text": "gears",
-        "offset": 199,
-        "length": 5,
-        "key": expect.any(String)//"5dgjx"
-      },
-      {
-        "start": "700.37",
-        "end": "700.49",
-        "confidence": "1.000",
-        "text": "and",
-        "offset": 205,
-        "length": 3,
-        "key": expect.any(String)//"v7bppot"
-      },
-      {
-        "start": "700.49",
-        "end": "701.36",
-        "confidence": "1.000",
-        "text": "algorithms.",
-        "offset": 209,
-        "length": 11,
-        "key": expect.any(String)//"vk6e2pj"
-      }
-    ]
-  },
-  {
-    "text": "They're reflections of our own humanity.",
-    "type": "paragraph",
-    "data": {
-      "speaker": "F3",
-      "words": [
+        },
         {
           "start": "702.51",
           "end": "702.66",
@@ -31601,62 +29909,710 @@ const draftTranscriptExample = [
           "index": 1788
         }
       ],
-      "start": "702.51"
+      "start": "674.26"
     },
     "entityRanges": [
+      {
+        "start": "674.26",
+        "end": "674.5",
+        "confidence": "1.000",
+        "text": "Most",
+        "offset": 0,
+        "length": 4,
+        "key": expect.any(String)//"wybmied"
+      },
+      {
+        "start": "674.50",
+        "end": "674.56",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 5,
+        "length": 2,
+        "key": expect.any(String)//"0nj4bch"
+      },
+      {
+        "start": "674.56",
+        "end": "674.68",
+        "confidence": "1.000",
+        "text": "what",
+        "offset": 8,
+        "length": 4,
+        "key": expect.any(String)//"rwuf8sn"
+      },
+      {
+        "start": "674.68",
+        "end": "674.8",
+        "confidence": "0.890",
+        "text": "I've",
+        "offset": 13,
+        "length": 4,
+        "key": expect.any(String)//"trdreaj"
+      },
+      {
+        "start": "674.80",
+        "end": "675.0699999999999",
+        "confidence": "1.000",
+        "text": "learned",
+        "offset": 18,
+        "length": 7,
+        "key": expect.any(String)//"91p71s"
+      },
+      {
+        "start": "675.07",
+        "end": "675.19",
+        "confidence": "1.000",
+        "text": "over",
+        "offset": 26,
+        "length": 4,
+        "key": expect.any(String)//"l6z2zg"
+      },
+      {
+        "start": "675.19",
+        "end": "675.25",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 31,
+        "length": 3,
+        "key": expect.any(String)//"t6dly9q"
+      },
+      {
+        "start": "675.25",
+        "end": "675.52",
+        "confidence": "1.000",
+        "text": "past",
+        "offset": 35,
+        "length": 4,
+        "key": expect.any(String)//"uastnlx"
+      },
+      {
+        "start": "675.52",
+        "end": "675.73",
+        "confidence": "0.540",
+        "text": "10",
+        "offset": 40,
+        "length": 2,
+        "key": expect.any(String)//"6fuzx4l"
+      },
+      {
+        "start": "675.73",
+        "end": "676.27",
+        "confidence": "1.000",
+        "text": "years",
+        "offset": 43,
+        "length": 5,
+        "key": expect.any(String)//"oykou1k"
+      },
+      {
+        "start": "676.48",
+        "end": "676.63",
+        "confidence": "0.720",
+        "text": "has",
+        "offset": 49,
+        "length": 3,
+        "key": expect.any(String)//"5dbvb7n"
+      },
+      {
+        "start": "676.63",
+        "end": "676.87",
+        "confidence": "1.000",
+        "text": "not",
+        "offset": 53,
+        "length": 3,
+        "key": expect.any(String)//"902t52"
+      },
+      {
+        "start": "676.87",
+        "end": "677.02",
+        "confidence": "1.000",
+        "text": "been",
+        "offset": 57,
+        "length": 4,
+        "key": expect.any(String)//"cwugc4p"
+      },
+      {
+        "start": "677.02",
+        "end": "677.1999999999999",
+        "confidence": "1.000",
+        "text": "about",
+        "offset": 62,
+        "length": 5,
+        "key": expect.any(String)//"zlhs8ed"
+      },
+      {
+        "start": "677.20",
+        "end": "677.74",
+        "confidence": "1.000",
+        "text": "technology",
+        "offset": 68,
+        "length": 10,
+        "key": expect.any(String)//"c6fdopl"
+      },
+      {
+        "start": "677.74",
+        "end": "677.83",
+        "confidence": "1.000",
+        "text": "at",
+        "offset": 79,
+        "length": 2,
+        "key": expect.any(String)//"2nilhz5"
+      },
+      {
+        "start": "677.83",
+        "end": "678.1",
+        "confidence": "1.000",
+        "text": "all",
+        "offset": 82,
+        "length": 3,
+        "key": expect.any(String)//"i0lmcod"
+      },
+      {
+        "start": "678.91",
+        "end": "679.0899999999999",
+        "confidence": "1.000",
+        "text": "it's",
+        "offset": 86,
+        "length": 4,
+        "key": expect.any(String)//"xet9mee"
+      },
+      {
+        "start": "679.09",
+        "end": "679.24",
+        "confidence": "1.000",
+        "text": "been",
+        "offset": 91,
+        "length": 4,
+        "key": expect.any(String)//"g52s3nb"
+      },
+      {
+        "start": "679.24",
+        "end": "679.48",
+        "confidence": "1.000",
+        "text": "about",
+        "offset": 96,
+        "length": 5,
+        "key": expect.any(String)//"rzvoum5"
+      },
+      {
+        "start": "679.48",
+        "end": "679.78",
+        "confidence": "1.000",
+        "text": "human",
+        "offset": 102,
+        "length": 5,
+        "key": expect.any(String)//"miwe55s"
+      },
+      {
+        "start": "679.78",
+        "end": "680.65",
+        "confidence": "1.000",
+        "text": "psychology",
+        "offset": 108,
+        "length": 10,
+        "key": expect.any(String)//"nd4xwj8"
+      },
+      {
+        "start": "681.43",
+        "end": "681.5799999999999",
+        "confidence": "0.990",
+        "text": "and",
+        "offset": 119,
+        "length": 3,
+        "key": expect.any(String)//"kp3pjq"
+      },
+      {
+        "start": "681.58",
+        "end": "682.2700000000001",
+        "confidence": "1.000",
+        "text": "empathy",
+        "offset": 123,
+        "length": 7,
+        "key": expect.any(String)//"wra4k4h"
+      },
+      {
+        "start": "682.33",
+        "end": "682.45",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 131,
+        "length": 3,
+        "key": expect.any(String)//"xlj2mus"
+      },
+      {
+        "start": "682.45",
+        "end": "682.6600000000001",
+        "confidence": "1.000",
+        "text": "how",
+        "offset": 135,
+        "length": 3,
+        "key": expect.any(String)//"lwss8kk"
+      },
+      {
+        "start": "682.66",
+        "end": "682.81",
+        "confidence": "1.000",
+        "text": "we",
+        "offset": 139,
+        "length": 2,
+        "key": expect.any(String)//"3t7z5a5"
+      },
+      {
+        "start": "682.81",
+        "end": "683.1099999999999",
+        "confidence": "1.000",
+        "text": "relate",
+        "offset": 142,
+        "length": 6,
+        "key": expect.any(String)//"lsbtpwc"
+      },
+      {
+        "start": "683.11",
+        "end": "683.26",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 149,
+        "length": 2,
+        "key": expect.any(String)//"6pgkdjz"
+      },
+      {
+        "start": "683.26",
+        "end": "683.98",
+        "confidence": "1.000",
+        "text": "others.",
+        "offset": 152,
+        "length": 7,
+        "key": expect.any(String)//"lmu7gbm"
+      },
+      {
+        "start": "685.51",
+        "end": "685.84",
+        "confidence": "1.000",
+        "text": "Because",
+        "offset": 160,
+        "length": 7,
+        "key": expect.any(String)//"p28uydm"
+      },
+      {
+        "start": "685.84",
+        "end": "685.99",
+        "confidence": "1.000",
+        "text": "when",
+        "offset": 168,
+        "length": 4,
+        "key": expect.any(String)//"bo9my5"
+      },
+      {
+        "start": "685.99",
+        "end": "686.05",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 173,
+        "length": 1,
+        "key": expect.any(String)//"febbx2q"
+      },
+      {
+        "start": "686.05",
+        "end": "686.5",
+        "confidence": "1.000",
+        "text": "child",
+        "offset": 175,
+        "length": 5,
+        "key": expect.any(String)//"ypnsqnf"
+      },
+      {
+        "start": "686.50",
+        "end": "686.62",
+        "confidence": "1.000",
+        "text": "is",
+        "offset": 181,
+        "length": 2,
+        "key": expect.any(String)//"5ovdrvf"
+      },
+      {
+        "start": "686.62",
+        "end": "686.98",
+        "confidence": "1.000",
+        "text": "kind",
+        "offset": 184,
+        "length": 4,
+        "key": expect.any(String)//"j4zqngf"
+      },
+      {
+        "start": "686.98",
+        "end": "687.13",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 189,
+        "length": 2,
+        "key": expect.any(String)//"xwy1xe"
+      },
+      {
+        "start": "687.13",
+        "end": "687.1899999999999",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 192,
+        "length": 1,
+        "key": expect.any(String)//"qqg0te"
+      },
+      {
+        "start": "687.19",
+        "end": "687.82",
+        "confidence": "1.000",
+        "text": "Roomba",
+        "offset": 194,
+        "length": 6,
+        "key": expect.any(String)//"v4eou18"
+      },
+      {
+        "start": "689.27",
+        "end": "689.42",
+        "confidence": "1.000",
+        "text": "when",
+        "offset": 201,
+        "length": 4,
+        "key": expect.any(String)//"ptqsx4c"
+      },
+      {
+        "start": "689.42",
+        "end": "689.51",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 206,
+        "length": 1,
+        "key": expect.any(String)//"iz6h25"
+      },
+      {
+        "start": "689.51",
+        "end": "689.96",
+        "confidence": "1.000",
+        "text": "soldier",
+        "offset": 208,
+        "length": 7,
+        "key": expect.any(String)//"j7ipkg"
+      },
+      {
+        "start": "689.99",
+        "end": "690.35",
+        "confidence": "1.000",
+        "text": "tries",
+        "offset": 216,
+        "length": 5,
+        "key": expect.any(String)//"tdgerse"
+      },
+      {
+        "start": "690.35",
+        "end": "690.44",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 222,
+        "length": 2,
+        "key": expect.any(String)//"xtqr7cp"
+      },
+      {
+        "start": "690.44",
+        "end": "690.8000000000001",
+        "confidence": "1.000",
+        "text": "save",
+        "offset": 225,
+        "length": 4,
+        "key": expect.any(String)//"n0b0bcg"
+      },
+      {
+        "start": "690.80",
+        "end": "690.8599999999999",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 230,
+        "length": 1,
+        "key": expect.any(String)//"pstk6q"
+      },
+      {
+        "start": "690.86",
+        "end": "691.25",
+        "confidence": "1.000",
+        "text": "robot",
+        "offset": 232,
+        "length": 5,
+        "key": expect.any(String)//"i6s3gjr"
+      },
+      {
+        "start": "691.25",
+        "end": "691.37",
+        "confidence": "1.000",
+        "text": "on",
+        "offset": 238,
+        "length": 2,
+        "key": expect.any(String)//"31je5ip"
+      },
+      {
+        "start": "691.37",
+        "end": "691.43",
+        "confidence": "1.000",
+        "text": "the",
+        "offset": 241,
+        "length": 3,
+        "key": expect.any(String)//"xm53syg"
+      },
+      {
+        "start": "691.43",
+        "end": "692.2399999999999",
+        "confidence": "1.000",
+        "text": "battlefield",
+        "offset": 245,
+        "length": 11,
+        "key": expect.any(String)//"8g5ytfr"
+      },
+      {
+        "start": "693.35",
+        "end": "693.44",
+        "confidence": "1.000",
+        "text": "or",
+        "offset": 257,
+        "length": 2,
+        "key": expect.any(String)//"hyp6v77"
+      },
+      {
+        "start": "693.44",
+        "end": "693.59",
+        "confidence": "1.000",
+        "text": "when",
+        "offset": 260,
+        "length": 4,
+        "key": expect.any(String)//"q4uwpd6"
+      },
+      {
+        "start": "693.59",
+        "end": "693.65",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 265,
+        "length": 1,
+        "key": expect.any(String)//"ocyn2ym"
+      },
+      {
+        "start": "693.65",
+        "end": "693.86",
+        "confidence": "1.000",
+        "text": "group",
+        "offset": 267,
+        "length": 5,
+        "key": expect.any(String)//"8x5d9v"
+      },
+      {
+        "start": "693.86",
+        "end": "693.95",
+        "confidence": "1.000",
+        "text": "of",
+        "offset": 273,
+        "length": 2,
+        "key": expect.any(String)//"dtxeqmo"
+      },
+      {
+        "start": "693.95",
+        "end": "694.34",
+        "confidence": "1.000",
+        "text": "people",
+        "offset": 276,
+        "length": 6,
+        "key": expect.any(String)//"qzh2dy7"
+      },
+      {
+        "start": "694.34",
+        "end": "694.9100000000001",
+        "confidence": "1.000",
+        "text": "refuses",
+        "offset": 283,
+        "length": 7,
+        "key": expect.any(String)//"vskeg2i"
+      },
+      {
+        "start": "694.91",
+        "end": "695",
+        "confidence": "1.000",
+        "text": "to",
+        "offset": 291,
+        "length": 2,
+        "key": expect.any(String)//"yrj5yj8"
+      },
+      {
+        "start": "695.00",
+        "end": "695.45",
+        "confidence": "1.000",
+        "text": "harm",
+        "offset": 294,
+        "length": 4,
+        "key": expect.any(String)//"xr9y19"
+      },
+      {
+        "start": "695.45",
+        "end": "695.5400000000001",
+        "confidence": "1.000",
+        "text": "a",
+        "offset": 299,
+        "length": 1,
+        "key": expect.any(String)//"8huj91"
+      },
+      {
+        "start": "695.54",
+        "end": "695.93",
+        "confidence": "1.000",
+        "text": "robotic",
+        "offset": 301,
+        "length": 7,
+        "key": expect.any(String)//"pvhyj7q"
+      },
+      {
+        "start": "695.93",
+        "end": "696.17",
+        "confidence": "1.000",
+        "text": "baby",
+        "offset": 309,
+        "length": 4,
+        "key": expect.any(String)//"a9fzpqh"
+      },
+      {
+        "start": "696.17",
+        "end": "696.86",
+        "confidence": "1.000",
+        "text": "dinosaur",
+        "offset": 314,
+        "length": 8,
+        "key": expect.any(String)//"suj0q5d"
+      },
+      {
+        "start": "698.24",
+        "end": "698.45",
+        "confidence": "1.000",
+        "text": "those",
+        "offset": 323,
+        "length": 5,
+        "key": expect.any(String)//"hg88f6"
+      },
+      {
+        "start": "698.45",
+        "end": "698.87",
+        "confidence": "1.000",
+        "text": "robots",
+        "offset": 329,
+        "length": 6,
+        "key": expect.any(String)//"aaqci7h"
+      },
+      {
+        "start": "698.90",
+        "end": "699.11",
+        "confidence": "1.000",
+        "text": "aren't",
+        "offset": 336,
+        "length": 6,
+        "key": expect.any(String)//"xxpytv"
+      },
+      {
+        "start": "699.11",
+        "end": "699.47",
+        "confidence": "1.000",
+        "text": "just",
+        "offset": 343,
+        "length": 4,
+        "key": expect.any(String)//"abq659e"
+      },
+      {
+        "start": "699.47",
+        "end": "699.95",
+        "confidence": "1.000",
+        "text": "motors",
+        "offset": 348,
+        "length": 6,
+        "key": expect.any(String)//"2nofl3"
+      },
+      {
+        "start": "699.95",
+        "end": "700.0400000000001",
+        "confidence": "0.990",
+        "text": "and",
+        "offset": 355,
+        "length": 3,
+        "key": expect.any(String)//"gpetdb"
+      },
+      {
+        "start": "700.04",
+        "end": "700.37",
+        "confidence": "1.000",
+        "text": "gears",
+        "offset": 359,
+        "length": 5,
+        "key": expect.any(String)//"gqnlmzm"
+      },
+      {
+        "start": "700.37",
+        "end": "700.49",
+        "confidence": "1.000",
+        "text": "and",
+        "offset": 365,
+        "length": 3,
+        "key": expect.any(String)//"5tlzooa"
+      },
+      {
+        "start": "700.49",
+        "end": "701.36",
+        "confidence": "1.000",
+        "text": "algorithms.",
+        "offset": 369,
+        "length": 11,
+        "key": expect.any(String)//"3z5t6c2"
+      },
       {
         "start": "702.51",
         "end": "702.66",
         "confidence": "1.000",
         "text": "They're",
-        "offset": 0,
+        "offset": 381,
         "length": 7,
-        "key": expect.any(String)//"6nqa52"
+        "key": expect.any(String)//"hygnwwdq"
       },
       {
         "start": "702.66",
         "end": "703.26",
         "confidence": "1.000",
         "text": "reflections",
-        "offset": 8,
+        "offset": 389,
         "length": 11,
-        "key": expect.any(String)//"e6o2xl"
+        "key": expect.any(String)//"vg7r6ua"
       },
       {
         "start": "703.26",
         "end": "703.38",
         "confidence": "1.000",
         "text": "of",
-        "offset": 20,
+        "offset": 401,
         "length": 2,
-        "key": expect.any(String)//"nyif7ku"
+        "key": expect.any(String)//"ztbu1b"
       },
       {
         "start": "703.38",
         "end": "703.47",
         "confidence": "1.000",
         "text": "our",
-        "offset": 23,
+        "offset": 404,
         "length": 3,
-        "key": expect.any(String)//"k3pams5"
+        "key": expect.any(String)//"g8eenxc"
       },
       {
         "start": "703.47",
         "end": "703.6800000000001",
         "confidence": "1.000",
         "text": "own",
-        "offset": 27,
+        "offset": 408,
         "length": 3,
-        "key": expect.any(String)//"b1c8mq"
+        "key": expect.any(String)//"f1zx8rr"
       },
       {
         "start": "703.68",
         "end": "704.7099999999999",
         "confidence": "1.000",
         "text": "humanity.",
-        "offset": 31,
+        "offset": 412,
         "length": 9,
-        "key": expect.any(String)//"vyd0f2h"
+        "key": expect.any(String)//"noa038d"
       }
     ]
   },
@@ -31664,7 +30620,7 @@ const draftTranscriptExample = [
     "text": "Thank you.",
     "type": "paragraph",
     "data": {
-      "speaker": "F3",
+      "speaker": "F2",
       "words": [
         {
           "start": "705.53",
@@ -31693,7 +30649,7 @@ const draftTranscriptExample = [
         "text": "Thank",
         "offset": 0,
         "length": 5,
-        "key": expect.any(String)//"b462rb"
+        "key": expect.any(String)//"0ylvrye"
       },
       {
         "start": "705.80",
@@ -31702,7 +30658,7 @@ const draftTranscriptExample = [
         "text": "you.",
         "offset": 6,
         "length": 4,
-        "key": expect.any(String)//"r3zmxk"
+        "key": expect.any(String)//"wp84ref"
       }
     ]
   }
