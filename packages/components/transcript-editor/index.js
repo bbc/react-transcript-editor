@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useReducer, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import TimedTextEditor from '../timed-text-editor';
 import MediaPlayer from '../media-player';
@@ -67,7 +67,6 @@ const TranscriptEditor = (props) => {
   const [ isInLocalStorage, setIsInLocalStorage ] = useState(false);
 
   const [ isPlaying, setIsPlaying ] = useState(false);
-  const [ playMedia, setPlayMedia ] = useState(null);
 
   const [ mediaDuration, setMediaDuration ] = useState('00:00:00:00');
   const [ pauseTimer, setPauseTimer ] = useState(null);
@@ -85,6 +84,21 @@ const TranscriptEditor = (props) => {
     return timedTextEditorRef.current.localSave(props.mediaUrl);
   };
 
+  const playMedia = () => {
+    console.log('play media');
+    setIsPlaying(true);
+    videoRef.current.play();
+
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
+        category: 'MediaPlayer',
+        action: 'playMedia',
+        name: 'playMedia',
+        value: secondsToTimecode(videoRef.current.currentTime)
+      });
+    }
+  };
+
   const mediaControls = (
     <MediaPlayer
       title={ props.title ? props.title : '' }
@@ -92,8 +106,8 @@ const TranscriptEditor = (props) => {
       currentTime={ currentTime }
 
       hookSeek={ mediaPlayer => setCurrentTime(mediaPlayer.currentTime) }
-      hookPlayMedia={ mediaPlayer => setPlayMedia(mediaPlayer.playMedia) }
-      hookIsPlaying={ mediaPlayer => setIsPlaying(mediaPlayer.isPlaying) }
+      hookPlayMedia={ playMedia }
+      hookIsPlaying={ () => isPlaying }
 
       rollBackValueInSeconds={ rollBackValueInSeconds }
       timecodeOffset={ timecodeOffset }
@@ -106,6 +120,7 @@ const TranscriptEditor = (props) => {
 
   // currently  not playing
   const handlePlayMedia = play => {
+    console.log('handlePlayMedia');
     playMedia(play);
     setIsPlaying(play);
     console.log(isPlaying);
@@ -139,7 +154,7 @@ const TranscriptEditor = (props) => {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const loadSaveData = () => {
       const saveName = localFileName;
       const data = localStorage.getItem(saveName);
@@ -160,7 +175,9 @@ const TranscriptEditor = (props) => {
   }, [ isInLocalStorage, localFileName ]);
 
   const handleWordClick = startTime => {
+    console.log('handleword');
     setCurrentTime(startTime);
+    handlePlayMedia(true);
 
     if (props.handleAnalyticsEvents) {
       props.handleAnalyticsEvents({

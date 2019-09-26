@@ -4,7 +4,6 @@ function returnHotKeys(self) {
       priority: 1,
       handler: () => {
         self.togglePlayMedia();
-
         self.props.handleAnalyticsEvents({
           category: 'defaultHotKeys',
           action: 'alt+k',

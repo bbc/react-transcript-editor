@@ -66,7 +66,6 @@ const TimedTextEditor = (props) => {
   */
 
   const handleDoubleClick = (event) => {
-    // nativeEvent --> React giving you the DOM event
     let element = event.nativeEvent.target;
     // find the parent in Word that contains span with time-code start attribute
     while (!element.hasAttribute('data-start') && element.parentElement) {
