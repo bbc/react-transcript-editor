@@ -30,17 +30,6 @@ const MediaPlayer = (props) => {
 
   const hot_keys = returnHotKeys();
 
-  const handleAnalyticEventsWrapper = useCallback((action, name, value) => {
-    if (props.handleAnalyticsEvents) {
-      props.handleAnalyticsEvents({
-        category: 'MediaPlayer',
-        action,
-        name,
-        value
-      });
-    }
-  });
-
   // setting time should be unified
 
   const setCurrentTime = (newCurrentTime) => {
@@ -93,6 +82,17 @@ const MediaPlayer = (props) => {
 
   useEffect(() => {
 
+    const handleAnalyticEventsWrapper = (action, name, value) => {
+      if (props.handleAnalyticsEvents) {
+        props.handleAnalyticsEvents({
+          category: 'MediaPlayer',
+          action,
+          name,
+          value
+        });
+      }
+    };
+
     const playMedia = () => {
       const videoRef = props.videoRef.current;
       videoRef.play();
@@ -117,7 +117,7 @@ const MediaPlayer = (props) => {
 
     return () => {
     };
-  }, [ handleAnalyticEventsWrapper, isPlaying, playbackRate, props.videoRef ]);
+  }, [ isPlaying, playbackRate, props, props.videoRef ]);
 
   const handlePlayBackRateChange = e => {
     handleAnalyticEventsWrapper('setPlayBackRate', 'playbackRateNewValue', e.target.value);
