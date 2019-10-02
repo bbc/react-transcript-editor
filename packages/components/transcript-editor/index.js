@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useReducer, useLayoutEffect } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import TimedTextEditor from '../timed-text-editor';
 import MediaPlayer from '../media-player';
@@ -64,6 +64,10 @@ const TranscriptEditor = (props) => {
   const [ showSpeakers, setShowSpeakers ] = useState(true);
   const [ previewIsDisplayed, setPreviewIsDisplayed ] = useState(true);
 
+  const [ mediaUrl, setMediaUrl ] = useState('');
+  const [ mediaName, setMediaName ] = useState('');
+  const [ fileName, setFileName ] = useState('');
+
   const [ isInLocalStorage, setIsInLocalStorage ] = useState(false);
 
   const [ isPlaying, setIsPlaying ] = useState(false);
@@ -71,7 +75,6 @@ const TranscriptEditor = (props) => {
   const [ mediaDuration, setMediaDuration ] = useState('00:00:00:00');
   const [ pauseTimer, setPauseTimer ] = useState(null);
 
-  const mediaName = props.mediaUrl.includes('blob') ? props.fileName : props.mediaUrl;
   const localFileName = `draftJs-${ mediaName }`;
 
   const TYPE_PAUSE_INTERVAL_MS = 3000;
@@ -85,7 +88,6 @@ const TranscriptEditor = (props) => {
   };
 
   const playMedia = () => {
-    console.log('play media');
     setIsPlaying(true);
     videoRef.current.play();
 
@@ -155,6 +157,18 @@ const TranscriptEditor = (props) => {
   };
 
   useLayoutEffect(() => {
+    if (mediaUrl === '' && props.mediaUrl) {
+      setMediaUrl(props.mediaUrl);
+    }
+
+    if (fileName === '' && props.fileName) {
+      setFileName(props.fileName);
+    }
+
+    if (mediaName === '' && (props.mediaUrl || props.mediaName)) {
+      setMediaName(mediaUrl.includes('blob') ? fileName : mediaUrl);
+    }
+
     const loadSaveData = () => {
       const saveName = localFileName;
       const data = localStorage.getItem(saveName);
@@ -172,7 +186,7 @@ const TranscriptEditor = (props) => {
 
     return () => {
     };
-  }, [ isInLocalStorage, localFileName ]);
+  }, [fileName, isInLocalStorage, localFileName, mediaName, mediaUrl, props.fileName, props.mediaName, props.mediaUrl]);
 
   const handleWordClick = startTime => {
     console.log('handleword');
@@ -329,7 +343,7 @@ const TranscriptEditor = (props) => {
     const exportFormat = e.target.value;
 
     if (exportFormat !== 'instructions') {
-      const fileName = props.title ? props.title : props.mediaUrl;
+      const fileName = props.title ? props.title : mediaUrl;
       const { data, ext } = getEditorContent(exportFormat);
       let tmpData = data;
       if (ext === 'json') {
@@ -373,7 +387,7 @@ const TranscriptEditor = (props) => {
 
   const videoPlayer = (
     <VideoPlayer
-      mediaUrl={ props.mediaUrl }
+      mediaUrl={ mediaUrl }
       onTimeUpdate={ handleTimeUpdate }
       videoRef={ videoRef }
       previewIsDisplayed={ previewIsDisplayed }
@@ -425,7 +439,7 @@ const TranscriptEditor = (props) => {
       isEditable={ props.isEditable }
       spellCheck={ props.spellCheck }
       sttJsonType={ props.sttJsonType }
-      mediaUrl={ props.mediaUrl }
+      mediaUrl={ mediaUrl }
       isScrollIntoView={ isScrollIntoView }
       showTimecodes={ showTimecodes }
       showSpeakers={ showSpeakers }
@@ -443,7 +457,7 @@ const TranscriptEditor = (props) => {
       shortcuts={ shortcuts }
       exportOptions={ exportOptions }
       tooltip={ HowDoesThisWork }
-      mediaUrl={ props.mediaUrl }
+      mediaUrl={ mediaUrl }
       mediaControls={ videoRef.current ? mediaControls : null }
       handleSettingsToggle={ handleSettingsToggle }
       handleShortcutsToggle={ handleShortcutsToggle }
@@ -453,16 +467,16 @@ const TranscriptEditor = (props) => {
 
   return (
     <div className={ style.container }>
-      {props.mediaUrl ? header : null}
+      {mediaUrl ? header : null}
 
       <div className={ style.grid }>
         <section className={ style.row }>
           <aside className={ style.aside }>
-            {props.mediaUrl ? videoPlayer : null}
+            {mediaUrl ? videoPlayer : null}
           </aside>
 
           <main className={ style.main }>
-            {props.mediaUrl && props.transcriptData ? timedTextEditor : null}
+            {mediaUrl && props.transcriptData ? timedTextEditor : null}
           </main>
         </section>
       </div>
