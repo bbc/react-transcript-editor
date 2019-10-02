@@ -6,11 +6,11 @@ import ExportFormatSelect from './select-export-format';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-import demoTranscript from './sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json';
-const demoMediaUrl = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
-const demoTitle = 'Ted Talk - Kate Darling';
+import DEMO_TRANSCRIPT from './sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json';
+const DEMO_MEDIA_URL = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
+const DEMO_TITLE = 'TED Talk | Kate Darling - Why we have an emotional connection to robots';
 
-import style from './index.module.css';
+import style from './index.module.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,9 +32,9 @@ class App extends React.Component {
 
   loadDemo = () => {
     this.setState({
-      transcriptData: demoTranscript,
-      mediaUrl: demoMediaUrl,
-      title: demoTitle,
+      transcriptData: DEMO_TRANSCRIPT,
+      mediaUrl: DEMO_MEDIA_URL,
+      title: DEMO_TITLE,
       sttType: 'bbckaldi'
     });
   }
@@ -48,7 +48,7 @@ class App extends React.Component {
     if (canPlay) {
       const fileURL = URL.createObjectURL(file);
       this.setState({
-        // transcriptData: demoTranscript,
+        // transcriptData: DEMO_TRANSCRIPT,
         mediaUrl: fileURL,
         fileName: file.name
       });
@@ -61,7 +61,7 @@ class App extends React.Component {
     const fileURL = prompt("Paste the URL you'd like to use here:");
 
     this.setState({
-      // transcriptData: demoTranscript,
+      // transcriptData: DEMO_TRANSCRIPT,
       mediaUrl: fileURL
     });
   }
@@ -116,7 +116,9 @@ class App extends React.Component {
     if (ext === 'json') {
       tmpData = JSON.stringify(data, null, 2);
     }
-    this.download(tmpData, `${ this.state.mediaUrl }.${ ext }`);
+    if (ext !== 'docx') {
+      this.download(tmpData, `${ this.state.mediaUrl }.${ ext }`);
+    }
   };
 
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
@@ -172,19 +174,19 @@ class App extends React.Component {
           </section>
 
           <section className={ style.demoNavItem }>
-            <label className={ style.sectionLabel }>Custom Media</label>
-            <button onClick={ () => this.handleLoadMediaUrl() }>Load from URL</button>
+            <label className={ style.sectionLabel }>Load Media</label>
+            <button onClick={ () => this.handleLoadMediaUrl() }> From URL</button>
             <input
               type={ 'file' }
               id={ 'mediaFile' }
               onChange={ e => this.handleLoadMedia(e.target.files) }
             />
-            <label htmlFor="mediaFile" >Load local media</label>
+            <label htmlFor="mediaFile" >From Computer</label>
             {this.state.fileName !== '' ? <label className={ style.fileNameLabel }>{this.state.fileName}</label> : null}
           </section>
 
           <section className={ style.demoNavItem }>
-            <label className={ style.sectionLabel }>Import Transcript</label>
+            <label className={ style.sectionLabel }>Load Transcript</label>
             <SttTypeSelect
               className={ style.dropdown }
               name={ 'sttType' }
@@ -197,7 +199,7 @@ class App extends React.Component {
               id={ 'transcriptFile' }
               onChange={ e => this.handleLoadTranscriptJson(e.target.files) }
             />
-            <label htmlFor="transcriptFile" >Load Transcript</label>
+            <label htmlFor="transcriptFile" >From Computer</label>
             {this.state.transcriptData !== null ? <label className={ style.fileNameLabel }>Transcript loaded.</label> : null}
 
           </section>
@@ -248,7 +250,11 @@ class App extends React.Component {
               />
             </div>
 
-            <button className={ style.warningButton } onClick={ () => this.clearLocalStorage() }>Clear Local Storage</button>
+            <button
+              className={ style.warningButton }
+              onClick={ () => this.clearLocalStorage() }>
+              Clear Local Storage
+            </button>
           </section>
         </div>
 
@@ -274,7 +280,5 @@ class App extends React.Component {
     );
   }
 }
-
-// render(<App />, document.getElementById('root'));
 
 export default App;

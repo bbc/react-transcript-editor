@@ -1,31 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { hotkeys } from 'react-keyboard-shortcuts';
+
 import PlayerControls from './src/PlayerControls';
 import ProgressBar from './src/ProgressBar';
 
-import returnHotKeys from './src/defaultHotKeys';
-import styles from './index.module.css';
+import returnHotKeys from './src/config/defaultHotKeys';
+
+import styles from './index.module.scss';
 
 import {
   secondsToTimecode,
   timecodeToSeconds
 } from '../../util/timecode-converter';
 
-const PLAYBACK_RATES = [
-  { value: 0.2, label: '0.2' },
-  { value: 0.25, label: '0.25' },
-  { value: 0.5, label: '0.5' },
-  { value: 0.75, label: '0.75' },
-  { value: 1, label: '1' },
-  { value: 1.25, label: '1.25' },
-  { value: 1.5, label: '1.5' },
-  { value: 1.75, label: '1.75' },
-  { value: 2, label: '2' },
-  { value: 2.5, label: '2.5' },
-  { value: 3, label: '3' },
-  { value: 3.5, label: '3.5' }
-];
+import PLAYBACK_RATES from './src/config/playbackRates.js';
 
 class MediaPlayer extends React.Component {
   constructor(props) {
@@ -48,6 +37,7 @@ class MediaPlayer extends React.Component {
   static getDerivedStateFromProps(nextProps) {
     if (nextProps.timecodeOffset !== null) {
       let newCurrentTimeInSeconds = nextProps.timecodeOffset;
+
       if (
         typeof newCurrentTimeInSeconds === 'string' &&
         newCurrentTimeInSeconds.includes(':') &&
@@ -67,22 +57,49 @@ class MediaPlayer extends React.Component {
 
   componentDidMount() {
     // TODO: Should these hook functions be optional? are they needed? what do they actually do?
+    // TODO: these hook functions need refactoring, they are causing performance problems
     this.props.hookSeek(this.setCurrentTime);
     this.props.hookPlayMedia(this.togglePlayMedia);
     this.props.hookIsPlaying(this.isPlaying);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.rollBackValueInSeconds !== this.state.rollBackValueInSeconds) {
+      return true;
+    }
+    if (nextProps.timecodeOffset !== this.state.timecodeOffset) {
+      return true;
+    }
+    // TODO: workaround to keep the hook functions, only call re-renders
+    // if current time has changed. And it seems eliminate component's unecessary re-renders.
+    if (nextProps.currentTime !== this.props.currentTime) {
+      return true;
+    }
+
+    if (nextState.playbackRate !== this.state.playbackRate) {
+      return true;
+    }
+
+    if (nextProps.mediaDuration !== this.props.mediaDuration ) {
+      return true;
+    }
+
+    if (nextState.isMute !== this.state.isMute) {
+      return true;
+    }
+
+    return false;
   }
 
   setCurrentTime = newCurrentTime => {
     if (newCurrentTime !== '' && newCurrentTime !== null) {
       // hh:mm:ss:ff - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
       const newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTime);
-      if (this.props.videoRef.current !== null) {
-        const videoRef = this.props.videoRef.current;
+      const videoRef = this.props.videoRef.current;
 
-        if (videoRef.readyState === 4) {
-          videoRef.currentTime = newCurrentTimeInSeconds;
-          this.playMedia();
-        }
+      if (videoRef.readyState === 4) {
+        videoRef.currentTime = newCurrentTimeInSeconds;
+        this.playMedia();
       }
     }
   };
@@ -142,22 +159,20 @@ class MediaPlayer extends React.Component {
   };
 
   rollBack = () => {
-    if (this.props.videoRef.current !== null) {
-      if (this.props.handleAnalyticsEvents) {
-        this.props.handleAnalyticsEvents({
-          category: 'MediaPlayer',
-          action: 'rollBack',
-          name: 'rollBackValue',
-          value: this.state.rollBackValueInSeconds
-        });
-      }
-      // get video duration
-      const videoElem = this.props.videoRef.current;
-      const tmpDesiredCurrentTime =
+    if (this.props.handleAnalyticsEvents) {
+      this.props.handleAnalyticsEvents({
+        category: 'MediaPlayer',
+        action: 'rollBack',
+        name: 'rollBackValue',
+        value: this.state.rollBackValueInSeconds
+      });
+    }
+    // get video duration
+    const videoElem = this.props.videoRef.current;
+    const tmpDesiredCurrentTime =
         videoElem.currentTime - this.state.rollBackValueInSeconds;
       // > 0 < duration of video
-      this.setCurrentTime(tmpDesiredCurrentTime);
-    }
+    this.setCurrentTime(tmpDesiredCurrentTime);
   };
 
   handlePlayBackRateChange = e => {
@@ -168,34 +183,30 @@ class MediaPlayer extends React.Component {
    * @param {float} input - playback rate value as a float
    */
   setPlayBackRate = input => {
-    if (this.props.videoRef.current !== null) {
-      if (input >= 0.2 && input <= 3.5) {
-        this.setState(
-          {
-            playbackRate: input
-          },
-          () => {
-            this.props.videoRef.current.playbackRate = input;
+    if (input >= 0.2 && input <= 3.5) {
+      this.setState(
+        {
+          playbackRate: input
+        },
+        () => {
+          this.props.videoRef.current.playbackRate = input;
 
-            if (this.props.handleAnalyticsEvents) {
-              this.props.handleAnalyticsEvents({
-                category: 'MediaPlayer',
-                action: 'setPlayBackRate',
-                name: 'playbackRateNewValue',
-                value: input
-              });
-            }
+          if (this.props.handleAnalyticsEvents) {
+            this.props.handleAnalyticsEvents({
+              category: 'MediaPlayer',
+              action: 'setPlayBackRate',
+              name: 'playbackRateNewValue',
+              value: input
+            });
           }
-        );
-      }
+        }
+      );
     }
   };
 
   decreasePlaybackRate = () => {
     const speeds = [ ...PLAYBACK_RATES ].reverse();
-    const slower = speeds.find(option => {
-      return option.value < this.state.playbackRate;
-    });
+    const slower = speeds.find(option => option.value < this.state.playbackRate);
     const newSpeed = slower ? slower.value : 0.2;
 
     this.setPlayBackRate(newSpeed);
@@ -203,48 +214,36 @@ class MediaPlayer extends React.Component {
 
   increasePlaybackRate = () => {
     const speeds = [ ...PLAYBACK_RATES ];
-    const faster = speeds.find(option => {
-      return option.value > this.state.playbackRate;
-    });
+    const faster = speeds.find(option => option.value > this.state.playbackRate);
     const newSpeed = faster ? faster.value : 3.5;
 
     this.setPlayBackRate(newSpeed);
   };
 
   handleChangeReplayRollbackValue = e => {
-    if (this.props.videoRef.current !== null) {
-      this.setState({
-        rollBackValueInSeconds: e.target.value
-      });
-    }
+    this.setState({
+      rollBackValueInSeconds: e.target.value
+    });
   };
 
   handleMuteVolume = () => {
-    if (this.props.videoRef.current !== null) {
-      if (this.props.videoRef.current.volume > 0) {
-        this.props.videoRef.current.volume = 0;
-        this.setState({ isMute: true });
-      } else {
-        this.props.videoRef.current.volume = 1;
-        this.setState({ isMute: false });
-      }
+    if (this.props.videoRef.current.volume > 0) {
+      this.props.videoRef.current.volume = 0;
+      this.setState({ isMute: true });
+    } else {
+      this.props.videoRef.current.volume = 1;
+      this.setState({ isMute: false });
     }
   };
 
   // TEMP: keeping this in for now. Might be replaced by state
   // The pauseWhileTyping logic (in TimedTextEditor) currently uses this
   isPlaying = () => {
-    if (this.props.videoRef.current !== null) {
-      if (this.props.videoRef.current.paused) return false;
-
-      return true;
-    }
+    return !this.props.videoRef.current.paused;
   };
 
   pauseMedia = () => {
-    this.setState({ isPlaying: false }, () =>
-      this.props.videoRef.current.pause()
-    );
+    this.setState({ isPlaying: false }, () => this.props.videoRef.current.pause());
 
     if (this.props.handleAnalyticsEvents) {
       this.props.handleAnalyticsEvents({
@@ -257,9 +256,7 @@ class MediaPlayer extends React.Component {
   };
 
   playMedia = () => {
-    this.setState({ isPlaying: true }, () =>
-      this.props.videoRef.current.play()
-    );
+    this.setState({ isPlaying: true }, () => this.props.videoRef.current.play());
 
     if (this.props.handleAnalyticsEvents) {
       this.props.handleAnalyticsEvents({
@@ -274,33 +271,27 @@ class MediaPlayer extends React.Component {
   // Sets isPlaying state and toggles modes on the video player
   // TODO: modularise these / enable specific play / pause action
   togglePlayMedia = () => {
-    if (this.props.videoRef.current !== null) {
-      if (this.state.isPlaying) {
-        this.pauseMedia();
-      } else {
-        this.playMedia();
-      }
+    if (this.state.isPlaying) {
+      this.pauseMedia();
+    } else {
+      this.playMedia();
     }
   };
 
   skipForward = () => {
-    if (this.props.videoRef.current !== null) {
-      // TODO track this?
-      const currentTime = this.props.videoRef.current.currentTime;
-      const newCurrentTimeIncreased = currentTime + 10;
-      const newCurrentTime = Number(newCurrentTimeIncreased.toFixed(1));
-      this.setCurrentTime(newCurrentTime);
-    }
+    const currentTime = this.props.videoRef.current.currentTime;
+    const newCurrentTimeIncreased = currentTime + 10;
+    const newCurrentTime = Number(newCurrentTimeIncreased.toFixed(1));
+
+    this.setCurrentTime(newCurrentTime);
   };
 
   skipBackward = () => {
-    // TODO track this?
-    if (this.props.videoRef.current !== null) {
-      const currentTime = this.props.videoRef.current.currentTime;
-      const newCurrentTimeIncreased = currentTime - 10;
-      const newCurrentTime = Number(newCurrentTimeIncreased.toFixed(1));
-      this.setCurrentTime(newCurrentTime);
-    }
+    const currentTime = this.props.videoRef.current.currentTime;
+    const newCurrentTimeIncreased = currentTime - 10;
+    const newCurrentTime = Number(newCurrentTimeIncreased.toFixed(1));
+
+    this.setCurrentTime(newCurrentTime);
   };
 
   handleProgressBarClick = e => {
@@ -317,95 +308,73 @@ class MediaPlayer extends React.Component {
     }
   };
 
-  getMediaCurrentTime = () => {
-    if (this.props.videoRef.current !== null) {
-      return secondsToTimecode(
-        this.props.videoRef.current.currentTime + this.state.timecodeOffset
-      );
-    }
-
-    return '00:00:00:00';
-  };
+  getMediaCurrentTime = () => secondsToTimecode(this.props.videoRef.current.currentTime + this.state.timecodeOffset);
 
   handlePictureInPicture = () => {
-    // console.log('this.props.videoRef', this.props.videoRef, this.props.videoRef.current );
-    if (this.props.videoRef.current !== undefined) {
-      if (document.pictureInPictureElement !== undefined) {
-        // from https://developers.google.com/web/updates/2017/09/picture-in-picture
-        if (!document.pictureInPictureElement) {
-          if (this.props.handleAnalyticsEvents) {
-            this.props.handleAnalyticsEvents({
-              category: 'MediaPlayer',
-              action: 'handlePictureInPicture',
-              name: 'turning-picture-in-picture-on'
-            });
-          }
-
-          this.props.videoRef.current.requestPictureInPicture().catch(error => {
-            // Video failed to enter Picture-in-Picture mode.
-            console.error(
-              'Video failed to enter Picture-in-Picture mode',
-              error
-            );
-
-            if (this.props.handleAnalyticsEvents) {
-              this.props.handleAnalyticsEvents({
-                category: 'MediaPlayer',
-                action: 'handlePictureInPicture',
-                name: 'turning-picture-in-picture-on-error'
-              });
-            }
-          });
-        } else {
-          if (this.props.handleAnalyticsEvents) {
-            this.props.handleAnalyticsEvents({
-              category: 'MediaPlayer',
-              action: 'handlePictureInPicture',
-              name: 'turning-picture-in-picture-off'
-            });
-          }
-          document.exitPictureInPicture().catch(error => {
-            // Video failed to leave Picture-in-Picture mode.
-            console.error(
-              'Video failed to leave Picture-in-Picture mode',
-              error
-            );
-            if (this.props.handleAnalyticsEvents) {
-              this.props.handleAnalyticsEvents({
-                category: 'MediaPlayer',
-                action: 'handlePictureInPicture',
-                name: 'turning-picture-in-picture-off-error'
-              });
-            }
-          });
-        }
-      } else {
-        alert('Picture in Picture not supported in this browser, try chrome.');
+    if (document.pictureInPictureElement !== undefined) {
+      // from https://developers.google.com/web/updates/2017/09/picture-in-picture
+      if (!document.pictureInPictureElement) {
         if (this.props.handleAnalyticsEvents) {
           this.props.handleAnalyticsEvents({
             category: 'MediaPlayer',
             action: 'handlePictureInPicture',
-            name: 'picture-in-picture-not-supported'
+            name: 'turning-picture-in-picture-on'
           });
         }
+
+        this.props.videoRef.current.requestPictureInPicture().catch(error => {
+          console.error('Video failed to enter Picture-in-Picture mode', error);
+
+          if (this.props.handleAnalyticsEvents) {
+            this.props.handleAnalyticsEvents({
+              category: 'MediaPlayer',
+              action: 'handlePictureInPicture',
+              name: 'turning-picture-in-picture-on-error'
+            });
+          }
+        });
+      } else {
+        if (this.props.handleAnalyticsEvents) {
+          this.props.handleAnalyticsEvents({
+            category: 'MediaPlayer',
+            action: 'handlePictureInPicture',
+            name: 'turning-picture-in-picture-off'
+          });
+        }
+
+        document.exitPictureInPicture().catch(error => {
+          console.error('Video failed to leave Picture-in-Picture mode', error);
+
+          if (this.props.handleAnalyticsEvents) {
+            this.props.handleAnalyticsEvents({
+              category: 'MediaPlayer',
+              action: 'handlePictureInPicture',
+              name: 'turning-picture-in-picture-off-error'
+            });
+          }
+        });
+      }
+    } else {
+      alert('Picture in Picture not supported in this browser, try chrome.');
+      if (this.props.handleAnalyticsEvents) {
+        this.props.handleAnalyticsEvents({
+          category: 'MediaPlayer',
+          action: 'handlePictureInPicture',
+          name: 'picture-in-picture-not-supported'
+        });
       }
     }
   };
 
+  getProgressBarMax = () => parseInt(this.props.videoRef.current.duration).toString();
+  getProgressBarValue = () => parseInt(this.props.videoRef.current.currentTime).toString();
+
   render() {
     const progressBar = (
       <ProgressBar
-        max={
-          this.props.videoRef.current !== null
-            ? parseInt(this.props.videoRef.current.duration).toString()
-            : '100'
-        }
-        value={
-          this.props.videoRef.current !== null
-            ? parseInt(this.props.videoRef.current.currentTime)
-            : 0
-        }
-        buttonClick={ this.handleProgressBarClick.bind(this) }
+        max={ this.getProgressBarMax() }
+        value={ this.getProgressBarValue() }
+        buttonClick={ this.handleProgressBarClick }
       />
     );
 
@@ -435,14 +404,14 @@ class MediaPlayer extends React.Component {
             this.props.handleSaveTranscript();
           } }
         />
-        {this.props.mediaUrl === null ? null : progressBar}
+        {this.props.mediaUrl ? progressBar : null}
       </div>
     );
 
     return (
       <section className={ styles.topSection }>
         <div className={ styles.playerSection }>
-          {this.props.mediaUrl === null ? null : playerControlsSection}
+          {this.props.mediaUrl ? playerControlsSection : null}
         </div>
       </section>
     );

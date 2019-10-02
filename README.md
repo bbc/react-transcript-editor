@@ -12,7 +12,7 @@ _--> Work in progress <--_
 
 <!-- _Screenshot of UI - optional_ -->
 
-- [You can see a demo by clicking here ](https://bbc.github.io/react-transcript-editor/iframe.html?id=demo--default) (and then click the `load demo` button)
+- [You can see a demo by clicking here](https://bbc.github.io/react-transcript-editor/iframe.html?id=demo--default) (and then click the `load demo` button)
 - [And you can see a list of features here](./docs/features-list.md).
 
 ## Development env
@@ -56,35 +56,33 @@ npm install @bbc/react-transcript-editor
 ```
 
 ```js
-import  TranscriptEditor  from '@bbc/react-transcript-editor';
+import TranscriptEditor from "@bbc/react-transcript-editor";
 ```
 
 ```js
-  <TranscriptEditor
-     transcriptData={ someJsonFile }
-     mediaUrl={'https://download.ted.com/talks/KateDarling_2018S-950k.mp4'}
-     isEditable={true}
-     spellCheck={false}
-     sttJsonType={ 'bbckaldi' } 
-     handleAnalyticsEvents={ this.handleAnalyticsEvents } 
-     fileName={'ted-talk.mp4'}
-     title={'Ted Talk'}
-     ref={ this.transcriptEditorRef }
-   />
+<TranscriptEditor
+  transcriptData={someJsonFile}
+  mediaUrl={"https://download.ted.com/talks/KateDarling_2018S-950k.mp4"}
+  isEditable={true}
+  spellCheck={false}
+  sttJsonType={"bbckaldi"}
+  handleAnalyticsEvents={this.handleAnalyticsEvents}
+  fileName={"ted-talk.mp4"}
+  title={"Ted Talk"}
+  ref={this.transcriptEditorRef}
+/>
 ```
 
-
-| Attributes       | Description     | required     | type     |
-| :------------- | :---------- | :-----------: | :-----------: |
-|  transcriptData | Transcript json  | yes    | Json    |
-| mediaUrl  | string url to media file - audio or video | yes | String    |
-| isEditable   | set to true if you want to be able to edit the text |  no | Boolean    |
-|spellCheck  | set to true if you want the browser to spell check this transcript | no  | Boolean  |
-| handleAnalyticsEvents  | if you want to collect analytics events. | no | Function   |
-| fileName  |used for saving and retrieving local storage blob files | no | String   |
-| title  | defaults to empty string | no | String    |
-| ref  | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.| no | React ref    |
-
+| Attributes            | Description                                                                                                             | required |   type    |
+| :-------------------- | :---------------------------------------------------------------------------------------------------------------------- | :------: | :-------: |
+| transcriptData        | Transcript json                                                                                                         |   yes    |   Json    |
+| mediaUrl              | string url to media file - audio or video                                                                               |   yes    |  String   |
+| isEditable            | set to true if you want to be able to edit the text                                                                     |    no    |  Boolean  |
+| spellCheck            | set to true if you want the browser to spell check this transcript                                                      |    no    |  Boolean  |
+| handleAnalyticsEvents | if you want to collect analytics events.                                                                                |    no    | Function  |
+| fileName              | used for saving and retrieving local storage blob files                                                                 |    no    |  String   |
+| title                 | defaults to empty string                                                                                                |    no    |  String   |
+| ref                   | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db. |    no    | React ref |
 
 See [`./demo/app.js` demo](./demo/app.js) as a more detailed example usage of the component.
 
@@ -119,10 +117,11 @@ You can also import some of the underlying React components directly.
 To import the components you can do as follows
 
 ```js
-import TimedTextEditor from '@bbc/react-transcript-editor/TimedTextEditor';
+import TimedTextEditor from "@bbc/react-transcript-editor/TimedTextEditor";
 ```
+
 ```js
-import { TimedTextEditor } from '@bbc/react-transcript-editor';
+import { TimedTextEditor } from "@bbc/react-transcript-editor";
 ```
 
 However if you are not using `TranscriptEditor` it is recommended to follow the second option and import individual components like: `@bbc/react-transcript-editor/TimedTextEditor` rather than the entire library. Doing so pulls in only the specific components that you use, which can significantly reduce the amount of code you end up sending to the client. (Similarly to how [`react-bootstrap`](https://react-bootstrap.github.io/getting-started/introduction) works)
@@ -132,23 +131,31 @@ See [the storybook](https://bbc.github.io/react-transcript-editor) for each comp
 You can also use this node modules as standalone
 
 ```js
-import exportAdapter from '@bbc/react-transcript-editor/exportAdapter'
+import exportAdapter from "@bbc/react-transcript-editor/exportAdapter";
 ```
+
 Converts from draftJs json format to other formats
 
 ```js
-import  sttJsonAdapter from '@bbc/react-transcript-editor/sttJsonAdapter'
+import sttJsonAdapter from "@bbc/react-transcript-editor/sttJsonAdapter";
 ```
+
 Converts various stt json formats to draftJs
 
 ```js
-import { secondsToTimecode, timecodeToSeconds, shortTimecode} from '@bbc/react-transcript-editor/timecodeConverter'
+import {
+  secondsToTimecode,
+  timecodeToSeconds,
+  shortTimecode
+} from "@bbc/react-transcript-editor/timecodeConverter";
 ```
+
 some modules to convert to and from timecodes
 
 ## System Architecture
 
 <!-- _High level overview of system architecture_ -->
+
 - uses [`storybook`](https://storybook.js.org) with the setup as [explained in their docs](https://storybook.js.org/docs/guides/guide-react/) to develop this React.
 - This uses [CSS Modules](https://github.com/css-modules/css-modules) to contain the scope of the css for this component.
 - [`.storybook/webpack.config.js](./.storybook/webpack.config.js) enanches the storybook webpack config to add support for css modules.
@@ -187,14 +194,13 @@ npm run build:component
 
 - **Demo** can be viewed at [https://bbc.github.io/react-transcript-editor/iframe.html?id=demo--default](https://bbc.github.io/react-transcript-editor/iframe.html?id=demo--default)
 
-
 http://localhost:6006
-
 
 <!-- https://github.com/gitname/react-gh-pages
 -->
 
 ## Build - storybook
+
 To build the storybook as a static site
 
 ```
@@ -226,17 +232,18 @@ npm run build:storybook:serve
 ```
 
 ## Tests
+
 <!-- _How to carry out tests_ -->
 
 Test coverage using [`jest`](https://jestjs.io/), to run tests
 
-```
+```sh
 npm run test
 ```
 
 During development you can use
 
-```
+```sh
 npm run test:watch
 ```
 
@@ -263,7 +270,9 @@ This runs `npm run build:component` and `npm publish --access public` under the 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) guidelines.
 
 ## Licence
+
 <!-- mention MIT Licence -->
+
 See [LICENCE](./LICENCE.md)
 
 ## Legal Disclaimer

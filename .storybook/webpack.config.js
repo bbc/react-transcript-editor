@@ -6,36 +6,28 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.module.css$/,
+        test: /\.module.(sa|sc|c)ss$/,
         use: [
-          {
-            loader: "style-loader"
-          },
+          "style-loader",
           {
             loader: "css-loader",
-            options: {
-              modules: true
-            }
+            options: { modules: true }
+          },
+          {
+            loader: "sass-loader",
+            options: { sourcemap: true }
           }
         ]
       },
       {
-        test: /\.scss$/,
+        test: /\.s(a|c)ss$/,
+        exclude: /\.module.(s(a|c)ss)$/,
         use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
-          },
+          "style-loader",
+          "css-loader",
           {
             loader: "sass-loader",
-            options: {
-              sourcemap: true
-            }
+            options: { sourcemap: true }
           }
         ]
       }

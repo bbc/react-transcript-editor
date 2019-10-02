@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  padding: 0.5em;
+}
+
+.container {
+  height: 100vh;
+  font-family: ReithSerif, sans-serif;
+}
+
+.demoNav {
+  margin-top: 1rem;
+  padding: 0 2rem;
+
+  .demoNavItem {
+    padding-right: 0.5rem;
+    text-align: center;
+
+    .dropdown {
+      display: block;
+      margin: 0.5em auto;
+      width: 100px;
+    }
+
+    .sectionLabel {
+      display: block;
+      font-size: 0.8em;
+      font-weight: 500;
+    }
+
+    .fileNameLabel {
+      display: block;
+      text-align: center;
+      font-size: 0.5em;
+      margin: 0.5em;
+    }
+
+    .titleLabel {
+      margin-left: 0.5em;
+      font-style: italic;
+      font-size: 0.7em;
+    }
+
+    .editableLabel {
+      font-size: 0.7em;
+    }
+  }
+}
+
+[type="file"] {
+  position: absolute !important;
+  overflow: hidden;
+  height: 0;
+  width: 0;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+
+  + label {
+    display: block;
+    margin: 0.5rem auto;
+    padding: 0.75em 1.5em;
+    height: 30px;
+    width: 120px !important;
+    background-color: #5b97ef;
+    color: white;
+    font-size: 0.7em;
+    box-sizing: border-box;
+    border-radius: 2px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #4f7bc0;
+    }
+  }
+}
+
+.demoNavItem button {
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0.75em 1.5em;
+  height: 30px;
+  width: 120px !important;
+  background-color: #5b97ef;
+  color: white;
+  font-size: 0.7em;
+  border: none;
+  border-radius: 2px;
+  box-sizing: border-box;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #4f7bc0;
+  }
+}
+
+.warningButton {
+  background-color: #d25b56 !important;
+  font-size: 0.6rem !important;
+
+  &:hover {
+    background-color: #b6332b !important;
+  }
+}
+
+
+.demoButton {
+  background-color: #74b567 !important;
+
+  &:hover {
+    background-color: #528946 !important;
+  }
+}
+
+/* desktop */
+@media (min-width: 768px) {
+  .demoNav {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+/* phone */
+@media (max-width: 767px) {
+  body {
+    padding: 0;
+  }
+
+  .demoNavItem {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-right: 0;
+    border-bottom: 1px solid grey;
+  }
+
+  .checkbox {
+    display: block;
+  }
+}
