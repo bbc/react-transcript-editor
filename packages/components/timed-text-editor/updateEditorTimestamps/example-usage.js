@@ -1,6 +1,6 @@
 import fs from 'fs';
 import alignWords from './stt-align-node.js';
-import { words, paragraphs } from './sample/NathanielGleicher-aws-dpe.sample.json';
+import { words, paragraphs } from './sample/NathanielGleicher-aws-dpe.sample.json.js';
 import text from './sample/The Facebook Dilemma - Nathaniel Gleicher-F0ykdaOck_M.en.txt.sample.js';
 
 function splitWords(text) {

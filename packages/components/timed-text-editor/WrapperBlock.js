@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { EditorBlock, Modifier, EditorState, SelectionState } from 'draft-js';
 
 import SpeakerLabel from './SpeakerLabel';
-// import { shortTimecode, secondsToTimecode } from '../../Util/timecode-converter/';
+import PropTypes from 'prop-types';
 
 import {
   shortTimecode,
@@ -11,60 +11,22 @@ import {
 
 import style from './WrapperBlock.module.css';
 
-class WrapperBlock extends React.Component {
-  constructor(props) {
-    super(props);
+const WrapperBlock = (props) => {
+  const [ speaker, setSpeaker ] = useState(props.block.getData().get('speaker'));
+  const [ startTimecode, setStartTimeCode ] = useState(props.block.getData().get('start'));
+  const timecodeOffset = props.blockProps.timecodeOffset;
 
-    this.state = {
-      speaker: '',
-      start: 0,
-      timecodeOffset: this.props.blockProps.timecodeOffset
-    };
+  if (timecodeOffset) {
+    setStartTimeCode(() => startTimecode + timecodeOffset);
   }
 
-  componentDidMount() {
-    const { block } = this.props;
-    const speaker = block.getData().get('speaker');
-
-    const start = block.getData().get('start');
-
-    this.setState({
-      speaker: speaker,
-      start: start
-    });
-  }
-  // reducing unnecessary re-renders
-  shouldComponentUpdate = (nextProps, nextState) => {
-    if (nextProps.block.getText() !== this.props.block.getText()) {
-      return true;
-    }
-
-    if (nextProps.blockProps.showSpeakers !== this.props.blockProps.showSpeakers) {
-      return true;
-    }
-
-    if (nextProps.blockProps.showTimecodes !== this.props.blockProps.showTimecodes) {
-      return true;
-    }
-
-    if (nextProps.blockProps.timecodeOffset !== this.props.blockProps.timecodeOffset) {
-      return true;
-    }
-
-    if (nextState.speaker !== this.state.speaker) {
-      return true;
-    }
-
-    return false;
-  };
-
-  handleOnClickEdit = () => {
+  const handleOnClickEdit = () => {
     const newSpeakerName = prompt('New Speaker Name?');
 
-    if (newSpeakerName !== '' && newSpeakerName !== null) {
-      this.setState({ speaker: newSpeakerName });
-      if (this.props.blockProps.handleAnalyticsEvents) {
-        this.props.blockProps.handleAnalyticsEvents({
+    if (newSpeakerName && newSpeakerName !== '') {
+      setSpeaker(newSpeakerName);
+      if (props.blockProps.handleAnalyticsEvents) {
+        props.blockProps.handleAnalyticsEvents({
           category: 'WrapperBlock',
           action: 'handleOnClickEdit',
           name: 'newSpeakerName',
@@ -78,12 +40,13 @@ class WrapperBlock extends React.Component {
       // and the offset value is the character offset within the block.
 
       // Get key of the currentBlock
-      const keyForCurrentCurrentBlock = this.props.block.getKey();
+      const keyForCurrentCurrentBlock = props.block.getKey();
       // create empty selection for current block
       // https://draftjs.org/docs/api-reference-selection-state#createempty
       const currentBlockSelection = SelectionState.createEmpty(
         keyForCurrentCurrentBlock
       );
+
       const editorStateWithSelectedCurrentBlock = EditorState.acceptSelection(
         this.props.blockProps.editorState,
         currentBlockSelection
@@ -94,63 +57,61 @@ class WrapperBlock extends React.Component {
 
       // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
       const newContentState = Modifier.mergeBlockData(
-        this.props.contentState,
+        props.contentState,
         currentBlockSelectionState,
         newBlockDataWithSpeakerName
       );
 
-      this.props.blockProps.setEditorNewContentState(newContentState);
+      props.blockProps.setEditorNewContentState(newContentState);
     }
   };
 
-  handleTimecodeClick = () => {
-    this.props.blockProps.onWordClick(this.state.start);
-    if (this.props.blockProps.handleAnalyticsEvents) {
-      this.props.blockProps.handleAnalyticsEvents({
+  const handleTimecodeClick = () => {
+    props.blockProps.onWordClick(startTimecode);
+
+    if (props.blockProps.handleAnalyticsEvents) {
+      props.blockProps.handleAnalyticsEvents({
         category: 'WrapperBlock',
         action: 'handleTimecodeClick',
         name: 'onWordClick',
-        value: secondsToTimecode(this.state.start)
+        value: secondsToTimecode(startTimecode)
       });
     }
   };
+  const speakerElement = (
+    <SpeakerLabel
+      name={ speaker }
+      handleOnClickEdit={ handleOnClickEdit }
+    />
+  );
 
-  render() {
-    // console.log('render wrapper block');
-    let startTimecode = this.state.start;
-    if (this.props.blockProps.timecodeOffset) {
-      startTimecode += this.props.blockProps.timecodeOffset;
-    }
+  const timecodeElement = (
+    <span className={ style.time } onClick={ handleTimecodeClick }>
+      {shortTimecode(startTimecode)}
+    </span>
+  );
 
-    const speakerElement = (
-      <SpeakerLabel
-        name={ this.state.speaker }
-        handleOnClickEdit={ this.handleOnClickEdit }
-      />
-    );
+  return (
+    <div className={ style.WrapperBlock }>
+      <div
+        className={ [ style.markers, style.unselectable ].join(' ') }
+        contentEditable={ false }
+      >
+        {props.blockProps.showSpeakers ? speakerElement : ''}
 
-    const timecodeElement = (
-      <span className={ style.time } onClick={ this.handleTimecodeClick }>
-        {shortTimecode(startTimecode)}
-      </span>
-    );
-
-    return (
-      <div className={ style.WrapperBlock }>
-        <div
-          className={ [ style.markers, style.unselectable ].join(' ') }
-          contentEditable={ false }
-        >
-          {this.props.blockProps.showSpeakers ? speakerElement : ''}
-
-          {this.props.blockProps.showTimecodes ? timecodeElement : ''}
-        </div>
-        <div className={ style.text }>
-          <EditorBlock { ...this.props } />
-        </div>
+        {props.blockProps.showTimecodes ? timecodeElement : ''}
       </div>
-    );
-  }
-}
+      <div className={ style.text }>
+        <EditorBlock { ...props } />
+      </div>
+    </div>
+  );
+};
+
+WrapperBlock.propTypes = {
+  block: PropTypes.any,
+  blockProps: PropTypes.any,
+  contentState: PropTypes.any
+};
 
 export default WrapperBlock;

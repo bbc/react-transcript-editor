@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef, useReducer, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import TimedTextEditor from '../timed-text-editor';
 import MediaPlayer from '../media-player';
@@ -29,151 +29,204 @@ const exportOptionsList = [
   { value: 'digitalpaperedit', label: 'Digital Paper Edit - Json' }
 ];
 
-class TranscriptEditor extends React.Component {
-  constructor(props) {
-    super(props);
-    this.videoRef = React.createRef();
+// handleSettingsToggle={ handleSettingsToggle }
+// defaultValuePauseWhileTyping={ isPauseWhileTyping }
+// defaultValueScrollSync={ isScrollIntoView }
+// defaultRollBackValueInSeconds={ rollBackValueInSeconds }
+// timecodeOffset={ timecodeOffset }
+// showTimecodes={ showTimecodes }
+// showSpeakers={ showSpeakers }
+// handlePauseWhileTyping={ handlePauseWhileTyping }
+// handleIsScrollIntoViewChange={ handleIsScrollIntoViewChange }
+// handleRollBackValueInSeconds={ handleRollBackValueInSeconds }
+// handleSetTimecodeOffset={ handleSetTimecodeOffset }
+// handleShowTimecodes={ handleShowTimecodes }
+// handleShowSpeakers={ handleShowSpeakers }
+// handleAnalyticsEvents={ props.handleAnalyticsEvents }
+// previewIsDisplayed={ previewIsDisplayed }
+// handlePreviewIsDisplayed={ handlePreviewIsDisplayed }
 
-    this.state = {
-      currentTime: 0,
-      transcriptData: null,
-      isScrollIntoViewOn: false,
-      showSettings: false,
-      showShortcuts: false,
-      showExportOptions: false,
-      isPauseWhileTypingOn: true,
-      rollBackValueInSeconds: 15,
-      timecodeOffset: 0,
-      showTimecodes: true,
-      showSpeakers: true,
-      previewIsDisplayed: true,
-      mediaDuration: '00:00:00:00'
-      // previewViewWidth: '25'
-    };
-    this.timedTextEditorRef = React.createRef();
-  }
+const TranscriptEditor = (props) => {
+  const videoRef = useRef();
+  const timedTextEditorRef = useRef();
 
-  static getDerivedStateFromProps(nextProps) {
-    if (nextProps.transcriptData !== null) {
-      return {
-        transcriptData: nextProps.transcriptData
-      };
-    }
+  const [ currentTime, setCurrentTime ] = useState(0);
+  const [ timecodeOffset, setTimecodeOffset ] = useState(0);
 
-    return null;
-  }
+  // configuration
+  const [ isScrollIntoView, setIsScrollIntoView ] = useState(false);
+  const [ showSettings, setShowSettings ] = useState(false);
+  const [ showShortcuts, setShowShortcuts ] = useState(false);
+  const [ showExportOptions, setShowExportOptions ] = useState(false);
+  const [ isPauseWhileTyping, setIsPauseWhileTyping ] = useState(true);
+  const [ rollBackValueInSeconds, setRollBackValueInSeconds ] = useState(15);
+  const [ showTimecodes, setShowTimecodes ] = useState(true);
+  const [ showSpeakers, setShowSpeakers ] = useState(true);
+  const [ previewIsDisplayed, setPreviewIsDisplayed ] = useState(true);
 
-  // performance optimization
-  shouldComponentUpdate = (nextProps, nextState) => {
-    if (nextProps.mediaUrl !== this.props.mediaUrl) return true;
+  const [ isInLocalStorage, setIsInLocalStorage ] = useState(false);
 
-    return nextState !== this.state;
-  }
+  const [ isPlaying, setIsPlaying ] = useState(false);
 
-  componentDidUpdate(prevProps, prevState) {
-    // Transcript and media passed to component at same time
-    if (
-      prevState.transcriptData !== this.state.transcriptData &&
-      prevProps.mediaUrl !== this.props.mediaUrl
-    ) {
-      console.info('Transcript and media');
-      this.ifPresentRetrieveTranscriptFromLocalStorage();
-    }
-    // Transcript first and then media passed to component
-    else if (
-      prevState.transcriptData === this.state.transcriptData &&
-      prevProps.mediaUrl !== this.props.mediaUrl
-    ) {
-      console.info('Transcript first and then media');
-      this.ifPresentRetrieveTranscriptFromLocalStorage();
-    }
-    // Media first and then transcript passed to component
-    else if (
-      prevState.transcriptData !== this.state.transcriptData &&
-      prevProps.mediaUrl === this.props.mediaUrl
-    ) {
-      console.info('Media first and then transcript');
-      this.ifPresentRetrieveTranscriptFromLocalStorage();
-    }
-  }
+  const [ mediaDuration, setMediaDuration ] = useState('00:00:00:00');
+  const [ pauseTimer, setPauseTimer ] = useState(null);
 
-  ifPresentRetrieveTranscriptFromLocalStorage = () => {
-    const timedTextEditor = this.timedTextEditorRef;
-    if (timedTextEditor && timedTextEditor.current) {
-      if (
-        timedTextEditor.current.isPresentInLocalStorage(this.props.mediaUrl)
-      ) {
-        console.info('Already present in local storage.');
-        timedTextEditor.current.loadLocalSavedData(this.props.mediaUrl);
-      } else {
-        console.info('Not present in local storage.');
-      }
+  const mediaName = props.mediaUrl.includes('blob') ? props.fileName : props.mediaUrl;
+  const localFileName = `draftJs-${ mediaName }`;
+
+  const TYPE_PAUSE_INTERVAL_MS = 3000;
+
+  const handleSaveTranscript = () => {
+    alert('The changes to this transcript have been saved in your browser');
+
+    timedTextEditorRef.current.updateTimestampsForEditorState();
+
+    return timedTextEditorRef.current.localSave(props.mediaUrl);
+  };
+
+  const playMedia = () => {
+    console.log('play media');
+    setIsPlaying(true);
+    videoRef.current.play();
+
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
+        category: 'MediaPlayer',
+        action: 'playMedia',
+        name: 'playMedia',
+        value: secondsToTimecode(videoRef.current.currentTime)
+      });
     }
   };
 
-  // eslint-disable-next-line class-methods-use-this
-  handleWordClick = startTime => {
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
+  const mediaControls = (
+    <MediaPlayer
+      title={ props.title ? props.title : '' }
+      mediaDuration={ mediaDuration }
+      currentTime={ currentTime }
+
+      hookSeek={ mediaPlayer => setCurrentTime(mediaPlayer.currentTime) }
+      hookPlayMedia={ playMedia }
+      hookIsPlaying={ () => isPlaying }
+
+      rollBackValueInSeconds={ rollBackValueInSeconds }
+      timecodeOffset={ timecodeOffset }
+      mediaUrl={ props.mediaUrl }
+      handleAnalyticsEvents={ props.handleAnalyticsEvents }
+      videoRef={ videoRef }
+      handleSaveTranscript={ handleSaveTranscript }
+    />
+  );
+
+  // currently  not playing
+  const handlePlayMedia = play => {
+    console.log('handlePlayMedia');
+    playMedia(play);
+    setIsPlaying(play);
+    console.log(isPlaying);
+  };
+
+  const resetPauseTimer = (ms) => {
+    if (pauseTimer) {
+      clearTimeout(pauseTimer);
+    }
+    setPauseTimer(setTimeout(() => handlePlayMedia(true), ms));
+  };
+
+  const saveLocally = (editorState) => {
+    console.log('Saved file');
+    localStorage.setItem(localFileName, editorState);
+    setIsInLocalStorage(true);
+  };
+
+  const handleSave = (editorState) => {
+    if (props.handleSave) {
+      return props.handleSave(editorState);
+    } else {
+      saveLocally(editorState);
+    }
+  };
+
+  const handleEdit = () => {
+    if (isPauseWhileTyping && isPlaying) {
+      handlePlayMedia(false);
+      resetPauseTimer(TYPE_PAUSE_INTERVAL_MS);
+    }
+  };
+
+  useLayoutEffect(() => {
+    const loadSaveData = () => {
+      const saveName = localFileName;
+      const data = localStorage.getItem(saveName);
+      if (data) {
+        timedTextEditorRef.current.setEditorState(data);
+      } else {
+        console.log('No locally saved data');
+      }
+    };
+
+    if (!isInLocalStorage || (timedTextEditorRef && timedTextEditorRef.current)) {
+      loadSaveData();
+      setIsInLocalStorage(true);
+    }
+
+    return () => {
+    };
+  }, [ isInLocalStorage, localFileName ]);
+
+  const handleWordClick = startTime => {
+    console.log('handleword');
+    setCurrentTime(startTime);
+    handlePlayMedia(true);
+
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
         category: 'TranscriptEditor',
         action: 'doubleClickOnWord',
         name: 'startTime',
         value: secondsToTimecode(startTime)
       });
     }
-
-    this.setCurrentTime(startTime);
   };
 
-  // eslint-disable-next-line class-methods-use-this
-  handleTimeUpdate = e => {
-    const currentTime = e.target.currentTime;
-    this.setState({
-      currentTime
-    });
+  const handleTimeUpdate = e => {
+    setCurrentTime(e.target.currentTime);
   };
 
-  handlePlayMedia = isPlaying => {
-    this.playMedia(isPlaying);
-  };
-
-  handleIsPlaying = () => {
-    return this.isPlaying();
-  };
-
-  handleIsScrollIntoViewChange = e => {
+  const handleIsScrollIntoViewChange = e => {
     const isChecked = e.target.checked;
-    this.setState({ isScrollIntoViewOn: isChecked });
+    setIsScrollIntoView(isChecked);
 
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
         category: 'TranscriptEditor',
         action: 'handleIsScrollIntoViewChange',
-        name: 'isScrollIntoViewOn',
+        name: 'isScrollIntoView',
         value: isChecked
       });
     }
   };
-  handlePauseWhileTyping = e => {
-    const isChecked = e.target.checked;
-    this.setState({ isPauseWhileTypingOn: isChecked });
 
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
+  const handlePauseWhileTyping = e => {
+    const isChecked = e.target.checked;
+    setIsPauseWhileTyping(isChecked);
+
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
         category: 'TranscriptEditor',
         action: 'handlePauseWhileTyping',
-        name: 'isPauseWhileTypingOn',
+        name: 'isPauseWhileTyping',
         value: isChecked
       });
     }
   };
 
-  handleRollBackValueInSeconds = e => {
+  const handleRollBackValueInSeconds = e => {
     const rollBackValue = e.target.value;
-    this.setState({ rollBackValueInSeconds: rollBackValue });
+    setRollBackValueInSeconds(rollBackValue);
 
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
         category: 'TranscriptEditor',
         action: 'handleRollBackValueInSeconds',
         name: 'rollBackValueInSeconds',
@@ -182,18 +235,16 @@ class TranscriptEditor extends React.Component {
     }
   };
 
-  handleSetTimecodeOffset = timecodeOffset => {
-    this.setState({ timecodeOffset: timecodeOffset }, () => {
-      this.timedTextEditorRef.current.forceUpdate();
-    });
+  const handleSetTimecodeOffset = offset => {
+    setTimecodeOffset(offset);
   };
 
-  handleShowTimecodes = e => {
+  const handleShowTimecodes = e => {
     const isChecked = e.target.checked;
-    this.setState({ showTimecodes: isChecked });
+    setShowTimecodes(isChecked);
 
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
         category: 'TranscriptEditor',
         action: 'handleShowTimecodes',
         name: 'showTimecodes',
@@ -202,12 +253,12 @@ class TranscriptEditor extends React.Component {
     }
   };
 
-  handleShowSpeakers = e => {
+  const handleShowSpeakers = e => {
     const isChecked = e.target.checked;
-    this.setState({ showSpeakers: isChecked });
+    setShowSpeakers(isChecked);
 
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
         category: 'TranscriptEditor',
         action: 'handleShowSpeakers',
         name: 'showSpeakers',
@@ -216,71 +267,80 @@ class TranscriptEditor extends React.Component {
     }
   };
 
-  handleSettingsToggle = () => {
-    this.setState(prevState => ({
-      showSettings: !prevState.showSettings
-    }), () => {
-      if (this.props.handleAnalyticsEvents) {
-        this.props.handleAnalyticsEvents({
-          category: 'TranscriptEditor',
-          action: 'handleSettingsToggle',
-          name: 'showSettings',
-          value: !this.state.showSettings
-        });
-      }
-    });
-
+  const handleSettingsToggle = (prevState) => {
+    setShowSettings(!prevState.showSettings);
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handleSettingsToggle',
+        name: 'showSettings',
+        value: !showSettings
+      });
+    }
   };
 
-  handleShortcutsToggle = () => {
-    this.setState(prevState => ({
-      showShortcuts: !prevState.showShortcuts
-    }), () => {
-      if (this.props.handleAnalyticsEvents) {
-        this.props.handleAnalyticsEvents({
-          category: 'TranscriptEditor',
-          action: 'handleShortcutsToggle',
-          name: 'showShortcuts',
-          value: !this.state.showShortcuts
-        });
-      }
-    });
+  const handleShortcutsToggle = (prevState) => {
+    setShowShortcuts(!prevState.showShortcuts);
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handleShortcutsToggle',
+        name: 'showShortcuts',
+        value: !showShortcuts
+      });
+    }
   };
 
-  handleExportToggle = () => {
-    console.log('handleExportToggle', this.state.showExportOptions);
-    this.setState(prevState => ({
-      showExportOptions: !prevState.showExportOptions
-    }), () => {
-      if (this.props.handleAnalyticsEvents) {
-        this.props.handleAnalyticsEvents({
-          category: 'TranscriptEditor',
-          action: 'handleExportToggle',
-          name: 'showExportOptions',
-          value: !this.state.showExportOptions
-        });
-      }
-    });
-  }
+  const handleExportToggle = (prevState) => {
+    console.log('handleExportToggle', showExportOptions);
+    setShowExportOptions(!prevState.showExportOptions);
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
+        category: 'TranscriptEditor',
+        action: 'handleExportToggle',
+        name: 'showExportOptions',
+        value: !showExportOptions
+      });
+    }
+  };
 
-  handleExportOptionsChange = (e) => {
+  // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
+  const download = (content, filename, contentType) => {
+    const type = contentType || 'application/octet-stream';
+    const link = document.createElement('a');
+    const blob = new Blob([ content ], { type: type });
+
+    link.href = window.URL.createObjectURL(blob);
+    link.download = filename;
+    // Firefox fix - cannot do link.click() if it's not attached to DOM in firefox
+    // https://stackoverflow.com/questions/32225904/programmatical-click-on-a-tag-not-working-in-firefox
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const getEditorContent = exportFormat => {
+    const title = props.title ? props.title : '' ;
+
+    return timedTextEditorRef.current.getEditorContent(exportFormat, title);
+  };
+
+  const handleExportOptionsChange = (e) => {
     const exportFormat = e.target.value;
-    console.log(exportFormat);
+
     if (exportFormat !== 'instructions') {
-
-      const fileName = this.props.title ? this.props.title : this.props.mediaUrl;
-
-      const { data, ext } = this.getEditorContent(exportFormat);
+      const fileName = props.title ? props.title : props.mediaUrl;
+      const { data, ext } = getEditorContent(exportFormat);
       let tmpData = data;
       if (ext === 'json') {
         tmpData = JSON.stringify(data, null, 2);
       }
       if (ext !== 'docx') {
-        this.download(tmpData, `${ fileName }.${ ext }`);
+        download(tmpData, `${ fileName }.${ ext }`);
       }
 
-      if (this.props.handleAnalyticsEvents) {
-        this.props.handleAnalyticsEvents({
+      if (props.handleAnalyticsEvents) {
+        props.handleAnalyticsEvents({
           category: 'TranscriptEditor',
           action: 'handleExportOptionsChange',
           name: 'exportFile',
@@ -288,46 +348,21 @@ class TranscriptEditor extends React.Component {
         });
       }
     }
-  }
-
-    // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
-    download = (content, filename, contentType) => {
-      const type = contentType || 'application/octet-stream';
-      const link = document.createElement('a');
-      const blob = new Blob([ content ], { type: type });
-
-      link.href = window.URL.createObjectURL(blob);
-      link.download = filename;
-      // Firefox fix - cannot do link.click() if it's not attached to DOM in firefox
-      // https://stackoverflow.com/questions/32225904/programmatical-click-on-a-tag-not-working-in-firefox
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    };
-
-  getEditorContent = exportFormat => {
-    const title = this.props.title ? this.props.title : '' ;
-
-    return this.timedTextEditorRef.current.getEditorContent(exportFormat, title);
   };
 
-  handlePreviewIsDisplayed = () => {
-    this.setState({
-      previewIsDisplayed: !this.state.previewIsDisplayed
-    });
+  const handlePreviewIsDisplayed = () => {
+    setPreviewIsDisplayed(!previewIsDisplayed);
   };
 
-  onLoadedDataGetDuration = e => {
+  const onLoadedDataGetDuration = e => {
     const currentDuration = e.target.duration;
-    const currentDurationWithOffset = currentDuration + this.state.timecodeOffset;
+    const currentDurationWithOffset = currentDuration + timecodeOffset;
     const durationInSeconds = secondsToTimecode(currentDurationWithOffset);
 
-    this.setState({
-      mediaDuration: durationInSeconds
-    });
+    setMediaDuration(durationInSeconds);
 
-    if (this.props.handleAnalyticsEvents) {
-      this.props.handleAnalyticsEvents({
+    if (props.handleAnalyticsEvents) {
+      props.handleAnalyticsEvents({
         category: 'TranscriptEditor',
         action: 'onLoadedDataGetDuration',
         name: 'durationInSeconds-WithoutOffset',
@@ -336,155 +371,115 @@ class TranscriptEditor extends React.Component {
     }
   };
 
-  handleChangePreviewViewWidth = e => {
-    const newPreviewViewWidth = e.target.value;
-    this.setState({
-      previewViewWidth: newPreviewViewWidth
-    });
-  };
+  const videoPlayer = (
+    <VideoPlayer
+      mediaUrl={ props.mediaUrl }
+      onTimeUpdate={ handleTimeUpdate }
+      videoRef={ videoRef }
+      previewIsDisplayed={ previewIsDisplayed }
+      onLoadedDataGetDuration={ onLoadedDataGetDuration }
+    />
+  );
 
-  handleSaveTranscript = () => {
-    alert('The changes to this transcript have been saved in your browser');
+  const settings = (
+    <Settings
+      handleSettingsToggle={ handleSettingsToggle }
+      defaultValuePauseWhileTyping={ isPauseWhileTyping }
+      defaultValueScrollSync={ isScrollIntoView }
+      defaultRollBackValueInSeconds={ rollBackValueInSeconds }
+      timecodeOffset={ timecodeOffset }
+      showTimecodes={ showTimecodes }
+      showSpeakers={ showSpeakers }
+      handlePauseWhileTyping={ handlePauseWhileTyping }
+      handleIsScrollIntoViewChange={ handleIsScrollIntoViewChange }
+      handleRollBackValueInSeconds={ handleRollBackValueInSeconds }
+      handleSetTimecodeOffset={ handleSetTimecodeOffset }
+      handleShowTimecodes={ handleShowTimecodes }
+      handleShowSpeakers={ handleShowSpeakers }
+      handleAnalyticsEvents={ props.handleAnalyticsEvents }
+      previewIsDisplayed={ previewIsDisplayed }
+      handlePreviewIsDisplayed={ handlePreviewIsDisplayed }
+    />
+  );
 
-    this.timedTextEditorRef.current.updateTimestampsForEditorState();
+  const exportOptions = (
+    <ExportOptions
+      exportOptionsList={ exportOptionsList }
+      handleExportOptionsChange={ handleExportOptionsChange }
+      handleExportToggle={ handleExportToggle }
+    />);
 
-    return this.timedTextEditorRef.current.localSave(this.props.mediaUrl);
-  };
+  const shortcuts = (
+    <Shortcuts handleShortcutsToggle={ handleShortcutsToggle } />
+  );
 
-  render() {
-    const videoPlayer = (
-      <VideoPlayer
-        mediaUrl={ this.props.mediaUrl }
-        onTimeUpdate={ this.handleTimeUpdate }
-        // onClick={ this.props.onClick }
-        videoRef={ this.videoRef }
-        previewIsDisplayed={ this.state.previewIsDisplayed }
-        onLoadedDataGetDuration={ this.onLoadedDataGetDuration }
-        // viewWith={ this.state.previewViewWidth }
-      />
-    );
+  const timedTextEditor = (
+    <TimedTextEditor
+      fileName={ props.fileName }
+      transcriptData={ props.transcriptData }
+      timecodeOffset={ timecodeOffset }
+      handleWordClick={ handleWordClick }
+      handleSave={ () => handleSave }
+      handleEdit={ () => handleEdit }
+      currentTime={ currentTime }
+      isEditable={ props.isEditable }
+      spellCheck={ props.spellCheck }
+      sttJsonType={ props.sttJsonType }
+      mediaUrl={ props.mediaUrl }
+      isScrollIntoView={ isScrollIntoView }
+      showTimecodes={ showTimecodes }
+      showSpeakers={ showSpeakers }
+      ref={ timedTextEditorRef }
+      handleAnalyticsEvents={ props.handleAnalyticsEvents }
+    />
+  );
 
-    const mediaControls = (
-      <MediaPlayer
-        title={ this.props.title ? this.props.title : '' }
-        mediaDuration={ this.state.mediaDuration }
-        currentTime={ this.state.currentTime }
-        hookSeek={ foo => (this.setCurrentTime = foo) }
-        hookPlayMedia={ foo => (this.playMedia = foo) }
-        hookIsPlaying={ foo => (this.isPlaying = foo) }
-        rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
-        timecodeOffset={ this.state.timecodeOffset }
-        // hookOnTimeUpdate={ this.handleTimeUpdate }
-        mediaUrl={ this.props.mediaUrl }
-        // ref={ 'MediaPlayer' }
-        handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
-        videoRef={ this.videoRef }
-        handleSaveTranscript={ this.handleSaveTranscript }
-      />
-    );
+  const header = (
+    <Header
+      showSettings={ showSettings }
+      showShortcuts={ showShortcuts }
+      showExportOptions={ showExportOptions }
+      settings={ settings }
+      shortcuts={ shortcuts }
+      exportOptions={ exportOptions }
+      tooltip={ HowDoesThisWork }
+      mediaUrl={ props.mediaUrl }
+      mediaControls={ videoRef.current ? mediaControls : null }
+      handleSettingsToggle={ handleSettingsToggle }
+      handleShortcutsToggle={ handleShortcutsToggle }
+      handleExportToggle={ handleExportToggle }
+    />
+  );
 
-    const settings = (
-      <Settings
-        handleSettingsToggle={ this.handleSettingsToggle }
-        defaultValuePauseWhileTyping={ this.state.isPauseWhileTypingOn }
-        defaultValueScrollSync={ this.state.isScrollIntoViewOn }
-        defaultRollBackValueInSeconds={ this.state.rollBackValueInSeconds }
-        timecodeOffset={ this.state.timecodeOffset }
-        showTimecodes={ this.state.showTimecodes }
-        showSpeakers={ this.state.showSpeakers }
-        handlePauseWhileTyping={ this.handlePauseWhileTyping }
-        handleIsScrollIntoViewChange={ this.handleIsScrollIntoViewChange }
-        handleRollBackValueInSeconds={ this.handleRollBackValueInSeconds }
-        handleSetTimecodeOffset={ this.handleSetTimecodeOffset }
-        handleShowTimecodes={ this.handleShowTimecodes }
-        handleShowSpeakers={ this.handleShowSpeakers }
-        handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
-        previewIsDisplayed={ this.state.previewIsDisplayed }
-        handlePreviewIsDisplayed={ this.handlePreviewIsDisplayed }
-        // previewViewWidth={ this.state.previewViewWidth }
-        handleChangePreviewViewWidth={ this.handleChangePreviewViewWidth }
-      />
-    );
+  return (
+    <div className={ style.container }>
+      {props.mediaUrl ? header : null}
 
-    const exportOptions = (
-      <ExportOptions
-        exportOptionsList={ exportOptionsList }
-        handleExportOptionsChange={ this.handleExportOptionsChange }
-        handleExportToggle={ this.handleExportToggle }
-      />);
+      <div className={ style.grid }>
+        <section className={ style.row }>
+          <aside className={ style.aside }>
+            {props.mediaUrl ? videoPlayer : null}
+          </aside>
 
-    const shortcuts = (
-      <Shortcuts handleShortcutsToggle={ this.handleShortcutsToggle } />
-    );
-
-    const timedTextEditor = (
-      <TimedTextEditor
-        fileName={ this.props.fileName }
-        transcriptData={ this.state.transcriptData }
-        timecodeOffset={ this.state.timecodeOffset }
-        onWordClick={ this.handleWordClick }
-        playMedia={ this.handlePlayMedia }
-        isPlaying={ this.handleIsPlaying }
-        currentTime={ this.state.currentTime }
-        isEditable={ this.props.isEditable }
-        spellCheck={ this.props.spellCheck }
-        sttJsonType={ this.props.sttJsonType }
-        mediaUrl={ this.props.mediaUrl }
-        isScrollIntoViewOn={ this.state.isScrollIntoViewOn }
-        isPauseWhileTypingOn={ this.state.isPauseWhileTypingOn }
-        showTimecodes={ this.state.showTimecodes }
-        showSpeakers={ this.state.showSpeakers }
-        ref={ this.timedTextEditorRef }
-        handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
-      />
-    );
-
-    const header = (
-      <Header
-        showSettings={ this.state.showSettings }
-        showShortcuts={ this.state.showShortcuts }
-        showExportOptions={ this.state.showExportOptions }
-        settings={ settings }
-        shortcuts={ shortcuts }
-        exportOptions={ exportOptions }
-        tooltip={ HowDoesThisWork }
-        mediaUrl={ this.props.mediaUrl }
-        mediaControls={ this.videoRef.current ? mediaControls : null }
-        handleSettingsToggle={ this.handleSettingsToggle }
-        handleShortcutsToggle={ this.handleShortcutsToggle }
-        handleExportToggle={ this.handleExportToggle }
-      />
-    );
-
-    return (
-      <div className={ style.container }>
-        {this.props.mediaUrl ? header : null}
-
-        <div className={ style.grid }>
-          <section className={ style.row }>
-            <aside className={ style.aside }>
-              {this.props.mediaUrl ? videoPlayer : null}
-            </aside>
-
-            <main className={ style.main }>
-              {this.props.mediaUrl && this.props.transcriptData ? timedTextEditor : null}
-            </main>
-          </section>
-        </div>
+          <main className={ style.main }>
+            {props.mediaUrl && props.transcriptData ? timedTextEditor : null}
+          </main>
+        </section>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 TranscriptEditor.propTypes = {
-  onClick: PropTypes.func,
-  title: PropTypes.string,
-  mediaUrl: PropTypes.string,
+  fileName: PropTypes.string,
+  handleAnalyticsEvents: PropTypes.func,
+  handleSave: PropTypes.func,
   isEditable: PropTypes.bool,
+  mediaUrl: PropTypes.string,
+  onClick: PropTypes.func,
   spellCheck: PropTypes.bool,
   sttJsonType: PropTypes.string,
-  handleAnalyticsEvents: PropTypes.func,
-  fileName: PropTypes.string,
+  title: PropTypes.string,
   transcriptData: PropTypes.object
 };
 
