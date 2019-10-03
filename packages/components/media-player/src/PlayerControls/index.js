@@ -129,22 +129,22 @@ class PlayerControls extends React.Component {
 }
 
 PlayerControls.propTypes = {
-  playMedia: PropTypes.func,
   currentTime: PropTypes.string,
-  timecodeOffset: PropTypes.string,
-  promptSetCurrentTime: PropTypes.func,
-  rollback: PropTypes.func,
-  handleMuteVolume: PropTypes.func,
   duration: PropTypes.string,
-  isPlaying: PropTypes.bool,
+  handleMuteVolume: PropTypes.func,
+  handleSaveTranscript: PropTypes.func,
   isMute: PropTypes.bool,
-  skipBackward: PropTypes.func,
-  skipForward: PropTypes.func,
+  isPlaying: PropTypes.bool,
+  pictureInPicture: PropTypes.func,
+  playMedia: PropTypes.func,
   playbackRate: PropTypes.number,
   playbackRateOptions: PropTypes.array,
+  promptSetCurrentTime: PropTypes.func,
+  rollback: PropTypes.func,
   setPlayBackRate: PropTypes.func,
-  pictureInPicture: PropTypes.func,
-  handleSaveTranscript: PropTypes.func
+  skipBackward: PropTypes.func,
+  skipForward: PropTypes.func,
+  timecodeOffset: PropTypes.string
 };
 
 export default PlayerControls;

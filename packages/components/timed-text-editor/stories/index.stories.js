@@ -5,7 +5,6 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
 
 import bbcKaldiTranscript from './fixtures/bbc-kaldi.json';
-
 import TimedTextEditor from '../index.js';
 
 storiesOf('TimedTextEditor', module)
@@ -18,18 +17,18 @@ storiesOf('TimedTextEditor', module)
       mediaUrl: text('mediaUrl', mediaUrl),
       isEditable: boolean('isEditable', true),
       spellCheck: boolean('spellCheck', false),
-      onWordClick: action('onWordClick'),
-      sttJsonType: text('sttJsonType', 'bbckaldi'),
-      isPlaying: action('isPlaying'),
-      playMedia: action('playMedia'),
-      currentTime: number('currentTime', 0),
-      isScrollIntoViewOn: boolean('isScrollIntoViewOn', true),
-      isPauseWhileTypingOn: boolean('isPauseWhileTypingOn', true),
-      timecodeOffset: number('timecodeOffset', 0),
-      handleAnalyticsEvents: action('handleAnalyticsEvents'),
+      isScrollIntoView: boolean('isScrollIntoView', true),
+      isPauseWhileTyping: boolean('isPauseWhileTyping', true),
       showSpeakers: boolean('showSpeakers', true),
       showTimecodes: boolean('showTimecodes', true),
-      fileName: text('fileName', 'KateDarling_2018S-950k.mp4')
+      sttJsonType: text('sttJsonType', 'bbckaldi'),
+      handleWordClick: action('handleWordClick'),
+      handleSave: action('handleSave'),
+      handleEdit: action('handleEdit'),
+      handleAnalyticsEvents: action('handleAnalyticsEvents'),
+      currentTime: number('currentTime', 0),
+      timecodeOffset: number('timecodeOffset', 0),
+      fileName: text('fileName', 'KateDarling_2018S-950k.mp4'),
     };
 
     return (
