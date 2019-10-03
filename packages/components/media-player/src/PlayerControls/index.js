@@ -45,6 +45,16 @@ class PlayerControls extends React.Component {
   }
 
   render() {
+
+    const pictureInPicture = ('pictureInPictureEnabled' in document)?(  <button
+      value="Picture-in-picture"
+      title="Picture-in-picture"
+      className={ `${ style.playerButton } ${ style.pip }` }
+      onClick={ this.props.pictureInPicture }>
+      <FontAwesomeIcon icon={ faTv } />
+    </button> ): null;
+            
+  
     return (
       <div className={ style.playerControls }>
         <TimeBox
@@ -99,21 +109,7 @@ class PlayerControls extends React.Component {
             handlePlayBackRateChange={ this.props.setPlayBackRate }
           />
 
-          <button
-            value="Save"
-            title="Save"
-            className={ style.playerButton }
-            onClick={ this.props.handleSaveTranscript }>
-            <FontAwesomeIcon icon={ faSave } />
-          </button>
-
-          <button
-            value="Picture-in-picture"
-            title="Picture-in-picture"
-            className={ `${ style.playerButton } ${ style.pip }` }
-            onClick={ this.props.pictureInPicture }>
-            <FontAwesomeIcon icon={ faTv } />
-          </button>
+          {pictureInPicture}
 
           <button
             value="Toggle Sound"
@@ -121,6 +117,14 @@ class PlayerControls extends React.Component {
             className={ style.playerButton }
             onClick={ this.props.handleMuteVolume }>
             { this.props.isMute ? <FontAwesomeIcon icon={ faVolumeMute } /> : <FontAwesomeIcon icon={ faVolumeUp } /> }
+          </button>
+
+          <button
+            value="Save"
+            title="Save"
+            className={ style.playerButton }
+            onClick={ this.props.handleSaveTranscript }>
+            <FontAwesomeIcon icon={ faSave } />
           </button>
         </div>
       </div>
