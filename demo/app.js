@@ -155,7 +155,10 @@ class App extends React.Component {
   handleChangeTranscriptName = value => {
     this.setState({ fileName: value });
   };
-
+  
+  handleSaveOnChange = (data)=>{
+    console.log('handleSaveOnChange',data);
+  }
   render() {
     return (
       <div className={ style.container }>
@@ -268,6 +271,8 @@ class App extends React.Component {
           handleAnalyticsEvents={ this.handleAnalyticsEvents }
           title={ this.state.title }
           ref={ this.transcriptEditorRef }
+          handleSaveOnChange={this.handleSaveOnChange}
+          saveOnChangeFormat={'draftjs'}
         />
 
         <label>Components Analytics</label>
