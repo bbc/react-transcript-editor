@@ -343,14 +343,18 @@ class TranscriptEditor extends React.Component {
     });
   };
 
-  handleSaveTranscript = () => {
-    alert('The changes to this transcript have been saved in your browser');
+  // handleSaveTranscript = () => {
+  //   alert('The changes to this transcript have been saved in your browser');
 
-    // TODO: figure out what to do here
-    this.timedTextEditorRef.current.updateTimestampsForEditorState();
+  //   // TODO: figure out what to do here
+  //   this.timedTextEditorRef.current.updateTimestampsForEditorState();
 
-    return this.timedTextEditorRef.current.localSave(this.props.mediaUrl);
-  };
+  //   // const { data, ext } = this.getEditorContent(
+  //   //   this.props.saveOnChangeFormat
+  //   // );
+
+  //   return this.timedTextEditorRef.current.localSave(this.props.mediaUrl);
+  // };
 
 
   handleSaveOnChange = ()=>{
@@ -389,7 +393,7 @@ class TranscriptEditor extends React.Component {
         // ref={ 'MediaPlayer' }
         handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
         videoRef={ this.videoRef }
-        handleSaveTranscript={ this.handleSaveTranscript }
+        // handleSaveTranscript={ this.handleSaveTranscript }
       />
     );
 
