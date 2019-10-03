@@ -108,7 +108,7 @@ const TranscriptEditor = (props) => {
       currentTime={ currentTime }
 
       hookSeek={ mediaPlayer => setCurrentTime(mediaPlayer.currentTime) }
-      hookPlayMedia={ playMedia }
+      hookPlayMedia={ () => playMedia }
       hookIsPlaying={ () => isPlaying }
 
       rollBackValueInSeconds={ rollBackValueInSeconds }
@@ -186,10 +186,11 @@ const TranscriptEditor = (props) => {
 
     return () => {
     };
-  }, [fileName, isInLocalStorage, localFileName, mediaName, mediaUrl, props.fileName, props.mediaName, props.mediaUrl]);
+  }, [ fileName, isInLocalStorage, localFileName, mediaName, mediaUrl, props.fileName, props.mediaName, props.mediaUrl ]);
 
   const handleWordClick = startTime => {
     console.log('handleword');
+    videoRef.current.currentTime = startTime;
     setCurrentTime(startTime);
     handlePlayMedia(true);
 
