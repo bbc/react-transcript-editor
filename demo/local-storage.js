@@ -1,7 +1,5 @@
 const localSave = (mediaUrl, fileName, data) => {
   let mediaUrlName = mediaUrl;
-
-  this.updateTimestampsForEditorState();
   // if using local media instead of using random blob name
   // that makes it impossible to retrieve from on page refresh
   // use file name
