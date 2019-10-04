@@ -42,11 +42,8 @@ class App extends React.Component {
   }
 
   loadDemo = () => {
-    console.log('loadDemo')
     if(isPresentInLocalStorage(DEMO_MEDIA_URL)){
-
       const transcriptDataFromLocalStorage = loadLocalSavedData(DEMO_MEDIA_URL)
-      console.log('transcriptDataFromLocalStorage',transcriptDataFromLocalStorage)
       this.setState({
         transcriptData: transcriptDataFromLocalStorage,
         mediaUrl: DEMO_MEDIA_URL,
