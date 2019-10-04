@@ -13,13 +13,8 @@ import {
 
 import Word from "./Word";
 import WrapperBlock from "./WrapperBlock";
-
-// TODO: connect to local packages version
-// import sttJsonAdapter from '../../Util/adapters/index.js';
 import sttJsonAdapter from "../../stt-adapters";
-// TODO: connect to local packages version
 import exportAdapter from "../../export-adapters";
-// import exportAdapter from '../../Util/export-adapters/index.js';
 import updateTimestamps from "./UpdateTimestamps/index.js";
 import style from "./index.module.css";
 
@@ -45,12 +40,6 @@ class TimedTextEditor extends React.Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    // if (
-    //   (prevProps.transcriptData !== this.props.transcriptData)
-    //   && ( this.props.mediaUrl !== null && !this.isPresentInLocalStorage(this.props.mediaUrl) )
-    // ) {
-    //   this.loadData();
-    // }
     if (
       prevProps.timecodeOffset !== this.props.timecodeOffset ||
       prevProps.showSpeakers !== this.props.showSpeakers ||
@@ -102,7 +91,7 @@ class TimedTextEditor extends React.Component {
           }),
           () => {
             this.updateTimestampsForEditorState();
-            this.props.handleSaveOnChange();
+            this.props.handleAutoSaveChanges();
           }
         );
       }, 1000);
@@ -206,59 +195,7 @@ class TimedTextEditor extends React.Component {
     }
   };
 
-  // localSave = () => {
-  // clearTimeout(this.saveTimer);
-  // let mediaUrlName = this.props.mediaUrl;
-  // this.updateTimestampsForEditorState();
-  // if using local media instead of using random blob name
-  // that makes it impossible to retrieve from on page refresh
-  // use file name
-  // if (this.props.mediaUrl.includes('blob')) {
-  //   mediaUrlName = this.props.fileName;
-  // }
 
-  // const data = convertToRaw(this.state.editorState.getCurrentContent());
-  // localStorage.setItem(`draftJs-${ mediaUrlName }`, JSON.stringify(data));
-  // const newLastLocalSavedDate = new Date().toString();
-  // localStorage.setItem(`timestamp-${ mediaUrlName }`, newLastLocalSavedDate);
-
-  // }
-
-  // eslint-disable-next-line class-methods-use-this
-  // isPresentInLocalStorage(mediaUrl) {
-  //   if (mediaUrl !== null) {
-  //     let mediaUrlName = mediaUrl;
-
-  //     if (mediaUrl.includes('blob')) {
-  //       mediaUrlName = this.props.fileName;
-  //     }
-
-  //     const data = localStorage.getItem(`draftJs-${ mediaUrlName }`);
-  //     if (data !== null) {
-  //       return true;
-  //     }
-
-  //     return false;
-  //   }
-
-  //   return false;
-  // }
-
-  // loadLocalSavedData(mediaUrl) {
-  //   let mediaUrlName = mediaUrl;
-  //   if (mediaUrl.includes('blob')) {
-  //     mediaUrlName = this.props.fileName;
-  //   }
-  //   const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrlName }`));
-  //   if (data !== null) {
-  //     const lastLocalSavedDate = localStorage.getItem(`timestamp-${ mediaUrlName }`);
-  //     this.setEditorContentState(data);
-
-  //     return lastLocalSavedDate;
-  //   }
-
-  //   return '';
-  // }
 
   // originally from
   // https://github.com/draft-js-plugins/draft-js-plugins/blob/master/draft-js-counter-plugin/src/WordCounter/index.js#L12

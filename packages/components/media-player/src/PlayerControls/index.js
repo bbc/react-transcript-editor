@@ -118,14 +118,6 @@ class PlayerControls extends React.Component {
             onClick={ this.props.handleMuteVolume }>
             { this.props.isMute ? <FontAwesomeIcon icon={ faVolumeMute } /> : <FontAwesomeIcon icon={ faVolumeUp } /> }
           </button>
-
-          {/* <button
-            value="Save"
-            title="Save"
-            className={ style.playerButton }
-            onClick={ this.props.handleSaveTranscript }>
-            <FontAwesomeIcon icon={ faSave } />
-          </button> */}
         </div>
       </div>
     );
@@ -147,8 +139,7 @@ PlayerControls.propTypes = {
   playbackRate: PropTypes.number,
   playbackRateOptions: PropTypes.array,
   setPlayBackRate: PropTypes.func,
-  pictureInPicture: PropTypes.func,
-  // handleSaveTranscript: PropTypes.func
+  pictureInPicture: PropTypes.func
 };
 
 export default PlayerControls;
