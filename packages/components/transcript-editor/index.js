@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from 'react';
+import React, { useState, useRef, useLayoutEffect, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import TimedTextEditor from '../timed-text-editor';
 import MediaPlayer from '../media-player';
@@ -65,27 +65,31 @@ const TranscriptEditor = (props) => {
   const [ previewIsDisplayed, setPreviewIsDisplayed ] = useState(true);
 
   const [ mediaUrl, setMediaUrl ] = useState('');
-  const [ mediaName, setMediaName ] = useState('');
+  const [ localFileName, setLocalFileName ] = useState('');
   const [ fileName, setFileName ] = useState('');
 
   const [ isInLocalStorage, setIsInLocalStorage ] = useState(false);
 
   const [ isPlaying, setIsPlaying ] = useState(false);
-
-  const [ mediaDuration, setMediaDuration ] = useState('00:00:00:00');
   const [ pauseTimer, setPauseTimer ] = useState(null);
+  const [ mediaDuration, setMediaDuration ] = useState('00:00:00:00');
 
-  const localFileName = `draftJs-${ mediaName }`;
+  const [ editorState, setEditorState ] = useState();
 
   const TYPE_PAUSE_INTERVAL_MS = 3000;
 
+  // save local
+
+  const [ handleSave, setHandleSave ] = useState();
+
   const handleSaveTranscript = () => {
-    alert('The changes to this transcript have been saved in your browser');
-
-    timedTextEditorRef.current.updateTimestampsForEditorState();
-
-    return timedTextEditorRef.current.localSave(props.mediaUrl);
+    alert('The changes to this transcript have been saved');
+    setEditorState(timedTextEditorRef.current.editorState);
+    console.log(editorState);
+    handleSave(editorState);
   };
+
+  // media player
 
   const playMedia = () => {
     setIsPlaying(true);
@@ -120,12 +124,9 @@ const TranscriptEditor = (props) => {
     />
   );
 
-  // currently  not playing
   const handlePlayMedia = play => {
-    console.log('handlePlayMedia');
     playMedia(play);
     setIsPlaying(play);
-    console.log(isPlaying);
   };
 
   const resetPauseTimer = (ms) => {
@@ -135,20 +136,6 @@ const TranscriptEditor = (props) => {
     setPauseTimer(setTimeout(() => handlePlayMedia(true), ms));
   };
 
-  const saveLocally = (editorState) => {
-    console.log('Saved file');
-    localStorage.setItem(localFileName, editorState);
-    setIsInLocalStorage(true);
-  };
-
-  const handleSave = (editorState) => {
-    if (props.handleSave) {
-      return props.handleSave(editorState);
-    } else {
-      saveLocally(editorState);
-    }
-  };
-
   const handleEdit = () => {
     if (isPauseWhileTyping && isPlaying) {
       handlePlayMedia(false);
@@ -156,40 +143,7 @@ const TranscriptEditor = (props) => {
     }
   };
 
-  useLayoutEffect(() => {
-    if (mediaUrl === '' && props.mediaUrl) {
-      setMediaUrl(props.mediaUrl);
-    }
-
-    if (fileName === '' && props.fileName) {
-      setFileName(props.fileName);
-    }
-
-    if (mediaName === '' && (props.mediaUrl || props.mediaName)) {
-      setMediaName(mediaUrl.includes('blob') ? fileName : mediaUrl);
-    }
-
-    const loadSaveData = () => {
-      const saveName = localFileName;
-      const data = localStorage.getItem(saveName);
-      if (data) {
-        timedTextEditorRef.current.setEditorState(data);
-      } else {
-        console.log('No locally saved data');
-      }
-    };
-
-    if (!isInLocalStorage || (timedTextEditorRef && timedTextEditorRef.current)) {
-      loadSaveData();
-      setIsInLocalStorage(true);
-    }
-
-    return () => {
-    };
-  }, [ fileName, isInLocalStorage, localFileName, mediaName, mediaUrl, props.fileName, props.mediaName, props.mediaUrl ]);
-
   const handleWordClick = startTime => {
-    console.log('handleword');
     videoRef.current.currentTime = startTime;
     setCurrentTime(startTime);
     handlePlayMedia(true);
@@ -307,7 +261,6 @@ const TranscriptEditor = (props) => {
   };
 
   const handleExportToggle = (prevState) => {
-    console.log('handleExportToggle', showExportOptions);
     setShowExportOptions(!prevState.showExportOptions);
     if (props.handleAnalyticsEvents) {
       props.handleAnalyticsEvents({
@@ -344,14 +297,14 @@ const TranscriptEditor = (props) => {
     const exportFormat = e.target.value;
 
     if (exportFormat !== 'instructions') {
-      const fileName = props.title ? props.title : mediaUrl;
+      const exportName = props.title ? props.title : mediaUrl;
       const { data, ext } = getEditorContent(exportFormat);
       let tmpData = data;
       if (ext === 'json') {
         tmpData = JSON.stringify(data, null, 2);
       }
       if (ext !== 'docx') {
-        download(tmpData, `${ fileName }.${ ext }`);
+        download(tmpData, `${ exportName }.${ ext }`);
       }
 
       if (props.handleAnalyticsEvents) {
@@ -385,6 +338,56 @@ const TranscriptEditor = (props) => {
       });
     }
   };
+
+  useLayoutEffect(() => {
+    if (mediaUrl === '' && props.mediaUrl) {
+      setMediaUrl(props.mediaUrl);
+    }
+
+    if (fileName === '' && props.fileName) {
+      setFileName(props.fileName);
+    }
+
+    if (localFileName === '' && (props.mediaUrl || props.fileName)) {
+      setLocalFileName(`draftJs-${ mediaUrl.includes('blob') ? fileName : mediaUrl }`);
+    }
+
+    setHandleSave(() => props.handleSave);
+
+    if (timedTextEditorRef && timedTextEditorRef.current) {
+      setEditorState(timedTextEditorRef.current.editorState);
+
+      if (!handleSave) {
+        setHandleSave(() => {
+          timedTextEditorRef.current.updateTimestampsForEditorState();
+          setEditorState(timedTextEditorRef.current.editorState);
+          localStorage.setItem(localFileName, editorState);
+          console.log('Saved file');
+          setIsInLocalStorage(true);
+          console.log('Saved');
+          console.log(localStorage.getItem(localFileName));
+        });
+      }
+    }
+
+    const loadSaveData = () => {
+      const saveName = localFileName;
+      const data = localStorage.getItem(saveName);
+      if (data) {
+        timedTextEditorRef.current.setEditorState(data);
+      } else {
+        console.log('No locally saved data');
+      }
+    };
+
+    if (!isInLocalStorage || (timedTextEditorRef && timedTextEditorRef.current)) {
+      loadSaveData();
+      setIsInLocalStorage(true);
+    }
+
+    return () => {
+    };
+  }, [ editorState, fileName, handleSave, isInLocalStorage, localFileName, mediaUrl, props.fileName, props.handleSave, props.mediaUrl, setHandleSave ]);
 
   const videoPlayer = (
     <VideoPlayer
@@ -444,7 +447,6 @@ const TranscriptEditor = (props) => {
       isScrollIntoView={ isScrollIntoView }
       showTimecodes={ showTimecodes }
       showSpeakers={ showSpeakers }
-      ref={ timedTextEditorRef }
       handleAnalyticsEvents={ props.handleAnalyticsEvents }
     />
   );
