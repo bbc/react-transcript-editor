@@ -59,10 +59,22 @@ npm install @bbc/react-transcript-editor
 import TranscriptEditor from "@bbc/react-transcript-editor";
 ```
 
+Minimal data needed for initialization 
+
 ```js
 <TranscriptEditor
   transcriptData={someJsonFile}
   mediaUrl={"https://download.ted.com/talks/KateDarling_2018S-950k.mp4"}
+/>
+```
+
+With more attributes 
+```js
+<TranscriptEditor
+  transcriptData={someJsonFile}
+  mediaUrl={"https://download.ted.com/talks/KateDarling_2018S-950k.mp4"}
+  handleAutoSaveChanges={this.handleAutoSaveChanges}
+  autoSaveContentType={'digitalpaperedit'}
   isEditable={true}
   spellCheck={false}
   sttJsonType={"bbckaldi"}
@@ -70,6 +82,7 @@ import TranscriptEditor from "@bbc/react-transcript-editor";
   fileName={"ted-talk.mp4"}
   title={"Ted Talk"}
   ref={this.transcriptEditorRef}
+
 />
 ```
 
@@ -77,9 +90,11 @@ import TranscriptEditor from "@bbc/react-transcript-editor";
 | :-------------------- | :---------------------------------------------------------------------------------------------------------------------- | :------: | :-------: |
 | transcriptData        | Transcript json                                                                                                         |   yes    |   Json    |
 | mediaUrl              | string url to media file - audio or video                                                                               |   yes    |  String   |
+|`handleAutoSaveChanges`| returns content of transcription after a change                                                                         |    no    |  Function |
+| autoSaveContentType        | specify the file format for data returned by `handleAutoSaveChanges`,falls back on `sttJsonType`. or `draftjs`          |    no    |  string   |
 | isEditable            | set to true if you want to be able to edit the text                                                                     |    no    |  Boolean  |
 | spellCheck            | set to true if you want the browser to spell check this transcript                                                      |    no    |  Boolean  |
-| handleAnalyticsEvents | if you want to collect analytics events.                                                                                |    no    | Function  |
+|`handleAnalyticsEvents`| if you want to collect analytics events.                                                                                |    no    | Function  |
 | fileName              | used for saving and retrieving local storage blob files                                                                 |    no    |  String   |
 | title                 | defaults to empty string                                                                                                |    no    |  String   |
 | ref                   | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db. |    no    | React ref |

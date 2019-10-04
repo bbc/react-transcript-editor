@@ -400,9 +400,6 @@ class MediaPlayer extends React.Component {
           setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
           playbackRateOptions={ this.state.playbackRateOptions }
           pictureInPicture={ this.handlePictureInPicture }
-          handleSaveTranscript={ () => {
-            this.props.handleSaveTranscript();
-          } }
         />
         {this.props.mediaUrl ? progressBar : null}
       </div>
@@ -429,8 +426,7 @@ MediaPlayer.propTypes = {
   rollBackValueInSeconds: PropTypes.number,
   timecodeOffset: PropTypes.number,
   handleAnalyticsEvents: PropTypes.func,
-  mediaDuration: PropTypes.string,
-  handleSaveTranscript: PropTypes.func
+  mediaDuration: PropTypes.string
 };
 
 export default hotkeys(MediaPlayer);
