@@ -50,8 +50,9 @@ class TranscriptEditor extends React.Component {
       showTimecodes: true,
       showSpeakers: true,
       previewIsDisplayed: true,
-      mediaDuration: "00:00:00:00"
+      mediaDuration: "00:00:00:00",
       // previewViewWidth: '25'
+      // isAudio: false
     };
     this.timedTextEditorRef = React.createRef();
   }
@@ -68,10 +69,17 @@ class TranscriptEditor extends React.Component {
 
   // performance optimization
   shouldComponentUpdate = (nextProps, nextState) => {
-    if (nextProps.mediaUrl !== this.props.mediaUrl) return true;
+    if (nextProps.mediaUrl !== this.props.mediaUrl){
+      return true;
+    }
 
     return nextState !== this.state;
   };
+
+  componentDidMount = ()=>{
+    console.log('componentDidMount', this.props.mediaUrl)
+    // this.checkIfIsAudio();
+  }
 
   // eslint-disable-next-line class-methods-use-this
   handleWordClick = startTime => {
@@ -326,6 +334,36 @@ class TranscriptEditor extends React.Component {
     }
   };
 
+  // checkIfIsAudio = () => {
+  //   console.log('checkIfIsAudio');
+  //   if(this.props.mediaType === 'audio'){
+  //     this.setState({isAudio: true})
+  //     return true;
+  //   }
+  //   else{
+  //     this.setState({isAudio: false})
+  //     return false;
+  //   }
+ 
+  //   // if (this.props.mediaUrl) {
+  //   //   console.log('mediaUrl',this.props.mediaUrl)
+  //   //   // from https://stackoverflow.com/questions/11876175/how-to-get-a-file-or-blob-from-an-object-url
+  //   //   let file = await fetch(this.props.mediaUrl);
+  //   //   const blob = await file.blob();
+  //   //   console.log('blob',blob);
+  //   //   console.log('type',blob.type);
+  //   //   if (blob.type.includes("audio")){
+  //   //     console.log('is audio')
+  //   //     this.setState({isAudio: true})
+  //   //     return true;
+  //   //   }
+  //   //   console.log('is not audio')
+  //   //   this.setState({isAudio: false})
+  //   //   return false;
+  //   // }
+  //   // return false;
+  // };
+
   render() {
     const videoPlayer = (
       <VideoPlayer
@@ -442,13 +480,25 @@ class TranscriptEditor extends React.Component {
       />
     );
 
+;    let gridDisplay = {
+      display: "grid",
+      gridTemplateColumns: "1fr 3fr",
+      gridColumnGap: "1em"
+    };
+    let displayMedia = null;
+    // if the mediaUrl is for an audio file, then extend TimedTextEditor to be full width
+    if (this.props.mediaType === 'audio') {
+      console.log('this.props.mediaType', this.props.mediaType);
+      gridDisplay = null; //{display: 'none'};
+      displayMedia = {display: 'none'};
+    }
     return (
       <div className={style.container}>
         {this.props.mediaUrl ? header : null}
 
         <div className={style.grid}>
-          <section className={style.row}>
-            <aside className={style.aside}>
+          <section className={style.row} style={gridDisplay} >
+            <aside className={style.aside} style={displayMedia}>
               {this.props.mediaUrl ? videoPlayer : null}
             </aside>
 
