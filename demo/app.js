@@ -42,12 +42,27 @@ class App extends React.Component {
   }
 
   loadDemo = () => {
-    this.setState({
-      transcriptData: DEMO_TRANSCRIPT,
-      mediaUrl: DEMO_MEDIA_URL,
-      title: DEMO_TITLE,
-      sttType: "bbckaldi"
-    });
+    console.log('loadDemo')
+    if(isPresentInLocalStorage(DEMO_MEDIA_URL)){
+
+      const transcriptDataFromLocalStorage = loadLocalSavedData(DEMO_MEDIA_URL)
+      console.log('transcriptDataFromLocalStorage',transcriptDataFromLocalStorage)
+      this.setState({
+        transcriptData: transcriptDataFromLocalStorage,
+        mediaUrl: DEMO_MEDIA_URL,
+        title: DEMO_TITLE,
+        sttType: 'draftjs'
+      });
+    }
+    else{
+       this.setState({
+        transcriptData: DEMO_TRANSCRIPT,
+        mediaUrl: DEMO_MEDIA_URL,
+        title: DEMO_TITLE,
+        sttType: "bbckaldi"
+      });
+    }
+   
   };
 
   // https://stackoverflow.com/questions/8885701/play-local-hard-drive-video-file-with-html5-video-tag
@@ -171,6 +186,8 @@ class App extends React.Component {
     console.log("handleAutoSaveChanges", newAutoSaveData);
     const { data, ext } = newAutoSaveData;
     this.setState({ autoSaveData: data, autoSaveExtension: ext });
+    // Saving to local storage 
+    localSave(this.state.mediaUrl, this.state.fileName, data);
   };
   render() {
     return (
