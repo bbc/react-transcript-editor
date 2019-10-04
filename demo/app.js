@@ -6,6 +6,12 @@ import ExportFormatSelect from "./select-export-format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
+import {
+  loadLocalSavedData,
+  isPresentInLocalStorage,
+  localSave
+} from "./local-storage.js";
+
 import DEMO_TRANSCRIPT from "./sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json";
 const DEMO_MEDIA_URL =
   "https://download.ted.com/talks/KateDarling_2018S-950k.mp4";
@@ -28,7 +34,8 @@ class App extends React.Component {
       title: "",
       fileName: "",
       autoSaveData: {},
-      autoSaveFormat: 'digitalpaperedit'
+      autoSaveFormat: "draftjs",
+      autoSaveExtension: "json"
     };
 
     this.transcriptEditorRef = React.createRef();
@@ -162,8 +169,8 @@ class App extends React.Component {
 
   handleAutoSaveChanges = newAutoSaveData => {
     console.log("handleAutoSaveChanges", newAutoSaveData);
-    const { data, ext} = newAutoSaveData;
-    this.setState({autoSaveData: data, autoSaveExtension: ext})
+    const { data, ext } = newAutoSaveData;
+    this.setState({ autoSaveData: data, autoSaveExtension: ext });
   };
   render() {
     return (
@@ -302,7 +309,7 @@ class App extends React.Component {
           autoSaveFormat={this.state.autoSaveFormat}
         />
 
-        <section  style={{ height: "250px", width: "50%", float: 'left' }}>
+        <section style={{ height: "250px", width: "50%", float: "left" }}>
           <h3>Components Analytics</h3>
           <textarea
             style={{ height: "100%", width: "100%" }}
@@ -311,11 +318,20 @@ class App extends React.Component {
           />
         </section>
 
-        <section  style={{ height: "250px", width: "50%",  float: 'right' }}>
-          <h3>Auto Save data: <code>{this.state.autoSaveFormat}| {this.state.autoSaveExtension}</code></h3>
+        <section style={{ height: "250px", width: "50%", float: "right" }}>
+          <h3>
+            Auto Save data:{" "}
+            <code>
+              {this.state.autoSaveFormat}| {this.state.autoSaveExtension}
+            </code>
+          </h3>
           <textarea
             style={{ height: "100%", width: "100%" }}
-            value={JSON.stringify(this.state.autoSaveData, null, 2)}
+            value={
+              this.state.autoSaveExtension === "json"
+                ? JSON.stringify(this.state.autoSaveData, null, 2)
+                : this.state.autoSaveData
+            }
             disabled
           />
         </section>
