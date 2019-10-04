@@ -35,8 +35,8 @@ storiesOf("TranscriptEditor", module)
       transcriptData: bbcKaldiTranscript,
       handleAnalyticsEvents: action("Analytics event"),
       handleAutoSaveChanges: action("handleAutoSaveChange"),
-      autoSaveFormat: select(
-        "autoSaveFormat",
+      autoSaveContentType: select(
+        "autoSaveContentType",
         [
           "draftjs",
           "digitalpaperedit",
@@ -56,7 +56,7 @@ storiesOf("TranscriptEditor", module)
         0
       ),
       mediaType: select('mediaType',['audio', 'video'], 'video', 1),
-      autoSaveFormat: text('autoSaveFormat','digitalpaperedit')
+      autoSaveContentType: text('autoSaveContentType','digitalpaperedit')
     };
 
     return <TranscriptEditor {...fixtureProps} />;
@@ -78,8 +78,8 @@ storiesOf("TranscriptEditor", module)
       transcriptData: bbcKaldiTranscript,
       handleAnalyticsEvents: action("Analytics event"),
       handleAutoSaveChanges: action("handleAutoSaveChange"),
-      autoSaveFormat: select(
-        "autoSaveFormat",
+      autoSaveContentType: select(
+        "autoSaveContentType",
         [
           "draftjs",
           "digitalpaperedit",
@@ -99,7 +99,7 @@ storiesOf("TranscriptEditor", module)
         0
       ),
       mediaType: select('mediaType',['audio', 'video'], 'audio', 0),
-      autoSaveFormat: text('autoSaveFormat','digitalpaperedit')
+      autoSaveContentType: text('autoSaveContentType','digitalpaperedit')
     };
 
     return <TranscriptEditor {...fixtureProps} />;

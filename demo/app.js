@@ -34,7 +34,7 @@ class App extends React.Component {
       title: "",
       fileName: "",
       autoSaveData: {},
-      autoSaveFormat: "draftjs",
+      autoSaveContentType: "draftjs",
       autoSaveExtension: "json"
     };
 
@@ -320,7 +320,7 @@ class App extends React.Component {
           title={this.state.title}
           ref={this.transcriptEditorRef}
           handleAutoSaveChanges={this.handleAutoSaveChanges}
-          autoSaveFormat={this.state.autoSaveFormat}
+          autoSaveContentType={this.state.autoSaveContentType}
           mediaType={'video'}
         />
 
@@ -337,7 +337,7 @@ class App extends React.Component {
           <h3>
             Auto Save data:{" "}
             <code>
-              {this.state.autoSaveFormat}| {this.state.autoSaveExtension}
+              {this.state.autoSaveContentType}| {this.state.autoSaveExtension}
             </code>
           </h3>
           <textarea

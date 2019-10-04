@@ -91,7 +91,7 @@ class TimedTextEditor extends React.Component {
           }),
           () => {
             // const data = this.updateTimestampsForEditorState();
-            const data = this.getEditorContent( this.props.autoSaveFormat, this.props.title)
+            const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title)
             this.props.handleAutoSaveChanges(data);
           }
         );
