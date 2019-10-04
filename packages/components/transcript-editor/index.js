@@ -72,7 +72,7 @@ class TranscriptEditor extends React.Component {
 
     return nextState !== this.state;
   };
-  
+
   // eslint-disable-next-line class-methods-use-this
   handleWordClick = startTime => {
     if (this.props.handleAnalyticsEvents) {
@@ -318,20 +318,11 @@ class TranscriptEditor extends React.Component {
     });
   };
 
-  handleAutoSaveChanges = () => {
+  handleAutoSaveChanges = data => {
     // making `TranscriptEditor` - `handleAutoSaveChanges` optional
     if (this.props.handleAutoSaveChanges) {
-      // export format for `handleAutoSaveChanges` is assigned with `autoSaveFormat`
-      // but if that's not specified  it looks at  `sttJsonType`
-      // if that's not specified either, it falls back on `draftjs`.
-      let contentFormat = "draftjs";
-      if (this.props.autoSaveFormat) {
-        contentFormat = this.props.autoSaveFormat;
-      } else if (this.props.sttJsonType) {
-        contentFormat = this.props.sttJsonType;
-      }
-      const { data, ext } = this.getEditorContent(contentFormat);
-      this.props.handleAutoSaveChanges({ data, ext });
+      // const { data, ext } = this.getEditorContent(contentFormat);
+      this.props.handleAutoSaveChanges(data);
     }
   };
 
@@ -399,6 +390,16 @@ class TranscriptEditor extends React.Component {
       <Shortcuts handleShortcutsToggle={this.handleShortcutsToggle} />
     );
 
+    // export format for `handleAutoSaveChanges` is assigned with `autoSaveFormat`
+    // but if that's not specified  it looks at  `sttJsonType`
+    // if that's not specified either, it falls back on `draftjs`.
+    let contentFormat = "draftjs";
+    if (this.props.autoSaveFormat) {
+      contentFormat = this.props.autoSaveFormat;
+    } else if (this.props.sttJsonType) {
+      contentFormat = this.props.sttJsonType;
+    }
+
     const timedTextEditor = (
       <TimedTextEditor
         fileName={this.props.fileName}
@@ -419,6 +420,8 @@ class TranscriptEditor extends React.Component {
         ref={this.timedTextEditorRef}
         handleAnalyticsEvents={this.props.handleAnalyticsEvents}
         handleAutoSaveChanges={this.handleAutoSaveChanges}
+        autoSaveFormat={contentFormat}
+        title={this.props.title ? this.props.title : Date.now()}
       />
     );
 

@@ -90,8 +90,9 @@ class TimedTextEditor extends React.Component {
             editorState
           }),
           () => {
-            this.updateTimestampsForEditorState();
-            this.props.handleAutoSaveChanges();
+            // const data = this.updateTimestampsForEditorState();
+            const data = this.getEditorContent( this.props.autoSaveFormat, this.props.title)
+            this.props.handleAutoSaveChanges(data);
           }
         );
       }, 1000);
@@ -152,8 +153,10 @@ class TimedTextEditor extends React.Component {
         selection
       );
       this.setState({ editorState: newEditorStateSelected });
+      return newEditorStateSelected;
     } else {
       this.setState({ editorState: newEditorState });
+      return newEditorState;
     }
   }
 
@@ -170,10 +173,10 @@ class TimedTextEditor extends React.Component {
 
   getEditorContent(exportFormat, title) {
     const format = exportFormat || "draftjs";
-    this.updateTimestampsForEditorState();
+    const tmpEditorState = this.updateTimestampsForEditorState();
 
     return exportAdapter(
-      convertToRaw(this.state.editorState.getCurrentContent()),
+      convertToRaw(tmpEditorState.getCurrentContent()),
       format,
       title
     );
