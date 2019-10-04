@@ -34,8 +34,8 @@ storiesOf("TranscriptEditor", module)
       transcriptData: bbcKaldiTranscript,
       handleAnalyticsEvents: action("Analytics event"),
       handleAutoSaveChanges: action("handleAutoSaveChange"),
-      autoSaveFormat: select(
-        "autoSaveFormat",
+      autoSaveContentType: select(
+        "autoSaveContentType",
         [
           "draftjs",
           "digitalpaperedit",
@@ -54,7 +54,7 @@ storiesOf("TranscriptEditor", module)
         "draftjs",
         0
       )
-      // autoSaveFormat: text('autoSaveFormat','digitalpaperedit')
+      // autoSaveContentType: text('autoSaveContentType','digitalpaperedit')
     };
 
     return <TranscriptEditor {...fixtureProps} />;

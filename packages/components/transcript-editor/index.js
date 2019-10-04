@@ -390,12 +390,12 @@ class TranscriptEditor extends React.Component {
       <Shortcuts handleShortcutsToggle={this.handleShortcutsToggle} />
     );
 
-    // export format for `handleAutoSaveChanges` is assigned with `autoSaveFormat`
+    // export format for `handleAutoSaveChanges` is assigned with `autoSaveContentType`
     // but if that's not specified  it looks at  `sttJsonType`
     // if that's not specified either, it falls back on `draftjs`.
     let contentFormat = "draftjs";
-    if (this.props.autoSaveFormat) {
-      contentFormat = this.props.autoSaveFormat;
+    if (this.props.autoSaveContentType) {
+      contentFormat = this.props.autoSaveContentType;
     } else if (this.props.sttJsonType) {
       contentFormat = this.props.sttJsonType;
     }
@@ -420,7 +420,7 @@ class TranscriptEditor extends React.Component {
         ref={this.timedTextEditorRef}
         handleAnalyticsEvents={this.props.handleAnalyticsEvents}
         handleAutoSaveChanges={this.handleAutoSaveChanges}
-        autoSaveFormat={contentFormat}
+        autoSaveContentType={contentFormat}
         title={this.props.title ? this.props.title : Date.now()}
       />
     );

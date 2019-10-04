@@ -74,7 +74,7 @@ With more attributes
   transcriptData={someJsonFile}
   mediaUrl={"https://download.ted.com/talks/KateDarling_2018S-950k.mp4"}
   handleAutoSaveChanges={this.handleAutoSaveChanges}
-  autoSaveFormat={'digitalpaperedit'}
+  autoSaveContentType={'digitalpaperedit'}
   isEditable={true}
   spellCheck={false}
   sttJsonType={"bbckaldi"}
@@ -91,7 +91,7 @@ With more attributes
 | transcriptData        | Transcript json                                                                                                         |   yes    |   Json    |
 | mediaUrl              | string url to media file - audio or video                                                                               |   yes    |  String   |
 |`handleAutoSaveChanges`| returns content of transcription after a change                                                                         |    no    |  Function |
-| autoSaveFormat        | specify the file format for data returned by `handleAutoSaveChanges`,falls back on `sttJsonType`. or `draftjs`          |    no    |  string   |
+| autoSaveContentType        | specify the file format for data returned by `handleAutoSaveChanges`,falls back on `sttJsonType`. or `draftjs`          |    no    |  string   |
 | isEditable            | set to true if you want to be able to edit the text                                                                     |    no    |  Boolean  |
 | spellCheck            | set to true if you want the browser to spell check this transcript                                                      |    no    |  Boolean  |
 |`handleAnalyticsEvents`| if you want to collect analytics events.                                                                                |    no    | Function  |
