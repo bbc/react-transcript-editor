@@ -116,7 +116,6 @@ class WrapperBlock extends React.Component {
   };
 
   render() {
-    // console.log('render wrapper block');
     let startTimecode = this.state.start;
     if (this.props.blockProps.timecodeOffset) {
       startTimecode += this.props.blockProps.timecodeOffset;

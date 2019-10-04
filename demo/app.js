@@ -272,7 +272,7 @@ class App extends React.Component {
           title={ this.state.title }
           ref={ this.transcriptEditorRef }
           handleAutoSaveChanges={this.handleAutoSaveChanges}
-          autoSaveFormat={'digitalpaperedit'} //digitalpaperedit
+          autoSaveFormat={'digitalpaperedit'} 
         />
 
         <label>Components Analytics</label>
