@@ -82,7 +82,7 @@ With more attributes
   fileName={"ted-talk.mp4"}
   title={"Ted Talk"}
   ref={this.transcriptEditorRef}
-
+  mediaType={'video'}
 />
 ```
 

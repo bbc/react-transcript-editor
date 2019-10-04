@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   Editor,
@@ -9,14 +9,14 @@ import {
   convertToRaw,
   getDefaultKeyBinding,
   Modifier
-} from "draft-js";
+} from 'draft-js';
 
-import Word from "./Word";
-import WrapperBlock from "./WrapperBlock";
-import sttJsonAdapter from "../../stt-adapters";
-import exportAdapter from "../../export-adapters";
-import updateTimestamps from "./UpdateTimestamps/index.js";
-import style from "./index.module.css";
+import Word from './Word';
+import WrapperBlock from './WrapperBlock';
+import sttJsonAdapter from '../../stt-adapters';
+import exportAdapter from '../../export-adapters';
+import updateTimestamps from './UpdateTimestamps/index.js';
+import style from './index.module.css';
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class TimedTextEditor extends React.Component {
     // doing editorStateChangeType === 'insert-characters'  is triggered even
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
-    // also "insert-characters" does not get triggered if you delete text 
+    // also "insert-characters" does not get triggered if you delete text
     if (this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()) {
       if (this.props.isPauseWhileTypingOn) {
         if (this.props.isPlaying()) {
@@ -91,7 +91,7 @@ class TimedTextEditor extends React.Component {
           }),
           () => {
             // const data = this.updateTimestampsForEditorState();
-            const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title)
+            const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title);
             this.props.handleAutoSaveChanges(data);
           }
         );
@@ -153,9 +153,11 @@ class TimedTextEditor extends React.Component {
         selection
       );
       this.setState({ editorState: newEditorStateSelected });
+
       return newEditorStateSelected;
     } else {
       this.setState({ editorState: newEditorState });
+
       return newEditorState;
     }
   }
@@ -172,7 +174,7 @@ class TimedTextEditor extends React.Component {
   }
 
   getEditorContent(exportFormat, title) {
-    const format = exportFormat || "draftjs";
+    const format = exportFormat || 'draftjs';
     const tmpEditorState = this.updateTimestampsForEditorState();
 
     return exportAdapter(
@@ -188,24 +190,22 @@ class TimedTextEditor extends React.Component {
     // nativeEvent --> React giving you the DOM event
     let element = event.nativeEvent.target;
     // find the parent in Word that contains span with time-code start attribute
-    while (!element.hasAttribute("data-start") && element.parentElement) {
+    while (!element.hasAttribute('data-start') && element.parentElement) {
       element = element.parentElement;
     }
 
-    if (element.hasAttribute("data-start")) {
-      const t = parseFloat(element.getAttribute("data-start"));
+    if (element.hasAttribute('data-start')) {
+      const t = parseFloat(element.getAttribute('data-start'));
       this.props.onWordClick(t);
     }
   };
 
-
-
   // originally from
   // https://github.com/draft-js-plugins/draft-js-plugins/blob/master/draft-js-counter-plugin/src/WordCounter/index.js#L12
   getWordCount = editorState => {
-    const plainText = editorState.getCurrentContent().getPlainText("");
+    const plainText = editorState.getCurrentContent().getPlainText('');
     const regex = /(?:\r\n|\r|\n)/g; // new line, carriage return, line feed
-    const cleanString = plainText.replace(regex, " ").trim(); // replace above characters w/ space
+    const cleanString = plainText.replace(regex, ' ').trim(); // replace above characters w/ space
     const wordArray = cleanString.match(/\S+/g); // matches words according to whitespace
 
     return wordArray ? wordArray.length : 0;
@@ -224,9 +224,9 @@ class TimedTextEditor extends React.Component {
 
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({
-        category: "TimedTextEditor",
-        action: "setEditorContentState",
-        name: "getWordCount",
+        category: 'TimedTextEditor',
+        action: 'setEditorContentState',
+        name: 'getWordCount',
         value: this.getWordCount(editorState)
       });
     }
@@ -275,9 +275,9 @@ class TimedTextEditor extends React.Component {
     const tKey = 84;
 
     if (e.keyCode === enterKey) {
-      console.log("customKeyBindingFn");
+      console.log('customKeyBindingFn');
 
-      return "split-paragraph";
+      return 'split-paragraph';
     }
     // if alt key is pressed in combination with these other keys
     if (
@@ -294,7 +294,7 @@ class TimedTextEditor extends React.Component {
     ) {
       e.preventDefault();
 
-      return "keyboard-shortcuts";
+      return 'keyboard-shortcuts';
     }
 
     return getDefaultKeyBinding(e);
@@ -304,15 +304,15 @@ class TimedTextEditor extends React.Component {
    * Handle draftJs custom key commands
    */
   handleKeyCommand = command => {
-    if (command === "split-paragraph") {
+    if (command === 'split-paragraph') {
       this.splitParagraph();
     }
 
-    if (command === "keyboard-shortcuts") {
-      return "handled";
+    if (command === 'keyboard-shortcuts') {
+      return 'handled';
     }
 
-    return "not-handled";
+    return 'not-handled';
   };
 
   /**
@@ -339,7 +339,7 @@ class TimedTextEditor extends React.Component {
       const splitState = EditorState.push(
         this.state.editorState,
         newContentState,
-        "split-block"
+        'split-block'
       );
       const targetSelection = splitState.getSelection();
 
@@ -347,9 +347,9 @@ class TimedTextEditor extends React.Component {
         newContentState.selectionBefore.getStartKey()
       );
       const originalBlockData = originalBlock.getData();
-      const blockSpeaker = originalBlockData.get("speaker");
+      const blockSpeaker = originalBlockData.get('speaker');
 
-      let wordStartTime = "NA";
+      let wordStartTime = 'NA';
       // eslint-disable-next-line prefer-const
       let isEndOfParagraph = false;
       // identify the entity (word) at the selection/cursor point on split.
@@ -369,7 +369,7 @@ class TimedTextEditor extends React.Component {
         // handle edge case when it doesn't find a closest entity (word)
         // eg pres enter on an empty line
         if (entityKey === null) {
-          return "not-handled";
+          return 'not-handled';
         }
       }
       // if there is an entityKey at or close to the selection point
@@ -394,10 +394,10 @@ class TimedTextEditor extends React.Component {
       );
       this.setEditorNewContentState(afterMergeContentState);
 
-      return "handled";
+      return 'handled';
     }
 
-    return "not-handled";
+    return 'not-handled';
   };
 
   /**
@@ -449,8 +449,8 @@ class TimedTextEditor extends React.Component {
 
   getCurrentWord = () => {
     const currentWord = {
-      start: "NA",
-      end: "NA"
+      start: 'NA',
+      end: 'NA'
     };
 
     if (this.props.transcriptData) {
@@ -473,14 +473,14 @@ class TimedTextEditor extends React.Component {
       }
     }
 
-    if (currentWord.start !== "NA") {
+    if (currentWord.start !== 'NA') {
       if (this.props.isScrollIntoViewOn) {
         const currentWordElement = document.querySelector(
-          `span.Word[data-start="${currentWord.start}"]`
+          `span.Word[data-start="${ currentWord.start }"]`
         );
         currentWordElement.scrollIntoView({
-          block: "nearest",
-          inline: "center"
+          block: 'nearest',
+          inline: 'center'
         });
       }
     }
@@ -495,45 +495,45 @@ class TimedTextEditor extends React.Component {
   render() {
     // console.log('render TimedTextEditor');
     const currentWord = this.getCurrentWord();
-    const highlightColour = "#69e3c2";
-    const unplayedColor = "#767676";
-    const correctionBorder = "1px dotted blue";
+    const highlightColour = '#69e3c2';
+    const unplayedColor = '#767676';
+    const correctionBorder = '1px dotted blue';
 
     // Time to the nearest half second
     const time = Math.round(this.props.currentTime * 4.0) / 4.0;
 
     const editor = (
       <section
-        className={style.editor}
-        onDoubleClick={this.handleDoubleClick}
+        className={ style.editor }
+        onDoubleClick={ this.handleDoubleClick }
         // TODO: decide if on mobile want to have a way to "click" on words
         // to play corresponding media
         // a double tap would be the ideal solution
         // onTouchStart={ event => this.handleDoubleClick(event) }
       >
         <style scoped>
-          {`span.Word[data-start="${currentWord.start}"] { background-color: ${highlightColour}; text-shadow: 0 0 0.01px black }`}
-          {`span.Word[data-start="${currentWord.start}"]+span { background-color: ${highlightColour} }`}
-          {`span.Word[data-prev-times~="${Math.floor(
+          {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
+          {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
+          {`span.Word[data-prev-times~="${ Math.floor(
             time
-          )}"] { color: ${unplayedColor} }`}
-          {`span.Word[data-prev-times~="${time}"] { color: ${unplayedColor} }`}
-          {`span.Word[data-confidence="low"] { border-bottom: ${correctionBorder} }`}
+          ) }"] { color: ${ unplayedColor } }`}
+          {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
+          {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
         </style>
         <CustomEditor
-          editorState={this.state.editorState}
-          onChange={this.onChange}
+          editorState={ this.state.editorState }
+          onChange={ this.onChange }
           stripPastedStyles
           // renderBlockWithTimecodes={ this.renderBlockWithTimecodes }
-          handleKeyCommand={this.handleKeyCommand}
-          customKeyBindingFn={this.customKeyBindingFn}
-          spellCheck={this.props.spellCheck}
-          showSpeakers={this.props.showSpeakers}
-          showTimecodes={this.props.showTimecodes}
-          timecodeOffset={this.props.timecodeOffset}
-          setEditorNewContentState={this.setEditorNewContentState}
-          onWordClick={this.onWordClick}
-          handleAnalyticsEvents={this.props.handleAnalyticsEvents}
+          handleKeyCommand={ this.handleKeyCommand }
+          customKeyBindingFn={ this.customKeyBindingFn }
+          spellCheck={ this.props.spellCheck }
+          showSpeakers={ this.props.showSpeakers }
+          showTimecodes={ this.props.showTimecodes }
+          timecodeOffset={ this.props.timecodeOffset }
+          setEditorNewContentState={ this.setEditorNewContentState }
+          onWordClick={ this.onWordClick }
+          handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
         />
       </section>
     );
@@ -565,7 +565,7 @@ const getEntityStrategy = mutability => (
 // defines what to use to render the entity
 const decorator = new CompositeDecorator([
   {
-    strategy: getEntityStrategy("MUTABLE"),
+    strategy: getEntityStrategy('MUTABLE'),
     component: Word
   }
 ]);
@@ -592,6 +592,9 @@ TimedTextEditor.propTypes = {
 export default TimedTextEditor;
 
 // TODO: move CustomEditor in separate file
+// NOTE: custom editor is in a separate class to minimise re-renders
+// if considering refactoring, removing the separate class, please double check
+// that doing so does not introduce uncessary re-renders first.
 class CustomEditor extends React.Component {
   handleWordClick = e => {
     this.props.onWordClick(e);
@@ -629,13 +632,13 @@ class CustomEditor extends React.Component {
   render() {
     return (
       <Editor
-        editorState={this.props.editorState}
-        onChange={this.handleOnChange}
+        editorState={ this.props.editorState }
+        onChange={ this.handleOnChange }
         stripPastedStyles
-        blockRendererFn={this.renderBlockWithTimecodes}
-        handleKeyCommand={this.props.handleKeyCommand}
-        keyBindingFn={this.props.customKeyBindingFn}
-        spellCheck={this.props.spellCheck}
+        blockRendererFn={ this.renderBlockWithTimecodes }
+        handleKeyCommand={ this.props.handleKeyCommand }
+        keyBindingFn={ this.props.customKeyBindingFn }
+        spellCheck={ this.props.spellCheck }
       />
     );
   }

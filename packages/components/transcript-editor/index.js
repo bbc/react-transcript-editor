@@ -51,8 +51,8 @@ class TranscriptEditor extends React.Component {
       showSpeakers: true,
       previewIsDisplayed: true,
       mediaDuration: "00:00:00:00",
-      // previewViewWidth: '25'
-      // isAudio: false
+      gridDisplay: null,
+      gridDisplay: null
     };
     this.timedTextEditorRef = React.createRef();
   }
@@ -69,17 +69,44 @@ class TranscriptEditor extends React.Component {
 
   // performance optimization
   shouldComponentUpdate = (nextProps, nextState) => {
-    if (nextProps.mediaUrl !== this.props.mediaUrl){
+    if (nextProps.mediaUrl !== this.props.mediaUrl) {
       return true;
     }
 
     return nextState !== this.state;
   };
 
-  componentDidMount = ()=>{
-    console.log('componentDidMount', this.props.mediaUrl)
-    // this.checkIfIsAudio();
-  }
+  componentDidMount = () => {
+    this.updateDimensions();
+    window.addEventListener("resize", this.updateDimensions);
+  };
+
+  updateDimensions = () => {
+    let gridDisplay = {
+      display: "grid",
+      gridTemplateColumns: "1fr 3fr",
+      gridColumnGap: "1em"
+    };
+    let displayMedia = null;
+    // if the mediaUrl is for an audio file, then extend TimedTextEditor to be full width
+    if (this.props.mediaType === "audio") {
+      console.log("this.props.mediaType", this.props.mediaType);
+      gridDisplay = null;
+      displayMedia = { display: "none" };
+    }
+    // Handeling mobile view
+    const width = Math.max(
+      document.documentElement.clientWidth,
+      window.innerWidth || 0
+    );
+    if (width <= 767) {
+      gridDisplay = null;
+    }
+    this.setState({
+      gridDisplay,
+      displayMedia
+    });
+  };
 
   // eslint-disable-next-line class-methods-use-this
   handleWordClick = startTime => {
@@ -329,51 +356,18 @@ class TranscriptEditor extends React.Component {
   handleAutoSaveChanges = data => {
     // making `TranscriptEditor` - `handleAutoSaveChanges` optional
     if (this.props.handleAutoSaveChanges) {
-      // const { data, ext } = this.getEditorContent(contentFormat);
       this.props.handleAutoSaveChanges(data);
     }
   };
-
-  // checkIfIsAudio = () => {
-  //   console.log('checkIfIsAudio');
-  //   if(this.props.mediaType === 'audio'){
-  //     this.setState({isAudio: true})
-  //     return true;
-  //   }
-  //   else{
-  //     this.setState({isAudio: false})
-  //     return false;
-  //   }
- 
-  //   // if (this.props.mediaUrl) {
-  //   //   console.log('mediaUrl',this.props.mediaUrl)
-  //   //   // from https://stackoverflow.com/questions/11876175/how-to-get-a-file-or-blob-from-an-object-url
-  //   //   let file = await fetch(this.props.mediaUrl);
-  //   //   const blob = await file.blob();
-  //   //   console.log('blob',blob);
-  //   //   console.log('type',blob.type);
-  //   //   if (blob.type.includes("audio")){
-  //   //     console.log('is audio')
-  //   //     this.setState({isAudio: true})
-  //   //     return true;
-  //   //   }
-  //   //   console.log('is not audio')
-  //   //   this.setState({isAudio: false})
-  //   //   return false;
-  //   // }
-  //   // return false;
-  // };
 
   render() {
     const videoPlayer = (
       <VideoPlayer
         mediaUrl={this.props.mediaUrl}
         onTimeUpdate={this.handleTimeUpdate}
-        // onClick={ this.props.onClick }
         videoRef={this.videoRef}
         previewIsDisplayed={this.state.previewIsDisplayed}
         onLoadedDataGetDuration={this.onLoadedDataGetDuration}
-        // viewWith={ this.state.previewViewWidth }
       />
     );
 
@@ -411,7 +405,6 @@ class TranscriptEditor extends React.Component {
         handleAnalyticsEvents={this.props.handleAnalyticsEvents}
         previewIsDisplayed={this.state.previewIsDisplayed}
         handlePreviewIsDisplayed={this.handlePreviewIsDisplayed}
-        // previewViewWidth={ this.state.previewViewWidth }
         handleChangePreviewViewWidth={this.handleChangePreviewViewWidth}
       />
     );
@@ -480,29 +473,23 @@ class TranscriptEditor extends React.Component {
       />
     );
 
-;    let gridDisplay = {
-      display: "grid",
-      gridTemplateColumns: "1fr 3fr",
-      gridColumnGap: "1em"
-    };
-    let displayMedia = null;
-    // if the mediaUrl is for an audio file, then extend TimedTextEditor to be full width
-    if (this.props.mediaType === 'audio') {
-      console.log('this.props.mediaType', this.props.mediaType);
-      gridDisplay = null; //{display: 'none'};
-      displayMedia = {display: 'none'};
-    }
     return (
       <div className={style.container}>
         {this.props.mediaUrl ? header : null}
 
         <div className={style.grid}>
-          <section className={style.row} style={gridDisplay} >
-            <aside className={style.aside} style={displayMedia}>
+          <section className={style.row} style={this.state.gridDisplay}>
+            <aside className={style.aside} style={this.state.displayMedia}>
               {this.props.mediaUrl ? videoPlayer : null}
             </aside>
 
-            <main className={style.main}>
+            <main
+              className={
+                this.props.mediaType === "audio"
+                  ? style.mainWithAudiio
+                  : style.main
+              }
+            >
               {this.props.mediaUrl && this.props.transcriptData
                 ? timedTextEditor
                 : null}
@@ -523,7 +510,8 @@ TranscriptEditor.propTypes = {
   sttJsonType: PropTypes.string,
   handleAnalyticsEvents: PropTypes.func,
   fileName: PropTypes.string,
-  transcriptData: PropTypes.object
+  transcriptData: PropTypes.object,
+  mediaType: PropTypes.string
 };
 
 export default TranscriptEditor;
