@@ -55,6 +55,10 @@ class WrapperBlock extends React.Component {
       return true;
     }
 
+    if (nextProps.blockProps.isEditable !== this.props.blockProps.isEditable) {
+      return true;
+    }
+
     return false;
   };
 
