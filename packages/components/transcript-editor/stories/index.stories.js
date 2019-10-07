@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -11,13 +11,13 @@ import {
   select
 } from '@storybook/addon-knobs';
 
-import bbcKaldiTranscript from './fixtures/bbc-kaldi.json';
+import bbcKaldiTranscript from "./fixtures/bbc-kaldi.json";
 
-import TranscriptEditor from '../index.js';
+import TranscriptEditor from "../index.js";
 
-storiesOf('TranscriptEditor', module)
+storiesOf("TranscriptEditor", module)
   .addDecorator(withKnobs)
-  .add('default', () => {
+  .add("default", () => {
     const fixtureProps = {
       title: text('title', 'Ted Talk'),
       mediaUrl: text(

@@ -14,7 +14,6 @@ const localSave = (mediaUrl, fileName, data) => {
 const isPresentInLocalStorage = (mediaUrl, fileName) => {
   if (mediaUrl !== null) {
     let mediaUrlName = mediaUrl;
-
     if (mediaUrl.includes('blob')) {
       mediaUrlName = fileName;
     }
@@ -36,7 +35,6 @@ const loadLocalSavedData = (mediaUrl, fileName) => {
     mediaUrlName = fileName;
   }
   const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrlName }`));
-
   return data;
 };
 

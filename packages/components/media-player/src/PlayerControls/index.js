@@ -45,7 +45,7 @@ class PlayerControls extends React.Component {
   }
 
   render() {
-
+    
     const pictureInPicture = ('pictureInPictureEnabled' in document) ? ( <button
       value="Picture-in-picture"
       title="Picture-in-picture"
