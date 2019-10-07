@@ -608,7 +608,8 @@ class CustomEditor extends React.Component {
         editorState: this.props.editorState,
         setEditorNewContentState: this.props.setEditorNewContentState,
         onWordClick: this.handleWordClick,
-        handleAnalyticsEvents: this.props.handleAnalyticsEvents
+        handleAnalyticsEvents: this.props.handleAnalyticsEvents,
+        isEditable: this.props.isEditable
       }
     };
   };

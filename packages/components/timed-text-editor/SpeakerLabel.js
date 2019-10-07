@@ -11,7 +11,7 @@ class SpeakerLabel extends PureComponent {
     return (
       <span className={ style.speaker }
         title={ this.props.name }
-        onClick={ this.props.handleOnClickEdit }>
+        onClick={ this.props.isEditable? this.props.handleOnClickEdit: null } >
         <span className={ style.EditLabel }>
           <FontAwesomeIcon icon={ faUserEdit } />
         </span>

@@ -125,6 +125,7 @@ class WrapperBlock extends React.Component {
       <SpeakerLabel
         name={ this.state.speaker }
         handleOnClickEdit={ this.handleOnClickEdit }
+        isEditable={this.props.blockProps.isEditable}
       />
     );
 
