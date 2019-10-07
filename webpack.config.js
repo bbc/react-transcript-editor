@@ -46,10 +46,12 @@ module.exports = {
         use: [
           isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader'
+            loader: 'css-loader',
+            options: { modules: true, sourceMap: isDevelopment }
           },
           {
-            loader: 'sass-loader'
+            loader: 'sass-loader',
+            options: { sourceMap: isDevelopment }
           }
         ]
       },
@@ -60,11 +62,11 @@ module.exports = {
           isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-                  options: { sourceMap: isDevelopment }
+            options: { sourceMap: isDevelopment }
           },
           {
             loader: 'sass-loader',
-                  options: { sourceMap: isDevelopment }
+            options: { sourceMap: isDevelopment }
           }
         ]
       },
