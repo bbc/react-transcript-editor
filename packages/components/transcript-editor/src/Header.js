@@ -29,6 +29,7 @@ class Header extends React.Component {
       <nav className={ style.nav }>
         {props.mediaUrl === null ? null : props.mediaControls}
       </nav>
+
       <div className={ style.settingsContainer }>
         <button
           className={ style.settingsButton }
@@ -45,7 +46,7 @@ class Header extends React.Component {
           <FontAwesomeIcon icon={ faKeyboard } />
         </button>
         <button
-          className={ `${ style.settingsButton } ${ style.keyboardShortcutsButon }` }
+          className={ `${ style.settingsButton }` }
           title="Export"
           onClick={ props.handleExportToggle }
         >
