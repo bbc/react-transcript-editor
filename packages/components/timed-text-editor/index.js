@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 import {
   Editor,
@@ -9,19 +9,14 @@ import {
   convertToRaw,
   getDefaultKeyBinding,
   Modifier
-} from 'draft-js';
+} from "draft-js";
 
-import Word from './Word';
-import WrapperBlock from './WrapperBlock';
-
-// TODO: connect to local packages version
-// import sttJsonAdapter from '../../Util/adapters/index.js';
-import sttJsonAdapter from '../../stt-adapters';
-// TODO: connect to local packages version
-import exportAdapter from '../../export-adapters';
-// import exportAdapter from '../../Util/export-adapters/index.js';
-import updateTimestamps from './UpdateTimestamps/index.js';
-import style from './index.module.css';
+import Word from "./Word";
+import WrapperBlock from "./WrapperBlock";
+import sttJsonAdapter from "../../stt-adapters";
+import exportAdapter from "../../export-adapters";
+import updateTimestamps from "./UpdateTimestamps/index.js";
+import style from "./index.module.css";
 
 class TimedTextEditor extends React.Component {
   constructor(props) {
@@ -39,21 +34,17 @@ class TimedTextEditor extends React.Component {
   shouldComponentUpdate = (nextProps, nextState) => {
     if (nextProps !== this.props) return true;
 
-    if (nextState !== this.state ) return true;
+    if (nextState !== this.state) return true;
 
     return false;
-  }
+  };
 
   componentDidUpdate(prevProps, prevState) {
     if (
-      (prevProps.transcriptData !== this.props.transcriptData)
-      && ( this.props.mediaUrl !== null && !this.isPresentInLocalStorage(this.props.mediaUrl) )
+      prevProps.timecodeOffset !== this.props.timecodeOffset ||
+      prevProps.showSpeakers !== this.props.showSpeakers ||
+      prevProps.showTimecodes !== this.props.showTimecodes
     ) {
-      this.loadData();
-    }
-    if (prevProps.timecodeOffset !== this.props.timecodeOffset
-      || prevProps.showSpeakers !== this.props.showSpeakers
-      || prevProps.showTimecodes !== this.props.showTimecodes) {
       // forcing a re-render is an expensive operation and
       // there might be a way of optimising this at a later refactor (?)
       // the issue is that WrapperBlock is not update on TimedTextEditor
@@ -65,12 +56,13 @@ class TimedTextEditor extends React.Component {
     }
   }
 
-  onChange = (editorState) => {
+  onChange = editorState => {
     // https://draftjs.org/docs/api-reference-editor-state#lastchangetype
     // https://draftjs.org/docs/api-reference-editor-change-type
     // doing editorStateChangeType === 'insert-characters'  is triggered even
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
+    // also "insert-characters" does not get triggered if you delete text 
     if (this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()) {
       if (this.props.isPauseWhileTypingOn) {
         if (this.props.isPlaying()) {
@@ -79,52 +71,54 @@ class TimedTextEditor extends React.Component {
           const pauseWhileTypingIntervalInMilliseconds = 3000;
           // resets timeout
           clearTimeout(this.plauseWhileTypingTimeOut);
-          this.plauseWhileTypingTimeOut = setTimeout(function() {
-            // after timeout starts playing again
-            this.props.playMedia(true);
-          }.bind(this), pauseWhileTypingIntervalInMilliseconds);
+          this.plauseWhileTypingTimeOut = setTimeout(
+            function() {
+              // after timeout starts playing again
+              this.props.playMedia(true);
+            }.bind(this),
+            pauseWhileTypingIntervalInMilliseconds
+          );
         }
       }
 
-      // if (this.timestampTimer !== undefined) {
-      //   clearTimeout(this.timestampTimer);
-      // }
-      // this.timestampTimer = setTimeout(() => {
-      //   this.updateTimestampsForEditorState();
-      // }, 5000);
+      if (this.saveTimer !== undefined) {
+        clearTimeout(this.saveTimer);
+      }
+      this.saveTimer = setTimeout(() => {
+        this.setState(
+          () => ({
+            editorState
+          }),
+          () => {
+            // const data = this.updateTimestampsForEditorState();
+            const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title)
+            this.props.handleAutoSaveChanges(data);
+          }
+        );
+      }, 1000);
     }
 
     if (this.props.isEditable) {
-      this.setState(() => ({
-        editorState
-      }), () => {
-        // saving when user has stopped typing for more then five seconds
-        if (this.saveTimer !== undefined) {
-          clearTimeout(this.saveTimer);
-        }
-        this.saveTimer = setTimeout(() => {
-          this.localSave(this.props.mediaUrl);
-        }, 1000);
-
-        // if (this.timestampTimer !== undefined) {
-        //   clearTimeout(this.timestampTimer);
-        // }
-        // this.timestampTimer = setTimeout(() => {
-        //   this.updateTimestampsForEditorState();
-        // }, 5000);
-      });
+      this.setState({ editorState });
     }
-  }
+  };
 
   updateTimestampsForEditorState() {
-
     // Update timestamps according to the original state.
-    const currentContent = convertToRaw(this.state.editorState.getCurrentContent());
-    const updatedContentRaw = updateTimestamps(currentContent, this.state.originalState);
+    const currentContent = convertToRaw(
+      this.state.editorState.getCurrentContent()
+    );
+    const updatedContentRaw = updateTimestamps(
+      currentContent,
+      this.state.originalState
+    );
     const updatedContent = convertFromRaw(updatedContentRaw);
 
     // Update editor state
-    const newEditorState = EditorState.push(this.state.editorState, updatedContent);
+    const newEditorState = EditorState.push(
+      this.state.editorState,
+      updatedContent
+    );
 
     // Re-convert updated content to raw to gain access to block keys
     const updatedContentBlocks = convertToRaw(updatedContent);
@@ -134,148 +128,111 @@ class TimedTextEditor extends React.Component {
 
     // Check if editor has currently the focus. If yes, keep current selection.
     if (selectionState.getHasFocus()) {
-
       // Build block map, which maps the block keys of the previous content to the block keys of the
       // updated content.
       var blockMap = {};
-      for (var blockIdx = 0; blockIdx < currentContent.blocks.length; blockIdx++) {
-        blockMap[currentContent.blocks[blockIdx].key] = updatedContentBlocks.blocks[blockIdx].key;
+      for (
+        var blockIdx = 0;
+        blockIdx < currentContent.blocks.length;
+        blockIdx++
+      ) {
+        blockMap[currentContent.blocks[blockIdx].key] =
+          updatedContentBlocks.blocks[blockIdx].key;
       }
 
       const selection = selectionState.merge({
         anchorOffset: selectionState.getAnchorOffset(),
         anchorKey: blockMap[selectionState.getAnchorKey()],
         focusOffset: selectionState.getFocusOffset(),
-        focusKey: blockMap[selectionState.getFocusKey()],
+        focusKey: blockMap[selectionState.getFocusKey()]
       });
 
       // Set the updated selection state on the new editor state
-      const newEditorStateSelected = EditorState.forceSelection(newEditorState, selection);
+      const newEditorStateSelected = EditorState.forceSelection(
+        newEditorState,
+        selection
+      );
       this.setState({ editorState: newEditorStateSelected });
+      return newEditorStateSelected;
     } else {
       this.setState({ editorState: newEditorState });
+      return newEditorState;
     }
   }
 
   loadData() {
     if (this.props.transcriptData !== null) {
-      const blocks = sttJsonAdapter(this.props.transcriptData, this.props.sttJsonType);
+      const blocks = sttJsonAdapter(
+        this.props.transcriptData,
+        this.props.sttJsonType
+      );
       this.setState({ originalState: convertToRaw(convertFromRaw(blocks)) });
       this.setEditorContentState(blocks);
     }
   }
 
   getEditorContent(exportFormat, title) {
-    const format = exportFormat || 'draftjs';
-    this.updateTimestampsForEditorState();
+    const format = exportFormat || "draftjs";
+    const tmpEditorState = this.updateTimestampsForEditorState();
 
-    return exportAdapter(convertToRaw(this.state.editorState.getCurrentContent()), format, title);
+    return exportAdapter(
+      convertToRaw(tmpEditorState.getCurrentContent()),
+      format,
+      title
+    );
   }
 
   // click on words - for navigation
   // eslint-disable-next-line class-methods-use-this
-  handleDoubleClick = (event) => {
+  handleDoubleClick = event => {
     // nativeEvent --> React giving you the DOM event
     let element = event.nativeEvent.target;
     // find the parent in Word that contains span with time-code start attribute
-    while (!element.hasAttribute('data-start') && element.parentElement) {
+    while (!element.hasAttribute("data-start") && element.parentElement) {
       element = element.parentElement;
     }
 
-    if (element.hasAttribute('data-start')) {
-      const t = parseFloat(element.getAttribute('data-start'));
+    if (element.hasAttribute("data-start")) {
+      const t = parseFloat(element.getAttribute("data-start"));
       this.props.onWordClick(t);
     }
-  }
+  };
 
-  localSave = () => {
-    clearTimeout(this.saveTimer);
-    let mediaUrlName = this.props.mediaUrl;
-    this.updateTimestampsForEditorState();
-    // if using local media instead of using random blob name
-    // that makes it impossible to retrieve from on page refresh
-    // use file name
-    if (this.props.mediaUrl.includes('blob')) {
-      mediaUrlName = this.props.fileName;
-    }
 
-    const data = convertToRaw(this.state.editorState.getCurrentContent());
-    localStorage.setItem(`draftJs-${ mediaUrlName }`, JSON.stringify(data));
-    const newLastLocalSavedDate = new Date().toString();
-    localStorage.setItem(`timestamp-${ mediaUrlName }`, newLastLocalSavedDate);
-
-    // return newLastLocalSavedDate;
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  isPresentInLocalStorage(mediaUrl) {
-    if (mediaUrl !== null) {
-      let mediaUrlName = mediaUrl;
-
-      if (mediaUrl.includes('blob')) {
-        mediaUrlName = this.props.fileName;
-      }
-
-      const data = localStorage.getItem(`draftJs-${ mediaUrlName }`);
-      if (data !== null) {
-        return true;
-      }
-
-      return false;
-    }
-
-    return false;
-  }
-
-  loadLocalSavedData(mediaUrl) {
-    let mediaUrlName = mediaUrl;
-    if (mediaUrl.includes('blob')) {
-      mediaUrlName = this.props.fileName;
-    }
-    const data = JSON.parse(localStorage.getItem(`draftJs-${ mediaUrlName }`));
-    if (data !== null) {
-      const lastLocalSavedDate = localStorage.getItem(`timestamp-${ mediaUrlName }`);
-      this.setEditorContentState(data);
-
-      return lastLocalSavedDate;
-    }
-
-    return '';
-  }
 
   // originally from
   // https://github.com/draft-js-plugins/draft-js-plugins/blob/master/draft-js-counter-plugin/src/WordCounter/index.js#L12
-  getWordCount = (editorState) => {
-    const plainText = editorState.getCurrentContent().getPlainText('');
+  getWordCount = editorState => {
+    const plainText = editorState.getCurrentContent().getPlainText("");
     const regex = /(?:\r\n|\r|\n)/g; // new line, carriage return, line feed
-    const cleanString = plainText.replace(regex, ' ').trim(); // replace above characters w/ space
+    const cleanString = plainText.replace(regex, " ").trim(); // replace above characters w/ space
     const wordArray = cleanString.match(/\S+/g); // matches words according to whitespace
 
     return wordArray ? wordArray.length : 0;
-  }
+  };
 
   /**
-  * @param {object} data.entityMap - draftJs entity maps - used by convertFromRaw
-  * @param {object} data.blocks - draftJs blocks - used by convertFromRaw
-  * set DraftJS Editor content state from blocks
-  * contains blocks and entityMap
-  */
-  setEditorContentState = (data) => {
+   * @param {object} data.entityMap - draftJs entity maps - used by convertFromRaw
+   * @param {object} data.blocks - draftJs blocks - used by convertFromRaw
+   * set DraftJS Editor content state from blocks
+   * contains blocks and entityMap
+   */
+  setEditorContentState = data => {
     const contentState = convertFromRaw(data);
     // eslint-disable-next-line no-use-before-define
     const editorState = EditorState.createWithContent(contentState, decorator);
 
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({
-        category: 'TimedTextEditor',
-        action: 'setEditorContentState',
-        name: 'getWordCount',
+        category: "TimedTextEditor",
+        action: "setEditorContentState",
+        name: "getWordCount",
         value: this.getWordCount(editorState)
       });
     }
 
     this.setState({ editorState });
-  }
+  };
 
   // Helper function to re-render this component
   // used to re-render WrapperBlock on timecode offset change
@@ -285,77 +242,78 @@ class TimedTextEditor extends React.Component {
     const contentState = this.state.editorState.getCurrentContent();
     const decorator = this.state.editorState.getDecorator();
 
-    const newState = EditorState.createWithContent(
-      contentState,
-      decorator
-    );
+    const newState = EditorState.createWithContent(contentState, decorator);
 
     // this.setEditorNewContentState(newState);
     const newEditorState = EditorState.push(newState, contentState);
     this.setState({ editorState: newEditorState });
-  }
+  };
 
   /**
-  * Update Editor content state
-  */
-  setEditorNewContentState = (newContentState) => {
-    const newEditorState = EditorState.push(this.state.editorState, newContentState);
+   * Update Editor content state
+   */
+  setEditorNewContentState = newContentState => {
+    const newEditorState = EditorState.push(
+      this.state.editorState,
+      newContentState
+    );
     this.setState({ editorState: newEditorState });
-  }
+  };
 
   /**
    * Listen for draftJs custom key bindings
    */
-  customKeyBindingFn = (e) => {
-
+  customKeyBindingFn = e => {
     const enterKey = 13;
     const spaceKey = 32;
     const kKey = 75;
     const lKey = 76;
     const jKey = 74;
-    const equalKey = 187;//used for +
+    const equalKey = 187; //used for +
     const minusKey = 189; // -
     const rKey = 82;
     const tKey = 84;
 
-    if (e.keyCode === enterKey ) {
-      console.log('customKeyBindingFn');
+    if (e.keyCode === enterKey) {
+      console.log("customKeyBindingFn");
 
-      return 'split-paragraph';
+      return "split-paragraph";
     }
     // if alt key is pressed in combination with these other keys
-    if (e.altKey && ((e.keyCode === spaceKey)
-    || (e.keyCode === spaceKey)
-    || (e.keyCode === kKey)
-    || (e.keyCode === lKey)
-    || (e.keyCode === jKey)
-    || (e.keyCode === equalKey)
-    || (e.keyCode === minusKey)
-    || (e.keyCode === rKey)
-    || (e.keyCode === tKey))
+    if (
+      e.altKey &&
+      (e.keyCode === spaceKey ||
+        e.keyCode === spaceKey ||
+        e.keyCode === kKey ||
+        e.keyCode === lKey ||
+        e.keyCode === jKey ||
+        e.keyCode === equalKey ||
+        e.keyCode === minusKey ||
+        e.keyCode === rKey ||
+        e.keyCode === tKey)
     ) {
       e.preventDefault();
 
-      return 'keyboard-shortcuts';
+      return "keyboard-shortcuts";
     }
 
     return getDefaultKeyBinding(e);
-  }
+  };
 
   /**
    * Handle draftJs custom key commands
    */
-  handleKeyCommand = (command) => {
-    if (command === 'split-paragraph') {
+  handleKeyCommand = command => {
+    if (command === "split-paragraph") {
       this.splitParagraph();
     }
 
-    if (command === 'keyboard-shortcuts') {
-      return 'handled';
+    if (command === "keyboard-shortcuts") {
+      return "handled";
     }
 
-    return 'not-handled';
-  }
+    return "not-handled";
+  };
 
   /**
    * Helper function to handle splitting paragraphs with return key
@@ -373,31 +331,45 @@ class TimedTextEditor extends React.Component {
     if (currentSelection.isCollapsed()) {
       const currentContent = this.state.editorState.getCurrentContent();
       // https://draftjs.org/docs/api-reference-modifier#splitblock
-      const newContentState = Modifier.splitBlock(currentContent, currentSelection);
+      const newContentState = Modifier.splitBlock(
+        currentContent,
+        currentSelection
+      );
       // https://draftjs.org/docs/api-reference-editor-state#push
-      const splitState = EditorState.push(this.state.editorState, newContentState, 'split-block');
+      const splitState = EditorState.push(
+        this.state.editorState,
+        newContentState,
+        "split-block"
+      );
       const targetSelection = splitState.getSelection();
 
-      const originalBlock = currentContent.blockMap.get(newContentState.selectionBefore.getStartKey());
+      const originalBlock = currentContent.blockMap.get(
+        newContentState.selectionBefore.getStartKey()
+      );
       const originalBlockData = originalBlock.getData();
-      const blockSpeaker = originalBlockData.get('speaker');
+      const blockSpeaker = originalBlockData.get("speaker");
 
-      let wordStartTime = 'NA';
+      let wordStartTime = "NA";
       // eslint-disable-next-line prefer-const
       let isEndOfParagraph = false;
       // identify the entity (word) at the selection/cursor point on split.
       // eslint-disable-next-line prefer-const
-      let entityKey = originalBlock.getEntityAt(currentSelection.getStartOffset());
+      let entityKey = originalBlock.getEntityAt(
+        currentSelection.getStartOffset()
+      );
       // if there is no word entity associated with a char then there is no entity key
       // at that selection point
       if (entityKey === null) {
-        const closestEntityToSelection = this.findClosestEntityKeyToSelectionPoint(currentSelection, originalBlock);
+        const closestEntityToSelection = this.findClosestEntityKeyToSelectionPoint(
+          currentSelection,
+          originalBlock
+        );
         entityKey = closestEntityToSelection.entityKey;
         isEndOfParagraph = closestEntityToSelection.isEndOfParagraph;
         // handle edge case when it doesn't find a closest entity (word)
         // eg pres enter on an empty line
         if (entityKey === null) {
-          return 'not-handled';
+          return "not-handled";
         }
       }
       // if there is an entityKey at or close to the selection point
@@ -407,8 +379,7 @@ class TimedTextEditor extends React.Component {
       if (isEndOfParagraph) {
         // if it's end of paragraph use end time of word for new paragraph
         wordStartTime = entityData.end;
-      }
-      else {
+      } else {
         wordStartTime = entityData.start;
       }
       // split paragraph
@@ -417,17 +388,17 @@ class TimedTextEditor extends React.Component {
         splitState.getCurrentContent(),
         targetSelection,
         {
-          'start': wordStartTime,
-          'speaker': blockSpeaker
+          start: wordStartTime,
+          speaker: blockSpeaker
         }
       );
       this.setEditorNewContentState(afterMergeContentState);
 
-      return 'handled';
+      return "handled";
     }
 
-    return 'not-handled';
-  }
+    return "not-handled";
+  };
 
   /**
    * Helper function for splitParagraph
@@ -446,11 +417,12 @@ class TimedTextEditor extends React.Component {
     // length of the plain text for the ContentBlock
     const lengthPlainTextForTheBlock = originalBlock.getLength();
     // number of char from selection point to end of paragraph
-    const remainingCharNumber = lengthPlainTextForTheBlock - startSelectionOffsetKey;
+    const remainingCharNumber =
+      lengthPlainTextForTheBlock - startSelectionOffsetKey;
     // if it's the last char in the paragraph - get previous entity
-    if (remainingCharNumber === 0 ) {
+    if (remainingCharNumber === 0) {
       isEndOfParagraph = true;
-      for (let j = lengthPlainTextForTheBlock; j > 0 ; j--) {
+      for (let j = lengthPlainTextForTheBlock; j > 0; j--) {
         entityKey = originalBlock.getEntityAt(j);
         if (entityKey !== null) {
           // if it finds it then return
@@ -461,7 +433,7 @@ class TimedTextEditor extends React.Component {
     // if it's first char or another within the block - get next entity
     else {
       let initialSelectionOffset = currentSelection.getStartOffset();
-      for (let i = 0; i < remainingCharNumber ; i++) {
+      for (let i = 0; i < remainingCharNumber; i++) {
         initialSelectionOffset += i;
         entityKey = originalBlock.getEntityAt(initialSelectionOffset);
         // if it finds it then return
@@ -473,12 +445,12 @@ class TimedTextEditor extends React.Component {
 
     // cover edge cases where it doesn't find it
     return { entityKey, isEndOfParagraph };
-  }
+  };
 
   getCurrentWord = () => {
     const currentWord = {
-      start: 'NA',
-      end: 'NA'
+      start: "NA",
+      end: "NA"
     };
 
     if (this.props.transcriptData) {
@@ -491,83 +463,95 @@ class TimedTextEditor extends React.Component {
         const entity = entityMap[entityKey];
         const word = entity.data;
 
-        if (word.start <= this.props.currentTime && word.end >= this.props.currentTime) {
+        if (
+          word.start <= this.props.currentTime &&
+          word.end >= this.props.currentTime
+        ) {
           currentWord.start = word.start;
           currentWord.end = word.end;
         }
       }
     }
 
-    if (currentWord.start !== 'NA') {
+    if (currentWord.start !== "NA") {
       if (this.props.isScrollIntoViewOn) {
-        const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
-        currentWordElement.scrollIntoView({ block: 'nearest', inline: 'center' });
+        const currentWordElement = document.querySelector(
+          `span.Word[data-start="${currentWord.start}"]`
+        );
+        currentWordElement.scrollIntoView({
+          block: "nearest",
+          inline: "center"
+        });
       }
     }
 
     return currentWord;
-  }
+  };
 
-  onWordClick = (e) => {
+  onWordClick = e => {
     this.props.onWordClick(e);
-  }
+  };
 
   render() {
     // console.log('render TimedTextEditor');
     const currentWord = this.getCurrentWord();
-    const highlightColour = '#69e3c2';
-    const unplayedColor = '#767676';
-    const correctionBorder = '1px dotted blue';
+    const highlightColour = "#69e3c2";
+    const unplayedColor = "#767676";
+    const correctionBorder = "1px dotted blue";
 
     // Time to the nearest half second
     const time = Math.round(this.props.currentTime * 4.0) / 4.0;
 
     const editor = (
       <section
-        className={ style.editor }
-        onDoubleClick={ this.handleDoubleClick }
+        className={style.editor}
+        onDoubleClick={this.handleDoubleClick}
         // TODO: decide if on mobile want to have a way to "click" on words
         // to play corresponding media
         // a double tap would be the ideal solution
         // onTouchStart={ event => this.handleDoubleClick(event) }
       >
         <style scoped>
-          {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
-          {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
-          {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
-          {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
-          {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
+          {`span.Word[data-start="${currentWord.start}"] { background-color: ${highlightColour}; text-shadow: 0 0 0.01px black }`}
+          {`span.Word[data-start="${currentWord.start}"]+span { background-color: ${highlightColour} }`}
+          {`span.Word[data-prev-times~="${Math.floor(
+            time
+          )}"] { color: ${unplayedColor} }`}
+          {`span.Word[data-prev-times~="${time}"] { color: ${unplayedColor} }`}
+          {`span.Word[data-confidence="low"] { border-bottom: ${correctionBorder} }`}
         </style>
         <CustomEditor
-          editorState={ this.state.editorState }
-          onChange={ this.onChange }
+          editorState={this.state.editorState}
+          onChange={this.onChange}
           stripPastedStyles
           // renderBlockWithTimecodes={ this.renderBlockWithTimecodes }
-          handleKeyCommand={ this.handleKeyCommand }
-          customKeyBindingFn={ this.customKeyBindingFn }
-          spellCheck={ this.props.spellCheck }
-          showSpeakers={ this.props.showSpeakers }
-          showTimecodes={ this.props.showTimecodes }
-          timecodeOffset={ this.props.timecodeOffset }
-          setEditorNewContentState={ this.setEditorNewContentState }
-          onWordClick={ this.onWordClick }
-          handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
+          handleKeyCommand={this.handleKeyCommand}
+          customKeyBindingFn={this.customKeyBindingFn}
+          spellCheck={this.props.spellCheck}
+          showSpeakers={this.props.showSpeakers}
+          showTimecodes={this.props.showTimecodes}
+          timecodeOffset={this.props.timecodeOffset}
+          setEditorNewContentState={this.setEditorNewContentState}
+          onWordClick={this.onWordClick}
+          handleAnalyticsEvents={this.props.handleAnalyticsEvents}
         />
       </section>
     );
 
     return (
-      <section>
-        { this.props.transcriptData !== null ? editor : null }
-      </section>
+      <section>{this.props.transcriptData !== null ? editor : null}</section>
     );
   }
 }
 
 // DraftJs decorator to recognize which entity is which
 // and know what to apply to what component
-const getEntityStrategy = mutability => (contentBlock, callback, contentState) => {
-  contentBlock.findEntityRanges((character) => {
+const getEntityStrategy = mutability => (
+  contentBlock,
+  callback,
+  contentState
+) => {
+  contentBlock.findEntityRanges(character => {
     const entityKey = character.getEntity();
     if (entityKey === null) {
       return false;
@@ -581,9 +565,9 @@ const getEntityStrategy = mutability => (contentBlock, callback, contentState) =
 // defines what to use to render the entity
 const decorator = new CompositeDecorator([
   {
-    strategy: getEntityStrategy('MUTABLE'),
-    component: Word,
-  },
+    strategy: getEntityStrategy("MUTABLE"),
+    component: Word
+  }
 ]);
 
 TimedTextEditor.propTypes = {
@@ -609,10 +593,9 @@ export default TimedTextEditor;
 
 // TODO: move CustomEditor in separate file
 class CustomEditor extends React.Component {
-
-  handleWordClick = (e) => {
+  handleWordClick = e => {
     this.props.onWordClick(e);
-  }
+  };
 
   renderBlockWithTimecodes = () => {
     return {
@@ -628,7 +611,7 @@ class CustomEditor extends React.Component {
         handleAnalyticsEvents: this.props.handleAnalyticsEvents
       }
     };
-  }
+  };
 
   shouldComponentUpdate(nextProps) {
     // https://stackoverflow.com/questions/39182657/best-performance-method-to-check-if-contentstate-changed-in-draftjs-or-just-edi
@@ -639,20 +622,20 @@ class CustomEditor extends React.Component {
     return false;
   }
 
-  handleOnChange = (e) => {
+  handleOnChange = e => {
     this.props.onChange(e);
-  }
+  };
 
   render() {
     return (
       <Editor
-        editorState={ this.props.editorState }
-        onChange={ this.handleOnChange }
+        editorState={this.props.editorState}
+        onChange={this.handleOnChange}
         stripPastedStyles
-        blockRendererFn={ this.renderBlockWithTimecodes }
-        handleKeyCommand={ this.props.handleKeyCommand }
-        keyBindingFn={ this.props.customKeyBindingFn }
-        spellCheck={ this.props.spellCheck }
+        blockRendererFn={this.renderBlockWithTimecodes}
+        handleKeyCommand={this.props.handleKeyCommand}
+        keyBindingFn={this.props.customKeyBindingFn}
+        spellCheck={this.props.spellCheck}
       />
     );
   }
