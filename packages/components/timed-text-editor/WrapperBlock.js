@@ -8,8 +8,9 @@ import {
   convertToRaw
  } from 'draft-js';
 
+// https://react-select.com/creatable
+import Creatable from 'react-select/creatable';
 import SpeakerLabel from './SpeakerLabel';
-// import { shortTimecode, secondsToTimecode } from '../../Util/timecode-converter/';
 
 import {
   shortTimecode,
@@ -80,7 +81,6 @@ class WrapperBlock extends React.Component {
     }
 
     if(nextProps.block.getData().get('speaker') !== this.state.speaker){
-      console.log('shouldComponentUpdate wrapper speaker', nextProps.block.getData().get('speaker') , this.state.speaker )
       return true;
     }
 
@@ -88,14 +88,10 @@ class WrapperBlock extends React.Component {
   };
 
   componentDidUpdate  = (prevProps, prevState) =>{
-
     if(prevProps.block.getData().get('speaker') !== prevState.speaker){
-        console.log('componentDidUpdate wrapper speaker', prevProps.block.getData().get('speaker') , prevState.speaker );
-        
         this.setState({
           speaker: prevProps.block.getData().get('speaker')
         })
-
         return true;
       }
   }
@@ -107,15 +103,6 @@ class WrapperBlock extends React.Component {
       this.setState({ speaker: newSpeakerName });
       const isUpdateAllSpeakerInstances = confirm(`Would you like to change all occurrences ${oldSpeakerName} of with ${newSpeakerName} or just this one?\n\n pick OK for all, or CANCEL for just this one.`);
      
-      if (this.props.blockProps.handleAnalyticsEvents) {
-        this.props.blockProps.handleAnalyticsEvents({
-          category: 'WrapperBlock',
-          action: 'handleOnClickEdit',
-          name: 'newSpeakerName',
-          value: newSpeakerName
-        });
-      }
-
       if(isUpdateAllSpeakerInstances){
         const ContentState = this.props.blockProps.editorState.getCurrentContent();
         const contentToUpdateWithSpekaers = updateSpeakerName(oldSpeakerName, newSpeakerName, ContentState);
@@ -138,7 +125,6 @@ class WrapperBlock extends React.Component {
           this.props.blockProps.editorState,
           currentBlockSelection
         );
-
         const currentBlockSelectionState = editorStateWithSelectedCurrentBlock.getSelection();
         const newBlockDataWithSpeakerName = { speaker: newSpeakerName };
 
@@ -151,6 +137,16 @@ class WrapperBlock extends React.Component {
 
         this.props.blockProps.setEditorNewContentState(newContentState);
       }
+
+      if (this.props.blockProps.handleAnalyticsEvents) {
+        this.props.blockProps.handleAnalyticsEvents({
+          category: 'WrapperBlock',
+          action: 'handleOnClickEdit',
+          name: 'newSpeakerName',
+          value: newSpeakerName
+        });
+      }
+
     }
   };
 
@@ -186,14 +182,21 @@ class WrapperBlock extends React.Component {
       </span>
     );
 
+    const options = [
+      { value: 'chocolate', label: 'Chocolate' },
+      { value: 'strawberry', label: 'Strawberry' },
+      { value: 'vanilla', label: 'Vanilla' }
+    ]
+
     return (
       <div className={ style.WrapperBlock }>
         <div
-          className={ [ style.markers, style.unselectable ].join(' ') }
+          // className={ [ style.markers, style.unselectable ].join(' ') }
+          className={ [ style.markers ].join(' ') }
           contentEditable={ false }
         >
           {this.props.blockProps.showSpeakers ? speakerElement : ''}
-
+          {/* <Creatable options={options} /> */}
           {this.props.blockProps.showTimecodes ? timecodeElement : ''}
         </div>
         <div className={ style.text }>
