@@ -249,19 +249,6 @@ class TimedTextEditor extends React.Component {
     this.setState({ editorState: newEditorState });
   };
 
-
-  // forceRenderDecorator = () => {
-  //   // const { editorState, updateEditorState } = this.props;
-  //   const contentState = this.state.editorState.getCurrentContent();
-  //   const decorator = this.state.editorState.getDecorator();
-
-  //   const newState = EditorState.createWithContent(contentState, decorator);
-
-  //   // this.setEditorNewContentState(newState);
-  //   const newEditorState = EditorState.push(newState, contentState);
-  //   this.setState({ editorState: newEditorState });
-  // };
-
   /**
    * Update Editor content state
    */
