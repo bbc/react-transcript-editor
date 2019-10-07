@@ -50,8 +50,8 @@ class TranscriptEditor extends React.Component {
       showTimecodes: true,
       showSpeakers: true,
       previewIsDisplayed: true,
-      mediaDuration: "00:00:00:00"
-      // previewViewWidth: '25'
+      mediaDuration: "00:00:00:00",
+      gridDisplay: null,
     };
     this.timedTextEditorRef = React.createRef();
   }
@@ -68,9 +68,43 @@ class TranscriptEditor extends React.Component {
 
   // performance optimization
   shouldComponentUpdate = (nextProps, nextState) => {
-    if (nextProps.mediaUrl !== this.props.mediaUrl) return true;
+    if (nextProps.mediaUrl !== this.props.mediaUrl) {
+      return true;
+    }
 
     return nextState !== this.state;
+  };
+
+  componentDidMount = () => {
+    this.updateDimensions();
+    window.addEventListener("resize", this.updateDimensions);
+  };
+
+  updateDimensions = () => {
+    let gridDisplay = {
+      display: "grid",
+      gridTemplateColumns: "1fr 3fr",
+      gridColumnGap: "1em"
+    };
+    let displayMedia = null;
+    // if the mediaUrl is for an audio file, then extend TimedTextEditor to be full width
+    if (this.props.mediaType === "audio") {
+      console.log("this.props.mediaType", this.props.mediaType);
+      gridDisplay = null;
+      displayMedia = { display: "none" };
+    }
+    // Handeling mobile view
+    const width = Math.max(
+      document.documentElement.clientWidth,
+      window.innerWidth || 0
+    );
+    if (width <= 767) {
+      gridDisplay = null;
+    }
+    this.setState({
+      gridDisplay,
+      displayMedia
+    });
   };
 
   // eslint-disable-next-line class-methods-use-this
@@ -321,7 +355,6 @@ class TranscriptEditor extends React.Component {
   handleAutoSaveChanges = data => {
     // making `TranscriptEditor` - `handleAutoSaveChanges` optional
     if (this.props.handleAutoSaveChanges) {
-      // const { data, ext } = this.getEditorContent(contentFormat);
       this.props.handleAutoSaveChanges(data);
     }
   };
@@ -331,11 +364,9 @@ class TranscriptEditor extends React.Component {
       <VideoPlayer
         mediaUrl={this.props.mediaUrl}
         onTimeUpdate={this.handleTimeUpdate}
-        // onClick={ this.props.onClick }
         videoRef={this.videoRef}
         previewIsDisplayed={this.state.previewIsDisplayed}
         onLoadedDataGetDuration={this.onLoadedDataGetDuration}
-        // viewWith={ this.state.previewViewWidth }
       />
     );
 
@@ -373,7 +404,6 @@ class TranscriptEditor extends React.Component {
         handleAnalyticsEvents={this.props.handleAnalyticsEvents}
         previewIsDisplayed={this.state.previewIsDisplayed}
         handlePreviewIsDisplayed={this.handlePreviewIsDisplayed}
-        // previewViewWidth={ this.state.previewViewWidth }
         handleChangePreviewViewWidth={this.handleChangePreviewViewWidth}
       />
     );
@@ -447,12 +477,18 @@ class TranscriptEditor extends React.Component {
         {this.props.mediaUrl ? header : null}
 
         <div className={style.grid}>
-          <section className={style.row}>
-            <aside className={style.aside}>
+          <section className={style.row} style={this.state.gridDisplay}>
+            <aside className={style.aside} style={this.state.displayMedia}>
               {this.props.mediaUrl ? videoPlayer : null}
             </aside>
 
-            <main className={style.main}>
+            <main
+              className={
+                this.props.mediaType === "audio"
+                  ? style.mainWithAudiio
+                  : style.main
+              }
+            >
               {this.props.mediaUrl && this.props.transcriptData
                 ? timedTextEditor
                 : null}
@@ -473,7 +509,8 @@ TranscriptEditor.propTypes = {
   sttJsonType: PropTypes.string,
   handleAnalyticsEvents: PropTypes.func,
   fileName: PropTypes.string,
-  transcriptData: PropTypes.object
+  transcriptData: PropTypes.object,
+  mediaType: PropTypes.string
 };
 
 export default TranscriptEditor;

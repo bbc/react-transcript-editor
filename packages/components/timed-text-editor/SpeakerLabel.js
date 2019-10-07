@@ -10,7 +10,7 @@ class SpeakerLabel extends PureComponent {
   render() {
     return (
       <span className={ style.speaker }
-        title={this.props.name }
+        title={ this.props.name }
         onClick={ this.props.handleOnClickEdit }>
         <span className={ style.EditLabel }>
           <FontAwesomeIcon icon={ faUserEdit } />

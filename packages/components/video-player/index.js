@@ -33,12 +33,12 @@ class VideoPlayer extends React.Component {
         playsInline
         src={ this.props.mediaUrl }
         onTimeUpdate={ this.props.onTimeUpdate }
-        type="video/mp4"
         data-testid="media-player-id"
         onClick={ this.handlePlayMedia }
         onLoadedData={ this.props.onLoadedDataGetDuration }
         ref={ this.props.videoRef }
         className={ styles.videoEl }
+        preload="auto"
         style={ {
           display: isDisplayed
         } }

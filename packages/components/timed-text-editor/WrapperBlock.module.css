@@ -43,7 +43,7 @@ to get text out of component with timecodes and speaker names in the interim */
     overflow: hidden;
     white-space: nowrap;
     justify-self: start;
-    max-width: 100px;
+    max-width: 100%;
     text-align: left;
   }
 

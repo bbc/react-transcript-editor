@@ -82,7 +82,7 @@ With more attributes
   fileName={"ted-talk.mp4"}
   title={"Ted Talk"}
   ref={this.transcriptEditorRef}
-
+  mediaType={'video'}
 />
 ```
 
@@ -98,10 +98,13 @@ With more attributes
 | fileName              | used for saving and retrieving local storage blob files                                                                 |    no    |  String   |
 | title                 | defaults to empty string                                                                                                |    no    |  String   |
 | ref                   | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db. |    no    | React ref |
+| mediaType             | can be `audio` or `video`, if not provided the component uses the url file type to determine and adjust use of the page layout |    no    | String |
 
 See [`./demo/app.js` demo](./demo/app.js) as a more detailed example usage of the component.
 
 _Note: `fileName` it is optional but it's needed if working with user uploaded local media in the browser, to be able to save and retrieve from local storage. For instance if you are passing a blob url to `mediaUrl` using `createObjectURL` this url is randomly re-generated on every page refresh so you wouldn't be able to restore a session, as `mediaUrl` is used as the local storage key. See demo app for more detail example of this[`./src/index.js`](./src/index.js)_
+
+_Note: `mediaType` if not defined, the component uses the url to determine the type and adjust the layout accordingly, however this could result in a slight delay when loading the component as it needs to fetch the media to determine it's file type_
 
 ### Typescript projects
 
