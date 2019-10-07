@@ -78,44 +78,42 @@ class WrapperBlock extends React.Component {
         });
       }
 
-      // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
-      // selection points are tracked as key/offset pairs,
-      // where the key value is the key of the ContentBlock where the point is positioned
-      // and the offset value is the character offset within the block.
-
-      // Get key of the currentBlock
-      const keyForCurrentCurrentBlock = this.props.block.getKey();
-      // create empty selection for current block
-      // https://draftjs.org/docs/api-reference-selection-state#createempty
-      const currentBlockSelection = SelectionState.createEmpty(
-        keyForCurrentCurrentBlock
-      );
-      const editorStateWithSelectedCurrentBlock = EditorState.acceptSelection(
-        this.props.blockProps.editorState,
-        currentBlockSelection
-      );
-
-      const currentBlockSelectionState = editorStateWithSelectedCurrentBlock.getSelection();
-      const newBlockDataWithSpeakerName = { speaker: newSpeakerName };
-
-      // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
-      const newContentState = Modifier.mergeBlockData(
-        this.props.contentState,
-        currentBlockSelectionState,
-        newBlockDataWithSpeakerName
-      );
-
       if(isUpdateAllSpeakerInstances){
-        console.log('change all instances')
-          const newContentStateWithAllSpeakersUpdated = (this.props.blockProps.updateSpeakerName(oldSpeakerName, newSpeakerName, newContentState));
-          this.props.blockProps.setEditorNewContentState(newContentStateWithAllSpeakersUpdated);
+        console.log('change all instances');
+        const contentStateWithUpdatedSpeakerNames = this.props.blockProps.updateSpeakerName(oldSpeakerName, newSpeakerName, newContentState);
+        const newContentStateWithAllSpeakersUpdated = (contentStateWithUpdatedSpeakerNames);
+        this.props.blockProps.setEditorNewContentState(newContentStateWithAllSpeakersUpdated);
       }
       else{
-         this.props.blockProps.setEditorNewContentState(newContentState);
+        // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
+        // selection points are tracked as key/offset pairs,
+        // where the key value is the key of the ContentBlock where the point is positioned
+        // and the offset value is the character offset within the block.
+
+        // Get key of the currentBlock
+        const keyForCurrentCurrentBlock = this.props.block.getKey();
+        // create empty selection for current block
+        // https://draftjs.org/docs/api-reference-selection-state#createempty
+        const currentBlockSelection = SelectionState.createEmpty(
+          keyForCurrentCurrentBlock
+        );
+        const editorStateWithSelectedCurrentBlock = EditorState.acceptSelection(
+          this.props.blockProps.editorState,
+          currentBlockSelection
+        );
+
+        const currentBlockSelectionState = editorStateWithSelectedCurrentBlock.getSelection();
+        const newBlockDataWithSpeakerName = { speaker: newSpeakerName };
+
+        // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
+        const newContentState = Modifier.mergeBlockData(
+          this.props.contentState,
+          currentBlockSelectionState,
+          newBlockDataWithSpeakerName
+        );
+        
+        this.props.blockProps.setEditorNewContentState(newContentState);
       }
-
-
-   
     }
   };
 

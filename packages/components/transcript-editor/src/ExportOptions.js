@@ -8,8 +8,9 @@ import style from './index.module.css';
 class ExportOptions extends React.Component {
 
   render() {
-    const btns = this.props.exportOptionsList.map((opt) => {
-      return (<><button
+    const btns = this.props.exportOptionsList.map((opt, index) => {
+      return (<><button 
+        key={opt.label+index}
         title={ opt.label }
         className={ style.playerButton }
         key={ opt.value }
