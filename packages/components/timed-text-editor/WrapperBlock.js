@@ -78,14 +78,7 @@ class WrapperBlock extends React.Component {
         });
       }
 
-      if(isUpdateAllSpeakerInstances){
-        console.log('change all instances');
-        const contentStateWithUpdatedSpeakerNames = this.props.blockProps.updateSpeakerName(oldSpeakerName, newSpeakerName, newContentState);
-        const newContentStateWithAllSpeakersUpdated = (contentStateWithUpdatedSpeakerNames);
-        this.props.blockProps.setEditorNewContentState(newContentStateWithAllSpeakersUpdated);
-      }
-      else{
-        // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
+       // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
         // selection points are tracked as key/offset pairs,
         // where the key value is the key of the ContentBlock where the point is positioned
         // and the offset value is the character offset within the block.
@@ -111,7 +104,14 @@ class WrapperBlock extends React.Component {
           currentBlockSelectionState,
           newBlockDataWithSpeakerName
         );
-        
+
+      if(isUpdateAllSpeakerInstances){
+        console.log('change all instances');
+        const contentStateWithUpdatedSpeakerNames = this.props.blockProps.updateSpeakerName(oldSpeakerName, newSpeakerName, newContentState);
+        const newContentStateWithAllSpeakersUpdated = (contentStateWithUpdatedSpeakerNames);
+        this.props.blockProps.setEditorNewContentState(newContentStateWithAllSpeakersUpdated);
+      }
+      else{
         this.props.blockProps.setEditorNewContentState(newContentState);
       }
     }
