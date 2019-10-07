@@ -23,7 +23,6 @@ storiesOf("TranscriptEditor", module)
       mediaUrl: text(
         'mediaUrl',
         'https://download.ted.com/talks/KateDarling_2018S-950k.mp4'
-        // "https://traffic.megaphone.fm/WSJ6550297133.mp3"
       ),
       sttJsonType: text('sttJsonType', 'bbckaldi'),
       isEditable: boolean('isEditable', true),
@@ -66,7 +65,7 @@ storiesOf("TranscriptEditor", module)
       title: text('title', 'Ted Talk'),
       mediaUrl: text(
         'mediaUrl',
-        'https://traffic.megaphone.fm/WSJ6550297133.mp3'
+        'https://download.ted.com/talks/KateDarling_2018S-950k.mp4'
       ),
       sttJsonType: text('sttJsonType', 'bbckaldi'),
       isEditable: boolean('isEditable', true),
