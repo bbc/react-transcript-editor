@@ -1,5 +1,12 @@
 import React from 'react';
-import { EditorBlock, Modifier, EditorState, SelectionState } from 'draft-js';
+import { 
+  EditorBlock, 
+  Modifier, 
+  EditorState, 
+  SelectionState,
+  convertFromRaw,
+  convertToRaw
+ } from 'draft-js';
 
 import SpeakerLabel from './SpeakerLabel';
 // import { shortTimecode, secondsToTimecode } from '../../Util/timecode-converter/';
@@ -10,6 +17,19 @@ import {
 } from '../../util/timecode-converter';
 
 import style from './WrapperBlock.module.css';
+
+const updateSpeakerName = (oldName, newName, state) => {
+  const contentToUpdate = convertToRaw(state);
+
+  contentToUpdate.blocks.forEach(block => {
+    if (block.data.speaker === oldName) {
+      block.data.speaker = newName;
+    }
+  })
+
+  return convertFromRaw(contentToUpdate);
+}
+
 
 class WrapperBlock extends React.Component {
   constructor(props) {
@@ -25,7 +45,7 @@ class WrapperBlock extends React.Component {
   componentDidMount() {
     const { block } = this.props;
     const speaker = block.getData().get('speaker');
-
+  
     const start = block.getData().get('start');
 
     this.setState({
@@ -59,8 +79,26 @@ class WrapperBlock extends React.Component {
       return true;
     }
 
+    if(nextProps.block.getData().get('speaker') !== this.state.speaker){
+      console.log('shouldComponentUpdate wrapper speaker', nextProps.block.getData().get('speaker') , this.state.speaker )
+      return true;
+    }
+
     return false;
   };
+
+  componentDidUpdate  = (prevProps, prevState) =>{
+
+    if(prevProps.block.getData().get('speaker') !== prevState.speaker){
+        console.log('componentDidUpdate wrapper speaker', prevProps.block.getData().get('speaker') , prevState.speaker );
+        
+        this.setState({
+          speaker: prevProps.block.getData().get('speaker')
+        })
+
+        return true;
+      }
+  }
 
   handleOnClickEdit = () => {
     const oldSpeakerName = this.state.speaker;
@@ -78,6 +116,12 @@ class WrapperBlock extends React.Component {
         });
       }
 
+      if(isUpdateAllSpeakerInstances){
+        const ContentState = this.props.blockProps.editorState.getCurrentContent();
+        const contentToUpdateWithSpekaers = updateSpeakerName(oldSpeakerName, newSpeakerName, ContentState);
+        this.props.blockProps.setEditorNewContentState(contentToUpdateWithSpekaers);
+      }
+      else{
        // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
         // selection points are tracked as key/offset pairs,
         // where the key value is the key of the ContentBlock where the point is positioned
@@ -105,13 +149,6 @@ class WrapperBlock extends React.Component {
           newBlockDataWithSpeakerName
         );
 
-      if(isUpdateAllSpeakerInstances){
-        console.log('change all instances');
-        const contentStateWithUpdatedSpeakerNames = this.props.blockProps.updateSpeakerName(oldSpeakerName, newSpeakerName, newContentState);
-        const newContentStateWithAllSpeakersUpdated = (contentStateWithUpdatedSpeakerNames);
-        this.props.blockProps.setEditorNewContentState(newContentStateWithAllSpeakersUpdated);
-      }
-      else{
         this.props.blockProps.setEditorNewContentState(newContentState);
       }
     }

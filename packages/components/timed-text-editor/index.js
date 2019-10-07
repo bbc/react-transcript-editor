@@ -231,7 +231,9 @@ class TimedTextEditor extends React.Component {
       });
     }
 
-    this.setState({ editorState });
+    this.setState({ editorState }, ()=>{
+      this.forceRenderDecorator();
+    });
   };
 
   // Helper function to re-render this component
@@ -253,11 +255,15 @@ class TimedTextEditor extends React.Component {
    * Update Editor content state
    */
   setEditorNewContentState = newContentState => {
+    const decorator = this.state.editorState.getDecorator();
+    const newState = EditorState.createWithContent(newContentState, decorator);
+
     const newEditorState = EditorState.push(
-      this.state.editorState,
+      newState,
       newContentState
     );
     this.setState({ editorState: newEditorState });
+    // this.setState({ editorState: convertFromRaw(convertToRaw(newEditorState)) });
   };
 
   /**
@@ -491,18 +497,6 @@ class TimedTextEditor extends React.Component {
     this.props.onWordClick(e);
   };
 
-  updateSpeakerName = (oldName, newName, state) => {
-    const contentToUpdate = convertToRaw(state);
-
-    contentToUpdate.blocks.forEach(block => {
-      if (block.data.speaker === oldName) {
-        block.data.speaker = newName;
-      }
-    })
-
-    return convertFromRaw(contentToUpdate);
-  }
-
   render() {
     // console.log('render TimedTextEditor');
     const currentWord = this.getCurrentWord();
@@ -535,7 +529,6 @@ class TimedTextEditor extends React.Component {
           editorState={this.state.editorState}
           onChange={this.onChange}
           stripPastedStyles
-          // renderBlockWithTimecodes={ this.renderBlockWithTimecodes }
           handleKeyCommand={this.handleKeyCommand}
           customKeyBindingFn={this.customKeyBindingFn}
           spellCheck={this.props.spellCheck}
@@ -546,7 +539,6 @@ class TimedTextEditor extends React.Component {
           onWordClick={this.onWordClick}
           handleAnalyticsEvents={this.props.handleAnalyticsEvents}
           isEditable={this.props.isEditable}
-          updateSpeakerName={this.updateSpeakerName}
         />
       </section>
     );
