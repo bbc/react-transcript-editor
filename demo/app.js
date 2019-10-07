@@ -10,13 +10,7 @@ import {
   loadLocalSavedData,
   isPresentInLocalStorage,
   localSave
-} from './local-storage.js';
-
-import DEMO_TRANSCRIPT from './sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json';
-const DEMO_MEDIA_URL =
-  'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
-const DEMO_TITLE =
-  'TED Talk | Kate Darling - Why we have an emotional connection to robots TED Talk';
+} from "./local-storage.js";
 
 import DEMO_TRANSCRIPT from "./sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json";
 const DEMO_MEDIA_URL =
@@ -37,19 +31,19 @@ class App extends React.Component {
       spellCheck: false,
       sttType: "bbckaldi",
       analyticsEvents: [],
-      title: '',
-      fileName: '',
+      title: "",
+      fileName: "",
       autoSaveData: {},
-      autoSaveContentType: 'draftjs',
-      autoSaveExtension: 'json'
+      autoSaveContentType: "draftjs",
+      autoSaveExtension: "json"
     };
 
     this.transcriptEditorRef = React.createRef();
   }
 
   loadDemo = () => {
-    if (isPresentInLocalStorage(DEMO_MEDIA_URL)) {
-      const transcriptDataFromLocalStorage = loadLocalSavedData(DEMO_MEDIA_URL);
+    if(isPresentInLocalStorage(DEMO_MEDIA_URL)){
+      const transcriptDataFromLocalStorage = loadLocalSavedData(DEMO_MEDIA_URL)
       this.setState({
         transcriptData: transcriptDataFromLocalStorage,
         mediaUrl: DEMO_MEDIA_URL,
@@ -57,14 +51,15 @@ class App extends React.Component {
         sttType: 'draftjs'
       });
     }
-    else {
-      this.setState({
+    else{
+       this.setState({
         transcriptData: DEMO_TRANSCRIPT,
         mediaUrl: DEMO_MEDIA_URL,
         title: DEMO_TITLE,
-        sttType: 'bbckaldi'
+        sttType: "bbckaldi"
       });
     }
+   
   };
 
   // https://stackoverflow.com/questions/8885701/play-local-hard-drive-video-file-with-html5-video-tag
@@ -185,10 +180,10 @@ class App extends React.Component {
   };
 
   handleAutoSaveChanges = newAutoSaveData => {
-    console.log('handleAutoSaveChanges', newAutoSaveData);
+    console.log("handleAutoSaveChanges", newAutoSaveData);
     const { data, ext } = newAutoSaveData;
     this.setState({ autoSaveData: data, autoSaveExtension: ext });
-    // Saving to local storage
+    // Saving to local storage 
     localSave(this.state.mediaUrl, this.state.fileName, data);
   };
   render() {
@@ -202,12 +197,12 @@ class App extends React.Component {
         >
           <FontAwesomeIcon icon={faGithub} />
         </a>
-        <div className={ style.demoNav }>
-          <section className={ style.demoNavItem }>
-            <label className={ style.sectionLabel }>Start</label>
+        <div className={style.demoNav}>
+          <section className={style.demoNavItem}>
+            <label className={style.sectionLabel}>Start</label>
             <button
-              className={ style.demoButton }
-              onClick={ () => this.loadDemo() }
+              className={style.demoButton}
+              onClick={() => this.loadDemo()}
             >
               Load Demo
             </button>
@@ -222,8 +217,8 @@ class App extends React.Component {
               onChange={e => this.handleLoadMedia(e.target.files)}
             />
             <label htmlFor="mediaFile">From Computer</label>
-            {this.state.fileName !== '' ? (
-              <label className={ style.fileNameLabel }>
+            {this.state.fileName !== "" ? (
+              <label className={style.fileNameLabel}>
                 {this.state.fileName}
               </label>
             ) : null}
@@ -245,7 +240,7 @@ class App extends React.Component {
             />
             <label htmlFor="transcriptFile">From Computer</label>
             {this.state.transcriptData !== null ? (
-              <label className={ style.fileNameLabel }>Transcript loaded.</label>
+              <label className={style.fileNameLabel}>Transcript loaded.</label>
             ) : null}
           </section>
 
@@ -274,10 +269,11 @@ class App extends React.Component {
 
           <section className={style.demoNavItem}>
             <label className={style.sectionLabel}>Options</label>
-            <div className={ style.checkbox }>
+
+            <div className={style.checkbox}>
               <label
-                className={ style.editableLabel }
-                htmlFor={ 'textIsEditableCheckbox' }
+                className={style.editableLabel}
+                htmlFor={"textIsEditableCheckbox"}
               >
                 Text Is Editable
               </label>
@@ -288,10 +284,11 @@ class App extends React.Component {
                 onChange={this.handleIsTextEditable}
               />
             </div>
-            <div className={ style.checkbox }>
+
+            <div className={style.checkbox}>
               <label
-                className={ style.editableLabel }
-                htmlFor={ 'spellCheckCheckbox' }
+                className={style.editableLabel}
+                htmlFor={"spellCheckCheckbox"}
               >
                 Spell Check
               </label>
@@ -304,8 +301,8 @@ class App extends React.Component {
             </div>
 
             <button
-              className={ style.warningButton }
-              onClick={ () => this.clearLocalStorage() }
+              className={style.warningButton}
+              onClick={() => this.clearLocalStorage()}
             >
               Clear Local Storage
             </button>
@@ -313,25 +310,18 @@ class App extends React.Component {
         </div>
 
         <TranscriptEditor
-          transcriptData={ this.state.transcriptData }
-          fileName={ this.state.fileName }
-          mediaUrl={ this.state.mediaUrl }
-          isEditable={ this.state.isTextEditable }
-          spellCheck={ this.state.spellCheck }
-          sttJsonType={ this.state.sttType }
-          handleAnalyticsEvents={ this.handleAnalyticsEvents }
-          title={ this.state.title }
-          ref={ this.transcriptEditorRef }
-          handleAutoSaveChanges={ this.handleAutoSaveChanges }
-          autoSaveContentType={ this.state.autoSaveContentType }
+          transcriptData={this.state.transcriptData}
+          fileName={this.state.fileName}
+          mediaUrl={this.state.mediaUrl}
+          isEditable={this.state.isTextEditable}
+          spellCheck={this.state.spellCheck}
+          sttJsonType={this.state.sttType}
+          handleAnalyticsEvents={this.handleAnalyticsEvents}
+          title={this.state.title}
+          ref={this.transcriptEditorRef}
+          handleAutoSaveChanges={this.handleAutoSaveChanges}
+          autoSaveContentType={this.state.autoSaveContentType}
           mediaType={ 'video' }
-        />
-
-        <section style={ { height: '250px', width: '50%', float: 'left' } }>
-          <h3>Components Analytics</h3>
-          <textarea
-            style={ { height: '100%', width: '100%' } }
-            value={ JSON.stringify(this.state.analyticsEvents, null, 2) }
         />
 
         <section style={{ height: "250px", width: "50%", float: "left" }}>
@@ -342,17 +332,18 @@ class App extends React.Component {
             disabled
           />
         </section>
-        <section style={ { height: '250px', width: '50%', float: 'right' } }>
+
+        <section style={{ height: "250px", width: "50%", float: "right" }}>
           <h3>
-            Auto Save data:{' '}
+            Auto Save data:{" "}
             <code>
               {this.state.autoSaveContentType}| {this.state.autoSaveExtension}
             </code>
           </h3>
           <textarea
-            style={ { height: '100%', width: '100%' } }
+            style={{ height: "100%", width: "100%" }}
             value={
-              this.state.autoSaveExtension === 'json'
+              this.state.autoSaveExtension === "json"
                 ? JSON.stringify(this.state.autoSaveData, null, 2)
                 : this.state.autoSaveData
             }
