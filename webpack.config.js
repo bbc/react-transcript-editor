@@ -16,7 +16,6 @@ module.exports = {
     ProgressBar: './packages/components/media-player/src/ProgressBar.js',
     PlaybackRate: './packages/components/media-player/src/PlaybackRate.js',
     PlayerControls: './packages/components/media-player/src/PlayerControls/index.js',
-    RollBack: './packages/components/media-player/src/RollBack.js',
     Select: './packages/components/media-player/src/Select.js',
     VideoPlayer: './packages/components/video-player/index.js',
     Settings: './packages/components/settings/index.js',
@@ -47,12 +46,10 @@ module.exports = {
         use: [
           isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
-            options: { modules: true, sourcemap: isDevelopment }
+            loader: 'css-loader'
           },
           {
-            loader: 'sass-loader',
-            options: { sourcemap: isDevelopment }
+            loader: 'sass-loader'
           }
         ]
       },
@@ -63,11 +60,11 @@ module.exports = {
           isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { sourcemap: isDevelopment }
+                  options: { sourceMap: isDevelopment }
           },
           {
             loader: 'sass-loader',
-            options: { sourcemap: isDevelopment }
+                  options: { sourceMap: isDevelopment }
           }
         ]
       },
