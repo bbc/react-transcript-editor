@@ -491,6 +491,18 @@ class TimedTextEditor extends React.Component {
     this.props.onWordClick(e);
   };
 
+  updateSpeakerName = (oldName, newName, state) => {
+    const contentToUpdate = convertToRaw(state);
+
+    contentToUpdate.blocks.forEach(block => {
+      if (block.data.speaker === oldName) {
+        block.data.speaker = newName;
+      }
+    })
+
+    return convertFromRaw(contentToUpdate);
+  }
+
   render() {
     // console.log('render TimedTextEditor');
     const currentWord = this.getCurrentWord();
@@ -534,6 +546,7 @@ class TimedTextEditor extends React.Component {
           onWordClick={this.onWordClick}
           handleAnalyticsEvents={this.props.handleAnalyticsEvents}
           isEditable={this.props.isEditable}
+          updateSpeakerName={this.updateSpeakerName}
         />
       </section>
     );
