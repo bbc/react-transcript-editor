@@ -104,7 +104,7 @@ See [`./demo/app.js` demo](./demo/app.js) as a more detailed example usage of th
 
 _Note: `fileName` it is optional but it's needed if working with user uploaded local media in the browser, to be able to save and retrieve from local storage. For instance if you are passing a blob url to `mediaUrl` using `createObjectURL` this url is randomly re-generated on every page refresh so you wouldn't be able to restore a session, as `mediaUrl` is used as the local storage key. See demo app for more detail example of this[`./src/index.js`](./src/index.js)_
 
-_Note: `mediaType` if not defined, the component uses the url to determine the type and adjust the layotu accordingly, however this could result in a slight delay when loading the component as it needs to fetch the media to determine it's file type_
+_Note: `mediaType` if not defined, the component uses the url to determine the type and adjust the layout accordingly, however this could result in a slight delay when loading the component as it needs to fetch the media to determine it's file type_
 
 ### Typescript projects
 
