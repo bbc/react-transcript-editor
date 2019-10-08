@@ -39,7 +39,8 @@ class WrapperBlock extends React.Component {
     this.state = {
       speaker: '',
       start: 0,
-      timecodeOffset: this.props.blockProps.timecodeOffset
+      timecodeOffset: this.props.blockProps.timecodeOffset,
+      isSpeakerEditable: false
     };
   }
 
@@ -84,6 +85,10 @@ class WrapperBlock extends React.Component {
       return true;
     }
 
+    if(nextState.isSpeakerEditable !== this.state.isSpeakerEditable){
+      return true;
+    }
+
     return false;
   };
 
@@ -97,6 +102,12 @@ class WrapperBlock extends React.Component {
   }
 
   handleOnClickEdit = () => {
+    this.setState({
+      isSpeakerEditable: true
+    })
+  }
+
+  someFunctionTbc = () => {
     const oldSpeakerName = this.state.speaker;
     const newSpeakerName = prompt('New Speaker Name?', this.state.speaker);
     if (newSpeakerName !== '' && newSpeakerName !== null) {
@@ -168,13 +179,13 @@ class WrapperBlock extends React.Component {
       startTimecode += this.props.blockProps.timecodeOffset;
     }
 
-    const speakerElement = (
+    const speakerElement = this.props.blockProps.showSpeakers ?  (
       <SpeakerLabel
         name={ this.state.speaker }
         handleOnClickEdit={ this.handleOnClickEdit }
         isEditable={this.props.blockProps.isEditable}
       />
-    );
+    ) :null;
 
     const timecodeElement = (
       <span className={ style.time } onClick={ this.handleTimecodeClick }>
@@ -189,14 +200,23 @@ class WrapperBlock extends React.Component {
     ]
 
     return (
-      <div className={ style.WrapperBlock }>
+      <div 
+      className={ style.WrapperBlock }
+      >
         <div
           // className={ [ style.markers, style.unselectable ].join(' ') }
           className={ [ style.markers ].join(' ') }
-          contentEditable={ false }
+          // contentEditable={ false }
         >
-          {this.props.blockProps.showSpeakers ? speakerElement : ''}
-          {/* <Creatable options={options} /> */}
+    {this.state.isSpeakerEditable?   (<Creatable 
+    options={options} 
+    onCreateOption={(e)=>{console.log('created',e)}}
+    isClearable
+    onChange={(e)=>{console.log('onChange',e)}}
+    onInputChange={(e)=>{ console.log('onInputChange',e)}}
+    /> ): speakerElement }
+          
+          {/* */}
           {this.props.blockProps.showTimecodes ? timecodeElement : ''}
         </div>
         <div className={ style.text }>
