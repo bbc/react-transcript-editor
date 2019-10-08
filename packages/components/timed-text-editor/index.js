@@ -267,7 +267,6 @@ class TimedTextEditor extends React.Component {
       newState,
       newContentState
     );
-    // this.setState({ editorState: newEditorState });
 
     this.setState(
       () => ({
@@ -286,8 +285,6 @@ class TimedTextEditor extends React.Component {
         this.props.handleAutoSaveChanges(data);
       }
     );
-
-
   };
 
   /**
