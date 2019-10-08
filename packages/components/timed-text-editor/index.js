@@ -10,6 +10,7 @@ import {
   Modifier
 } from "draft-js";
 
+import Creatable from 'react-select/creatable';
 
 import CustomEditor from './CustomEditor.js';
 import Word from './Word';
@@ -24,7 +25,10 @@ class TimedTextEditor extends React.Component {
     super(props);
 
     this.state = {
-      editorState: EditorState.createEmpty()
+      editorState: EditorState.createEmpty(),
+      showSpeakerSelect: false,
+      speakerSlectStyle: {top:0, left:0},
+      currentSpeaker: null
     };
   }
 
@@ -518,6 +522,33 @@ class TimedTextEditor extends React.Component {
     this.props.onWordClick(e);
   };
 
+  speakersSelection = (e, speaker)=>{
+    console.log('speakersSelection',e.clientX, e.clientY, e.target, e.target.getBoundingClientRect())
+  
+    const position =  e.target.getBoundingClientRect();
+
+    this.setState({
+      showSpeakerSelect: true, 
+      speakerSlectStyle: {top: `${ position.top}px`, left:  `${position.left}px` },
+      currentSpeaker: speaker
+    })
+  }
+
+  hideSpeakersSelection = ()=> {
+    this.setState({
+      showSpeakerSelect: false 
+    })
+  }
+
+  onSpeakerCreateOption = (e)=>{
+      console.log('onSpeakerCreateOption', e);
+  }
+
+  onSpeakerChangeOption = (e)=>{
+
+    console.log('onSpeakerChangeOption', e);
+  }
+
   render() {
     // console.log('render TimedTextEditor');
     const currentWord = this.getCurrentWord();
@@ -527,7 +558,24 @@ class TimedTextEditor extends React.Component {
 
     // Time to the nearest half second
     const time = Math.round(this.props.currentTime * 4.0) / 4.0;
+    
+    ////////////////////////////////
+    const contentToUpdate = convertToRaw(this.state.editorState.getCurrentContent());
 
+    const speakers = contentToUpdate.blocks.map(block => {
+      return block.data.speaker;
+    })
+  
+    const unique = (list) => {
+      return [...new Set(list)];
+    }
+    const uniqueSpeakers = unique(speakers);
+
+    const options = uniqueSpeakers.map(speaker => {
+      return {value : speaker, label: speaker}
+    });  
+    ////////////////////////////////
+    
     const editor = (
       <section
         className={style.editor}
@@ -546,6 +594,20 @@ class TimedTextEditor extends React.Component {
           {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
         </style>
+
+        { this.state.showSpeakerSelect? ( <div 
+          style={this.state.speakerSlectStyle} 
+          className={style.speakersSelection}
+          > 
+              <span onClick={this.hideSpeakersSelection}>X</span>
+                <Creatable 
+                options={options} 
+                onCreateOption={this.onSpeakerCreateOption}
+                isClearable
+                onChange={this.onSpeakerChangeOption}
+                onInputChange={(e)=>{ console.log('onInputChange',e)}}
+              /> </div>) : null  }
+
         <CustomEditor
           editorState={this.state.editorState}
           onChange={this.onChange}
@@ -560,6 +622,7 @@ class TimedTextEditor extends React.Component {
           onWordClick={this.onWordClick}
           handleAnalyticsEvents={this.props.handleAnalyticsEvents}
           isEditable={this.props.isEditable}
+          speakersSelection={this.speakersSelection}
         />
       </section>
     );

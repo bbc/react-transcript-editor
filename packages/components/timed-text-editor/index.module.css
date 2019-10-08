@@ -23,3 +23,9 @@ https://github.com/facebook/draft-js/issues/528
     margin: 0 auto;
   }
 }
+
+
+.speakersSelection{
+  position: absolute;
+  width: 65vw;
+}

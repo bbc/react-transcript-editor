@@ -9,8 +9,9 @@ import {
  } from 'draft-js';
 
 // https://react-select.com/creatable
-import Creatable from 'react-select/creatable';
+
 import SpeakerLabel from './SpeakerLabel';
+import SpeakersSelect from './SpeakersSelect';
 
 import {
   shortTimecode,
@@ -101,10 +102,11 @@ class WrapperBlock extends React.Component {
       }
   }
 
-  handleOnClickEdit = () => {
+  handleOnClickEdit = (e) => {
     this.setState({
       isSpeakerEditable: true
     })
+    this.props.blockProps.speakersSelection(e, this.state.speaker);
   }
 
   someFunctionTbc = () => {
@@ -193,30 +195,17 @@ class WrapperBlock extends React.Component {
       </span>
     );
 
-    const options = [
-      { value: 'chocolate', label: 'Chocolate' },
-      { value: 'strawberry', label: 'Strawberry' },
-      { value: 'vanilla', label: 'Vanilla' }
-    ]
 
     return (
       <div 
       className={ style.WrapperBlock }
       >
         <div
-          // className={ [ style.markers, style.unselectable ].join(' ') }
-          className={ [ style.markers ].join(' ') }
-          // contentEditable={ false }
+          className={ [ style.markers, style.unselectable ].join(' ') }
+          contentEditable={ false }
         >
-    {this.state.isSpeakerEditable?   (<Creatable 
-    options={options} 
-    onCreateOption={(e)=>{console.log('created',e)}}
-    isClearable
-    onChange={(e)=>{console.log('onChange',e)}}
-    onInputChange={(e)=>{ console.log('onInputChange',e)}}
-    /> ): speakerElement }
-          
-          {/* */}
+          {speakerElement}
+
           {this.props.blockProps.showTimecodes ? timecodeElement : ''}
         </div>
         <div className={ style.text }>
