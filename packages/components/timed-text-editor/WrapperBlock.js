@@ -8,6 +8,12 @@ import {
   convertToRaw
  } from 'draft-js';
 
+ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faTimesCircle, 
+  faPlusCircle 
+} from '@fortawesome/free-solid-svg-icons';
+
 import SpeakerLabel from './SpeakerLabel';
 // import { shortTimecode, secondsToTimecode } from '../../Util/timecode-converter/';
 
@@ -30,6 +36,10 @@ const updateSpeakerName = (oldName, newName, state) => {
   return convertFromRaw(contentToUpdate);
 }
 
+const unique = (list) => {
+  return [...new Set(list)];
+}
+
 
 class WrapperBlock extends React.Component {
   constructor(props) {
@@ -38,7 +48,8 @@ class WrapperBlock extends React.Component {
     this.state = {
       speaker: '',
       start: 0,
-      timecodeOffset: this.props.blockProps.timecodeOffset
+      timecodeOffset: this.props.blockProps.timecodeOffset,
+      showSpeakerSelect: false
     };
   }
 
@@ -84,6 +95,10 @@ class WrapperBlock extends React.Component {
       return true;
     }
 
+    if(nextState.showSpeakerSelect !== this.state.showSpeakerSelect){
+      return true;
+    }
+
     return false;
   };
 
@@ -101,10 +116,22 @@ class WrapperBlock extends React.Component {
   }
 
   handleOnClickEdit = () => {
+    this.setState({showSpeakerSelect: true});
+  }
+
+  handleHideSpeakerSelect = () => {
+    this.setState({showSpeakerSelect: false});
+  }
+
+
+  handleCreateSpeaker = () => {
     const oldSpeakerName = this.state.speaker;
     const newSpeakerName = prompt('New Speaker Name?', this.state.speaker);
     if (newSpeakerName !== '' && newSpeakerName !== null) {
-      this.setState({ speaker: newSpeakerName });
+      this.setState({ 
+        speaker: newSpeakerName,
+        showSpeakerSelect: false 
+      });
       const isUpdateAllSpeakerInstances = confirm(`Would you like to change all occurrences ${oldSpeakerName} of with ${newSpeakerName} or just this one?\n\n pick OK for all, or CANCEL for just this one.`);
      
       if (this.props.blockProps.handleAnalyticsEvents) {
@@ -154,6 +181,10 @@ class WrapperBlock extends React.Component {
     }
   };
 
+  handelSpeakerSelectChange = (e)=>{
+    console.log('handelSpeakerSelectChange',e)
+  }
+
   handleTimecodeClick = () => {
     this.props.blockProps.onWordClick(this.state.start);
     if (this.props.blockProps.handleAnalyticsEvents) {
@@ -186,13 +217,44 @@ class WrapperBlock extends React.Component {
       </span>
     );
 
+    const ContentState = this.props.blockProps.editorState.getCurrentContent();
+    const rawContent = convertToRaw(ContentState);
+
+    const speakers = rawContent.blocks.map(block => {
+      return block.data.speaker;
+    })
+    console.log('speakers',speakers);
+
+    const uniqueListOfSpeakers = unique(speakers);
+    console.log('uniqueListOfSpeakers',uniqueListOfSpeakers);
+
+    const speakersSelectElem = (<>
+    <div className={[style.speaker, style.speakerEditable].join(' ')} >
+      <span onClick={this.handleHideSpeakerSelect}>
+      {' '} <FontAwesomeIcon icon={ faTimesCircle } />
+      </span>
+      <select 
+      onChange={this.handelSpeakerSelectChange}
+      value={this.state.speaker}
+      >
+        {uniqueListOfSpeakers.sort().map((speaker)=>{
+          return <option value={speaker}>{speaker}</option>
+        })}
+      </select>
+      <span onClick={this.handleCreateSpeaker}>
+       {' '} <FontAwesomeIcon icon={ faPlusCircle } />
+      </span>
+      </div>
+      </>);
+
     return (
       <div className={ style.WrapperBlock }>
         <div
           className={ [ style.markers, style.unselectable ].join(' ') }
           contentEditable={ false }
         >
-          {this.props.blockProps.showSpeakers ? speakerElement : ''}
+          {this.props.blockProps.showSpeakers && !this.state.showSpeakerSelect? speakerElement : ''}
+          {this.state.showSpeakerSelect? speakersSelectElem : null }
 
           {this.props.blockProps.showTimecodes ? timecodeElement : ''}
         </div>
