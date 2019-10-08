@@ -22,7 +22,7 @@ class CustomEditor extends React.Component {
         showTimecodes: this.props.showTimecodes,
         timecodeOffset: this.props.timecodeOffset,
         editorState: this.props.editorState,
-        setEditorNewContentState: this.props.setEditorNewContentState,
+        setEditorNewContentStateSpeakersUpdate: this.props.setEditorNewContentStateSpeakersUpdate,
         onWordClick: this.handleWordClick,
         handleAnalyticsEvents: this.props.handleAnalyticsEvents,
         isEditable: this.props.isEditable
