@@ -240,13 +240,9 @@ class TimedTextEditor extends React.Component {
   // used to re-render WrapperBlock on timecode offset change
   // or when show / hide preferences for speaker labels and timecodes change
   forceRenderDecorator = () => {
-    // const { editorState, updateEditorState } = this.props;
     const contentState = this.state.editorState.getCurrentContent();
     const decorator = this.state.editorState.getDecorator();
-
     const newState = EditorState.createWithContent(contentState, decorator);
-
-    // this.setEditorNewContentState(newState);
     const newEditorState = EditorState.push(newState, contentState);
     this.setState({ editorState: newEditorState });
   };
@@ -257,13 +253,38 @@ class TimedTextEditor extends React.Component {
   setEditorNewContentState = newContentState => {
     const decorator = this.state.editorState.getDecorator();
     const newState = EditorState.createWithContent(newContentState, decorator);
-
     const newEditorState = EditorState.push(
       newState,
       newContentState
     );
     this.setState({ editorState: newEditorState });
-    // this.setState({ editorState: convertFromRaw(convertToRaw(newEditorState)) });
+  };
+
+  setEditorNewContentStateSpeakersUpdate = newContentState => {
+    const decorator = this.state.editorState.getDecorator();
+    const newState = EditorState.createWithContent(newContentState, decorator);
+    const editorState = EditorState.push(
+      newState,
+      newContentState
+    );
+
+    this.setState(
+      () => ({
+        editorState
+      }),
+      () => {
+        const format =  this.props.autoSaveContentType;
+        const title = this.props.title;
+
+        const data = exportAdapter(
+          convertToRaw(editorState.getCurrentContent()),
+          format,
+          title
+        );
+
+        this.props.handleAutoSaveChanges(data);
+      }
+    );
   };
 
   /**
@@ -535,7 +556,7 @@ class TimedTextEditor extends React.Component {
           showSpeakers={this.props.showSpeakers}
           showTimecodes={this.props.showTimecodes}
           timecodeOffset={this.props.timecodeOffset}
-          setEditorNewContentState={this.setEditorNewContentState}
+          setEditorNewContentStateSpeakersUpdate={this.setEditorNewContentStateSpeakersUpdate}
           onWordClick={this.onWordClick}
           handleAnalyticsEvents={this.props.handleAnalyticsEvents}
           isEditable={this.props.isEditable}

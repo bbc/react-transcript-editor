@@ -117,7 +117,7 @@ class WrapperBlock extends React.Component {
       if(isUpdateAllSpeakerInstances){
         const ContentState = this.props.blockProps.editorState.getCurrentContent();
         const contentToUpdateWithSpekaers = updateSpeakerName(oldSpeakerName, newSpeakerName, ContentState);
-        this.props.blockProps.setEditorNewContentState(contentToUpdateWithSpekaers);
+        this.props.blockProps.setEditorNewContentStateSpeakersUpdate(contentToUpdateWithSpekaers);
       }
       else{
        // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
@@ -146,7 +146,7 @@ class WrapperBlock extends React.Component {
           newBlockDataWithSpeakerName
         );
 
-        this.props.blockProps.setEditorNewContentState(newContentState);
+        this.props.blockProps.setEditorNewContentStateSpeakersUpdate(newContentState);
       }
 
       if (this.props.blockProps.handleAnalyticsEvents) {
