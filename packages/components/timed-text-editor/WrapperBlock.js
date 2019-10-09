@@ -91,7 +91,6 @@ class WrapperBlock extends React.Component {
     }
 
     if(nextProps.block.getData().get('speaker') !== this.state.speaker){
-      console.log('shouldComponentUpdate wrapper speaker', nextProps.block.getData().get('speaker') , this.state.speaker )
       return true;
     }
 
@@ -105,7 +104,6 @@ class WrapperBlock extends React.Component {
   componentDidUpdate  = (prevProps, prevState) =>{
 
     if(prevProps.block.getData().get('speaker') !== prevState.speaker){
-        console.log('componentDidUpdate wrapper speaker', prevProps.block.getData().get('speaker') , prevState.speaker );
         
         this.setState({
           speaker: prevProps.block.getData().get('speaker')
@@ -127,7 +125,6 @@ class WrapperBlock extends React.Component {
   handleCreateSpeaker = (speaker) => {
     const oldSpeakerName = this.state.speaker;
     let newSpeakerName = speaker;
-    console.log(speaker, typeof speaker);
     if(typeof speaker !== 'string'){
       newSpeakerName = prompt('New Speaker Name?', this.state.speaker);
     }
@@ -187,7 +184,6 @@ class WrapperBlock extends React.Component {
   };
 
   handelSpeakerSelectChange = (e)=>{
-    console.log('handelSpeakerSelectChange',e.target.value);
     this.handleCreateSpeaker(e.target.value);
   }
 
@@ -229,10 +225,8 @@ class WrapperBlock extends React.Component {
     const speakers = rawContent.blocks.map(block => {
       return block.data.speaker;
     })
-    // console.log('speakers',speakers);
 
     const uniqueListOfSpeakers = unique(speakers);
-    // console.log('uniqueListOfSpeakers',uniqueListOfSpeakers);
 
     const speakersSelectElem = (<>
     <div className={[style.speaker, style.speakerEditable].join(' ')} >
