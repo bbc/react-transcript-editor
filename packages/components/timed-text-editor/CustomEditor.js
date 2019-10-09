@@ -33,7 +33,6 @@ class CustomEditor extends React.Component {
   shouldComponentUpdate(nextProps) {
     // https://stackoverflow.com/questions/39182657/best-performance-method-to-check-if-contentstate-changed-in-draftjs-or-just-edi
     if (nextProps.editorState !== this.props.editorState) {
-      console.log('it should update??!')
       return true;
     }
 
