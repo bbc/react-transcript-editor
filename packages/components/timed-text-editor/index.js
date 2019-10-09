@@ -43,7 +43,8 @@ class TimedTextEditor extends React.Component {
     if (
       prevProps.timecodeOffset !== this.props.timecodeOffset ||
       prevProps.showSpeakers !== this.props.showSpeakers ||
-      prevProps.showTimecodes !== this.props.showTimecodes
+      prevProps.showTimecodes !== this.props.showTimecodes ||
+      prevProps.isEditable !== this.props.isEditable
     ) {
       // forcing a re-render is an expensive operation and
       // there might be a way of optimising this at a later refactor (?)
@@ -531,6 +532,7 @@ class TimedTextEditor extends React.Component {
           setEditorNewContentState={this.setEditorNewContentState}
           onWordClick={this.onWordClick}
           handleAnalyticsEvents={this.props.handleAnalyticsEvents}
+          isEditable={this.props.isEditable}
         />
       </section>
     );
@@ -608,7 +610,8 @@ class CustomEditor extends React.Component {
         editorState: this.props.editorState,
         setEditorNewContentState: this.props.setEditorNewContentState,
         onWordClick: this.handleWordClick,
-        handleAnalyticsEvents: this.props.handleAnalyticsEvents
+        handleAnalyticsEvents: this.props.handleAnalyticsEvents,
+        isEditable: this.props.isEditable
       }
     };
   };
@@ -616,6 +619,10 @@ class CustomEditor extends React.Component {
   shouldComponentUpdate(nextProps) {
     // https://stackoverflow.com/questions/39182657/best-performance-method-to-check-if-contentstate-changed-in-draftjs-or-just-edi
     if (nextProps.editorState !== this.props.editorState) {
+      return true;
+    }
+
+    if (nextProps.isEditable !== this.props.isEditable) {
       return true;
     }
 
