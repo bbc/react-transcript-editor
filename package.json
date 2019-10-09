@@ -49,7 +49,7 @@
     "babel-polyfill": "^6.26.0",
     "difflib": "^0.2.4",
     "docx": "^4.7.1",
-    "draft-js": "^0.10.5",
+    "draft-js": "^0.11.1",
     "everpolate": "0.0.3",
     "mousetrap": "1.5.2",
     "number-to-words": "^1.2.4",
