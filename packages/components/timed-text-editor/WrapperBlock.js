@@ -124,9 +124,13 @@ class WrapperBlock extends React.Component {
   }
 
 
-  handleCreateSpeaker = () => {
+  handleCreateSpeaker = (speaker) => {
     const oldSpeakerName = this.state.speaker;
-    const newSpeakerName = prompt('New Speaker Name?', this.state.speaker);
+    let newSpeakerName = speaker;
+    if(typeof speaker !== 'string'){
+      newSpeakerName = prompt('New Speaker Name?', this.state.speaker);
+    }
+
     if (newSpeakerName !== '' && newSpeakerName !== null) {
       this.setState({ 
         speaker: newSpeakerName,
@@ -182,7 +186,8 @@ class WrapperBlock extends React.Component {
   };
 
   handelSpeakerSelectChange = (e)=>{
-    console.log('handelSpeakerSelectChange',e)
+    console.log('handelSpeakerSelectChange',e.target.value);
+    this.handleCreateSpeaker(e.target.value);
   }
 
   handleTimecodeClick = () => {
@@ -223,10 +228,10 @@ class WrapperBlock extends React.Component {
     const speakers = rawContent.blocks.map(block => {
       return block.data.speaker;
     })
-    console.log('speakers',speakers);
+    // console.log('speakers',speakers);
 
     const uniqueListOfSpeakers = unique(speakers);
-    console.log('uniqueListOfSpeakers',uniqueListOfSpeakers);
+    // console.log('uniqueListOfSpeakers',uniqueListOfSpeakers);
 
     const speakersSelectElem = (<>
     <div className={[style.speaker, style.speakerEditable].join(' ')} >
@@ -234,11 +239,14 @@ class WrapperBlock extends React.Component {
       {' '} <FontAwesomeIcon icon={ faTimesCircle } />
       </span>
       <select 
+      className={ style.selectPlayerControl }
+      name={ 'speakerSelection' }
       onChange={this.handelSpeakerSelectChange}
       value={this.state.speaker}
+      name={ this.state.speaker }
       >
-        {uniqueListOfSpeakers.sort().map((speaker)=>{
-          return <option value={speaker}>{speaker}</option>
+        {uniqueListOfSpeakers.sort().map((speaker, index)=>{
+          return <option key={speaker+index} value={speaker}>{speaker}</option>
         })}
       </select>
       <span onClick={this.handleCreateSpeaker}>

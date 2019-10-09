@@ -118,3 +118,28 @@ to get text out of component with timecodes and speaker names in the interim */
     /* clear: right; */
   }
 }
+
+
+
+.selectPlayerControl {
+  font-size: 1em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 48px;
+  width: 97px;
+  border-radius: 0;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  background-position: 85% center;
+  color: black;
+  border-color: transparent;
+  background-color: white;
+  padding-left: 1em;
+}
+
+@media (max-width: 768px) {
+  .selectPlayerControl {
+    width: 100%;
+  }
+}
