@@ -9,8 +9,8 @@ import {
  } from 'draft-js';
 
  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faTimesCircle, 
+import {  
+  faTimes,
   faPlusCircle 
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -127,6 +127,7 @@ class WrapperBlock extends React.Component {
   handleCreateSpeaker = (speaker) => {
     const oldSpeakerName = this.state.speaker;
     let newSpeakerName = speaker;
+    console.log(speaker, typeof speaker);
     if(typeof speaker !== 'string'){
       newSpeakerName = prompt('New Speaker Name?', this.state.speaker);
     }
@@ -236,7 +237,7 @@ class WrapperBlock extends React.Component {
     const speakersSelectElem = (<>
     <div className={[style.speaker, style.speakerEditable].join(' ')} >
       <span onClick={this.handleHideSpeakerSelect}>
-      {' '} <FontAwesomeIcon icon={ faTimesCircle } />
+      {' '} <FontAwesomeIcon icon={ faTimes } />
       </span>
       <select 
       className={ style.selectPlayerControl }
