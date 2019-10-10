@@ -83,7 +83,6 @@ class WrapperBlock extends React.Component {
       console.log('shouldComponentUpdate wrapper speaker', nextProps.block.getData().get('speaker') , this.state.speaker )
       return true;
     }
-
     return false;
   };
 
