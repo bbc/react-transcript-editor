@@ -119,8 +119,6 @@ to get text out of component with timecodes and speaker names in the interim */
   }
 }
 
-
-
 .selectPlayerControl {
   font-size: 1em;
   -webkit-appearance: none;
@@ -143,3 +141,4 @@ to get text out of component with timecodes and speaker names in the interim */
     width: 100%;
   }
 }
+

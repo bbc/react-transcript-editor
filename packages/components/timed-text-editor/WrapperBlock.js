@@ -14,6 +14,7 @@ import {
   faPlusCircle 
 } from '@fortawesome/free-solid-svg-icons';
 
+
 import SpeakerLabel from './SpeakerLabel';
 // import { shortTimecode, secondsToTimecode } from '../../Util/timecode-converter/';
 
@@ -39,7 +40,6 @@ const updateSpeakerName = (oldName, newName, state) => {
 const unique = (list) => {
   return [...new Set(list)];
 }
-
 
 class WrapperBlock extends React.Component {
   constructor(props) {
@@ -129,12 +129,18 @@ class WrapperBlock extends React.Component {
       newSpeakerName = prompt('New Speaker Name?', this.state.speaker);
     }
 
+  handleOnClickEdit = () => {
+    const oldSpeakerName = this.state.speaker;
+    const newSpeakerName = prompt('New Speaker Name?', this.state.speaker);
     if (newSpeakerName !== '' && newSpeakerName !== null) {
+
       this.setState({ 
         speaker: newSpeakerName,
         showSpeakerSelect: false 
       });
+
       const isUpdateAllSpeakerInstances = confirm(`Would you like to change all occurrences ${oldSpeakerName} of with ${newSpeakerName} or just this one?\n\n pick OK for all, or CANCEL for just this one.`);
+
      
       if (this.props.blockProps.handleAnalyticsEvents) {
         this.props.blockProps.handleAnalyticsEvents({
