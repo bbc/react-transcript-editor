@@ -1,6 +1,6 @@
 @import '../../config/style-guide/colours.scss';
 .topSection {
-  background: $color-transparent;
+  background: $color-media-player-background;
 }
 
 .playerSection {
@@ -18,7 +18,7 @@
 }
 
 .title {
-  color: $color-dark-grey;
+  color: $color-media-player-title;
   line-height: 1.2em;
   width: 60%;
   margin-top: 0;

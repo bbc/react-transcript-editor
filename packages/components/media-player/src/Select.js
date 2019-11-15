@@ -18,7 +18,7 @@ class Select extends React.Component {
         value={ this.props.currentValue }
         onChange={ this.props.handleChange }
       >
-        {options}
+        {options} V
       </select>
     );
   }

@@ -4,8 +4,16 @@ $color-dark-grey: #4a4a4a !default;
 $color-mid-grey: #696969 !default;
 $color-light-grey: #767676 !default;
 $color-lightest-grey: #f2f2f2 !default;
-$color-subt-green: #69e3c2 !default;
-$color-light-shilo: #E2A9A2 !default;
-$color-transparent: 'transparent' !default;
 $color-white: white !default;
-$color-steel-blue: steelblue !default;
+
+$color-media-player-background: transparent !default;
+$color-media-player-title: #282828 !default;
+
+$color-media-player-current-time: #282828 !default;
+$color-media-player-time-box-separator: #282828 !default;
+$color-media-player-duration-time: #282828 !default;
+
+$color-timed-text-editor-background: transparent !default;
+$color-btn-background: lightgrey !default;
+$color-btn-color: #282828 !default;
+$color-btn-color-hover: darkgrey !default;

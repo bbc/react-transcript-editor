@@ -1,7 +1,7 @@
 @import '../../config/style-guide/colours.scss';
 
 .container {
-  background: $color-transparent;
+  background: $color-timed-text-editor-background;
   position: relative;
 }
 
@@ -44,10 +44,10 @@ video{
 .settingsButton {
   line-height: 1em;
   margin-left: 0.5em;
-  background: $color-darkest-grey;
+  background: $color-btn-background;
   display: inline-block;
   border: 0;
-  color: white;
+  color: $color-btn-color;
   font-size: 1em;
   cursor: pointer;
   text-align: center;
@@ -55,7 +55,7 @@ video{
   height: 2em;
 
   &:hover {
-    background: $color-dark-grey;
+    background: $color-btn-color-hover;
   }
 }
 

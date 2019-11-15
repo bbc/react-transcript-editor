@@ -17,22 +17,22 @@
   height: 48px;
   padding: 0.5em;
   border: 0;
-  color: white;
-  background: $color-darkest-grey;
+  color: $color-btn-color;
+  background: $color-btn-background;
   font-size: 1em;
   cursor: pointer;
   margin-right: 0.3rem;
   margin-top: 0.3rem;
 
   &:hover {
-    background: $color-dark-grey;
+    background: $color-btn-color-hover;
   }
 }
 
 .playBackRate {
   width: 70px;
   border: 0;
-  color: white;
+  color: $color-btn-color;
   font-size: 1em;
   cursor: pointer;
   position: relative;
@@ -52,12 +52,12 @@
     outline: none;
     width: auto;
     width: 100%;
-    color: white;
-    background-color: $color-darkest-grey;
+    color: $color-btn-color;
+    background-color: $color-btn-background;
     cursor: pointer;
 
     &:hover {
-      background-color: $color-dark-grey;
+      background-color: $color-btn-color-hover;
     }
   }
 }
@@ -67,20 +67,20 @@
   text-align: center;
   line-height: 48px;
   padding: 0 1em;
-  background-color: $color-darkest-grey;
+  background-color: $color-btn-background;
   .currentTime {
-    color: $color-light-shilo;
+    color: $color-media-player-current-time;
     cursor: pointer;
     font-family: 'Lucida Console', monospace;
   }
 
   .separator {
-    color:  $color-white;
+    color:  $color-media-player-time-box-separator;
     margin: 0 1em;
   }
 
   .duration {
-    color: $color-white;
+    color: $color-media-player-duration-time;
     font-family: 'Lucida Console',  monospace;
   }
 }
