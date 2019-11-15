@@ -46,13 +46,17 @@ class PlayerControls extends React.Component {
 
   render() {
     
-    const pictureInPicture = ('pictureInPictureEnabled' in document) ? ( <button
+    let pictureInPicture = ('pictureInPictureEnabled' in document) ? ( <button
       value="Picture-in-picture"
       title="Picture-in-picture"
       className={ `${ style.playerButton } ${ style.pip }` }
       onClick={ this.props.pictureInPicture }>
       <FontAwesomeIcon icon={ faTv } />
     </button> ) : null;
+
+    if(this.props.mediaType === "audio"){
+      pictureInPicture = null;
+    }
 
     return (
       <div className={ style.playerControls }>

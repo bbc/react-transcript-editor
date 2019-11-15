@@ -308,6 +308,7 @@ class App extends React.Component {
             </button>
           </section>
         </div>
+        <hr/>
 
         <TranscriptEditor
           transcriptData={this.state.transcriptData}

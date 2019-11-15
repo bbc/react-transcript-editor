@@ -308,7 +308,12 @@ class MediaPlayer extends React.Component {
     }
   };
 
-  getMediaCurrentTime = () => secondsToTimecode(this.props.videoRef.current.currentTime + this.state.timecodeOffset);
+  getMediaCurrentTime = () => {
+    if(this.props.videoRef.current){
+      return   secondsToTimecode(this.props.videoRef.current.currentTime + this.state.timecodeOffset)
+    }
+    return '00:00:00:00';
+  };
 
   handlePictureInPicture = () => {
     if (document.pictureInPictureElement !== undefined) {
@@ -366,8 +371,18 @@ class MediaPlayer extends React.Component {
     }
   };
 
-  getProgressBarMax = () => parseInt(this.props.videoRef.current.duration).toString();
-  getProgressBarValue = () => parseInt(this.props.videoRef.current.currentTime).toString();
+  getProgressBarMax = () => {
+    if(this.props.videoRef.current){
+      return parseInt(this.props.videoRef.current.duration).toString()
+    }
+    return '0';
+  };
+  getProgressBarValue = () => {
+    if(this.props.videoRef.current){
+    parseInt(this.props.videoRef.current.currentTime).toString()
+    }
+    return '0';
+  }
 
   render() {
     const progressBar = (
@@ -400,6 +415,7 @@ class MediaPlayer extends React.Component {
           setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
           playbackRateOptions={ this.state.playbackRateOptions }
           pictureInPicture={ this.handlePictureInPicture }
+          mediaType={this.props.mediaType === "audio" ? "audio" : "video" }
         />
         {this.props.mediaUrl ? progressBar : null}
       </div>

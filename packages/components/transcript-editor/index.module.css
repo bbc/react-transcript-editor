@@ -1,7 +1,7 @@
 @import '../../config/style-guide/colours.scss';
 
 .container {
-  background-color: #f1f1f1;
+  background: $color-transparent;
   position: relative;
 }
 
@@ -29,7 +29,7 @@ video{
   float: right;
   padding-right: 2.5em;
   margin: 0.5em 0;
-  color: white;
+  color: $color-darkest-grey;
   display: block;
   font-weight: lighter;
   margin-top: 0.5em;
@@ -107,7 +107,6 @@ video{
 
   .row {
     display: grid;
-    /* grid-template-columns: 1fr 3fr; */
     grid-column-gap: 1em;
   }
 

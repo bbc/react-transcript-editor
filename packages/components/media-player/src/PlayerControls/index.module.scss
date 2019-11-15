@@ -68,7 +68,6 @@
   line-height: 48px;
   padding: 0 1em;
   background-color: $color-darkest-grey;
-
   .currentTime {
     color: $color-light-shilo;
     cursor: pointer;
@@ -76,12 +75,12 @@
   }
 
   .separator {
-    color: $color-light-grey;
+    color:  $color-white;
     margin: 0 1em;
   }
 
   .duration {
-    color: white;
+    color: $color-white;
     font-family: 'Lucida Console',  monospace;
   }
 }
@@ -126,6 +125,7 @@
     padding: 0;
 
     .currentTime {
+       color: $color-darkest-grey;
       float: left;
       font-size: 0.7em;
       line-height: 1em;
@@ -136,7 +136,7 @@
     }
 
     .duration {
-      color: white;
+      color: $color-darkest-grey;
       font-size: 0.7em;
       float: right;
       line-height: 1em;

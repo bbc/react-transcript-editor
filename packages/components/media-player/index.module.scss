@@ -1,5 +1,6 @@
+@import '../../config/style-guide/colours.scss';
 .topSection {
-  background: black;
+  background: $color-transparent;
 }
 
 .playerSection {
@@ -14,12 +15,10 @@
   margin: auto;
   padding: 1em;
   position: relative;
-  // overflow-x: auto;
-  // overflow-y: auto;
 }
 
 .title {
-  color: white;
+  color: $color-dark-grey;
   line-height: 1.2em;
   width: 60%;
   margin-top: 0;

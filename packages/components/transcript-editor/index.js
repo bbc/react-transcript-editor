@@ -383,6 +383,7 @@ class TranscriptEditor extends React.Component {
         mediaUrl={this.props.mediaUrl}
         handleAnalyticsEvents={this.props.handleAnalyticsEvents}
         videoRef={this.videoRef}
+        mediaType={this.props.mediaType === "audio" ? "audio" : "video" }
       />
     );
 
