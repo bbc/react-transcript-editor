@@ -404,6 +404,7 @@ class MediaPlayer extends React.Component {
           skipBackward={ this.skipBackward.bind(this) }
           skipForward={ this.skipForward.bind(this) }
           rollback={ this.rollBack }
+          rollBackValueInSeconds={ this.state.rollBackValueInSeconds }
           currentTime={ this.getMediaCurrentTime() }
           duration={ this.props.mediaDuration }
           onSetCurrentTime={ '' }
