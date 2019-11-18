@@ -39,3 +39,5 @@ customStyles={customStyles}
 ...
 />
 ```
+
+Note that if you decide to use `customStyles`, in the current implementation, you'd need an object with all of those attributes.
