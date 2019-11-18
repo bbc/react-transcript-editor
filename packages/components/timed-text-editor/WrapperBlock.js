@@ -1,5 +1,12 @@
 import React from 'react';
-import { EditorBlock, Modifier, EditorState, SelectionState } from 'draft-js';
+import { 
+  EditorBlock, 
+  Modifier, 
+  EditorState, 
+  SelectionState,
+  convertFromRaw,
+  convertToRaw
+ } from 'draft-js';
 
 import SpeakerLabel from './SpeakerLabel';
 // import { shortTimecode, secondsToTimecode } from '../../Util/timecode-converter/';
@@ -10,6 +17,19 @@ import {
 } from '../../util/timecode-converter';
 
 import style from './WrapperBlock.module.css';
+
+const updateSpeakerName = (oldName, newName, state) => {
+  const contentToUpdate = convertToRaw(state);
+
+  contentToUpdate.blocks.forEach(block => {
+    if (block.data.speaker === oldName) {
+      block.data.speaker = newName;
+    }
+  })
+
+  return convertFromRaw(contentToUpdate);
+}
+
 
 class WrapperBlock extends React.Component {
   constructor(props) {
@@ -25,7 +45,7 @@ class WrapperBlock extends React.Component {
   componentDidMount() {
     const { block } = this.props;
     const speaker = block.getData().get('speaker');
-
+  
     const start = block.getData().get('start');
 
     this.setState({
@@ -55,14 +75,37 @@ class WrapperBlock extends React.Component {
       return true;
     }
 
+    if (nextProps.blockProps.isEditable !== this.props.blockProps.isEditable) {
+      return true;
+    }
+
+    if(nextProps.block.getData().get('speaker') !== this.state.speaker){
+      console.log('shouldComponentUpdate wrapper speaker', nextProps.block.getData().get('speaker') , this.state.speaker )
+      return true;
+    }
     return false;
   };
 
-  handleOnClickEdit = () => {
-    const newSpeakerName = prompt('New Speaker Name?');
+  componentDidUpdate  = (prevProps, prevState) =>{
 
+    if(prevProps.block.getData().get('speaker') !== prevState.speaker){
+        console.log('componentDidUpdate wrapper speaker', prevProps.block.getData().get('speaker') , prevState.speaker );
+        
+        this.setState({
+          speaker: prevProps.block.getData().get('speaker')
+        })
+
+        return true;
+      }
+  }
+
+  handleOnClickEdit = () => {
+    const oldSpeakerName = this.state.speaker;
+    const newSpeakerName = prompt('New Speaker Name?', this.state.speaker);
     if (newSpeakerName !== '' && newSpeakerName !== null) {
       this.setState({ speaker: newSpeakerName });
+      const isUpdateAllSpeakerInstances = confirm(`Would you like to replace all occurrences of ${oldSpeakerName} with ${newSpeakerName}?`);
+     
       if (this.props.blockProps.handleAnalyticsEvents) {
         this.props.blockProps.handleAnalyticsEvents({
           category: 'WrapperBlock',
@@ -72,34 +115,41 @@ class WrapperBlock extends React.Component {
         });
       }
 
-      // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
-      // selection points are tracked as key/offset pairs,
-      // where the key value is the key of the ContentBlock where the point is positioned
-      // and the offset value is the character offset within the block.
+      if(isUpdateAllSpeakerInstances){
+        const ContentState = this.props.blockProps.editorState.getCurrentContent();
+        const contentToUpdateWithSpekaers = updateSpeakerName(oldSpeakerName, newSpeakerName, ContentState);
+        this.props.blockProps.setEditorNewContentStateSpeakersUpdate(contentToUpdateWithSpekaers);
+      }
+      else{
+       // From docs: https://draftjs.org/docs/api-reference-selection-state#keys-and-offsets
+        // selection points are tracked as key/offset pairs,
+        // where the key value is the key of the ContentBlock where the point is positioned
+        // and the offset value is the character offset within the block.
 
-      // Get key of the currentBlock
-      const keyForCurrentCurrentBlock = this.props.block.getKey();
-      // create empty selection for current block
-      // https://draftjs.org/docs/api-reference-selection-state#createempty
-      const currentBlockSelection = SelectionState.createEmpty(
-        keyForCurrentCurrentBlock
-      );
-      const editorStateWithSelectedCurrentBlock = EditorState.acceptSelection(
-        this.props.blockProps.editorState,
-        currentBlockSelection
-      );
+        // Get key of the currentBlock
+        const keyForCurrentCurrentBlock = this.props.block.getKey();
+        // create empty selection for current block
+        // https://draftjs.org/docs/api-reference-selection-state#createempty
+        const currentBlockSelection = SelectionState.createEmpty(
+          keyForCurrentCurrentBlock
+        );
+        const editorStateWithSelectedCurrentBlock = EditorState.acceptSelection(
+          this.props.blockProps.editorState,
+          currentBlockSelection
+        );
 
-      const currentBlockSelectionState = editorStateWithSelectedCurrentBlock.getSelection();
-      const newBlockDataWithSpeakerName = { speaker: newSpeakerName };
+        const currentBlockSelectionState = editorStateWithSelectedCurrentBlock.getSelection();
+        const newBlockDataWithSpeakerName = { speaker: newSpeakerName };
 
-      // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
-      const newContentState = Modifier.mergeBlockData(
-        this.props.contentState,
-        currentBlockSelectionState,
-        newBlockDataWithSpeakerName
-      );
+        // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
+        const newContentState = Modifier.mergeBlockData(
+          this.props.contentState,
+          currentBlockSelectionState,
+          newBlockDataWithSpeakerName
+        );
 
-      this.props.blockProps.setEditorNewContentState(newContentState);
+        this.props.blockProps.setEditorNewContentStateSpeakersUpdate(newContentState);
+      }
     }
   };
 
@@ -125,6 +175,7 @@ class WrapperBlock extends React.Component {
       <SpeakerLabel
         name={ this.state.speaker }
         handleOnClickEdit={ this.handleOnClickEdit }
+        isEditable={this.props.blockProps.isEditable}
       />
     );
 

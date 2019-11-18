@@ -54,6 +54,32 @@ to get text out of component with timecodes and speaker names in the interim */
   }
 }
 
+
+.time {
+  font-weight: lighter;
+  cursor: pointer;
+  justify-self: start;
+}
+
+.time:hover {
+  text-decoration: underline;
+
+  /* color: blue; */
+}
+
+.speakerEditable {
+  cursor: pointer;
+}
+
+.speakerNotEditable {
+  cursor: no-drop;
+}
+
+.EditLabel {
+  margin-right: 0.5em;
+}
+
+
 /* Mobile devices */
 @media (max-width: 768px) {
 
@@ -91,24 +117,4 @@ to get text out of component with timecodes and speaker names in the interim */
 
     /* clear: right; */
   }
-}
-
-.time {
-  font-weight: lighter;
-  cursor: pointer;
-  justify-self: start;
-}
-
-.time:hover {
-  text-decoration: underline;
-
-  /* color: blue; */
-}
-
-.speaker {
-  cursor: pointer;
-}
-
-.EditLabel {
-  margin-right: 0.5em;
 }
