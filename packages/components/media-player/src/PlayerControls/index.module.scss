@@ -125,18 +125,19 @@
     padding: 0;
 
     .currentTime {
-       color: $color-darkest-grey;
+      color: $color-media-player-mobile-current-time;
       float: left;
       font-size: 0.7em;
       line-height: 1em;
     }
 
     .separator {
+      color: $color-media-player-mobile-time-box-separator;
       display: none;
     }
 
     .duration {
-      color: $color-darkest-grey;
+      color: $color-media-player-mobile-duration-time;
       font-size: 0.7em;
       float: right;
       line-height: 1em;

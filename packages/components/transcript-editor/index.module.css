@@ -71,6 +71,10 @@ video{
   margin-top: 1em;
 }
 
+.howDoesThisWork{
+  color: $color-btn-color;
+}
+
 @media (min-width: 1020px) {
   .aside {
     margin-left: auto;

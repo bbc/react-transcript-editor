@@ -45,11 +45,24 @@ class PlayerControls extends React.Component {
   }
 
   render() {
-    
+
+    let customBtnStyle; 
+    let colorHover;
+    if (this.props.customStyles) {
+      const customBtn = this.props.customStyles.mediaPlayer.btn;
+      colorHover = this.props.customStyles.mediaPlayer.btn.colorHover;
+       customBtnStyle = { 
+         color: customBtn.color, 
+         background: customBtn.backgroundColor
+      }
+     
+    }
+
     let pictureInPicture = ('pictureInPictureEnabled' in document) ? ( <button
       value="Picture-in-picture"
       title="Picture-in-picture"
       className={ `${ style.playerButton } ${ style.pip }` }
+      style={customBtnStyle}
       onClick={ this.props.pictureInPicture }>
       <FontAwesomeIcon icon={ faTv } />
     </button> ) : null;
@@ -59,8 +72,18 @@ class PlayerControls extends React.Component {
     }
 
     return (
+      <>
+       <style scoped>
+          {`
+          .${style.playerButton}:hover{
+            background: ${colorHover}!important;
+          }
+          `}
+        </style>
       <div className={ style.playerControls }>
+       
         <TimeBox
+          customStyles={this.props.customStyles ||  null}
           promptSetCurrentTime={ this.props.promptSetCurrentTime }
           currentTime={ this.props.currentTime }
           duration={ this.props.duration }
@@ -71,6 +94,7 @@ class PlayerControls extends React.Component {
             value="seek backward by a set interval: alt r"
             title={`seek backward by a set interval: alt r | ${this.props.rollBackValueInSeconds} Sec`}
             className={ style.playerButton }
+            style={customBtnStyle}
             onClick={ this.props.rollback }>{this.props.rollBackValueInSeconds} <FontAwesomeIcon icon={ faUndo } />
             {/* <FontAwesomeIcon icon={['faUndo', 'faUndo']} /> */}
           </button>
@@ -79,6 +103,7 @@ class PlayerControls extends React.Component {
             value="seek backward: alt j"
             title="seek backward: alt j"
             className={ style.playerButton }
+            style={customBtnStyle}
             onMouseDown={ this.setIntervalHelperBackward }
             onMouseUp={ this.clearIntervalHelper }
             onClick={ () => {this.props.skipBackward(); } }>
@@ -89,6 +114,7 @@ class PlayerControls extends React.Component {
             value="Play/Pause: alt k"
             title="Play/Pause: alt k"
             className={ style.playerButton }
+            style={customBtnStyle}
             onClick={ this.props.playMedia }>
             {this.props.isPlaying ? <FontAwesomeIcon icon={ faPause } /> : <FontAwesomeIcon icon={ faPlay } />}
           </button>
@@ -97,6 +123,7 @@ class PlayerControls extends React.Component {
             value="seek forward: alt l"
             title="seek forward: alt l"
             className={ style.playerButton }
+            style={customBtnStyle}
             onMouseDown={ this.setIntervalHelperForward }
             onMouseUp={ this.clearIntervalHelper }
             onClick={ () => {this.props.skipForward(); } }>
@@ -110,6 +137,7 @@ class PlayerControls extends React.Component {
             playbackRate={ this.props.playbackRate }
             name={ 'playbackRate' }
             handlePlayBackRateChange={ this.props.setPlayBackRate }
+            customStyles={customBtnStyle}
           />
 
           {pictureInPicture}
@@ -118,11 +146,13 @@ class PlayerControls extends React.Component {
             value="Toggle Sound"
             title="Toggle Sound"
             className={ style.playerButton }
+            style={customBtnStyle}
             onClick={ this.props.handleMuteVolume }>
             { this.props.isMute ? <FontAwesomeIcon icon={ faVolumeMute } /> : <FontAwesomeIcon icon={ faVolumeUp } /> }
           </button>
         </div>
       </div>
+      </>
     );
   }
 }

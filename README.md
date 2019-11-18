@@ -106,6 +106,10 @@ _Note: `fileName` it is optional but it's needed if working with user uploaded l
 
 _Note: `mediaType` if not defined, the component uses the url to determine the type and adjust the layout accordingly, however this could result in a slight delay when loading the component as it needs to fetch the media to determine it's file type_
 
+### Custom Styles
+
+See [custom styles guide](./docs/guides/custom-styles.md) for how to customise the styles of this component. 
+
 ### Typescript projects
 
 If using in a parent project where [typescript](https://www.typescriptlang.org/) is being used you might need to add `//@ts-ignore` before the import statment like this

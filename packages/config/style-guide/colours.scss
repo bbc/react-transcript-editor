@@ -6,16 +6,18 @@ $color-light-grey: #767676 !default;
 $color-lightest-grey: #f2f2f2 !default;
 $color-white: white !default;
 
-$color-timed-text-editor-background-color : #f1f1f1 !default;
+$color-media-player-background: black !default;
+$color-media-player-title: white !default;
 
-$color-media-player-background: transparent !default;
-$color-media-player-title: #282828 !default;
+$color-media-player-current-time: #E2A9A2 !default;
+$color-media-player-time-box-separator: white !default;
+$color-media-player-duration-time: white !default;
 
-$color-media-player-current-time: #282828 !default;
-$color-media-player-time-box-separator: #282828 !default;
-$color-media-player-duration-time: #282828 !default;
+$color-media-player-mobile-current-time: #E2A9A2 !default;
+$color-media-player-mobile-time-box-separator: white !default;
+$color-media-player-mobile-duration-time: white !default;
 
-$color-timed-text-editor-background: transparent !default;
-$color-btn-background: lightgrey !default;
-$color-btn-color: #282828 !default;
-$color-btn-color-hover: darkgrey !default;
+$color-timed-text-editor-background: #f1f1f1  !default;
+$color-btn-background: #282828 !default;
+$color-btn-color: white !default;
+$color-btn-color-hover: #4a4a4a !default;

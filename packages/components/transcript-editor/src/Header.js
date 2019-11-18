@@ -19,6 +19,15 @@ class Header extends React.Component {
   render() {
     const props = this.props;
 
+    let customBtnStyle;
+    if (props.customStyles) {
+      const customBackground = this.props.customStyles.mediaPlayer
+      .btn.backgroundColor;
+      const customColor = this.props.customStyles.mediaPlayer
+      .btn.color;
+
+      customBtnStyle={background: customBackground, color:customColor }
+    }
     return (<>
       <header className={ style.header }>
         {props.showSettings ? props.settings : null}
@@ -33,6 +42,7 @@ class Header extends React.Component {
       <div className={ style.settingsContainer }>
         <button
           className={ style.settingsButton }
+          style={customBtnStyle}
           title="Settings"
           onClick={ props.handleSettingsToggle }
         >
@@ -40,6 +50,7 @@ class Header extends React.Component {
         </button>
         <button
           className={ `${ style.settingsButton } ${ style.keyboardShortcutsButon }` }
+          style={customBtnStyle}
           title="view shortcuts"
           onClick={ props.handleShortcutsToggle }
         >
@@ -47,6 +58,7 @@ class Header extends React.Component {
         </button>
         <button
           className={ `${ style.settingsButton }` }
+          style={customBtnStyle}
           title="Export"
           onClick={ props.handleExportToggle }
         >

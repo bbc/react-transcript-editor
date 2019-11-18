@@ -13,17 +13,20 @@ class PlaybackRate extends React.Component {
   }
 
   render() {
-    return (
+    return (<>
       <span className={ style.playBackRate }
-        title="Playback rate: alt - & alt + ">
+        title="Playback rate: alt - & alt + "
+        style={this.props.customStyles}
+        >
         <Select
           options={ this.props.playbackRateOptions }
           currentValue={ this.props.playbackRate.toString() }
           name={ 'playbackRate' }
+          customStyles={this.props.customStyles}
           handleChange={ this.props.handlePlayBackRateChange }
         />
       </span>
-    );
+    </>);
   }
 }
 

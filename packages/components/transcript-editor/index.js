@@ -372,6 +372,7 @@ class TranscriptEditor extends React.Component {
 
     const mediaControls = (
       <MediaPlayer
+        customStyles={this.props.customStyles ||  null}
         title={this.props.title ? this.props.title : ""}
         mediaDuration={this.state.mediaDuration}
         currentTime={this.state.currentTime}
@@ -456,15 +457,18 @@ class TranscriptEditor extends React.Component {
       />
     );
 
+    const HowDoesThisWorkComponent  = <HowDoesThisWork customStyles={this.props.customStyles }/>; 
+
     const header = (
       <Header
+        customStyles={this.props.customStyles ||  null}
         showSettings={this.state.showSettings}
         showShortcuts={this.state.showShortcuts}
         showExportOptions={this.state.showExportOptions}
         settings={settings}
         shortcuts={shortcuts}
         exportOptions={exportOptions}
-        tooltip={HowDoesThisWork}
+        tooltip={HowDoesThisWorkComponent}
         mediaUrl={this.props.mediaUrl}
         mediaControls={this.videoRef.current ? mediaControls : null}
         handleSettingsToggle={this.handleSettingsToggle}
@@ -473,8 +477,18 @@ class TranscriptEditor extends React.Component {
       />
     );
 
+    let customStyle;
+    if(this.props.customStyles){
+      const customBackground = this.props.customStyles.timedTextEditor.backgroundColor
+      customStyle={background: customBackground}
+    }
+
+
     return (
-      <div className={style.container}>
+      <div 
+      className={style.container}
+      style={customStyle}
+      >
         {this.props.mediaUrl ? header : null}
 
         <div className={style.grid}>

@@ -37,8 +37,14 @@ const helpMessage = (
   </div>
 );
 
-const HowDoesThisWork = (
-  <Tooltip
+function HowDoesThisWork (props){
+  let customStyle;
+  if (props.customStyles) {
+    // console.log()
+    const customColor = props.customStyles.mediaPlayer.btn.color;
+    customStyle={color: customColor }
+  }
+  return (<Tooltip
     className={ style.help }
     content={ helpMessage }
     fadeDuration={ 250 }
@@ -50,8 +56,13 @@ const HowDoesThisWork = (
     color={ '#000000' }
   >
     <FontAwesomeIcon className={ style.icon } icon={ faQuestionCircle } />
-      How does this work?
-  </Tooltip>
-);
+     <span  
+     className={ style.howDoesThisWork } 
+     style={ customStyle }
+     >
+       How does this work?
+    </span> 
+  </Tooltip>)
+};
 
 export default HowDoesThisWork;
