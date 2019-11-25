@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEqual from 'react-fast-compare';
-
 import style from './ProgressBar.module.scss';
 
 class ProgressBar extends React.Component {
@@ -16,14 +15,14 @@ class ProgressBar extends React.Component {
   render() {
     return (
       <div className={ style.wrapper }>
-        <input
-          type='range'
-          className={ style.bar }
-          onChange={ this.handleOnChange }
-          value={ this.props.value }
-          min='0'
-          max={ this.props.max.toString() }
-        />
+      <input
+           type='range'
+           className={ style.bar }
+           onChange={ this.handleOnChange }
+           value={ this.props.value }
+           min='0'
+           max={ this.props.max.toString() }
+         />
       </div>
     );
   }
