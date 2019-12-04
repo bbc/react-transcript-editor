@@ -1,7 +1,7 @@
 # QA Test Plan: React Transcript Editor
 
-Last updated: _3rd Jan 2018_     
-version: _>=0.2.0_
+Last updated: _26th August 2019_     
+version: _>=1.0.6_
 
 This doc provides a lightweight set of steps and checklists for manual QA test. This should be done before every major release.
 
@@ -23,7 +23,7 @@ For updating the the demo app with latest version of the component [see these in
 ## Where to log bugs: 
 <!-- _Provide link to Fogbugz, Github, Trello, etc. Also include to whom the bugs should be assigned (if applicable)._ -->
 
-If you find any bugs or issues, please [open an issue in Github](https://github.com/bbc/react-transcript-editor/issues/new?template=bug_report.md) label it as 'QA Testing' and assign it to [@pietrop](https://github.com/pietrop).
+If you find any bugs or issues, please [open an issue in Github](https://github.com/bbc/react-transcript-editor/issues/new?template=bug_report.md) label it as 'QA Testing' and assign it to [@jamesdools](https://github.com/jamesdools).
 
 If it's connect to one or more of the QA steps listed below make a note of the corresponding number.
 
