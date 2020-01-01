@@ -57,6 +57,7 @@
     "react-fast-compare": "^2.0.4",
     "react-keyboard-shortcuts": "^1.1.3",
     "react-simple-tooltip": "^2.6.1",
+    "react-visibility-sensor": "^5.1.1",
     "sbd": "^1.0.15",
     "smpte-timecode": "^1.2.3"
   },

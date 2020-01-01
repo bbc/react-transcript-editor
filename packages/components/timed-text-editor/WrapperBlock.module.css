@@ -79,6 +79,16 @@ to get text out of component with timecodes and speaker names in the interim */
   margin-right: 0.5em;
 }
 
+.loadingBlockPlaceholder{
+  display: flex;
+  width: 100%;
+  min-height: 50px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  background-color: #f7f7f7;
+}
 
 /* Mobile devices */
 @media (max-width: 768px) {
