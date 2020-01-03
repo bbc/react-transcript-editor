@@ -210,7 +210,7 @@ class WrapperBlock extends React.Component {
               <div className={ style.text }>
                 <EditorBlock { ...this.props } />
               </div>
-            </div> : <span className={ style.loadingBlockPlaceholder }>loading...</span>
+            </div> : <div className={ style.WrapperBlock + " " + style.loadingBlockPlaceholder }>loading...</div>
           }
         </VisibilitySensor>
     );

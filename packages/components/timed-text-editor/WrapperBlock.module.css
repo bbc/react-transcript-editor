@@ -14,6 +14,8 @@ to get text out of component with timecodes and speaker names in the interim */
   user-select: none;
 }
 
+
+
 /* Desktop size */
 @media (min-width: 768px) {
 
@@ -82,9 +84,10 @@ to get text out of component with timecodes and speaker names in the interim */
 .loadingBlockPlaceholder{
   display: flex;
   width: 100%;
-  min-height: 50px;
+  /* min-height: 50px; */
   font-weight: bold;
   justify-content: center;
+  margin: 10px 0px;
   align-items: center;
   justify-items: center;
   background-color: #f7f7f7;
