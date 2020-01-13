@@ -86,6 +86,8 @@ class TimedTextEditor extends React.Component {
       if (this.saveTimer !== undefined) {
         clearTimeout(this.saveTimer);
       }
+
+      if(this.props.handleAutoSaveChanges) {
       this.saveTimer = setTimeout(() => {
         this.setState(
           () => ({
@@ -99,6 +101,7 @@ class TimedTextEditor extends React.Component {
         );
       }, 1000);
     }
+  }
 
     if (this.props.isEditable) {
       this.setState({ editorState });
@@ -282,7 +285,9 @@ class TimedTextEditor extends React.Component {
           title
         );
 
+        if(this.props.handleAutoSaveChanges) {
         this.props.handleAutoSaveChanges(data);
+        }
       }
     );
   };
