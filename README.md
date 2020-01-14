@@ -83,6 +83,7 @@ With more attributes
   title={"Ted Talk"}
   ref={this.transcriptEditorRef}
   mediaType={'video'}
+  handleEditingComplete={this.handleEditingComplete}
 />
 ```
 
@@ -99,6 +100,7 @@ With more attributes
 | title                 | defaults to empty string                                                                                                |    no    |  String   |
 | ref                   | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db. |    no    | React ref |
 | mediaType             | can be `audio` or `video`, if not provided the component uses the url file type to determine and adjust use of the page layout |    no    | String |
+|`handleEditingComplete`| returns content of transcription after isEditable changes from true to false                                            |    no    | Function  |
 
 See [`./demo/app.js` demo](./demo/app.js) as a more detailed example usage of the component.
 
