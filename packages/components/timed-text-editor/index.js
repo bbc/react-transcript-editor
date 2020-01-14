@@ -60,7 +60,6 @@ class TimedTextEditor extends React.Component {
     // check if isEditable has changed from true to false, indicating editing is complete
     if(prevProps.isEditable && !this.props.isEditable) {
       if (this.props.handleEditingComplete) {
-        console.log('Editing Complete')
         const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title);
         this.props.handleEditingComplete(data);
       }
