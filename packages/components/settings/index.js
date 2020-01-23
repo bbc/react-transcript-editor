@@ -9,7 +9,7 @@ import TimecodeOffset from './TimecodeOffset';
 
 import style from './index.module.css';
 
-class Settings extends React.Component {
+class Settings extends React.PureComponent {
 
   render() {
     return (
@@ -108,7 +108,6 @@ Settings.propTypes = {
   defaultRollBackValueInSeconds: PropTypes.number,
   previewIsDisplayed: PropTypes.bool,
   handlePreviewIsDisplayed: PropTypes.func,
-  // previewViewWidth: PropTypes.string,
   handleChangePreviewViewWidth: PropTypes.func,
   handleAnalyticsEvents: PropTypes.func
 };

@@ -5,12 +5,10 @@ import MediaPlayer from '../media-player';
 import VideoPlayer from '../video-player';
 import Settings from '../settings';
 import Shortcuts from '../keyboard-shortcuts';
-import { secondsToTimecode } from '../../util/timecode-converter';
 import Header from './src/Header.js';
 import ExportOptions from './src/ExportOptions';
 
-// TODO: move to another file with tooltip - rename HowDoesThisWork or HelpMessage
-import HowDoesThisWork from './src/HowDoesThisWork';
+import { secondsToTimecode } from '../../util/timecode-converter';
 
 import style from './index.module.css';
 
@@ -466,7 +464,6 @@ class TranscriptEditor extends React.Component {
         settings={ settings }
         shortcuts={ shortcuts }
         exportOptions={ exportOptions }
-        tooltip={ HowDoesThisWork }
         mediaUrl={ this.props.mediaUrl }
         mediaControls={ this.videoRef.current ? mediaControls : null }
         handleSettingsToggle={ this.handleSettingsToggle }
