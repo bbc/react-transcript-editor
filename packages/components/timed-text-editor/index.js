@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -16,7 +16,6 @@ import {
   getWordCount,
   getCurrentWord,
   splitParagraph,
-  updateTimestampsForEditorState
 } from './util';
 
 import {
@@ -25,11 +24,10 @@ import {
 
 import sttJsonAdapter from '../../stt-adapters';
 import exportAdapter from '../../export-adapters';
-import updateTimestamps from './UpdateTimestamps/index.js';
 
 import style from './index.module.css';
 
-class TimedTextEditor extends React.Component {
+class TimedTextEditor extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -38,18 +36,20 @@ class TimedTextEditor extends React.Component {
     };
 
     this.timer = null;
+    this.pauseWhileTypingTimeout = null;
   }
 
   componentDidMount() {
     this.loadData();
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps !== this.props) return true;
-    if (nextState !== this.state) return true;
-
-    return false;
-  };
+  // TEMP: removed this as PureComponent does this shallow compare already I think?
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if (nextProps !== this.props) return true;
+  //   if (nextState !== this.state) return true;
+  //
+  //   return false;
+  // };
 
   componentDidUpdate(prevProps) {
     if (
@@ -82,17 +82,14 @@ class TimedTextEditor extends React.Component {
       if (this.props.isPauseWhileTypingOn) {
         if (this.props.isPlaying()) {
           this.props.playMedia(false);
-          // Pause video for X seconds
-          const pauseWhileTypingIntervalInMilliseconds = 3000;
-          // resets timeout
-          clearTimeout(this.plauseWhileTypingTimeOut);
-          this.plauseWhileTypingTimeOut = setTimeout(
-            function() {
-              // after timeout starts playing again
-              this.props.playMedia(true);
-            }.bind(this),
-            pauseWhileTypingIntervalInMilliseconds
-          );
+
+          clearTimeout(this.pauseWhileTypingTimeout);
+
+          const pauseWhileTypingDelay = 3000;
+
+          this.pauseWhileTypingTimeout = setTimeout(() => {
+            this.props.playMedia(true);
+          }, pauseWhileTypingDelay);
         }
       }
     }
@@ -102,7 +99,7 @@ class TimedTextEditor extends React.Component {
         this.timer = setTimeout(this.saveData, 3000);
       });
     }
-  };
+  }
 
   loadData = () => {
     if (this.props.transcriptData !== null) {
@@ -117,17 +114,16 @@ class TimedTextEditor extends React.Component {
   }
 
   saveData = () => {
-    const data = this.getEditorContent(this.props.autoSaveContentType, this.props.title);
+    // This is the chonky non-performant
+    // const data = this.getEditorContent(this.props.autoSaveContentType, this.props.title);
     console.log('saving');
 
-    // const currentContent = this.state.editorState.getCurrentContent();
-    // const rawData = convertToRaw(currentContent);
-    // const data = {
-    //   ext: 'json',
-    //   data: rawData,
-    // };
-
-    console.log(data);
+    const currentContent = this.state.editorState.getCurrentContent();
+    const rawData = convertToRaw(currentContent);
+    const data = {
+      ext: 'json',
+      data: rawData,
+    };
 
     this.props.handleAutoSaveChanges(data);
     console.log('saved');
@@ -135,7 +131,9 @@ class TimedTextEditor extends React.Component {
 
   getEditorContent = (exportFormat, title) => {
     const format = exportFormat || 'draftjs';
+
     const tmpEditorState = updateTimestampsForEditorState(this.state.editorState, this.state.originalState);
+    // const tmpEditorState = this.state.editorState;
 
     return exportAdapter(
       convertToRaw(tmpEditorState.getCurrentContent()),
@@ -224,10 +222,14 @@ class TimedTextEditor extends React.Component {
    * Handle draftJs custom key commands
    */
   handleKeyCommand = command => {
+    console.log('command');
+    console.log(command);
     if (command === 'split-paragraph') {
+      console.log('splitting');
       const splitBlockState = splitParagraph(this.state.editorState);
 
       if (splitBlockState !== 'not-handled') {
+        console.log('its handled');
         this.setEditorNewContentState(splitBlockState);
       }
     }
@@ -377,9 +379,11 @@ TimedTextEditor.propTypes = {
   timecodeOffset: PropTypes.number,
   handleAnalyticsEvents: PropTypes.func,
   handleAutoSaveChanges: PropTypes.func,
+  autoSaveContentType: PropTypes.string,
   showSpeakers: PropTypes.bool,
   showTimecodes: PropTypes.bool,
-  fileName: PropTypes.string
+  fileName: PropTypes.string,
+  title: PropTypes.string
 };
 
 export default TimedTextEditor;

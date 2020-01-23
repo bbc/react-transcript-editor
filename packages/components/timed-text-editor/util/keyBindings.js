@@ -17,10 +17,9 @@ const customKeyBindingFn = e => {
   const tKey = 84;
 
   if (e.keyCode === enterKey) {
-    console.log('customKeyBindingFn');
-
     return 'split-paragraph';
   }
+
   // if alt key is pressed in combination with these other keys
   if (
     e.altKey &&

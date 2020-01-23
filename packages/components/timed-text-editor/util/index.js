@@ -26,7 +26,6 @@ const getWordCount = (editorState) => {
  * After for everything else.
  */
 const findClosestEntityKeyToSelectionPoint = (currentSelection, originalBlock) => {
-  // set defaults
   let entityKey = null;
   let isEndOfParagraph = false;
 
@@ -40,6 +39,7 @@ const findClosestEntityKeyToSelectionPoint = (currentSelection, originalBlock) =
   // if it's the last char in the paragraph - get previous entity
   if (remainingCharNumber === 0) {
     isEndOfParagraph = true;
+
     for (let j = lengthPlainTextForTheBlock; j > 0; j--) {
       entityKey = originalBlock.getEntityAt(j);
       if (entityKey !== null) {
@@ -54,14 +54,13 @@ const findClosestEntityKeyToSelectionPoint = (currentSelection, originalBlock) =
     for (let i = 0; i < remainingCharNumber; i++) {
       initialSelectionOffset += i;
       entityKey = originalBlock.getEntityAt(initialSelectionOffset);
-      // if it finds it then return
+
       if (entityKey !== null) {
         return { entityKey, isEndOfParagraph };
       }
     }
   }
 
-  // cover edge cases where it doesn't find it
   return { entityKey, isEndOfParagraph };
 };
 
@@ -107,6 +106,7 @@ const splitParagraph = (editorState) => {
         currentSelection,
         originalBlock
       );
+
       entityKey = closestEntityToSelection.entityKey;
       isEndOfParagraph = closestEntityToSelection.isEndOfParagraph;
       // handle edge case when it doesn't find a closest entity (word)
@@ -119,12 +119,13 @@ const splitParagraph = (editorState) => {
     // can get the word startTime. for the new paragraph.
     const entityInstance = currentContent.getEntity(entityKey);
     const entityData = entityInstance.getData();
+
     if (isEndOfParagraph) {
-      // if it's end of paragraph use end time of word for new paragraph
       wordStartTime = entityData.end;
     } else {
       wordStartTime = entityData.start;
     }
+
     // split paragraph
     // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
     const afterMergeContentState = Modifier.mergeBlockData(
@@ -135,8 +136,6 @@ const splitParagraph = (editorState) => {
         speaker: blockSpeaker
       }
     );
-
-    // this.setEditorNewContentState(afterMergeContentState);
 
     return afterMergeContentState;
   }
@@ -155,14 +154,11 @@ const getCurrentWord = (editorState, currentTime) => {
   const contentStateConvertEdToRaw = convertToRaw(contentState);
   const entityMap = contentStateConvertEdToRaw.entityMap;
 
-  for (var entityKey in entityMap) {
+  for (const entityKey in entityMap) {
     const entity = entityMap[entityKey];
     const word = entity.data;
 
-    if (
-      word.start <= currentTime &&
-      word.end >= currentTime
-    ) {
+    if (word.start <= currentTime && word.end >= currentTime) {
       currentWord.start = word.start;
       currentWord.end = word.end;
     }
@@ -190,13 +186,9 @@ const updateTimestampsForEditorState = (editorState, originalState) => {
   if (selectionState.getHasFocus()) {
     // Build block map, which maps the block keys of the previous content to the block keys of the
     // updated content.
-    var blockMap = {};
+    const blockMap = {};
 
-    for (
-      var blockIdx = 0;
-      blockIdx < currentContent.blocks.length;
-      blockIdx++
-    ) {
+    for (let blockIdx = 0; blockIdx < currentContent.blocks.length; blockIdx++) {
       blockMap[currentContent.blocks[blockIdx].key] =
         updatedContentBlocks.blocks[blockIdx].key;
     }

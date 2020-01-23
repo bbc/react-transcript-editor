@@ -7,11 +7,12 @@ import Settings from '../settings';
 import Shortcuts from '../keyboard-shortcuts';
 import { secondsToTimecode } from '../../util/timecode-converter';
 import Header from './src/Header.js';
-import ExportOptions from './src/ExportOptions.js';
-import style from './index.module.css';
+import ExportOptions from './src/ExportOptions';
 
 // TODO: move to another file with tooltip - rename HowDoesThisWork or HelpMessage
-import HowDoesThisWork from './src/HowDoesThisWork.js';
+import HowDoesThisWork from './src/HowDoesThisWork';
+
+import style from './index.module.css';
 
 const exportOptionsList = [
   { value: 'txt', label: 'Text file' },
@@ -86,21 +87,23 @@ class TranscriptEditor extends React.Component {
       gridTemplateColumns: '1fr 3fr',
       gridColumnGap: '1em'
     };
+
     let displayMedia = null;
+
     // if the mediaUrl is for an audio file, then extend TimedTextEditor to be full width
     if (this.props.mediaType === 'audio') {
       console.log('this.props.mediaType', this.props.mediaType);
       gridDisplay = null;
       displayMedia = { display: 'none' };
     }
+
     // Handeling mobile view
-    const width = Math.max(
-      document.documentElement.clientWidth,
-      window.innerWidth || 0
-    );
+    const width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
     if (width <= 767) {
       gridDisplay = null;
     }
+
     this.setState({
       gridDisplay,
       displayMedia
@@ -451,7 +454,7 @@ class TranscriptEditor extends React.Component {
         handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
         handleAutoSaveChanges={ this.handleAutoSaveChanges }
         autoSaveContentType={ contentFormat }
-        title={ this.props.title ? this.props.title : Date.now() }
+        title={ this.props.title ? this.props.title : Date.now().toString() }
       />
     );
 
