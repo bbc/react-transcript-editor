@@ -81,7 +81,6 @@ const splitParagraph = (editorState) => {
   // only perform if selection is not selecting a range of words
   // in that case, we'd expect delete + enter to achieve same result.
   if (currentSelection.isCollapsed()) {
-    console.log('trace 1');
     const currentContent = editorState.getCurrentContent();
 
     // https://draftjs.org/docs/api-reference-modifier#splitblock
@@ -91,7 +90,6 @@ const splitParagraph = (editorState) => {
     const splitState = EditorState.push(editorState, newContentState, 'split-block');
 
     const targetSelection = splitState.getSelection();
-    console.log(targetSelection);
     const originalBlock = currentContent.blockMap.get(newContentState.selectionBefore.getStartKey());
     const originalBlockData = originalBlock.getData();
     const blockSpeaker = originalBlockData.get('speaker');

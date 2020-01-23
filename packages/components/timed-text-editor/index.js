@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
+  Editor,
   EditorState,
   CompositeDecorator,
   convertFromRaw,
@@ -9,12 +10,13 @@ import {
   getDefaultKeyBinding,
 } from 'draft-js';
 
-import CustomEditor from './CustomEditor.js';
 import Word from './Word';
+import WrapperBlock from './WrapperBlock';
 
 import {
   getWordCount,
   splitParagraph,
+  updateTimestampsForEditorState
 } from './util';
 
 import sttJsonAdapter from '../../stt-adapters';
@@ -93,21 +95,33 @@ class TimedTextEditor extends React.Component {
 
     if (this.props.isEditable) {
       this.setState({ editorState }, () => {
-        this.timer = setTimeout(this.saveContent, 3000);
+        this.timer = setTimeout(this.saveData, 3000);
       });
     }
   };
 
-  saveContent = () => {
-    // const data = this.getEditorContent(this.props.autoSaveContentType, this.props.title);
+  loadData = () => {
+    if (this.props.transcriptData !== null) {
+      const blocks = sttJsonAdapter(this.props.transcriptData, this.props.sttJsonType);
+
+      this.setState({
+        originalState: convertToRaw(convertFromRaw(blocks))
+      }, () => {
+        this.setEditorContentState(blocks);
+      });
+    }
+  }
+
+  saveData = () => {
+    const data = this.getEditorContent(this.props.autoSaveContentType, this.props.title);
     console.log('saving');
 
-    const currentContent = this.state.editorState.getCurrentContent();
-    const rawData = convertToRaw(currentContent);
-    const data = {
-      ext: 'json',
-      data: rawData,
-    };
+    // const currentContent = this.state.editorState.getCurrentContent();
+    // const rawData = convertToRaw(currentContent);
+    // const data = {
+    //   ext: 'json',
+    //   data: rawData,
+    // };
 
     console.log(data);
 
@@ -115,79 +129,9 @@ class TimedTextEditor extends React.Component {
     console.log('saved');
   }
 
-  updateTimestampsForEditorState() {
-    // Update timestamps according to the original state.
-    const currentContent = convertToRaw(
-      this.state.editorState.getCurrentContent()
-    );
-    const updatedContentRaw = updateTimestamps(
-      currentContent,
-      this.state.originalState
-    );
-    const updatedContent = convertFromRaw(updatedContentRaw);
-
-    // Update editor state
-    const newEditorState = EditorState.push(
-      this.state.editorState,
-      updatedContent
-    );
-
-    // Re-convert updated content to raw to gain access to block keys
-    const updatedContentBlocks = convertToRaw(updatedContent);
-
-    // Get current selection state and update block keys
-    const selectionState = this.state.editorState.getSelection();
-
-    // Check if editor has currently the focus. If yes, keep current selection.
-    if (selectionState.getHasFocus()) {
-      // Build block map, which maps the block keys of the previous content to the block keys of the
-      // updated content.
-      var blockMap = {};
-      for (
-        var blockIdx = 0;
-        blockIdx < currentContent.blocks.length;
-        blockIdx++
-      ) {
-        blockMap[currentContent.blocks[blockIdx].key] =
-          updatedContentBlocks.blocks[blockIdx].key;
-      }
-
-      const selection = selectionState.merge({
-        anchorOffset: selectionState.getAnchorOffset(),
-        anchorKey: blockMap[selectionState.getAnchorKey()],
-        focusOffset: selectionState.getFocusOffset(),
-        focusKey: blockMap[selectionState.getFocusKey()]
-      });
-
-      // Set the updated selection state on the new editor state
-      const newEditorStateSelected = EditorState.forceSelection(
-        newEditorState,
-        selection
-      );
-      this.setState({ editorState: newEditorStateSelected });
-
-      return newEditorStateSelected;
-    } else {
-      this.setState({ editorState: newEditorState });
-
-      return newEditorState;
-    }
-  }
-
-  loadData() {
-    if (this.props.transcriptData !== null) {
-      const blocks = sttJsonAdapter(
-        this.props.transcriptData,
-        this.props.sttJsonType
-      );
-      this.setState({ originalState: convertToRaw(convertFromRaw(blocks)) });
-      this.setEditorContentState(blocks);
-    }
-  }
-
-  getEditorContent(exportFormat, title) {
+  getEditorContent = (exportFormat, title) => {
     const format = exportFormat || 'draftjs';
-    const tmpEditorState = this.updateTimestampsForEditorState();
+    const tmpEditorState = updateTimestampsForEditorState(this.state.editorState, this.state.originalState);
 
     return exportAdapter(
       convertToRaw(tmpEditorState.getCurrentContent()),
@@ -197,7 +141,6 @@ class TimedTextEditor extends React.Component {
   }
 
   // click on words - for navigation
-  // eslint-disable-next-line class-methods-use-this
   handleDoubleClick = event => {
     // nativeEvent --> React giving you the DOM event
     let element = event.nativeEvent.target;
@@ -392,8 +335,16 @@ class TimedTextEditor extends React.Component {
     this.props.onWordClick(e);
   };
 
+  renderBlockWithTimecodes = () => ({
+    component: WrapperBlock,
+    editable: true,
+    props: {
+      ...this.props,
+      editorState: this.state.editorState,
+    }
+  });
+
   render() {
-    // console.log('render TimedTextEditor');
     const currentWord = this.getCurrentWord();
     const highlightColour = '#69e3c2';
     const unplayedColor = '#767676';
@@ -420,20 +371,15 @@ class TimedTextEditor extends React.Component {
           {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
         </style>
-        <CustomEditor
+
+        <Editor
           editorState={ this.state.editorState }
           onChange={ this.onChange }
           stripPastedStyles
+          blockRendererFn={ this.renderBlockWithTimecodes }
           handleKeyCommand={ this.handleKeyCommand }
-          customKeyBindingFn={ this.customKeyBindingFn }
+          keyBindingFn={ this.customKeyBindingFn }
           spellCheck={ this.props.spellCheck }
-          showSpeakers={ this.props.showSpeakers }
-          showTimecodes={ this.props.showTimecodes }
-          timecodeOffset={ this.props.timecodeOffset }
-          setEditorNewContentStateSpeakersUpdate={ this.setEditorNewContentStateSpeakersUpdate }
-          onWordClick={ this.onWordClick }
-          handleAnalyticsEvents={ this.props.handleAnalyticsEvents }
-          isEditable={ this.props.isEditable }
         />
       </section>
     );
