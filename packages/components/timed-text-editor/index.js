@@ -7,7 +7,6 @@ import {
   CompositeDecorator,
   convertFromRaw,
   convertToRaw,
-  getDefaultKeyBinding,
 } from 'draft-js';
 
 import Word from './Word';
@@ -15,9 +14,14 @@ import WrapperBlock from './WrapperBlock';
 
 import {
   getWordCount,
+  getCurrentWord,
   splitParagraph,
   updateTimestampsForEditorState
 } from './util';
+
+import {
+  customKeyBindingFn
+} from './util/keyBindings';
 
 import sttJsonAdapter from '../../stt-adapters';
 import exportAdapter from '../../export-adapters';
@@ -40,14 +44,14 @@ class TimedTextEditor extends React.Component {
     this.loadData();
   }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
+  shouldComponentUpdate(nextProps, nextState) {
     if (nextProps !== this.props) return true;
     if (nextState !== this.state) return true;
 
     return false;
   };
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (
       prevProps.timecodeOffset !== this.props.timecodeOffset ||
       prevProps.showSpeakers !== this.props.showSpeakers ||
@@ -140,21 +144,6 @@ class TimedTextEditor extends React.Component {
     );
   }
 
-  // click on words - for navigation
-  handleDoubleClick = event => {
-    // nativeEvent --> React giving you the DOM event
-    let element = event.nativeEvent.target;
-    // find the parent in Word that contains span with time-code start attribute
-    while (!element.hasAttribute('data-start') && element.parentElement) {
-      element = element.parentElement;
-    }
-
-    if (element.hasAttribute('data-start')) {
-      const t = parseFloat(element.getAttribute('data-start'));
-      this.props.onWordClick(t);
-    }
-  };
-
   /**
    * @param {object} data.entityMap - draftJs entity maps - used by convertFromRaw
    * @param {object} data.blocks - draftJs blocks - used by convertFromRaw
@@ -178,17 +167,6 @@ class TimedTextEditor extends React.Component {
     this.setState({ editorState }, () => {
       this.forceRenderDecorator();
     });
-  };
-
-  // Helper function to re-render this component
-  // used to re-render WrapperBlock on timecode offset change
-  // or when show / hide preferences for speaker labels and timecodes change
-  forceRenderDecorator = () => {
-    const contentState = this.state.editorState.getCurrentContent();
-    const decorator = this.state.editorState.getDecorator();
-    const newState = EditorState.createWithContent(contentState, decorator);
-    const newEditorState = EditorState.push(newState, contentState);
-    this.setState({ editorState: newEditorState });
   };
 
   /**
@@ -231,44 +209,15 @@ class TimedTextEditor extends React.Component {
     );
   };
 
-  /**
-   * Listen for draftJs custom key bindings
-   */
-  customKeyBindingFn = e => {
-    const enterKey = 13;
-    const spaceKey = 32;
-    const kKey = 75;
-    const lKey = 76;
-    const jKey = 74;
-    const equalKey = 187; //used for +
-    const minusKey = 189; // -
-    const rKey = 82;
-    const tKey = 84;
-
-    if (e.keyCode === enterKey) {
-      console.log('customKeyBindingFn');
-
-      return 'split-paragraph';
-    }
-    // if alt key is pressed in combination with these other keys
-    if (
-      e.altKey &&
-      (e.keyCode === spaceKey ||
-        e.keyCode === spaceKey ||
-        e.keyCode === kKey ||
-        e.keyCode === lKey ||
-        e.keyCode === jKey ||
-        e.keyCode === equalKey ||
-        e.keyCode === minusKey ||
-        e.keyCode === rKey ||
-        e.keyCode === tKey)
-    ) {
-      e.preventDefault();
-
-      return 'keyboard-shortcuts';
-    }
-
-    return getDefaultKeyBinding(e);
+  // Helper function to re-render this component
+  // used to re-render WrapperBlock on timecode offset change
+  // or when show / hide preferences for speaker labels and timecodes change
+  forceRenderDecorator = () => {
+    const contentState = this.state.editorState.getCurrentContent();
+    const decorator = this.state.editorState.getDecorator();
+    const newState = EditorState.createWithContent(contentState, decorator);
+    const newEditorState = EditorState.push(newState, contentState);
+    this.setState({ editorState: newEditorState });
   };
 
   /**
@@ -290,49 +239,46 @@ class TimedTextEditor extends React.Component {
     return 'not-handled';
   };
 
-  getCurrentWord = () => {
-    const currentWord = {
-      start: 'NA',
-      end: 'NA'
-    };
-
-    if (this.props.transcriptData) {
-      const contentState = this.state.editorState.getCurrentContent();
-      // TODO: using convertToRaw here might be slowing down performance(?)
-      const contentStateConvertEdToRaw = convertToRaw(contentState);
-      const entityMap = contentStateConvertEdToRaw.entityMap;
-
-      for (var entityKey in entityMap) {
-        const entity = entityMap[entityKey];
-        const word = entity.data;
-
-        if (
-          word.start <= this.props.currentTime &&
-          word.end >= this.props.currentTime
-        ) {
-          currentWord.start = word.start;
-          currentWord.end = word.end;
-        }
-      }
+  // click on words - for navigation
+  handleDoubleClick = event => {
+    // nativeEvent --> React giving you the DOM event
+    let element = event.nativeEvent.target;
+    // find the parent in Word that contains span with time-code start attribute
+    while (!element.hasAttribute('data-start') && element.parentElement) {
+      element = element.parentElement;
     }
 
-    if (currentWord.start !== 'NA') {
-      if (this.props.isScrollIntoViewOn) {
-        const currentWordElement = document.querySelector(
-          `span.Word[data-start="${ currentWord.start }"]`
-        );
-        currentWordElement.scrollIntoView({
-          block: 'nearest',
-          inline: 'center'
-        });
-      }
-    }
+    if (element.hasAttribute('data-start')) {
+      const startTime = parseFloat(element.getAttribute('data-start'));
 
-    return currentWord;
+      this.props.onWordClick(startTime);
+    }
   };
 
-  onWordClick = e => {
-    this.props.onWordClick(e);
+  getCurrentWord = () => {
+    if (this.props.transcriptData) {
+      const currentWord = getCurrentWord(this.state.editorState, this.props.currentTime);
+
+      if (currentWord.start !== 'NA') {
+        if (this.props.isScrollIntoViewOn) {
+          const currentWordElement = document.querySelector(`span.Word[data-start="${ currentWord.start }"]`);
+
+          currentWordElement.scrollIntoView({
+            block: 'nearest',
+            inline: 'center'
+          });
+        }
+      }
+
+      return currentWord;
+    }
+
+    else {
+      return {
+        start: 'NA',
+        end: 'NA'
+      };
+    }
   };
 
   renderBlockWithTimecodes = () => ({
@@ -378,7 +324,7 @@ class TimedTextEditor extends React.Component {
           stripPastedStyles
           blockRendererFn={ this.renderBlockWithTimecodes }
           handleKeyCommand={ this.handleKeyCommand }
-          keyBindingFn={ this.customKeyBindingFn }
+          keyBindingFn={ customKeyBindingFn }
           spellCheck={ this.props.spellCheck }
         />
       </section>
@@ -430,6 +376,7 @@ TimedTextEditor.propTypes = {
   isPauseWhileTypingOn: PropTypes.bool,
   timecodeOffset: PropTypes.number,
   handleAnalyticsEvents: PropTypes.func,
+  handleAutoSaveChanges: PropTypes.func,
   showSpeakers: PropTypes.bool,
   showTimecodes: PropTypes.bool,
   fileName: PropTypes.string
