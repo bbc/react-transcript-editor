@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 class Word extends Component {
 
   shouldComponentUpdate(nextProps) {
-    if ( nextProps.decoratedText !== this.props.decoratedText) {
-      return true;
-    }
-
-    return false;
+    return nextProps.decoratedText !== this.props.decoratedText;
   }
 
   generateConfidence = (data) => {
@@ -37,9 +33,9 @@ class Word extends Component {
   }
 
   render() {
-    const data = this.props.entityKey
-      ? this.props.contentState.getEntity(this.props.entityKey).getData()
-      : {};
+    const data = this.props.entityKey ? this.props.contentState.getEntity(this.props.entityKey).getData() : {};
+
+    const isNewWord = Object.keys(data).length === 0;
 
     return (
       <span
@@ -48,6 +44,7 @@ class Word extends Component {
         data-confidence = { this.generateConfidence(data) }
         data-prev-times = { this.generatePreviousTimes(data) }
         data-entity-key={ data.key }
+        data-created-by={ isNewWord ? 'user' : 'transcript' }
         className="Word">
         {this.props.children}
       </span>
@@ -58,7 +55,7 @@ class Word extends Component {
 Word.propTypes = {
   contentState: PropTypes.object,
   entityKey: PropTypes.string,
-  children: PropTypes.array
+  children: PropTypes.array,
 };
 
 export default Word;

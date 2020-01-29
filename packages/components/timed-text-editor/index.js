@@ -114,9 +114,10 @@ class TimedTextEditor extends PureComponent {
   }
 
   saveData = () => {
-    // This is the chonky non-performant
-    // const data = this.getEditorContent(this.props.autoSaveContentType, this.props.title);
     console.log('saving');
+
+    // This is the chonky non-performant method
+    // const data = this.getEditorContent(this.props.autoSaveContentType, this.props.title);
 
     const currentContent = this.state.editorState.getCurrentContent();
     const rawData = convertToRaw(currentContent);
@@ -222,14 +223,10 @@ class TimedTextEditor extends PureComponent {
    * Handle draftJs custom key commands
    */
   handleKeyCommand = command => {
-    console.log('command');
-    console.log(command);
     if (command === 'split-paragraph') {
-      console.log('splitting');
       const splitBlockState = splitParagraph(this.state.editorState);
 
       if (splitBlockState !== 'not-handled') {
-        console.log('its handled');
         this.setEditorNewContentState(splitBlockState);
       }
     }
@@ -313,11 +310,10 @@ class TimedTextEditor extends PureComponent {
         <style scoped>
           {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
           {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
-          {`span.Word[data-prev-times~="${ Math.floor(
-            time
-          ) }"] { color: ${ unplayedColor } }`}
+          {`span.Word[data-prev-times~="${ Math.floor(time) }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
           {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
+          {`span.Word[data-created-by="user"] { color: ${ unplayedColor } }`}
         </style>
 
         <Editor
@@ -346,7 +342,11 @@ const getEntityStrategy = mutability => (
   contentState
 ) => {
   contentBlock.findEntityRanges(character => {
+    // TEMP: makes all words render with Word component (for correct colour)
+    return true;
+
     const entityKey = character.getEntity();
+
     if (entityKey === null) {
       return false;
     }
