@@ -189,9 +189,9 @@ class App extends React.Component {
   render() {
     return (
       <div className={style.container}>
-        <span>React Transcript Editor Demo </span>
+        <span><code>@pietro/react-transcript-editor</code>React Transcript Editor Demo </span>
         <a
-          href="https://github.com/bbc/react-transcript-editor"
+          href="https://github.com/pietrop/react-transcript-editor"
           rel="noopener noreferrer"
           target="_blank"
         >

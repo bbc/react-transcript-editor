@@ -8,7 +8,7 @@ This doc provides a lightweight set of steps and checklists for manual QA test. 
 _The assumption underlying this doc is that anyone, even without technical skills, should be able to conduct QA testing._
 
 ## Overview
-React Transcript Editor it's a react component, to make transcribing audio and video easier and faster. Please see project repository the Github [README](https://github.com/bbc/react-transcript-editor/blob/master/README.md) page,for an overview of what the component does and how it works (https://github.com/bbc/react-transcript-editor). 
+React Transcript Editor it's a react component, to make transcribing audio and video easier and faster. Please see project repository the Github [README](https://github.com/pietrop/react-transcript-editor/blob/master/README.md) page,for an overview of what the component does and how it works (https://github.com/pietrop/react-transcript-editor). 
 
 <!-- Here is a video demo of the  main use case: https://youtu.be/4z143-nJlzs.  -->
 
@@ -18,12 +18,12 @@ React Transcript Editor it's a react component, to make transcribing audio and v
 The app can be tested using the demo application at 
 https://bbc.github.io/react-transcript-editor/
 
-For updating the the demo app with latest version of the component [see these instructions](https://github.com/bbc/react-transcript-editor#build---demo)
+For updating the the demo app with latest version of the component [see these instructions](https://github.com/pietrop/react-transcript-editor#build---demo)
 
 ## Where to log bugs: 
 <!-- _Provide link to Fogbugz, Github, Trello, etc. Also include to whom the bugs should be assigned (if applicable)._ -->
 
-If you find any bugs or issues, please [open an issue in Github](https://github.com/bbc/react-transcript-editor/issues/new?template=bug_report.md) label it as 'QA Testing' and assign it to [@pietrop](https://github.com/pietrop).
+If you find any bugs or issues, please [open an issue in Github](https://github.com/pietrop/react-transcript-editor/issues/new?template=bug_report.md) label it as 'QA Testing' and assign it to [@pietrop](https://github.com/pietrop).
 
 If it's connect to one or more of the QA steps listed below make a note of the corresponding number.
 
