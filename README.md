@@ -59,7 +59,7 @@ npm install @bbc/react-transcript-editor
 import TranscriptEditor from "@bbc/react-transcript-editor";
 ```
 
-Minimal data needed for initialization 
+Minimal data needed for initialization
 
 ```js
 <TranscriptEditor
@@ -68,7 +68,7 @@ Minimal data needed for initialization
 />
 ```
 
-With more attributes 
+With more attributes
 ```js
 <TranscriptEditor
   transcriptData={someJsonFile}
@@ -83,6 +83,7 @@ With more attributes
   title={"Ted Talk"}
   ref={this.transcriptEditorRef}
   mediaType={'video'}
+  timecodeOffset={60}
 />
 ```
 
@@ -99,6 +100,7 @@ With more attributes
 | title                 | defaults to empty string                                                                                                |    no    |  String   |
 | ref                   | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db. |    no    | React ref |
 | mediaType             | can be `audio` or `video`, if not provided the component uses the url file type to determine and adjust use of the page layout |    no    | String |
+| timecodeOffset             | a number (in seconds) to offset transcript timecodes, eg. to synchronise timings from the camera |    no    | Number |
 
 See [`./demo/app.js` demo](./demo/app.js) as a more detailed example usage of the component.
 
