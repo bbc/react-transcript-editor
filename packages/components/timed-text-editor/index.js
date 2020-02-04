@@ -52,6 +52,11 @@ class TimedTextEditor extends PureComponent {
   // };
 
   componentDidUpdate(prevProps) {
+    // If a new transcriptData has loaded from parent, update EditorState
+    if (prevProps.transcriptData !== this.props.transcriptData) {
+      this.loadData();
+    }
+
     if (
       prevProps.timecodeOffset !== this.props.timecodeOffset ||
       prevProps.showSpeakers !== this.props.showSpeakers ||
