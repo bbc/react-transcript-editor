@@ -1,7 +1,7 @@
 {
   "name": "@pietrop/react-transcript-editor",
   "description": "A React component to make transcribing audio and video easier and faster.",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "keywords": [
     "transcript",
     "transcriptions",

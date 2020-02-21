@@ -417,7 +417,7 @@ class TranscriptEditor extends React.Component {
     );
 
     const shortcuts = (
-      <Shortcuts handleShortcutsToggle={this.handleShortcutsToggle} />
+      <Shortcuts handleShortcutsToggle={this.handleShortcutsToggle} handleAnalyticsEvents={this.props.handleAnalyticsEvents} />
     );
 
     // export format for `handleAutoSaveChanges` is assigned with `autoSaveContentType`
