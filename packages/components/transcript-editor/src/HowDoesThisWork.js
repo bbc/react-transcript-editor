@@ -50,7 +50,7 @@ const HowDoesThisWork = (
     color={ '#000000' }
   >
     <FontAwesomeIcon className={ style.icon } icon={ faQuestionCircle } />
-      How does this work?
+     <span  style={{color: 'white' }}>How does this work?</span> 
   </Tooltip>
 );
 
