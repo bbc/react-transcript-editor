@@ -64,11 +64,11 @@ class PlayerControls extends React.Component {
 
         <div className={ style.btnsGroup }>
           <button
-            value="seek backward by a set interval: alt r"
-            title="seek backward by a set interval: alt r"
+            value={`seek backward by ${this.props.rollBackValueInSeconds} seconds. Shortcut: alt r`}
+            title={`seek backward by ${this.props.rollBackValueInSeconds} seconds. Shortcut: alt r`}
             className={ style.playerButton }
             onClick={ this.props.rollback }>
-            <FontAwesomeIcon icon={ faUndo } />
+            {this.props.rollBackValueInSeconds} <FontAwesomeIcon icon={ faUndo } />
           </button>
 
           <button
@@ -78,7 +78,7 @@ class PlayerControls extends React.Component {
             onMouseDown={ this.setIntervalHelperBackward }
             onMouseUp={ this.clearIntervalHelper }
             onClick={ () => {this.props.skipBackward(); } }>
-            <FontAwesomeIcon icon={ faBackward } />
+           <FontAwesomeIcon icon={ faBackward } />
           </button>
 
           <button

@@ -400,6 +400,7 @@ class MediaPlayer extends React.Component {
           setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
           playbackRateOptions={ this.state.playbackRateOptions }
           pictureInPicture={ this.handlePictureInPicture }
+          rollBackValueInSeconds={this.state.rollBackValueInSeconds}
         />
         {this.props.mediaUrl ? progressBar : null}
       </div>
