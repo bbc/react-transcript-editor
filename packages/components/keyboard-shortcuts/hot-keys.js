@@ -4,13 +4,15 @@ function returnHotKeys(self) {
       priority: 1,
       handler: () => {
         self.togglePlayMedia();
-
-        self.props.handleAnalyticsEvents({
-          category: 'defaultHotKeys',
-          action: 'alt+k',
-          name: 'togglePlayMedia',
-          value: 'na'
-        });
+        if(self.props.handleAnalyticsEvents){
+          self.props.handleAnalyticsEvents({
+            category: 'defaultHotKeys',
+            action: 'alt+k',
+            name: 'togglePlayMedia',
+            value: 'na'
+          });
+        }
+        
       },
       displayKeyCombination: 'alt + k',
       label: 'Play Media'
@@ -19,13 +21,14 @@ function returnHotKeys(self) {
       priority: 1,
       handler: () => {
         self.skipForward();
-
-        self.props.handleAnalyticsEvents({
-          category: 'defaultHotKeys',
-          action: 'alt+l',
-          name: 'skipForward',
-          value: 'na'
-        });
+        if(self.props.handleAnalyticsEvents){
+          self.props.handleAnalyticsEvents({
+            category: 'defaultHotKeys',
+            action: 'alt+l',
+            name: 'skipForward',
+            value: 'na'
+          });
+        }
       },
       displayKeyCombination: 'alt + l',
       label: 'Fast Forward'
@@ -34,13 +37,14 @@ function returnHotKeys(self) {
       priority: 1,
       handler: () => {
         self.skipBackward();
-
-        self.props.handleAnalyticsEvents({
-          category: 'defaultHotKeys',
-          action: 'alt+j',
-          name: 'skipBackward',
-          value: 'na'
-        });
+        if(self.props.handleAnalyticsEvents){
+          self.props.handleAnalyticsEvents({
+            category: 'defaultHotKeys',
+            action: 'alt+j',
+            name: 'skipBackward',
+            value: 'na'
+          });
+        }
       },
       displayKeyCombination: 'alt + j',
       label: 'Rewind'
@@ -49,13 +53,14 @@ function returnHotKeys(self) {
       priority: 1,
       handler: () => {
         self.decreasePlaybackRate();
-
-        self.props.handleAnalyticsEvents({
-          category: 'defaultHotKeys',
-          action: 'alt+-',
-          name: 'decreasePlaybackRate',
-          value: 'na'
-        });
+        if(self.props.handleAnalyticsEvents){
+          self.props.handleAnalyticsEvents({
+            category: 'defaultHotKeys',
+            action: 'alt+-',
+            name: 'decreasePlaybackRate',
+            value: 'na'
+          });
+        }
       },
       displayKeyCombination: 'alt + -',
       label: 'Decrease Playback Speed'
@@ -65,13 +70,14 @@ function returnHotKeys(self) {
       priority: 1,
       handler: () => {
         self.increasePlaybackRate();
-
-        self.props.handleAnalyticsEvents({
-          category: 'defaultHotKeys',
-          action: 'alt+plus',
-          name: 'increasePlaybackRate',
-          value: 'na'
-        });
+        if(self.props.handleAnalyticsEvents){
+          self.props.handleAnalyticsEvents({
+            category: 'defaultHotKeys',
+            action: 'alt+plus',
+            name: 'increasePlaybackRate',
+            value: 'na'
+          });
+        }
       },
       displayKeyCombination: 'alt + +',
       label: 'Increase Playback Speed'
@@ -80,13 +86,14 @@ function returnHotKeys(self) {
       priority: 1,
       handler: () => {
         self.rollBack();
-
-        self.props.handleAnalyticsEvents({
-          category: 'defaultHotKeys',
-          action: 'alt+r',
-          name: 'rollBack',
-          value: 'na'
-        });
+        if(self.props.handleAnalyticsEvents){
+          self.props.handleAnalyticsEvents({
+            category: 'defaultHotKeys',
+            action: 'alt+r',
+            name: 'rollBack',
+            value: 'na'
+          });
+        }
       },
       displayKeyCombination: 'alt + r',
       label: 'Roll Back'
@@ -95,13 +102,14 @@ function returnHotKeys(self) {
       priority: 1,
       handler: () => {
         self.promptSetCurrentTime();
-
-        self.props.handleAnalyticsEvents({
-          category: 'defaultHotKeys',
-          action: 'alt+t',
-          name: 'promptSetCurrentTime',
-          value: 'na'
-        });
+        if(self.props.handleAnalyticsEvents){
+          self.props.handleAnalyticsEvents({
+            category: 'defaultHotKeys',
+            action: 'alt+t',
+            name: 'promptSetCurrentTime',
+            value: 'na'
+          });
+        }
       },
       displayKeyCombination: 'alt + t',
       label: 'set current time'
