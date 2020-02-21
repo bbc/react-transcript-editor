@@ -95,7 +95,7 @@ With more attributes
 | autoSaveContentType        | specify the file format for data returned by `handleAutoSaveChanges`,falls back on `sttJsonType`. or `draftjs`          |    no    |  string   |
 | isEditable            | set to true if you want to be able to edit the text                                                                     |    no    |  Boolean  |
 | spellCheck            | set to true if you want the browser to spell check this transcript                                                      |    no    |  Boolean  |
-|`handleAnalyticsEvents`| if you want to collect analytics events.                                                                                |    no    | Function  |
+|`handleAnalyticsEvents`| if you want to collect analytics events.                                                                                |    yes    | Function  |
 | fileName              | used for saving and retrieving local storage blob files                                                                 |    no    |  String   |
 | title                 | defaults to empty string                                                                                                |    no    |  String   |
 | ref                   | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db. |    no    | React ref |
@@ -107,6 +107,16 @@ _Note: `fileName` it is optional but it's needed if working with user uploaded l
 
 _Note: `mediaType` if not defined, the component uses the url to determine the type and adjust the layout accordingly, however this could result in a slight delay when loading the component as it needs to fetch the media to determine it's file type_
 
+_Note: in current version you need to add `handleAnalyticsEvents` function to be able to use keyboard shortcuts. But you can also just add a placeholder function if you don't wish to implement analytics_
+
+```js
+<TranscriptEditor
+  transcriptData={someJsonFile}
+  mediaUrl={"https://download.ted.com/talks/KateDarling_2018S-950k.mp4"}
+  ...
+  handleAnalyticsEvents = {()=>{console.log('handleAnalyticsEvents')}}
+/>
+```
 ### Typescript projects
 
 If using in a parent project where [typescript](https://www.typescriptlang.org/) is being used you might need to add `//@ts-ignore` before the import statment like this
