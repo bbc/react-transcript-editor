@@ -93,8 +93,8 @@ class TimedTextEditor extends React.Component {
           }),
           () => {
             // const data = this.updateTimestampsForEditorState();
-            const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title);
-            this.props.handleAutoSaveChanges(data);
+            // const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title);
+            // this.props.handleAutoSaveChanges(data);
           }
         );
       }, 1000);
@@ -273,16 +273,16 @@ class TimedTextEditor extends React.Component {
         editorState
       }),
       () => {
-        const format =  this.props.autoSaveContentType;
-        const title = this.props.title;
+        // const format =  this.props.autoSaveContentType;
+        // const title = this.props.title;
 
-        const data = exportAdapter(
-          convertToRaw(editorState.getCurrentContent()),
-          format,
-          title
-        );
+        // const data = exportAdapter(
+        //   convertToRaw(editorState.getCurrentContent()),
+        //   format,
+        //   title
+        // );
 
-        this.props.handleAutoSaveChanges(data);
+        // this.props.handleAutoSaveChanges(data);
       }
     );
   };

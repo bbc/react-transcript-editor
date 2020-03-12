@@ -14,18 +14,18 @@ const flatten = list => list.reduce((a, b) => a.concat(Array.isArray(b) ? flatte
  * @param {*} blocks - draftJs blocks
  */
 const createEntityMap = (blocks) => {
-  const entityRanges = blocks.map(block => block.entityRanges);
-  const flatEntityRanges = flatten(entityRanges);
+  // const entityRanges = blocks.map(block => block.entityRanges);
+  // const flatEntityRanges = flatten(entityRanges);
 
   const entityMap = {};
 
-  flatEntityRanges.forEach((data) => {
-    entityMap[data.key] = {
-      type: 'WORD',
-      mutability: 'MUTABLE',
-      data,
-    };
-  });
+  // flatEntityRanges.forEach((data) => {
+  //   entityMap[data.key] = {
+  //     type: 'WORD',
+  //     mutability: 'MUTABLE',
+  //     data,
+  //   };
+  // });
 
   return entityMap;
 };
