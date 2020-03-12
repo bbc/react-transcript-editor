@@ -1,0 +1,120 @@
+@import '../../config/style-guide/colours.scss';
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
+TODO: only working in Chrome, not working in Firefox, and Safari - OSX
+if selecting text, not showing selection
+Commented out because it means cannot select speakers and timecode anymore
+which is the intended default behavior but needs to come with export
+functionality to export as plain text, word etc.. otherwise user won't be able
+to get text out of component with timecodes and speaker names in the interim */
+ .unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Desktop size */
+@media (min-width: 768px) {
+
+  .markers {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .WrapperBlock {
+    margin-bottom: 1em;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: [col-speaker] minmax(200px, 18%) [col-text] minmax(
+      50%,
+      81%
+    );
+    grid-column-gap: 1%;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .speaker {
+    color: $color-mid-grey;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    justify-self: start;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .text {
+    font-size: 1em;
+    float: right;
+    clear: right;
+  }
+}
+
+
+.time {
+  font-weight: lighter;
+  cursor: pointer;
+  justify-self: start;
+}
+
+.time:hover {
+  text-decoration: underline;
+
+  /* color: blue; */
+}
+
+.speakerEditable {
+  cursor: pointer;
+}
+
+.speakerNotEditable {
+  cursor: no-drop;
+}
+
+.EditLabel {
+  margin-right: 0.5em;
+}
+
+
+/* Mobile devices */
+@media (max-width: 768px) {
+
+  .markers {
+    width: 100%;
+    font-size: 0.8em;
+    line-height: 1.2em;
+    margin-bottom: 0.5em;
+  }
+
+  .WrapperBlock {
+    width: 100%;
+    margin-bottom: 1em;
+    line-height: 1.2em;
+    overflow: hidden;
+  }
+
+  .speaker {
+    padding-right: 2em;
+    vertical-align: middle;
+    color: $color-mid-grey;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: right;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  .text {
+    width: 100%;
+    font-size: 1em;
+    float: left;
+
+    /* clear: right; */
+  }
+}

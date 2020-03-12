@@ -58,6 +58,8 @@
     "react-keyboard-shortcuts": "^1.1.3",
     "react-simple-tooltip": "^2.6.1",
     "sbd": "^1.0.15",
+    "slate": "^0.57.1",
+    "slate-react": "^0.57.1",
     "smpte-timecode": "^1.2.3"
   },
   "peerDependencies": {
