@@ -168,7 +168,9 @@ class TimedTextEditor extends React.Component {
         this.props.transcriptData,
         this.props.sttJsonType
       );
-      this.setState({ originalState: convertToRaw(convertFromRaw(blocks)) });
+      // TODO: did we need to  convertToRaw(convertFromRaw()) ? commenting out for now
+      // this.setState({ originalState: convertToRaw(convertFromRaw(blocks)) });
+      this.setState({ originalState: blocks });
       this.setEditorContentState(blocks);
     }
   }
@@ -187,6 +189,7 @@ class TimedTextEditor extends React.Component {
   // click on words - for navigation
   // eslint-disable-next-line class-methods-use-this
   handleDoubleClick = event => {
+    console.log(event)
     // nativeEvent --> React giving you the DOM event
     let element = event.nativeEvent.target;
     // find the parent in Word that contains span with time-code start attribute
