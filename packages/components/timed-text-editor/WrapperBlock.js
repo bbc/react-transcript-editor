@@ -89,8 +89,7 @@ class WrapperBlock extends React.Component {
   componentDidUpdate  = (prevProps, prevState) =>{
 
     if(prevProps.block.getData().get('speaker') !== prevState.speaker){
-        console.log('componentDidUpdate wrapper speaker', prevProps.block.getData().get('speaker') , prevState.speaker );
-        
+        // console.log('componentDidUpdate wrapper speaker', prevProps.block.getData().get('speaker') , prevState.speaker );
         this.setState({
           speaker: prevProps.block.getData().get('speaker')
         })
