@@ -35,31 +35,31 @@ class App extends React.Component {
       fileName: "",
       autoSaveData: {},
       autoSaveContentType: "draftjs",
-      autoSaveExtension: "json"
+      autoSaveExtension: "json",
+      useLocalStorage: true
     };
 
     this.transcriptEditorRef = React.createRef();
   }
 
   loadDemo = () => {
-    if(isPresentInLocalStorage(DEMO_MEDIA_URL)){
-      const transcriptDataFromLocalStorage = loadLocalSavedData(DEMO_MEDIA_URL)
-      this.setState({
-        transcriptData: transcriptDataFromLocalStorage,
-        mediaUrl: DEMO_MEDIA_URL,
-        title: DEMO_TITLE,
-        sttType: 'draftjs'
-      });
-    }
-    else{
-       this.setState({
-        transcriptData: DEMO_TRANSCRIPT,
-        mediaUrl: DEMO_MEDIA_URL,
-        title: DEMO_TITLE,
-        sttType: "bbckaldi"
-      });
-    }
-   
+      if(this.state.useLocalStorage && isPresentInLocalStorage(DEMO_MEDIA_URL)){
+        const transcriptDataFromLocalStorage = loadLocalSavedData(DEMO_MEDIA_URL)
+        this.setState({
+          transcriptData: transcriptDataFromLocalStorage,
+          mediaUrl: DEMO_MEDIA_URL,
+          title: DEMO_TITLE,
+          sttType: 'draftjs'
+        });
+      }
+      else{
+        this.setState({
+          transcriptData: DEMO_TRANSCRIPT,
+          mediaUrl: DEMO_MEDIA_URL,
+          title: DEMO_TITLE,
+          sttType: "bbckaldi"
+        });
+      }
   };
 
   // https://stackoverflow.com/questions/8885701/play-local-hard-drive-video-file-with-html5-video-tag
@@ -184,8 +184,18 @@ class App extends React.Component {
     const { data, ext } = newAutoSaveData;
     this.setState({ autoSaveData: data, autoSaveExtension: ext });
     // Saving to local storage 
-    localSave(this.state.mediaUrl, this.state.fileName, data);
+    if(this.state.useLocalStorage){
+      localSave(this.state.mediaUrl, this.state.fileName, data);
+    }
   };
+
+  handleUseLocalStorage = ()=>{
+    this.setState((prevState)=>{
+      return {useLocalStorage: !prevState.useLocalStorage}
+    }, ()=>{
+      console.log('this.state.useLocalStorage',this.state.useLocalStorage)
+    })
+  }
   render() {
     return (
       <div className={style.container}>
@@ -297,6 +307,21 @@ class App extends React.Component {
                 type="checkbox"
                 checked={this.state.spellCheck}
                 onChange={this.handleSpellCheck}
+              />
+            </div>
+
+            <div className={style.checkbox}>
+              <label
+                className={style.editableLabel}
+                htmlFor={"spellCheckCheckbox"}
+              >
+                Use local storage
+              </label>
+              <input
+                id={"useLocalStorage"}
+                type="checkbox"
+                checked={this.state.useLocalStorage}
+                onChange={this.handleUseLocalStorage}
               />
             </div>
 
