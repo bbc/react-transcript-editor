@@ -48,7 +48,8 @@ class TimedTextEditor extends React.Component {
     super(props);
 
     this.state = {
-      editorState: EditorState.createEmpty()
+      editorState: EditorState.createEmpty(),
+      depWordsWithCharOffset: null
     };
   }
 
@@ -137,7 +138,7 @@ class TimedTextEditor extends React.Component {
     );
     const updatedContentRaw = updateTimestamps(
       currentContent,
-      this.state.originalState
+      this.state.depWordsWithCharOffset
     );
     const updatedContent = convertFromRaw(updatedContentRaw);
 

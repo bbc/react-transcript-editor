@@ -1,5 +1,3 @@
-import generateEntitiesRanges from '../../../stt-adapters/generate-entities-ranges';
-import { createEntityMap } from '../../../stt-adapters';
 import alignWords from './stt-align-node.js';
 
 const convertContentToText = (content) => {
@@ -9,7 +7,6 @@ const convertContentToText = (content) => {
     const blockArray = block.text.match(/\S+/g) || [];
     text = text.concat(blockArray);
   }
-
   return text;
 };
 
@@ -39,7 +36,6 @@ const createContentFromEntityList = (currentContent, newEntities) => {
     let speaker = block.data.speaker;
 
     if (!speaker) {
-      console.log('speaker', speaker, block);
       speaker = 'U_UKN';
     }
     const updatedBlock = {
@@ -50,39 +46,29 @@ const createContentFromEntityList = (currentContent, newEntities) => {
         words: blockEntites,
         start: blockEntites[0].start
       },
-      entityRanges: generateEntitiesRanges(blockEntites, 'punct'),
+      entityRanges: []
     };
 
     updatedBlockArray.push(updatedBlock);
     totalWords += wordsInBlock;
   }
 
-  return { blocks: updatedBlockArray, entityMap: createEntityMap(updatedBlockArray) };
+  return { blocks: updatedBlockArray, entityMap: {}};
 };
 
 // Update timestamps usign stt-align (bbc).
+// depWordsWithCharOffset
 const updateTimestamps = (currentContent, originalContent) => {
   const currentText = convertContentToText(currentContent);
-
-  const entityMap = originalContent.entityMap;
-
-  const entities = [];
-
-  for (const entityIdx in entityMap) {
-    entities.push({
-      start: parseFloat(entityMap[entityIdx].data.start),
-      end: parseFloat(entityMap[entityIdx].data.end),
-      word: entityMap[entityIdx].data.text,
-    });
-  }
-
+  const entities  = originalContent.map((word)=>{
+    word.word = word.text;
+    return word;
+  });
   const result = alignWords(entities, currentText);
-
   const newEntities = result.map((entry, index) => {
     return createEntity(entry.start, entry.end, 0.0, entry.word, index);
   });
   const updatedContent = createContentFromEntityList(currentContent, newEntities);
-
   return updatedContent;
 };
 

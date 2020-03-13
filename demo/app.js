@@ -180,7 +180,6 @@ class App extends React.Component {
   };
 
   handleAutoSaveChanges = newAutoSaveData => {
-    console.log("handleAutoSaveChanges", newAutoSaveData);
     const { data, ext } = newAutoSaveData;
     this.setState({ autoSaveData: data, autoSaveExtension: ext });
     // Saving to local storage 
