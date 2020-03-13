@@ -88,17 +88,17 @@ class WrapperBlock extends React.Component {
 
   componentDidUpdate  = (prevProps, prevState) =>{
     const { block } = this.props;
-    if(prevProps.block.getData().get('speaker') !== prevState.speaker){
+    if(block.getData().get('speaker') !== prevState.speaker){
         // console.log('componentDidUpdate wrapper speaker', prevProps.block.getData().get('speaker') , prevState.speaker );
         this.setState({
-          speaker: prevProps.block.getData().get('speaker'),
-          words: prevProps.block.getData().get('words') ?prevProps.block.getData().get('words') : []
+          speaker: block.getData().get('speaker'),
+          words: prevProps.block.getData().get('words') ? block.getData().get('words') : []
         })
 
         return true;
       }
 
-      if(prevProps.block.getData().get('words') !== prevState.words){
+      if(block.getData().get('words') !== prevState.words){
         const start = block.getData().get('start');
 
         this.setState({
@@ -229,15 +229,15 @@ class WrapperBlock extends React.Component {
         name={ this.state.speaker }
         handleOnClickEdit={ this.handleOnClickEdit }
         isEditable={this.props.blockProps.isEditable}
-        start={this.state.start}
+        start={startTimecode}
       />
     );
 
-    // const timecodeElement = (
-    //   <span className={ style.time } onClick={ this.handleTimecodeClick }>
-    //     {shortTimecode(startTimecode)}
-    //   </span>
-    // );
+    const timecodeElement = (
+      <span className={ style.time } onClick={ this.handleTimecodeClick }>
+        {shortTimecode(startTimecode)}
+      </span>
+    );
 
     return (
       <div className={[ style.WrapperBlock].join(' ')}>
@@ -247,7 +247,7 @@ class WrapperBlock extends React.Component {
         >
           {this.props.blockProps.showSpeakers ? speakerElement : ''}
 
-          {/* {this.props.blockProps.showTimecodes ? timecodeElement : ''} */}
+          {this.props.blockProps.showTimecodes ? timecodeElement : ''}
         </div>
         <div  
         data-start={this.state.start} 

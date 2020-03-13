@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import {
   EditorState,
-  CompositeDecorator,
+  // CompositeDecorator,
   convertFromRaw,
   convertToRaw,
   getDefaultKeyBinding,
@@ -12,7 +12,6 @@ import {
 
 
 import CustomEditor from './CustomEditor.js';
-import Word from './Word';
 
 import sttJsonAdapter from '../../stt-adapters';
 import exportAdapter from '../../export-adapters';
@@ -314,8 +313,8 @@ class TimedTextEditor extends React.Component {
     // eslint-disable-next-line no-use-before-define
 
     // TODO: could also remove the word decorator all together?
-     // const editorState = EditorState.createWithContent(contentState);
-    const editorState = EditorState.createWithContent(contentState, decorator);
+     const editorState = EditorState.createWithContent(contentState);
+    // const editorState = EditorState.createWithContent(contentState, decorator);
    
 
     if (this.props.handleAnalyticsEvents !== undefined) {
@@ -337,8 +336,9 @@ class TimedTextEditor extends React.Component {
   // or when show / hide preferences for speaker labels and timecodes change
   forceRenderDecorator = () => {
     const contentState = this.state.editorState.getCurrentContent();
-    const decorator = this.state.editorState.getDecorator();
-    const newState = EditorState.createWithContent(contentState, decorator);
+    // const decorator = this.state.editorState.getDecorator();
+    // const newState = EditorState.createWithContent(contentState, decorator);
+    const newState = EditorState.createWithContent(contentState);
     const newEditorState = EditorState.push(newState, contentState);
     this.setState({ editorState: newEditorState });
   };
@@ -347,8 +347,9 @@ class TimedTextEditor extends React.Component {
    * Update Editor content state
    */
   setEditorNewContentState = newContentState => {
-    const decorator = this.state.editorState.getDecorator();
-    const newState = EditorState.createWithContent(newContentState, decorator);
+    // const decorator = this.state.editorState.getDecorator();
+    // const newState = EditorState.createWithContent(newContentState, decorator);
+    const newState = EditorState.createWithContent(newContentState);
     const editorState = EditorState.push(
       newState,
       newContentState
@@ -369,8 +370,9 @@ class TimedTextEditor extends React.Component {
   };
 
   setEditorNewContentStateSpeakersUpdate = newContentState => {
-    const decorator = this.state.editorState.getDecorator();
-    const newState = EditorState.createWithContent(newContentState, decorator);
+    // const decorator = this.state.editorState.getDecorator();
+    // const newState = EditorState.createWithContent(newContentState, decorator);
+    const newState = EditorState.createWithContent(newContentState);
     const editorState = EditorState.push(
       newState,
       newContentState
@@ -558,7 +560,7 @@ class TimedTextEditor extends React.Component {
             }	
           );	
           this.setEditorNewContentState(afterMergeContentState);	
-          
+
           return "handled";	
       }
       return "handled";	
@@ -729,12 +731,12 @@ const getEntityStrategy = mutability => (
 
 // decorator definition - Draftjs
 // defines what to use to render the entity
-const decorator = new CompositeDecorator([
-  {
-    strategy: getEntityStrategy('MUTABLE'),
-    component: Word
-  }
-]);
+// const decorator = new CompositeDecorator([
+//   {
+//     strategy: getEntityStrategy('MUTABLE'),
+//     component: Word
+//   }
+// ]);
 
 TimedTextEditor.propTypes = {
   transcriptData: PropTypes.object,
