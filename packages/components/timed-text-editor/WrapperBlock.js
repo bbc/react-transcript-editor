@@ -80,7 +80,6 @@ class WrapperBlock extends React.Component {
     }
 
     if(nextProps.block.getData().get('speaker') !== this.state.speaker){
-      console.log('shouldComponentUpdate wrapper speaker', nextProps.block.getData().get('speaker') , this.state.speaker )
       return true;
     }
     return false;
@@ -175,14 +174,15 @@ class WrapperBlock extends React.Component {
         name={ this.state.speaker }
         handleOnClickEdit={ this.handleOnClickEdit }
         isEditable={this.props.blockProps.isEditable}
+        start={this.state.start}
       />
     );
 
-    const timecodeElement = (
-      <span className={ style.time } onClick={ this.handleTimecodeClick }>
-        {shortTimecode(startTimecode)}
-      </span>
-    );
+    // const timecodeElement = (
+    //   <span className={ style.time } onClick={ this.handleTimecodeClick }>
+    //     {shortTimecode(startTimecode)}
+    //   </span>
+    // );
 
     return (
       <div className={ style.WrapperBlock }>
@@ -192,7 +192,7 @@ class WrapperBlock extends React.Component {
         >
           {this.props.blockProps.showSpeakers ? speakerElement : ''}
 
-          {this.props.blockProps.showTimecodes ? timecodeElement : ''}
+          {/* {this.props.blockProps.showTimecodes ? timecodeElement : ''} */}
         </div>
         <div className={ style.text }>
           <EditorBlock { ...this.props } />

@@ -19,6 +19,30 @@ import exportAdapter from '../../export-adapters';
 import updateTimestamps from './UpdateTimestamps/index.js';
 import style from './index.module.css';
 
+// https://jsfiddle.net/pietrops/sakr9uLo/
+function addCharOffsetToWordsInTranscript(wordsList) {
+  let charOffset = 0;
+  return wordsList.map((word) => {
+    word.charOffsetStart = charOffset;
+    // +1 to accoutn for space after word 
+    charOffset += (word.text.length + 1);
+    word.charOffsetEnd = charOffset;
+    return word;
+  })
+}
+
+function findWordByCharOffset(wordsList, startCharPosition, endCharPosition) {
+  // To make it more fuzzy it could also be find first word that
+  // endCharPosition >= word.charOffsetEnd
+  // eg if you introduce things like ~Speaker~ and new lines, then 
+  // the correspondence char offset and word in STT transcript
+  // might no longer be exact 
+  return wordsList.find((word) => {
+    return startCharPosition >= word.charOffsetStart 
+    && endCharPosition <= word.charOffsetEnd
+  })
+}
+
 class TimedTextEditor extends React.Component {
   constructor(props) {
     super(props);
@@ -92,9 +116,10 @@ class TimedTextEditor extends React.Component {
             editorState
           }),
           () => {
-            // const data = this.updateTimestampsForEditorState();
+            // TODO: Comment out auto save for performance 
+            const data = this.updateTimestampsForEditorState();
             // const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title);
-            // this.props.handleAutoSaveChanges(data);
+            this.props.handleAutoSaveChanges(data);
           }
         );
       }, 1000);
@@ -170,7 +195,11 @@ class TimedTextEditor extends React.Component {
       );
       // TODO: did we need to  convertToRaw(convertFromRaw()) ? commenting out for now
       // this.setState({ originalState: convertToRaw(convertFromRaw(blocks)) });
-      this.setState({ originalState: blocks });
+
+      const backupStateDPE = exportAdapter(blocks, 'digitalpaperedit','json');
+      const dpeWords = backupStateDPE.data.words;
+      const depWordsWithCharOffset = addCharOffsetToWordsInTranscript(dpeWords)
+      this.setState({ originalState: blocks, depWordsWithCharOffset });
       this.setEditorContentState(blocks);
     }
   }
@@ -178,7 +207,7 @@ class TimedTextEditor extends React.Component {
   getEditorContent(exportFormat, title) {
     const format = exportFormat || 'draftjs';
     const tmpEditorState = this.updateTimestampsForEditorState();
-
+    console.log('tmpEditorState', tmpEditorState);
     return exportAdapter(
       convertToRaw(tmpEditorState.getCurrentContent()),
       format,
@@ -189,17 +218,64 @@ class TimedTextEditor extends React.Component {
   // click on words - for navigation
   // eslint-disable-next-line class-methods-use-this
   handleDoubleClick = event => {
-    console.log(event)
-    // nativeEvent --> React giving you the DOM event
-    let element = event.nativeEvent.target;
-    // find the parent in Word that contains span with time-code start attribute
-    while (!element.hasAttribute("data-start") && element.parentElement) {
-      element = element.parentElement;
-    }
+    // console.log('handleDoubleClick',event)
+    const { editorState } = this.state;
+    var selectionState = editorState.getSelection();
+    var anchorKey = selectionState.getAnchorKey();
+    var currentContent = editorState.getCurrentContent();
+    var currentContentBlock = currentContent.getBlockForKey(anchorKey);
+    var start = selectionState.getStartOffset();
+    var end = selectionState.getEndOffset();
 
-    if (element.hasAttribute("data-start")) {
-      const t = parseFloat(element.getAttribute("data-start"));
-      this.props.onWordClick(t);
+    // If block has got data, keep it simple and look forcurrentBlockDataWords info withing the available data
+    const currentBlockData = currentContentBlock.getData();
+    const currentBlockDataWords = currentBlockData.get('words');
+    if(currentBlockDataWords){
+      let charCount = 0;
+      const wordResult = currentBlockDataWords.find((word,index)=>{
+        const res = charCount >= start && charCount <= end;
+        // TODO: issue with BBC kaldi and and word/punct attribute 
+        // (only punct has got punctuation) - ideally this should be changed in
+        // stt adapter for BBC Kaldi to keep consistency 
+        if(word.punct){
+          charCount += (word.punct.length+1);
+        }else{
+          charCount += (word.word.length+1);
+        }
+        return res
+      })
+
+      if(wordResult){
+        this.props.onWordClick(wordResult.start);
+      }
+      else{
+        // TODO: if it doesn't find a word
+        // or figure out how ot handle edge case 
+        console.error('could not find word')
+      }
+    } else {
+      // If it the paragraph block does not have word data info 
+      const blocksAsArray = currentContent.getBlocksAsArray();
+      const currentBlockIndex = blocksAsArray.findIndex((block)=>{
+        return currentContentBlock.getKey()=== block.getKey()
+      }) 
+      const blocksAsArrayLenght = blocksAsArray.length;
+      // segment array of blocks so that you only have the preceeding blocks
+      const blocksAsArraySliced = blocksAsArray.slice(0,currentBlockIndex);
+      let charCountPreviousBlocks = 0;
+      blocksAsArraySliced.map((block)=>{
+        const blockLength = block.getText().length+1;
+        charCountPreviousBlocks += blockLength;
+      })
+
+      const dpeWordsWithChar = this.state.depWordsWithCharOffset;
+      const currentDPEWord = findWordByCharOffset(dpeWordsWithChar, charCountPreviousBlocks+start, charCountPreviousBlocks+end) 
+      console.log('currentDPEWord',currentDPEWord)
+      if(currentDPEWord){
+        this.props.onWordClick(currentDPEWord.start);
+      }else{
+        console.error('could not find word')
+      }
     }
   };
 
@@ -223,7 +299,11 @@ class TimedTextEditor extends React.Component {
   setEditorContentState = data => {
     const contentState = convertFromRaw(data);
     // eslint-disable-next-line no-use-before-define
+
+    // TODO: could also remove the word decorator all together?
+     // const editorState = EditorState.createWithContent(contentState);
     const editorState = EditorState.createWithContent(contentState, decorator);
+   
 
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({
@@ -276,16 +356,17 @@ class TimedTextEditor extends React.Component {
         editorState
       }),
       () => {
-        // const format =  this.props.autoSaveContentType;
-        // const title = this.props.title;
+        // TODO: comment out auto save 
+        const format =  this.props.autoSaveContentType;
+        const title = this.props.title;
 
-        // const data = exportAdapter(
-        //   convertToRaw(editorState.getCurrentContent()),
-        //   format,
-        //   title
-        // );
+        const data = exportAdapter(
+          convertToRaw(editorState.getCurrentContent()),
+          format,
+          title
+        );
 
-        // this.props.handleAutoSaveChanges(data);
+        this.props.handleAutoSaveChanges(data);
       }
     );
   };
@@ -294,7 +375,6 @@ class TimedTextEditor extends React.Component {
    * Listen for draftJs custom key bindings
    */
   customKeyBindingFn = e => {
-    const enterKey = 13;
     const spaceKey = 32;
     const kKey = 75;
     const lKey = 76;
@@ -304,11 +384,6 @@ class TimedTextEditor extends React.Component {
     const rKey = 82;
     const tKey = 84;
 
-    if (e.keyCode === enterKey) {
-      console.log('customKeyBindingFn');
-
-      return "split-paragraph";
-    }
     // if alt key is pressed in combination with these other keys
     if (
       e.altKey &&
@@ -328,105 +403,6 @@ class TimedTextEditor extends React.Component {
     }
 
     return getDefaultKeyBinding(e);
-  };
-
-  /**
-   * Handle draftJs custom key commands
-   */
-  handleKeyCommand = command => {
-    if (command === 'split-paragraph') {
-      this.splitParagraph();
-    }
-
-    if (command === "keyboard-shortcuts") {
-      return "handled";
-    }
-    return 'not-handled';
-  };
-
-  /**
-   * Helper function to handle splitting paragraphs with return key
-   * on enter key, perform split paragraph at selection point.
-   * Add timecode of next word after split to paragraph
-   * as well as speaker name to new paragraph
-   * TODO: move into its own file as helper function
-   */
-  splitParagraph = () => {
-    // https://github.com/facebook/draft-js/issues/723#issuecomment-367918580
-    // https://draftjs.org/docs/api-reference-selection-state#start-end-vs-anchor-focus
-    const currentSelection = this.state.editorState.getSelection();
-    // only perform if selection is not selecting a range of words
-    // in that case, we'd expect delete + enter to achieve same result.
-    if (currentSelection.isCollapsed()) {
-      const currentContent = this.state.editorState.getCurrentContent();
-      // https://draftjs.org/docs/api-reference-modifier#splitblock
-      const newContentState = Modifier.splitBlock(
-        currentContent,
-        currentSelection
-      );
-      // https://draftjs.org/docs/api-reference-editor-state#push
-      const splitState = EditorState.push(
-        this.state.editorState,
-        newContentState,
-        'split-block'
-      );
-      const targetSelection = splitState.getSelection();
-
-      const originalBlock = currentContent.blockMap.get(
-        newContentState.selectionBefore.getStartKey()
-      );
-      const originalBlockData = originalBlock.getData();
-      const blockSpeaker = originalBlockData.get("speaker");
-
-      let wordStartTime = "NA";
-      // eslint-disable-next-line prefer-const
-      let isEndOfParagraph = false;
-      // identify the entity (word) at the selection/cursor point on split.
-      // eslint-disable-next-line prefer-const
-      let entityKey = originalBlock.getEntityAt(
-        currentSelection.getStartOffset()
-      );
-      // if there is no word entity associated with a char then there is no entity key
-      // at that selection point
-      if (entityKey === null) {
-        const closestEntityToSelection = this.findClosestEntityKeyToSelectionPoint(
-          currentSelection,
-          originalBlock
-        );
-        entityKey = closestEntityToSelection.entityKey;
-        isEndOfParagraph = closestEntityToSelection.isEndOfParagraph;
-        // handle edge case when it doesn't find a closest entity (word)
-        // eg pres enter on an empty line
-        if (entityKey === null) {
-          return "not-handled";
-        }
-      }
-      // if there is an entityKey at or close to the selection point
-      // can get the word startTime. for the new paragraph.
-      const entityInstance = currentContent.getEntity(entityKey);
-      const entityData = entityInstance.getData();
-      if (isEndOfParagraph) {
-        // if it's end of paragraph use end time of word for new paragraph
-        wordStartTime = entityData.end;
-      } else {
-        wordStartTime = entityData.start;
-      }
-      // split paragraph
-      // https://draftjs.org/docs/api-reference-modifier#mergeblockdata
-      const afterMergeContentState = Modifier.mergeBlockData(
-        splitState.getCurrentContent(),
-        targetSelection,
-        {
-          start: wordStartTime,
-          speaker: blockSpeaker
-        }
-      );
-      this.setEditorNewContentState(afterMergeContentState);
-
-      return "handled";
-    }
-
-    return 'not-handled';
   };
 
   /**
@@ -553,7 +529,6 @@ class TimedTextEditor extends React.Component {
           editorState={this.state.editorState}
           onChange={this.onChange}
           stripPastedStyles
-          handleKeyCommand={this.handleKeyCommand}
           customKeyBindingFn={this.customKeyBindingFn}
           spellCheck={this.props.spellCheck}
           showSpeakers={this.props.showSpeakers}

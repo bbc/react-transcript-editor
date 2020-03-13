@@ -11,14 +11,14 @@ class Word extends Component {
     return false;
   }
 
-  generateConfidence = (data) => {
-    // handling edge case where confidence score not present
-    if (data.confidence) {
-      return data.confidence > 0.6 ? 'high' : 'low';
-    }
+  // generateConfidence = (data) => {
+  //   // handling edge case where confidence score not present
+  //   if (data.confidence) {
+  //     return data.confidence > 0.6 ? 'high' : 'low';
+  //   }
 
-    return 'high';
-  }
+  //   return 'high';
+  // }
 
   generatePreviousTimes = (data) => {
     let prevTimes = '';
@@ -37,15 +37,26 @@ class Word extends Component {
   }
 
   render() {
+   console.log('Inside Word blockKey',this.props.blockKey)
+  //  console.log('Inside Word',this.props.contentState.blockMap)
+  //  console.log('Inside Word getBlockForKey',this.props.contentState.getBlockForKey(this.props.entityKey))
+// console.log('this.props.contentState.getEntity(this.props.entityKey)',this.props.contentState.getEntity(this.props.entityKey))
+   
+
     const data = this.props.entityKey
       ? this.props.contentState.getEntity(this.props.entityKey).getData()
       : {};
+
+
+      // const data = this.props.entityKey
+      // ? this.props.contentState.getEntity(this.props.entityKey).getData()
+      // : {};
 
     return (
       <span
         data-start={ data.start }
         data-end={ data.end }
-        data-confidence = { this.generateConfidence(data) }
+        // data-confidence = { this.generateConfidence(data) }
         data-prev-times = { this.generatePreviousTimes(data) }
         data-entity-key={ data.key }
         className="Word">
