@@ -49,7 +49,7 @@ import speechmaticsToDraft from './speechmatics/index';
 
 case 'speechmatics':
       blocks = speechmaticsToDraft(transcriptData);
-      return { blocks, entityMap: createEntityMap(blocks) };
+      return { blocks, entityMap: {} };
 ```
 
 - [ ] add an adapter function.
@@ -81,7 +81,7 @@ wordsByParagraphs.forEach((paragraph, i) => {
       },
       // the entities as ranges are each word in the space-joined text,
       // so it needs to be compute for each the offset from the beginning of the paragraph and the length
-      entityRanges: generateEntitiesRanges(paragraph.words, 'text'), // wordAttributeName
+      entityRanges: [], // wordAttributeName
     };
     // console.log(JSON.stringify(draftJsContentBlockParagraph,null,2))
     results.push(draftJsContentBlockParagraph);

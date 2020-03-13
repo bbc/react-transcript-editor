@@ -7,10 +7,7 @@ import {
   convertFromRaw,
   convertToRaw
  } from 'draft-js';
-
 import SpeakerLabel from './SpeakerLabel';
-// import { shortTimecode, secondsToTimecode } from '../../Util/timecode-converter/';
-
 import {
   shortTimecode,
   secondsToTimecode
@@ -89,7 +86,6 @@ class WrapperBlock extends React.Component {
   componentDidUpdate  = (prevProps, prevState) =>{
     const { block } = this.props;
     if(block.getData().get('speaker') !== prevState.speaker){
-        // console.log('componentDidUpdate wrapper speaker', prevProps.block.getData().get('speaker') , prevState.speaker );
         this.setState({
           speaker: block.getData().get('speaker'),
           words: prevProps.block.getData().get('words') ? block.getData().get('words') : []
@@ -239,13 +235,12 @@ class WrapperBlock extends React.Component {
           contentEditable={ false }
         >
           {this.props.blockProps.showSpeakers ? speakerElement : ''}
-
           {this.props.blockProps.showTimecodes ? timecodeElement : ''}
         </div>
         <div  
-        data-start={this.state.start} 
-        className={ [style.text, 'paragraph' ].join(' ') }
-        data-prev-times={ this.generatePreviousTimes(this.state.words ) }
+          data-start={this.state.start} 
+          className={ [style.text, 'paragraph' ].join(' ') }
+          data-prev-times={ this.generatePreviousTimes(this.state.words ) }
         >
           <EditorBlock { ...this.props } />
         </div>

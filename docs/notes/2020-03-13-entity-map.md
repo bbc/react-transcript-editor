@@ -1,3 +1,5 @@
+removing entity map but keeping in case we ever need it back 
+```js
 /**
  * Helper function to generate draft.js entityMap from draftJS blocks,
  */
@@ -27,3 +29,4 @@ const createEntityMap = (blocks) => {
 };
 
 export default createEntityMap;
+```

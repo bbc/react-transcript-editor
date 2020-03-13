@@ -5,7 +5,7 @@ import {
   faMousePointer,
   faICursor,
   faUserEdit,
-  faSave
+  faShare
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tooltip from 'react-simple-tooltip';
@@ -31,8 +31,8 @@ const helpMessage = (
         Use keyboard shortcuts for quick control.
     </span>
     <span>
-      <FontAwesomeIcon className={ style.icon } icon={ faSave } />
-        Save & export to get a copy to your desktop.
+      <FontAwesomeIcon className={ style.icon } icon={ faShare } />
+        Export to get a copy to your desktop.
     </span>
   </div>
 );

@@ -10,14 +10,15 @@ import {
   Modifier
 } from "draft-js";
 
-
 import CustomEditor from './CustomEditor.js';
 
 import sttJsonAdapter from '../../stt-adapters';
 import exportAdapter from '../../export-adapters';
 import updateTimestamps from './UpdateTimestamps/index.js';
 import style from './index.module.css';
-
+ 
+// helper function 
+// context https://github.com/bbc/react-transcript-editor/issues/150#issuecomment-597901130
 // https://jsfiddle.net/pietrops/sakr9uLo/
 function addCharOffsetToWordsInTranscript(wordsList) {
   let charOffset = 0;
@@ -29,7 +30,7 @@ function addCharOffsetToWordsInTranscript(wordsList) {
     return word;
   })
 }
-
+// helper function 
 function findWordByCharOffset(wordsList, startCharPosition, endCharPosition) {
   // To make it more fuzzy it could also be find first word that
   // endCharPosition >= word.charOffsetEnd
@@ -39,18 +40,6 @@ function findWordByCharOffset(wordsList, startCharPosition, endCharPosition) {
   return wordsList.find((word) => {
     return startCharPosition >= word.charOffsetStart 
     && endCharPosition <= word.charOffsetEnd
-  })
-}
-
-function findWordByCharOffsetStart(wordsList, startCharPosition, endCharPosition) {
-  // To make it more fuzzy it could also be find first word that
-  // endCharPosition >= word.charOffsetEnd
-  // eg if you introduce things like ~Speaker~ and new lines, then 
-  // the correspondence char offset and word in STT transcript
-  // might no longer be exact 
-  return wordsList.find((word) => {
-    return startCharPosition >= word.charOffsetStart 
-    // && endCharPosition <= word.charOffsetEnd
   })
 }
 
@@ -105,21 +94,21 @@ class TimedTextEditor extends React.Component {
         clearTimeout(this.saveTimer);
       }
       this.saveTimer = setTimeout(() => {
-        this.setState(
-          () => ({
-            editorState
-          }),
-          () => {
+        const alignedEditorState = this.updateTimestampsForEditorState(editorState);
+        this.setState({
+            editorState: alignedEditorState
+          },
+          ( ) => {
             // TODO: comment out auto save if get performance issues
-            this.updateTimestampsForEditorState();
-            const format =  this.props.autoSaveContentType;
-            const title = this.props.title;
-            const data = exportAdapter(
-              convertToRaw(editorState.getCurrentContent()),
-              format,
-              title
-            );
-            this.props.handleAutoSaveChanges({data, ext: format});
+              const { editorState} = this.state;
+              const format =  this.props.autoSaveContentType;
+              const title = this.props.title;
+              const data = exportAdapter(
+                convertToRaw(editorState.getCurrentContent()),
+                format,
+                title
+              );
+              this.props.handleAutoSaveChanges({data, ext: format});
           }
         );
       }, 1000);
@@ -130,10 +119,14 @@ class TimedTextEditor extends React.Component {
     }
   };
 
-  updateTimestampsForEditorState() {
+  // updateTimestampsForEditorState doesn't have side effects
+  // it returns editor state, that can then be used to update state 
+  updateTimestampsForEditorState = (editorStateInput) =>{
+    const editorStateFromState  = this.state.editorState;
+    let editorState = editorStateInput? editorStateInput : editorStateFromState;
     // Update timestamps according to the original state.
     const currentContent = convertToRaw(
-      this.state.editorState.getCurrentContent()
+      editorState.getCurrentContent()
     );
     const updatedContentRaw = updateTimestamps(
       currentContent,
@@ -142,13 +135,13 @@ class TimedTextEditor extends React.Component {
     const updatedContent = convertFromRaw(updatedContentRaw);
     // Update editor state
     const newEditorState = EditorState.push(
-      this.state.editorState,
+      editorState,
       updatedContent
     );
     // Re-convert updated content to raw to gain access to block keys
     const updatedContentBlocks = convertToRaw(updatedContent);
     // Get current selection state and update block keys
-    const selectionState = this.state.editorState.getSelection();
+    const selectionState = editorState.getSelection();
     // Check if editor has currently the focus. If yes, keep current selection.
     if (selectionState.getHasFocus()) {
       // Build block map, which maps the block keys of the previous content to the block keys of the
@@ -173,10 +166,8 @@ class TimedTextEditor extends React.Component {
         newEditorState,
         selection
       );
-      this.setState({ editorState: newEditorStateSelected });
       return newEditorStateSelected;
     } else {
-      this.setState({ editorState: newEditorState });
       return newEditorState;
     }
   }
@@ -187,9 +178,6 @@ class TimedTextEditor extends React.Component {
         this.props.transcriptData,
         this.props.sttJsonType
       );
-      // TODO: did we need to  convertToRaw(convertFromRaw()) ? commenting out for now
-      // this.setState({ originalState: convertToRaw(convertFromRaw(blocks)) });
-
       const backupStateDPE = exportAdapter(blocks, 'digitalpaperedit','json');
       const dpeWords = backupStateDPE.data.words;
       const depWordsWithCharOffset = addCharOffsetToWordsInTranscript(dpeWords)
@@ -200,19 +188,18 @@ class TimedTextEditor extends React.Component {
 
   getEditorContent(exportFormat, title) {
     const format = exportFormat || 'draftjs';
-    const tmpEditorState = this.updateTimestampsForEditorState();
-    console.log('tmpEditorState', tmpEditorState);
-    return exportAdapter(
-      convertToRaw(tmpEditorState.getCurrentContent()),
-      format,
-      title
-    );
+    const {editorState} = this.state;
+    const alignedEditorState = this.updateTimestampsForEditorState(editorState);
+      return exportAdapter(
+        convertToRaw(alignedEditorState.getCurrentContent()),
+        format,
+        title
+      );
   }
 
   // click on words - for navigation
   // eslint-disable-next-line class-methods-use-this
   handleDoubleClick = event => {
-    // console.log('handleDoubleClick',event)
     const { editorState } = this.state;
     var selectionState = editorState.getSelection();
     var anchorKey = selectionState.getAnchorKey();
@@ -221,7 +208,7 @@ class TimedTextEditor extends React.Component {
     var start = selectionState.getStartOffset();
     var end = selectionState.getEndOffset();
 
-    // If block has got data, keep it simple and look forcurrentBlockDataWords info withing the available data
+    // If block has got data, keep it simple and look for currentBlockDataWords info withing the available data
     const currentBlockData = currentContentBlock.getData();
     const currentBlockDataWords = currentBlockData.get('words');
     if(currentBlockDataWords){
@@ -249,6 +236,8 @@ class TimedTextEditor extends React.Component {
       }
     } else {
       // If it the paragraph block does not have word data info 
+      // if we run realignement, it might be the case that block always has data
+      // but keepting this for now in case we need to turns of realignement for performance reasons
       const blocksAsArray = currentContent.getBlocksAsArray();
       const currentBlockIndex = blocksAsArray.findIndex((block)=>{
         return currentContentBlock.getKey()=== block.getKey()
@@ -264,7 +253,6 @@ class TimedTextEditor extends React.Component {
 
       const dpeWordsWithChar = this.state.depWordsWithCharOffset;
       const currentDPEWord = findWordByCharOffset(dpeWordsWithChar, charCountPreviousBlocks+start, charCountPreviousBlocks+end) 
-      console.log('currentDPEWord',currentDPEWord)
       if(currentDPEWord){
         this.props.onWordClick(currentDPEWord.start);
       }else{
@@ -293,12 +281,7 @@ class TimedTextEditor extends React.Component {
   setEditorContentState = data => {
     const contentState = convertFromRaw(data);
     // eslint-disable-next-line no-use-before-define
-
-    // TODO: could also remove the word decorator all together?
      const editorState = EditorState.createWithContent(contentState);
-    // const editorState = EditorState.createWithContent(contentState, decorator);
-   
-
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({
         category: "TimedTextEditor",
@@ -310,36 +293,54 @@ class TimedTextEditor extends React.Component {
 
     this.setState({ editorState });
   };
-  
+
   /**
    * Update Editor content state
    */
   setEditorNewContentState = newContentState => {
-    // const decorator = this.state.editorState.getDecorator();
-    // const newState = EditorState.createWithContent(newContentState, decorator);
     const newState = EditorState.createWithContent(newContentState);
     const editorState = EditorState.push(
       newState,
       newContentState
     );
-    this.setState({ editorState }, 
+    this.setState((prevState)=>{ 
+      const selectionState = prevState.editorState.getSelection();
+        if (selectionState.getHasFocus()) {
+          const selection = selectionState.merge({
+            anchorOffset: selectionState.getAnchorOffset(),
+            // anchorKey: blockMap[selectionState.getAnchorKey()],
+            focusOffset: selectionState.getFocusOffset(),
+            // focusKey: blockMap[selectionState.getFocusKey()]
+          });
+
+          const newEditorStateSelected = EditorState.forceSelection(
+            editorState,
+            selection
+          );
+          const alignedEditorState =  this.updateTimestampsForEditorState(newEditorStateSelected);
+          return { editorState: alignedEditorState } 
+       
+        }else{
+          const alignedEditorState =  this.updateTimestampsForEditorState(editorState);
+          return { editorState: alignedEditorState } 
+        }
+      },
       ()=>{
       // TODO: comment out auto save if get performance issues
-      this.updateTimestampsForEditorState();
-      const format =  this.props.autoSaveContentType;
-      const title = this.props.title;
-      const data = exportAdapter(
-        convertToRaw(editorState.getCurrentContent()),
-        format,
-        title
-      );
-     this.props.handleAutoSaveChanges({data, ext: format});
+        const { editorState } = this.state;
+        const format =  this.props.autoSaveContentType;
+        const title = this.props.title;
+        const data = exportAdapter(
+          convertToRaw(editorState.getCurrentContent()),
+          format,
+          title
+        );
+       this.props.handleAutoSaveChanges({data, ext: format});
+     
     });
   };
 
   setEditorNewContentStateSpeakersUpdate = newContentState => {
-    // const decorator = this.state.editorState.getDecorator();
-    // const newState = EditorState.createWithContent(newContentState, decorator);
     const newState = EditorState.createWithContent(newContentState);
     const editorState = EditorState.push(
       newState,
@@ -383,19 +384,11 @@ class TimedTextEditor extends React.Component {
 
       return "split-paragraph";	
     }
-
-    // if (e.keyCode === deleteKey) {	
-    //   console.log('customKeyBindingFn handle-delete');	
-    
-    //   return "handle-delete";	
-    // }
-
     // if alt key is pressed in combination with these other keys
     if (
       e.altKey &&
       (e.keyCode === enterKey ||
         e.keyCode === spaceKey ||
-        // e.keyCode === deleteKey ||
         e.keyCode === kKey ||
         e.keyCode === lKey ||
         e.keyCode === jKey ||
@@ -417,43 +410,14 @@ class TimedTextEditor extends React.Component {
    */	
   handleKeyCommand = command => {	
     if (command === 'split-paragraph') {	
-      this.splitParagraph();	
-    }	
-
-    // if (command === 'handle-delete') {	
-    //   this.handleDelete();	
-    // }	
+      this.handleSplitParagraph();	
+    }
 
     if (command === "keyboard-shortcuts") {	
       return "handled";	
     }	
     return 'not-handled';	
   };	
-
-  // handleDelete = () =>{
-  //   console.log('handle delete');
-  //   const currentContent = this.state.editorState.getCurrentContent();
-  //   const currentSelection = this.state.editorState.getSelection();	
-  //   const originalBlock = currentContent.blockMap.get(	
-  //     currentContent.selectionBefore.getStartKey()	
-  //   );	
-  //   const blockLength = originalBlock.getLength();
-  //   var endSelectionOffsetInCurrentBlock = currentSelection.getEndOffset();
-  //   var startSelectionOffsetInCurrentBlock = currentSelection.getStartOffset();
-  //       // if cursor is at beginnign of end of paragraph block 
-  //     // pressing enter would create an empty block
-  //     // this can create issues 
-  //     // so this stops it from happening 
-  //     console.log('startSelectionOffsetInCurrentBlock',startSelectionOffsetInCurrentBlock)
-  //     console.log('endSelectionOffsetInCurrentBlock',endSelectionOffsetInCurrentBlock)
-  //     console.log('blockLength',blockLength)
-  //     if(endSelectionOffsetInCurrentBlock === blockLength 
-  //       || startSelectionOffsetInCurrentBlock === 0 ){
-  //       console.log('Beginnign or end of block ')
-  //       return "not-handled";	
-  //     }
-  //     return "handled";	
-  // }
 
   /**	
    * Helper function to handle splitting paragraphs with return key	
@@ -462,8 +426,8 @@ class TimedTextEditor extends React.Component {
    * as well as speaker name to new paragraph	
    * TODO: move into its own file as helper function	
    */	
-  splitParagraph = () => {	
-    console.log('splitParagraph')
+  handleSplitParagraph = () => {	
+    console.log('handleSplitParagraph')
     // https://github.com/facebook/draft-js/issues/723#issuecomment-367918580	
     // https://draftjs.org/docs/api-reference-selection-state#start-end-vs-anchor-focus	
     const currentSelection = this.state.editorState.getSelection();	
@@ -487,34 +451,6 @@ class TimedTextEditor extends React.Component {
       const originalBlock = currentContent.blockMap.get(	
         newContentState.selectionBefore.getStartKey()	
       );	
-
-      var endSelectionOffsetInCurrentBlock = currentSelection.getEndOffset();
-      var startSelectionOffsetInCurrentBlock = currentSelection.getStartOffset();
-    
-      const blockLength = originalBlock.getLength();
-
-      if(endSelectionOffsetInCurrentBlock !== startSelectionOffsetInCurrentBlock){
-        if(endSelectionOffsetInCurrentBlock === blockLength ||endSelectionOffsetInCurrentBlock==0 ){
-          return "not-handled";	
-        }
-      }
-     
-   
-      // if select a whole paragraph then hit delete, these could cause an 
-      // empty paragraph and that could cause probelms 
-      console.log('startSelectionOffsetInCurrentBlock',startSelectionOffsetInCurrentBlock)
-      console.log('endSelectionOffsetInCurrentBlock',endSelectionOffsetInCurrentBlock)
-      console.log('blockLength',blockLength)
-      if(endSelectionOffsetInCurrentBlock === blockLength 
-        || startSelectionOffsetInCurrentBlock === 0 ){
-        console.log('Beginnign or end of block ')
-        return "not-handled";	
-      }
-
-         // if cursor is at beginnign of end of paragraph block 
-      // pressing enter would create an empty block
-      // this can create issues 
-      // so this stops it from happening 
       const originalBlockData = originalBlock.getData();	
       if(originalBlockData){
           const blockSpeaker = originalBlockData.get("speaker");	
@@ -532,13 +468,13 @@ class TimedTextEditor extends React.Component {
           return "handled";	
       }
       return "handled";	
-    }	
+    }
 
     return 'not-handled';	
   };
 
   /**
-   * Helper function for splitParagraph
+   * Helper function for handleSplitParagraph
    * to find the closest entity (word) to a selection point
    * that does not fall on an entity to begin with
    * Looks before if it's last char in a paragraph block.
@@ -584,76 +520,20 @@ class TimedTextEditor extends React.Component {
     return { entityKey, isEndOfParagraph };
   };
 
-  getCurrentWord = () => {
-    const currentWord = {
-      start: "NA",
-      end: "NA"
-    };
-
-    if (this.props.transcriptData) {
-      const contentState = this.state.editorState.getCurrentContent();
-      // TODO: using convertToRaw here might be slowing down performance(?)
-      const contentStateConvertEdToRaw = convertToRaw(contentState);
-      const entityMap = contentStateConvertEdToRaw.entityMap;
-
-      for (var entityKey in entityMap) {
-        const entity = entityMap[entityKey];
-        const word = entity.data;
-
-        if (
-          word.start <= this.props.currentTime &&
-          word.end >= this.props.currentTime
-        ) {
-          currentWord.start = word.start;
-          currentWord.end = word.end;
-        }
-      }
-    }
-
-    if (currentWord.start !== "NA") {
-      if (this.props.isScrollIntoViewOn) {
-        const currentWordElement = document.querySelector(
-          `span.Word[data-start="${ currentWord.start }"]`
-        );
-        currentWordElement.scrollIntoView({
-          block: 'nearest',
-          inline: 'center'
-        });
-      }
-    }
-
-    return currentWord;
-  };
-
   onWordClick = e => {
     this.props.onWordClick(e);
   };
 
   render() {
-    // console.log('render TimedTextEditor');
-    const currentWord = this.getCurrentWord();
-    const highlightColour = "#69e3c2";
     const unplayedColor = "#767676";
-    const correctionBorder = "1px dotted blue";
-
     // Time to the nearest half second
-    const time = Math.round(this.props.currentTime * 4.0) / 4.0;
-
+    const time = Math.floor(Math.round(this.props.currentTime * 4.0) / 4.0);
     const editor = (
       <section
         className={style.editor}
         onDoubleClick={this.handleDoubleClick}
-        // TODO: decide if on mobile want to have a way to "click" on words
-        // to play corresponding media
-        // a double tap would be the ideal solution
-        // onTouchStart={ event => this.handleDoubleClick(event) }
       >
         <style scoped>
-          {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
-          {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
-          {`.paragraph[data-prev-times~="${ Math.floor(
-            time
-          ) }"] { color: ${ unplayedColor } }`}
           {`.paragraph[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
         </style>
         <CustomEditor
@@ -679,32 +559,6 @@ class TimedTextEditor extends React.Component {
     );
   }
 }
-
-// DraftJs decorator to recognize which entity is which
-// and know what to apply to what component
-const getEntityStrategy = mutability => (
-  contentBlock,
-  callback,
-  contentState
-) => {
-  contentBlock.findEntityRanges(character => {
-    const entityKey = character.getEntity();
-    if (entityKey === null) {
-      return false;
-    }
-
-    return contentState.getEntity(entityKey).getMutability() === mutability;
-  }, callback);
-};
-
-// decorator definition - Draftjs
-// defines what to use to render the entity
-// const decorator = new CompositeDecorator([
-//   {
-//     strategy: getEntityStrategy('MUTABLE'),
-//     component: Word
-//   }
-// ]);
 
 TimedTextEditor.propTypes = {
   transcriptData: PropTypes.object,
