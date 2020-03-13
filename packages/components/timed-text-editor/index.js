@@ -76,24 +76,6 @@ class TimedTextEditor extends React.Component {
     return false;
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      prevProps.timecodeOffset !== this.props.timecodeOffset ||
-      prevProps.showSpeakers !== this.props.showSpeakers ||
-      prevProps.showTimecodes !== this.props.showTimecodes ||
-      prevProps.isEditable !== this.props.isEditable
-    ) {
-      // forcing a re-render is an expensive operation and
-      // there might be a way of optimising this at a later refactor (?)
-      // the issue is that WrapperBlock is not update on TimedTextEditor
-      // state change otherwise.
-      // for now compromising on this, as setting timecode offset, and
-      // display preferences for speakers and timecodes are not expected to
-      // be very frequent operations but rather one time setup in most cases.
-      this.forceRenderDecorator();
-    }
-  }
-
   onChange = editorState => {
     // https://draftjs.org/docs/api-reference-editor-state#lastchangetype
     // https://draftjs.org/docs/api-reference-editor-change-type
@@ -326,23 +308,9 @@ class TimedTextEditor extends React.Component {
       });
     }
 
-    this.setState({ editorState }, ()=>{
-      this.forceRenderDecorator();
-    });
+    this.setState({ editorState });
   };
-
-  // Helper function to re-render this component
-  // used to re-render WrapperBlock on timecode offset change
-  // or when show / hide preferences for speaker labels and timecodes change
-  forceRenderDecorator = () => {
-    const contentState = this.state.editorState.getCurrentContent();
-    // const decorator = this.state.editorState.getDecorator();
-    // const newState = EditorState.createWithContent(contentState, decorator);
-    const newState = EditorState.createWithContent(contentState);
-    const newEditorState = EditorState.push(newState, contentState);
-    this.setState({ editorState: newEditorState });
-  };
-
+  
   /**
    * Update Editor content state
    */

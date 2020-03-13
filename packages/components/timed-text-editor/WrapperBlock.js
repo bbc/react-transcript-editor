@@ -201,14 +201,7 @@ class WrapperBlock extends React.Component {
       let prevTimes = '';
 
       for (let i = 0; i < data.length; i++) {
-        // if ( data[i].start % 1 > 0) {
-        //   // Find the closest quarter-second to the current time, for more dynamic results
-        //   const dec = Math.floor((data[i].start % 1) * 4.0) / 4.0;
-        //   prevTimes += ` ${ Math.floor(data[i].start) + dec }`;
-        // }
-        // else{
           prevTimes += `${ parseInt(data[i].start) } `;
-        // }
       }
   
       return prevTimes;
