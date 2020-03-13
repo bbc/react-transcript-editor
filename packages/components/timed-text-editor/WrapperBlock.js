@@ -50,7 +50,8 @@ class WrapperBlock extends React.Component {
 
     this.setState({
       speaker: speaker,
-      start: start
+      start: start,
+      words: this.getWordsBeforeBlock(block)
     });
   }
   // reducing unnecessary re-renders
@@ -86,15 +87,47 @@ class WrapperBlock extends React.Component {
   };
 
   componentDidUpdate  = (prevProps, prevState) =>{
-
+    const { block } = this.props;
     if(prevProps.block.getData().get('speaker') !== prevState.speaker){
         // console.log('componentDidUpdate wrapper speaker', prevProps.block.getData().get('speaker') , prevState.speaker );
         this.setState({
-          speaker: prevProps.block.getData().get('speaker')
+          speaker: prevProps.block.getData().get('speaker'),
+          words: prevProps.block.getData().get('words') ?prevProps.block.getData().get('words') : []
         })
 
         return true;
       }
+
+      if(prevProps.block.getData().get('words') !== prevState.words){
+        const start = block.getData().get('start');
+
+        this.setState({
+          start: start,
+          words: this.getWordsBeforeBlock(block)
+        });
+
+        return true;
+      }
+  }
+
+  // we get all words inside the blocks before the current one
+  // and add them to the attribute data prev-time
+  // to do css injection to show current paragraph positioning in text
+  getWordsBeforeBlock = (block)=>{
+    const blockId = block.getKey();
+        const currentContent = this.props.blockProps.editorState.getCurrentContent();
+        const blocksAsArray = currentContent.getBlocksAsArray();
+        const currentBlockIndex = blocksAsArray.findIndex((block)=>{
+          return  blockId=== block.getKey()
+        }) 
+    
+        const blocksBeforeCurrentBlock = blocksAsArray.slice(0,currentBlockIndex);
+        const wordsBefore = blocksBeforeCurrentBlock.map((block)=>{
+          const words = block.getData().get('words') ? block.getData().get('words') : [];
+          return words;
+        })
+        const wordsBeforeFlatten = wordsBefore.flat(2);
+        return wordsBeforeFlatten;
   }
 
   handleOnClickEdit = () => {
@@ -163,6 +196,28 @@ class WrapperBlock extends React.Component {
     }
   };
 
+  generatePreviousTimes = (data) => {
+    if(data){
+      let prevTimes = '';
+
+      for (let i = 0; i < data.length; i++) {
+        // if ( data[i].start % 1 > 0) {
+        //   // Find the closest quarter-second to the current time, for more dynamic results
+        //   const dec = Math.floor((data[i].start % 1) * 4.0) / 4.0;
+        //   prevTimes += ` ${ Math.floor(data[i].start) + dec }`;
+        // }
+        // else{
+          prevTimes += `${ parseInt(data[i].start) } `;
+        // }
+      }
+  
+      return prevTimes;
+    }
+    else{
+      return '';
+    }
+  }
+
   render() {
     let startTimecode = this.state.start;
     if (this.props.blockProps.timecodeOffset) {
@@ -185,7 +240,7 @@ class WrapperBlock extends React.Component {
     // );
 
     return (
-      <div className={ style.WrapperBlock }>
+      <div className={[ style.WrapperBlock].join(' ')}>
         <div
           className={ [ style.markers, style.unselectable ].join(' ') }
           contentEditable={ false }
@@ -194,7 +249,11 @@ class WrapperBlock extends React.Component {
 
           {/* {this.props.blockProps.showTimecodes ? timecodeElement : ''} */}
         </div>
-        <div className={ style.text }>
+        <div  
+        data-start={this.state.start} 
+        className={ [style.text, 'paragraph' ].join(' ') }
+        data-prev-times={ this.generatePreviousTimes(this.state.words ) }
+        >
           <EditorBlock { ...this.props } />
         </div>
       </div>

@@ -129,9 +129,8 @@ class TimedTextEditor extends React.Component {
             editorState
           }),
           () => {
-            // TODO: Comment out auto save for performance 
+            // TODO: comment out auto save if get performance issues
             const data = this.updateTimestampsForEditorState();
-            // const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title);
             this.props.handleAutoSaveChanges(data);
           }
         );
@@ -353,7 +352,12 @@ class TimedTextEditor extends React.Component {
       newState,
       newContentState
     );
-    this.setState({ editorState: newEditorState });
+    this.setState({ editorState: newEditorState }, 
+      ()=>{
+      // TODO: comment out auto save if get performance issues
+     const data = this.updateTimestampsForEditorState();
+     this.props.handleAutoSaveChanges(data);
+    });
   };
 
   setEditorNewContentStateSpeakersUpdate = newContentState => {
@@ -369,7 +373,7 @@ class TimedTextEditor extends React.Component {
         editorState
       }),
       () => {
-        // TODO: comment out auto save 
+        // TODO: comment out auto save if get performance issues
         const format =  this.props.autoSaveContentType;
         const title = this.props.title;
 
@@ -475,6 +479,7 @@ console.log('e.keyCode',e.keyCode)
   //     }
   //     return "handled";	
   // }
+
   /**	
    * Helper function to handle splitting paragraphs with return key	
    * on enter key, perform split paragraph at selection point.	
@@ -548,6 +553,8 @@ console.log('e.keyCode',e.keyCode)
             }	
           );	
           this.setEditorNewContentState(afterMergeContentState);	
+
+        
 
           return "handled";	
       }
@@ -671,11 +678,10 @@ console.log('e.keyCode',e.keyCode)
         <style scoped>
           {`span.Word[data-start="${ currentWord.start }"] { background-color: ${ highlightColour }; text-shadow: 0 0 0.01px black }`}
           {`span.Word[data-start="${ currentWord.start }"]+span { background-color: ${ highlightColour } }`}
-          {`span.Word[data-prev-times~="${ Math.floor(
+          {`.paragraph[data-prev-times~="${ Math.floor(
             time
           ) }"] { color: ${ unplayedColor } }`}
-          {`span.Word[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
-          {`span.Word[data-confidence="low"] { border-bottom: ${ correctionBorder } }`}
+          {`.paragraph[data-prev-times~="${ time }"] { color: ${ unplayedColor } }`}
         </style>
         <CustomEditor
           editorState={this.state.editorState}

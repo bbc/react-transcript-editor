@@ -23,7 +23,7 @@ class Word extends Component {
   generatePreviousTimes = (data) => {
     let prevTimes = '';
 
-    for (let i = 0; i < data.start; i++) {
+    for (let i = 0; i < data.length; i++) {
       prevTimes += `${ i } `;
     }
 
