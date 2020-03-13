@@ -43,6 +43,18 @@ function findWordByCharOffset(wordsList, startCharPosition, endCharPosition) {
   })
 }
 
+function findWordByCharOffsetStart(wordsList, startCharPosition, endCharPosition) {
+  // To make it more fuzzy it could also be find first word that
+  // endCharPosition >= word.charOffsetEnd
+  // eg if you introduce things like ~Speaker~ and new lines, then 
+  // the correspondence char offset and word in STT transcript
+  // might no longer be exact 
+  return wordsList.find((word) => {
+    return startCharPosition >= word.charOffsetStart 
+    // && endCharPosition <= word.charOffsetEnd
+  })
+}
+
 class TimedTextEditor extends React.Component {
   constructor(props) {
     super(props);
@@ -376,6 +388,8 @@ class TimedTextEditor extends React.Component {
    * Listen for draftJs custom key bindings
    */
   customKeyBindingFn = e => {
+    const enterKey = 13;
+    const deleteKey = 8;
     const spaceKey = 32;
     const kKey = 75;
     const lKey = 76;
@@ -384,12 +398,25 @@ class TimedTextEditor extends React.Component {
     const minusKey = 189; // -
     const rKey = 82;
     const tKey = 84;
+console.log('e.keyCode',e.keyCode)
+    if (e.keyCode === enterKey) {	
+      console.log('customKeyBindingFn split-paragraph');	
+
+      return "split-paragraph";	
+    }
+
+    // if (e.keyCode === deleteKey) {	
+    //   console.log('customKeyBindingFn handle-delete');	
+    
+    //   return "handle-delete";	
+    // }
 
     // if alt key is pressed in combination with these other keys
     if (
       e.altKey &&
-      (e.keyCode === spaceKey ||
+      (e.keyCode === enterKey ||
         e.keyCode === spaceKey ||
+        // e.keyCode === deleteKey ||
         e.keyCode === kKey ||
         e.keyCode === lKey ||
         e.keyCode === jKey ||
@@ -404,6 +431,130 @@ class TimedTextEditor extends React.Component {
     }
 
     return getDefaultKeyBinding(e);
+  };
+
+   /**	
+   * Handle draftJs custom key commands	
+   */	
+  handleKeyCommand = command => {	
+    if (command === 'split-paragraph') {	
+      this.splitParagraph();	
+    }	
+
+    // if (command === 'handle-delete') {	
+    //   this.handleDelete();	
+    // }	
+
+    if (command === "keyboard-shortcuts") {	
+      return "handled";	
+    }	
+    return 'not-handled';	
+  };	
+
+  // handleDelete = () =>{
+  //   console.log('handle delete');
+  //   const currentContent = this.state.editorState.getCurrentContent();
+  //   const currentSelection = this.state.editorState.getSelection();	
+  //   const originalBlock = currentContent.blockMap.get(	
+  //     currentContent.selectionBefore.getStartKey()	
+  //   );	
+  //   const blockLength = originalBlock.getLength();
+  //   var endSelectionOffsetInCurrentBlock = currentSelection.getEndOffset();
+  //   var startSelectionOffsetInCurrentBlock = currentSelection.getStartOffset();
+  //       // if cursor is at beginnign of end of paragraph block 
+  //     // pressing enter would create an empty block
+  //     // this can create issues 
+  //     // so this stops it from happening 
+  //     console.log('startSelectionOffsetInCurrentBlock',startSelectionOffsetInCurrentBlock)
+  //     console.log('endSelectionOffsetInCurrentBlock',endSelectionOffsetInCurrentBlock)
+  //     console.log('blockLength',blockLength)
+  //     if(endSelectionOffsetInCurrentBlock === blockLength 
+  //       || startSelectionOffsetInCurrentBlock === 0 ){
+  //       console.log('Beginnign or end of block ')
+  //       return "not-handled";	
+  //     }
+  //     return "handled";	
+  // }
+  /**	
+   * Helper function to handle splitting paragraphs with return key	
+   * on enter key, perform split paragraph at selection point.	
+   * Add timecode of next word after split to paragraph	
+   * as well as speaker name to new paragraph	
+   * TODO: move into its own file as helper function	
+   */	
+  splitParagraph = () => {	
+    console.log('splitParagraph')
+    // https://github.com/facebook/draft-js/issues/723#issuecomment-367918580	
+    // https://draftjs.org/docs/api-reference-selection-state#start-end-vs-anchor-focus	
+    const currentSelection = this.state.editorState.getSelection();	
+    // only perform if selection is not selecting a range of words	
+    // in that case, we'd expect delete + enter to achieve same result.	
+    if (currentSelection.isCollapsed()) {	
+      const currentContent = this.state.editorState.getCurrentContent();	
+      // https://draftjs.org/docs/api-reference-modifier#splitblock	
+      const newContentState = Modifier.splitBlock(	
+        currentContent,	
+        currentSelection	
+      );	
+      // https://draftjs.org/docs/api-reference-editor-state#push	
+      const splitState = EditorState.push(	
+        this.state.editorState,	
+        newContentState,	
+        'split-block'	
+      );	
+      const targetSelection = splitState.getSelection();	
+
+      const originalBlock = currentContent.blockMap.get(	
+        newContentState.selectionBefore.getStartKey()	
+      );	
+
+      var endSelectionOffsetInCurrentBlock = currentSelection.getEndOffset();
+      var startSelectionOffsetInCurrentBlock = currentSelection.getStartOffset();
+    
+      const blockLength = originalBlock.getLength();
+
+      if(endSelectionOffsetInCurrentBlock !== startSelectionOffsetInCurrentBlock){
+        if(endSelectionOffsetInCurrentBlock === blockLength ||endSelectionOffsetInCurrentBlock==0 ){
+          return "not-handled";	
+        }
+      }
+     
+   
+      // if select a whole paragraph then hit delete, these could cause an 
+      // empty paragraph and that could cause probelms 
+      console.log('startSelectionOffsetInCurrentBlock',startSelectionOffsetInCurrentBlock)
+      console.log('endSelectionOffsetInCurrentBlock',endSelectionOffsetInCurrentBlock)
+      console.log('blockLength',blockLength)
+      if(endSelectionOffsetInCurrentBlock === blockLength 
+        || startSelectionOffsetInCurrentBlock === 0 ){
+        console.log('Beginnign or end of block ')
+        return "not-handled";	
+      }
+
+         // if cursor is at beginnign of end of paragraph block 
+      // pressing enter would create an empty block
+      // this can create issues 
+      // so this stops it from happening 
+      const originalBlockData = originalBlock.getData();	
+      if(originalBlockData){
+          const blockSpeaker = originalBlockData.get("speaker");	
+          // split paragraph	
+          // https://draftjs.org/docs/api-reference-modifier#mergeblockdata	
+          const afterMergeContentState = Modifier.mergeBlockData(	
+            splitState.getCurrentContent(),	
+            targetSelection,	
+            {	
+              speaker: blockSpeaker	
+            }	
+          );	
+          this.setEditorNewContentState(afterMergeContentState);	
+
+          return "handled";	
+      }
+      return "handled";	
+    }	
+
+    return 'not-handled';	
   };
 
   /**
@@ -530,6 +681,7 @@ class TimedTextEditor extends React.Component {
           editorState={this.state.editorState}
           onChange={this.onChange}
           stripPastedStyles
+          handleKeyCommand={this.handleKeyCommand}
           customKeyBindingFn={this.customKeyBindingFn}
           spellCheck={this.props.spellCheck}
           showSpeakers={this.props.showSpeakers}

@@ -12,9 +12,9 @@ export default (blockData) => {
       // should be updated as well
       const tmpParagraph = {
         id: index,
-        start: block.data.words[0].start, //block.data.start,
-        end: block.data.words[block.data.words.length - 1].end,
-        speaker: block.data.speaker
+        start: block.data &&  block.data.words? block.data.words[0].start : null, //block.data.start,
+        end: block.data  && block.data.words? block.data.words[block.data.words.length - 1].end: null,
+        speaker: block.data &&  block.data.speaker? block.data.speaker : 'U_UKN'
       };
       result.paragraphs.push(tmpParagraph);
       // using data within a block to get words info

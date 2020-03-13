@@ -4,7 +4,6 @@ import speechmaticsToDraft from './speechmatics/index';
 import amazonTranscribeToDraft from './amazon-transcribe/index';
 import ibmToDraft from './ibm/index';
 import digitalPaperEditToDraft from './digital-paper-edit/index';
-import createEntityMap from './create-entity-map/index';
 import gcpSttToDraft from './google-stt/index';
 
 /**
@@ -18,35 +17,35 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
   case 'bbckaldi':
     blocks = bbcKaldiToDraft(transcriptData);
 
-    return { blocks, entityMap: createEntityMap(blocks) };
+    return { blocks, entityMap: {} };
   case 'autoedit2':
     blocks = autoEdit2ToDraft(transcriptData);
 
-    return { blocks, entityMap: createEntityMap(blocks) };
+    return { blocks, entityMap: {} };
   case 'speechmatics':
     blocks = speechmaticsToDraft(transcriptData);
 
-    return { blocks, entityMap: createEntityMap(blocks) };
+    return { blocks, entityMap: {} };
   case 'ibm':
     blocks = ibmToDraft(transcriptData);
 
-    return { blocks, entityMap: createEntityMap(blocks) };
+    return { blocks, entityMap: {} };
   case 'draftjs':
     return transcriptData; // (typeof transcriptData === 'string')? JSON.parse(transcriptData): transcriptData;
 
   case 'amazontranscribe':
     blocks = amazonTranscribeToDraft(transcriptData);
 
-    return { blocks, entityMap: createEntityMap(blocks) };
+    return { blocks, entityMap: {} };
   case 'digitalpaperedit':
     blocks = digitalPaperEditToDraft(transcriptData);
 
-    return { blocks, entityMap: createEntityMap(blocks) };
+    return { blocks, entityMap: {} };
 
   case 'google-stt':
     blocks = gcpSttToDraft(transcriptData);
 
-    return { blocks, entityMap: createEntityMap(blocks) };
+    return { blocks, entityMap: {} };
 
   default:
     // code block
@@ -55,4 +54,3 @@ const sttJsonAdapter = (transcriptData, sttJsonType) => {
 };
 
 export default sttJsonAdapter;
-export { createEntityMap };
