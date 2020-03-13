@@ -130,8 +130,16 @@ class TimedTextEditor extends React.Component {
           }),
           () => {
             // TODO: comment out auto save if get performance issues
-            const data = this.updateTimestampsForEditorState();
-            this.props.handleAutoSaveChanges(data);
+            const alignedData = this.updateTimestampsForEditorState();
+            console.log('alignedData');
+            const format =  this.props.autoSaveContentType;
+            const title = this.props.title;
+            const data = exportAdapter(
+              convertToRaw(editorState.getCurrentContent()),
+              format,
+              title
+            );
+            this.props.handleAutoSaveChanges({data, ext: format});
           }
         );
       }, 1000);
@@ -348,15 +356,22 @@ class TimedTextEditor extends React.Component {
   setEditorNewContentState = newContentState => {
     const decorator = this.state.editorState.getDecorator();
     const newState = EditorState.createWithContent(newContentState, decorator);
-    const newEditorState = EditorState.push(
+    const editorState = EditorState.push(
       newState,
       newContentState
     );
-    this.setState({ editorState: newEditorState }, 
+    this.setState({ editorState }, 
       ()=>{
       // TODO: comment out auto save if get performance issues
-     const data = this.updateTimestampsForEditorState();
-     this.props.handleAutoSaveChanges(data);
+      const alignedData = this.updateTimestampsForEditorState();
+      const format =  this.props.autoSaveContentType;
+      const title = this.props.title;
+      const data = exportAdapter(
+        convertToRaw(editorState.getCurrentContent()),
+        format,
+        title
+      );
+     this.props.handleAutoSaveChanges({data, ext: format});
     });
   };
 
@@ -376,13 +391,11 @@ class TimedTextEditor extends React.Component {
         // TODO: comment out auto save if get performance issues
         const format =  this.props.autoSaveContentType;
         const title = this.props.title;
-
         const data = exportAdapter(
           convertToRaw(editorState.getCurrentContent()),
           format,
           title
         );
-
         this.props.handleAutoSaveChanges(data);
       }
     );
@@ -402,7 +415,6 @@ class TimedTextEditor extends React.Component {
     const minusKey = 189; // -
     const rKey = 82;
     const tKey = 84;
-console.log('e.keyCode',e.keyCode)
     if (e.keyCode === enterKey) {	
       console.log('customKeyBindingFn split-paragraph');	
 
