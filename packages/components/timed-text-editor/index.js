@@ -130,8 +130,7 @@ class TimedTextEditor extends React.Component {
           }),
           () => {
             // TODO: comment out auto save if get performance issues
-            const alignedData = this.updateTimestampsForEditorState();
-            console.log('alignedData');
+            this.updateTimestampsForEditorState();
             const format =  this.props.autoSaveContentType;
             const title = this.props.title;
             const data = exportAdapter(
@@ -160,19 +159,15 @@ class TimedTextEditor extends React.Component {
       this.state.depWordsWithCharOffset
     );
     const updatedContent = convertFromRaw(updatedContentRaw);
-
     // Update editor state
     const newEditorState = EditorState.push(
       this.state.editorState,
       updatedContent
     );
-
     // Re-convert updated content to raw to gain access to block keys
     const updatedContentBlocks = convertToRaw(updatedContent);
-
     // Get current selection state and update block keys
     const selectionState = this.state.editorState.getSelection();
-
     // Check if editor has currently the focus. If yes, keep current selection.
     if (selectionState.getHasFocus()) {
       // Build block map, which maps the block keys of the previous content to the block keys of the
@@ -186,14 +181,12 @@ class TimedTextEditor extends React.Component {
         blockMap[currentContent.blocks[blockIdx].key] =
           updatedContentBlocks.blocks[blockIdx].key;
       }
-
       const selection = selectionState.merge({
         anchorOffset: selectionState.getAnchorOffset(),
         anchorKey: blockMap[selectionState.getAnchorKey()],
         focusOffset: selectionState.getFocusOffset(),
         focusKey: blockMap[selectionState.getFocusKey()]
       });
-
       // Set the updated selection state on the new editor state
       const newEditorStateSelected = EditorState.forceSelection(
         newEditorState,
@@ -363,7 +356,7 @@ class TimedTextEditor extends React.Component {
     this.setState({ editorState }, 
       ()=>{
       // TODO: comment out auto save if get performance issues
-      const alignedData = this.updateTimestampsForEditorState();
+      this.updateTimestampsForEditorState();
       const format =  this.props.autoSaveContentType;
       const title = this.props.title;
       const data = exportAdapter(
@@ -565,9 +558,7 @@ class TimedTextEditor extends React.Component {
             }	
           );	
           this.setEditorNewContentState(afterMergeContentState);	
-
-        
-
+          
           return "handled";	
       }
       return "handled";	
