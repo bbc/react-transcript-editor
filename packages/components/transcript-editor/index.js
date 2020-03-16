@@ -361,9 +361,9 @@ class TranscriptEditor extends React.Component {
     }
   };
   updateTimestampsForEditorState = ()=>{
-    this.setState({isTimeStampsSyncking: true}, ()=>{
+    this.setState({isTimeStampsSyncing: true}, ()=>{
       this.timedTextEditorRef.current.updateTimestamps().then((res)=>{
-        this.setState({isTimeStampsSyncking: false})
+        this.setState({isTimeStampsSyncing: false})
       })
     })
   }
