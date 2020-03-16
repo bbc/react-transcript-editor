@@ -52,7 +52,7 @@ class TranscriptEditor extends React.Component {
       previewIsDisplayed: true,
       mediaDuration: "00:00:00:00",
       gridDisplay: null,
-      isTimeStampsSyncking: false
+      isTimeStampsSyncing: false
     };
     this.timedTextEditorRef = React.createRef();
   }
@@ -361,9 +361,9 @@ class TranscriptEditor extends React.Component {
     }
   };
   updateTimestampsForEditorState = ()=>{
-    this.setState({isTimeStampsSyncking: true}, ()=>{
+    this.setState({isTimeStampsSyncing: true}, ()=>{
       this.timedTextEditorRef.current.updateTimestamps().then((res)=>{
-        this.setState({isTimeStampsSyncking: false})
+        this.setState({isTimeStampsSyncing: false})
       })
     })
   }
@@ -393,7 +393,7 @@ class TranscriptEditor extends React.Component {
         handleAnalyticsEvents={this.props.handleAnalyticsEvents}
         videoRef={this.videoRef}
         updateTimestampsForEditorState={this.updateTimestampsForEditorState}
-        isTimeStampsSyncking={this.state.isTimeStampsSyncking}
+        isTimeStampsSyncing={this.state.isTimeStampsSyncing}
       />
     );
 

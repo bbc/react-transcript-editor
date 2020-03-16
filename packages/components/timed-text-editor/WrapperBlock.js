@@ -119,7 +119,7 @@ class WrapperBlock extends React.Component {
     
         const blocksBeforeCurrentBlock = blocksAsArray.slice(0,currentBlockIndex);
         const wordsBefore = blocksBeforeCurrentBlock.map((block)=>{
-          const words = block.getData().get('words') ? block.getData().get('words') : [];
+          const words = block.getData().get('words') || [];
           return words;
         })
         const wordsBeforeFlatten = wordsBefore.flat(2);
@@ -230,7 +230,7 @@ class WrapperBlock extends React.Component {
 
     return (
       <div
-      className={ this.props.blockProps.showTimecodes ? style.WrapperBlock: style.WrapperBlockNoTimedocdes }>
+      className={ this.props.blockProps.showTimecodes ? style.WrapperBlock: style.WrapperBlockNoTimecodes }>
         <div
           className={ [ 
             this.props.blockProps.showTimecodes ? style.markers: style.markersNoTimecodes

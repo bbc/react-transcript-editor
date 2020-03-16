@@ -56,7 +56,7 @@ class CustomEditor extends React.Component {
       <Editor
         editorState={this.props.editorState}
         onChange={this.handleOnChange}
-        stripPastedStyle="true"
+        stripPastedStyle
         blockRendererFn={this.renderBlockWithTimecodes}
         handleKeyCommand={this.props.handleKeyCommand}
         keyBindingFn={this.props.customKeyBindingFn}

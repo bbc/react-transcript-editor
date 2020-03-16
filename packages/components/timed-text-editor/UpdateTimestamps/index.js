@@ -60,7 +60,8 @@ const createContentFromEntityList = (currentContent, newEntities) => {
 // depWordsWithCharOffset
 const updateTimestamps = (currentContent, originalContent) => {
   const currentText = convertContentToText(currentContent);
-  const entities  = originalContent.map((word)=>{
+  const entities = JSON.parse(JSON.stringify(originalContent));
+  entities.map((word)=>{
     word.word = word.text;
     return word;
   });

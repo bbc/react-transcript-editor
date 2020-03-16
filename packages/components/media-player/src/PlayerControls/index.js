@@ -116,7 +116,7 @@ class PlayerControls extends React.Component {
             title="Update transcription's timestamps"
             className={ [style.playerButton].join(' ') }
             onClick={ this.props.updateTimestampsForEditorState }>
-            <FontAwesomeIcon icon={ faSync } className={this.props.isTimeStampsSyncking ? "fa-spin" : "" }/> 
+            <FontAwesomeIcon icon={ faSync } className={this.props.isTimeStampsSyncing ? "fa-spin" : "" }/> 
           </button>
 
           <button

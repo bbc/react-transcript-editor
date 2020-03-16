@@ -40,7 +40,7 @@ to get text out of component with timecodes and speaker names in the interim */
     align-content: center;
   }
 
-  .WrapperBlockNoTimedocdes {
+  .WrapperBlockNoTimecodes {
     margin-bottom: 1em;
     overflow: hidden;
     display: grid;
