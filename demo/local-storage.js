@@ -10,6 +10,7 @@ const localSave = (mediaUrl, fileName, data) => {
     localStorage.setItem(`draftJs-${ mediaUrlName }`, JSON.stringify(data));
   }
   catch(e){
+    // eg a 5 hour transcript, you might exceed local storage space  
     console.error(e)
     alert('Could not save in local storage')
   }

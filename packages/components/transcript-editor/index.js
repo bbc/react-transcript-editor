@@ -47,11 +47,12 @@ class TranscriptEditor extends React.Component {
       isPauseWhileTypingOn: true,
       rollBackValueInSeconds: 15,
       timecodeOffset: 0,
-      showTimecodes: true,
+      showTimecodes: false,
       showSpeakers: true,
       previewIsDisplayed: true,
       mediaDuration: "00:00:00:00",
       gridDisplay: null,
+      isTimeStampsSyncking: false
     };
     this.timedTextEditorRef = React.createRef();
   }
@@ -185,6 +186,7 @@ class TranscriptEditor extends React.Component {
   };
 
   handleShowTimecodes = e => {
+ 
     const isChecked = e.target.checked;
     this.setState({ showTimecodes: isChecked });
 
@@ -358,6 +360,13 @@ class TranscriptEditor extends React.Component {
       this.props.handleAutoSaveChanges(data);
     }
   };
+  updateTimestampsForEditorState = ()=>{
+    this.setState({isTimeStampsSyncking: true}, ()=>{
+      this.timedTextEditorRef.current.updateTimestamps().then((res)=>{
+        this.setState({isTimeStampsSyncking: false})
+      })
+    })
+  }
 
   render() {
     const videoPlayer = (
@@ -383,6 +392,8 @@ class TranscriptEditor extends React.Component {
         mediaUrl={this.props.mediaUrl}
         handleAnalyticsEvents={this.props.handleAnalyticsEvents}
         videoRef={this.videoRef}
+        updateTimestampsForEditorState={this.updateTimestampsForEditorState}
+        isTimeStampsSyncking={this.state.isTimeStampsSyncking}
       />
     );
 

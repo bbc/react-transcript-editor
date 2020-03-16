@@ -88,6 +88,10 @@ class MediaPlayer extends React.Component {
       return true;
     }
 
+    if(nextProps.isTimeStampsSyncking !== this.props.isTimeStampsSyncking){
+      return true;
+    }
+
     return false;
   }
 
@@ -401,6 +405,8 @@ class MediaPlayer extends React.Component {
           playbackRateOptions={ this.state.playbackRateOptions }
           pictureInPicture={ this.handlePictureInPicture }
           rollBackValueInSeconds={this.state.rollBackValueInSeconds}
+          updateTimestampsForEditorState={this.props.updateTimestampsForEditorState}
+          isTimeStampsSyncking={this.props.isTimeStampsSyncking}
         />
         {this.props.mediaUrl ? progressBar : null}
       </div>

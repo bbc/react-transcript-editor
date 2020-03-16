@@ -12,18 +12,24 @@ import {
   localSave
 } from "./local-storage.js";
 
-import DEMO_TRANSCRIPT_KATE from "./sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json";
 const DEMO_MEDIA_URL_KATE =
   "https://download.ted.com/talks/KateDarling_2018S-950k.mp4";
 const DEMO_TITLE_KATE =
   "TED Talk | Kate Darling - Why we have an emotional connection to robots";
+import DEMO_TRANSCRIPT_KATE from "./sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json";
 
-import DEMO_TRANSCRIPT_ZUCK_5HOURS_DPE from "./sample-data/Facebook-CEO-Mark-Zuckerberg-FULL-testimony-before-U.S.senate-pXq-5L2ghhg.mp4.dpe.json";
-import DEMO_TRANSCRIPT_ZUCK_5HOURS_DRAFTJS from "./sample-data/Facebook-CEO-Mark-Zuckerberg-FULL-testimony-before-U.S.senate-pXq-5L2ghhg.mp4.draftjs.json";
 const DEMO_MEDIA_URL_ZUCK_5HOURS =
   "https://democratic-presidential-debate-stt-analyses.s3.us-east-2.amazonaws.com/Facebook+CEO+Mark+Zuckerberg+FULL+testimony+before+U.S.+senate-pXq-5L2ghhg.mp4";
-const DEMO_TITLE_ZUCK =
-  "Facebook CEO Mark Zuckerberg | full testimony before U.S. Senate";
+
+const DEMO_TITLE_ZUCK_5HOURS =
+  "Facebook CEO Mark Zuckerberg | full testimony before U.S. Senate | 5 Hours";
+import DEMO_TRANSCRIPT_ZUCK_5HOURS_DPE from "./sample-data/Facebook-CEO-Mark-Zuckerberg-FULL-testimony-before-U.S.senate-pXq-5L2ghhg.mp4.dpe.json";
+import DEMO_TRANSCRIPT_ZUCK_5HOURS_DRAFTJS from "./sample-data/Facebook-CEO-Mark-Zuckerberg-FULL-testimony-before-U.S.senate-pXq-5L2ghhg.mp4.draftjs.json";
+
+  const DEMO_TITLE_ZUCK_2HOURS =
+  "Facebook CEO Mark Zuckerberg | full testimony before U.S. Senate | 5 Hours";
+  import DEMO_TRANSCRIPT_ZUCK_2HOURS_DPE from "./sample-data/Facebook-CEO-Mark-Zuckerberg-FULL-testimony-before-U.S.senate-pXq-5L2ghhg.mp4.dpe-2hours.json";
+  import DEMO_TRANSCRIPT_ZUCK_2HOURS_DRAFTJS from "./sample-data/Facebook-CEO-Mark-Zuckerberg-FULL-testimony-before-U.S.senate-pXq-5L2ghhg.mp4.draftjs-2hours.json";
 
 const DEMOS = [
   {
@@ -34,16 +40,30 @@ const DEMOS = [
     type: "bbckaldi"
   },
   {
-    id: 'zuckDraftJs',
-    title: DEMO_TITLE_ZUCK,
+    id: 'zuckDraftJs5h',
+    title: DEMO_TITLE_ZUCK_5HOURS,
     json: DEMO_TRANSCRIPT_ZUCK_5HOURS_DRAFTJS,
     url: DEMO_MEDIA_URL_ZUCK_5HOURS,
     type: 'draftjs'
   },
   {
-    id: 'zuckDpe',
-    title: DEMO_TITLE_ZUCK,
+    id: 'zuckDpe5h',
+    title: DEMO_TITLE_ZUCK_5HOURS,
     json: DEMO_TRANSCRIPT_ZUCK_5HOURS_DPE,
+    url: DEMO_MEDIA_URL_ZUCK_5HOURS,
+    type: 'digitalpaperedit'
+  },
+  {
+    id: 'zuckDraftJs2h',
+    title: DEMO_TITLE_ZUCK_2HOURS,
+    json: DEMO_TRANSCRIPT_ZUCK_2HOURS_DRAFTJS,
+    url: DEMO_MEDIA_URL_ZUCK_5HOURS,
+    type: 'draftjs'
+  },
+  {
+    id: 'zuckDpe2h',
+    title: DEMO_TITLE_ZUCK_2HOURS,
+    json: DEMO_TRANSCRIPT_ZUCK_2HOURS_DPE,
     url: DEMO_MEDIA_URL_ZUCK_5HOURS,
     type: 'digitalpaperedit'
   },
@@ -258,17 +278,28 @@ class App extends React.Component {
             </button>
             <button
               className={style.demoButton}
-              onClick={() => this.loadDemo('zuckDraftJs')}
+              onClick={() => this.loadDemo('zuckDraftJs2h')}
+            >
+             Zuck 2h DraftJS
+            </button>
+            <button
+              className={style.demoButton}
+              onClick={() => this.loadDemo('zuckDpe2h')}
+            >
+            Zuck 2h DPE
+            </button>
+            <button
+              className={style.demoButton}
+              onClick={() => this.loadDemo('zuckDraftJs5h')}
             >
              Zuck 5h DraftJS
             </button>
             <button
               className={style.demoButton}
-              onClick={() => this.loadDemo('zuckDpe')}
+              onClick={() => this.loadDemo('zuckDpe5h')}
             >
             Zuck 5h DPE
             </button>
-            
           </section>
 
           <section className={style.demoNavItem}>

@@ -57,13 +57,34 @@ class TimedTextEditor extends React.Component {
     this.loadData();
   }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
-    if (nextProps !== this.props) return true;
 
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps !== this.props) {
+      return true;
+    }
     if (nextState !== this.state) return true;
 
     return false;
   };
+
+  componentDidUpdate(prevProps, prevState) {	
+    if (	
+      prevProps.timecodeOffset !== this.props.timecodeOffset ||	
+      prevProps.showSpeakers !== this.props.showSpeakers ||	
+      prevProps.showTimecodes !== this.props.showTimecodes ||	
+      prevProps.isEditable !== this.props.isEditable	
+    ) {	
+      // forcing a re-render is an expensive operation and	
+      // there might be a way of optimising this at a later refactor (?)	
+      // the issue is that WrapperBlock is not update on TimedTextEditor	
+      // state change otherwise.	
+      // for now compromising on this, as setting timecode offset, and	
+      // display preferences for speakers and timecodes are not expected to	
+      // be very frequent operations but rather one time setup in most cases.	
+      this.forceRenderDecorator();	
+    }	
+  }
+
 
   onChange = editorState => {
     // https://draftjs.org/docs/api-reference-editor-state#lastchangetype
@@ -94,10 +115,9 @@ class TimedTextEditor extends React.Component {
         clearTimeout(this.saveTimer);
       }
       this.saveTimer = setTimeout(() => {
-        const alignedEditorState = this.updateTimestampsForEditorState(editorState);
-        this.setState({
-            editorState: alignedEditorState
-          },
+        // const alignedEditorState = this.updateTimestampsForEditorState(editorState);
+        // this.setState({ editorState: alignedEditorState },
+        this.setState({ editorState: editorState },
           ( ) => {
             // TODO: comment out auto save if get performance issues
               const { editorState} = this.state;
@@ -118,6 +138,22 @@ class TimedTextEditor extends React.Component {
       this.setState({ editorState });
     }
   };
+
+  updateTimestamps=async()=>{
+    return new Promise((resolve, reject)=>{
+      try{
+      const alignedEditorState = this.updateTimestampsForEditorState()
+      // const alignedEditorState =  this.updateTimestampsForEditorState(editorState);
+       this.setState({ editorState: alignedEditorState }, ()=>{
+         resolve()
+       })
+      }catch(e){
+        reject(e)
+      }
+    })
+
+    // return { editorState: editorState } 
+  }
 
   // updateTimestampsForEditorState doesn't have side effects
   // it returns editor state, that can then be used to update state 
@@ -178,11 +214,26 @@ class TimedTextEditor extends React.Component {
         this.props.transcriptData,
         this.props.sttJsonType
       );
-      const backupStateDPE = exportAdapter(blocks, 'digitalpaperedit','json');
-      const dpeWords = backupStateDPE.data.words;
-      const depWordsWithCharOffset = addCharOffsetToWordsInTranscript(dpeWords)
-      this.setState({ originalState: blocks, depWordsWithCharOffset });
+
       this.setEditorContentState(blocks);
+      ///////////////////////////////////////////////
+      // let dpeWords;
+      console.log(' this.props.transcriptData',  this.props.transcriptData)
+      // optimising to avoid converting back and forth if input 
+      // transcript data is already in dpe format 
+      // if(  this.props.sttJsonType === 'digitalpaperedit'){
+      //   dpeWords = this.props.transcriptData.words;
+      // }else{
+        // but if it's not converting in that format for alignement
+        const backupStateDPE = exportAdapter(blocks, 'digitalpaperedit','json');
+        const dpeWords = backupStateDPE.data.words;
+      // }
+      // because commented out alignement for performance boost on longer transcript
+      // adding char offset attribute to the list of words to use to enable  
+      // double click on word jump ~ corresponding point in media 
+      // (fuzzy correspondence better then nothing)
+      const depWordsWithCharOffset = addCharOffsetToWordsInTranscript(dpeWords)
+      this.setState({ depWordsWithCharOffset });
     }
   }
 
@@ -220,8 +271,12 @@ class TimedTextEditor extends React.Component {
         // stt adapter for BBC Kaldi to keep consistency 
         if(word.punct){
           charCount += (word.punct.length+1);
-        }else{
+        }else if(word.word){
           charCount += (word.word.length+1);
+        }else if(word.text){
+          charCount += (word.text.length+1);
+        }else{
+          console.error('Word does not have an attribute with the text ')
         }
         return res
       })
@@ -282,6 +337,11 @@ class TimedTextEditor extends React.Component {
     const contentState = convertFromRaw(data);
     // eslint-disable-next-line no-use-before-define
      const editorState = EditorState.createWithContent(contentState);
+    // this.setState({ editorState });
+    // TODO: ?
+    this.setState({ editorState }, ()=>{	
+      this.forceRenderDecorator();	
+    });
     if (this.props.handleAnalyticsEvents !== undefined) {
       this.props.handleAnalyticsEvents({
         category: "TimedTextEditor",
@@ -291,7 +351,7 @@ class TimedTextEditor extends React.Component {
       });
     }
 
-    this.setState({ editorState });
+
   };
 
   /**
@@ -317,12 +377,13 @@ class TimedTextEditor extends React.Component {
             editorState,
             selection
           );
-          const alignedEditorState =  this.updateTimestampsForEditorState(newEditorStateSelected);
-          return { editorState: alignedEditorState } 
-       
+          // const alignedEditorState =  this.updateTimestampsForEditorState(newEditorStateSelected);
+          // return { editorState: alignedEditorState } 
+          return { editorState: newEditorStateSelected } 
         }else{
-          const alignedEditorState =  this.updateTimestampsForEditorState(editorState);
-          return { editorState: alignedEditorState } 
+          // const alignedEditorState =  this.updateTimestampsForEditorState(editorState);
+          // return { editorState: alignedEditorState } 
+          return { editorState: editorState } 
         }
       },
       ()=>{
@@ -522,6 +583,14 @@ class TimedTextEditor extends React.Component {
 
   onWordClick = e => {
     this.props.onWordClick(e);
+  };
+
+  forceRenderDecorator = () => {	
+    const contentState = this.state.editorState.getCurrentContent();	
+    const decorator = this.state.editorState.getDecorator();	
+    const newState = EditorState.createWithContent(contentState, decorator);	
+    const newEditorState = EditorState.push(newState, contentState);	
+    this.setState({ editorState: newEditorState });	
   };
 
   render() {

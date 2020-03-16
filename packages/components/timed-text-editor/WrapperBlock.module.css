@@ -22,11 +22,29 @@ to get text out of component with timecodes and speaker names in the interim */
     grid-template-columns: 2fr 1fr;
   }
 
+  .markersNoTimecodes {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   .WrapperBlock {
     margin-bottom: 1em;
     overflow: hidden;
     display: grid;
     grid-template-columns: [col-speaker] minmax(200px, 18%) [col-text] minmax(
+      50%,
+      81%
+    );
+    grid-column-gap: 1%;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .WrapperBlockNoTimedocdes {
+    margin-bottom: 1em;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: [col-speaker] minmax(110px, 18%) [col-text] minmax(
       50%,
       81%
     );

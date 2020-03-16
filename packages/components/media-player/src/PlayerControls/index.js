@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import isEqual from 'react-fast-compare';
 
 import {
-  faSave,
+  faSync,
   faTv,
   faPlay,
   faPause,
@@ -107,8 +107,17 @@ class PlayerControls extends React.Component {
             name={ 'playbackRate' }
             handlePlayBackRateChange={ this.props.setPlayBackRate }
           />
+          
 
           {pictureInPicture}
+
+          <button
+            value="updateTimestampsForEditorState"
+            title="Update transcription's timestamps"
+            className={ [style.playerButton].join(' ') }
+            onClick={ this.props.updateTimestampsForEditorState }>
+            <FontAwesomeIcon icon={ faSync } className={this.props.isTimeStampsSyncking ? "fa-spin" : "" }/> 
+          </button>
 
           <button
             value="Toggle Sound"

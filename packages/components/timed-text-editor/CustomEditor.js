@@ -40,6 +40,10 @@ class CustomEditor extends React.Component {
       return true;
     }
 
+    if (nextProps.showTimecodes !== this.props.showTimecodes) {
+      return true;
+    }
+
     return false;
   }
 
@@ -52,11 +56,15 @@ class CustomEditor extends React.Component {
       <Editor
         editorState={this.props.editorState}
         onChange={this.handleOnChange}
-        stripPastedStyles
+        stripPastedStyle="true"
         blockRendererFn={this.renderBlockWithTimecodes}
         handleKeyCommand={this.props.handleKeyCommand}
         keyBindingFn={this.props.customKeyBindingFn}
         spellCheck={this.props.spellCheck}
+        autoCapitalize="true"
+        autoComplete="true"
+        autoCorrect="true"
+        spellCheck="true"
       />
     );
   }

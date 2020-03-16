@@ -2,10 +2,7 @@ import { Document, Paragraph, TextRun, Packer } from 'docx';
 import { shortTimecode } from '../../util/timecode-converter/';
 
 export default (blockData, transcriptTitle) => {
-  // const lines = blockData.blocks.map(x => x.text);
-
   return generateDocxFromDraftJs(blockData, transcriptTitle);
-  // return lines.join('\n\n');
 };
 
 function generateDocxFromDraftJs(blockData, transcriptTitle) {

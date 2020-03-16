@@ -229,9 +229,13 @@ class WrapperBlock extends React.Component {
     );
 
     return (
-      <div className={[ style.WrapperBlock].join(' ')}>
+      <div
+      className={ this.props.blockProps.showTimecodes ? style.WrapperBlock: style.WrapperBlockNoTimedocdes }>
         <div
-          className={ [ style.markers, style.unselectable ].join(' ') }
+          className={ [ 
+            this.props.blockProps.showTimecodes ? style.markers: style.markersNoTimecodes
+            ,
+            style.unselectable ].join(' ') }
           contentEditable={ false }
         >
           {this.props.blockProps.showSpeakers ? speakerElement : ''}
