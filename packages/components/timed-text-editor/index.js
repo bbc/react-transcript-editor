@@ -241,11 +241,13 @@ class TimedTextEditor extends React.Component {
     const format = exportFormat || 'draftjs';
     const {editorState} = this.state;
     const alignedEditorState = this.updateTimestampsForEditorState(editorState);
+    this.setState({editorState: alignedEditorState});
       return exportAdapter(
         convertToRaw(alignedEditorState.getCurrentContent()),
         format,
         title
       );
+
   }
 
   // click on words - for navigation
