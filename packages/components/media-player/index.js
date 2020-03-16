@@ -406,7 +406,7 @@ class MediaPlayer extends React.Component {
           pictureInPicture={ this.handlePictureInPicture }
           rollBackValueInSeconds={this.state.rollBackValueInSeconds}
           updateTimestampsForEditorState={this.props.updateTimestampsForEditorState}
-          isTimeStampsSyncking={this.props.isTimeStampsSyncking}
+          isTimeStampsSyncing={this.props.isTimeStampsSyncing}
         />
         {this.props.mediaUrl ? progressBar : null}
       </div>
