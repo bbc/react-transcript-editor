@@ -48,7 +48,7 @@ class WrapperBlock extends React.Component {
     this.setState({
       speaker: speaker,
       start: start,
-      words: this.getWordsBeforeBlock(block)
+      words: this.getWordsBeforeParagraphBlock(block)
     });
   }
   // reducing unnecessary re-renders
@@ -99,7 +99,7 @@ class WrapperBlock extends React.Component {
 
         this.setState({
           start: start,
-          words: this.getWordsBeforeBlock(block)
+          words: this.getWordsBeforeParagraphBlock(block)
         });
 
         return true;
@@ -109,7 +109,7 @@ class WrapperBlock extends React.Component {
   // we get all words inside the blocks before the current one
   // and add them to the attribute data prev-time
   // to do css injection to show current paragraph positioning in text
-  getWordsBeforeBlock = (block)=>{
+  getWordsBeforeParagraphBlock = (block)=>{
     const blockId = block.getKey();
         const currentContent = this.props.blockProps.editorState.getCurrentContent();
         const blocksAsArray = currentContent.getBlocksAsArray();
