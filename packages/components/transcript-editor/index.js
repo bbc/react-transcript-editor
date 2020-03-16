@@ -393,7 +393,7 @@ class TranscriptEditor extends React.Component {
         handleAnalyticsEvents={this.props.handleAnalyticsEvents}
         videoRef={this.videoRef}
         updateTimestampsForEditorState={this.updateTimestampsForEditorState}
-        isTimeStampsSyncking={this.state.isTimeStampsSyncking}
+        isTimeStampsSyncing={this.state.isTimeStampsSyncing}
       />
     );
 
