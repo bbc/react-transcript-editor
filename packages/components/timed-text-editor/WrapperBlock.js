@@ -230,7 +230,7 @@ class WrapperBlock extends React.Component {
 
     return (
       <div
-      className={ this.props.blockProps.showTimecodes ? style.WrapperBlock: style.WrapperBlockNoTimedocdes }>
+      className={ this.props.blockProps.showTimecodes ? style.WrapperBlock: style.WrapperBlockNoTimecodes }>
         <div
           className={ [ 
             this.props.blockProps.showTimecodes ? style.markers: style.markersNoTimecodes
