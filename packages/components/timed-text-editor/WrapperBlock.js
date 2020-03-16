@@ -119,7 +119,7 @@ class WrapperBlock extends React.Component {
     
         const blocksBeforeCurrentBlock = blocksAsArray.slice(0,currentBlockIndex);
         const wordsBefore = blocksBeforeCurrentBlock.map((block)=>{
-          const words = block.getData().get('words') ? block.getData().get('words') : [];
+          const words = block.getData().get('words') || [];
           return words;
         })
         const wordsBeforeFlatten = wordsBefore.flat(2);
