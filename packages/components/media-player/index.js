@@ -88,7 +88,7 @@ class MediaPlayer extends React.Component {
       return true;
     }
 
-    if(nextProps.isTimeStampsSyncking !== this.props.isTimeStampsSyncking){
+    if(nextProps.isTimeStampsSyncing !== this.props.isTimeStampsSyncing){
       return true;
     }
 
