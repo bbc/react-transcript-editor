@@ -45,7 +45,7 @@ const DEMOS = [
     title: DEMO_TITLE_ZUCK,
     json: DEMO_TRANSCRIPT_ZUCK_5HOURS_DPE,
     url: DEMO_MEDIA_URL_ZUCK_5HOURS,
-    type: 'dpe'
+    type: 'digitalpaperedit'
   },
 ]
 

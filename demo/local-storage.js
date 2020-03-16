@@ -6,8 +6,13 @@ const localSave = (mediaUrl, fileName, data) => {
   if (mediaUrlName.includes('blob')) {
     mediaUrlName = fileName;
   }
-
-  localStorage.setItem(`draftJs-${ mediaUrlName }`, JSON.stringify(data));
+  try {
+    localStorage.setItem(`draftJs-${ mediaUrlName }`, JSON.stringify(data));
+  }
+  catch(e){
+    console.error(e)
+    alert('Could not save in local storage')
+  }
 };
 
 // eslint-disable-next-line class-methods-use-this
