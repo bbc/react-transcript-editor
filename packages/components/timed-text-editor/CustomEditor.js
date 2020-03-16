@@ -64,7 +64,6 @@ class CustomEditor extends React.Component {
         autoCapitalize="true"
         autoComplete="true"
         autoCorrect="true"
-        spellCheck="true"
       />
     );
   }

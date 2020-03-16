@@ -95,7 +95,9 @@ With more attributes
 | autoSaveContentType        | specify the file format for data returned by `handleAutoSaveChanges`,falls back on `sttJsonType`. or `draftjs`          |    no    |  string   |
 | isEditable            | set to true if you want to be able to edit the text                                                                     |    no    |  Boolean  |
 | spellCheck            | set to true if you want the browser to spell check this transcript                                                      |    no    |  Boolean  |
-|`handleAnalyticsEvents`| if you want to collect analytics events.                                                                                |    yes    | Function  |
+| showTimecodes         | set to true if you want to show timecodes in the  transcript at paragraph level                                         |    no    |  Boolean  |
+| showSpeakers         | set to true if you want to show speaker labels in the  transcript at paragraph level                                     |    no    |  Boolean  |
+|`handleAnalyticsEvents`| if you want to collect analytics events.                                                                                |    yes    | Function |
 | fileName              | used for saving and retrieving local storage blob files                                                                 |    no    |  String   |
 | title                 | defaults to empty string                                                                                                |    no    |  String   |
 | ref                   | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db. |    no    | React ref |

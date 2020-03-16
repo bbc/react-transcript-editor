@@ -431,6 +431,8 @@ class App extends React.Component {
           handleAutoSaveChanges={this.handleAutoSaveChanges}
           autoSaveContentType={this.state.autoSaveContentType}
           mediaType={ 'video' }
+          showTimecodes={false}
+          showSpeakers={true}
         />
 
         <section style={{ height: "250px", width: "50%", float: "left" }}>
