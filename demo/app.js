@@ -12,11 +12,42 @@ import {
   localSave
 } from "./local-storage.js";
 
-import DEMO_TRANSCRIPT from "./sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json";
-const DEMO_MEDIA_URL =
+import DEMO_TRANSCRIPT_KATE from "./sample-data/KateDarling-bbcKaldiTranscriptWithSpeakerSegments.json";
+const DEMO_MEDIA_URL_KATE =
   "https://download.ted.com/talks/KateDarling_2018S-950k.mp4";
-const DEMO_TITLE =
+const DEMO_TITLE_KATE =
   "TED Talk | Kate Darling - Why we have an emotional connection to robots";
+
+import DEMO_TRANSCRIPT_ZUCK_5HOURS_DPE from "./sample-data/Facebook-CEO-Mark-Zuckerberg-FULL-testimony-before-U.S.senate-pXq-5L2ghhg.mp4.dpe.json";
+import DEMO_TRANSCRIPT_ZUCK_5HOURS_DRAFTJS from "./sample-data/Facebook-CEO-Mark-Zuckerberg-FULL-testimony-before-U.S.senate-pXq-5L2ghhg.mp4.draftjs.json";
+const DEMO_MEDIA_URL_ZUCK_5HOURS =
+  "https://democratic-presidential-debate-stt-analyses.s3.us-east-2.amazonaws.com/Facebook+CEO+Mark+Zuckerberg+FULL+testimony+before+U.S.+senate-pXq-5L2ghhg.mp4";
+const DEMO_TITLE_ZUCK =
+  "Facebook CEO Mark Zuckerberg | full testimony before U.S. Senate";
+
+const DEMOS = [
+  {
+    id: 'kate',
+    title: DEMO_TITLE_KATE,
+    json: DEMO_TRANSCRIPT_KATE,
+    url: DEMO_MEDIA_URL_KATE,
+    type: "bbckaldi"
+  },
+  {
+    id: 'zuckDraftJs',
+    title: DEMO_TITLE_ZUCK,
+    json: DEMO_TRANSCRIPT_ZUCK_5HOURS_DRAFTJS,
+    url: DEMO_MEDIA_URL_ZUCK_5HOURS,
+    type: 'draftjs'
+  },
+  {
+    id: 'zuckDpe',
+    title: DEMO_TITLE_ZUCK,
+    json: DEMO_TRANSCRIPT_ZUCK_5HOURS_DPE,
+    url: DEMO_MEDIA_URL_ZUCK_5HOURS,
+    type: 'dpe'
+  },
+]
 
 import style from "./index.module.scss";
 
@@ -42,13 +73,23 @@ class App extends React.Component {
     this.transcriptEditorRef = React.createRef();
   }
 
-  loadDemo = () => {
+  loadDemo = (demoId) => {
+    const demo = DEMOS.find((d)=>{
+      return d.id === demoId;
+    })
+    console.log(demo)
+    const DEMO_TRANSCRIPT = demo.json;
+    const DEMO_MEDIA_URL = demo.url;
+    const DEMO_TITLE = demo.title;
+    const DEMO_TYPE = demo.type
+
       if(this.state.useLocalStorage && isPresentInLocalStorage(DEMO_MEDIA_URL)){
         const transcriptDataFromLocalStorage = loadLocalSavedData(DEMO_MEDIA_URL)
         this.setState({
           transcriptData: transcriptDataFromLocalStorage,
           mediaUrl: DEMO_MEDIA_URL,
           title: DEMO_TITLE,
+          // if loading from local storage, always saved in draftJS format 
           sttType: 'draftjs'
         });
       }
@@ -57,7 +98,7 @@ class App extends React.Component {
           transcriptData: DEMO_TRANSCRIPT,
           mediaUrl: DEMO_MEDIA_URL,
           title: DEMO_TITLE,
-          sttType: "bbckaldi"
+          sttType: DEMO_TYPE
         });
       }
   };
@@ -208,13 +249,26 @@ class App extends React.Component {
         </a>
         <div className={style.demoNav}>
           <section className={style.demoNavItem}>
-            <label className={style.sectionLabel}>Start</label>
+            <label className={style.sectionLabel}>Demos</label>
             <button
               className={style.demoButton}
-              onClick={() => this.loadDemo()}
+              onClick={() => this.loadDemo('kate')}
             >
-              Load Demo
+              Kate TedTalk 12Min
             </button>
+            <button
+              className={style.demoButton}
+              onClick={() => this.loadDemo('zuckDraftJs')}
+            >
+             Zuck 5h DraftJS
+            </button>
+            <button
+              className={style.demoButton}
+              onClick={() => this.loadDemo('zuckDpe')}
+            >
+            Zuck 5h DPE
+            </button>
+            
           </section>
 
           <section className={style.demoNavItem}>
