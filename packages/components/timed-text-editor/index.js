@@ -452,7 +452,6 @@ class TimedTextEditor extends React.Component {
     const rKey = 82;
     const tKey = 84;
     if (e.keyCode === enterKey) {	
-      console.log('customKeyBindingFn split-paragraph');	
 
       return "split-paragraph";	
     }
@@ -499,7 +498,6 @@ class TimedTextEditor extends React.Component {
    * TODO: move into its own file as helper function	
    */	
   handleSplitParagraph = () => {	
-    console.log('handleSplitParagraph')
     // https://github.com/facebook/draft-js/issues/723#issuecomment-367918580	
     // https://draftjs.org/docs/api-reference-selection-state#start-end-vs-anchor-focus	
     const currentSelection = this.state.editorState.getSelection();	

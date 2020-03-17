@@ -254,7 +254,7 @@ class App extends React.Component {
     this.setState((prevState)=>{
       return {useLocalStorage: !prevState.useLocalStorage}
     }, ()=>{
-      console.log('this.state.useLocalStorage',this.state.useLocalStorage)
+      // console.log('this.state.useLocalStorage',this.state.useLocalStorage)
     })
   }
   handleIsAutoSave = (e) =>{
