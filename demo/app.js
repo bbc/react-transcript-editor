@@ -87,7 +87,7 @@ class App extends React.Component {
       autoSaveData: {},
       autoSaveContentType: "draftjs",
       autoSaveExtension: "json",
-      useLocalStorage: true,
+      useLocalStorage: false,
       isAutoSave: false
     };
 
@@ -98,7 +98,6 @@ class App extends React.Component {
     const demo = DEMOS.find((d)=>{
       return d.id === demoId;
     })
-    console.log(demo)
     const DEMO_TRANSCRIPT = demo.json;
     const DEMO_MEDIA_URL = demo.url;
     const DEMO_TITLE = demo.title;
@@ -187,12 +186,10 @@ class App extends React.Component {
   };
 
   handleExportFormatChange = event => {
-    console.log(event.target.name, event.target.value);
     this.setState({ [event.target.name]: event.target.value });
   };
 
   exportTranscript = () => {
-    console.log("export");
     // eslint-disable-next-line react/no-string-refs
     const { data, ext } = this.transcriptEditorRef.current.getEditorContent(
       this.state.exportFormat
@@ -208,7 +205,6 @@ class App extends React.Component {
 
   // https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
   download = (content, filename, contentType) => {
-    console.log("download");
     const type = contentType || "application/octet-stream";
     const link = document.createElement("a");
     const blob = new Blob([content], { type: type });

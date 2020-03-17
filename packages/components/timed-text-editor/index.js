@@ -155,9 +155,13 @@ class TimedTextEditor extends React.Component {
     const editorStateFromState  = this.state.editorState;
     let editorState = editorStateInput? editorStateInput : editorStateFromState;
     // Update timestamps according to the original state.
-    const currentContent = convertToRaw(
-      editorState.getCurrentContent()
-    );
+    // const currentContent = convertToRaw(
+    //   editorState.getCurrentContent()
+    // );
+    const currentContent = editorState.getCurrentContent()
+    // https://draftjs.org/docs/api-reference-content-state/#getplaintext
+
+
     const updatedContentRaw = updateTimestamps(
       currentContent,
       this.state.dpeWords
@@ -585,6 +589,17 @@ class TimedTextEditor extends React.Component {
     const unplayedColor = "#767676";
     // Time to the nearest half second
     const time = Math.floor(Math.round(this.props.currentTime * 4.0) / 4.0);
+
+    if (this.props.isScrollIntoViewOn) {
+      const currentParagraphElement = document.querySelector(
+        `paragraph[data-start~="${ time }"]`
+      );
+      currentParagraphElement.scrollIntoView({
+        block: 'nearest',
+        inline: 'center'
+      });
+    }
+
     const editor = (
       <section
         className={style.editor}

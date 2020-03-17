@@ -1,14 +1,17 @@
 import alignWords from './stt-align-node.js';
 
-const convertContentToText = (content) => {
-  let text = [];
-  for (const blockIndex in content.blocks) {
-    const block = content.blocks[blockIndex];
-    const blockArray = block.text.match(/\S+/g) || [];
-    text = text.concat(blockArray);
-  }
-  return text;
-};
+
+
+// const convertContentToText = (content) => {
+//   // let text = [];
+//   // for (const blockIndex in content.blocks) {
+//   //   const block = content.blocks[blockIndex];
+//   //   const blockArray = block.text.match(/\S+/g) || [];
+//   //   text = text.concat(blockArray);
+//   // }
+//   // return text;
+//   return content.getPlainText();
+// };
 
 const createEntity = (start, end, confidence, word, wordIndex) => {
   return ({
@@ -22,19 +25,20 @@ const createEntity = (start, end, confidence, word, wordIndex) => {
 };
 
 const createContentFromEntityList = (currentContent, newEntities) => {
+  const blocksArray = currentContent.getBlocksAsArray()
   // Update entites to block structure.
   const updatedBlockArray = [];
   let totalWords = 0;
 
-  for (const blockIndex in currentContent.blocks) {
-    const block = currentContent.blocks[blockIndex];
+  blocksArray.forEach((block)=>{
+  // for (const blockIndex in blocksArray) {
+    // const block = blocksArray[blockIndex];
     // if copy and pasting large chunk of text
     // currentContentBlock, would not have speaker and start/end time info
     // so for updatedBlock, getting start time from first word in blockEntities
-    const wordsInBlock = (block.text.match(/\S+/g) || []).length;
+    const wordsInBlock = (block.getText().match(/\S+/g) || []).length;
     const blockEntites = newEntities.slice(totalWords, totalWords + wordsInBlock);
-    let speaker = block.data.speaker;
-
+    let speaker = block.getData().speaker;
     if (!speaker) {
       speaker = 'U_UKN';
     }
@@ -51,7 +55,9 @@ const createContentFromEntityList = (currentContent, newEntities) => {
 
     updatedBlockArray.push(updatedBlock);
     totalWords += wordsInBlock;
-  }
+  // }
+})
+
 
   return { blocks: updatedBlockArray, entityMap: {}};
 };
@@ -59,15 +65,14 @@ const createContentFromEntityList = (currentContent, newEntities) => {
 // Update timestamps usign stt-align (bbc).
 // depWordsWithCharOffset
 const updateTimestamps = (currentContent, originalContent) => {
-  const currentText = convertContentToText(currentContent);
+  // const currentText = convertContentToText(currentContent);
+  const currentText = currentContent.getPlainText();
   const entities = JSON.parse(JSON.stringify(originalContent));
   entities.map((word)=>{
     word.word = word.text;
     return word;
   });
   const result = alignWords(entities, currentText);
-
-  //  alignWords(entities, currentText);
   // const result = entities;
   const newEntities = result.map((entry, index) => {
     return createEntity(entry.start, entry.end, 0.0, entry.word, index);

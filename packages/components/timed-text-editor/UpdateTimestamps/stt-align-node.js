@@ -4,6 +4,7 @@ import { toWords } from 'number-to-words';
 import difflib from 'difflib';
 import everpolate from 'everpolate';
 
+
 /**
  * https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
  * @param {*}  num
@@ -11,6 +12,14 @@ import everpolate from 'everpolate';
  */
 function isANumber(num) {
   return !isNaN(num);
+}
+
+function splitWords(text) {
+  return text
+    .trim()
+    .replace(/\n /g, '')
+    .replace(/\n/g, ' ')
+    .split(' ');
 }
 
 function removeTrailingPunctuation(str) {
@@ -140,7 +149,8 @@ function interpolate(wordsList) {
  * @param {array} sttWords - array of STT words
  * @param {array} transcriptWords - array of base text accurate words
  */
-function alignWords(sttWords, transcriptWords) {
+function alignWords(sttWords, transcript) {
+  const transcriptWords = splitWords(transcript);
   // # convert words to lowercase and remove numbers and special characters
   const sttWordsStripped = sttWords.map((word) => {
     return normaliseWord(word.word);
