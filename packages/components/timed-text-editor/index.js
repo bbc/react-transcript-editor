@@ -22,12 +22,10 @@ import style from './index.module.css';
 // looking at the timing of the corrsponding word in STT
 // this might be off when correcting the text, but not byt a lot ~
 function findWordByCountOffset(wordsList, startWordPosition){
-  console.log('startWordPosition',startWordPosition)
   try{
     // -1 to offset for the .length on before block and current block
     // and arrays starting from zero (?)
     const word = wordsList[startWordPosition-1]
-    console.log(word)
     return word;
   }catch(e){
     console.error("Could not find word via 'fuzzy' search")
@@ -259,7 +257,6 @@ class TimedTextEditor extends React.Component {
     if(currentBlockDataWords){
       const wordResult = currentBlockDataWords[wordCountBeforeSelectionInCurrentBlock-1]
       if(wordResult){
-        console.log('wordResult',wordResult);
         this.props.onWordClick(wordResult.start);
       }
       else{
