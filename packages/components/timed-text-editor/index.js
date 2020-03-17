@@ -120,7 +120,8 @@ class TimedTextEditor extends React.Component {
         // this.setState({ editorState: alignedEditorState },
         this.setState({ editorState: editorState },
           ( ) => {
-            // TODO: comment out auto save if get performance issues
+            if(this.props.isAutoSave){
+              // TODO: comment out auto save if get performance issues
               const { editorState} = this.state;
               const format =  this.props.autoSaveContentType;
               const title = this.props.title;
@@ -130,6 +131,7 @@ class TimedTextEditor extends React.Component {
                 title
               );
               this.props.handleAutoSaveChanges({data, ext: format});
+            }
           }
         );
       }, 1000);
@@ -150,7 +152,8 @@ class TimedTextEditor extends React.Component {
            this.setState({ editorState: alignedEditorState }, ()=>{
              resolve()
            })
-        }, { timeout: 1000 });
+        }, { timeout: 1000 }
+        );
     
       }catch(e){
         reject(e)
@@ -221,7 +224,7 @@ class TimedTextEditor extends React.Component {
       this.setEditorContentState(blocks);
       ///////////////////////////////////////////////
       // let dpeWords;
-      console.log(' this.props.transcriptData',  this.props.transcriptData)
+      // console.log(' this.props.transcriptData',  this.props.transcriptData)
       // optimising to avoid converting back and forth if input 
       // transcript data is already in dpe format 
       // if(  this.props.sttJsonType === 'digitalpaperedit'){
@@ -392,17 +395,18 @@ class TimedTextEditor extends React.Component {
         }
       },
       ()=>{
-      // TODO: comment out auto save if get performance issues
-        const { editorState } = this.state;
-        const format =  this.props.autoSaveContentType;
-        const title = this.props.title;
-        const data = exportAdapter(
-          convertToRaw(editorState.getCurrentContent()),
-          format,
-          title
-        );
-       this.props.handleAutoSaveChanges({data, ext: format});
-     
+        if(this.props.isAutoSave){
+          // TODO: comment out auto save if get performance issues
+          const { editorState } = this.state;
+          const format =  this.props.autoSaveContentType;
+          const title = this.props.title;
+          const data = exportAdapter(
+            convertToRaw(editorState.getCurrentContent()),
+            format,
+            title
+          );
+          this.props.handleAutoSaveChanges({data, ext: format});
+       }
     });
   };
 
@@ -418,15 +422,17 @@ class TimedTextEditor extends React.Component {
         editorState
       }),
       () => {
-        // TODO: comment out auto save if get performance issues
-        const format =  this.props.autoSaveContentType;
-        const title = this.props.title;
-        const data = exportAdapter(
-          convertToRaw(editorState.getCurrentContent()),
-          format,
-          title
-        );
-        this.props.handleAutoSaveChanges(data);
+        if(this.props.isAutoSave){
+          // TODO: comment out auto save if get performance issues
+          const format =  this.props.autoSaveContentType;
+          const title = this.props.title;
+          const data = exportAdapter(
+            convertToRaw(editorState.getCurrentContent()),
+            format,
+            title
+          );
+          this.props.handleAutoSaveChanges({data, ext: format});
+        }
       }
     );
   };

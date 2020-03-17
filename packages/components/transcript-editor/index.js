@@ -462,6 +462,7 @@ class TranscriptEditor extends React.Component {
         handleAnalyticsEvents={this.props.handleAnalyticsEvents}
         handleAutoSaveChanges={this.handleAutoSaveChanges}
         autoSaveContentType={contentFormat}
+        isAutoSave={typeof this.props.isAutoSave ==='boolean'? this.props.isAutoSave : true}
         title={this.props.title ? this.props.title : Date.now()}
       />
     );

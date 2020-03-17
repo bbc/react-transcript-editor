@@ -212,7 +212,6 @@ class WrapperBlock extends React.Component {
     if (this.props.blockProps.timecodeOffset) {
       startTimecode += this.props.blockProps.timecodeOffset;
     }
-
     const speakerElement = (
       <SpeakerLabel
         name={ this.state.speaker }
@@ -224,7 +223,7 @@ class WrapperBlock extends React.Component {
 
     const timecodeElement = (
       <span className={ style.time } onClick={ this.handleTimecodeClick }>
-        {shortTimecode(startTimecode)}
+        {startTimecode? shortTimecode(startTimecode): 'NA'}
       </span>
     );
 

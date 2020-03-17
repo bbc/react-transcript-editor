@@ -92,6 +92,7 @@ With more attributes
 | transcriptData        | Transcript json                                                                                                         |   yes    |   Json    |
 | mediaUrl              | string url to media file - audio or video                                                                               |   yes    |  String   |
 |`handleAutoSaveChanges`| returns content of transcription after a change                                                                         |    no    |  Function |
+| isAutoSave            | default to true, enable the auto save callback   `handleAutoSaveChanges`                                                |    no    | Boolean |
 | autoSaveContentType        | specify the file format for data returned by `handleAutoSaveChanges`,falls back on `sttJsonType`. or `draftjs`          |    no    |  string   |
 | isEditable            | set to true if you want to be able to edit the text                                                                     |    no    |  Boolean  |
 | spellCheck            | set to true if you want the browser to spell check this transcript                                                      |    no    |  Boolean  |
@@ -102,6 +103,8 @@ With more attributes
 | title                 | defaults to empty string                                                                                                |    no    |  String   |
 | ref                   | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db. |    no    | React ref |
 | mediaType             | can be `audio` or `video`, if not provided the component uses the url file type to determine and adjust use of the page layout |    no    | String |
+
+
 
 See [`./demo/app.js` demo](./demo/app.js) as a more detailed example usage of the component.
 

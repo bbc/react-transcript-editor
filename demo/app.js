@@ -4,7 +4,7 @@ import TranscriptEditor from "../packages/components/transcript-editor";
 import SttTypeSelect from "./select-stt-json-type";
 import ExportFormatSelect from "./select-export-format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faThinkPeaks } from "@fortawesome/free-brands-svg-icons";
 
 import {
   loadLocalSavedData,
@@ -87,7 +87,8 @@ class App extends React.Component {
       autoSaveData: {},
       autoSaveContentType: "draftjs",
       autoSaveExtension: "json",
-      useLocalStorage: true
+      useLocalStorage: true,
+      isAutoSave: false
     };
 
     this.transcriptEditorRef = React.createRef();
@@ -256,6 +257,11 @@ class App extends React.Component {
       console.log('this.state.useLocalStorage',this.state.useLocalStorage)
     })
   }
+  handleIsAutoSave = (e) =>{
+    this.setState({
+      isAutoSave: e.target.checked
+    })
+  }
   render() {
     return (
       <div className={style.container}>
@@ -409,6 +415,21 @@ class App extends React.Component {
               />
             </div>
 
+            <div className={style.checkbox}>
+              <label
+                className={style.editableLabel}
+                htmlFor={"isAutoSave"}
+              >
+               Auto Save
+              </label>
+              <input
+                id={"isAutoSave"}
+                type="checkbox"
+                checked={this.state.isAutoSave}
+                onChange={this.handleIsAutoSave}
+              />
+            </div>
+
             <button
               className={style.warningButton}
               onClick={() => this.clearLocalStorage()}
@@ -433,6 +454,7 @@ class App extends React.Component {
           mediaType={ 'video' }
           // showTimecodes={true}
           // showSpeakers={true}
+          isAutoSave={this.state.isAutoSave}
         />
 
         <section style={{ height: "250px", width: "50%", float: "left" }}>
@@ -453,10 +475,8 @@ class App extends React.Component {
           </h3>
           <textarea
             style={{ height: "100%", width: "100%" }}
-            value={
-              this.state.autoSaveExtension === "json"
-                ? JSON.stringify(this.state.autoSaveData, null, 2)
-                : this.state.autoSaveData
+            value={(this.state.autoSaveExtension === "json" ||this.state.autoSaveExtension === "draftjs")?
+                    JSON.stringify(this.state.autoSaveData, null, 2) : this.state.autoSaveData
             }
             disabled
           />
