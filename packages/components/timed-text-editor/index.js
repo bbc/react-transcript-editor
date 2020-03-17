@@ -18,30 +18,20 @@ import exportAdapter from '../../export-adapters';
 import updateTimestamps from './UpdateTimestamps/index.js';
 import style from './index.module.css';
  
-// helper function 
-// context https://github.com/bbc/react-transcript-editor/issues/150#issuecomment-597901130
-// https://jsfiddle.net/pietrops/sakr9uLo/
-function addCharOffsetToWordsInTranscript(wordsList) {
-  let charOffset = 0;
-  return wordsList.map((word) => {
-    word.charOffsetStart = charOffset;
-    // +1 to accoutn for space after word 
-    charOffset += (word.text.length + 1);
-    word.charOffsetEnd = charOffset;
+// Helper function to find timing of a word 
+// looking at the timing of the corrsponding word in STT
+// this might be off when correcting the text, but not byt a lot ~
+function findWordByCountOffset(wordsList, startWordPosition){
+  console.log('startWordPosition',startWordPosition)
+  try{
+    // -1 to offset for the .length on before block and current block
+    // and arrays starting from zero (?)
+    const word = wordsList[startWordPosition-1]
+    console.log(word)
     return word;
-  })
-}
-// helper function 
-function findWordByCharOffset(wordsList, startCharPosition, endCharPosition) {
-  // To make it more fuzzy it could also be find first word that
-  // endCharPosition >= word.charOffsetEnd
-  // eg if you introduce things like ~Speaker~ and new lines, then 
-  // the correspondence char offset and word in STT transcript
-  // might no longer be exact 
-  return wordsList.find((word) => {
-    return startCharPosition >= word.charOffsetStart 
-    && endCharPosition <= word.charOffsetEnd
-  })
+  }catch(e){
+    console.error("Could not find word via 'fuzzy' search")
+  }
 }
 
 class TimedTextEditor extends React.Component {
@@ -50,7 +40,7 @@ class TimedTextEditor extends React.Component {
 
     this.state = {
       editorState: EditorState.createEmpty(),
-      depWordsWithCharOffset: null
+      dpeWords: null
     };
   }
 
@@ -172,7 +162,7 @@ class TimedTextEditor extends React.Component {
     );
     const updatedContentRaw = updateTimestamps(
       currentContent,
-      this.state.depWordsWithCharOffset
+      this.state.dpeWords
     );
     const updatedContent = convertFromRaw(updatedContentRaw);
     // Update editor state
@@ -222,24 +212,13 @@ class TimedTextEditor extends React.Component {
       );
 
       this.setEditorContentState(blocks);
-      ///////////////////////////////////////////////
-      // let dpeWords;
-      // console.log(' this.props.transcriptData',  this.props.transcriptData)
-      // optimising to avoid converting back and forth if input 
-      // transcript data is already in dpe format 
-      // if(  this.props.sttJsonType === 'digitalpaperedit'){
-      //   dpeWords = this.props.transcriptData.words;
-      // }else{
-        // but if it's not converting in that format for alignement
-        const backupStateDPE = exportAdapter(blocks, 'digitalpaperedit','json');
-        const dpeWords = backupStateDPE.data.words;
-      // }
+
+      const backupStateDPE = exportAdapter(blocks, 'digitalpaperedit','json');
+      const dpeWords = backupStateDPE.data.words;
       // because commented out alignement for performance boost on longer transcript
-      // adding char offset attribute to the list of words to use to enable  
-      // double click on word jump ~ corresponding point in media 
-      // (fuzzy correspondence better then nothing)
-      const depWordsWithCharOffset = addCharOffsetToWordsInTranscript(dpeWords)
-      this.setState({ depWordsWithCharOffset });
+      // the list of words to use to enabledouble click on word jump ~ corresponding point in media 
+      // (fuzzy correspondence using position of word from start of transcript - better then nothing)
+      this.setState({ dpeWords });
     }
   }
 
@@ -260,36 +239,27 @@ class TimedTextEditor extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   handleDoubleClick = event => {
     const { editorState } = this.state;
-    var selectionState = editorState.getSelection();
-    var anchorKey = selectionState.getAnchorKey();
-    var currentContent = editorState.getCurrentContent();
-    var currentContentBlock = currentContent.getBlockForKey(anchorKey);
-    var start = selectionState.getStartOffset();
-    var end = selectionState.getEndOffset();
+    const selectionState = editorState.getSelection();
+    const anchorKey = selectionState.getAnchorKey();
+    const currentContent = editorState.getCurrentContent();
+    // getting current paragraph block 
+    const currentContentBlock = currentContent.getBlockForKey(anchorKey);
+    // getting offset in char count of the start of the selection/click in current paragraph block
+    const selectionStart = selectionState.getStartOffset();
+    // converting offset in chart count into a word count by getting text chunk of text before selection/click
+    const textBeforeSelectionInCurrentBlock = currentContentBlock.getText().slice(0,selectionStart); 
+    // splitting text chunk on space to get a word count
+    const wordCountBeforeSelectionInCurrentBlock = textBeforeSelectionInCurrentBlock.split(' ').length;
 
-    // If block has got data, keep it simple and look for currentBlockDataWords info withing the available data
+    // If block has got data associated with it,
+    // keep it simple and look for currentBlockDataWords info within the available data
+    // we use the wordCountBeforeSelectionInCurrentBlock to the corresponding word in STT
     const currentBlockData = currentContentBlock.getData();
     const currentBlockDataWords = currentBlockData.get('words');
     if(currentBlockDataWords){
-      let charCount = 0;
-      const wordResult = currentBlockDataWords.find((word,index)=>{
-        const res = charCount >= start && charCount <= end;
-        // TODO: issue with BBC kaldi and and word/punct attribute 
-        // (only punct has got punctuation) - ideally this should be changed in
-        // stt adapter for BBC Kaldi to keep consistency 
-        if(word.punct){
-          charCount += (word.punct.length+1);
-        }else if(word.word){
-          charCount += (word.word.length+1);
-        }else if(word.text){
-          charCount += (word.text.length+1);
-        }else{
-          console.error('Word does not have an attribute with the text ')
-        }
-        return res
-      })
-
+      const wordResult = currentBlockDataWords[wordCountBeforeSelectionInCurrentBlock-1]
       if(wordResult){
+        console.log('wordResult',wordResult);
         this.props.onWordClick(wordResult.start);
       }
       else{
@@ -299,23 +269,35 @@ class TimedTextEditor extends React.Component {
       }
     } else {
       // If it the paragraph block does not have word data info 
-      // if we run realignement, it might be the case that block always has data
-      // but keepting this for now in case we need to turns of realignement for performance reasons
+      // After running realignement, it might be the case that block always has data
+      // but for a paragraph/block that has been edited, and before alignement, 
+      // it might lose the word data associated with it
+      // so we get all the blocks
       const blocksAsArray = currentContent.getBlocksAsArray();
+      // find the current block
       const currentBlockIndex = blocksAsArray.findIndex((block)=>{
         return currentContentBlock.getKey()=== block.getKey()
       }) 
-      const blocksAsArrayLenght = blocksAsArray.length;
-      // segment array of blocks so that you only have the preceeding blocks
+      // segment array of blocks so that you only have the preceeding paragraph/blocks
       const blocksAsArraySliced = blocksAsArray.slice(0,currentBlockIndex);
-      let charCountPreviousBlocks = 0;
+      // calculate a word count offset for the previous paragraphs. 
+      // eg how many words are in theh paragraphs before 
+      let wordsCountPreviousBlocks = 0;
       blocksAsArraySliced.map((block)=>{
-        const blockLength = block.getText().length+1;
-        charCountPreviousBlocks += blockLength;
+        const wordCountInBlock = block.getText().split(' ').length;
+        wordsCountPreviousBlocks += wordCountInBlock;
       })
 
-      const dpeWordsWithChar = this.state.depWordsWithCharOffset;
-      const currentDPEWord = findWordByCharOffset(dpeWordsWithChar, charCountPreviousBlocks+start, charCountPreviousBlocks+end) 
+      // if we add how many words are in the paragraph before with how many are in the current one
+      // we have our total offset count for the word we clicked on
+      const totalOffsetCountForWord =  wordsCountPreviousBlocks + wordCountBeforeSelectionInCurrentBlock;
+      // se use the original STT timed data to get a start time for our word, via the offset count we just calculated
+      // in other words, the corresponding of a word in the human accurate transcript, will be roughly close where
+      // the STT has recognised a word (even if that word is inaccurate) - keyword beign roughly, we are not 
+      // looking to get exactly to that point, but to approximate that time, so that we can scrube back and forth
+      // to listen to the audio we want to transcribe at that word.
+      const dpeWordsWithChar = this.state.dpeWords;
+      const currentDPEWord = findWordByCountOffset(dpeWordsWithChar,totalOffsetCountForWord); 
       if(currentDPEWord){
         this.props.onWordClick(currentDPEWord.start);
       }else{
