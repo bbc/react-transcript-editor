@@ -10,6 +10,7 @@ import {
   Modifier
 } from "draft-js";
 
+
 import CustomEditor from './CustomEditor.js';
 
 import sttJsonAdapter from '../../stt-adapters';
@@ -142,17 +143,19 @@ class TimedTextEditor extends React.Component {
   updateTimestamps=async()=>{
     return new Promise((resolve, reject)=>{
       try{
-      const alignedEditorState = this.updateTimestampsForEditorState()
-      // const alignedEditorState =  this.updateTimestampsForEditorState(editorState);
-       this.setState({ editorState: alignedEditorState }, ()=>{
-         resolve()
-       })
+        // https://developers.google.com/web/updates/2015/08/using-requestidlecallback
+        // https://philipwalton.com/articles/idle-until-urgent/
+        requestIdleCallback(()=>{
+          const alignedEditorState = this.updateTimestampsForEditorState();
+           this.setState({ editorState: alignedEditorState }, ()=>{
+             resolve()
+           })
+        }, { timeout: 1000 });
+    
       }catch(e){
         reject(e)
       }
     })
-
-    // return { editorState: editorState } 
   }
 
   // updateTimestampsForEditorState doesn't have side effects

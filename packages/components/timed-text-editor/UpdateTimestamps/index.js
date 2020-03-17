@@ -66,6 +66,9 @@ const updateTimestamps = (currentContent, originalContent) => {
     return word;
   });
   const result = alignWords(entities, currentText);
+
+  //  alignWords(entities, currentText);
+  // const result = entities;
   const newEntities = result.map((entry, index) => {
     return createEntity(entry.start, entry.end, 0.0, entry.word, index);
   });
