@@ -242,6 +242,7 @@ class WrapperBlock extends React.Component {
         </div>
         <div  
           data-start={this.state.start} 
+          data-start-srcoll-sync={parseInt(this.state.start)} 
           className={ [style.text, 'paragraph' ].join(' ') }
           data-prev-times={ this.generatePreviousTimes(this.state.words ) }
         >

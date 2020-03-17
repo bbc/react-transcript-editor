@@ -589,15 +589,19 @@ class TimedTextEditor extends React.Component {
     const unplayedColor = "#767676";
     // Time to the nearest half second
     const time = Math.floor(Math.round(this.props.currentTime * 4.0) / 4.0);
-
+    console.log('time', time);
     if (this.props.isScrollIntoViewOn) {
-      const currentParagraphElement = document.querySelector(
-        `paragraph[data-start~="${ time }"]`
-      );
-      currentParagraphElement.scrollIntoView({
-        block: 'nearest',
-        inline: 'center'
-      });
+      const cssSelector =  `[data-start-srcoll-sync~="${ time }"]`;
+      console.log('cssSelector', cssSelector);
+      const currentParagraphElement = document.querySelector(cssSelector);
+      console.log('currentParagraphElement')
+      if(currentParagraphElement){
+        currentParagraphElement.scrollIntoView({
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    
     }
 
     const editor = (
