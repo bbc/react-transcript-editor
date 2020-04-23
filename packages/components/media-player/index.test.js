@@ -6,20 +6,23 @@ import MediaPlayer from './index.js';
 
 afterEach(cleanup);
 
-const fakeVideoUrl = 'https://storage.googleapis.com/coverr-main/mp4/Pigeon-Impossible.mp4';
+videoRef = React.createRef();
+
+const fakeUrl = "https://storage.googleapis.com/coverr-main/mp4/Pigeon-Impossible.mp4";
+const fakeVideoUrl = <video ref={ videoRef } src={url}></video>;
 
 xtest('GIVEN a chapter title I expect that WHEN the Video component is rendered THEN the correct title is displayed', () => {
-  const { container } = render(<MediaPlayer mediaUrl={ fakeVideoUrl } />);
+  const { container } = render(<MediaPlayer videoRef={videoRef} mediaUrl={ fakeUrl } />);
 
   expect(container.innerHTML).toContain('videoSection');
 });
 
-xtest("GIVEN a video as a chapter with src video url THEN the video is rendered with it's source url", () => {
-  const { getByTestId } = render(<MediaPlayer mediaUrl={ fakeVideoUrl } />);
+xtest("GIVEN a video as a chapter with src video url THEN the video is rendered fakeUrl it's source url", () => {
+  const { getByTestId } = render(<MediaPlayer videoRef={videoRef} mediaUrl={ fakeVideoUrl } />);
 
-  expect(getByTestId('media-player-id').attributes.src.value).toBe(fakeVideoUrl);
+  expect(getByTestId('media-player-id').attributes.src.value).toBe(fakeUrl);
 });
 xtest('WHEN the Video component is rendered THEN a video element is displayed', () => {
-  const wrapper = shallow(<MediaPlayer mediaUrl={ fakeVideoUrl } />);
+  const wrapper = shallow(<MediaPlayer videoRef={videoRef} mediaUrl={ fakeUrl } />);
   expect(wrapper.find('video').type()).toBe('video');
 });
