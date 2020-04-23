@@ -390,7 +390,7 @@ class MediaPlayer extends React.Component {
     if(this.props.videoRef && this.props.videoRef.current && this.props.videoRef.current.currentTime){
       return secondsToTimecode(this.props.videoRef.current.currentTime + this.state.timecodeOffset)
     } else{
-      return 0
+      return '00:00:00:00'
     }
   }
 

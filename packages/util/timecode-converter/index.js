@@ -29,9 +29,13 @@ const timecodeToSeconds = (time) => {
 };
 
 const shortTimecode = (time) => {
-  const timecode = secondsToTimecode(time);
-
-  return timecode.slice(0, -3);
+  // handle edge case if it's zero, then just return shorter timecode
+  if(time === 0){
+    return '00:00:00'
+  } else {
+    const timecode = secondsToTimecode(time);
+    return timecode.slice(0, -3);
+  }
 };
 
 export { secondsToTimecode, timecodeToSeconds, shortTimecode };

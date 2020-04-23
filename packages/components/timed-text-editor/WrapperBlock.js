@@ -223,7 +223,7 @@ class WrapperBlock extends React.Component {
 
     const timecodeElement = (
       <span className={ style.time } onClick={ this.handleTimecodeClick }>
-        {startTimecode? shortTimecode(startTimecode): 'NA'}
+        {startTimecode || startTimecode===0? shortTimecode(startTimecode): 'NA'} 
       </span>
     );
 

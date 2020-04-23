@@ -23,6 +23,10 @@ const normalisePlayerTime = function (seconds, fps) {
 * @param {*} fps
 */
 const secondsToTimecode = function (seconds, framePerSeconds) {
+  // handle edge case, trying to convert zero seconds 
+  if(seconds === 0 ){
+    return '00:00:00:00';
+  }
   // written for PAL non-drop timecode
   let fps = 25;
   if (framePerSeconds !== undefined) {
