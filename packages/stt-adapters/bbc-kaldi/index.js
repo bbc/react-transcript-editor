@@ -31,6 +31,13 @@ const groupWordsInParagraphs = words => {
     }
   });
 
+  // Anything after the last punctuation mark, we currently throw away
+  // Add a final paragraph
+  if (paragraph.words.length > 0) {
+    paragraph.text = paragraph.text.join(' ');
+    results.push(paragraph);
+  }
+
   return results;
 };
 
