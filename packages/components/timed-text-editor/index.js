@@ -234,7 +234,6 @@ class TimedTextEditor extends React.Component {
         format,
         title
       );
-
   }
 
   // click on words - for navigation
