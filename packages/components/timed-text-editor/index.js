@@ -69,44 +69,45 @@ class TimedTextEditor extends React.Component {
     // outside of draftJS eg when clicking play button so using this instead
     // see issue https://github.com/facebook/draft-js/issues/1060
     // also "insert-characters" does not get triggered if you delete text
-    if (this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()) {
-      if (this.props.isPauseWhileTypingOn) {
-        if (this.props.isPlaying()) {
-          this.props.playMedia(false);
-          // Pause video for X seconds
-          const pauseWhileTypingIntervalInMilliseconds = 3000;
-          // resets timeout
-          clearTimeout(this.plauseWhileTypingTimeOut);
-          this.plauseWhileTypingTimeOut = setTimeout(
-            function() {
-              // after timeout starts playing again
-              this.props.playMedia(true);
-            }.bind(this),
-            pauseWhileTypingIntervalInMilliseconds
-          );
-        }
-      }
 
-      if (this.saveTimer !== undefined) {
-        clearTimeout(this.saveTimer);
-      }
-      this.saveTimer = setTimeout(() => {
-        this.setState(
-          () => ({
-            editorState
-          }),
-          () => {
-            // const data = this.updateTimestampsForEditorState();
-            const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title);
-            this.props.handleAutoSaveChanges(data);
-          }
-        );
-      }, 1000);
-    }
+    // if (this.state.editorState.getCurrentContent() !== editorState.getCurrentContent()) {
+    //   if (this.props.isPauseWhileTypingOn) {
+    //     if (this.props.isPlaying()) {
+    //       this.props.playMedia(false);
+    //       // Pause video for X seconds
+    //       const pauseWhileTypingIntervalInMilliseconds = 3000;
+    //       // resets timeout
+    //       clearTimeout(this.plauseWhileTypingTimeOut);
+    //       this.plauseWhileTypingTimeOut = setTimeout(
+    //         function() {
+    //           // after timeout starts playing again
+    //           this.props.playMedia(true);
+    //         }.bind(this),
+    //         pauseWhileTypingIntervalInMilliseconds
+    //       );
+    //     }
+    //   }
+    //
+    //   if (this.saveTimer !== undefined) {
+    //     clearTimeout(this.saveTimer);
+    //   }
+    //   this.saveTimer = setTimeout(() => {
+    //     this.setState(
+    //       () => ({
+    //         editorState
+    //       }),
+    //       () => {
+    //         // const data = this.updateTimestampsForEditorState();
+    //         const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title);
+    //         this.props.handleAutoSaveChanges(data);
+    //       }
+    //     );
+    //   }, 1000);
+    // }
 
-    if (this.props.isEditable) {
-      this.setState({ editorState });
-    }
+    // if (this.props.isEditable) {
+    //   this.setState({ editorState });
+    // }
   };
 
   updateTimestampsForEditorState() {

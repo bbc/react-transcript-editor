@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Editor } from "draft-js";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Editor } from 'draft-js';
 
-  
 import WrapperBlock from './WrapperBlock';
 
 // NOTE: custom editor is in a separate class to minimise re-renders
@@ -50,13 +49,14 @@ class CustomEditor extends React.Component {
   render() {
     return (
       <Editor
-        editorState={this.props.editorState}
-        onChange={this.handleOnChange}
+        editorState={ this.props.editorState }
+        onChange={ this.handleOnChange }
         stripPastedStyles
-        blockRendererFn={this.renderBlockWithTimecodes}
-        handleKeyCommand={this.props.handleKeyCommand}
-        keyBindingFn={this.props.customKeyBindingFn}
-        spellCheck={this.props.spellCheck}
+        blockRendererFn={ this.renderBlockWithTimecodes }
+        handleKeyCommand={ this.props.handleKeyCommand }
+        keyBindingFn={ this.props.customKeyBindingFn }
+        spellCheck={ this.props.spellCheck }
+        readOnly={ this.props.isEditable }
       />
     );
   }
