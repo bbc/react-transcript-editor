@@ -15,7 +15,7 @@ class CustomEditor extends React.Component {
   renderBlockWithTimecodes = () => {
     return {
       component: WrapperBlock,
-      editable: true,
+      editable: false,
       props: {
         showSpeakers: this.props.showSpeakers,
         showTimecodes: this.props.showTimecodes,
