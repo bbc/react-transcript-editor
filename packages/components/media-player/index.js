@@ -94,12 +94,32 @@ class MediaPlayer extends React.Component {
   setCurrentTime = newCurrentTime => {
     if (newCurrentTime !== '' && newCurrentTime !== null) {
       // hh:mm:ss:ff - mm:ss - m:ss - ss - seconds number or string and hh:mm:ss
+      const durationInSeconds = timecodeToSeconds(this.props.mediaDuration);
       const newCurrentTimeInSeconds = timecodeToSeconds(newCurrentTime);
+
       const videoRef = this.props.videoRef.current;
 
-      if (videoRef.readyState === 4) {
-        videoRef.currentTime = newCurrentTimeInSeconds;
-        this.playMedia();
+      // HACK (live transcription):
+      // If trying to play media later than on load, refetch
+      if (newCurrentTimeInSeconds >= durationInSeconds) {
+      // if (1 === 1) {
+        console.log('New content is available. Re-fetching latest broadcast:');
+        // this.pauseMedia();
+        // NOTE: Setting state manually over this.pauseMedia() - to handle callback order
+        this.setState({
+          isPlaying: false
+        }, () => {
+          videoRef.pause();
+          videoRef.src = `${ this.props.mediaUrl }?t=${ new Date().getTime() }`;
+          videoRef.currentTime = newCurrentTimeInSeconds;
+          // readyState won't be 4. Play anyway.
+          this.playMedia();
+        });
+      } else {
+        if (videoRef.readyState === 4) {
+          videoRef.currentTime = newCurrentTimeInSeconds;
+          this.playMedia();
+        }
       }
     }
   };
