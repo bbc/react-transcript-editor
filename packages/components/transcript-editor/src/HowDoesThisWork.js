@@ -15,24 +15,16 @@ const helpMessage = (
   <div className={ style.helpMessage }>
     <span>
       <FontAwesomeIcon className={ style.icon } icon={ faMousePointer } />
-        Double click on a word or timestamp to jump to that point in the
-        video.
-    </span>
-    <span>
-      <FontAwesomeIcon className={ style.icon } icon={ faICursor } />
-        Start typing to edit text.
-    </span>
-    <span>
-      <FontAwesomeIcon className={ style.icon } icon={ faUserEdit } />
-        You can add and change names of speakers in your transcript.
+      Double click on a word or timestamp to jump to that point in the
+      video.
     </span>
     <span>
       <FontAwesomeIcon className={ style.icon } icon={ faKeyboard } />
-        Use keyboard shortcuts for quick control.
+      Use keyboard shortcuts for quick control.
     </span>
     <span>
       <FontAwesomeIcon className={ style.icon } icon={ faSave } />
-        Save & export to get a copy to your desktop.
+      Save & export to get a copy to your desktop.
     </span>
   </div>
 );
@@ -50,7 +42,7 @@ const HowDoesThisWork = (
     color={ '#000000' }
   >
     <FontAwesomeIcon className={ style.icon } icon={ faQuestionCircle } />
-      How does this work?
+    How does this work?
   </Tooltip>
 );
 

@@ -17,6 +17,7 @@ class Select extends React.Component {
         name={ this.props.name }
         value={ this.props.currentValue }
         onChange={ this.props.handleChange }
+        aria-label={ 'playback speed selector' }
       >
         {options}
       </select>
