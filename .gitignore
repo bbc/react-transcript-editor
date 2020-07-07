@@ -11,7 +11,7 @@
 # production
 /build
 
-# component to distribute to npm 
+# component to distribute to npm
 /dist
 
 # misc
@@ -114,3 +114,5 @@ stats.json
 *.vtt
 *.ttml
 *.itt
+
+.idea

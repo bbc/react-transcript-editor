@@ -67,6 +67,8 @@ const digitalPaperEditToDraft = (digitalPaperEditTranscriptJson) => {
     return generateDraftJsContentBlock(paragraph);
   });
 
+  console.log('DRAFTJS:', results);
+
   return results;
 };
 
