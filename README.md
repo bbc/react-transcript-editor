@@ -1,7 +1,5 @@
 # React Transcript Editor
 
-<!-- _One liner_ -->
-
 A React component to make transcribing audio and video easier and faster.
 
 <p>
@@ -16,9 +14,7 @@ A React component to make transcribing audio and video easier and faster.
   </a>
 </p>
 <br/>
-
 The project uses [this github project boards to organise and the co-ordinate development](https://github.com/bbc/react-transcript-editor/projects).
-
 _--> Work in progress <--_
 
 <!-- _Screenshot of UI - optional_ -->
@@ -70,7 +66,7 @@ npm install @bbc/react-transcript-editor
 import TranscriptEditor from "@bbc/react-transcript-editor";
 ```
 
-Minimal data needed for initialization 
+Minimal data needed for initialization
 
 ```js
 <TranscriptEditor
@@ -79,13 +75,14 @@ Minimal data needed for initialization
 />
 ```
 
-With more attributes 
+With more attributes
+
 ```js
 <TranscriptEditor
   transcriptData={someJsonFile}
   mediaUrl={"https://download.ted.com/talks/KateDarling_2018S-950k.mp4"}
   handleAutoSaveChanges={this.handleAutoSaveChanges}
-  autoSaveContentType={'digitalpaperedit'}
+  autoSaveContentType={"digitalpaperedit"}
   isEditable={true}
   spellCheck={false}
   sttJsonType={"bbckaldi"}
@@ -93,23 +90,23 @@ With more attributes
   fileName={"ted-talk.mp4"}
   title={"Ted Talk"}
   ref={this.transcriptEditorRef}
-  mediaType={'video'}
+  mediaType={"video"}
 />
 ```
 
-| Attributes            | Description                                                                                                             | required |   type    |
-| :-------------------- | :---------------------------------------------------------------------------------------------------------------------- | :------: | :-------: |
-| transcriptData        | Transcript json                                                                                                         |   yes    |   Json    |
-| mediaUrl              | string url to media file - audio or video                                                                               |   yes    |  String   |
-|`handleAutoSaveChanges`| returns content of transcription after a change                                                                         |    no    |  Function |
-| autoSaveContentType        | specify the file format for data returned by `handleAutoSaveChanges`,falls back on `sttJsonType`. or `draftjs`          |    no    |  string   |
-| isEditable            | set to true if you want to be able to edit the text                                                                     |    no    |  Boolean  |
-| spellCheck            | set to true if you want the browser to spell check this transcript                                                      |    no    |  Boolean  |
-|`handleAnalyticsEvents`| if you want to collect analytics events.                                                                                |    no    | Function  |
-| fileName              | used for saving and retrieving local storage blob files                                                                 |    no    |  String   |
-| title                 | defaults to empty string                                                                                                |    no    |  String   |
-| ref                   | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db. |    no    | React ref |
-| mediaType             | can be `audio` or `video`, if not provided the component uses the url file type to determine and adjust use of the page layout |    no    | String |
+| Attributes              | Description                                                                                                                    | required |   type    |
+| :---------------------- | :----------------------------------------------------------------------------------------------------------------------------- | :------: | :-------: |
+| transcriptData          | Transcript json                                                                                                                |   yes    |   Json    |
+| mediaUrl                | string url to media file - audio or video                                                                                      |   yes    |  String   |
+| `handleAutoSaveChanges` | returns content of transcription after a change                                                                                |    no    | Function  |
+| autoSaveContentType     | specify the file format for data returned by `handleAutoSaveChanges`,falls back on `sttJsonType`. or `draftjs`                 |    no    |  string   |
+| isEditable              | set to true if you want to be able to edit the text                                                                            |    no    |  Boolean  |
+| spellCheck              | set to true if you want the browser to spell check this transcript                                                             |    no    |  Boolean  |
+| `handleAnalyticsEvents` | if you want to collect analytics events.                                                                                       |    no    | Function  |
+| fileName                | used for saving and retrieving local storage blob files                                                                        |    no    |  String   |
+| title                   | defaults to empty string                                                                                                       |    no    |  String   |
+| ref                     | if you want to have access to internal functions such as retrieving content from the editor. eg to save to a server/db.        |    no    | React ref |
+| mediaType               | can be `audio` or `video`, if not provided the component uses the url file type to determine and adjust use of the page layout |    no    |  String   |
 
 See [`./demo/app.js` demo](./demo/app.js) as a more detailed example usage of the component.
 
@@ -175,7 +172,7 @@ Converts various stt json formats to draftJs
 import {
   secondsToTimecode,
   timecodeToSeconds,
-  shortTimecode
+  shortTimecode,
 } from "@bbc/react-transcript-editor/timecodeConverter";
 ```
 

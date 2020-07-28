@@ -1,8 +1,6 @@
-
 ### DraftJS block, entityRanges and entityMap
 
 A quick side note on how the DraftJS block, entityRanges and entityMap works, in the context of the TranscriptEditor component. For the [adapters](./adapters.md) guide.
-
 
 #### Data Block
 
@@ -15,8 +13,8 @@ Here's an example of a block, you can see it can contain some custom data, eg sp
 ```js
 [
   {
-    "text": "There is a day.", // text 
-    "type": "paragraph", // type of block 
+    "text": "There is a day.", // text
+    "type": "paragraph", // type of block
     "data": { //optional custom data
       "speaker": "TBC 0",
       "words": [
@@ -35,15 +33,15 @@ It also contains a list of `entityRanges`.
 
 ### Entity Ranges
 
-`entityRanges` are part of individual blocks. 
+`entityRanges` are part of individual blocks.
 
 <!-- See the docs notes on [draftjs entity ranges](https://github.com/bbc/react-transcript-editor/blob/master/docs/notes/draftjs/2018-10-02-drafjs-2-entity-range.md) -->
 
-From draftJs docs on [entity](https://draftjs.org/docs/advanced-topics-entities) 
+From draftJs docs on [entity](https://draftjs.org/docs/advanced-topics-entities)
 
 > the Entity system, which Draft uses for annotating ranges of text with metadata. Entities introduce levels of richness beyond styled text. Links, mentions, and embedded content can all be implemented using entities.
 
-This is what we use to identify the words, from a list of characters, and associate data to it, such as start and end time information. 
+This is what we use to identify the words, from a list of characters, and associate data to it, such as start and end time information.
 
 It sets the foundations for features such as click on a word can jump the player play-head to the corresponding time for that word.
 
@@ -67,14 +65,14 @@ This, combined with the `entityMap` has the advantage that if you type or delete
         "end": 13.17, // Custom fields
         "confidence": 0.68, // Custom fields
         "text": "There", // Custom fields - to detect what has changed
-        "offset": 0,  // Required by Draft.js to know start of "selection" 
-        "length": 5, //Required by Draft.js to know end of "selection" -  in our case a word 
-        "key": "ctavu0r" // can also be provided by draftjs if not provided. But providing your own gives more flexibility 
+        "offset": 0,  // Required by Draft.js to know start of "selection"
+        "length": 5, //Required by Draft.js to know end of "selection" -  in our case a word
+        "key": "ctavu0r" // can also be provided by draftjs if not provided. But providing your own gives more flexibility
       },
       ...
 ```
 
-### Entity Map 
+### Entity Map
 
 `entityMap` defines how to render the entities for the draftJs content state.
 
@@ -83,6 +81,7 @@ See draftJs docs for more on [entities](https://draftjs.org/docs/advanced-topics
 And keeps in sync `entityRanges` through the `offset` and `length` attribute.
 
 Here's an example
+
 ```js
 {
   "ayx62lj": {
@@ -100,7 +99,7 @@ Here's an example
   },
 ```
 
-To see this in the larger context when we call `sttJsonAdapter` with `transcriptData` and a `sttJsonType` we expect it to return an object with two attributes `blocks` and `entityMap`.  
+To see this in the larger context when we call `sttJsonAdapter` with `transcriptData` and a `sttJsonType` we expect it to return an object with two attributes `blocks` and `entityMap`.
 
 ```js
 {
@@ -191,6 +190,5 @@ To see this in the larger context when we call `sttJsonAdapter` with `transcript
 ....
 }
 ```
-
 
 The good news, is that given the blocks and the entityRanges, we can programmatically generate the entityMap. Which means you don't have to worry about creating the entityMap when making an adapter.
