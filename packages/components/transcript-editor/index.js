@@ -405,6 +405,7 @@ class TranscriptEditor extends React.Component {
         previewIsDisplayed={this.state.previewIsDisplayed}
         handlePreviewIsDisplayed={this.handlePreviewIsDisplayed}
         handleChangePreviewViewWidth={this.handleChangePreviewViewWidth}
+        handleEditingComplete={this.props.handleEditingComplete}
       />
     );
 
@@ -452,6 +453,7 @@ class TranscriptEditor extends React.Component {
         handleAutoSaveChanges={this.handleAutoSaveChanges}
         autoSaveContentType={contentFormat}
         title={this.props.title ? this.props.title : Date.now()}
+        handleEditingComplete={this.handleEditingComplete}
       />
     );
 
@@ -510,7 +512,8 @@ TranscriptEditor.propTypes = {
   handleAnalyticsEvents: PropTypes.func,
   fileName: PropTypes.string,
   transcriptData: PropTypes.object,
-  mediaType: PropTypes.string
+  mediaType: PropTypes.string,
+  handleEditingComplete: PropTypes.func
 };
 
 export default TranscriptEditor;

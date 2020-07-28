@@ -56,6 +56,14 @@ class TimedTextEditor extends React.Component {
       // be very frequent operations but rather one time setup in most cases.
       this.forceRenderDecorator();
     }
+
+    // check if isEditable has changed from true to false, indicating editing is complete
+    if(prevProps.isEditable && !this.props.isEditable) {
+      if (this.props.handleEditingComplete) {
+        const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title);
+        this.props.handleEditingComplete(data);
+      }
+    }
   }
 
   onChange = editorState => {
@@ -86,23 +94,26 @@ class TimedTextEditor extends React.Component {
       if (this.saveTimer !== undefined) {
         clearTimeout(this.saveTimer);
       }
-      this.saveTimer = setTimeout(() => {
-        this.setState(
-          () => ({
-            editorState
-          }),
-          () => {
-            // const data = this.updateTimestampsForEditorState();
-            const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title);
-            this.props.handleAutoSaveChanges(data);
-          }
-        );
-      }, 1000);
+
+      if(this.props.handleAutoSaveChanges) {
+        this.saveTimer = setTimeout(() => {
+          this.setState(
+            () => ({
+              editorState
+            }),
+            () => {
+              // const data = this.updateTimestampsForEditorState();
+              const data = this.getEditorContent( this.props.autoSaveContentType, this.props.title);
+              this.props.handleAutoSaveChanges(data);
+            }
+          );
+        }, 1000);
+      }
     }
 
     if (this.props.isEditable) {
       this.setState({ editorState });
-    }
+    } 
   };
 
   updateTimestampsForEditorState() {
@@ -282,7 +293,9 @@ class TimedTextEditor extends React.Component {
           title
         );
 
-        this.props.handleAutoSaveChanges(data);
+        if(this.props.handleAutoSaveChanges) {
+          this.props.handleAutoSaveChanges(data);
+        }
       }
     );
   };
@@ -612,7 +625,8 @@ TimedTextEditor.propTypes = {
   handleAnalyticsEvents: PropTypes.func,
   showSpeakers: PropTypes.bool,
   showTimecodes: PropTypes.bool,
-  fileName: PropTypes.string
+  fileName: PropTypes.string,
+  handleEditingComplete: PropTypes.func
 };
 
 export default TimedTextEditor;

@@ -35,7 +35,8 @@ class App extends React.Component {
       fileName: "",
       autoSaveData: {},
       autoSaveContentType: "draftjs",
-      autoSaveExtension: "json"
+      autoSaveExtension: "json",
+      completedData: {}
     };
 
     this.transcriptEditorRef = React.createRef();
@@ -186,6 +187,12 @@ class App extends React.Component {
     // Saving to local storage 
     localSave(this.state.mediaUrl, this.state.fileName, data);
   };
+
+  handleEditingComplete = newData => {
+    console.log("handleEditingComplete", newData);
+    this.setState({ completedData: newData })
+  }
+
   render() {
     return (
       <div className={style.container}>
@@ -322,6 +329,7 @@ class App extends React.Component {
           handleAutoSaveChanges={this.handleAutoSaveChanges}
           autoSaveContentType={this.state.autoSaveContentType}
           mediaType={ 'video' }
+          handleEditingComplete={this.handleEditingComplete}
         />
 
         <section style={{ height: "250px", width: "50%", float: "left" }}>
