@@ -1,6 +1,6 @@
 # Analytics
 
-The `ReactTranscriptEditor` component has an optional setup to track some analytics events around the usage of the main functionalities.
+The `TranscriptEditor` component has an optional setup to track some analytics events around the usage of the main functionalities.
 
 As you can see in the demo app at `/src/index.js` there is an optional `handleAnalyticsEvents`.
 
