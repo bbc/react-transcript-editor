@@ -8,7 +8,7 @@ _Based on PR [#135](https://github.com/bbc/react-transcript-editor/pull/135)_
 
 1. Commit changes to master
 2. Publish component to NPM
-    1. `npm run publish:public`
+   1. `npm run publish:public`
 3. Publish to Github Pages - `npm run deploy:ghpages`
 
 ## Webpack
@@ -41,15 +41,15 @@ module.exports = {
     exportAdapter: "./packages/export-adapters/index.js",
     sttJsonAdapter: "./packages/stt-adapters/index.js",
     groupWordsInParagraphsBySpeakersDPE:
-      "./packages/stt-adapters/digital-paper-edit/group-words-by-speakers.js"
+      "./packages/stt-adapters/digital-paper-edit/group-words-by-speakers.js",
   },
   output: {
     path: path.resolve("dist"),
     filename: "[name].js",
-    libraryTarget: "commonjs2"
+    libraryTarget: "commonjs2",
   },
   optimization: {
-    minimize: true
+    minimize: true,
   },
   module: {
     rules: [
@@ -57,15 +57,15 @@ module.exports = {
         test: /\.module.css$/,
         use: [
           {
-            loader: "style-loader"
+            loader: "style-loader",
           },
           {
             loader: "css-loader",
             options: {
-              modules: true
-            }
-          }
-        ]
+              modules: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(js|jsx)$/,
@@ -75,32 +75,32 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
-          }
-        }
-      }
-    ]
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
+      },
+    ],
   },
   resolve: {
     alias: {
       react: path.resolve(__dirname, "./node_modules/react"),
-      "react-dom": path.resolve(__dirname, "./node_modules/react-dom")
-    }
+      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
+    },
   },
   externals: {
     react: {
       commonjs: "react",
       commonjs2: "react",
       amd: "React",
-      root: "React"
+      root: "React",
     },
     "react-dom": {
       commonjs: "react-dom",
       commonjs2: "react-dom",
       amd: "ReactDOM",
-      root: "ReactDOM"
-    }
-  }
+      root: "ReactDOM",
+    },
+  },
 };
 ```
 
@@ -120,8 +120,8 @@ and
 import { TimedTextEditor } from "@bbc/react-transcript-editor";
 ```
 
-However, as mentioned in the README - __it is preferred to import individual components like using the first option:
-`@bbc/react-transcript-editor/TimedTextEditor`__ as the other importing method imports the entire library.
+However, as mentioned in the README - **it is preferred to import individual components like using the first option:
+`@bbc/react-transcript-editor/TimedTextEditor`** as the other importing method imports the entire library.
 
 ### Caveats
 
@@ -140,7 +140,7 @@ Assets:
 
 #### CSS module support for Storybook
 
-Storybooks __DO NOT support CSS modules out of the box__, so if you remove CRA (`create-react-app`) scripts [the css modules will not load in the Storybook](https://github.com/storybooks/storybook/issues/2320).
+Storybooks **DO NOT support CSS modules out of the box**, so if you remove CRA (`create-react-app`) scripts [the css modules will not load in the Storybook](https://github.com/storybooks/storybook/issues/2320).
 `storybook/webpack.config.js` augments the storybook with support for CSS modules.
 
 ## Testing

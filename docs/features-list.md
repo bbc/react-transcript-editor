@@ -1,64 +1,87 @@
-# Features List - draft
+# Features List
 
-## User Facing
+## User Interface
 
-Player controls
-- [x] play/pause  
+### Player controls
+
+- [x] play/pause
 - [x] Current time + duration display
-- [X] Adjust Playback rate 
-- [x] Jump to timecode <—  in timecode `hh:mm:ss:ms` format or (hh:mm:ss:ms hh:mm:ss mm:ss m:ss m.ss seconds)
-- [x] Adjust timecodes <— set a timecode offset - default to zero  
-- [x] [auto pause while typing](https://github.com/bbc/react-transcript-editor/issues/19) <-- 
+- [x] Adjust Playback rate
+- [x] Jump to timecode
+  - in timecode `hh:mm:ss:ms` format or `hh:mm:ss:ms hh:mm:ss mm:ss m:ss m.ss seconds`)
+- [x] Adjust timecodes
+  - configurable in the settings menu
+  - default to `00:00:00:00`
+- [x] Roll back button
+  - configurable in the settings menu
+  - default to 15 seconds
+- [x] [auto pause while typing](https://github.com/bbc/react-transcript-editor/issues/19) (adjustable in the settings menu - default to `on`)
+  <!-- - [ ] UI Turn off video preview (toggle on/off) -->
 
-<!-- - [ ] UI Turn off video preview (toggle on/off) -->
-- [x] Roll back button 15 sec default, customizable amount 
+### Keyboard Shortcuts
 
-Keyboard Shortcuts 
-- [X] Keyboard Shortcuts 
-- [ ] customizable Keyboard Shortcuts 
+- [x] Keyboard Shortcuts
+- [ ] customizable Keyboard Shortcuts
 
-HyperTranscript - interactivity 
-- [x] On text word double click at timecode -> media current time set to word timecode
-- [x] [Words highlighted at current time](https://github.com/bbc/react-transcript-editor/issues/25) <— 
-- [x] [Scroll Sync](https://github.com/bbc/react-transcript-editor/issues/34), keep current word in view <—  (toggle on/off) 
-- [ ] Preserve timecodes while editing - TBC how
+### HyperTranscript - interactivity
 
-Transcript Extra Info
+- [x] Set media time by double clicking on a word
+- [x] [Words highlighted at current time](https://github.com/bbc/react-transcript-editor/issues/25) <—
+- [x] [Scroll Sync](https://github.com/bbc/react-transcript-editor/issues/34)
+  - Keep current word in view
+  - default `off`
+  - configurable in the settings menu
+- [ ] Preserve timecodes while editing
+
+### Transcript Extra Info
+
 - [x] [Display Timecodes at paragraph level](https://github.com/bbc/react-transcript-editor/issues/26) (with offset if present)
-- [x] [Display editable speaker names at paragraph level](https://github.com/bbc/react-transcript-editor/issues/26) - speaker diarization info 
+- [x] [Display editable speaker names at paragraph level](https://github.com/bbc/react-transcript-editor/issues/26) - speaker diarization info
 
-Save
-- [x] Save locally - (local storage)
-- [x] Save locally - on interval, eg every `x` char 
-- [ ] ~Save to server API end point - Btc~
-- [ ] ~Save to server API end point - on interval~ 
+### Save
 
-Export <-- for proof of concept
-- [X] Export plain text - without speaker names or timecodes
+- [x] Save locally to local storage
+  - [x] On interval, e.g. every `x` char
+
+### Export (for proof of concept)
+
+- [x] Export plain text
+  - [x] without speaker names or timecodes
+  - [x] with speaker names and timecodes
+- [x] Captions
+  - [x] JSON
+  - [x] CSV
+  - [x] Adobe Premiere
+  - [x] SRT
+  - [x] TTML
+  - [x] VTT
+  - [x] [Digital Paper Edit](https://www.github.com/bbc/digital-paper-edit-client)
 - [ ] Customizable Export plain text, eg with timecodes, speakers names etc..
-    - [ ] with speaker names 
-    - [ ] with timecodes
-    - [ ] with timecodes & speaker names
-- [ ] Other?
+  - [ ] with speaker names
+  - [ ] with timecodes
+  - [ ] with timecodes & speaker names
 
+### Mobile First
 
-Mobile First
-- [x] Works on mobile 
+- [x] Works on mobile
 
-Browser compatibility
-- [X] Works on Chrome
-- [ ] Windows Explorer IE
+### Browser compatibility
 
-## Dev 
+- [x] Chrome
+- [ ] Firefox
+- [ ] Internet Explorer
 
-Import Transcript Json - Adapters 
-- [x] BBC Kaldi 
+## Dev
+
+### Import Transcript Json - Adapters
+
+- [x] BBC Kaldi
 - [x] News Labs API - BBC Kaldi
 - [x] autoEdit 2
 - [x] AWS Transcriber
 - [x] IBM Watson STT
-- [X] Speechmatics
-- [ ] Gentle Transcription 
+- [x] Speechmatics
+- [ ] Gentle Transcription
 - [ ] Gentle Alignment Json
 - [ ] AssemblyAI
 - [ ] Rev
@@ -67,15 +90,15 @@ Import Transcript Json - Adapters
 - [ ] TTML
 - [ ] VTT
 - [ ] VTT (Youtube)
-- [ ] IIIF 
+- [ ] IIIF
 - [ ] SMT and/or CTM ?<!-- SCLite -->
 
+### Export Transcript Json - Adapters
 
-Export Transcript Json - Adapters 
-- [ ] BBC Kaldi 
+- [ ] BBC Kaldi
 - [ ] News Labs API - BBC Kaldi
 - [ ] autoEdit 2
-- [ ] Gentle Transcription 
+- [ ] Gentle Transcription
 - [ ] Gentle Alignment Json
 - [ ] IBM Watson STT
 - [ ] Speechmatics
@@ -86,8 +109,7 @@ Export Transcript Json - Adapters
 - [ ] TTML
 - [ ] VTT
 - [ ] VTT (Youtube)
-- [ ] IIIF 
+- [ ] IIIF
 - [ ] SMT and/or CTM ?
 
-<!-- add Instructions on how to create adapters  -->
-
+You can add adapters - [see guide](./guides/adapters.md).
