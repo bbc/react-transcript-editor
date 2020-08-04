@@ -14,6 +14,8 @@ to get text out of component with timecodes and speaker names in the interim */
   user-select: none;
 }
 
+
+
 /* Desktop size */
 @media (min-width: 768px) {
 
@@ -79,6 +81,17 @@ to get text out of component with timecodes and speaker names in the interim */
   margin-right: 0.5em;
 }
 
+.loadingBlockPlaceholder{
+  display: flex;
+  width: 100%;
+  /* min-height: 50px; */
+  font-weight: bold;
+  justify-content: center;
+  margin: 10px 0px;
+  align-items: center;
+  justify-items: center;
+  background-color: #f7f7f7;
+}
 
 /* Mobile devices */
 @media (max-width: 768px) {

@@ -7,7 +7,7 @@ import {
   convertFromRaw,
   convertToRaw
  } from 'draft-js';
-
+ import VisibilitySensor from 'react-visibility-sensor';
 import SpeakerLabel from './SpeakerLabel';
 // import { shortTimecode, secondsToTimecode } from '../../Util/timecode-converter/';
 
@@ -50,7 +50,8 @@ class WrapperBlock extends React.Component {
 
     this.setState({
       speaker: speaker,
-      start: start
+      start: start,
+      getElement: document.querySelector(".notranslate")
     });
   }
   // reducing unnecessary re-renders
@@ -165,7 +166,16 @@ class WrapperBlock extends React.Component {
     }
   };
 
+  visibilityChanged = (isVisible) => {
+    console.log("ISVISIBLE", isVisible);
+  }
+
   render() {
+
+    let containmentDOMRect = this.state.getElement
+      ? this.state.getElement
+      : null;
+
     let startTimecode = this.state.start;
     if (this.props.blockProps.timecodeOffset) {
       startTimecode += this.props.blockProps.timecodeOffset;
@@ -186,19 +196,23 @@ class WrapperBlock extends React.Component {
     );
 
     return (
-      <div className={ style.WrapperBlock }>
-        <div
-          className={ [ style.markers, style.unselectable ].join(' ') }
-          contentEditable={ false }
-        >
-          {this.props.blockProps.showSpeakers ? speakerElement : ''}
+      <VisibilitySensor partialVisibility={true} onChange={this.visibilityChanged} containment={containmentDOMRect} scrollCheck>
+         {({isVisible}) =>  isVisible ?
+          <div className={ style.WrapperBlock }>
+              <div
+                className={ [ style.markers, style.unselectable ].join(' ') }
+                contentEditable={ false }
+              >
+                {this.props.blockProps.showSpeakers ? speakerElement : ''}
 
-          {this.props.blockProps.showTimecodes ? timecodeElement : ''}
-        </div>
-        <div className={ style.text }>
-          <EditorBlock { ...this.props } />
-        </div>
-      </div>
+                {this.props.blockProps.showTimecodes ? timecodeElement : ''}
+              </div>
+              <div className={ style.text }>
+                <EditorBlock { ...this.props } />
+              </div>
+            </div> : <div className={ style.WrapperBlock + " " + style.loadingBlockPlaceholder }>loading...</div>
+          }
+        </VisibilitySensor>
     );
   }
 }
