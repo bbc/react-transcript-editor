@@ -154,7 +154,7 @@ class TimedTextEditor extends React.Component {
         newEditorState,
         selection
       );
-      this.setState({ editorState: newEditorStateSelected });
+
       return newEditorStateSelected;
     } else {
       this.setState({ editorState: newEditorState });
