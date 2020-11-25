@@ -100,14 +100,13 @@ function adjustTimecodesBoundaries(words) {
 }
 
 function interpolate(wordsList) {
-  const words = interpolationOptimization(wordsList);
-  const indicies = [ ...Array(words.length).keys() ];
+  const indicies = [ ...Array(wordsList.length).keys() ];
   const indiciesWithStart = [];
   const indiciesWithEnd = [];
   const startTimes = [];
   const endTimes = [];
 
-  words.forEach((word, index) => {
+  wordsList.forEach((word, index) => {
     if ('start' in word) {
       indiciesWithStart.push(index);
       startTimes.push(word.start);
@@ -121,7 +120,7 @@ function interpolate(wordsList) {
   // http://borischumichev.github.io/everpolate/#linear
   const outStartTimes = everpolate.linear(indicies, indiciesWithStart, startTimes);
   const outEndTimes = everpolate.linear(indicies, indiciesWithEnd, endTimes);
-  const wordsResults = words.map((word, index) => {
+  const wordsResults = wordsList.map((word, index) => {
     if (!('start' in word)) {
       word.start = outStartTimes[index];
     }
