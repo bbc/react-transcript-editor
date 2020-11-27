@@ -382,22 +382,22 @@ class MediaPlayer extends React.Component {
       <div className={ styles.controlsSection }>
         {this.props.title ? <h2 className={ styles.title } title={ this.props.title }>{this.props.title}</h2> : null}
         <PlayerControls
-          playMedia={ this.togglePlayMedia.bind(this) }
+          playMedia={ this.togglePlayMedia }
           isPlaying={ this.state.isPlaying }
           isMute={ this.state.isMute }
           playbackRate={ this.state.playbackRate }
-          skipBackward={ this.skipBackward.bind(this) }
-          skipForward={ this.skipForward.bind(this) }
+          skipBackward={ this.skipBackward }
+          skipForward={ this.skipForward }
           rollback={ this.rollBack }
           currentTime={ this.getMediaCurrentTime() }
           duration={ this.props.mediaDuration }
           onSetCurrentTime={ '' }
           onSetTimecodeOffset={ '' }
-          promptSetCurrentTime={ this.promptSetCurrentTime.bind(this) }
-          setTimeCodeOffset={ this.setTimeCodeOffset.bind(this) }
+          promptSetCurrentTime={ this.promptSetCurrentTime }
+          setTimeCodeOffset={ this.setTimeCodeOffset }
           timecodeOffset={ secondsToTimecode(this.state.timecodeOffset) }
-          handleMuteVolume={ this.handleMuteVolume.bind(this) }
-          setPlayBackRate={ this.handlePlayBackRateChange.bind(this) }
+          handleMuteVolume={ this.handleMuteVolume }
+          setPlayBackRate={ this.handlePlayBackRateChange }
           playbackRateOptions={ this.state.playbackRateOptions }
           pictureInPicture={ this.handlePictureInPicture }
         />

@@ -6,6 +6,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import HowDoesThisWork from './HowDoesThisWork';
+
 import style from '../index.module.css';
 
 class Header extends React.Component {
@@ -24,7 +26,7 @@ class Header extends React.Component {
         {props.showSettings ? props.settings : null}
         {props.showShortcuts ? props.shortcuts : null}
         {props.showExportOptions ? props.exportOptions : null}
-        {props.tooltip}
+        {HowDoesThisWork}
       </header>
       <nav className={ style.nav }>
         {props.mediaUrl === null ? null : props.mediaControls}

@@ -8,7 +8,7 @@ import {
   secondsToTimecode
 } from '../../../util/timecode-converter';
 
-class TimecodeOffset extends React.Component {
+class TimecodeOffset extends React.PureComponent {
   constructor(props) {
     super(props);
 

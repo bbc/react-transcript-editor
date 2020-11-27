@@ -6,12 +6,7 @@ import Select from './Select';
 
 import style from './PlayerControls/index.module.scss';
 
-class PlaybackRate extends React.Component {
-
-  shouldComponentUpdate = (nextProps) => {
-    return !isEqual(this.props, nextProps);
-  }
-
+class PlaybackRate extends React.PureComponent {
   render() {
     return (
       <span className={ style.playBackRate }
