@@ -13,8 +13,9 @@ A React component to make transcribing audio and video easier and faster.
     <img src="https://img.shields.io/npm/v/@bbc/react-transcript-editor.svg?maxAge=3600&label=version&colorB=007ec6">
   </a>
 </p>
-<br/>
+
 The project uses [this github project boards to organise and the co-ordinate development](https://github.com/bbc/react-transcript-editor/projects).
+
 _--> Work in progress <--_
 
 <!-- _Screenshot of UI - optional_ -->
