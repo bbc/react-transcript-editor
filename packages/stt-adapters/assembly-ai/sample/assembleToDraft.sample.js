@@ -392,7 +392,7 @@ const draftTranscriptExample = [
            "text":"Thank",
            "offset":0,
            "length":5,
-           "key":"u8ljvzq"
+           "key": expect.any(String)
         },
         {
            "start":2.11,
@@ -401,7 +401,7 @@ const draftTranscriptExample = [
            "text":"you",
            "offset":6,
            "length":3,
-           "key":"wdi2co7"
+           "key": expect.any(String)
         },
         {
            "start":2.29,
@@ -410,8 +410,7 @@ const draftTranscriptExample = [
            "text":"for",
            "offset":10,
            "length":3,
-           "key":"zh3912"
-        },
+           "key": expect.any(String)        },
         {
            "start":2.44,
            "end":2.79,
@@ -419,7 +418,7 @@ const draftTranscriptExample = [
            "text":"calling.",
            "offset":14,
            "length":8,
-           "key":"t6ats2g"
+           "key": expect.any(String)
         },
         {
            "start":2.96,
@@ -428,7 +427,7 @@ const draftTranscriptExample = [
            "text":"His",
            "offset":23,
            "length":3,
-           "key":"kdcovut"
+           "key": expect.any(String)
         },
         {
            "start":3.97,
@@ -437,7 +436,7 @@ const draftTranscriptExample = [
            "text":"name",
            "offset":27,
            "length":4,
-           "key":"j7x0frk"
+           "key": expect.any(String)
         },
         {
            "start":4.15,
@@ -446,7 +445,7 @@ const draftTranscriptExample = [
            "text":"is",
            "offset":32,
            "length":2,
-           "key":"l7741an"
+           "key": expect.any(String)
         },
         {
            "start":4.27,
@@ -455,7 +454,7 @@ const draftTranscriptExample = [
            "text":"Erin",
            "offset":35,
            "length":4,
-           "key":"nrdgqvk"
+           "key": expect.any(String)
         },
         {
            "start":4.54,
@@ -464,7 +463,7 @@ const draftTranscriptExample = [
            "text":"and",
            "offset":40,
            "length":3,
-           "key":"n0kpjx6"
+           "key": expect.any(String)
         },
         {
            "start":4.75,
@@ -473,7 +472,7 @@ const draftTranscriptExample = [
            "text":"it's",
            "offset":44,
            "length":4,
-           "key":"vl54d8q"
+           "key": expect.any(String)
         },
         {
            "start":4.96,
@@ -482,7 +481,7 @@ const draftTranscriptExample = [
            "text":"my",
            "offset":49,
            "length":2,
-           "key":"qavd68o"
+           "key": expect.any(String)
         },
         {
            "start":5.11,
@@ -491,7 +490,7 @@ const draftTranscriptExample = [
            "text":"pleasure",
            "offset":52,
            "length":8,
-           "key":"hlci6he"
+           "key": expect.any(String)
         },
         {
            "start":5.47,
@@ -500,7 +499,7 @@ const draftTranscriptExample = [
            "text":"to",
            "offset":61,
            "length":2,
-           "key":"9vju6dm"
+           "key": expect.any(String)
         },
         {
            "start":5.59,
@@ -509,7 +508,7 @@ const draftTranscriptExample = [
            "text":"provide",
            "offset":64,
            "length":7,
-           "key":"l2dcwln"
+           "key": expect.any(String)
         },
         {
            "start":5.89,
@@ -518,7 +517,7 @@ const draftTranscriptExample = [
            "text":"you",
            "offset":72,
            "length":3,
-           "key":"hkcmzne"
+           "key": expect.any(String)
         },
         {
            "start":6.01,
@@ -527,7 +526,7 @@ const draftTranscriptExample = [
            "text":"with",
            "offset":76,
            "length":4,
-           "key":"kw1ip6t"
+           "key": expect.any(String)
         },
         {
            "start":6.19,
@@ -536,7 +535,7 @@ const draftTranscriptExample = [
            "text":"a",
            "offset":81,
            "length":1,
-           "key":"xmb51bc"
+           "key": expect.any(String)
         },
         {
            "start":6.48,
@@ -545,7 +544,7 @@ const draftTranscriptExample = [
            "text":"customer",
            "offset":83,
            "length":8,
-           "key":"o3eltv9"
+           "key": expect.any(String)
         },
         {
            "start":6.88,
@@ -554,7 +553,7 @@ const draftTranscriptExample = [
            "text":"service",
            "offset":92,
            "length":7,
-           "key":"vkvskmw"
+           "key": expect.any(String)
         },
         {
            "start":7.24,
@@ -563,8 +562,7 @@ const draftTranscriptExample = [
            "text":"today",
            "offset":100,
            "length":5,
-           "key":"fxoycj"
-        },
+           "key": expect.any(String)        },
         {
            "start":7.59,
            "end":7.98,
@@ -572,7 +570,7 @@ const draftTranscriptExample = [
            "text":"to",
            "offset":106,
            "length":2,
-           "key":"p0dkz6h"
+           "key": expect.any(String)
         },
         {
            "start":7.99,
@@ -581,7 +579,7 @@ const draftTranscriptExample = [
            "text":"get",
            "offset":109,
            "length":3,
-           "key":"dryxsso"
+           "key": expect.any(String)
         },
         {
            "start":8.25,
@@ -590,7 +588,7 @@ const draftTranscriptExample = [
            "text":"started.",
            "offset":113,
            "length":8,
-           "key":"1zey1xb"
+           "key": expect.any(String)
         },
         {
            "start":8.68,
@@ -599,7 +597,7 @@ const draftTranscriptExample = [
            "text":"Can",
            "offset":122,
            "length":3,
-           "key":"ib2l5yj"
+           "key": expect.any(String)
         },
         {
            "start":8.86,
@@ -608,7 +606,7 @@ const draftTranscriptExample = [
            "text":"I",
            "offset":126,
            "length":1,
-           "key":"fsahh9r"
+           "key": expect.any(String)
         },
         {
            "start":8.92,
@@ -617,8 +615,7 @@ const draftTranscriptExample = [
            "text":"please",
            "offset":128,
            "length":6,
-           "key":"nq5491"
-        },
+           "key": expect.any(String)        },
         {
            "start":9.22,
            "end":9.42,
@@ -626,7 +623,7 @@ const draftTranscriptExample = [
            "text":"have",
            "offset":135,
            "length":4,
-           "key":"ztht9bp"
+           "key": expect.any(String)
         },
         {
            "start":9.43,
@@ -635,8 +632,7 @@ const draftTranscriptExample = [
            "text":"the",
            "offset":140,
            "length":3,
-           "key":"qrv92g"
-        },
+           "key": expect.any(String)        },
         {
            "start":9.58,
            "end":9.78,
@@ -644,7 +640,7 @@ const draftTranscriptExample = [
            "text":"phone",
            "offset":144,
            "length":5,
-           "key":"93emmzq"
+           "key": expect.any(String)
         },
         {
            "start":9.79,
@@ -653,7 +649,7 @@ const draftTranscriptExample = [
            "text":"number",
            "offset":150,
            "length":6,
-           "key":"cl72b6d"
+           "key": expect.any(String)
         },
         {
            "start":10.03,
@@ -662,7 +658,7 @@ const draftTranscriptExample = [
            "text":"that",
            "offset":157,
            "length":4,
-           "key":"y4qd9qk"
+           "key": expect.any(String)
         },
         {
            "start":10.27,
@@ -671,7 +667,7 @@ const draftTranscriptExample = [
            "text":"you",
            "offset":162,
            "length":3,
-           "key":"37u0e9p"
+           "key": expect.any(String)
         },
         {
            "start":10.39,
@@ -680,7 +676,7 @@ const draftTranscriptExample = [
            "text":"placed",
            "offset":166,
            "length":6,
-           "key":"0pl3xj7"
+           "key": expect.any(String)
         },
         {
            "start":10.66,
@@ -689,7 +685,7 @@ const draftTranscriptExample = [
            "text":"your",
            "offset":173,
            "length":4,
-           "key":"fhvbe64"
+           "key": expect.any(String)
         },
         {
            "start":10.84,
@@ -698,7 +694,7 @@ const draftTranscriptExample = [
            "text":"order",
            "offset":178,
            "length":5,
-           "key":"xnkv2be"
+           "key": expect.any(String)
         },
         {
            "start":11.05,
@@ -707,7 +703,7 @@ const draftTranscriptExample = [
            "text":"under",
            "offset":184,
            "length":5,
-           "key":"bevnq29"
+           "key": expect.any(String)
         },
         {
            "start":11.26,
@@ -716,7 +712,7 @@ const draftTranscriptExample = [
            "text":"and",
            "offset":190,
            "length":3,
-           "key":"q4wbcmr"
+           "key": expect.any(String)
         },
         {
            "start":11.41,
@@ -725,8 +721,7 @@ const draftTranscriptExample = [
            "text":"the",
            "offset":194,
            "length":3,
-           "key":"aehna1"
-        },
+           "key": expect.any(String)        },
         {
            "start":11.53,
            "end":11.7,
@@ -734,8 +729,7 @@ const draftTranscriptExample = [
            "text":"name",
            "offset":198,
            "length":4,
-           "key":"9k6554"
-        },
+           "key": expect.any(String)        },
         {
            "start":11.71,
            "end":11.82,
@@ -743,7 +737,7 @@ const draftTranscriptExample = [
            "text":"of",
            "offset":203,
            "length":2,
-           "key":"qq35hih"
+           "key": expect.any(String)
         },
         {
            "start":11.83,
@@ -752,7 +746,7 @@ const draftTranscriptExample = [
            "text":"the",
            "offset":206,
            "length":3,
-           "key":"8y6zwhv"
+           "key": expect.any(String)
         },
         {
            "start":11.95,
@@ -761,8 +755,7 @@ const draftTranscriptExample = [
            "text":"product",
            "offset":210,
            "length":7,
-           "key":"ikt017"
-        },
+           "key": expect.any(String)        },
         {
            "start":12.22,
            "end":12.39,
@@ -770,7 +763,7 @@ const draftTranscriptExample = [
            "text":"that",
            "offset":218,
            "length":4,
-           "key":"nex0a24"
+           "key": expect.any(String)
         },
         {
            "start":12.4,
@@ -779,7 +772,7 @@ const draftTranscriptExample = [
            "text":"you're",
            "offset":223,
            "length":6,
-           "key":"kqk8fva"
+           "key": expect.any(String)
         },
         {
            "start":12.64,
@@ -788,7 +781,7 @@ const draftTranscriptExample = [
            "text":"calling",
            "offset":230,
            "length":7,
-           "key":"j0xp0ic"
+           "key": expect.any(String)
         },
         {
            "start":12.94,
@@ -797,7 +790,7 @@ const draftTranscriptExample = [
            "text":"about",
            "offset":238,
            "length":5,
-           "key":"jjfl4ul"
+           "key": expect.any(String)
         },
         {
            "start":13.18,
@@ -806,7 +799,7 @@ const draftTranscriptExample = [
            "text":"today?",
            "offset":244,
            "length":6,
-           "key":"dl3f65u"
+           "key": expect.any(String)
         }
      ]
   },
@@ -971,8 +964,7 @@ const draftTranscriptExample = [
            "text":"Well,",
            "offset":0,
            "length":5,
-           "key":"rf3bsh"
-        },
+           "key": expect.any(String)        },
         {
            "start":14.97,
            "end":15.18,
@@ -980,7 +972,7 @@ const draftTranscriptExample = [
            "text":"my",
            "offset":6,
            "length":2,
-           "key":"opfaexd"
+           "key": expect.any(String)
         },
         {
            "start":15.19,
@@ -989,8 +981,7 @@ const draftTranscriptExample = [
            "text":"phone",
            "offset":9,
            "length":5,
-           "key":"4n2ydf"
-        },
+           "key": expect.any(String)        },
         {
            "start":15.43,
            "end":15.69,
@@ -998,8 +989,7 @@ const draftTranscriptExample = [
            "text":"number",
            "offset":15,
            "length":6,
-           "key":"pe5dj3"
-        },
+           "key": expect.any(String)        },
         {
            "start":15.7,
            "end":15.87,
@@ -1007,7 +997,7 @@ const draftTranscriptExample = [
            "text":"is",
            "offset":22,
            "length":2,
-           "key":"mkszy2k"
+           "key": expect.any(String)
         },
         {
            "start":15.88,
@@ -1016,7 +1006,7 @@ const draftTranscriptExample = [
            "text":"123-456-7890.",
            "offset":25,
            "length":13,
-           "key":"3qq4fie"
+           "key": expect.any(String)
         },
         {
            "start":20.68,
@@ -1025,7 +1015,7 @@ const draftTranscriptExample = [
            "text":"My",
            "offset":39,
            "length":2,
-           "key":"fuwme8f"
+           "key": expect.any(String)
         },
         {
            "start":21.82,
@@ -1034,7 +1024,7 @@ const draftTranscriptExample = [
            "text":"name",
            "offset":42,
            "length":4,
-           "key":"3c0eyu9"
+           "key": expect.any(String)
         },
         {
            "start":22.1,
@@ -1043,7 +1033,7 @@ const draftTranscriptExample = [
            "text":"is",
            "offset":47,
            "length":2,
-           "key":"7a98kg2"
+           "key": expect.any(String)
         },
         {
            "start":22.25,
@@ -1052,7 +1042,7 @@ const draftTranscriptExample = [
            "text":"Daren.",
            "offset":50,
            "length":6,
-           "key":"ripjrut"
+           "key": expect.any(String)
         },
         {
            "start":24.3,
@@ -1061,7 +1051,7 @@ const draftTranscriptExample = [
            "text":"The",
            "offset":57,
            "length":3,
-           "key":"wdmnqkd"
+           "key": expect.any(String)
         },
         {
            "start":25.31,
@@ -1070,8 +1060,7 @@ const draftTranscriptExample = [
            "text":"item",
            "offset":61,
            "length":4,
-           "key":"ln3t4i"
-        },
+           "key": expect.any(String)        },
         {
            "start":25.61,
            "end":25.78,
@@ -1079,7 +1068,7 @@ const draftTranscriptExample = [
            "text":"is",
            "offset":66,
            "length":2,
-           "key":"9ku8oal"
+           "key": expect.any(String)
         },
         {
            "start":25.79,
@@ -1088,7 +1077,7 @@ const draftTranscriptExample = [
            "text":"called",
            "offset":69,
            "length":6,
-           "key":"98oa7gm"
+           "key": expect.any(String)
         },
         {
            "start":26.12,
@@ -1097,7 +1086,7 @@ const draftTranscriptExample = [
            "text":"Amazing",
            "offset":76,
            "length":7,
-           "key":"vy9fpwb"
+           "key": expect.any(String)
         },
         {
            "start":26.71,
@@ -1106,8 +1095,7 @@ const draftTranscriptExample = [
            "text":"plus",
            "offset":84,
            "length":4,
-           "key":"6y5g5t"
-        },
+           "key": expect.any(String)        },
         {
            "start":27.16,
            "end":27.7,
@@ -1115,7 +1103,7 @@ const draftTranscriptExample = [
            "text":"Brilliant",
            "offset":89,
            "length":9,
-           "key":"c32l6xs"
+           "key": expect.any(String)
         },
         {
            "start":27.71,
@@ -1124,7 +1112,7 @@ const draftTranscriptExample = [
            "text":"Gu.",
            "offset":99,
            "length":3,
-           "key":"zoq0mqk"
+           "key": expect.any(String)
         }
      ]
   },
@@ -1441,7 +1429,7 @@ const draftTranscriptExample = [
            "text":"Okay,",
            "offset":0,
            "length":5,
-           "key":"213t558"
+           "key": expect.any(String)
         },
         {
            "start":30.89,
@@ -1450,8 +1438,7 @@ const draftTranscriptExample = [
            "text":"so",
            "offset":6,
            "length":2,
-           "key":"rb43rx"
-        },
+           "key": expect.any(String)        },
         {
            "start":31.08,
            "end":31.34,
@@ -1459,7 +1446,7 @@ const draftTranscriptExample = [
            "text":"that",
            "offset":9,
            "length":4,
-           "key":"fysl6ps"
+           "key": expect.any(String)
         },
         {
            "start":31.35,
@@ -1468,7 +1455,7 @@ const draftTranscriptExample = [
            "text":"sounds",
            "offset":14,
            "length":6,
-           "key":"pifkhej"
+           "key": expect.any(String)
         },
         {
            "start":31.68,
@@ -1477,7 +1464,7 @@ const draftTranscriptExample = [
            "text":"more",
            "offset":21,
            "length":4,
-           "key":"47mo8qq"
+           "key": expect.any(String)
         },
         {
            "start":31.95,
@@ -1486,7 +1473,7 @@ const draftTranscriptExample = [
            "text":"like",
            "offset":26,
            "length":4,
-           "key":"kvqcplo"
+           "key": expect.any(String)
         },
         {
            "start":32.16,
@@ -1495,7 +1482,7 @@ const draftTranscriptExample = [
            "text":"a",
            "offset":31,
            "length":1,
-           "key":"dyadwtc"
+           "key": expect.any(String)
         },
         {
            "start":32.22,
@@ -1504,8 +1491,7 @@ const draftTranscriptExample = [
            "text":"vendor",
            "offset":33,
            "length":6,
-           "key":"6jhume"
-        },
+           "key": expect.any(String)        },
         {
            "start":32.58,
            "end":32.75,
@@ -1513,7 +1499,7 @@ const draftTranscriptExample = [
            "text":"for",
            "offset":40,
            "length":3,
-           "key":"pp9eszd"
+           "key": expect.any(String)
         },
         {
            "start":32.76,
@@ -1522,7 +1508,7 @@ const draftTranscriptExample = [
            "text":"a",
            "offset":44,
            "length":1,
-           "key":"l41u1c9"
+           "key": expect.any(String)
         },
         {
            "start":32.82,
@@ -1531,7 +1517,7 @@ const draftTranscriptExample = [
            "text":"billing",
            "offset":46,
            "length":7,
-           "key":"qh40pxh"
+           "key": expect.any(String)
         },
         {
            "start":33.21,
@@ -1540,8 +1526,7 @@ const draftTranscriptExample = [
            "text":"Department.",
            "offset":54,
            "length":11,
-           "key":"wqm27h"
-        },
+           "key": expect.any(String)        },
         {
            "start":33.69,
            "end":33.77,
@@ -1549,7 +1534,7 @@ const draftTranscriptExample = [
            "text":"I",
            "offset":66,
            "length":1,
-           "key":"858accc"
+           "key": expect.any(String)
         },
         {
            "start":33.95,
@@ -1558,7 +1543,7 @@ const draftTranscriptExample = [
            "text":"do",
            "offset":68,
            "length":2,
-           "key":"ilw4ghg"
+           "key": expect.any(String)
         },
         {
            "start":34.2,
@@ -1567,8 +1552,7 @@ const draftTranscriptExample = [
            "text":"believe",
            "offset":71,
            "length":7,
-           "key":"qx9g49"
-        },
+           "key": expect.any(String)        },
         {
            "start":34.53,
            "end":34.58,
@@ -1576,7 +1560,7 @@ const draftTranscriptExample = [
            "text":"I",
            "offset":79,
            "length":1,
-           "key":"734zvu2"
+           "key": expect.any(String)
         },
         {
            "start":34.61,
@@ -1585,7 +1569,7 @@ const draftTranscriptExample = [
            "text":"located",
            "offset":81,
            "length":7,
-           "key":"ayunwr5"
+           "key": expect.any(String)
         },
         {
            "start":35.16,
@@ -1594,8 +1578,7 @@ const draftTranscriptExample = [
            "text":"your",
            "offset":89,
            "length":4,
-           "key":"88ywub"
-        },
+           "key": expect.any(String)        },
         {
            "start":35.43,
            "end":35.72,
@@ -1603,7 +1586,7 @@ const draftTranscriptExample = [
            "text":"account,",
            "offset":94,
            "length":8,
-           "key":"sb20jc6"
+           "key": expect.any(String)
         },
         {
            "start":35.73,
@@ -1612,8 +1595,7 @@ const draftTranscriptExample = [
            "text":"though,",
            "offset":103,
            "length":7,
-           "key":"4zui84"
-        },
+           "key": expect.any(String)        },
         {
            "start":35.94,
            "end":36.08,
@@ -1621,7 +1603,7 @@ const draftTranscriptExample = [
            "text":"for",
            "offset":111,
            "length":3,
-           "key":"2lmxrbf"
+           "key": expect.any(String)
         },
         {
            "start":36.09,
@@ -1630,7 +1612,7 @@ const draftTranscriptExample = [
            "text":"security",
            "offset":115,
            "length":8,
-           "key":"d81rkmax"
+           "key": expect.any(String)
         },
         {
            "start":36.45,
@@ -1639,7 +1621,7 @@ const draftTranscriptExample = [
            "text":"purposes.",
            "offset":124,
            "length":9,
-           "key":"7nahc88"
+           "key": expect.any(String)
         },
         {
            "start":36.84,
@@ -1648,7 +1630,7 @@ const draftTranscriptExample = [
            "text":"Could",
            "offset":134,
            "length":5,
-           "key":"fjzil0a"
+           "key": expect.any(String)
         },
         {
            "start":37.11,
@@ -1657,8 +1639,7 @@ const draftTranscriptExample = [
            "text":"you",
            "offset":140,
            "length":3,
-           "key":"51yo5z"
-        },
+           "key": expect.any(String)        },
         {
            "start":37.26,
            "end":37.49,
@@ -1666,8 +1647,7 @@ const draftTranscriptExample = [
            "text":"please",
            "offset":144,
            "length":6,
-           "key":"omstvf"
-        },
+           "key": expect.any(String)        },
         {
            "start":37.5,
            "end":37.79,
@@ -1675,7 +1655,7 @@ const draftTranscriptExample = [
            "text":"verify",
            "offset":151,
            "length":6,
-           "key":"j7nzpmu"
+           "key": expect.any(String)
         },
         {
            "start":37.8,
@@ -1684,7 +1664,7 @@ const draftTranscriptExample = [
            "text":"the",
            "offset":158,
            "length":3,
-           "key":"9elg00q"
+           "key": expect.any(String)
         },
         {
            "start":37.95,
@@ -1693,7 +1673,7 @@ const draftTranscriptExample = [
            "text":"shipping",
            "offset":162,
            "length":8,
-           "key":"l71lshr"
+           "key": expect.any(String)
         },
         {
            "start":38.31,
@@ -1702,7 +1682,7 @@ const draftTranscriptExample = [
            "text":"address",
            "offset":171,
            "length":7,
-           "key":"80l8d9d"
+           "key": expect.any(String)
         },
         {
            "start":38.64,
@@ -1711,7 +1691,7 @@ const draftTranscriptExample = [
            "text":"and",
            "offset":179,
            "length":3,
-           "key":"zzppcxc"
+           "key": expect.any(String)
         },
         {
            "start":38.82,
@@ -1720,7 +1700,7 @@ const draftTranscriptExample = [
            "text":"the",
            "offset":183,
            "length":3,
-           "key":"58j5uq7"
+           "key": expect.any(String)
         },
         {
            "start":38.97,
@@ -1729,7 +1709,7 @@ const draftTranscriptExample = [
            "text":"email",
            "offset":187,
            "length":5,
-           "key":"2lkxiko"
+           "key": expect.any(String)
         },
         {
            "start":39.21,
@@ -1738,7 +1718,7 @@ const draftTranscriptExample = [
            "text":"address",
            "offset":193,
            "length":7,
-           "key":"kwdct19"
+           "key": expect.any(String)
         },
         {
            "start":39.57,
@@ -1747,7 +1727,7 @@ const draftTranscriptExample = [
            "text":"on",
            "offset":201,
            "length":2,
-           "key":"tlhw5df"
+           "key": expect.any(String)
         },
         {
            "start":39.72,
@@ -1756,7 +1736,7 @@ const draftTranscriptExample = [
            "text":"the",
            "offset":204,
            "length":3,
-           "key":"onn8gvr"
+           "key": expect.any(String)
         },
         {
            "start":39.87,
@@ -1765,7 +1745,7 @@ const draftTranscriptExample = [
            "text":"account?",
            "offset":208,
            "length":8,
-           "key":"p6cga4"
+           "key": expect.any(String)
         }
      ]
   }
