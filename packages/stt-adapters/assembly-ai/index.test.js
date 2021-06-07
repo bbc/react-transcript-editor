@@ -1,10 +1,10 @@
-import ibmToDraft from './index';
+import assebleToDraft from './index';
 
-import draftTranscriptExample from './sample/ibmToDraft.sample.js';
-import ibmTedTalkTranscript from './sample/ibmTedTalkTranscript.sample.json';
+import draftTranscriptExample from './sample/assembleToDraft.sample.js';
+import assembleTedTalkTranscript from './sample/assembly_example.json';
 
-describe('bbcKaldiToDraft', () => {
-  const result = ibmToDraft(ibmTedTalkTranscript);
+describe('assembleToDraft', () => {
+  const result = assebleToDraft(assembleTedTalkTranscript);
   it('Should be defined', ( ) => {
     expect(result).toBeDefined();
   });
