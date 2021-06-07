@@ -1,0 +1,1510 @@
+{
+  "id": "uhs12345i-1234-1234-1234-123456789012",
+  "language_model": "assemblyai_default",
+  "acoustic_model": "assemblyai_default",
+  "status": "completed",
+  "audio_url": "https://urlgoeshere.com",
+  "text": "Thank you for calling. His name is Erin and it's my pleasure to provide you with a customer service today to get started. Can I please have the phone number that you placed your order under and the name of the product that you're calling about today? Well, my phone number is 123-456-7890. My name is Daren. The item is called Product. Okay, so that sounds more like a vendor for a billing Department. I do believe I located your account, though, for security purposes. Could you please verify the shipping address and the email address on the account?",
+  "words": [
+    {
+      "text": "Thank",
+      "confidence": 0.98,
+      "speaker": "A",
+      "end": 2100,
+      "start": 1100
+    },
+    {
+      "text": "you",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 2280,
+      "start": 2110
+    },
+    {
+      "text": "for",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 2430,
+      "start": 2290
+    },
+    {
+      "text": "calling.",
+      "confidence": 0.94,
+      "speaker": "A",
+      "end": 2790,
+      "start": 2440
+    },
+    {
+      "text": "His",
+      "confidence": 0.8,
+      "speaker": "A",
+      "end": 3960,
+      "start": 2960
+    },
+    {
+      "text": "name",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 4140,
+      "start": 3970
+    },
+    {
+      "text": "is",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 4260,
+      "start": 4150
+    },
+    {
+      "text": "Erin",
+      "confidence": 0.85,
+      "speaker": "A",
+      "end": 4530,
+      "start": 4270
+    },
+    {
+      "text": "and",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 4740,
+      "start": 4540
+    },
+    {
+      "text": "it's",
+      "confidence": 0.92,
+      "speaker": "A",
+      "end": 4950,
+      "start": 4750
+    },
+    {
+      "text": "my",
+      "confidence": 0.96,
+      "speaker": "A",
+      "end": 5100,
+      "start": 4960
+    },
+    {
+      "text": "pleasure",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 5460,
+      "start": 5110
+    },
+    {
+      "text": "to",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 5580,
+      "start": 5470
+    },
+    {
+      "text": "provide",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 5880,
+      "start": 5590
+    },
+    {
+      "text": "you",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 6000,
+      "start": 5890
+    },
+    {
+      "text": "with",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 6180,
+      "start": 6010
+    },
+    {
+      "text": "a",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 6240,
+      "start": 6190
+    },
+    {
+      "text": "customer",
+      "confidence": 0.95,
+      "speaker": "A",
+      "end": 6870,
+      "start": 6480
+    },
+    {
+      "text": "service",
+      "confidence": 0.97,
+      "speaker": "A",
+      "end": 7230,
+      "start": 6880
+    },
+    {
+      "text": "today",
+      "confidence": 0.91,
+      "speaker": "A",
+      "end": 7560,
+      "start": 7240
+    },
+    {
+      "text": "to",
+      "confidence": 0.96,
+      "speaker": "A",
+      "end": 7980,
+      "start": 7590
+    },
+    {
+      "text": "get",
+      "confidence": 0.83,
+      "speaker": "A",
+      "end": 8190,
+      "start": 7990
+    },
+    {
+      "text": "started.",
+      "confidence": 0.98,
+      "speaker": "A",
+      "end": 8670,
+      "start": 8250
+    },
+    {
+      "text": "Can",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 8850,
+      "start": 8680
+    },
+    {
+      "text": "I",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 8910,
+      "start": 8860
+    },
+    {
+      "text": "please",
+      "confidence": 0.95,
+      "speaker": "A",
+      "end": 9210,
+      "start": 8920
+    },
+    {
+      "text": "have",
+      "confidence": 0.97,
+      "speaker": "A",
+      "end": 9420,
+      "start": 9220
+    },
+    {
+      "text": "the",
+      "confidence": 0.97,
+      "speaker": "A",
+      "end": 9570,
+      "start": 9430
+    },
+    {
+      "text": "phone",
+      "confidence": 0.91,
+      "speaker": "A",
+      "end": 9780,
+      "start": 9580
+    },
+    {
+      "text": "number",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 10020,
+      "start": 9790
+    },
+    {
+      "text": "that",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 10260,
+      "start": 10030
+    },
+    {
+      "text": "you",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 10380,
+      "start": 10270
+    },
+    {
+      "text": "placed",
+      "confidence": 0.98,
+      "speaker": "A",
+      "end": 10650,
+      "start": 10390
+    },
+    {
+      "text": "your",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 10830,
+      "start": 10660
+    },
+    {
+      "text": "order",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 11040,
+      "start": 10840
+    },
+    {
+      "text": "under",
+      "confidence": 0.96,
+      "speaker": "A",
+      "end": 11250,
+      "start": 11050
+    },
+    {
+      "text": "and",
+      "confidence": 0.97,
+      "speaker": "A",
+      "end": 11400,
+      "start": 11260
+    },
+    {
+      "text": "the",
+      "confidence": 0.94,
+      "speaker": "A",
+      "end": 11520,
+      "start": 11410
+    },
+    {
+      "text": "name",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 11700,
+      "start": 11530
+    },
+    {
+      "text": "of",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 11820,
+      "start": 11710
+    },
+    {
+      "text": "the",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 11940,
+      "start": 11830
+    },
+    {
+      "text": "product",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 12210,
+      "start": 11950
+    },
+    {
+      "text": "that",
+      "confidence": 0.97,
+      "speaker": "A",
+      "end": 12390,
+      "start": 12220
+    },
+    {
+      "text": "you're",
+      "confidence": 0.92,
+      "speaker": "A",
+      "end": 12630,
+      "start": 12400
+    },
+    {
+      "text": "calling",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 12930,
+      "start": 12640
+    },
+    {
+      "text": "about",
+      "confidence": 0.98,
+      "speaker": "A",
+      "end": 13170,
+      "start": 12940
+    },
+    {
+      "text": "today?",
+      "confidence": 0.94,
+      "speaker": "A",
+      "end": 13410,
+      "start": 13180
+    },
+    {
+      "text": "Well,",
+      "confidence": 0.98,
+      "speaker": "B",
+      "end": 14940,
+      "start": 13940
+    },
+    {
+      "text": "my",
+      "confidence": 0.89,
+      "speaker": "B",
+      "end": 15180,
+      "start": 14970
+    },
+    {
+      "text": "phone",
+      "confidence": 0.93,
+      "speaker": "B",
+      "end": 15420,
+      "start": 15190
+    },
+    {
+      "text": "number",
+      "confidence": 0.98,
+      "speaker": "B",
+      "end": 15690,
+      "start": 15430
+    },
+    {
+      "text": "is",
+      "confidence": 0.83,
+      "speaker": "B",
+      "end": 15870,
+      "start": 15700
+    },
+    {
+      "text": "123-456-7890.",
+      "confidence": 0.91,
+      "speaker": "B",
+      "end": 19710,
+      "start": 15880
+    },
+    {
+      "text": "My",
+      "confidence": 1.0,
+      "speaker": "B",
+      "end": 21730,
+      "start": 20680
+    },
+    {
+      "text": "name",
+      "confidence": 0.91,
+      "speaker": "B",
+      "end": 22090,
+      "start": 21820
+    },
+    {
+      "text": "is",
+      "confidence": 0.91,
+      "speaker": "B",
+      "end": 22240,
+      "start": 22100
+    },
+    {
+      "text": "Daren.",
+      "confidence": 0.89,
+      "speaker": "B",
+      "end": 22660,
+      "start": 22250
+    },
+    {
+      "text": "The",
+      "confidence": 1.0,
+      "speaker": "B",
+      "end": 25300,
+      "start": 24300
+    },
+    {
+      "text": "item",
+      "confidence": 0.93,
+      "speaker": "B",
+      "end": 25600,
+      "start": 25310
+    },
+    {
+      "text": "is",
+      "confidence": 0.84,
+      "speaker": "B",
+      "end": 25780,
+      "start": 25610
+    },
+    {
+      "text": "called",
+      "confidence": 0.97,
+      "speaker": "B",
+      "end": 26110,
+      "start": 25790
+    },
+    {
+      "text": "Amazing",
+      "confidence": 0.98,
+      "speaker": "B",
+      "end": 26680,
+      "start": 26120
+    },
+    {
+      "text": "plus",
+      "confidence": 0.91,
+      "speaker": "B",
+      "end": 27040,
+      "start": 26710
+    },
+    {
+      "text": "Brilliant",
+      "confidence": 0.97,
+      "speaker": "B",
+      "end": 27700,
+      "start": 27160
+    },
+    {
+      "text": "Gu.",
+      "confidence": 0.79,
+      "speaker": "B",
+      "end": 27820,
+      "start": 27710
+    },
+    {
+      "text": "Okay,",
+      "confidence": 0.98,
+      "speaker": "A",
+      "end": 30710,
+      "start": 29710
+    },
+    {
+      "text": "so",
+      "confidence": 0.7,
+      "speaker": "A",
+      "end": 31070,
+      "start": 30890
+    },
+    {
+      "text": "that",
+      "confidence": 0.88,
+      "speaker": "A",
+      "end": 31340,
+      "start": 31080
+    },
+    {
+      "text": "sounds",
+      "confidence": 0.88,
+      "speaker": "A",
+      "end": 31670,
+      "start": 31350
+    },
+    {
+      "text": "more",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 31940,
+      "start": 31680
+    },
+    {
+      "text": "like",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 32150,
+      "start": 31950
+    },
+    {
+      "text": "a",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 32210,
+      "start": 32160
+    },
+    {
+      "text": "vendor",
+      "confidence": 0.91,
+      "speaker": "A",
+      "end": 32570,
+      "start": 32220
+    },
+    {
+      "text": "for",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 32750,
+      "start": 32580
+    },
+    {
+      "text": "a",
+      "confidence": 0.95,
+      "speaker": "A",
+      "end": 32810,
+      "start": 32760
+    },
+    {
+      "text": "billing",
+      "confidence": 0.97,
+      "speaker": "A",
+      "end": 33200,
+      "start": 32820
+    },
+    {
+      "text": "Department.",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 33680,
+      "start": 33210
+    },
+    {
+      "text": "I",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 33770,
+      "start": 33690
+    },
+    {
+      "text": "do",
+      "confidence": 0.92,
+      "speaker": "A",
+      "end": 34190,
+      "start": 33950
+    },
+    {
+      "text": "believe",
+      "confidence": 0.94,
+      "speaker": "A",
+      "end": 34520,
+      "start": 34200
+    },
+    {
+      "text": "I",
+      "confidence": 0.97,
+      "speaker": "A",
+      "end": 34580,
+      "start": 34530
+    },
+    {
+      "text": "located",
+      "confidence": 0.87,
+      "speaker": "A",
+      "end": 35150,
+      "start": 34610
+    },
+    {
+      "text": "your",
+      "confidence": 0.96,
+      "speaker": "A",
+      "end": 35420,
+      "start": 35160
+    },
+    {
+      "text": "account,",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 35720,
+      "start": 35430
+    },
+    {
+      "text": "though,",
+      "confidence": 0.81,
+      "speaker": "A",
+      "end": 35930,
+      "start": 35730
+    },
+    {
+      "text": "for",
+      "confidence": 0.94,
+      "speaker": "A",
+      "end": 36080,
+      "start": 35940
+    },
+    {
+      "text": "security",
+      "confidence": 0.98,
+      "speaker": "A",
+      "end": 36440,
+      "start": 36090
+    },
+    {
+      "text": "purposes.",
+      "confidence": 0.97,
+      "speaker": "A",
+      "end": 36830,
+      "start": 36450
+    },
+    {
+      "text": "Could",
+      "confidence": 0.93,
+      "speaker": "A",
+      "end": 37100,
+      "start": 36840
+    },
+    {
+      "text": "you",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 37250,
+      "start": 37110
+    },
+    {
+      "text": "please",
+      "confidence": 0.97,
+      "speaker": "A",
+      "end": 37490,
+      "start": 37260
+    },
+    {
+      "text": "verify",
+      "confidence": 0.96,
+      "speaker": "A",
+      "end": 37790,
+      "start": 37500
+    },
+    {
+      "text": "the",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 37940,
+      "start": 37800
+    },
+    {
+      "text": "shipping",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 38300,
+      "start": 37950
+    },
+    {
+      "text": "address",
+      "confidence": 0.97,
+      "speaker": "A",
+      "end": 38630,
+      "start": 38310
+    },
+    {
+      "text": "and",
+      "confidence": 0.98,
+      "speaker": "A",
+      "end": 38810,
+      "start": 38640
+    },
+    {
+      "text": "the",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 38960,
+      "start": 38820
+    },
+    {
+      "text": "email",
+      "confidence": 0.95,
+      "speaker": "A",
+      "end": 39200,
+      "start": 38970
+    },
+    {
+      "text": "address",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 39560,
+      "start": 39210
+    },
+    {
+      "text": "on",
+      "confidence": 0.99,
+      "speaker": "A",
+      "end": 39710,
+      "start": 39570
+    },
+    {
+      "text": "the",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 39860,
+      "start": 39720
+    },
+    {
+      "text": "account?",
+      "confidence": 1.0,
+      "speaker": "A",
+      "end": 40160,
+      "start": 39870
+    }
+  ],
+  "utterances": [
+    {
+      "confidence": 0.9665957446808507,
+      "end": 13410,
+      "text": "Thank you for calling. His name is Erin and it's my pleasure to provide you with a customer service today to get started. Can I please have the phone number that you placed your order under and the name of the product that you're calling about today?",
+      "start": 1100,
+      "speaker": "A",
+      "words": [
+        {
+          "text": "Thank",
+          "confidence": 0.98,
+          "speaker": "A",
+          "end": 2100,
+          "start": 1100
+        },
+        {
+          "text": "you",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 2280,
+          "start": 2110
+        },
+        {
+          "text": "for",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 2430,
+          "start": 2290
+        },
+        {
+          "text": "calling.",
+          "confidence": 0.94,
+          "speaker": "A",
+          "end": 2790,
+          "start": 2440
+        },
+        {
+          "text": "His",
+          "confidence": 0.8,
+          "speaker": "A",
+          "end": 3960,
+          "start": 2960
+        },
+        {
+          "text": "name",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 4140,
+          "start": 3970
+        },
+        {
+          "text": "is",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 4260,
+          "start": 4150
+        },
+        {
+          "text": "Erin",
+          "confidence": 0.85,
+          "speaker": "A",
+          "end": 4530,
+          "start": 4270
+        },
+        {
+          "text": "and",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 4740,
+          "start": 4540
+        },
+        {
+          "text": "it's",
+          "confidence": 0.92,
+          "speaker": "A",
+          "end": 4950,
+          "start": 4750
+        },
+        {
+          "text": "my",
+          "confidence": 0.96,
+          "speaker": "A",
+          "end": 5100,
+          "start": 4960
+        },
+        {
+          "text": "pleasure",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 5460,
+          "start": 5110
+        },
+        {
+          "text": "to",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 5580,
+          "start": 5470
+        },
+        {
+          "text": "provide",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 5880,
+          "start": 5590
+        },
+        {
+          "text": "you",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 6000,
+          "start": 5890
+        },
+        {
+          "text": "with",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 6180,
+          "start": 6010
+        },
+        {
+          "text": "a",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 6240,
+          "start": 6190
+        },
+        {
+          "text": "customer",
+          "confidence": 0.95,
+          "speaker": "A",
+          "end": 6870,
+          "start": 6480
+        },
+        {
+          "text": "service",
+          "confidence": 0.97,
+          "speaker": "A",
+          "end": 7230,
+          "start": 6880
+        },
+        {
+          "text": "today",
+          "confidence": 0.91,
+          "speaker": "A",
+          "end": 7560,
+          "start": 7240
+        },
+        {
+          "text": "to",
+          "confidence": 0.96,
+          "speaker": "A",
+          "end": 7980,
+          "start": 7590
+        },
+        {
+          "text": "get",
+          "confidence": 0.83,
+          "speaker": "A",
+          "end": 8190,
+          "start": 7990
+        },
+        {
+          "text": "started.",
+          "confidence": 0.98,
+          "speaker": "A",
+          "end": 8670,
+          "start": 8250
+        },
+        {
+          "text": "Can",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 8850,
+          "start": 8680
+        },
+        {
+          "text": "I",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 8910,
+          "start": 8860
+        },
+        {
+          "text": "please",
+          "confidence": 0.95,
+          "speaker": "A",
+          "end": 9210,
+          "start": 8920
+        },
+        {
+          "text": "have",
+          "confidence": 0.97,
+          "speaker": "A",
+          "end": 9420,
+          "start": 9220
+        },
+        {
+          "text": "the",
+          "confidence": 0.97,
+          "speaker": "A",
+          "end": 9570,
+          "start": 9430
+        },
+        {
+          "text": "phone",
+          "confidence": 0.91,
+          "speaker": "A",
+          "end": 9780,
+          "start": 9580
+        },
+        {
+          "text": "number",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 10020,
+          "start": 9790
+        },
+        {
+          "text": "that",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 10260,
+          "start": 10030
+        },
+        {
+          "text": "you",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 10380,
+          "start": 10270
+        },
+        {
+          "text": "placed",
+          "confidence": 0.98,
+          "speaker": "A",
+          "end": 10650,
+          "start": 10390
+        },
+        {
+          "text": "your",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 10830,
+          "start": 10660
+        },
+        {
+          "text": "order",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 11040,
+          "start": 10840
+        },
+        {
+          "text": "under",
+          "confidence": 0.96,
+          "speaker": "A",
+          "end": 11250,
+          "start": 11050
+        },
+        {
+          "text": "and",
+          "confidence": 0.97,
+          "speaker": "A",
+          "end": 11400,
+          "start": 11260
+        },
+        {
+          "text": "the",
+          "confidence": 0.94,
+          "speaker": "A",
+          "end": 11520,
+          "start": 11410
+        },
+        {
+          "text": "name",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 11700,
+          "start": 11530
+        },
+        {
+          "text": "of",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 11820,
+          "start": 11710
+        },
+        {
+          "text": "the",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 11940,
+          "start": 11830
+        },
+        {
+          "text": "product",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 12210,
+          "start": 11950
+        },
+        {
+          "text": "that",
+          "confidence": 0.97,
+          "speaker": "A",
+          "end": 12390,
+          "start": 12220
+        },
+        {
+          "text": "you're",
+          "confidence": 0.92,
+          "speaker": "A",
+          "end": 12630,
+          "start": 12400
+        },
+        {
+          "text": "calling",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 12930,
+          "start": 12640
+        },
+        {
+          "text": "about",
+          "confidence": 0.98,
+          "speaker": "A",
+          "end": 13170,
+          "start": 12940
+        },
+        {
+          "text": "today?",
+          "confidence": 0.94,
+          "speaker": "A",
+          "end": 13410,
+          "start": 13180
+        }
+      ]
+    },
+    {
+      "confidence": 0.9233333333333333,
+      "end": 27820,
+      "text": "Well, my phone number is 123-456-7890. My name is Daren. The item is called Product.",
+      "start": 13940,
+      "speaker": "B",
+      "words": [
+        {
+          "text": "Well,",
+          "confidence": 0.98,
+          "speaker": "B",
+          "end": 14940,
+          "start": 13940
+        },
+        {
+          "text": "my",
+          "confidence": 0.89,
+          "speaker": "B",
+          "end": 15180,
+          "start": 14970
+        },
+        {
+          "text": "phone",
+          "confidence": 0.93,
+          "speaker": "B",
+          "end": 15420,
+          "start": 15190
+        },
+        {
+          "text": "number",
+          "confidence": 0.98,
+          "speaker": "B",
+          "end": 15690,
+          "start": 15430
+        },
+        {
+          "text": "is",
+          "confidence": 0.83,
+          "speaker": "B",
+          "end": 15870,
+          "start": 15700
+        },
+        {
+          "text": "123-456-7890.",
+          "confidence": 0.91,
+          "speaker": "B",
+          "end": 19710,
+          "start": 15880
+        },
+        {
+          "text": "My",
+          "confidence": 1.0,
+          "speaker": "B",
+          "end": 21730,
+          "start": 20680
+        },
+        {
+          "text": "name",
+          "confidence": 0.91,
+          "speaker": "B",
+          "end": 22090,
+          "start": 21820
+        },
+        {
+          "text": "is",
+          "confidence": 0.91,
+          "speaker": "B",
+          "end": 22240,
+          "start": 22100
+        },
+        {
+          "text": "Daren.",
+          "confidence": 0.89,
+          "speaker": "B",
+          "end": 22660,
+          "start": 22250
+        },
+        {
+          "text": "The",
+          "confidence": 1.0,
+          "speaker": "B",
+          "end": 25300,
+          "start": 24300
+        },
+        {
+          "text": "item",
+          "confidence": 0.93,
+          "speaker": "B",
+          "end": 25600,
+          "start": 25310
+        },
+        {
+          "text": "is",
+          "confidence": 0.84,
+          "speaker": "B",
+          "end": 25780,
+          "start": 25610
+        },
+        {
+          "text": "called",
+          "confidence": 0.97,
+          "speaker": "B",
+          "end": 26110,
+          "start": 25790
+        },
+        {
+          "text": "Amazing",
+          "confidence": 0.98,
+          "speaker": "B",
+          "end": 26680,
+          "start": 26120
+        },
+        {
+          "text": "plus",
+          "confidence": 0.91,
+          "speaker": "B",
+          "end": 27040,
+          "start": 26710
+        },
+        {
+          "text": "Brilliant",
+          "confidence": 0.97,
+          "speaker": "B",
+          "end": 27700,
+          "start": 27160
+        },
+        {
+          "text": "Gu.",
+          "confidence": 0.79,
+          "speaker": "B",
+          "end": 27820,
+          "start": 27710
+        }
+      ]
+    },
+    {
+      "confidence": 0.9543243243243242,
+      "end": 40160,
+      "text": "Okay, so that sounds more like a vendor for a billing Department. I do believe I located your account, though, for security purposes. Could you please verify the shipping address and the email address on the account?",
+      "start": 29710,
+      "speaker": "A",
+      "words": [
+        {
+          "text": "Okay,",
+          "confidence": 0.98,
+          "speaker": "A",
+          "end": 30710,
+          "start": 29710
+        },
+        {
+          "text": "so",
+          "confidence": 0.7,
+          "speaker": "A",
+          "end": 31070,
+          "start": 30890
+        },
+        {
+          "text": "that",
+          "confidence": 0.88,
+          "speaker": "A",
+          "end": 31340,
+          "start": 31080
+        },
+        {
+          "text": "sounds",
+          "confidence": 0.88,
+          "speaker": "A",
+          "end": 31670,
+          "start": 31350
+        },
+        {
+          "text": "more",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 31940,
+          "start": 31680
+        },
+        {
+          "text": "like",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 32150,
+          "start": 31950
+        },
+        {
+          "text": "a",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 32210,
+          "start": 32160
+        },
+        {
+          "text": "vendor",
+          "confidence": 0.91,
+          "speaker": "A",
+          "end": 32570,
+          "start": 32220
+        },
+        {
+          "text": "for",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 32750,
+          "start": 32580
+        },
+        {
+          "text": "a",
+          "confidence": 0.95,
+          "speaker": "A",
+          "end": 32810,
+          "start": 32760
+        },
+        {
+          "text": "billing",
+          "confidence": 0.97,
+          "speaker": "A",
+          "end": 33200,
+          "start": 32820
+        },
+        {
+          "text": "Department.",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 33680,
+          "start": 33210
+        },
+        {
+          "text": "I",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 33770,
+          "start": 33690
+        },
+        {
+          "text": "do",
+          "confidence": 0.92,
+          "speaker": "A",
+          "end": 34190,
+          "start": 33950
+        },
+        {
+          "text": "believe",
+          "confidence": 0.94,
+          "speaker": "A",
+          "end": 34520,
+          "start": 34200
+        },
+        {
+          "text": "I",
+          "confidence": 0.97,
+          "speaker": "A",
+          "end": 34580,
+          "start": 34530
+        },
+        {
+          "text": "located",
+          "confidence": 0.87,
+          "speaker": "A",
+          "end": 35150,
+          "start": 34610
+        },
+        {
+          "text": "your",
+          "confidence": 0.96,
+          "speaker": "A",
+          "end": 35420,
+          "start": 35160
+        },
+        {
+          "text": "account,",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 35720,
+          "start": 35430
+        },
+        {
+          "text": "though,",
+          "confidence": 0.81,
+          "speaker": "A",
+          "end": 35930,
+          "start": 35730
+        },
+        {
+          "text": "for",
+          "confidence": 0.94,
+          "speaker": "A",
+          "end": 36080,
+          "start": 35940
+        },
+        {
+          "text": "security",
+          "confidence": 0.98,
+          "speaker": "A",
+          "end": 36440,
+          "start": 36090
+        },
+        {
+          "text": "purposes.",
+          "confidence": 0.97,
+          "speaker": "A",
+          "end": 36830,
+          "start": 36450
+        },
+        {
+          "text": "Could",
+          "confidence": 0.93,
+          "speaker": "A",
+          "end": 37100,
+          "start": 36840
+        },
+        {
+          "text": "you",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 37250,
+          "start": 37110
+        },
+        {
+          "text": "please",
+          "confidence": 0.97,
+          "speaker": "A",
+          "end": 37490,
+          "start": 37260
+        },
+        {
+          "text": "verify",
+          "confidence": 0.96,
+          "speaker": "A",
+          "end": 37790,
+          "start": 37500
+        },
+        {
+          "text": "the",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 37940,
+          "start": 37800
+        },
+        {
+          "text": "shipping",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 38300,
+          "start": 37950
+        },
+        {
+          "text": "address",
+          "confidence": 0.97,
+          "speaker": "A",
+          "end": 38630,
+          "start": 38310
+        },
+        {
+          "text": "and",
+          "confidence": 0.98,
+          "speaker": "A",
+          "end": 38810,
+          "start": 38640
+        },
+        {
+          "text": "the",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 38960,
+          "start": 38820
+        },
+        {
+          "text": "email",
+          "confidence": 0.95,
+          "speaker": "A",
+          "end": 39200,
+          "start": 38970
+        },
+        {
+          "text": "address",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 39560,
+          "start": 39210
+        },
+        {
+          "text": "on",
+          "confidence": 0.99,
+          "speaker": "A",
+          "end": 39710,
+          "start": 39570
+        },
+        {
+          "text": "the",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 39860,
+          "start": 39720
+        },
+        {
+          "text": "account?",
+          "confidence": 1.0,
+          "speaker": "A",
+          "end": 40160,
+          "start": 39870
+        }
+      ]
+    }
+  ],
+  "confidence": 0.934836852207295,
+  "audio_duration": 40,
+  "punctuate": true,
+  "format_text": true,
+  "dual_channel": null,
+  "webhook_url": null,
+  "webhook_status_code": null,
+  "speed_boost": false,
+  "auto_highlights_result": null,
+  "auto_highlights": false,
+  "audio_start_from": null,
+  "audio_end_at": null,
+  "word_boost": [
+    
+  ],
+  "boost_param": null,
+  "filter_profanity": false,
+  "redact_pii": false,
+  "redact_pii_audio": false,
+  "redact_pii_audio_quality": null,
+  "redact_pii_policies": null,
+  "redact_pii_sub": null,
+  "speaker_labels": true,
+  "content_safety": false,
+  "iab_categories": false,
+  "content_safety_labels": {
+    "status": "unavailable",
+    "results": [
+      
+    ],
+    "summary": {
+      
+    }
+  },
+  "iab_categories_result": {
+    "status": "unavailable",
+    "results": [
+      
+    ],
+    "summary": {
+      
+    }
+  }
+}

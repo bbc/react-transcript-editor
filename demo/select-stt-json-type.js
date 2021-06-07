@@ -11,7 +11,7 @@ const SttTypeSelect = props => {
     <option value="autoedit2">autoEdit 2</option>
     <option value="speechmatics">Speechmatics</option>
     <option value="ibm">IBM Watson STT</option>
-    <option value="assemblyai" disabled>AssemblyAI</option>
+    <option value="assemblyai">AssemblyAI</option>
     <option value="rev" disabled>Rev</option>
     <option value="srt" disabled>Srt</option>
     <option value="vtt" disabled>VTT</option>
