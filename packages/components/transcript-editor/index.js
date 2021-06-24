@@ -463,7 +463,7 @@ class TranscriptEditor extends React.Component {
         settings={settings}
         shortcuts={shortcuts}
         exportOptions={exportOptions}
-        tooltip={HowDoesThisWork}
+        tooltip={HowDoesThisWork(this.props.handleAnalyticsEvents)}
         mediaUrl={this.props.mediaUrl}
         mediaControls={this.videoRef.current ? mediaControls : null}
         handleSettingsToggle={this.handleSettingsToggle}

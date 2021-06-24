@@ -37,7 +37,7 @@ const helpMessage = (
   </div>
 );
 
-const HowDoesThisWork = (
+const HowDoesThisWork = (handleAnalyticsEvents) => (
   <Tooltip
     className={ style.help }
     content={ helpMessage }
@@ -48,6 +48,15 @@ const HowDoesThisWork = (
     border={ '#ffffff' }
     background={ '#f2f2f2' }
     color={ '#000000' }
+    onMouseOver={ () => {
+      if (handleAnalyticsEvents) {
+        handleAnalyticsEvents({
+          category: "TranscriptEditor",
+          action: "hover",
+          name: "howDoesThisWork"
+        });
+      }
+    } }
   >
     <FontAwesomeIcon className={ style.icon } icon={ faQuestionCircle } />
       How does this work?
