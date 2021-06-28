@@ -65,7 +65,7 @@ const groupWordsInParagraphs = (words, speakers, maxParagraphWords) => {
 const curatePunctuation = (words) => {
   const curatedWords = [];
   words.forEach((word) => {
-    if (/[.?!]/.test(word.name)) {
+    if (/[.?!]/.test(word.name) && word.name.length == 1 && curatedWords.length > 0) {
       curatedWords[curatedWords.length - 1].name = curatedWords[curatedWords.length - 1].name + word.name;
       curatedWords[curatedWords.length - 1].duration = (parseFloat(curatedWords[curatedWords.length - 1].duration) + parseFloat(word.duration)).toString();
     } else {
