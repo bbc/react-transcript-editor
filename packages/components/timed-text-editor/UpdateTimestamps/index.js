@@ -42,19 +42,23 @@ const createContentFromEntityList = (currentContent, newEntities) => {
       console.log('speaker', speaker, block);
       speaker = 'U_UKN';
     }
-    const updatedBlock = {
-      text: blockEntites.map((entry) => entry.punct).join(' '),
-      type: 'paragraph',
-      data: {
-        speaker: speaker,
-        words: blockEntites,
-        start: blockEntites[0].start
-      },
-      entityRanges: generateEntitiesRanges(blockEntites, 'punct'),
-    };
 
-    updatedBlockArray.push(updatedBlock);
-    totalWords += wordsInBlock;
+    // only add the block, if it is non-empty:
+    if (blockEntites.length > 0) {
+      const updatedBlock = {
+        text: blockEntites.map((entry) => entry.punct).join(' '),
+        type: 'paragraph',
+        data: {
+          speaker: speaker,
+          words: blockEntites,
+          start: blockEntites[0].start
+        },
+        entityRanges: generateEntitiesRanges(blockEntites, 'punct'),
+      };
+
+      updatedBlockArray.push(updatedBlock);
+      totalWords += wordsInBlock;
+    }
   }
 
   return { blocks: updatedBlockArray, entityMap: createEntityMap(updatedBlockArray) };
