@@ -138,8 +138,9 @@ class TimedTextEditor extends React.Component {
         blockIdx < currentContent.blocks.length;
         blockIdx++
       ) {
-        blockMap[currentContent.blocks[blockIdx].key] =
-          updatedContentBlocks.blocks[blockIdx].key;
+        var updated = updatedContentBlocks.blocks[blockIdx];
+        if (updated != undefined)
+          blockMap[currentContent.blocks[blockIdx].key] = updated.key;
       }
 
       const selection = selectionState.merge({
