@@ -56,12 +56,20 @@ const computeTimeInSeconds = (startSecond, nanoSecond) => {
  **/
 const normalizeWord = (currentWord, confidence) => {
 
-  return {
-    start: computeTimeInSeconds(currentWord.startTime.seconds, currentWord.startTime.nanos),
-    end: computeTimeInSeconds(currentWord.endTime.seconds, currentWord.endTime.nanos),
+  let word = {
     text: currentWord.word,
     confidence: confidence
   };
+
+  if (typeof currentWord.startTime === 'string' && typeof currentWord.endTime === 'string') {
+    word.start = computeTimeInSeconds(currentWord.startTime);
+    word.end = computeTimeInSeconds(currentWord.endTime);
+  } else {
+    word.start = computeTimeInSeconds(currentWord.startTime.seconds, currentWord.startTime.nanos);
+    word.end = computeTimeInSeconds(currentWord.endTime.seconds, currentWord.endTime.nanos);
+  }
+
+  return word;
 };
 
 /**
