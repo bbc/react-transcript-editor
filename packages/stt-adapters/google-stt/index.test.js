@@ -4,6 +4,7 @@ import gcpSttToDraft, {
 } from './index';
 import draftTranscriptSample from './sample/googleSttToDraftJs.sample.js';
 import gcpSttTedTalkTranscript from './sample/gcpSttPunctuation.sample.json';
+import gcpSttTedTalkTranscript2022 from './sample/gcpStt2022.sample.json';
 
 describe('gcpSttToDraft', () => {
   const result = gcpSttToDraft(gcpSttTedTalkTranscript);
@@ -48,5 +49,23 @@ describe('Best alternative sentence should be returned', () => {
 
     const result = getBestAlternativeSentence(sentences);
     expect(result).toEqual(expected);
+  });
+});
+
+describe('start and end should be computed properly for newer transcription format', () => {
+  const result = gcpSttToDraft(gcpSttTedTalkTranscript2022);
+  it('Should be defined', () => {
+    expect(result).toBeDefined();
+  });
+
+  it('Should be equal to expected value', () => {
+    const expected = {
+      'confidence': 0.96094823,
+      'end': 13.3,
+      'start': 12.9,
+      'text': 'there'
+    };
+
+    expect(result[0].data.words[0]).toEqual(expected);
   });
 });
