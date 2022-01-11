@@ -56,7 +56,7 @@ const computeTimeInSeconds = (startSecond, nanoSecond) => {
  **/
 const normalizeWord = (currentWord, confidence) => {
 
-  let word = {
+  const word = {
     text: currentWord.word,
     confidence: confidence
   };
