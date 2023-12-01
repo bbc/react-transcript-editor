@@ -17,7 +17,7 @@ addDecorator(withA11y);
 
 addParameters({
   options: {
-    // showPanel: false,
+    showPanel: false,
     panelPosition: 'bottom',
     sidebarAnimations: true
   },
