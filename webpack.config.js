@@ -2,7 +2,7 @@
 // and http://jasonwatmore.com/post/2018/04/14/react-npm-how-to-publish-a-react-component-to-npm
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const TerserPlugin = require("terser-webpack-plugin");
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -31,7 +31,12 @@ module.exports = {
     libraryTarget: 'commonjs2'
   },
   optimization: {
-    minimize: true
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        test: /\.js(\?.*)?$/i,
+      }),
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
