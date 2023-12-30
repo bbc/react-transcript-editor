@@ -1,7 +1,7 @@
 {
   "name": "@kmoz000/react-transcript-editor",
   "description": "A React component to make transcribing audio and video easier and faster.",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "keywords": [
     "transcript",
     "transcriptions",
@@ -104,8 +104,8 @@
     "style-loader": "^0.23.1",
     "stylelint-config-standard": "^18.3.0",
     "terser-webpack-plugin": "^4.2.3",
-    "webpack": "^4.47.0",
-    "webpack-cli": "^3.3.9",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
     "why-did-you-update": "^1.0.6"
   },
   "contributors": [
@@ -120,9 +120,9 @@
       "url": "https://github.com/jamesdools"
     },
     {
-      "name": "kmoz000",
+      "name": "Karim O.",
       "email": "contact@dup.company",
-      "url": "https://github.com/Niceblueman"
+      "url": "https://github.com/KM8Oz"
     }
   ],
   "license": "MIT",
