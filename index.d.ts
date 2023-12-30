@@ -1,7 +1,7 @@
 // index.d.ts
 
 declare module '@kmoz000/react-transcript-editor' {
-    import { FunctionComponent, RefObject } from 'react';
+    import { FunctionComponent } from 'react';
   
     // Define the main props for the TranscriptEditor component
     interface TranscriptEditorProps {
@@ -24,7 +24,6 @@ declare module '@kmoz000/react-transcript-editor' {
     // Define the main props for the TimedTextEditor component
     interface TimedTextEditorProps {
       transcriptData: any; // Update the type as needed
-      mediaUrl?: string;
       isEditable?: boolean;
       spellCheck?: boolean;
       onWordClick?: () => void;
@@ -35,12 +34,12 @@ declare module '@kmoz000/react-transcript-editor' {
       isScrollIntoViewOn?: boolean;
       isPauseWhileTypingOn?: boolean;
       timecodeOffset?: number;
-      handleAnalyticsEvents?: (v:any) => void;
+      handleAnalyticsEvents?: (a:any) => void;
       showSpeakers?: boolean;
-      ref?:RefObject<any>;
       showTimecodes?: boolean;
       fileName?: string;
-      mediaType?:string;
+      ref?:React.RefObject<React.FunctionComponent<TimedTextEditorProps>>,
+      mediaType: "audio"|"video"
     }
   
     // Export the TimedTextEditor component with its props
