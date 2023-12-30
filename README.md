@@ -1,5 +1,10 @@
 ## React Transcript Editor `TS`
 
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="React Transcript Editor TS - Audio and Video Transcription Component">
+  <meta name="description" content="A React component designed to make transcribing audio and video content easier and faster.">
+
+
 **`A React component to make transcribing audio and video easier and faster.`**
 
 <p align="center">
