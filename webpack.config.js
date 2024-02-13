@@ -2,12 +2,12 @@
 // and http://jasonwatmore.com/post/2018/04/14/react-npm-how-to-publish-a-react-component-to-npm
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const TerserPlugin = require("terser-webpack-plugin");
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  mode: 'production',
-  devtool: 'source-map',
+  mode: isDevelopment ? 'development' : 'production',
+  devtool: isDevelopment ? 'cheap-module-source-map' : false,
   entry: {
     index: './packages/index.js',
     TranscriptEditor: './packages/components/transcript-editor/index.js',
@@ -31,7 +31,15 @@ module.exports = {
     libraryTarget: 'commonjs2'
   },
   optimization: {
-    minimize: true
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        test: /\.js(\?.*)?$/i,
+      }),
+    ],
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -86,7 +94,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react': path.resolve(__dirname, './node_modules/react'),
+      react: path.resolve(__dirname, './node_modules/react'),
       'react-dom': path.resolve(__dirname, './node_modules/react-dom')
     }
   },
