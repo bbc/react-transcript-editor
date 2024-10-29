@@ -47,6 +47,7 @@ class PlayerControls extends React.Component {
   render() {
     
     const pictureInPicture = ('pictureInPictureEnabled' in document) ? ( <button
+      type="button"
       value="Picture-in-picture"
       title="Picture-in-picture"
       className={ `${ style.playerButton } ${ style.pip }` }
@@ -64,6 +65,7 @@ class PlayerControls extends React.Component {
 
         <div className={ style.btnsGroup }>
           <button
+            type="button"
             value="seek backward by a set interval: alt r"
             title="seek backward by a set interval: alt r"
             className={ style.playerButton }
@@ -72,6 +74,7 @@ class PlayerControls extends React.Component {
           </button>
 
           <button
+            type="button"
             value="seek backward: alt j"
             title="seek backward: alt j"
             className={ style.playerButton }
@@ -82,6 +85,7 @@ class PlayerControls extends React.Component {
           </button>
 
           <button
+            type="button"
             value="Play/Pause: alt k"
             title="Play/Pause: alt k"
             className={ style.playerButton }
@@ -92,6 +96,7 @@ class PlayerControls extends React.Component {
           <button
             value="seek forward: alt l"
             title="seek forward: alt l"
+            type="button"
             className={ style.playerButton }
             onMouseDown={ this.setIntervalHelperForward }
             onMouseUp={ this.clearIntervalHelper }
@@ -111,6 +116,7 @@ class PlayerControls extends React.Component {
           {pictureInPicture}
 
           <button
+            type="button"
             value="Toggle Sound"
             title="Toggle Sound"
             className={ style.playerButton }

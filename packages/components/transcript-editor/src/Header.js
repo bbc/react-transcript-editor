@@ -32,6 +32,7 @@ class Header extends React.Component {
 
       <div className={ style.settingsContainer }>
         <button
+          type="button"
           className={ style.settingsButton }
           title="Settings"
           onClick={ props.handleSettingsToggle }
@@ -39,6 +40,7 @@ class Header extends React.Component {
           <FontAwesomeIcon icon={ faCog } />
         </button>
         <button
+          type="button"
           className={ `${ style.settingsButton } ${ style.keyboardShortcutsButon }` }
           title="view shortcuts"
           onClick={ props.handleShortcutsToggle }
@@ -46,6 +48,7 @@ class Header extends React.Component {
           <FontAwesomeIcon icon={ faKeyboard } />
         </button>
         <button
+          type="button"
           className={ `${ style.settingsButton }` }
           title="Export"
           onClick={ props.handleExportToggle }

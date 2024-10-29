@@ -10,6 +10,7 @@ class ExportOptions extends React.Component {
   render() {
     const btns = this.props.exportOptionsList.map((opt, index) => {
       return (<><button 
+        type="button"
         key={opt.label+index}
         title={ opt.label }
         className={ style.playerButton }
