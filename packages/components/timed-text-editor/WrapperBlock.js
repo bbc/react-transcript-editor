@@ -99,12 +99,13 @@ class WrapperBlock extends React.Component {
       }
   }
 
-  handleOnClickEdit = () => {
+  handleOnClickEdit = async () => {
     const oldSpeakerName = this.state.speaker;
-    const newSpeakerName = prompt('New Speaker Name?', this.state.speaker);
+    const newSpeakerName = await this.props.blockProps.changeSpeakerLabel();
     if (newSpeakerName !== '' && newSpeakerName !== null) {
       this.setState({ speaker: newSpeakerName });
-      const isUpdateAllSpeakerInstances = confirm(`Would you like to replace all occurrences of ${oldSpeakerName} with ${newSpeakerName}?`);
+	  // setting this to false seems to be what the patch does - should be refactored so renaming all instances of a speaker is possible again
+      const isUpdateAllSpeakerInstances = false;
      
       if (this.props.blockProps.handleAnalyticsEvents) {
         this.props.blockProps.handleAnalyticsEvents({
