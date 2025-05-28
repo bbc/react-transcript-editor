@@ -1,7 +1,7 @@
 {
-  "name": "@bbc/react-transcript-editor",
+  "name": "@qdacity/react-transcript-editor",
   "description": "A React component to make transcribing audio and video easier and faster.",
-  "version": "1.4.4",
+  "version": "1.4.8",
   "keywords": [
     "transcript",
     "transcriptions",
@@ -13,19 +13,19 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run storybook",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "cross-env NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:ci": "jest --ci",
     "lint": "eslint --ignore-path .eslintignore .",
     "lint:fix": "eslint --ignore-path .eslintignore . --fix",
     "lint:fix-styles": "prettier-stylelint --write 'packages/**/*.{css,scss}'",
-    "build:component": "webpack --config webpack.config.js",
+    "build:component": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack --config webpack.config.js",
     "build:storybook": "rimraf build && build-storybook -c .storybook -o build",
     "build:storybook:serve": "npx serve build",
     "deploy:ghpages": "rimraf build && npm run build:storybook && gh-pages -d build",
-    "pre:publish": "npm run build:component && /bin/cp -rf package.json dist && /bin/cp -rf README.md dist",
-    "publish:public": "npm run pre:publish && npm publish dist --access public",
+    "pre:publish": "npm run build:component && cpx package.json dist && cpx README.md dist",
+    "publish:public": "npm run pre:publish && cd dist && npm publish --access public",
     "publish:dry:run": "npm publish --dry-run"
   },
   "jest": {
@@ -83,6 +83,8 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-minify": "^0.5.1",
+    "cpx": "^1.5.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^2.1.1",
     "enzyme": "^3.10.0",
     "eslint": "^5.16.0",
@@ -94,11 +96,11 @@
     "husky": "^1.1.3",
     "jest": "^24.9.0",
     "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.14.1",
     "prettier-stylelint": "^0.4.2",
     "react-testing-library": "^5.2.3",
     "regenerator-runtime": "^0.12.1",
     "rimraf": "^2.7.1",
+    "sass": "^1.88.0",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
     "stylelint-config-standard": "^18.3.0",
@@ -119,13 +121,10 @@
     }
   ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bbc/react-transcript-editor/issues"
-  },
-  "homepage": "https://github.com/bbc/react-transcript-editor",
+  "homepage": "https://qdacity.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bbc/react-transcript-editor.git"
+    "url": "git+https://github.com/QDAcity/react-transcript-editor.git"
   },
   "browserslist": [
     ">0.2%",

@@ -40,7 +40,7 @@ function addSpeakerToEachWord(words, segments) {
 function groupWordsBySpeaker(wordsWithSpeakers) {
   let currentSpeaker = wordsWithSpeakers[0].speaker;
   const results = [ ];
-  let paragraph = { words: [], text: '', speaker: '' };
+  let paragraph = { words: [], text: '', speaker: currentSpeaker };
   wordsWithSpeakers.forEach((word) => {
     // if current speaker same as word speaker add words to paragraph
     if (currentSpeaker === word.speaker) {
@@ -50,17 +50,14 @@ function groupWordsBySpeaker(wordsWithSpeakers) {
     }
     // if it's not same speaker
     else {
-      // update current speaker
-      currentSpeaker = word.speaker;
-      // remove spacing in text
       paragraph.text = paragraph.text.trim();
-      //save  previous paragraph
       results.push(paragraph);
-      // reset paragraph
-      paragraph = { words: [], text: '', speaker: 'U_UKN' };
-      // add words attributes to new
-      paragraph.words.push(word);
-      paragraph.text += word.punct + ' ';
+      currentSpeaker = word.speaker;
+       paragraph = {
+        words: [word],
+        text: word.punct + ' ',
+        speaker: currentSpeaker 
+      };
     }
   });
   // add last paragraph
@@ -87,7 +84,7 @@ function findSegmentForWord(word, segments) {
   const tmpSegment = segments.find((seg) => {
     const segEnd = seg.start + seg.duration;
 
-    return ((word.start >= seg.start) && (word.end <= segEnd));
+    return ((word.start >= seg.start -1) && (word.end <= segEnd + 1));
   });
   // if find doesn't find any matches it returns an undefined
   if (tmpSegment === undefined) {
